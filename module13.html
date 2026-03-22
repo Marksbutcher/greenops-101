@@ -1,0 +1,265 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>M13 — GreenOps 101</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* Inline brand vars — ensures dark theme even if shared.css path fails */
+:root {
+  --navy:#0F1F2E; --navy-mid:#162840; --navy-card:#1E293B; --navy-light:#1C3A55;
+  --teal:#00A896; --teal-dark:#007A6E; --teal-muted:#B2EDE7;
+  --orange:#E76F51; --orange-light:#F4A261;
+  --slate:#94A3B8; --slate-dark:#64748B;
+  --border:#D1D9E0; --border-light:#E8EDF2; --white:#FFFFFF;
+  --track1:#00A896; --track2:#F4A261; --track3:#E76F51;
+  --correct:#22c55e; --wrong:#ef4444;
+  /* Legacy aliases */
+  --grey-100:rgba(255,255,255,0.06); --grey-300:#94A3B8;
+  --grey-500:#64748B; --grey-700:#4A4840;
+}
+html,body{background:#0F1F2E;color:#FFFFFF;}
+</style>
+</head>
+<body class="track3">
+<nav class="top-nav"><a href="index.html" class="nav-home"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L1 6v7h4v-4h4v4h4V6L7 1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>GreenOps 101</a><span class="nav-sep">/</span><span class="nav-module">Module 13</span><span class="nav-track-pill track3-pill">Track 3 — Leadership and Strategy</span><div class="nav-progress">Progress: <span id="progress-count">0/14</span></div></nav>
+<section class="module-hero"><div class="hero-num">13</div><p class="module-eyebrow">Module 13 &nbsp;·&nbsp; Track 3 — Leadership and Strategy</p><h1 class="module-title">Sustainability by IT:<br>Enabling Positive Impact Beyond the Estate</h1><p class="module-subtitle">Everything so far has been about reducing the negative impact of the IT estate. This module is about the other side of the equation: how technology creates positive sustainability outcomes. The handprint.</p>
+<div class="module-meta"><div class="meta-item"><span class="label">Duration</span><span class="value">20–24 minutes</span></div><div class="meta-item"><span class="label">Track</span><span class="value">Leadership and Strategy</span></div><button class="complete-btn" onclick="markComplete('module13')">Mark as complete</button></div></section>
+<div class="objectives-strip reveal"><p class="objectives-heading">What you will take from this module</p><ul class="objectives-list">
+<li><span class="obj-num">01</span>Understand the distinction between footprint (reducing negative impact) and handprint (enabling positive impact)</li>
+<li><span class="obj-num">02</span>Know what Scope 4 — avoided emissions — is, how it is measured, and where it applies</li>
+<li><span class="obj-num">03</span>Understand the main categories of technology-enabled sustainability outcomes — and what makes each credible</li>
+<li><span class="obj-num">04</span>Know the measurement principles for avoided emissions and how to document assumptions honestly</li>
+<li><span class="obj-num">05</span>Understand why the handprint argument requires footprint credibility first</li>
+</ul></div>
+<div class="module-content">
+<div class="content-section reveal"><p class="section-label">Section 1</p>
+<h2 class="section-title">Footprint and handprint — both dimensions matter.</h2>
+<p class="section-intro">The footprint is the negative environmental impact of running the IT estate. The handprint is the positive sustainability outcomes that technology enables beyond its own boundary. Both matter. The sequence in which you address them matters equally.</p>
+<div class="card-grid card-grid-2 reveal">
+<div class="card card-accent-o"><div class="card-label">Footprint — The impact dimension</div><h4>The environmental impact of running the IT estate</h4><p>Energy, water, materials, and emissions from data centres, cloud, end-user devices, software, and supply chains. This has been the primary focus of Modules 1–12. Reduce it through efficiency, utilisation, lifecycle governance, procurement, and demand management.</p><p style="margin-top:0.75rem;font-size:0.78rem;color:var(--grey-500)">Status: Maturing. Measurement frameworks, regulatory requirements, and operational practices are established. Most organisations are somewhere on this journey.</p></div>
+<div class="card card-accent-t"><div class="card-label">Handprint — The enablement dimension</div><h4>Positive sustainability outcomes technology enables beyond its boundary</h4><p>Avoided emissions. Resource efficiency enabled in other sectors. Social outcomes enabled by digital access and transparency. Measured through Scope 4 — avoided emissions — and through specific outcome metrics for technology-enabled programmes.</p><p style="margin-top:0.75rem;font-size:0.78rem;color:var(--grey-500)">Status: Emerging. Methodologies are less mature. Attribution is harder. But the scale of the opportunity exceeds the footprint dimension for most technology organisations.</p></div>
+</div>
+<div class="callout callout-warning reveal"><p class="callout-title">The credibility constraint — sequence matters</p><p>Handprint stories only land credibly once you have already demonstrated discipline on your own footprint. "We enabled significant carbon reductions elsewhere, but we haven't measured our own estate" is a hard position to defend publicly — and harder still under assurance scrutiny.</p></div></div>
+<div class="content-section reveal"><p class="section-label">Section 2</p>
+<h2 class="section-title">Scope 4 — avoided emissions.</h2>
+<p class="section-intro">Scope 4 is the formal mechanism for measuring avoided emissions — the positive sustainability value that technology creates outside the IT estate. Imperfect measurement that is honest is more credible than no measurement.</p>
+
+    <div class="callout callout-key" style="margin-bottom:1.5rem;">
+      <p class="callout-title">Builds on <a href="module3.html" style="color:var(--teal);text-decoration:none;">Module 3 ↗</a></p>
+      <p>Scope 4 sits alongside the Scope 1/2/3 framework introduced in Module 3. It is supplementary guidance from the GHG Protocol, not a standalone standard — but it uses the same measurement rigour.</p>
+    </div>
+
+<div class="viz-container reveal"><p class="viz-title">How Scope 4 avoided emissions are calculated</p>
+<div class="process-steps">
+<div class="process-step"><div class="step-icon">1</div><div class="step-body"><strong>Define the counterfactual</strong><p>What behaviour is the technology replacing? The counterfactual must be realistic and specific — not the worst-case alternative. A route optimisation platform: the counterfactual is the same deliveries without route optimisation, using average fleet emission factors.</p></div></div>
+<div class="process-step"><div class="step-icon">2</div><div class="step-body"><strong>Quantify the avoided activity</strong><p>How much of the replaced behaviour occurs at what emission factor? Kilometres not driven, flights not taken, energy not consumed in a building, agricultural inputs not applied. Each requires specific data, not estimates from industry averages where better data exists.</p></div></div>
+<div class="process-step"><div class="step-icon">3</div><div class="step-body"><strong>Calculate avoided emissions</strong><p>Avoided activity × emission factor of the replaced behaviour = gross avoided emissions. Then subtract the emissions generated by the technology platform itself — the net avoided emissions.</p></div></div>
+<div class="process-step"><div class="step-icon">4</div><div class="step-body"><strong>Document and disclose assumptions transparently</strong><p>State the counterfactual. State the data sources. State the confidence level. Imperfect measurement with documented assumptions is defensible. Undocumented estimates are not.</p></div></div>
+</div></div></div>
+
+  <!-- SCOPE 4 AVOIDED EMISSIONS CALCULATOR -->
+  <div class="viz-container reveal" id="scope4Calc" style="padding:0;margin-top:1.75rem;">
+    <div style="padding:1.5rem 1.5rem 1rem;border-bottom:1px solid rgba(255,255,255,0.06);">
+      <p class="viz-title">Scope 4 avoided emissions calculator — work through the five-step method using the course examples or your own figures</p>
+    </div>
+    <div style="padding:1.25rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.05);">
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:0;">
+        <button onclick="loadScenario('fleet')" id="sc-fleet" style="padding:0.35rem 0.85rem;font-family:'JetBrains Mono',monospace;font-size:0.6rem;background:rgba(0,168,150,0.1);border:1px solid rgba(0,168,150,0.25);color:#00A896;cursor:pointer;transition:all 0.12s;">Route optimisation (fleet)</button>
+        <button onclick="loadScenario('video')" id="sc-video" style="padding:0.35rem 0.85rem;font-family:'JetBrains Mono',monospace;font-size:0.6rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:#64748B;cursor:pointer;transition:all 0.12s;">Teleconferencing (flights avoided)</button>
+        <button onclick="loadScenario('custom')" id="sc-custom" style="padding:0.35rem 0.85rem;font-family:'JetBrains Mono',monospace;font-size:0.6rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:#64748B;cursor:pointer;transition:all 0.12s;">Custom inputs</button>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
+      <div style="padding:1.5rem;border-right:1px solid rgba(255,255,255,0.06);">
+        <div id="s4-scenario-desc" style="font-size:0.81rem;color:#94A3B8;line-height:1.6;margin-bottom:1.25rem;padding:0.75rem 1rem;background:rgba(0,0,0,0.15);border-left:3px solid #00A896;"></div>
+        
+        <div style="margin-bottom:1rem;">
+          <label style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#64748B;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.4rem;">Step 1 — Baseline activity (units/year)</label>
+          <div style="display:flex;gap:0.5rem;align-items:center;">
+            <input id="s4-baseline" type="number" min="1" value="1008000" oninput="calcScope4()" style="flex:1;padding:0.5rem 0.75rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);color:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:0.72rem;">
+            <span id="s4-baseline-unit" style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:#64748B;white-space:nowrap;">km/year</span>
+          </div>
+        </div>
+        <div style="margin-bottom:1rem;">
+          <label style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#64748B;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.4rem;">Step 2 — Reduction achieved (%)</label>
+          <div style="display:flex;align-items:center;gap:0.75rem;">
+            <input type="range" id="s4-reduction" min="1" max="80" value="11" oninput="calcScope4()" style="flex:1;accent-color:#00A896;">
+            <span id="s4-reduction-val" style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#00A896;width:36px;">11%</span>
+          </div>
+        </div>
+        <div style="margin-bottom:1rem;">
+          <label style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#64748B;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.4rem;">Step 3 — Emission factor (kg CO₂e per unit)</label>
+          <div style="display:flex;gap:0.5rem;align-items:center;">
+            <input id="s4-efactor" type="number" min="0.001" step="0.001" value="0.27" oninput="calcScope4()" style="flex:1;padding:0.5rem 0.75rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);color:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:0.72rem;">
+            <span id="s4-ef-unit" style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:#64748B;white-space:nowrap;">kgCO₂e/km</span>
+          </div>
+        </div>
+        <div>
+          <label style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#64748B;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.4rem;">Step 4 — Attribution confidence (%)</label>
+          <div style="display:flex;align-items:center;gap:0.75rem;">
+            <input type="range" id="s4-confidence" min="50" max="100" value="85" oninput="calcScope4()" style="flex:1;accent-color:#F4A261;">
+            <span id="s4-confidence-val" style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#F4A261;width:42px;">85%</span>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#64748B;margin-top:0.25rem;">Not all reduction is attributable to the technology. Discount for other factors (fuel price, regulation, driver behaviour).</div>
+        </div>
+      </div>
+      <div style="padding:1.5rem;display:flex;flex-direction:column;gap:1rem;">
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#64748B;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Step 5 — Results</div>
+          <div style="background:rgba(0,0,0,0.2);padding:1rem;display:flex;flex-direction:column;gap:0.75rem;">
+            <div><div style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#64748B;margin-bottom:0.2rem;">Gross avoided activity</div><div id="s4-gross-activity" style="font-family:'JetBrains Mono',monospace;font-size:0.82rem;color:#94A3B8;"></div></div>
+            <div><div style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#64748B;margin-bottom:0.2rem;">Gross avoided emissions</div><div id="s4-gross-emissions" style="font-family:'JetBrains Mono',monospace;font-size:0.82rem;color:#94A3B8;"></div></div>
+            <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:0.75rem;">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#00A896;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.3rem;">Reported Scope 4 avoided emissions</div>
+              <div id="s4-final" style="font-family:'DM Serif Display',serif;font-size:2.2rem;color:#00A896;line-height:1;"></div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:#64748B;margin-top:0.2rem;">tCO₂e / year</div>
+            </div>
+          </div>
+        </div>
+        <div id="s4-disclosure" style="padding:0.85rem;background:rgba(0,0,0,0.15);border-left:3px solid #F4A261;font-size:0.79rem;color:#94A3B8;line-height:1.6;"></div>
+        <div style="padding:0.75rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#64748B;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.35rem;">Confidence label</div>
+          <div id="s4-conf-label" style="font-size:0.8rem;color:#F4A261;font-weight:500;"></div>
+          <div id="s4-conf-note" style="font-size:0.76rem;color:#64748B;margin-top:0.2rem;line-height:1.5;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+  var s4Scenarios = {
+    fleet: {
+      desc: 'Route optimisation platform deployed across a 500-vehicle logistics fleet. Baseline: 420km/day × 5 days × 48 weeks × 500 vehicles. Post-deployment: 11% distance reduction through sequencing and load consolidation.',
+      baseline: 420*5*48*500, reductionPct: 11, efactor: 0.27,
+      baselineUnit: 'km/year', efUnit: 'kgCO₂e/km', confidence: 85,
+    },
+    video: {
+      desc: 'Teleconferencing platform replacing business flights. Survey: 1.8 flights/person/month displaced. Organisation: 12,000 employees. Short-haul Europe emission factor (DEFRA).',
+      baseline: 12000*1.8*12, reductionPct: 100, efactor: 0.255,
+      baselineUnit: 'flights/year', efUnit: 'tCO₂e/flight', confidence: 65,
+    },
+    custom: {
+      desc: 'Enter your own figures. Define the baseline activity (what the technology is replacing), the reduction achieved, the appropriate emission factor, and your attribution confidence.',
+      baseline: 100000, reductionPct: 15, efactor: 0.1,
+      baselineUnit: 'units/year', efUnit: 'kgCO₂e/unit', confidence: 70,
+    }
+  };
+  function loadScenario(id) {
+    var s = s4Scenarios[id];
+    document.getElementById('s4-baseline').value = s.baseline;
+    document.getElementById('s4-reduction').value = s.reductionPct;
+    document.getElementById('s4-efactor').value = s.efactor;
+    document.getElementById('s4-confidence').value = s.confidence;
+    document.getElementById('s4-scenario-desc').textContent = s.desc;
+    document.getElementById('s4-baseline-unit').textContent = s.baselineUnit;
+    document.getElementById('s4-ef-unit').textContent = s.efUnit;
+    ['fleet','video','custom'].forEach(function(sc) {
+      var btn = document.getElementById('sc-'+sc);
+      if(sc===id){btn.style.background='rgba(0,168,150,0.1)';btn.style.borderColor='rgba(0,168,150,0.25)';btn.style.color='#00A896';}
+      else{btn.style.background='rgba(255,255,255,0.05)';btn.style.borderColor='rgba(255,255,255,0.08)';btn.style.color='#64748B';}
+    });
+    calcScope4();
+  }
+  function calcScope4() {
+    var baseline = parseFloat(document.getElementById('s4-baseline').value)||0;
+    var reductionPct = parseFloat(document.getElementById('s4-reduction').value)||0;
+    var efactor = parseFloat(document.getElementById('s4-efactor').value)||0;
+    var confPct = parseFloat(document.getElementById('s4-confidence').value)||0;
+    document.getElementById('s4-reduction-val').textContent = reductionPct + '%';
+    document.getElementById('s4-confidence-val').textContent = confPct + '%';
+    var avoActivity = baseline * (reductionPct/100);
+    var grossEmissions = avoActivity * efactor;  // in kg or t depending on factor
+    var isKg = document.getElementById('s4-ef-unit').textContent.includes('kg');
+    var grossTonnes = isKg ? grossEmissions/1000 : grossEmissions;
+    var reported = grossTonnes * (confPct/100);
+    document.getElementById('s4-gross-activity').textContent = avoActivity.toLocaleString(undefined,{maximumFractionDigits:0}) + ' ' + (document.getElementById('s4-baseline-unit').textContent.split('/')[0] + 's avoided');
+    document.getElementById('s4-gross-emissions').textContent = grossTonnes.toFixed(0) + ' tCO₂e gross';
+    document.getElementById('s4-final').textContent = reported >= 1000 ? (reported/1000).toFixed(1)+'k' : reported.toFixed(0);
+    document.getElementById('s4-disclosure').textContent = 'Disclosure format: ' + reported.toFixed(0) + ' tCO₂e/year avoided | Methodology: documented | Confidence: ' + (confPct>80?'Medium-High':confPct>65?'Medium':'Low-Medium') + ' | Attribution: ' + confPct + '% factor applied | Review: annual.';
+    var confLabel, confNote;
+    if(confPct>=85){confLabel='High confidence';confNote='Strong primary data, validated attribution. Suitable for public disclosure with stated methodology.';}
+    else if(confPct>=70){confLabel='Medium-High confidence';confNote='Good primary data, reasonable attribution assumptions. Suitable for internal reporting and stakeholder communication.';}
+    else if(confPct>=55){confLabel='Medium confidence';confNote='Survey-based or modelled attribution. Report with clearly stated assumptions. Avoid overstatement in external claims.';}
+    else{confLabel='Low-Medium confidence';confNote='Significant attribution uncertainty. Use as directional estimate only. Invest in better primary data before making public claims.';}
+    document.getElementById('s4-conf-label').textContent = confLabel;
+    document.getElementById('s4-conf-note').textContent = confNote;
+  }
+  loadScenario('fleet');
+  </script>
+
+
+<div class="content-section reveal"><p class="section-label">Section 3</p>
+<h2 class="section-title">What sustainability by IT looks like in practice.</h2>
+<p class="section-intro">The applications are wide-ranging. The key is connecting them to measurable outcomes rather than describing them aspirationally.</p>
+<div class="card-grid card-grid-2 reveal">
+<div class="card card-accent-t"><div class="card-label">Transportation &amp; Logistics</div><h4>Route optimisation and demand aggregation</h4><p>Platforms that reduce unnecessary vehicle journeys, aggregate demand to reduce delivery frequency, and optimise fleet routing. Measurable in kilometres avoided and fuel not consumed.</p></div>
+<div class="card card-accent-t"><div class="card-label">Buildings &amp; Energy</div><h4>Smart building and grid management</h4><p>Building management systems that reduce heating, cooling, and lighting energy based on occupancy and weather. Grid management platforms that integrate renewable generation. Measurable in kWh avoided.</p></div>
+<div class="card card-accent-o"><div class="card-label">Agriculture &amp; Food</div><h4>Precision agriculture and food waste reduction</h4><p>Platforms that reduce agricultural input (water, fertiliser, pesticide) through precision application. Supply chain visibility that reduces food waste. Measurable in resources not consumed.</p></div>
+<div class="card card-accent-p"><div class="card-label">Carbon &amp; ESG Management</div><h4>Enabling better sustainability decisions</h4><p>Platforms that make sustainability data visible to decision-makers across value chains. Enabling better procurement decisions, more accurate reporting, and evidence-based investment allocation. The meta-category: technology that enables all the others.</p></div>
+</div></div>
+  
+  <div class="content-section reveal">
+    <p class="section-label">Section 3</p>
+    <h2 class="section-title">Innovation, CleanTech, and the commercial opportunity.</h2>
+    <p class="section-intro">Organisations that build genuine operational capability in sustainable IT are better positioned to develop commercial products from that capability. Internal discipline and commercial opportunity reinforce each other.</p>
+
+    <div class="card-grid card-grid-3 reveal" style="margin-top:1.75rem;">
+      <div class="card card-accent-t">
+        <div class="card-label">Internal mechanism</div>
+        <h4>Sustainability hackathons</h4>
+        <p>One of the most effective mechanisms for generating ideas at scale. A well-structured hackathon focused on a specific operational waste problem — rather than sustainability as an abstract theme — produces actionable outputs. It also engages employees directly in the sustainability mission, building the internal advocacy that keeps programmes alive through leadership changes and budget cycles.</p>
+      </div>
+      <div class="card card-accent-p">
+        <div class="card-label">Structural advantage</div>
+        <h4>Citizen-driven innovation</h4>
+        <p>Platforms and processes that enable employees at any level to identify and surface improvements. The person who knows a batch job runs unnecessarily every hour is rarely the person in the governance forum. The knowledge gap between governance and operational reality is one of the most consistently underexploited improvement opportunities in large organisations. Structured mechanisms to surface it are a governance investment, not a nice-to-have.</p>
+      </div>
+      <div class="card card-accent-o">
+        <div class="card-label">Commercial opportunity</div>
+        <h4>CleanTech and SustainTech</h4>
+        <p>Technology organisations that have built genuine operational capability in sustainable IT are better positioned to develop commercial products from that capability. Financial services: sustainability reporting platforms. Logistics: route optimisation. Real estate: smart building systems. Retail: supply chain traceability. The insight that comes from solving the problem internally is the same insight that makes the commercial offering credible.</p>
+      </div>
+    </div>
+
+    <div class="callout callout-insight reveal" style="margin-top:1.5rem;">
+      <p class="callout-title">The reinforcing logic</p>
+      <p>Internal sustainability capability and commercial opportunity are not separate agendas. Organisations that lead on reducing their own footprint are the same organisations best positioned to build and sell sustainability-enabling technology. <strong>The insight comes from solving the problem, not from knowing about it.</strong></p>
+    </div>
+  </div>
+
+
+  <div class="kc-block reveal" data-correct="A">
+    <p class="kc-label">Knowledge check — question 1 of 2</p>
+    <p class="kc-q">An organisation wants to report Scope 4 avoided emissions from its route optimisation platform. The platform reduced average vehicle distance by 11%. What is the correct next step after quantifying the avoided activity?</p>
+    <div class="kc-options">
+      <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>Report the full avoided emissions figure without adjustment, as the reduction is directly attributable to the platform</button>
+      <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>Scope 4 is not an accepted reporting category, so the figure should be reported as a footnote to Scope 3</button>
+      <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>Apply an appropriate emission factor to the avoided activity, then apply an attribution confidence factor to account for non-platform contributors such as fuel price changes or driver behaviour</button>
+      <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>Report the reduction as a Scope 1 improvement, since it relates to the organisation's own vehicle fleet operations</button>
+    </div>
+        <div class="kc-reveal">
+      <p class="kc-reveal-label">Explanation</p>
+      <p>The five-step Scope 4 method requires: establish baseline behaviour, define the technology intervention, quantify avoided activity, apply an emissions factor, then state a confidence level and assumptions. The confidence factor is essential because not all of the reduction may be attributable to the platform — fuel price changes, regulatory pressure, or driver behaviour changes may have contributed. In the course worked example, a 15% confidence adjustment is applied, reducing 1,490 tCO₂e gross to 1,267 tCO₂e reported.</p>
+      <p>Option A overstates the claim by omitting the attribution adjustment — this is a greenwashing risk. Option B is incorrect: Scope 4 is a recognised category in the GHG Protocol supplementary guidance, increasingly used for technology-enabled avoided emissions claims. Option D misclassifies the emission — avoided emissions from customer or partner operations are not Scope 1, which covers the organisation's own direct emissions.</p>
+    </div>
+  </div>
+
+  <div class="kc-block reveal" data-correct="A">
+    <p class="kc-label">Knowledge check — question 2 of 2</p>
+    <p class="kc-q">A technology director says: "Our handprint is larger than our footprint — our sustainability story should lead with the positive impact we enable." What is the most important challenge to this position?</p>
+    <div class="kc-options">
+      <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>Handprint claims are not accepted by regulators and should not be used in sustainability communications</button>
+      <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>Handprint claims only land credibly when the organisation has demonstrated footprint discipline — leading with positive impact before addressing the footprint creates a credibility gap that external stakeholders and regulators will challenge</button>
+      <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>The handprint should not be quantified because attribution is too uncertain to make credible claims</button>
+      <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>This is the correct approach — the handprint is the more compelling story for board and investor audiences</button>
+    </div>
+        <div class="kc-reveal">
+      <p class="kc-reveal-label">Explanation</p>
+      <p>The sequence matters. Footprint discipline is the non-negotiable foundation — organisations that lead with their handprint before demonstrating genuine footprint reduction are exposed to the accusation of using positive impact claims to distract from unmanaged negative impact. That is greenwashing by narrative, even when the handprint claims are legitimate.</p>
+      <p>Option A overstates the restriction — Scope 4 and handprint claims are accepted when documented with methodology. Option C is too pessimistic: attribution uncertainty is manageable through confidence levels and stated assumptions. Option D is partially right about the board audience, but misses the sequencing requirement — the handprint is a compelling story once the footprint is credibly under management, not before it.</p>
+    </div>
+  </div>
+
+
+<div class="pause-reflect reveal"><p class="pause-label">⏸ Pause &amp; Reflect</p><p class="pause-intro">Take 5–10 minutes. Specificity matters more than completeness.</p><div class="pause-questions"><div class="pause-q"><span class="pause-q-num">1</span>Think about the products or services your organisation provides using technology. Is there a credible Scope 4 claim — avoided emissions enabled by your technology? If yes, is it currently measured? If not, what would a first pass calculation require?</div><div class="pause-q"><span class="pause-q-num">2</span>Does your organisation currently distinguish between its footprint narrative and its handprint narrative in external communications? Is the sequence correct — footprint credibility established before handprint claims?</div><div class="pause-q"><span class="pause-q-num">3</span>Where is technology already creating a measurable positive sustainability outcome in your organisation's operations or products — even if it's not currently framed or measured as such?</div></div></div><div class="takeaways reveal"><h3 class="takeaways-heading">Key Takeaways</h3><div class="takeaway-list"><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>The handprint dimension is often the story that resonates most at board level.</strong><p>Technology as an enabler of broader sustainability goals — not just a problem to be managed — is increasingly a component of how organisations report and are evaluated.</p></div></div><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Applications must be connected to measurable outcomes.</strong><p>Carbon reporting platforms, smart buildings, route optimisation, Product-as-a-Service, supply chain traceability — each is only as credible as its measurement.</p></div></div><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Scope 4 is the formal mechanism for measuring avoided emissions.</strong><p>Quantify the counterfactual. Estimate emissions avoided with stated assumptions. Be transparent about confidence. Imperfect measurement that is honest is more credible than no measurement.</p></div></div><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>The handprint argument requires footprint credibility first.</strong><p>Sequence matters. A handprint claim from an organisation that cannot speak to its own footprint is not credible — and will not survive scrutiny.</p></div></div></div></div></div>
+<div class="module-nav"><a href="module12.html" class="nav-btn"><span><span class="nav-btn-label">← Previous</span><span class="nav-btn-title">M12: Courageous Leadership in Practice</span></span></a><button class="complete-btn" onclick="markComplete('module13')">Mark as complete</button><a href="module14.html" class="nav-btn next"><span><span class="nav-btn-label">Next →</span><span class="nav-btn-title">M14: Wrap-Up, Next Steps, and Making Progress Last</span></span></a></div>
+<footer><div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 13</div><div class="footer-brand">March 2026 · v2</div></footer>
+<script src="shared.js"></script><script>initProgress(13);</script></body></html>

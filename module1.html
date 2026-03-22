@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M1: Why Digital Sustainability Matters Now — GreenOps 101</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* Inline brand vars — ensures dark theme even if shared.css path fails */
+:root {
+  --navy:#0F1F2E; --navy-mid:#162840; --navy-card:#1E293B; --navy-light:#1C3A55;
+  --teal:#00A896; --teal-dark:#007A6E; --teal-muted:#B2EDE7;
+  --orange:#E76F51; --orange-light:#F4A261;
+  --slate:#94A3B8; --slate-dark:#64748B;
+  --border:#D1D9E0; --border-light:#E8EDF2; --white:#FFFFFF;
+  --track1:#00A896; --track2:#F4A261; --track3:#E76F51;
+  --correct:#22c55e; --wrong:#ef4444;
+  /* Legacy aliases */
+  --grey-100:rgba(255,255,255,0.06); --grey-300:#94A3B8;
+  --grey-500:#64748B; --grey-700:#4A4840;
+}
+html,body{background:#0F1F2E;color:#FFFFFF;}
+</style>
+
+<style>
+/* ── MODULE 1 SPECIFIC ── */
+.waste-explorer {
+  margin: 2rem 0;
+}
+.waste-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 0;
+  overflow-x: auto;
+}
+.waste-tab {
+  padding: 0.75rem 1.25rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--slate-dark);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.waste-tab:hover { color: var(--white); }
+.waste-tab.active { color: var(--teal); border-bottom-color: var(--teal); }
+.waste-panels { background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.07); border-top: none; }
+.waste-panel { display: none; padding: 2rem; }
+.waste-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.waste-panel-stat .stat-num { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: var(--teal-muted); line-height: 1; margin-bottom: 0.25rem; }
+.waste-panel-stat .stat-label { font-size: 0.8rem; color: var(--slate-dark); line-height: 1.4; }
+.waste-panel h4 { font-weight: 500; font-size: 0.95rem; margin-bottom: 0.6rem; }
+.waste-panel p { font-size: 0.83rem; color: var(--slate-dark); line-height: 1.65; margin-bottom: 0.5rem; }
+.waste-panel .examples { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.35rem; }
+.waste-panel .example { font-size: 0.78rem; color: var(--slate-dark); padding-left: 1rem; border-left: 2px solid rgba(255,255,255,0.08); }
+.waste-panel .cost { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--orange); margin-top: 0.75rem; }
+
+/* GreenOps action model interactive */
+.action-model {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 2rem 0;
+}
+.action-level {
+  display: flex;
+  gap: 0;
+  border: 1px solid rgba(255,255,255,0.07);
+  margin-bottom: -1px;
+  cursor: pointer;
+  transition: background 0.15s;
+  position: relative;
+  overflow: hidden;
+}
+.action-level:hover { background: rgba(255,255,255,0.02); }
+.action-level.expanded { background: rgba(255,255,255,0.03); }
+.action-level-num {
+  width: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Serif Display', serif;
+  font-size: 2rem;
+  color: rgba(255,255,255,0.08);
+  flex-shrink: 0;
+  border-right: 1px solid rgba(255,255,255,0.07);
+}
+.action-level.l1 .action-level-num { border-left: 4px solid rgba(255,165,0,0.4); }
+.action-level.l2 .action-level-num { border-left: 4px solid var(--teal); }
+.action-level.l3 .action-level-num { border-left: 4px solid var(--track3); }
+.action-level-header {
+  padding: 1.25rem 1.5rem;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.action-level-name {
+  font-weight: 500;
+  font-size: 0.95rem;
+  width: 140px;
+  flex-shrink: 0;
+}
+.action-level.l1 .action-level-name { color: rgba(255,165,0,0.8); }
+.action-level.l2 .action-level-name { color: var(--teal); }
+.action-level.l3 .action-level-name { color: var(--track3); }
+.action-level-tagline {
+  font-size: 0.82rem;
+  color: var(--slate-dark);
+  flex: 1;
+  font-style: italic;
+}
+.action-level-arrow {
+  font-size: 0.7rem;
+  color: var(--slate-dark);
+  transition: transform 0.2s;
+  padding-right: 1rem;
+}
+.action-level.expanded .action-level-arrow { transform: rotate(180deg); }
+.action-level-detail {
+  display: none;
+  padding: 1.25rem 1.5rem 1.5rem 5.5rem;
+  background: rgba(0,0,0,0.15);
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.action-level.expanded .action-level-detail { display: block; }
+.action-level-detail p { font-size: 0.85rem; color: var(--slate); line-height: 1.7; margin-bottom: 0.75rem; }
+.action-level-detail .caveat {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--slate-dark);
+  padding: 0.5rem 0.75rem;
+  background: rgba(255,255,255,0.02);
+  border-left: 2px solid rgba(255,255,255,0.08);
+}
+
+/* Scope diagram interactive */
+.scope-diagram {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  margin: 2rem 0;
+}
+.scope-box {
+  background: var(--navy-mid);
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.scope-box:hover, .scope-box.active { background: var(--navy-card); }
+.scope-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.s1 .scope-num { color: rgba(255,165,0,0.7); }
+.s2 .scope-num { color: var(--teal); }
+.s3 .scope-num { color: var(--orange); }
+.s4 .scope-num { color: var(--track3); }
+.scope-name { font-size: 0.78rem; font-weight: 500; margin-bottom: 0.4rem; }
+.scope-short { font-size: 0.75rem; color: var(--slate-dark); line-height: 1.5; }
+.scope-size {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  margin-top: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  background: rgba(255,255,255,0.04);
+  display: inline-block;
+}
+.s3 .scope-size { color: var(--orange); background: rgba(231,111,81,0.08); }
+.scope-detail {
+  display: none;
+  grid-column: 1 / -1;
+  background: rgba(0,0,0,0.2);
+  padding: 1.5rem 2rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.scope-detail.visible { display: block; }
+.scope-detail p { font-size: 0.85rem; color: var(--slate); line-height: 1.7; max-width: 700px; }
+.scope-detail .examples-row {
+  display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.85rem;
+}
+.scope-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  padding: 0.25rem 0.6rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 2px;
+  color: var(--slate);
+}
+
+/* Global stats visual */
+.global-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  margin: 2rem 0;
+}
+.gstat {
+  background: var(--navy-mid);
+  padding: 1.5rem;
+  text-align: center;
+}
+.gstat-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.2rem;
+  line-height: 1;
+  color: var(--teal-muted);
+  margin-bottom: 0.4rem;
+}
+.gstat-label {
+  font-size: 0.78rem;
+  color: var(--slate-dark);
+  line-height: 1.4;
+}
+
+/* Waste bar chart */
+.waste-bars { margin: 1.5rem 0; display: flex; flex-direction: column; gap: 0.75rem; }
+.waste-bar-row { display: flex; align-items: center; gap: 1rem; }
+.waste-bar-label { font-size: 0.78rem; color: var(--slate); width: 140px; flex-shrink: 0; }
+.waste-bar-track { flex: 1; height: 8px; background: rgba(255,255,255,0.06); border-radius: 1px; overflow: hidden; }
+.waste-bar-fill { height: 100%; border-radius: 1px; transition: width 1s cubic-bezier(.16,1,.3,1); width: 0; }
+.waste-bar-val { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--slate-dark); width: 60px; text-align: right; }
+</style>
+</head>
+<body class="track1">
+
+<nav class="top-nav">
+  <a href="index.html" class="nav-home">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L1 6v7h4v-4h4v4h4V6L7 1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+    GreenOps 101
+  </a>
+  <span class="nav-sep">/</span>
+  <span class="nav-module">Module 1</span>
+  <span class="nav-track-pill track1-pill">Track 1 — Technical Foundation</span>
+  <div class="nav-progress">Progress: <span id="progress-count">0/14</span></div>
+</nav>
+
+<section class="module-hero">
+  <div class="hero-num">1</div>
+  <p class="module-eyebrow">Module 1 &nbsp;·&nbsp; Track 1 — Technical Foundation</p>
+  <h1 class="module-title">Why Digital Sustainability<br>Matters Now</h1>
+  <p class="module-subtitle">The physical reality, the policy backdrop, digital waste, and where to start.</p>
+  <div class="module-meta">
+    <div class="meta-item"><span class="label">Duration</span><span class="value">22–26 minutes</span></div>
+    <div class="meta-item"><span class="label">Track</span><span class="value">Technical Foundation</span></div>
+    <button class="complete-btn" onclick="markComplete('module1')">Mark as complete</button>
+  </div>
+</section>
+
+<!-- OBJECTIVES -->
+<div class="objectives-strip reveal">
+  <p class="objectives-heading">What you will take from this module</p>
+  <ul class="objectives-list">
+    <li><span class="obj-num">01</span>Understand the scale of digital's environmental impact — energy, water, and materials</li>
+    <li><span class="obj-num">02</span>Know the policy and regulatory landscape shaping what IT organisations must now do</li>
+    <li><span class="obj-num">03</span>Recognise the five categories of digital waste and where they appear in an estate</li>
+    <li><span class="obj-num">04</span>Apply the three-level GreenOps action model: Reporting, Optimisation, Avoidance</li>
+    <li><span class="obj-num">05</span>Articulate why waste — not reporting — is the right operational starting point</li>
+  </ul>
+</div>
+
+<div class="module-content">
+
+<!-- SECTION 1 -->
+<div class="content-section reveal">
+  <p class="section-label">Section 1</p>
+  <h2 class="section-title">The era of digital abundance is ending.</h2>
+  <p class="section-intro">For two decades, IT strategy was built on unlimited storage, elastic compute, and energy abstracted away behind a data centre boundary. That assumption is changing.</p>
+
+  <p class="prose">The global digital footprint is no longer small enough to ignore. ICT now accounts for 2–4% of global greenhouse gas emissions — comparable to aviation. The water and materials embedded in that infrastructure are orders of magnitude larger than most technology leaders appreciate. And the assumption that moving to cloud makes these someone else's problem is one of the most widely held and consequential misconceptions in enterprise IT.</p>
+
+  <!-- Interactive Global Stats -->
+  <div class="viz-container reveal">
+    <p class="viz-title">The global digital footprint — key figures</p>
+    <div class="global-stats">
+      <div class="gstat">
+        <div class="gstat-num">2–4%</div>
+        <div class="gstat-label">of global GHG emissions from ICT — comparable to aviation</div>
+      </div>
+      <div class="gstat">
+        <div class="gstat-num">~2%</div>
+        <div class="gstat-label">of global electricity consumed by data centres</div>
+      </div>
+      <div class="gstat">
+        <div class="gstat-num">50m+</div>
+        <div class="gstat-label">metric tonnes of e-waste generated globally each year</div>
+      </div>
+      <div class="gstat">
+        <div class="gstat-num">10×</div>
+        <div class="gstat-label">more energy for an AI query than a standard web search</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-insight reveal">
+    <p class="callout-title">Why IT can't claim to be a minor contributor</p>
+    <p>The most common defence — "our IT estate is too small to matter" — fails at enterprise scale. A large bank, retailer, or government body running hundreds of thousands of devices, multiple data centres, and significant cloud estate has a material footprint. The claim doesn't survive scrutiny once someone builds the baseline.</p>
+  </div>
+</div>
+
+<!-- SECTION 2 — Scopes Interactive -->
+<div class="content-section reveal">
+  <p class="section-label">Section 2</p>
+  <h2 class="section-title">Where IT emissions sit — and what cloud actually changes.</h2>
+  <p class="section-intro">Understanding Scope 1, 2, and 3 in an IT context is the minimum fluency needed to have a credible conversation about footprint. The Scope 3 point about cloud is where most programmes get it wrong.</p>
+
+  <!-- Interactive Scope Diagram -->
+  <div class="viz-container reveal">
+    <p class="viz-title">Tap each scope to explore — click to expand</p>
+    <div class="scope-diagram" id="scopeDiagram">
+      <div class="scope-box s1" onclick="toggleScope(1)">
+        <div class="scope-num">1</div>
+        <div class="scope-name">Scope 1</div>
+        <div class="scope-short">Direct emissions from owned operations</div>
+        <div class="scope-size">Usually smallest</div>
+      </div>
+      <div class="scope-box s2" onclick="toggleScope(2)">
+        <div class="scope-num">2</div>
+        <div class="scope-name">Scope 2</div>
+        <div class="scope-short">Electricity used by facilities and devices</div>
+        <div class="scope-size">Location vs market-based</div>
+      </div>
+      <div class="scope-box s3" onclick="toggleScope(3)">
+        <div class="scope-num">3</div>
+        <div class="scope-name">Scope 3</div>
+        <div class="scope-short">Cloud, SaaS, hardware, logistics, end-of-life</div>
+        <div class="scope-size">Often 70–80% of total footprint</div>
+      </div>
+      <div class="scope-box s4" onclick="toggleScope(4)">
+        <div class="scope-num">4</div>
+        <div class="scope-name">Scope 4</div>
+        <div class="scope-short">Positive impact enabled by technology elsewhere</div>
+        <div class="scope-size">The handprint story</div>
+      </div>
+
+      <div class="scope-detail" id="scope-detail-1">
+        <p><strong>Scope 1 — Direct emissions.</strong> Fuel used in backup generators, on-site combustion, and refrigerants in cooling systems. For most IT organisations operating in modern facilities, this is the narrowest category. If you operate your own data centres with diesel backup power and use refrigerant-based cooling, this is where those emissions land.</p>
+        <div class="examples-row">
+          <span class="scope-tag">Diesel generators</span>
+          <span class="scope-tag">On-site combustion</span>
+          <span class="scope-tag">Refrigerants (cooling)</span>
+          <span class="scope-tag">Emergency backup systems</span>
+        </div>
+      </div>
+      <div class="scope-detail" id="scope-detail-2">
+        <p><strong>Scope 2 — Indirect energy.</strong> Electricity used by data centres you operate, offices, network equipment, and end-user devices in active use. If you run your own data centres, this is significant. Scope 2 has two reporting methods — location-based (actual grid intensity) and market-based (contractual instruments like RECs). Both have legitimate uses, but they measure different things.</p>
+        <div class="examples-row">
+          <span class="scope-tag">Data centre electricity</span>
+          <span class="scope-tag">Office buildings</span>
+          <span class="scope-tag">Network equipment</span>
+          <span class="scope-tag">End-user devices in use</span>
+        </div>
+      </div>
+      <div class="scope-detail" id="scope-detail-3" style="border-left: 3px solid var(--orange);">
+        <p><strong>Scope 3 — Value chain emissions.</strong> Cloud services, SaaS, managed services, hardware manufacturing, end-of-life treatment, logistics, and packaging. For most modern technology estates, this is the dominant category — often 70–80% of total footprint. It is also the hardest to measure, requiring supplier data and lifecycle assessments rather than direct metering.</p>
+        <p style="margin-top: 0.75rem; color: var(--orange)"><strong>The cloud misconception:</strong> Moving to cloud does not eliminate IT's environmental footprint — it moves it. Cloud consumption shifts most IT emissions from Scope 1 and 2 into Scope 3. Under CSRD and SBTi, Scope 3 is required where material — and for IT it almost always is. A shared responsibility model applies: providers manage infrastructure; you manage how you use it.</p>
+        <div class="examples-row">
+          <span class="scope-tag">Cloud services</span>
+          <span class="scope-tag">SaaS platforms</span>
+          <span class="scope-tag">Hardware manufacturing</span>
+          <span class="scope-tag">End-of-life treatment</span>
+          <span class="scope-tag">Logistics and packaging</span>
+        </div>
+      </div>
+      <div class="scope-detail" id="scope-detail-4">
+        <p><strong>Scope 4 — Avoided emissions (handprint).</strong> How technology enables carbon reductions elsewhere — the positive side of the ledger. A logistics platform that eliminates unnecessary transport. A smart building system that reduces energy demand. Real value — but not a substitute for managing your own footprint first. The handprint story only lands credibly once footprint discipline is in place.</p>
+        <div class="examples-row">
+          <span class="scope-tag">Avoided transport (logistics platforms)</span>
+          <span class="scope-tag">Building energy reduction</span>
+          <span class="scope-tag">Remote work substitution</span>
+          <span class="scope-tag">Precision agriculture systems</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3 — Policy -->
+<div class="content-section reveal">
+  <p class="section-label">Section 3</p>
+  <h2 class="section-title">The policy landscape has changed.</h2>
+  <p class="section-intro">Sustainability is no longer voluntary. A series of interconnected regulatory frameworks now reshape what technology organisations must disclose, measure, and demonstrate.</p>
+
+  <div class="card-grid card-grid-2 reveal">
+    <div class="card card-accent-o">
+      <div class="card-label">Corporate</div>
+      <h4>Science-based targets now commonly cover Scope 3</h4>
+      <p>Cloud consumption and supply chain emissions are inside the SBTi boundary for most large enterprises. IT's footprint is material — and the corporate sustainability team knows it.</p>
+    </div>
+    <div class="card card-accent-o">
+      <div class="card-label">Legal exposure</div>
+      <h4>Greenwashing claims face legal challenge</h4>
+      <p>Unsupported sustainability claims — including those made by IT teams — create legal liability in multiple jurisdictions. Non-compliance is not just reputational risk.</p>
+    </div>
+    <div class="card card-accent-t">
+      <div class="card-label">Disclosure</div>
+      <h4>CSRD, EU Taxonomy and TCFD obligations</h4>
+      <p>Mandatory disclosure frameworks are expanding. For entities in scope, IT measurement quality directly affects the credibility of corporate reporting. Weak IT data is a weak annual report.</p>
+    </div>
+    <div class="card card-accent-t">
+      <div class="card-label">Supply chain</div>
+      <h4>ESG obligations extend to technology vendors</h4>
+      <p>Supplier pressure is flowing down the chain. Your IT vendors are increasingly being asked for the same evidence you are asking them to provide. The ask will return to you.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4 — Five categories of waste INTERACTIVE -->
+<div class="content-section reveal">
+  <p class="section-label">Section 4</p>
+  <h2 class="section-title">Five categories of digital waste.</h2>
+  <p class="section-intro">If reporting is the wrong place to start — and it usually is — waste is the right one. It's where you build credibility fast, because outcomes are tangible. Every category below is simultaneously a cost problem and a sustainability problem.</p>
+
+  <div class="waste-explorer reveal">
+    <div class="waste-tabs">
+      <button class="waste-tab active" onclick="showWaste('idle')">Idle Compute</button>
+      <button class="waste-tab" onclick="showWaste('storage')">Storage Waste</button>
+      <button class="waste-tab" onclick="showWaste('app')">Application Waste</button>
+      <button class="waste-tab" onclick="showWaste('enduser')">End-User Waste</button>
+      <button class="waste-tab" onclick="showWaste('ai')">AI Consumption</button>
+    </div>
+    <div class="waste-panels">
+      <div class="waste-panel active" id="waste-idle">
+        <div>
+          <h4>Idle Compute</h4>
+          <p>Instances left running with no meaningful workload. VMs spun up for testing and never terminated. Dev environments left on overnight. Systems running at 5–10% CPU utilisation with nobody noticing — or nobody accountable.</p>
+          <div class="examples">
+            <div class="example">VMs provisioned for a project that completed — still running</div>
+            <div class="example">Dev and staging environments with no auto-shutdown policy</div>
+            <div class="example">Systems at 5–10% utilisation that would righsize to a fraction of the cost</div>
+            <div class="example">Untagged cloud resources with no owner and no termination date</div>
+          </div>
+          <div class="cost">£2–8k / VM / year in cloud run cost &nbsp;·&nbsp; 25–40% of VMs at &lt;5% CPU in a typical estate</div>
+        </div>
+        <div>
+          <div class="waste-panel-stat"><div class="stat-num">25–40%</div><div class="stat-label">of VMs in a typical enterprise estate running at less than 5% CPU utilisation</div></div>
+          <div class="waste-panel-stat" style="margin-top:1.5rem"><div class="stat-num">30 days</div><div class="stat-label">rightsizing and auto-shutdown typically recoverable within 30 days</div></div>
+        </div>
+      </div>
+      <div class="waste-panel" id="waste-storage">
+        <div>
+          <h4>Storage Waste</h4>
+          <p>Data retained indefinitely "just in case." Logs held for years with no access. Multiple uncompressed copies. Triple redundancy on non-critical assets. Dark data — stored but never used — is the fastest-growing category in most enterprise estates.</p>
+          <div class="examples">
+            <div class="example">Log data retained for years beyond any compliance requirement</div>
+            <div class="example">Multiple full copies of the same dataset in different systems</div>
+            <div class="example">Production databases replicated to dev environments and never cleaned</div>
+            <div class="example">S3 buckets from deprecated services still paying monthly storage fees</div>
+          </div>
+          <div class="cost">£18–35 / TB / month cloud object storage &nbsp;·&nbsp; Dark data is one of the fastest-remediable waste categories</div>
+        </div>
+        <div>
+          <div class="waste-panel-stat"><div class="stat-num">60–70%</div><div class="stat-label">of stored enterprise data never accessed after initial creation</div></div>
+          <div class="waste-panel-stat" style="margin-top:1.5rem"><div class="stat-num">ROT</div><div class="stat-label">Redundant, Obsolete, Trivial — the standard classification for storage rationalisation</div></div>
+        </div>
+      </div>
+      <div class="waste-panel" id="waste-app">
+        <div>
+          <h4>Application Waste</h4>
+          <p>Duplicate platforms. Zombie applications nobody uses but IT still pays to run. Portfolio sprawl built up over years because rationalisation is politically difficult. Every unused application has a support cost, a licence cost, a security exposure, and an energy draw.</p>
+          <div class="examples">
+            <div class="example">Legacy CRM system running in parallel with the new platform — "just in case"</div>
+            <div class="example">Applications with zero active users for 6+ months still being patched and maintained</div>
+            <div class="example">Three different project management tools that nobody chose to consolidate</div>
+            <div class="example">Custom-built tools whose original developer left three years ago</div>
+          </div>
+          <div class="cost">£40–120k / app / year in run and licence cost &nbsp;·&nbsp; Portfolio rationalisation recovers 10–20% of app spend</div>
+        </div>
+        <div>
+          <div class="waste-panel-stat"><div class="stat-num">15–30%</div><div class="stat-label">of the average enterprise application portfolio is marginal or effectively unused</div></div>
+          <div class="waste-panel-stat" style="margin-top:1.5rem"><div class="stat-num">TIME</div><div class="stat-label">Tolerate, Invest, Migrate, Eliminate — the portfolio rationalisation model covered in Module 6</div></div>
+        </div>
+      </div>
+      <div class="waste-panel" id="waste-enduser">
+        <div>
+          <h4>End-User Waste</h4>
+          <p>Devices replaced on fixed procurement cycles regardless of condition. Peripheral sprawl — two monitors by default, docking stations issued as standard, cables and chargers treated as consumables. Laptops shipped by air because onboarding was planned at the last minute.</p>
+          <div class="examples">
+            <div class="example">3-year mandatory refresh cycle applied regardless of device condition</div>
+            <div class="example">Two monitors issued by default — whether the role requires them or not</div>
+            <div class="example">Docking stations accumulating in storage rooms, never recovered</div>
+            <div class="example">Laptops air-freighted due to poor onboarding lead-time planning</div>
+          </div>
+          <div class="cost">~80% of a laptop's lifetime carbon footprint is manufacturing — extending useful life is the primary lever</div>
+        </div>
+        <div>
+          <div class="waste-panel-stat"><div class="stat-num">~80%</div><div class="stat-label">of a laptop's lifetime environmental footprint occurs before it reaches your desk</div></div>
+          <div class="waste-panel-stat" style="margin-top:1.5rem"><div class="stat-num">+1 year</div><div class="stat-label">extending average device lifespan by one year reduces end-user embodied carbon by ~20%</div></div>
+        </div>
+      </div>
+      <div class="waste-panel" id="waste-ai">
+        <div>
+          <h4>AI Consumption</h4>
+          <p>Heavyweight model calls for queries that don't need them. No caching strategy. No tiered inference. Prompt inefficiency at scale — verbose prompts sent thousands of times daily by users who never think about the compute behind the response. AI is the fastest-growing ungoverned consumption category in enterprise IT.</p>
+          <div class="examples">
+            <div class="example">Frontier model used as default for writing short emails — 10–50× over-specified</div>
+            <div class="example">Long context windows sent with entire documents when only a paragraph was needed</div>
+            <div class="example">No caching for repeated queries that return identical answers</div>
+            <div class="example">AI consumption ungoverned — no visibility of tokens per user, cost per call</div>
+          </div>
+          <div class="cost">10× more energy per AI query than a standard web search &nbsp;·&nbsp; Governance, not restriction, is the fix</div>
+        </div>
+        <div>
+          <div class="waste-panel-stat"><div class="stat-num">10×</div><div class="stat-label">approximate energy differential between a frontier AI query and a standard web search</div></div>
+          <div class="waste-panel-stat" style="margin-top:1.5rem"><div class="stat-num">Ungoverned</div><div class="stat-label">most enterprise AI inference is currently ungoverned — no usage tracking, no model tiering, no demand management</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-warning reveal">
+    <p class="callout-title">The operational case for GreenOps</p>
+    <p><strong>"If you're consuming compute, storage, or network that creates no value, you're paying for it twice: once on the invoice, and once in the carbon account."</strong></p>
+    <p style="margin-top: 0.5rem;">GreenOps is a discipline that engineers, finance, procurement, and leadership should all care about equally.</p>
+  </div>
+</div>
+
+<!-- SECTION 5 — GreenOps Action Model Interactive -->
+<div class="content-section reveal">
+  <p class="section-label">Section 5</p>
+  <h2 class="section-title">The GreenOps action model.</h2>
+  <p class="section-intro">Most organisations that describe themselves as having a sustainability programme are, on closer inspection, running a reporting function. That is a starting point. It is not a destination.</p>
+
+  <div class="action-model reveal">
+    <div class="action-level l1" onclick="toggleLevel(this)">
+      <div class="action-level-num">1</div>
+      <div class="action-level-header">
+        <span class="action-level-name">Reporting</span>
+        <span class="action-level-tagline">Tells you what happened. The rear-view mirror.</span>
+        <span class="action-level-arrow">▼</span>
+      </div>
+      <div class="action-level-detail">
+        <p>Necessary for disclosure, compliance, and setting baselines. Not sufficient for operational improvement. Most organisations are at this level — and don't always know it.</p>
+        <p>If this is all you have, you have a communications function, not a sustainability programme. The output is data about the past. The question it cannot answer is: what are we doing about it?</p>
+        <div class="caveat">Symptom: metrics exist, dashboards exist, annual reports published — but operational decisions are unchanged</div>
+      </div>
+    </div>
+    <div class="action-level l2" onclick="toggleLevel(this)">
+      <div class="action-level-num">2</div>
+      <div class="action-level-header">
+        <span class="action-level-name">Optimisation</span>
+        <span class="action-level-tagline">Doing the same thing with less.</span>
+        <span class="action-level-arrow">▼</span>
+      </div>
+      <div class="action-level-detail">
+        <p>Rightsizing, improving utilisation, reducing facility overhead, extending device lifespans. This is where most operational GreenOps effort sits — and where the most immediate wins are found.</p>
+        <p>Critical caveat: optimisation does not guarantee absolute reduction. A business growing at 20% per year while improving efficiency at 10% is still growing its footprint. This is where the rebound effect lives (covered in Module 5).</p>
+        <div class="caveat">Symptom: efficiency metrics improve, but total emissions stay flat or rise as demand grows alongside</div>
+      </div>
+    </div>
+    <div class="action-level l3" onclick="toggleLevel(this)">
+      <div class="action-level-num">3</div>
+      <div class="action-level-header">
+        <span class="action-level-name">Avoidance</span>
+        <span class="action-level-tagline">Designing demand out before it exists.</span>
+        <span class="action-level-arrow">▼</span>
+      </div>
+      <div class="action-level-detail">
+        <p>Consolidating duplicate platforms. Retiring unused applications. Designing services that require less compute. The highest-leverage decisions live here — because you are preventing waste, not managing it after the fact.</p>
+        <p>This is shift-left in practice. It requires earlier intervention than most governance models currently allow. Portfolio decisions, architecture choices, and data minimisation policies are all avoidance mechanisms.</p>
+        <div class="caveat">Most organisations are at Level 1. The goal is to know your position honestly, and identify what is blocking the next step.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-key reveal">
+    <p class="callout-title">Where is your organisation right now?</p>
+    <p>Honest self-placement is more valuable than optimistic placement. Most organisations sit at Level 1 or between 1 and 2. That is normal. The question is: what is blocking the next step?</p>
+  </div>
+</div>
+
+<!-- KNOWLEDGE CHECK 1 -->
+<div class="kc-block reveal" data-correct="C">
+  <p class="kc-label">Knowledge Check · Module 1 · Q1</p>
+  <p class="kc-q">Which of the following best describes the Scope 3 emissions challenge for enterprise IT?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>Scope 3 is only relevant to manufacturing companies, not IT organisations</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>Scope 3 is important but can be addressed by purchasing renewable energy certificates</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>Scope 3 covers cloud, hardware manufacturing, SaaS, and supply chain — often 70–80% of IT's total footprint — and is typically the least measured</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>Scope 3 only applies to organisations that own their own data centres</button>
+  </div>
+  <p class="kc-hint">Select an answer to reveal the explanation.</p>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">✓ Correct: Option C</p>
+    <p>For most modern technology estates, Scope 3 accounts for 70–80% of total footprint. Yet most organisations have the least visibility into it. Cloud services, SaaS platforms, hardware manufacturing, end-of-life treatment, logistics, and packaging all sit in Scope 3. Moving to cloud doesn't eliminate this footprint — it relocates it from Scope 2 into Scope 3, where it remains your organisation's responsibility under CSRD and SBTi frameworks.</p>
+    <p>Renewable energy certificates address Scope 2 market-based reporting. They do not reduce the Scope 3 emissions embedded in your hardware supply chain or your cloud provider's infrastructure operations.</p>
+  </div>
+</div>
+
+<!-- KNOWLEDGE CHECK 2 -->
+<div class="kc-block reveal" data-correct="C">
+  <p class="kc-label">Knowledge Check · Module 1 · Q2</p>
+  <p class="kc-q">An organisation announces it has "moved to cloud and eliminated its data centre carbon footprint." What is the most accurate assessment of this claim?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>Correct — cloud providers run on renewable energy, so the footprint has genuinely been eliminated</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>Partially correct — the Scope 1 and 2 footprint is eliminated, which is the majority of IT emissions</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>Misleading — cloud moves most IT emissions from Scope 1 and 2 into Scope 3, where they remain the organisation's responsibility</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>Correct only if the organisation has purchased Power Purchase Agreements covering 100% of cloud consumption</button>
+  </div>
+  <p class="kc-hint">Select an answer to reveal the explanation.</p>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">✓ Correct: Option C</p>
+    <p>Moving to cloud is one of the most widely held and consequential misconceptions in enterprise IT sustainability. Cloud moves IT emissions from Scope 1 and 2 into Scope 3 — it does not eliminate them. Under CSRD and SBTi, Scope 3 is required where material — and for organisations using cloud at scale, it always is.</p>
+    <p>Cloud providers run on energy with its own carbon intensity, which varies significantly by region. A shared responsibility model applies: providers manage infrastructure efficiency; the IT organisation is responsible for how it uses that infrastructure and for engaging providers on sustainability performance.</p>
+  </div>
+</div>
+
+<!-- KNOWLEDGE CHECK 3 -->
+<div class="kc-block reveal" data-correct="C">
+  <p class="kc-label">Knowledge Check · Module 1 · Q3</p>
+  <p class="kc-q">In the GreenOps action model, which level involves preventing unnecessary demand from materialising in the first place?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>Level 1 — Reporting</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>Level 2 — Optimisation</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>Level 3 — Avoidance</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>All three levels address demand prevention simultaneously</button>
+  </div>
+  <p class="kc-hint">Select an answer to reveal the explanation.</p>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">✓ Correct: Option C</p>
+    <p>Avoidance is the most mature and impactful level. Rather than measuring waste (Reporting) or reducing it after the fact (Optimisation), Avoidance prevents the demand from occurring — through portfolio rationalisation, shift-left architecture decisions, data minimisation policies, and choosing not to run heavyweight AI where it isn't needed.</p>
+    <p>Most organisations are stuck at Reporting. The financial and sustainability case is to progress to Optimisation and then into Avoidance — to shift left in the lifecycle where intervention is cheapest and most effective.</p>
+  </div>
+</div>
+
+<!-- PAUSE AND REFLECT -->
+<div class="pause-reflect reveal">
+  <p class="pause-label">⏸ Pause &amp; Reflect</p>
+  <p class="pause-intro">Take 5–10 minutes. Write answers down. Specificity matters more than completeness.</p>
+  <div class="pause-questions">
+    <div class="pause-q"><span class="pause-q-num">1</span>What is the single largest source of digital environmental impact in your organisation today? Is it currently measured — and if not, what would that measurement require?</div>
+    <div class="pause-q"><span class="pause-q-num">2</span>Has your organisation quantified its Scope 3 IT emissions? If not, what would it take to start — even with a spend-based proxy as a first step?</div>
+    <div class="pause-q"><span class="pause-q-num">3</span>Where is technology already creating a positive sustainability outcome in your organisation — even if it's not currently framed or measured as such?</div>
+  </div>
+  <p class="pause-note">Open discussion question: Where is the biggest single source of digital waste in your organisation right now — and who owns it?</p>
+</div>
+
+<!-- KEY TAKEAWAYS -->
+<div class="takeaways reveal">
+  <h3 class="takeaways-heading">Module 1 — Key Takeaways</h3>
+  <div class="takeaway-list">
+    <div class="takeaway-item">
+      <span class="takeaway-icon">◆</span>
+      <div class="takeaway-body">
+        <strong>Digital is physical.</strong>
+        <p>ICT accounts for 2–4% of global GHG emissions, with growing water and hardware footprints. The assumption that digital is inherently clean is wrong.</p>
+      </div>
+    </div>
+    <div class="takeaway-item">
+      <span class="takeaway-icon">◆</span>
+      <div class="takeaway-body">
+        <strong>The policy landscape has changed.</strong>
+        <p>CSRD, EU Taxonomy, TCFD, and science-based targets mean IT sustainability is no longer voluntary. It's a compliance and risk management requirement.</p>
+      </div>
+    </div>
+    <div class="takeaway-item">
+      <span class="takeaway-icon">◆</span>
+      <div class="takeaway-body">
+        <strong>Cloud moves the footprint — it doesn't remove it.</strong>
+        <p>Scope 3 emissions from cloud and supply chain are still your organisation's responsibility. A shared responsibility model applies.</p>
+      </div>
+    </div>
+    <div class="takeaway-item">
+      <span class="takeaway-icon">◆</span>
+      <div class="takeaway-body">
+        <strong>Waste is everywhere — and it's costing you twice.</strong>
+        <p>Idle compute, storage bloat, zombie apps, fixed-cycle device refresh, and ungoverned AI consumption are all recoverable financially and environmentally.</p>
+      </div>
+    </div>
+    <div class="takeaway-item">
+      <span class="takeaway-icon">◆</span>
+      <div class="takeaway-body">
+        <strong>Start with waste, not reports.</strong>
+        <p>Reporting / Optimisation / Avoidance. Most organisations are stuck at reporting. The commercial and sustainability case is to go further.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end module-content -->
+
+<div class="module-nav">
+  <a href="index.html" class="nav-btn">
+    <span>
+      <span class="nav-btn-label">← Back to</span>
+      <span class="nav-btn-title">Course Hub</span>
+    </span>
+  </a>
+  <button class="complete-btn" onclick="markComplete('module1')">Mark as complete</button>
+  <a href="module2.html" class="nav-btn next">
+    <span>
+      <span class="nav-btn-label">Next →</span>
+      <span class="nav-btn-title">M2: What Digital Sustainability Is, and What It Isn't</span>
+    </span>
+  </a>
+</div>
+
+<footer>
+  <div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 1</div>
+  <div class="footer-brand">March 2026 · v2</div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+initProgress(1);
+
+// Waste tabs
+function showWaste(id) {
+  document.querySelectorAll('.waste-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.waste-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('waste-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// Scope diagram toggle
+function toggleScope(num) {
+  const details = document.querySelectorAll('.scope-detail');
+  const clickedDetail = document.getElementById('scope-detail-' + num);
+  const isVisible = clickedDetail.classList.contains('visible');
+  details.forEach(d => d.classList.remove('visible'));
+  document.querySelectorAll('.scope-box').forEach(b => b.classList.remove('active'));
+  if (!isVisible) {
+    clickedDetail.classList.add('visible');
+    document.querySelectorAll('.scope-box')[num - 1].classList.add('active');
+  }
+}
+
+// Action model accordion
+function toggleLevel(el) {
+  const isExpanded = el.classList.contains('expanded');
+  document.querySelectorAll('.action-level').forEach(l => l.classList.remove('expanded'));
+  if (!isExpanded) el.classList.add('expanded');
+}
+
+// Animate waste bars on scroll
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.waste-bar-fill').forEach(b => {
+        b.style.width = b.dataset.width;
+      });
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.waste-bars').forEach(el => barObserver.observe(el));
+
+// Auto-expand first level
+document.querySelector('.action-level').classList.add('expanded');
+</script>
+</body>
+</html>

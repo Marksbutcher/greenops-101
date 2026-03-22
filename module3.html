@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M3: How Digital Sustainability Is Measured — GreenOps 101</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* Inline brand vars — ensures dark theme even if shared.css path fails */
+:root {
+  --navy:#0F1F2E; --navy-mid:#162840; --navy-card:#1E293B; --navy-light:#1C3A55;
+  --teal:#00A896; --teal-dark:#007A6E; --teal-muted:#B2EDE7;
+  --orange:#E76F51; --orange-light:#F4A261;
+  --slate:#94A3B8; --slate-dark:#64748B;
+  --border:#D1D9E0; --border-light:#E8EDF2; --white:#FFFFFF;
+  --track1:#00A896; --track2:#F4A261; --track3:#E76F51;
+  --correct:#22c55e; --wrong:#ef4444;
+  /* Legacy aliases */
+  --grey-100:rgba(255,255,255,0.06); --grey-300:#94A3B8;
+  --grey-500:#64748B; --grey-700:#4A4840;
+}
+html,body{background:#0F1F2E;color:#FFFFFF;}
+</style>
+
+<style>
+/* Carbon intensity map viz */
+.intensity-map {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin: 2rem 0;
+}
+.intensity-region {
+  padding: 1.25rem;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: transform 0.15s, filter 0.15s;
+  position: relative;
+  overflow: hidden;
+}
+.intensity-region:hover { transform: translateY(-2px); filter: brightness(1.1); }
+.intensity-region::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.25;
+}
+.ci-low { background: rgba(0,168,150,0.15); border: 1px solid rgba(0,168,150,0.3); }
+.ci-low::before { background: var(--teal); }
+.ci-med-low { background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.25); }
+.ci-med { background: rgba(234,179,8,0.12); border: 1px solid rgba(234,179,8,0.25); }
+.ci-high { background: rgba(231,111,81,0.15); border: 1px solid rgba(231,111,81,0.3); }
+.ci-very-high { background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.3); }
+.region-name { font-weight: 500; font-size: 0.88rem; margin-bottom: 0.3rem; }
+.region-val {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6rem;
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+.ci-low .region-val { color: var(--teal-muted); }
+.ci-med-low .region-val { color: #86efac; }
+.ci-med .region-val { color: #fde047; }
+.ci-high .region-val { color: var(--orange-light); }
+.ci-very-high .region-val { color: #f87171; }
+.region-unit { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--slate-dark); }
+.region-source { font-size: 0.72rem; color: var(--slate-dark); margin-top: 0.35rem; line-height: 1.35; }
+.intensity-bar {
+  height: 4px;
+  border-radius: 2px;
+  margin-top: 0.75rem;
+}
+.ci-low .intensity-bar { background: var(--teal); width: 3%; }
+.ci-med-low .intensity-bar { background: #86efac; width: 5%; }
+.ci-med .intensity-bar { background: #fde047; width: 25%; }
+.ci-high .intensity-bar { background: var(--orange); width: 50%; }
+.ci-very-high .intensity-bar { background: #ef4444; width: 100%; }
+.intensity-note {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  padding: 1rem 1.5rem;
+  font-size: 0.82rem;
+  color: var(--slate-dark);
+  margin-top: 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+}
+
+/* Activity vs Spend comparison */
+.method-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  margin: 2rem 0;
+}
+.method-col {
+  background: var(--navy-mid);
+  padding: 2rem;
+}
+.method-col.activity { border-top: 3px solid var(--teal); }
+.method-col.spend { border-top: 3px solid var(--slate-dark); }
+.method-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.3rem; }
+.method-col.activity .method-name { color: var(--teal); }
+.method-col.spend .method-name { color: var(--slate); }
+.method-desc { font-size: 0.83rem; color: var(--slate); line-height: 1.65; margin-bottom: 1.25rem; }
+.method-pros, .method-cons { margin-bottom: 0.75rem; }
+.method-pros-label, .method-cons-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+.method-pros .method-pros-label { color: var(--teal); }
+.method-cons .method-cons-label { color: var(--orange); }
+.method-list { list-style: none; display: flex; flex-direction: column; gap: 0.25rem; }
+.method-list li { font-size: 0.8rem; color: var(--slate-dark); padding-left: 1rem; position: relative; }
+.method-pros .method-list li::before { content: '✓ '; color: var(--teal); position: absolute; left: 0; }
+.method-cons .method-list li::before { content: '✗ '; color: var(--slate-dark); position: absolute; left: 0; }
+
+/* Unit metrics by role */
+.role-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  margin: 2rem 0;
+}
+.role-metric-card {
+  background: var(--navy-mid);
+  padding: 1.5rem;
+}
+.role-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 0.75rem;
+}
+.metric-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.metric-chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  padding: 0.25rem 0.6rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 2px;
+  color: var(--slate);
+}
+.metric-chip.primary { background: rgba(0,168,150,0.1); border-color: rgba(0,168,150,0.2); color: var(--teal-muted); }
+
+/* Baseline steps */
+.baseline-steps {
+  counter-reset: steps;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.baseline-step {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding: 1.25rem 0;
+}
+.baseline-step:last-child { border-bottom: none; }
+.bs-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.5rem;
+  color: rgba(255,255,255,0.06);
+  line-height: 1;
+}
+.bs-body strong { display: block; font-size: 0.88rem; font-weight: 500; margin-bottom: 0.3rem; }
+.bs-body p { font-size: 0.83rem; color: var(--slate-dark); line-height: 1.65; }
+</style>
+</head>
+<body class="track1">
+
+<nav class="top-nav">
+  <a href="index.html" class="nav-home">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L1 6v7h4v-4h4v4h4V6L7 1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+    GreenOps 101
+  </a>
+  <span class="nav-sep">/</span>
+  <span class="nav-module">Module 3</span>
+  <span class="nav-track-pill track1-pill">Track 1 — Technical Foundation</span>
+  <div class="nav-progress">Progress: <span id="progress-count">0/14</span></div>
+</nav>
+
+<section class="module-hero">
+  <div class="hero-num">3</div>
+  <p class="module-eyebrow">Module 3 &nbsp;·&nbsp; Track 1 — Technical Foundation</p>
+  <h1 class="module-title">How Digital Sustainability<br>Is Measured.</h1>
+  <p class="module-subtitle">Scopes, carbon intensity, unit metrics, and how to build a baseline that actually holds up.</p>
+  <div class="module-meta">
+    <div class="meta-item"><span class="label">Duration</span><span class="value">22–26 minutes</span></div>
+    <div class="meta-item"><span class="label">Track</span><span class="value">Technical Foundation</span></div>
+    <button class="complete-btn" onclick="markComplete('module3')">Mark as complete</button>
+  </div>
+</section>
+
+<div class="objectives-strip reveal">
+  <p class="objectives-heading">What you will take from this module</p>
+  <ul class="objectives-list">
+    <li><span class="obj-num">01</span>Understand Scopes 1, 2, 3, and 4 in an IT context — and why Scope 3 is usually the biggest challenge</li>
+    <li><span class="obj-num">02</span>Know the difference between activity-based and spend-based measurement — and why it matters operationally</li>
+    <li><span class="obj-num">03</span>Explain why carbon intensity varies by geography and time — and why region selection is a real lever</li>
+    <li><span class="obj-num">04</span>Understand the difference between location-based and market-based reporting</li>
+    <li><span class="obj-num">05</span>Apply the right unit metrics for your role and use them to build and interpret a baseline</li>
+  </ul>
+</div>
+
+<div class="module-content">
+
+<!-- SECTION 1 — Measurement credibility -->
+<div class="content-section reveal">
+  <p class="section-label">Section 1</p>
+  <h2 class="section-title">Where programmes build credibility — or lose it.</h2>
+  <p class="section-intro">Measurement is the dividing line. This module gives you the minimum fluency needed — not to become a carbon accountant, but to understand what the numbers mean, where they come from, and how to spot the ones that mislead.</p>
+
+  <div class="callout callout-warning reveal">
+    <p class="callout-title">The measurement credibility test</p>
+    <p>Can you explain what each number in your sustainability report is measuring, how it was calculated, what the confidence level is, and what operational decision it informs? If the answer to any of those is "I'm not sure," you have a measurement credibility gap.</p>
+  </div>
+</div>
+
+<!-- SECTION 2 — Activity vs Spend INTERACTIVE -->
+<div class="content-section reveal">
+  <p class="section-label">Section 2</p>
+  <h2 class="section-title">Activity-based vs spend-based measurement.</h2>
+  <p class="section-intro">These are not equally good methods with different trade-offs. Spend-based is acceptable as a starting point. It is genuinely weak as an operational tool.</p>
+
+  <div class="method-compare reveal">
+    <div class="method-col activity">
+      <div class="method-name">Activity-Based Measurement</div>
+      <div class="method-desc">Uses real physical drivers — energy in kWh, number of devices, server hours, VM-hours, storage capacity, data transferred. Linked to emission factors by location and time. Closer to operational truth.</div>
+      <div class="method-pros">
+        <div class="method-pros-label">Strengths</div>
+        <ul class="method-list">
+          <li>Reflects actual consumption</li>
+          <li>Supports operational optimisation</li>
+          <li>Can distinguish utilisation and location differences</li>
+          <li>Enables meaningful trend analysis</li>
+        </ul>
+      </div>
+      <div class="method-cons">
+        <div class="method-cons-label">Requirements</div>
+        <ul class="method-list">
+          <li>Requires actual data feeds from systems</li>
+          <li>Consistent definitions across the estate</li>
+          <li>Higher data collection burden initially</li>
+        </ul>
+      </div>
+    </div>
+    <div class="method-col spend">
+      <div class="method-name">Spend-Based Measurement</div>
+      <div class="method-desc">Financial expenditure multiplied by average emission factors. Scales well because procurement systems have spend data even where operational systems don't. Acceptable for Scope 3 baseline reporting — weak as an optimisation tool.</div>
+      <div class="method-pros">
+        <div class="method-pros-label">Where it works</div>
+        <ul class="method-list">
+          <li>Scope 3 first-pass baseline (no better data available)</li>
+          <li>Supplier categories without activity data</li>
+          <li>Initial portfolio-level sizing</li>
+        </ul>
+      </div>
+      <div class="method-cons">
+        <div class="method-cons-label">What it hides</div>
+        <ul class="method-list">
+          <li>Utilisation differences between teams</li>
+          <li>Geography and carbon intensity differences</li>
+          <li>Time-of-day and grid condition variations</li>
+          <li>Whether the workload was necessary at all</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-insight reveal">
+    <p class="callout-title">Why it matters in practice</p>
+    <p>If two teams both spend £1m on cloud, spend-based methods report similar emissions. In reality, one could be running efficient workloads at low carbon intensity in Scotland; the other wasting resources on idle infrastructure in a coal-heavy region. The same spend. Dramatically different actual footprint. Only activity-based measurement reveals this — and therefore only activity-based measurement can drive the right operational decision.</p>
+  </div>
+</div>
+
+<!-- SECTION 3 — Carbon intensity map INTERACTIVE -->
+<div class="content-section reveal">
+  <p class="section-label">Section 3</p>
+  <h2 class="section-title">Carbon intensity is not constant.</h2>
+  <p class="section-intro">The same workload in two different places — or at two different times of day — can have a dramatically different physical footprint. Region selection is one of the most underestimated levers in enterprise GreenOps.</p>
+
+<!-- REPLACE existing carbon intensity viz in M3 with this -->
+  <div class="viz-container reveal" id="intensityViz">
+    <p class="viz-title">Grid carbon intensity by region — click any bar to compare. Figures illustrative, based on historical averages.</p>
+    <div id="ciChart"></div>
+    <div id="ciDetail" style="margin-top:1.25rem; min-height:60px; padding:1rem 1.25rem; background:rgba(0,0,0,0.2); border-left:3px solid var(--teal); display:none;">
+      <div id="ciDetailText"></div>
+    </div>
+    <div style="margin-top:1rem; display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;">
+      <div style="display:flex; align-items:center; gap:0.5rem;"><div style="width:12px;height:12px;background:#00A896;"></div><span style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:var(--slate-dark)">Low carbon (&lt;50g)</span></div>
+      <div style="display:flex; align-items:center; gap:0.5rem;"><div style="width:12px;height:12px;background:#86efac;"></div><span style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:var(--slate-dark)">Medium (50–200g)</span></div>
+      <div style="display:flex; align-items:center; gap:0.5rem;"><div style="width:12px;height:12px;background:#F4A261;"></div><span style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:var(--slate-dark)">High (200–500g)</span></div>
+      <div style="display:flex; align-items:center; gap:0.5rem;"><div style="width:12px;height:12px;background:#E76F51;"></div><span style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:var(--slate-dark)">Very high (&gt;500g)</span></div>
+    </div>
+    <p style="margin-top:0.75rem;font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:var(--slate-dark)">Source: historical grid average data. Real-time data: National Grid ESO Carbon Intensity API and equivalent services. Generation mixes evolve year on year.</p>
+  </div>
+  <script>
+  (function(){
+    const regions = [
+      {name:"Norway",        val:18,  gen:"~90% hydroelectric", note:"The lowest-intensity major grid in Europe. Workloads here are 38× cleaner than Poland on the same day.",          col:"#00A896"},
+      {name:"Scotland (UK)", val:28,  gen:"Wind and hydro dominant", note:"Scotland's wind-heavy grid means intensity varies significantly by weather. On a high-wind day, closer to Norway.",  col:"#00A896"},
+      {name:"Sweden",        val:40,  gen:"Hydro and nuclear mix", note:"Nuclear provides reliable low-carbon baseload. Stable, relatively insensitive to weather conditions.",            col:"#00A896"},
+      {name:"France",        val:70,  gen:"Nuclear-heavy generation", note:"France's nuclear fleet makes it one of the cleaner grids in Western Europe, though intensity rises in high-demand winters.", col:"#4ade80"},
+      {name:"UK average",    val:168, gen:"Gas and wind mix", note:"The UK average blends Scotland's clean wind with England's heavier gas reliance. Scotland vs London is a 6× difference on the same national grid.", col:"#86efac"},
+      {name:"Germany",       val:350, gen:"Coal, gas, and renewables", note:"Germany's coal and gas dependency keeps intensity high despite significant renewable capacity. Transitioning, but slowly.", col:"#F4A261"},
+      {name:"Poland",        val:680, gen:"Coal dominant (declining)", note:"Poland's coal-heavy grid is the highest-intensity in the EU. The Norway-Poland difference reaches 38×. Region selection here is a major lever.", col:"#E76F51"},
+      {name:"Australia (NSW)",val:730,gen:"Coal and gas intensive", note:"NSW's coal-dominated grid means workloads here carry very high carbon intensity. Other Australian states vary — SA is much cleaner.", col:"#E76F51"},
+    ];
+    const maxVal = 730;
+    
+    function getColor(val) {
+      if (val < 50) return "#00A896";
+      if (val < 200) return "#4ade80";
+      if (val < 500) return "#F4A261";
+      return "#E76F51";
+    }
+    
+    let selected = null;
+    const chart = document.getElementById('ciChart');
+    chart.style.display = 'flex';
+    chart.style.flexDirection = 'column';
+    chart.style.gap = '6px';
+    
+    regions.forEach((r, i) => {
+      const pct = (r.val / maxVal) * 100;
+      const col = getColor(r.val);
+      const row = document.createElement('div');
+      row.style.cssText = 'display:flex; align-items:center; gap:0.75rem; cursor:pointer;';
+      row.innerHTML = `
+        <div style="width:130px;flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:#94A3B8;text-align:right;">${r.name}</div>
+        <div style="flex:1;height:28px;background:rgba(255,255,255,0.06);border-radius:1px;overflow:hidden;position:relative;">
+          <div class="ci-bar-fill" data-width="${pct}" style="height:100%;width:0%;background:${col};transition:width 1s cubic-bezier(.16,1,.3,1);border-radius:1px;"></div>
+        </div>
+        <div style="width:52px;flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:${col};font-weight:500;">${r.val}g</div>
+        <div style="width:20px;flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#64748B;">CO₂/kWh</div>
+      `;
+      row.addEventListener('click', () => {
+        // Highlight selected
+        document.querySelectorAll('.ci-row-active').forEach(el => {
+          el.style.background = 'none';
+          el.classList.remove('ci-row-active');
+        });
+        row.style.background = 'rgba(255,255,255,0.03)';
+        row.classList.add('ci-row-active');
+        // Show detail
+        const detail = document.getElementById('ciDetail');
+        const text = document.getElementById('ciDetailText');
+        detail.style.display = 'block';
+        detail.style.borderLeftColor = col;
+        // Compute ratio vs Norway
+        const ratio = (r.val / 18).toFixed(1);
+        const vsNorway = r.val > 18 ? `<span style="color:${col};font-weight:500">${ratio}× higher</span> than Norway` : 'baseline — the lowest-intensity major grid in Europe';
+        text.innerHTML = `
+          <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:0.5rem;">
+            <span style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:${col}">${r.val}g</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:#64748B">CO₂/kWh &nbsp;·&nbsp; ${r.name}</span>
+          </div>
+          <div style="font-size:0.82rem;color:#94A3B8;line-height:1.65;">
+            <strong style="color:#FFFFFF">${r.gen}.</strong> ${r.note}
+            <span style="display:block;margin-top:0.35rem;font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B">Ratio vs Norway: ${vsNorway}</span>
+          </div>`;
+        selected = i;
+      });
+      chart.appendChild(row);
+    });
+    
+    // Animate bars on scroll
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.ci-bar-fill').forEach(b => {
+            b.style.width = b.dataset.width + '%';
+          });
+          obs.unobserve(e.target);
+        }
+      });
+    }, {threshold: 0.2});
+    obs.observe(document.getElementById('intensityViz'));
+  })();
+  </script>
+
+    
+  <!-- LIVE NESO CARBON INTENSITY WIDGET -->
+  <div class="viz-container reveal" id="liveIntensity" style="padding:0;margin-top:1.75rem;">
+    <div style="padding:1.25rem 1.5rem 0.85rem;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
+      <div>
+        <p class="viz-title" style="margin-bottom:0.2rem;">Live UK regional carbon intensity — right now, from the National Grid ESO API</p>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:0.57rem;color:#64748B;" id="li-timestamp">Loading...</p>
+      </div>
+      <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
+        <div id="li-gb-now" style="padding:0.35rem 0.85rem;background:rgba(0,168,150,0.08);border:1px solid rgba(0,168,150,0.2);">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.57rem;color:#64748B;display:block;">GB average now</span>
+          <span id="li-gb-val" style="font-family:'JetBrains Mono',monospace;font-size:0.9rem;color:#00A896;font-weight:500;">—</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.55rem;color:#64748B;"> gCO₂/kWh</span>
+        </div>
+        <a href="https://uk-carbon-intensity.netlify.app" target="_blank" rel="noopener" style="padding:0.35rem 0.85rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:0.57rem;color:#64748B;text-decoration:none;display:flex;align-items:center;gap:0.35rem;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)'">
+          Full dashboard ↗
+        </a>
+      </div>
+    </div>
+    <div id="li-regions" style="padding:1.25rem 1.5rem;display:flex;flex-direction:column;gap:5px;">
+      <div style="color:#64748B;font-family:'JetBrains Mono',monospace;font-size:0.68rem;padding:1rem 0;">Loading regional data from NESO API...</div>
+    </div>
+    <div id="li-error" style="display:none;padding:1rem 1.5rem;font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#64748B;">
+      Live data unavailable — API may be temporarily down. 
+      <a href="https://uk-carbon-intensity.netlify.app" target="_blank" style="color:#00A896;">View live data on the dedicated dashboard ↗</a>
+    </div>
+    <div style="padding:0.75rem 1.5rem;border-top:1px solid rgba(255,255,255,0.05);display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;">
+      <div style="text-align:center;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.55rem;color:#64748B;margin-bottom:0.2rem;">Cleanest region now</div>
+        <div id="li-cleanest" style="font-size:0.8rem;font-weight:500;color:#00A896;">—</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.55rem;color:#64748B;margin-bottom:0.2rem;">Dirtiest region now</div>
+        <div id="li-dirtiest" style="font-size:0.8rem;font-weight:500;color:#E76F51;">—</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.55rem;color:#64748B;margin-bottom:0.2rem;">Regional spread</div>
+        <div id="li-spread" style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:#F4A261;">—</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.55rem;color:#64748B;margin-bottom:0.2rem;">Data source</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#64748B;">NESO API</div>
+      </div>
+    </div>
+    <div style="padding:0.65rem 1.5rem;border-top:1px solid rgba(255,255,255,0.04);background:rgba(231,111,81,0.04);">
+      <p style="font-size:0.78rem;color:#94A3B8;line-height:1.6;"><strong style="color:#E76F51;">The GreenOps implication:</strong> The spread you see above is real right now. When you run a workload in the dirtiest region vs the cleanest, you are accepting that difference as the carbon cost of the location decision. Region selection is not an academic point — it is this.</p>
+    </div>
+  </div>
+  <script>
+  (function(){
+    function intensityColor(val) {
+      if(val < 50)  return '#00A896';
+      if(val < 100) return '#4ade80';
+      if(val < 150) return '#86efac';
+      if(val < 200) return '#fde047';
+      if(val < 300) return '#F4A261';
+      return '#E76F51';
+    }
+    
+    async function loadLiveIntensity() {
+      try {
+        const resp = await fetch('https://api.carbonintensity.org.uk/regional');
+        if(!resp.ok) throw new Error('API error');
+        const data = await resp.json();
+        const regions = data.data[0].regions;
+        const ts = data.data[0].from;
+        
+        // Format timestamp
+        const dt = new Date(ts);
+        document.getElementById('li-timestamp').textContent = 
+          'Data from ' + dt.toLocaleTimeString('en-GB', {hour:'2-digit',minute:'2-digit'}) + 
+          ' · half-hourly reading · refreshes on page load';
+        
+        // Get GB national average
+        const gbResp = await fetch('https://api.carbonintensity.org.uk/intensity');
+        if(gbResp.ok) {
+          const gbData = await gbResp.json();
+          const gbVal = gbData.data[0].intensity.actual || gbData.data[0].intensity.forecast;
+          document.getElementById('li-gb-val').textContent = gbVal || '—';
+        }
+        
+        // Sort by intensity
+        const sorted = [...regions].filter(r => r.intensity.actual).sort((a,b) => a.intensity.actual - b.intensity.actual);
+        const maxVal = sorted[sorted.length-1].intensity.actual;
+        
+        // Render bars
+        const container = document.getElementById('li-regions');
+        container.innerHTML = '';
+        
+        sorted.forEach(r => {
+          const val = r.intensity.actual;
+          const pct = Math.round((val / Math.max(maxVal, 1)) * 100);
+          const col = intensityColor(val);
+          const row = document.createElement('div');
+          row.style.cssText = 'display:flex;align-items:center;gap:0.65rem;';
+          row.innerHTML = 
+            '<div style="width:140px;flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:#94A3B8;text-align:right;">' + r.shortname + '</div>' +
+            '<div style="flex:1;height:22px;background:rgba(255,255,255,0.05);overflow:hidden;">' +
+              '<div style="height:100%;width:' + pct + '%;background:' + col + ';transition:width 0.8s cubic-bezier(.16,1,.3,1);"></div>' +
+            '</div>' +
+            '<div style="width:48px;flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:' + col + ';font-weight:500;">' + val + 'g</div>' +
+            '<div style="width:60px;flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:0.55rem;color:#64748B;">' + (r.intensity.index || '') + '</div>';
+          container.appendChild(row);
+        });
+        
+        // Summary stats
+        if(sorted.length > 0) {
+          const cleanest = sorted[0];
+          const dirtiest = sorted[sorted.length-1];
+          const spread = dirtiest.intensity.actual - cleanest.intensity.actual;
+          const ratio = (dirtiest.intensity.actual / Math.max(cleanest.intensity.actual, 1)).toFixed(1);
+          document.getElementById('li-cleanest').textContent = cleanest.shortname + ' · ' + cleanest.intensity.actual + 'g';
+          document.getElementById('li-dirtiest').textContent = dirtiest.shortname + ' · ' + dirtiest.intensity.actual + 'g';
+          document.getElementById('li-spread').textContent = spread + 'g · ' + ratio + '× ratio';
+        }
+        
+        document.getElementById('li-error').style.display = 'none';
+      } catch(e) {
+        document.getElementById('li-regions').style.display = 'none';
+        document.getElementById('li-error').style.display = 'block';
+        document.getElementById('li-timestamp').textContent = 'Live data unavailable';
+        console.warn('Carbon intensity API error:', e);
+      }
+    }
+    
+    loadLiveIntensity();
+  })();
+  </script>
+
+
+  <div class="card-grid card-grid-2 reveal">
+    <div class="card">
+      <div class="card-label">Location-based reporting</div>
+      <h4>Physical grid reality</h4>
+      <p>Reflects the average carbon intensity of the grid where consumption actually occurs. Tells you your real physical grid impact — the operationally honest number. If you run in a coal-heavy region, intensity is high.</p>
+    </div>
+    <div class="card">
+      <div class="card-label">Market-based reporting</div>
+      <h4>Contractual instruments</h4>
+      <p>Reflects renewable energy certificates or PPAs. Matters for corporate reporting commitments. Critical caveat: buying a certificate doesn't change which electrons power your workload. GreenOps requires physical reality as its reference point.</p>
+    </div>
+  </div>
+
+  <div class="callout callout-warning reveal">
+    <p class="callout-title">Carbon also varies by time of day</p>
+    <p>A grid that draws heavily on solar at midday but switches to gas peaking plants in the evening shows substantially different intensity hour by hour. Running a batch workload at 2am on a renewable-heavy grid is meaningfully different from running it at 7pm peak. This is the foundation of temporal shifting, covered in Module 5.</p>
+  </div>
+</div>
+
+<!-- SECTION 4 — Unit metrics by role INTERACTIVE -->
+<div class="content-section reveal">
+  <p class="section-label">Section 4</p>
+  <h2 class="section-title">Unit metrics — the operational tool.</h2>
+  <p class="section-intro">Total emissions figures matter for compliance — they're the rear-view mirror. Unit metrics are what tell you whether the intensity of what you're doing is improving, even as the business grows. The right metric depends on your role.</p>
+
+  <div class="role-metrics reveal">
+    <div class="role-metric-card">
+      <div class="role-name">Product &amp; App Owners</div>
+      <div class="metric-chips">
+        <span class="metric-chip primary">Carbon per transaction</span>
+        <span class="metric-chip primary">Carbon per user session</span>
+        <span class="metric-chip primary">Carbon per API call</span>
+      </div>
+      <p style="margin-top:0.75rem; font-size:0.78rem; color:var(--slate-dark);">Maps to engineering decisions and service behaviour. The metric a product owner can directly influence through architecture, code efficiency, and data management choices.</p>
+    </div>
+    <div class="role-metric-card">
+      <div class="role-name">Platform &amp; Cloud Teams</div>
+      <div class="metric-chips">
+        <span class="metric-chip primary">Carbon per VM-hour</span>
+        <span class="metric-chip primary">Carbon per container-hour</span>
+        <span class="metric-chip">Idle percentage</span>
+        <span class="metric-chip">Region carbon mix</span>
+      </div>
+      <p style="margin-top:0.75rem; font-size:0.78rem; color:var(--slate-dark);">Maps to provisioning and utilisation decisions. Platform teams control rightsizing, scheduling, and region selection — the primary levers for cloud carbon intensity.</p>
+    </div>
+    <div class="role-metric-card">
+      <div class="role-name">Data Centre Teams</div>
+      <div class="metric-chips">
+        <span class="metric-chip primary">PUE</span>
+        <span class="metric-chip primary">WUE</span>
+        <span class="metric-chip primary">CUE</span>
+        <span class="metric-chip">REF / ERF</span>
+        <span class="metric-chip">Server utilisation</span>
+      </div>
+      <p style="margin-top:0.75rem; font-size:0.78rem; color:var(--slate-dark);">Maps to facility efficiency and operational risk. Critical note: PUE without utilisation data is dangerous. Always ask about server utilisation alongside facility efficiency metrics.</p>
+    </div>
+    <div class="role-metric-card">
+      <div class="role-name">Technology Leadership</div>
+      <div class="metric-chips">
+        <span class="metric-chip primary">Carbon intensity of top services</span>
+        <span class="metric-chip primary">% estate on activity-based measurement</span>
+        <span class="metric-chip">Supplier evidence coverage</span>
+      </div>
+      <p style="margin-top:0.75rem; font-size:0.78rem; color:var(--slate-dark);">Maps to portfolio decisions and governance. The metrics that connect operational reality to strategic choices, investment decisions, and disclosure obligations.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5 — Building a baseline -->
+<div class="content-section reveal">
+  <p class="section-label">Section 5</p>
+  <h2 class="section-title">Establishing a baseline.</h2>
+  <p class="section-intro">Every credible sustainability programme starts here. Without a baseline, you have no way to know whether anything is improving — and no basis for setting targets that can actually be verified.</p>
+
+  <div class="baseline-steps reveal">
+    <div class="baseline-step">
+      <div class="bs-num">01</div>
+      <div class="bs-body">
+        <strong>IT Asset Registry</strong>
+        <p>A structured inventory of what you own, run, and consume as a service. On-premises data centres, owned and leased end-user devices, network equipment, cloud and SaaS services, outsourced IT operations. Captures quantity, location, and actual consumption data where available.</p>
+      </div>
+    </div>
+    <div class="baseline-step">
+      <div class="bs-num">02</div>
+      <div class="bs-body">
+        <strong>Emissions Table</strong>
+        <p>For each asset category, identify emission sources and apply appropriate emission factors for that geography and time period. Document the boundary clearly — what's in scope, what's excluded and why. Sum to a total with documented confidence levels.</p>
+      </div>
+    </div>
+    <div class="baseline-step">
+      <div class="bs-num">03</div>
+      <div class="bs-body">
+        <strong>Hybrid Approach for First Pass</strong>
+        <p>Most first baselines mix activity data (metered energy, device counts, cloud billing) with spend-based estimates where supplier data is missing. That's fine. Document confidence levels and build a clear plan for migrating from spend proxies to activity data as the programme matures.</p>
+      </div>
+    </div>
+    <div class="baseline-step">
+      <div class="bs-num">04</div>
+      <div class="bs-body">
+        <strong>Target State Simulation</strong>
+        <p>Once you have a baseline year, simulate your target state. What does the footprint look like if you achieve your planned optimisations — rightsizing, extended device lifespans, reduced dark data? This becomes a multi-year model linking current state to commitments.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-warning reveal">
+    <p class="callout-title">A warning about baselines</p>
+    <p>A baseline that's directional and honest is better than one that's precise and shaky. False precision in headline figures — achieved by using spend-based proxies everywhere and stating them as accurate — creates a credibility problem when someone with technical knowledge examines the methodology. Document confidence levels. Acknowledge gaps. Build a migration plan.</p>
+  </div>
+</div>
+
+<!-- KC 1 -->
+<div class="kc-block reveal" data-correct="B">
+  <p class="kc-label">Knowledge Check · Module 3 · Q1</p>
+  <p class="kc-q">Two engineering teams each spend £1 million per year on cloud infrastructure. A spend-based emissions model reports similar footprints for both. Why might this be seriously misleading?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>Spend-based models always overestimate cloud emissions, so both figures will be too high</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>Spend doesn't capture utilisation, region, or time-of-day — one team could be running efficient workloads in a low-carbon region while the other is running idle infrastructure in a high-carbon region</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>Cloud emissions are not included in Scope 3, so the spend-based model is not applicable here</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>Spend-based models are only inaccurate for hardware procurement, not cloud services</button>
+  </div>
+  <p class="kc-hint">Select an answer to reveal the explanation.</p>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">✓ Correct: Option B</p>
+    <p>Spend-based measurement treats equal expenditure as equal footprint. But £1m spent efficiently in a low-carbon region with high utilisation is not the same as £1m spent on idle infrastructure in a high-carbon region. Spend doesn't tell you utilisation. It doesn't tell you location. It doesn't tell you time-of-day. And it doesn't tell you whether the workload was necessary at all.</p>
+    <p>This is why spend-based measurement is acceptable as a baseline starting point for Scope 3 reporting — where you have no other data — but is genuinely weak as an operational tool. GreenOps requires the physical reality, because that's the only thing you can actually improve.</p>
+  </div>
+</div>
+
+<!-- KC 2 -->
+<div class="kc-block reveal" data-correct="B">
+  <p class="kc-label">Knowledge Check · Module 3 · Q2</p>
+  <p class="kc-q">A cloud architect is choosing between two equivalent regions for a new workload. Region A has a carbon intensity of 20g CO₂/kWh. Region B has 580g CO₂/kWh. Everything else being equal, what is the correct GreenOps framing of this decision?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>This is a minor consideration — other engineering factors should take priority</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>Region selection is a genuine GreenOps lever. A 29× difference in intensity means the same workload has a transformationally different footprint depending on where it runs</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>Carbon intensity only matters for large-scale batch processing, not regular cloud workloads</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>The decision is irrelevant if the organisation purchases renewable energy certificates</button>
+  </div>
+  <p class="kc-hint">Select an answer to reveal the explanation.</p>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">✓ Correct: Option B</p>
+    <p>A 29× difference in carbon intensity is not an incremental improvement — it's a transformation. Running an equivalent workload in a low-carbon region versus a high-carbon region can reduce the operational carbon footprint by an order of magnitude before you've changed a single line of code. This is real, measurable, and sits within engineering's remit.</p>
+    <p>Option D tests a common misconception: certificates are a market-based instrument and don't change the physical grid impact. GreenOps requires physical reality as its reference point.</p>
+  </div>
+</div>
+
+<!-- PAUSE AND REFLECT -->
+<div class="pause-reflect reveal">
+  <p class="pause-label">⏸ Pause &amp; Reflect</p>
+  <p class="pause-intro">Take 5–10 minutes. Write answers down. Specificity matters more than completeness.</p>
+  <div class="pause-questions">
+    <div class="pause-q"><span class="pause-q-num">1</span>Does your organisation currently have a baseline? If yes — is it activity-based or spend-based? Do you know the confidence level for each category? If no — what is the biggest practical barrier to starting one?</div>
+    <div class="pause-q"><span class="pause-q-num">2</span>Is carbon intensity a factor in any of your current cloud architecture or procurement decisions? If not, where would the resistance come from if you tried to make it one?</div>
+    <div class="pause-q"><span class="pause-q-num">3</span>Which unit metric is most relevant to your role right now? Does it currently exist in your organisation? If not, what would be needed to produce it?</div>
+  </div>
+</div>
+
+<!-- KEY TAKEAWAYS -->
+<div class="takeaways reveal">
+  <h3 class="takeaways-heading">Module 3 — Key Takeaways</h3>
+  <div class="takeaway-list">
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Scope 3 is usually the biggest and least-measured category.</strong><p>Cloud, hardware, managed services, and end-of-life typically account for 70–80% of IT footprint. Most organisations have very limited visibility into it.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Spend-based measurement is a starting point, not an operational tool.</strong><p>It hides utilisation, location, time-of-day, and whether workloads were necessary. GreenOps needs physical reality, not financial proxies.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Where and when you run work has a dramatic impact.</strong><p>Norway to Poland is up to 40× difference in carbon intensity. Scotland to London is 6× on the same grid. Region selection is a real lever — not a theoretical one.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Use unit metrics to track intensity, not just totals.</strong><p>Total emissions are the rear-view mirror. Carbon per transaction, per VM-hour, per device tells you whether what you're doing is getting more or less efficient.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>A directional, honest baseline beats a precise, shaky one.</strong><p>Document confidence levels, build a clear improvement plan, and avoid false precision at the expense of operational relevance.</p></div></div>
+  </div>
+</div>
+
+</div>
+
+<div class="module-nav">
+  <a href="module2.html" class="nav-btn"><span><span class="nav-btn-label">← Previous</span><span class="nav-btn-title">M2: What Digital Sustainability Is, and What It Isn't</span></span></a>
+  <button class="complete-btn" onclick="markComplete('module3')">Mark as complete</button>
+  <a href="module4.html" class="nav-btn next"><span><span class="nav-btn-label">Next →</span><span class="nav-btn-title">M4: Where Impact Lives Across the IT Estate</span></span></a>
+</div>
+
+<footer>
+  <div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 3</div>
+  <div class="footer-brand">March 2026 · v2</div>
+</footer>
+
+<script src="shared.js"></script>
+<script>initProgress(3);</script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M14: Wrap-Up, Next Steps, and Making Progress Last — GreenOps 101</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+:root {
+  --navy:#0F1F2E; --navy-mid:#162840; --navy-card:#1E293B; --navy-light:#1C3A55;
+  --teal:#00A896; --teal-dark:#007A6E; --teal-muted:#B2EDE7;
+  --orange:#E76F51; --orange-light:#F4A261;
+  --slate:#94A3B8; --slate-dark:#64748B;
+  --border:#D1D9E0; --border-light:#E8EDF2; --white:#FFFFFF;
+  --track1:#00A896; --track2:#F4A261; --track3:#E76F51;
+  --correct:#22c55e; --wrong:#ef4444;
+  --grey-100:rgba(255,255,255,0.06); --grey-300:#94A3B8;
+  --grey-500:#64748B; --grey-700:#4A4840;
+}
+html,body{background:#0F1F2E;color:#FFFFFF;}
+
+/* Course map grid */
+.course-map {
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:1px;
+  background:rgba(255,255,255,0.06);
+  margin:1.75rem 0;
+}
+.track-col { background:var(--navy-card); }
+.track-col-header {
+  padding:1rem 1.25rem;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.tc-label { font-family:'JetBrains Mono',monospace; font-size:0.58rem; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.2rem; }
+.t1h .tc-label { color:var(--track1); }
+.t2h .tc-label { color:var(--track2); }
+.t3h .tc-label { color:var(--track3); }
+.tc-name { font-size:0.88rem; font-weight:500; }
+.map-module {
+  display:flex; align-items:center; gap:0.65rem;
+  padding:0.6rem 1.25rem;
+  border-bottom:1px solid rgba(255,255,255,0.04);
+  text-decoration:none;
+  transition:background 0.12s;
+  cursor:pointer;
+}
+.map-module:hover { background:rgba(255,255,255,0.03); }
+.map-module:last-child { border-bottom:none; }
+.mm-num { font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--slate-dark); width:24px; flex-shrink:0; }
+.mm-title { font-size:0.8rem; color:var(--slate); flex:1; line-height:1.35; }
+.mm-dot { width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,0.1); flex-shrink:0; transition:background 0.15s; }
+.map-module.complete .mm-dot { background:var(--teal); }
+.map-module.complete .mm-num { color:var(--teal); }
+.map-module:hover .mm-title { color:var(--white); }
+
+/* 30-day artefact cards */
+.artefact-cards { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1.5rem; margin:1.75rem 0; }
+.artefact-card {
+  background:var(--navy-mid);
+  border:1px solid rgba(255,255,255,0.07);
+  border-top:3px solid;
+  padding:1.5rem;
+}
+.ac1 { border-top-color:var(--teal); }
+.ac2 { border-top-color:var(--orange-light); }
+.ac3 { border-top-color:var(--orange); }
+.artefact-num { font-family:'DM Serif Display',serif; font-size:2.5rem; line-height:1; color:rgba(255,255,255,0.06); margin-bottom:0.5rem; }
+.artefact-name { font-weight:600; font-size:0.95rem; margin-bottom:0.4rem; }
+.ac1 .artefact-name { color:var(--teal); }
+.ac2 .artefact-name { color:var(--orange-light); }
+.ac3 .artefact-name { color:var(--orange); }
+.artefact-desc { font-size:0.82rem; color:var(--slate); line-height:1.65; margin-bottom:0.85rem; }
+.artefact-action { font-size:0.78rem; color:var(--slate-dark); line-height:1.6; padding-top:0.75rem; border-top:1px solid rgba(255,255,255,0.06); font-style:italic; }
+
+/* Action model recap */
+.action-recap { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:rgba(255,255,255,0.06); margin:1.75rem 0; }
+.ar-level { background:var(--navy-card); padding:1.5rem; }
+.ar-num { font-family:'JetBrains Mono',monospace; font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.5rem; }
+.ar-l1 .ar-num { color:rgba(255,165,0,0.7); }
+.ar-l2 .ar-num { color:var(--teal); }
+.ar-l3 .ar-num { color:var(--track3); }
+.ar-name { font-family:'DM Serif Display',serif; font-size:1.2rem; margin-bottom:0.4rem; }
+.ar-tagline { font-size:0.78rem; color:var(--slate-dark); font-style:italic; margin-bottom:0.75rem; line-height:1.5; }
+.ar-desc { font-size:0.81rem; color:var(--slate); line-height:1.65; }
+
+/* Completion badge */
+.completion-section {
+  margin:3rem 0;
+  padding:3rem;
+  background:linear-gradient(135deg, rgba(0,168,150,0.08) 0%, rgba(0,168,150,0.03) 100%);
+  border:1px solid rgba(0,168,150,0.2);
+  text-align:center;
+}
+.badge-large {
+  width:120px; height:120px; border-radius:50%;
+  border:2px solid var(--teal);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  margin:0 auto 1.5rem;
+  gap:0.1rem;
+}
+.badge-large .bl-org { font-family:'JetBrains Mono',monospace; font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal); }
+.badge-large .bl-course { font-family:'DM Serif Display',serif; font-size:1.4rem; color:var(--white); }
+.badge-large .bl-level { font-family:'JetBrains Mono',monospace; font-size:0.55rem; color:var(--teal-muted); }
+.completion-title { font-family:'DM Serif Display',serif; font-size:1.8rem; letter-spacing:-0.02em; margin-bottom:0.75rem; }
+.completion-body { font-size:0.92rem; color:var(--slate); line-height:1.75; max-width:600px; margin:0 auto; }
+
+/* Modules overview progress bar */
+.progress-overview { margin:1.75rem 0; }
+.po-bar { height:6px; background:rgba(255,255,255,0.06); border-radius:3px; overflow:hidden; margin-bottom:0.5rem; }
+.po-fill { height:100%; background:var(--teal); border-radius:3px; transition:width 0.5s; }
+.po-label { display:flex; justify-content:space-between; font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--slate-dark); }
+</style>
+</head>
+<body class="track3">
+<nav class="top-nav">
+  <a href="index.html" class="nav-home"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L1 6v7h4v-4h4v4h4V6L7 1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>GreenOps 101</a>
+  <span class="nav-sep">/</span><span class="nav-module">Module 14</span>
+  <span class="nav-track-pill track3-pill">Track 3 — Leadership and Strategy</span>
+  <div class="nav-progress">Progress: <span id="progress-count">0/14</span></div>
+</nav>
+
+<section class="module-hero">
+  <div class="hero-num">14</div>
+  <p class="module-eyebrow">Module 14 &nbsp;·&nbsp; Track 3 — Leadership and Strategy</p>
+  <h1 class="module-title">Wrap-Up, Next Steps,<br>and Making Progress Last.</h1>
+  <p class="module-subtitle">You now have a coherent, end-to-end understanding of digital sustainability that holds up to engineering scrutiny, finance scrutiny, and regulatory scrutiny simultaneously.</p>
+  <div class="module-meta">
+    <div class="meta-item"><span class="label">Duration</span><span class="value">15–20 minutes</span></div>
+    <div class="meta-item"><span class="label">Track</span><span class="value">Leadership and Strategy</span></div>
+    <button class="complete-btn" onclick="markComplete('module14')">Mark as complete</button>
+  </div>
+</section>
+
+<div class="module-content">
+
+<!-- CORE MENTAL MODEL -->
+<div class="content-section reveal">
+  <p class="section-label">The core mental model</p>
+  <h2 class="section-title">Digital sustainability is operational excellence under constraint.</h2>
+  <p class="section-intro">Not ideology. Not a communications programme. Not a poster campaign. Digital is physical. Every service consumes energy — many consume water, all consume materials. GreenOps is the discipline that treats those facts as operational reality rather than sustainability narrative.</p>
+  <div class="definition reveal">GreenOps is the discipline of making digital consumption visible, governable, and optimisable.</div>
+  <div class="action-recap reveal">
+    <div class="ar-level ar-l1">
+      <div class="ar-num">Level 1</div>
+      <div class="ar-name">Reporting</div>
+      <div class="ar-tagline">The rear-view mirror. Foundation, but not the goal.</div>
+      <div class="ar-desc">Tells you what happened. Measurement, baselines, inventories, dashboards, disclosures. Essential for decision-making. Insufficient as a stopping point. Too many programmes stop here.</div>
+    </div>
+    <div class="ar-level ar-l2">
+      <div class="ar-num">Level 2</div>
+      <div class="ar-name">Optimisation</div>
+      <div class="ar-tagline">Operational discipline. Requires governance to sustain.</div>
+      <div class="ar-desc">Reduces waste in what you already run. Utilisation improvement, right-sizing, carbon-aware scheduling, efficient code patterns. Without demand management, efficiency gains are reabsorbed.</div>
+    </div>
+    <div class="ar-level ar-l3">
+      <div class="ar-num">Level 3</div>
+      <div class="ar-name">Avoidance</div>
+      <div class="ar-tagline">Highest leverage. Stops unnecessary demand materialising.</div>
+      <div class="ar-desc">Architecture decisions, portfolio rationalisation, data minimisation, not running heavyweight AI where lighter approaches work. The carbon you never generate beats any optimisation you could apply to it.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FULL COURSE MAP - INTERACTIVE -->
+<div class="content-section reveal">
+  <p class="section-label">The full map</p>
+  <h2 class="section-title">Fourteen modules. Three tracks. One discipline.</h2>
+  <p class="section-intro">Use this map to find what to revisit, and to identify which parts are most relevant for the colleagues you want to bring on the journey. Completed modules are highlighted.</p>
+
+  <div class="progress-overview reveal">
+    <div class="po-bar"><div class="po-fill" id="map-prog-fill" style="width:0%"></div></div>
+    <div class="po-label"><span id="map-prog-label">0 of 14 modules complete</span><span id="map-prog-pct">0%</span></div>
+  </div>
+
+  <div class="course-map reveal">
+    <div class="track-col">
+      <div class="track-col-header t1h">
+        <div class="tc-label">Track 1 · M1–4</div>
+        <div class="tc-name">Technical Foundation</div>
+      </div>
+      <a href="module1.html" class="map-module" data-mod="module1"><span class="mm-num">M1</span><span class="mm-title">Why Digital Sustainability Matters Now</span><span class="mm-dot"></span></a>
+      <a href="module2.html" class="map-module" data-mod="module2"><span class="mm-num">M2</span><span class="mm-title">What Digital Sustainability Is, and What It Isn't</span><span class="mm-dot"></span></a>
+      <a href="module3.html" class="map-module" data-mod="module3"><span class="mm-num">M3</span><span class="mm-title">How Digital Sustainability Is Measured</span><span class="mm-dot"></span></a>
+      <a href="module4.html" class="map-module" data-mod="module4"><span class="mm-num">M4</span><span class="mm-title">Where Impact Lives Across the IT Estate</span><span class="mm-dot"></span></a>
+    </div>
+    <div class="track-col">
+      <div class="track-col-header t2h">
+        <div class="tc-label">Track 2 · M5–8</div>
+        <div class="tc-name">Operational Practice</div>
+      </div>
+      <a href="module5.html" class="map-module" data-mod="module5"><span class="mm-num">M5</span><span class="mm-title">From Reporting to Operational Excellence</span><span class="mm-dot"></span></a>
+      <a href="module6.html" class="map-module" data-mod="module6"><span class="mm-num">M6</span><span class="mm-title">Software Engineering and Application Sustainability</span><span class="mm-dot"></span></a>
+      <a href="module7.html" class="map-module" data-mod="module7"><span class="mm-num">M7</span><span class="mm-title">Procurement, Supply Chains, and Vendor Evidence</span><span class="mm-dot"></span></a>
+      <a href="module8.html" class="map-module" data-mod="module8"><span class="mm-num">M8</span><span class="mm-title">Governance, Maturity and Making It Stick</span><span class="mm-dot"></span></a>
+    </div>
+    <div class="track-col">
+      <div class="track-col-header t3h">
+        <div class="tc-label">Track 3 · M9–14</div>
+        <div class="tc-name">Leadership and Strategy</div>
+      </div>
+      <a href="module9.html"  class="map-module" data-mod="module9"><span class="mm-num">M9</span><span class="mm-title">The Regulatory and Policy Landscape</span><span class="mm-dot"></span></a>
+      <a href="module10.html" class="map-module" data-mod="module10"><span class="mm-num">M10</span><span class="mm-title">The Business Case: Value, Risk and Strategic Opportunity</span><span class="mm-dot"></span></a>
+      <a href="module11.html" class="map-module" data-mod="module11"><span class="mm-num">M11</span><span class="mm-title">Sustainable IT Strategy and Roadmapping</span><span class="mm-dot"></span></a>
+      <a href="module12.html" class="map-module" data-mod="module12"><span class="mm-num">M12</span><span class="mm-title">Courageous Leadership in Practice</span><span class="mm-dot"></span></a>
+      <a href="module13.html" class="map-module" data-mod="module13"><span class="mm-num">M13</span><span class="mm-title">Sustainability by IT: Enabling Positive Impact</span><span class="mm-dot"></span></a>
+      <a href="module14.html" class="map-module" data-mod="module14"><span class="mm-num">M14</span><span class="mm-title">Wrap-Up, Next Steps, and Making Progress Last</span><span class="mm-dot"></span></a>
+    </div>
+  </div>
+</div>
+
+<!-- 30-DAY QUICK START -->
+<div class="content-section reveal">
+  <p class="section-label">What to do in the next 30 days</p>
+  <h2 class="section-title">Three artefacts. That is all you need to start.</h2>
+  <p class="section-intro">Don't wait for perfect data. One honest register is worth more than ten unreviewed questionnaires. The artefact that does not yet exist is the one to start.</p>
+
+  <div class="artefact-cards reveal">
+    <div class="artefact-card ac1">
+      <div class="artefact-num">01</div>
+      <div class="artefact-name">Top-ten service register</div>
+      <div class="artefact-desc">Identify the ten most material digital services in your estate. For each: assign a named owner, define one unit metric (carbon per transaction, per session, per GB), record the primary consumption driver, and note your confidence level in the current figure.</div>
+      <div class="artefact-action">Start: list the ten services with the highest estimated footprint — even with low confidence. Assign an owner to each. Set a review date.</div>
+    </div>
+    <div class="artefact-card ac2">
+      <div class="artefact-num">02</div>
+      <div class="artefact-name">Vendor evidence register</div>
+      <div class="artefact-desc">For your key suppliers — cloud, hardware, managed services — record what evidence you have and what is missing. Note the assurance tier (self-declared, reviewed, or assured). Note your next evidence request.</div>
+      <div class="artefact-action">Start: list your top 5 technology suppliers by spend. Note what you currently hold for each. Send your first formal evidence request to the one with the largest Scope 3 exposure.</div>
+    </div>
+    <div class="artefact-card ac3">
+      <div class="artefact-num">03</div>
+      <div class="artefact-name">Waste removal backlog</div>
+      <div class="artefact-desc">List the waste items you already know about or strongly suspect: idle instances, zombie resources, orphaned storage, applications with no active users, fixed refresh cycles. Assign a named owner and target date to each item.</div>
+      <div class="artefact-action">Start: one waste category, one owner, one target. Put it in your operational tracking system — not a separate sustainability spreadsheet.</div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPLETION + ACCREDITATION -->
+<div class="completion-section reveal">
+  <div class="badge-large">
+    <span class="bl-org">TBM Council</span>
+    <span class="bl-course">GreenOps</span>
+    <span class="bl-level">Practitioner</span>
+  </div>
+  <h2 class="completion-title">GreenOps 101 — Complete.</h2>
+  <p class="completion-body">You came in knowing that digital sustainability was important. You leave knowing exactly why, how to measure it, how to govern it, how to make the business case for it, and how to build an organisation that sustains it beyond a single project or a single champion.</p>
+  <p class="completion-body" style="margin-top:1rem;">GreenOps is the discipline of making digital consumption visible, governable, and optimisable. Go build it.</p>
+  <div style="margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:0.6rem;padding:0.85rem 1.65rem;background:var(--teal);color:var(--navy);text-decoration:none;font-weight:600;font-size:0.88rem;transition:background 0.15s;" onmouseover="this.style.background='#007A6E'" onmouseout="this.style.background='var(--teal)'">
+      ← Return to course hub
+    </a>
+    <a href="module1.html" style="display:inline-flex;align-items:center;gap:0.6rem;padding:0.85rem 1.65rem;background:transparent;border:1px solid rgba(255,255,255,0.15);color:var(--slate);text-decoration:none;font-size:0.88rem;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.15)'">
+      Revisit from Module 1
+    </a>
+  </div>
+</div>
+
+</div><!-- module-content -->
+
+<div class="module-nav">
+  <a href="module13.html" class="nav-btn"><span><span class="nav-btn-label">← Previous</span><span class="nav-btn-title">M13: Sustainability by IT: Enabling Positive Impact</span></span></a>
+  <button class="complete-btn" onclick="markComplete('module14')">Mark as complete</button>
+  <a href="index.html" class="nav-btn next"><span><span class="nav-btn-label">Course complete →</span><span class="nav-btn-title">Return to Course Hub</span></span></a>
+</div>
+
+<footer>
+  <div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 14 — Final</div>
+  <div class="footer-brand">March 2026 · v2</div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+initProgress(14);
+
+// Update course map with completion status
+function updateCourseMap() {
+  try {
+    var p = JSON.parse(localStorage.getItem('greenops101_progress') || '{}');
+    var done = 0;
+    document.querySelectorAll('.map-module[data-mod]').forEach(function(el) {
+      if (p[el.dataset.mod]) {
+        el.classList.add('complete');
+        done++;
+      }
+    });
+    var pct = Math.round((done/14)*100);
+    document.getElementById('map-prog-fill').style.width = pct + '%';
+    document.getElementById('map-prog-label').textContent = done + ' of 14 modules complete';
+    document.getElementById('map-prog-pct').textContent = pct + '%';
+  } catch(e) {}
+}
+
+// Scroll reveal
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+
+updateCourseMap();
+</script>
+</body>
+</html>

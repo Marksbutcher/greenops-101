@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M7: Procurement, Supply Chains, and Vendor Evidence — GreenOps 101</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* Inline brand vars — ensures dark theme even if shared.css path fails */
+:root {
+  --navy:#0F1F2E; --navy-mid:#162840; --navy-card:#1E293B; --navy-light:#1C3A55;
+  --teal:#00A896; --teal-dark:#007A6E; --teal-muted:#B2EDE7;
+  --orange:#E76F51; --orange-light:#F4A261;
+  --slate:#94A3B8; --slate-dark:#64748B;
+  --border:#D1D9E0; --border-light:#E8EDF2; --white:#FFFFFF;
+  --track1:#00A896; --track2:#F4A261; --track3:#E76F51;
+  --correct:#22c55e; --wrong:#ef4444;
+  /* Legacy aliases */
+  --grey-100:rgba(255,255,255,0.06); --grey-300:#94A3B8;
+  --grey-500:#64748B; --grey-700:#4A4840;
+}
+html,body{background:#0F1F2E;color:#FFFFFF;}
+</style>
+
+</head>
+<body class="track2">
+<nav class="top-nav">
+  <a href="index.html" class="nav-home"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L1 6v7h4v-4h4v4h4V6L7 1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>GreenOps 101</a>
+  <span class="nav-sep">/</span><span class="nav-module">Module 7</span>
+  <span class="nav-track-pill track2-pill">Track 2 — Operational Practice</span>
+  <div class="nav-progress">Progress: <span id="progress-count">0/14</span></div>
+</nav>
+<section class="module-hero">
+  <div class="hero-num">7</div>
+  <p class="module-eyebrow">Module 7 &nbsp;·&nbsp; Track 2 — Operational Practice</p>
+  <h1 class="module-title">Procurement, Supply Chains,<br>and Vendor Evidence</h1>
+  <p class="module-subtitle">Every purchasing decision is a signal. When you buy without asking for evidence, you signal that evidence is not required. Over time, those signals shape what the market supplies.</p>
+  <div class="module-meta">
+    <div class="meta-item"><span class="label">Duration</span><span class="value">24–28 minutes</span></div>
+    <div class="meta-item"><span class="label">Track</span><span class="value">Operational Practice</span></div>
+    <button class="complete-btn" onclick="markComplete('module7')">Mark as complete</button>
+  </div>
+</section>
+
+<div class="objectives-strip reveal"><p class="objectives-heading">What you will take from this module</p><ul class="objectives-list">
+  <li><span class="obj-num">01</span>Understand the difference between a supplier's corporate ESG commitments and product-level evidence</li>
+  <li><span class="obj-num">02</span>Know the seven questions to ask when evaluating a lifecycle assessment or product carbon footprint</li>
+  <li><span class="obj-num">03</span>Understand the three meaningful tiers of assurance — and why they are not interchangeable</li>
+  <li><span class="obj-num">04</span>Know what good procurement evidence looks like across hardware, data centres, cloud, and SaaS</li>
+  <li><span class="obj-num">05</span>Understand circular procurement, hardware social responsibility, and the vendor management lifecycle</li>
+</ul></div>
+<div class="module-content">
+
+<div class="content-section reveal">
+  <p class="section-label">Section 1</p>
+  <h2 class="section-title">Corporate commitment vs product evidence.</h2>
+  <p class="section-intro">These are entirely different things. Conflating them is one of the most common ways that Scope 3 data quality erodes — and it almost always goes unnoticed until someone asks a pointed question during assurance.</p>
+  <table class="compare-table reveal">
+    <tr><th>Corporate ESG commitment</th><th>Product-level evidence</th></tr>
+    <tr><td>Describes the supplier's own journey and ambition</td><td>Describes the specific product or service you are buying</td></tr>
+    <tr><td>Net-zero targets and timelines</td><td>Product carbon footprint for this model and configuration</td></tr>
+    <tr><td>Annual sustainability report</td><td>Lifecycle stage breakdown</td></tr>
+    <tr><td>Renewable energy commitments</td><td>Data centre PUE at site level</td></tr>
+    <tr><td>CDP or SBTi participation</td><td>Per-tenant SaaS intensity metrics</td></tr>
+    <tr><td style="color:var(--grey-500); font-style:italic">Tells you about their trajectory, not this transaction</td><td style="color:var(--teal); font-style:italic">Tells you about this purchase — what Scope 3 reporting requires</td></tr>
+  </table>
+</div>
+
+    
+    <div class="callout callout-warning">
+      <p class="callout-title">The most common Scope 3 error</p>
+      <p>Accepting a supplier's corporate sustainability report as evidence for Scope 3 reporting. A net-zero commitment tells you about their trajectory. A product carbon footprint tells you about this transaction. Both matter. <strong>Neither substitutes for the other.</strong> If your vendor evidence register contains only corporate commitments, your Scope 3 data quality is weaker than it appears.</p>
+    </div>
+
+
+<div class="content-section reveal">
+  <p class="section-label">Section 2</p>
+  <h2 class="section-title">Seven questions for any lifecycle assessment.</h2>
+  <p class="section-intro">Receiving a product carbon footprint is not the same as having usable evidence. The quality depends entirely on what went into the number — and vendors rarely volunteer that information unprompted.</p>
+  <div class="process-steps reveal">
+    <div class="process-step"><div class="step-icon">1</div><div class="step-body"><strong>What methodology was used?</strong><p>ISO 14040, ISO 14044, or another recognised standard? Self-developed methodologies are a yellow flag without independent scrutiny.</p></div></div>
+    <div class="process-step"><div class="step-icon">2</div><div class="step-body"><strong>Which lifecycle stages are included?</strong><p>Cradle to gate, cradle to grave, or cradle to cradle? Cradle to gate alone omits use-phase and end-of-life — often the largest contributors for hardware.</p></div></div>
+    <div class="process-step"><div class="step-icon">3</div><div class="step-body"><strong>What emission factors were used, and for which geographies?</strong><p>A server manufactured in Asia and sold in Europe passes through multiple grid emission factors. Check that regional specificity is present, not just global averages.</p></div></div>
+    <div class="process-step"><div class="step-icon">4</div><div class="step-body"><strong>What assumptions underpin the use-phase energy estimates?</strong><p>Typical use assumptions can be optimistic. Ask for idle, typical, and peak energy figures and whether the use-phase assumes specific regional grid intensity.</p></div></div>
+    <div class="process-step"><div class="step-icon">5</div><div class="step-body"><strong>What data sources were used for upstream supply chain emissions?</strong><p>Primary data from tier-1 suppliers? Industry averages? Economic input-output models? The answer tells you how much signal is in the number.</p></div></div>
+    <div class="process-step"><div class="step-icon">6</div><div class="step-body"><strong>What is the functional unit and the reference flow?</strong><p>Without a clearly defined functional unit, comparisons between products are not valid.</p></div></div>
+    <div class="process-step"><div class="step-icon">7</div><div class="step-body"><strong>What is the assurance status?</strong><p>Three tiers: self-declared, reviewed, or independently assured. These are meaningfully different. Treating them as equivalent is a significant data quality error.</p></div></div>
+  </div>
+</div>
+
+<div class="content-section reveal">
+  <p class="section-label">Section 3</p>
+  <h2 class="section-title">The three assurance tiers.</h2>
+  <p class="section-intro">Vendors use the word "verified" loosely. What it actually means depends on what kind of verification was applied. These three tiers are not equivalent.</p>
+  <div class="card-grid card-grid-3 reveal">
+    <div class="card" style="border-top:3px solid var(--grey-500);"><div class="card-label" style="color:var(--grey-500)">Tier 1 · Low confidence</div><h4>Self-declared</h4><p>The vendor produced the figure using their own methodology. No external party reviewed it. The number may be perfectly calculated — but there is no independent mechanism to know.</p><p style="margin-top:0.5rem; font-size:0.75rem; color:var(--grey-700)">Use for directional comparison only. Flag explicitly in your vendor evidence register.</p></div>
+    <div class="card" style="border-top:3px solid #fde047;"><div class="card-label" style="color:#fde047">Tier 2 · Medium confidence</div><h4>Reviewed</h4><p>An independent party examined the methodology and checked calculations were correctly applied. But they did not audit the underlying data — they took it as given. Better than self-declared. Not equivalent to assured.</p><p style="margin-top:0.5rem; font-size:0.75rem; color:var(--grey-700)">Note the reviewer, scope of review, and date.</p></div>
+    <div class="card card-accent-t"><div class="card-label">Tier 3 · High confidence</div><h4>Independently assured</h4><p>A third party verified the underlying data, methodology, and calculations against a stated assurance standard. The highest confidence tier. Should be the baseline requirement for highest-spend, highest-impact categories.</p><p style="margin-top:0.5rem; font-size:0.75rem; color:var(--grey-700)">Retain the assurance statement and note the assurance body and standard applied.</p></div>
+  </div>
+</div>
+
+    
+    <div class="callout callout-insight">
+      <p class="callout-title">Assurance tier in practice</p>
+      <p>When a supplier says their data is "verified" or "third-party reviewed", ask which tier applies. Reviewed means someone checked the methodology and the maths — but not the underlying data. Independently assured means a third party verified the data, methodology, and calculations against a stated standard. <strong>These are meaningfully different.</strong> Record which tier applies to each supplier in your vendor evidence register.</p>
+    </div>
+
+
+<!-- VIZ 1: ALLOCATION METHOD INTERACTIVE -->
+<div class="viz-container reveal" id="allocViz" style="padding:0;margin-top:1.75rem;">
+  <div style="padding:1.25rem 1.5rem 0.85rem;border-bottom:1px solid rgba(255,255,255,0.06);">
+    <p class="viz-title">How allocation basis changes your Scope 3 number — same infrastructure, same total emissions, different answer</p>
+    <p style="font-size:0.79rem;color:#64748B;margin-top:0.3rem;">A shared data centre with 4 tenants, 1,000 tCO₂e total annual emissions. Adjust your usage share — then compare what each allocation method reports for you.</p>
+  </div>
+  <div style="padding:1.25rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.05);">
+    <div style="display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;">
+      <label style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;">Your metered IT load share</label>
+      <input type="range" id="alloc-load" min="5" max="70" value="45" oninput="updateAlloc()" style="flex:1;min-width:120px;accent-color:#00A896;">
+      <span id="alloc-load-val" style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#00A896;white-space:nowrap;width:32px;">45%</span>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B;">(remaining 55% split across 3 other tenants)</div>
+    </div>
+  </div>
+  <div style="padding:1.25rem 1.5rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(255,255,255,0.06);">
+    <div id="alloc-rev" style="background:var(--navy-card);padding:1.5rem;cursor:pointer;transition:background 0.15s;" onclick="showAllocDetail('rev')">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Revenue-based</div>
+      <div id="alloc-rev-val" style="font-family:'DM Serif Display',serif;font-size:2.2rem;line-height:1;color:#F4A261;margin-bottom:0.3rem;"></div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B;">tCO₂e reported</div>
+      <div style="margin-top:0.85rem;font-size:0.75rem;color:#64748B;line-height:1.5;">Allocates by commercial activity — not by actual energy use. Your high-usage low-revenue profile pays less than it should.</div>
+    </div>
+    <div id="alloc-srv" style="background:var(--navy-card);padding:1.5rem;cursor:pointer;transition:background 0.15s;" onclick="showAllocDetail('srv')">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Server-hours</div>
+      <div id="alloc-srv-val" style="font-family:'DM Serif Display',serif;font-size:2.2rem;line-height:1;color:#F4A261;margin-bottom:0.3rem;"></div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B;">tCO₂e reported</div>
+      <div style="margin-top:0.85rem;font-size:0.75rem;color:#64748B;line-height:1.5;">Allocates by server count — closer to physical reality, but still misses utilisation differences between servers.</div>
+    </div>
+    <div id="alloc-met" style="background:var(--navy-card);padding:1.5rem;border:1px solid rgba(0,168,150,0.2);cursor:pointer;transition:background 0.15s;" onclick="showAllocDetail('met')">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#00A896;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Metered IT load ✓</div>
+      <div id="alloc-met-val" style="font-family:'DM Serif Display',serif;font-size:2.2rem;line-height:1;color:#00A896;margin-bottom:0.3rem;"></div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B;">tCO₂e reported</div>
+      <div style="margin-top:0.85rem;font-size:0.75rem;color:#64748B;line-height:1.5;">Reflects actual energy consumption — the most accurate basis. Rewards efficiency. Ask for this.</div>
+    </div>
+  </div>
+  <div id="alloc-detail" style="display:none;padding:1rem 1.5rem;background:rgba(0,0,0,0.15);border-top:1px solid rgba(255,255,255,0.05);">
+    <div id="alloc-detail-text" style="font-size:0.83rem;color:#94A3B8;line-height:1.7;"></div>
+  </div>
+  <div style="padding:0.85rem 1.5rem;border-top:1px solid rgba(255,255,255,0.05);background:rgba(231,111,81,0.04);">
+    <p style="font-size:0.79rem;color:#94A3B8;line-height:1.6;"><strong style="color:#E76F51;">The question to always ask:</strong> What is the allocation basis, and does it reflect physical energy consumption? Revenue-based allocation is the most common and the most misleading. Metered IT load is the standard to push for.</p>
+  </div>
+</div>
+<script>
+function updateAlloc() {
+  var load = parseInt(document.getElementById('alloc-load').value);
+  document.getElementById('alloc-load-val').textContent = load + '%';
+  // Revenue share — inverse relationship: high usage tenants often have lower revenue share
+  var revShare = Math.max(5, Math.round(load * 0.45)); // systematic undercount for high-usage
+  var srvShare = Math.round(load * 0.9); // closer but not exact
+  var metShare = load; // exact
+  var total = 1000;
+  var rev = Math.round(total * revShare / 100);
+  var srv = Math.round(total * srvShare / 100);
+  var met = Math.round(total * metShare / 100);
+  document.getElementById('alloc-rev-val').textContent = rev;
+  document.getElementById('alloc-srv-val').textContent = srv;
+  document.getElementById('alloc-met-val').textContent = met;
+  // Show range
+  var spread = met - rev;
+  var ratio = (met / Math.max(rev,1)).toFixed(1);
+  // Colour the gap
+  var col = spread > 150 ? '#E76F51' : spread > 80 ? '#F4A261' : '#94A3B8';
+  document.getElementById('alloc-rev-val').style.color = col;
+  document.getElementById('alloc-srv-val').style.color = '#F4A261';
+}
+var allocDetails = {
+  rev: 'Revenue-based allocation assigns costs proportional to commercial activity — essentially the size of your contract. If you\'re a high-utilisation tenant running intensive workloads at a modest spend, this method significantly understates your actual footprint. It is common because billing data is easy to access, but it is the weakest basis for Scope 3 accuracy.',
+  srv: 'Server-hours allocation counts the time and number of servers provisioned to your tenancy. It is better than revenue-based because it relates to infrastructure rather than commercial value, but it still misses utilisation — a provisioned but idle server appears the same as a fully utilised one.',
+  met: 'Metered IT load allocation is based on actual energy consumed by your workloads, measured directly. This is the most accurate basis because it reflects what physically happened — how much electricity your organisation\'s consumption drew from the facility. Ask suppliers specifically whether their allocation methodology is based on metered consumption or a proxy.'
+};
+function showAllocDetail(type) {
+  document.getElementById('alloc-detail').style.display = 'block';
+  document.getElementById('alloc-detail-text').innerHTML = '<strong style="color:#FFFFFF">' + {rev:'Revenue-based',srv:'Server-hours',met:'Metered IT load'}[type] + ':</strong> ' + allocDetails[type];
+}
+updateAlloc();
+</script>
+
+<!-- VIZ 2: VENDOR SCORECARD -->
+<div class="viz-container reveal" id="vendorScorecard" style="padding:0;margin-top:1.75rem;">
+  <div style="padding:1.25rem 1.5rem 0.85rem;border-bottom:1px solid rgba(255,255,255,0.06);">
+    <p class="viz-title">Vendor evidence scorecard — rate the assurance tier you currently hold for each category</p>
+    <p style="font-size:0.79rem;color:#64748B;margin-top:0.3rem;">Most organisations find they have self-declared data for the majority. That is an honest starting point — not a failure.</p>
+  </div>
+  <div id="scorecard-rows" style="padding:0.5rem 0;"></div>
+  <div style="padding:1rem 1.5rem;border-top:1px solid rgba(255,255,255,0.05);display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;">
+    <div style="text-align:center;"><div style="font-family:'JetBrains Mono',monospace;font-size:0.55rem;color:#64748B;margin-bottom:0.2rem;">Assurance-grade (tier 3)</div><div id="sc-tier3" style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:#00A896;">0</div></div>
+    <div style="text-align:center;"><div style="font-family:'JetBrains Mono',monospace;font-size:0.55rem;color:#64748B;margin-bottom:0.2rem;">Reviewed (tier 2)</div><div id="sc-tier2" style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:#F4A261;">0</div></div>
+    <div style="text-align:center;"><div style="font-family:'JetBrains Mono',monospace;font-size:0.55rem;color:#64748B;margin-bottom:0.2rem;">Self-declared (tier 1)</div><div id="sc-tier1" style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:#E76F51;">0</div></div>
+  </div>
+  <div id="sc-summary" style="display:none;padding:0.85rem 1.5rem;border-top:1px solid rgba(255,255,255,0.05);font-size:0.81rem;color:#94A3B8;line-height:1.65;"></div>
+</div>
+<script>
+var scCategories = [
+  {id:'hw', label:'Hardware &amp; Devices', sub:'Product carbon footprint, energy figures, repairability'},
+  {id:'dc', label:'Data Centre / Colocation', sub:'Operational PUE, WUE, site-level energy sourcing'},
+  {id:'cloud', label:'Cloud Services', sub:'Region-level disclosures, allocation methodology'},
+  {id:'saas', label:'SaaS &amp; Managed Services', sub:'Hosting location, service-level footprint, per-tenant metrics'},
+  {id:'hw2', label:'Network Equipment', sub:'Product carbon footprint, use-phase energy'},
+  {id:'itad', label:'ITAD Provider', sub:'Chain of custody, data sanitisation, downstream outcomes'},
+];
+var scScores = {};
+var scTiers = {0:'none',1:'Self-declared',2:'Reviewed',3:'Assured'};
+var scColors = {0:'#64748B',1:'#E76F51',2:'#F4A261',3:'#00A896'};
+
+var container = document.getElementById('scorecard-rows');
+scCategories.forEach(function(cat) {
+  var row = document.createElement('div');
+  row.style.cssText = 'display:flex;align-items:center;gap:0;border-bottom:1px solid rgba(255,255,255,0.04);';
+  row.innerHTML =
+    '<div style="width:200px;flex-shrink:0;padding:0.85rem 1.5rem;border-right:1px solid rgba(255,255,255,0.04);">' +
+      '<div style="font-size:0.82rem;font-weight:500;">' + cat.label + '</div>' +
+      '<div style="font-size:0.72rem;color:#64748B;margin-top:0.15rem;">' + cat.sub + '</div>' +
+    '</div>' +
+    '<div style="flex:1;display:flex;gap:0;">' +
+      [0,1,2,3].map(function(t) {
+        return '<button data-cat="' + cat.id + '" data-tier="' + t + '" style="flex:1;padding:0.75rem 0.5rem;font-family:\'JetBrains Mono\',monospace;font-size:0.6rem;background:' + (t===0?'rgba(255,255,255,0.03)':'rgba(255,255,255,0.03)') + ';border:none;border-right:1px solid rgba(255,255,255,0.04);cursor:pointer;color:#64748B;transition:all 0.12s;text-align:center;">' + {0:'None',1:'Self-decl.',2:'Reviewed',3:'Assured'}[t] + '</button>';
+      }).join('') +
+    '</div>';
+  container.appendChild(row);
+});
+
+container.addEventListener('click', function(e) {
+  var btn = e.target.closest('[data-cat]');
+  if(!btn) return;
+  var cat = btn.dataset.cat, tier = parseInt(btn.dataset.tier);
+  scScores[cat] = tier;
+  document.querySelectorAll('[data-cat="' + cat + '"]').forEach(function(b) {
+    var t = parseInt(b.dataset.tier);
+    b.style.background = t === tier ? scColors[tier] + '22' : 'rgba(255,255,255,0.03)';
+    b.style.color = t === tier ? scColors[tier] : '#64748B';
+    b.style.fontWeight = t === tier ? '600' : 'normal';
+  });
+  updateScSummary();
+});
+
+function updateScSummary() {
+  var t1=0,t2=0,t3=0,t0=0;
+  Object.values(scScores).forEach(function(v){
+    if(v===3)t3++; else if(v===2)t2++; else if(v===1)t1++; else t0++;
+  });
+  document.getElementById('sc-tier3').textContent = t3;
+  document.getElementById('sc-tier2').textContent = t2;
+  document.getElementById('sc-tier1').textContent = t1;
+  var total = Object.keys(scScores).length;
+  if(total > 0) {
+    var summ = document.getElementById('sc-summary');
+    summ.style.display = 'block';
+    var msg = '';
+    if(t3 === 0 && t2 === 0) msg = 'All self-declared or unrated — typical for a programme at early maturity. The immediate action is to identify your highest-spend categories and send your first formal evidence requests.';
+    else if(t3 >= 2) msg = 'Strong assured-tier coverage for key categories. The gap to address is the remaining self-declared categories — particularly where those suppliers represent material Scope 3 spend.';
+    else msg = 'Mixed picture — some reviewed coverage, some self-declared. The priority is to move the highest-spend, lowest-tier categories up the assurance ladder. One improved supplier per quarter is a credible programme pace.';
+    summ.innerHTML = '<strong style="color:#FFFFFF">Your coverage profile: </strong>' + msg;
+  }
+}
+</script>
+
+
+<div class="content-section reveal">
+  <p class="section-label">Section 4</p>
+  <h2 class="section-title">Evidence requirements by category.</h2>
+  <p class="section-intro">Generic sustainability questionnaires applied uniformly produce uniform noise. The evidence you request varies by what you are buying.</p>
+  <div class="card-grid card-grid-2 reveal">
+    <div class="card card-accent-o"><div class="card-label">Hardware &amp; Devices</div><h4>What to ask for</h4><ul><li>Product carbon footprint for this specific model and configuration, with lifecycle stage breakdown</li><li>Energy figures — idle, typical, peak — for this model</li><li>Repairability score, spare parts availability, and warranty period</li><li>Take-back programme with evidence of actual outcomes</li><li>Conflict minerals declaration and RBA Code of Conduct alignment</li></ul></div>
+    <div class="card card-accent-t"><div class="card-label">Data Centre &amp; Colocation</div><h4>What to ask for</h4><ul><li>Operational PUE and WUE with metering coverage stated</li><li>Site-level data — not portfolio averages</li><li>Carbon intensity of energy supply: location-based and market-based, instrument types stated</li><li>Water sourcing and WUE seasonality for water-stressed locations</li></ul></div>
+    <div class="card"><div class="card-label">Cloud Services</div><h4>What to ask for</h4><ul><li>Region-level carbon disclosures with allocation methodology stated</li><li>Location-based and market-based Scope 2 — both, if you report both</li><li>Allocation basis: server-hours, vCPU-hours, revenue, or proprietary</li><li>Real-time or near-real-time carbon intensity data for workload scheduling</li></ul></div>
+    <div class="card"><div class="card-label">SaaS &amp; Managed Services</div><h4>What to ask for</h4><ul><li>Hosting location transparency — provider, regions, facilities</li><li>Service-level footprint figure with allocation methodology</li><li>Per-tenant intensity metrics if available, or a roadmap commitment</li><li>Data centre certifications: ISO 50001, LEED, BREEAM, or equivalent</li></ul></div>
+  </div>
+</div>
+
+<div class="kc-block reveal" data-correct="B">
+  <p class="kc-label">Knowledge Check · Module 7 · Q1</p>
+  <p class="kc-q">A hardware vendor's proposal includes a product carbon footprint figure supported by a "third-party reviewed" verification statement. Before accepting this as high-confidence Scope 3 data, what is the most important clarification to seek?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>Whether the vendor is a member of the Responsible Business Alliance</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>Whether "reviewed" means independent review of the methodology and calculations, or full independent assurance of the underlying data — because these represent meaningfully different confidence levels</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>Whether the vendor's net-zero target covers Scope 3 emissions</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>Whether the figure was published in the vendor's most recent annual report</button>
+  </div>
+  <p class="kc-hint">Select an answer to reveal the explanation.</p>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">✓ Correct: Option B</p>
+    <p>"Reviewed" and "independently assured" are not equivalent — and the difference matters significantly for how you use the data. A reviewed figure means an independent party checked that the methodology was correctly applied — but they did not audit the underlying data. An assured figure means the data, methodology, and calculations were all independently verified against a stated standard.</p>
+    <p>Before recording this as high-confidence Scope 3 data, you need to know: what did the reviewing party actually examine, what standard were they working to, and does their scope cover the specific model and configuration you are procuring?</p>
+  </div>
+</div>
+
+<div class="kc-block reveal" data-correct="B">
+  <p class="kc-label">Knowledge Check · Module 7 · Q2</p>
+  <p class="kc-q">A procurement team receives a response from a cloud provider stating: "We are committed to running on 100% renewable energy and have net-zero targets validated by SBTi." What should the procurement team request in addition to this?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>A copy of the provider's most recent annual sustainability report</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>Region-level carbon intensity data with stated allocation methodology, location-based and market-based Scope 2 figures, and evidence of renewable sourcing instruments used</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>Confirmation that the provider's corporate headquarters building is certified to LEED or BREEAM standard</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>The provider's ISO 14001 environmental management system certification</button>
+  </div>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">Explanation — correct answer: B</p>
+    <p>The provider's statement describes their corporate sustainability trajectory — their ambition and direction. It says nothing about the specific service you are buying. For Scope 3 reporting, you need product-level evidence: what is the carbon intensity of the specific region where your workloads run, how are shared infrastructure emissions allocated to your tenancy, and what instruments support the renewable energy claim?</p>
+    <p>Option A is the same category of information as what was already provided — more corporate reporting, not product-level data. Options C and D are legitimate governance signals but do not address the Scope 3 measurement requirement. The gap the procurement team is carrying is product-level evidence, not corporate commitment evidence. Both matter. Neither substitutes for the other.</p>
+  </div>
+</div>
+
+<div class="pause-reflect reveal">
+  <p class="pause-label">⏸ Pause &amp; Reflect</p>
+  <p class="pause-intro">Take 5–10 minutes. Specificity matters more than completeness.</p>
+  <div class="pause-questions">
+    <div class="pause-q"><span class="pause-q-num">1</span>Think about your three largest hardware or software spend categories. For each one: do you hold product-level evidence, or corporate commitment? What is the assurance tier of anything you do hold?</div>
+    <div class="pause-q"><span class="pause-q-num">2</span>Does your procurement process distinguish between strategic partners and transactional suppliers when it comes to sustainability requirements? If not, what would it take to introduce that distinction?</div>
+    <div class="pause-q"><span class="pause-q-num">3</span>When was sustainability last a genuine factor in a contract renewal decision — not just in the initial selection?</div>
+  </div>
+</div>
+
+<div class="takeaways reveal">
+  <h3 class="takeaways-heading">Module 7 — Key Takeaways</h3>
+  <div class="takeaway-list">
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Corporate commitments and product evidence are different things.</strong><p>A net-zero commitment tells you about the supplier's trajectory. A product carbon footprint tells you about this transaction. Both matter; neither substitutes for the other.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>When you receive a lifecycle assessment, ask seven questions.</strong><p>Methodology, lifecycle stages, emission factors, use-phase assumptions, upstream data sources, functional unit, and assurance status. Without these, a number is not evidence.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Self-declared, reviewed, and independently assured are not equivalent.</strong><p>Treating them as the same is a significant data quality error. Your vendor evidence register should record which tier applies to each figure you hold.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Every purchasing decision is a signal.</strong><p>When you buy without asking for evidence, you signal that evidence is not required. Over time, those signals shape what the market supplies.</p></div></div>
+  </div>
+</div>
+</div>
+<div class="module-nav"><a href="module6.html" class="nav-btn"><span><span class="nav-btn-label">← Previous</span><span class="nav-btn-title">M6: Software Engineering and Application Sustainability</span></span></a><button class="complete-btn" onclick="markComplete('module7')">Mark as complete</button><a href="module8.html" class="nav-btn next"><span><span class="nav-btn-label">Next →</span><span class="nav-btn-title">M8: Governance, Maturity and Making It Stick</span></span></a></div>
+<footer><div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 7</div><div class="footer-brand">March 2026 · v2</div></footer>
+<script src="shared.js"></script><script>initProgress(7);</script>
+</body></html>

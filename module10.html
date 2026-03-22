@@ -1,0 +1,259 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>M10 — GreenOps 101</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* Inline brand vars — ensures dark theme even if shared.css path fails */
+:root {
+  --navy:#0F1F2E; --navy-mid:#162840; --navy-card:#1E293B; --navy-light:#1C3A55;
+  --teal:#00A896; --teal-dark:#007A6E; --teal-muted:#B2EDE7;
+  --orange:#E76F51; --orange-light:#F4A261;
+  --slate:#94A3B8; --slate-dark:#64748B;
+  --border:#D1D9E0; --border-light:#E8EDF2; --white:#FFFFFF;
+  --track1:#00A896; --track2:#F4A261; --track3:#E76F51;
+  --correct:#22c55e; --wrong:#ef4444;
+  /* Legacy aliases */
+  --grey-100:rgba(255,255,255,0.06); --grey-300:#94A3B8;
+  --grey-500:#64748B; --grey-700:#4A4840;
+}
+html,body{background:#0F1F2E;color:#FFFFFF;}
+</style>
+</head>
+<body class="track3">
+<nav class="top-nav"><a href="index.html" class="nav-home"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L1 6v7h4v-4h4v4h4V6L7 1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>GreenOps 101</a><span class="nav-sep">/</span><span class="nav-module">Module 10</span><span class="nav-track-pill track3-pill">Track 3 — Leadership and Strategy</span><div class="nav-progress">Progress: <span id="progress-count">0/14</span></div></nav>
+<section class="module-hero"><div class="hero-num">10</div><p class="module-eyebrow">Module 10 &nbsp;·&nbsp; Track 3 — Leadership and Strategy</p><h1 class="module-title">The Business Case: Value,<br>Risk and Strategic Opportunity</h1><p class="module-subtitle">The most common gap in sustainable IT programmes is the absence of a proper business case. The financial, risk, and strategic value case often goes unbuilt — which means the programme competes for investment without the argument that will actually win the room.</p>
+<div class="module-meta"><div class="meta-item"><span class="label">Duration</span><span class="value">24–28 minutes</span></div><div class="meta-item"><span class="label">Track</span><span class="value">Leadership and Strategy</span></div><button class="complete-btn" onclick="markComplete('module10')">Mark as complete</button></div></section>
+<div class="objectives-strip reveal"><p class="objectives-heading">What you will take from this module</p><ul class="objectives-list">
+<li><span class="obj-num">01</span>Understand the three-dimension business case — financial, risk, and non-financial — and why all three must be present</li>
+<li><span class="obj-num">02</span>Know how to lead with waste reduction as the financial entry point that funds the programme</li>
+<li><span class="obj-num">03</span>Understand how to quantify regulatory and reputational risk exposure as the risk argument</li>
+<li><span class="obj-num">04</span>Know the non-financial value levers — talent, investor access, commercial requirements</li>
+<li><span class="obj-num">05</span>Understand how to frame the case for different audiences: CFO, board, business units</li>
+</ul></div>
+<div class="module-content">
+<div class="content-section reveal"><p class="section-label">Section 1</p>
+<h2 class="section-title">The three-dimension business case.</h2>
+<p class="section-intro">Financial value alone underplays the risk exposure. Risk management alone sounds defensive. Non-financial value alone lacks the operational grounding that wins resource allocation decisions. All three dimensions must be present.</p>
+
+    <div class="callout callout-key" style="margin-bottom:1.5rem;">
+      <p class="callout-title">Builds on <a href="module8.html" style="color:var(--teal);text-decoration:none;">Module 8 ↗</a></p>
+      <p>The waste reduction financial case here connects directly to the three governance artefacts in Module 8 — specifically the waste removal backlog. That backlog is what turns the financial argument from theoretical to evidenced.</p>
+    </div>
+
+<div class="card-grid card-grid-3 reveal">
+<div class="card card-accent-t"><div class="card-label">Dimension 1 — The money argument</div><h4>Financial value</h4><p>In many organisations the initial waste reduction exercise produces savings large enough to fund the programme. Start there.</p><ul><li>Waste reduction — often funds the programme itself</li><li>Improved total cost of ownership: refresh cycles, circular procurement, data minimisation, app rationalisation</li><li>Access to green financing: bonds, sustainability-linked loans, ESG capital</li><li>Revenue: sustainability criteria in enterprise and public sector procurement — growing competitive dimension</li></ul></div>
+<div class="card card-accent-o"><div class="card-label">Dimension 2 — The risk argument</div><h4>Risk management</h4><p>Boards respond to quantified risk. Frame regulatory exposure as a time-bounded compliance gap with a penalty dimension.</p><ul><li>Regulatory risk: CSRD, EU Taxonomy, and equivalent frameworks — compliance gaps carry penalties and reputational exposure</li><li>Reputational risk: greenwashing claims attract regulatory challenge and legal exposure in multiple jurisdictions</li><li>Supply chain risk: concentration, geopolitical disruption, material scarcity in technology supply chains</li><li>Physical climate risk: data centres in exposed locations face operational disruption from extreme weather and water stress</li></ul></div>
+<div class="card card-accent-p"><div class="card-label">Dimension 3 — The strategic argument</div><h4>Non-financial value</h4><p>Boards often find the non-financial case most compelling. Connect it to specific strategic priorities.</p><ul><li>Talent: sustainability performance influences technology professionals' decisions — particularly earlier in careers</li><li>Employee engagement: credible programmes generate engagement; performative ones generate cynicism</li><li>Investor and ESG screening: institutional capital increasingly requires sustainability performance, affecting cost of capital</li><li>Customer requirements: procurement criteria demand evidence; a cleaner estate is also faster to run</li></ul></div>
+</div></div>
+
+  <!-- BUSINESS CASE BUILDER -->
+  <div class="viz-container reveal" id="bcBuilder" style="padding:0;margin-top:1.75rem;">
+    <div style="padding:1.5rem 1.5rem 1rem;border-bottom:1px solid rgba(255,255,255,0.06);">
+      <p class="viz-title">Year-1 business case builder — scale by organisation size to illustrate the financial argument</p>
+      <p style="font-size:0.79rem;color:#64748B;margin-top:0.35rem;">Based on illustrative figures from the GreenOps 101 worked example (10,000-person enterprise). Adjust the scale multiplier for your context.</p>
+    </div>
+    <div style="padding:1.25rem 1.5rem 0.75rem;border-bottom:1px solid rgba(255,255,255,0.05);">
+      <div style="display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;">
+        <label style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;">Organisation scale</label>
+        <input type="range" id="bc-scale" min="0.1" max="5" step="0.1" value="1" oninput="updateBC()" style="flex:1;min-width:120px;accent-color:#00A896;">
+        <span id="bc-scale-label" style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#00A896;white-space:nowrap;">1.0× (10,000 employees)</span>
+      </div>
+    </div>
+    <div style="padding:1rem 1.5rem;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
+        <thead>
+          <tr>
+            <th style="text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#64748B;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.08);">Value / cost item</th>
+            <th style="text-align:right;font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#64748B;padding:0.5rem 0 0.5rem 1rem;border-bottom:1px solid rgba(255,255,255,0.08);">Year 1 estimate</th>
+            <th style="text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#64748B;padding:0.5rem 0 0.5rem 1rem;border-bottom:1px solid rgba(255,255,255,0.08);display:none;" class="bc-evidence-col">Evidence required</th>
+          </tr>
+        </thead>
+        <tbody id="bc-rows"></tbody>
+        <tfoot id="bc-foot"></tfoot>
+      </table>
+      <div id="bc-summary" style="margin-top:1rem;padding:0.85rem 1rem;border-left:3px solid #00A896;background:rgba(0,168,150,0.05);font-size:0.82rem;color:#94A3B8;line-height:1.6;"></div>
+    </div>
+  </div>
+  <script>
+  var bcItems = [
+    {label:'Idle compute decommissioned (cloud + on-prem)', base:420, type:'saving', note:'Utilisation telemetry identifying <20% used instances; confirmed decommission log'},
+    {label:'Storage rationalisation — orphaned data removed', base:185, type:'saving', note:'Storage consumption report pre/post; data classification policy applied'},
+    {label:'Software licence rationalisation — unused seats', base:210, type:'saving', note:'SAM tool report; licence audit; confirmed terminations with dates'},
+    {label:'Avoided CSRD compliance gap (penalty + audit exposure)', base:150, type:'risk', note:"Legal counsel estimate of penalty range; gap assessment against CSRD obligations"},
+    {label:'Sustainability-linked loan rate improvement', base:80, type:'finance', note:'Treasury confirmation of SLL eligibility criteria; sustainability KPI framework'},
+    {label:'Programme investment (people, tooling, measurement)', base:-350, type:'cost', note:'Headcount, tooling licences, external support for measurement baseline'},
+  ];
+  function fmt(n) {
+    var abs = Math.abs(Math.round(n));
+    if(abs >= 1000) return (n<0?'-':'') + '£' + (abs/1000).toFixed(0) + 'k';
+    return (n<0?'-':'') + '£' + abs + 'k';
+  }
+  function updateBC() {
+    var scale = parseFloat(document.getElementById('bc-scale').value);
+    var emp = Math.round(scale * 10000);
+    var empStr = emp >= 1000 ? (emp/1000).toFixed(0) + ',000' : emp;
+    document.getElementById('bc-scale-label').textContent = scale.toFixed(1) + '× (~' + empStr + ' employees)';
+    
+    var tbody = document.getElementById('bc-rows');
+    tbody.innerHTML = '';
+    var total = 0;
+    bcItems.forEach(function(item) {
+      var val = item.base * scale;
+      total += val;
+      var isNeg = val < 0;
+      var col = isNeg ? '#E76F51' : (item.type==='risk' ? '#F4A261' : item.type==='finance' ? '#B2EDE7' : '#00A896');
+      var tr = document.createElement('tr');
+      tr.style.borderBottom = '1px solid rgba(255,255,255,0.04)';
+      tr.innerHTML = '<td style="padding:0.55rem 0;color:#94A3B8;line-height:1.4;">' + item.label + '</td>' +
+        '<td style="text-align:right;padding:0.55rem 0 0.55rem 1rem;font-family:'JetBrains Mono',monospace;font-weight:500;color:' + col + ';white-space:nowrap;">' + fmt(val) + '</td>';
+      tbody.appendChild(tr);
+    });
+    
+    var tfoot = document.getElementById('bc-foot');
+    var netCol = total > 0 ? '#00A896' : '#E76F51';
+    tfoot.innerHTML = '<tr style="border-top:1px solid rgba(255,255,255,0.12);">' +
+      '<td style="padding:0.7rem 0;font-weight:500;color:#FFFFFF;">Net Year 1 position</td>' +
+      '<td style="text-align:right;padding:0.7rem 0 0.7rem 1rem;font-family:'JetBrains Mono',monospace;font-size:1.05rem;font-weight:600;color:' + netCol + ';white-space:nowrap;">' + fmt(total) + '</td>' +
+      '</tr>';
+    
+    var summary = '';
+    if(total > 0) {
+      summary = 'At ' + scale.toFixed(1) + '× scale, the programme pays for itself in Year 1 — with ' + fmt(total) + ' net positive before any Year 2–3 compounding. The waste reduction component alone (' + fmt((420+185+210)*scale) + ') covers the entire programme investment (' + fmt(-350*scale) + '). This is the argument that wins the first budget conversation.';
+    } else {
+      summary = 'At this scale, Year 1 shows a net investment position of ' + fmt(total) + '. The case still holds on a 2-3 year view: waste removal savings compound as more waste is identified, and regulatory risk avoidance becomes material as CSRD obligations approach.';
+    }
+    document.getElementById('bc-summary').textContent = summary;
+  }
+  updateBC();
+  </script>
+
+<div class="content-section reveal"><p class="section-label">Section 2</p>
+<h2 class="section-title">Leading with waste reduction.</h2>
+<p class="section-intro">The financial case for GreenOps is often strongest at the start — before the programme requires significant investment. Waste elimination produces immediate returns and funds what comes next.</p>
+<div class="stat-row reveal">
+<div class="stat-block"><div class="stat-num">£2–8k</div><div class="stat-label">per VM per year in cloud run cost — idle instances are the fastest-returning target</div></div>
+<div class="stat-block"><div class="stat-num">£40–120k</div><div class="stat-label">per application per year in run and licence cost — portfolio rationalisation is the highest-leverage action</div></div>
+<div class="stat-block"><div class="stat-num">10–20%</div><div class="stat-label">of app spend typically recoverable through portfolio rationalisation alone</div></div>
+</div>
+<div class="callout callout-insight reveal"><p class="callout-title">The self-funding programme</p><p>The financial return from Phase 1 waste elimination — idle compute, zombie apps, storage rationalisation — typically covers the cost of the measurement and governance infrastructure needed for subsequent phases. This is the argument that gets the first budget approved without requiring a leap of faith.</p></div></div>
+
+  <!-- NON-FINANCIAL 5 DIMENSIONS -->
+  
+  <div class="content-section reveal">
+    <p class="section-label">Section 3</p>
+    <h2 class="section-title">Translate the case differently for each audience.</h2>
+    <p class="section-intro">The content of the business case doesn't change. The emphasis and language must. A CFO who asks for financial returns is doing their job. Give them the numbers they need — not a reframing of why the question is wrong.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.06);margin:1.75rem 0;">
+      <div style="background:#1E293B;padding:1.35rem;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#E76F51;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.35rem;">Board and CEO</div>
+        <div style="font-size:0.78rem;color:#64748B;font-style:italic;margin-bottom:0.85rem;">Strategic and regulatory imperative</div>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.4rem;margin-bottom:0.85rem;">
+          <li style="display:flex;gap:0.6rem;font-size:0.8rem;color:#94A3B8;line-height:1.5;"><span style="color:#E76F51;flex-shrink:0;">→</span>Regulatory risk exposure — compliance gap and what non-compliance costs</li>
+          <li style="display:flex;gap:0.6rem;font-size:0.8rem;color:#94A3B8;line-height:1.5;"><span style="color:#E76F51;flex-shrink:0;">→</span>ESG rating and investor implications — cost of capital impact</li>
+          <li style="display:flex;gap:0.6rem;font-size:0.8rem;color:#94A3B8;line-height:1.5;"><span style="color:#E76F51;flex-shrink:0;">→</span>Competitive dimension — are we winning or losing commercial opportunities?</li>
+        </ul>
+        <div style="padding:0.5rem 0.75rem;background:rgba(231,111,81,0.06);border-left:2px solid rgba(231,111,81,0.3);font-size:0.76rem;color:#64748B;font-style:italic;">Don't open with operational metrics — anchor to business strategy</div>
+      </div>
+      <div style="background:#1E293B;padding:1.35rem;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#F4A261;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.35rem;">CFO and Finance</div>
+        <div style="font-size:0.78rem;color:#64748B;font-style:italic;margin-bottom:0.85rem;">Cost management and risk quantification</div>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.4rem;margin-bottom:0.85rem;">
+          <li style="display:flex;gap:0.6rem;font-size:0.8rem;color:#94A3B8;line-height:1.5;"><span style="color:#F4A261;flex-shrink:0;">→</span>Specific waste reduction savings — quantified and time-bounded</li>
+          <li style="display:flex;gap:0.6rem;font-size:0.8rem;color:#94A3B8;line-height:1.5;"><span style="color:#F4A261;flex-shrink:0;">→</span>Green financing access — interest rate differentials and bond market access</li>
+          <li style="display:flex;gap:0.6rem;font-size:0.8rem;color:#94A3B8;line-height:1.5;"><span style="color:#F4A261;flex-shrink:0;">→</span>Regulatory penalty exposure — CSRD compliance gap quantification</li>
+        </ul>
+        <div style="padding:0.5rem 0.75rem;background:rgba(244,162,97,0.06);border-left:2px solid rgba(244,162,97,0.3);font-size:0.76rem;color:#64748B;font-style:italic;">Lead with returns and risk-adjusted financial exposure — not the sustainability rationale</div>
+      </div>
+      <div style="background:#1E293B;padding:1.35rem;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#00A896;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.35rem;">Technology Leadership</div>
+        <div style="font-size:0.78rem;color:#64748B;font-style:italic;margin-bottom:0.85rem;">Operational excellence and performance discipline</div>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.4rem;margin-bottom:0.85rem;">
+          <li style="display:flex;gap:0.6rem;font-size:0.8rem;color:#94A3B8;line-height:1.5;"><span style="color:#00A896;flex-shrink:0;">→</span>Utilisation, efficiency, and waste reduction as performance metrics</li>
+          <li style="display:flex;gap:0.6rem;font-size:0.8rem;color:#94A3B8;line-height:1.5;"><span style="color:#00A896;flex-shrink:0;">→</span>Estate simplification — the productivity premium of a cleaner portfolio</li>
+          <li style="display:flex;gap:0.6rem;font-size:0.8rem;color:#94A3B8;line-height:1.5;"><span style="color:#00A896;flex-shrink:0;">→</span>Architecture quality — efficiency as a signal of technical maturity</li>
+        </ul>
+        <div style="padding:0.5rem 0.75rem;background:rgba(0,168,150,0.06);border-left:2px solid rgba(0,168,150,0.3);font-size:0.76rem;color:#64748B;font-style:italic;">Frame as better operational practice — not compliance burden</div>
+      </div>
+      <div style="background:#1E293B;padding:1.35rem;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#B2EDE7;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.35rem;">Engineering Teams</div>
+        <div style="font-size:0.78rem;color:#64748B;font-style:italic;margin-bottom:0.85rem;">Operational problems they already recognise</div>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.4rem;margin-bottom:0.85rem;">
+          <li style="display:flex;gap:0.6rem;font-size:0.8rem;color:#94A3B8;line-height:1.5;"><span style="color:#B2EDE7;flex-shrink:0;">→</span>Idle resources, bloated data, unnecessary compute are already pain points</li>
+          <li style="display:flex;gap:0.6rem;font-size:0.8rem;color:#94A3B8;line-height:1.5;"><span style="color:#B2EDE7;flex-shrink:0;">→</span>Carbon per transaction alongside latency and cost as a unit metric</li>
+          <li style="display:flex;gap:0.6rem;font-size:0.8rem;color:#94A3B8;line-height:1.5;"><span style="color:#B2EDE7;flex-shrink:0;">→</span>Engineering autonomy to make sustainable design decisions at service level</li>
+        </ul>
+        <div style="padding:0.5rem 0.75rem;background:rgba(178,237,231,0.06);border-left:2px solid rgba(178,237,231,0.3);font-size:0.76rem;color:#64748B;font-style:italic;">Start from the operational problem — not sustainability as a principle</div>
+      </div>
+    </div>
+  </div>
+
+
+  
+  <div class="content-section reveal">
+    <p class="section-label">Non-financial value</p>
+    <h2 class="section-title">Five non-financial value dimensions — often the most compelling to boards.</h2>
+    <p class="section-intro">Harder to quantify than waste reduction, but the impacts are real and the connections to strategic priorities are direct. Connect each dimension to something specific in your organisation.</p>
+    <div class="card-grid card-grid-auto reveal">
+      <div class="card card-accent-t">
+        <div class="card-label">Dimension 1</div>
+        <h4>Talent attraction and retention</h4>
+        <p>Sustainability performance is a real factor in technology professionals' decisions — particularly earlier in careers. Ask your talent acquisition team whether it has come up in candidate conversations. In most organisations, it has. A credible programme generates engagement. A communications exercise generates cynicism.</p>
+      </div>
+      <div class="card card-accent-p">
+        <div class="card-label">Dimension 2</div>
+        <h4>Employee engagement</h4>
+        <p>People who feel their organisation is taking meaningful action are more engaged. People who sense the programme is performative are actively disengaged. The signal that distinguishes the two is whether sustainability appears in operational decisions or only in communications.</p>
+      </div>
+      <div class="card card-accent-o">
+        <div class="card-label">Dimension 3</div>
+        <h4>Investor and ESG screening</h4>
+        <p>ESG factors are integrated into institutional investment analysis and asset allocation. For listed or institutionally funded organisations, connect this directly to your investor relations team — they will already be seeing the requests. Sustainability screens affect capital availability and cost of capital.</p>
+      </div>
+      <div class="card card-accent-t">
+        <div class="card-label">Dimension 4</div>
+        <h4>Customer and commercial requirements</h4>
+        <p>Enterprise procurement in public and private sectors increasingly requires sustainability evidence. Government contracts in the UK and EU mandate supplier sustainability criteria. Technology organisations that can produce evidence — not just commitments — are winning contracts that others are losing. This is a commercial argument.</p>
+      </div>
+      <div class="card card-accent-p">
+        <div class="card-label">Dimension 5</div>
+        <h4>Operational productivity premium</h4>
+        <p>Organisations with lower digital waste have cleaner, simpler, more manageable estates. Fewer unnecessary services, less bloated data, faster deployments, lower operational overhead. A well-governed estate is not only greener — it is faster to operate and easier to change. That is a leadership argument, not a sustainability one.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="kc-block reveal" data-correct="C">
+  <p class="kc-label">Knowledge Check · Module 10 · Q2</p>
+  <p class="kc-q">A technology leader wants to present the GreenOps programme to the board for the first time. Which opening framing is most likely to secure board-level support?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>An overview of technical achievements to date — utilisation improvements, waste removed, and monitoring coverage</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>A detailed breakdown of the carbon intensity of the top ten services in the estate</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>The regulatory risk exposure, ESG rating implications, and competitive dimension — with specific numbers where available</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>The sustainability team's roadmap for the next three years, with milestones and resource requirements</button>
+  </div>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">Explanation — correct answer: C</p>
+    <p>The board operates at the level of strategic risk, regulatory exposure, and competitive position — not operational metrics. Opening with regulatory risk, ESG rating implications, and commercial consequences anchors the conversation to what boards are accountable for. Option A presents technical achievements to an audience with no context for why they matter — the most common mistake. Option B is too granular for a board setting. Option D leads with IT's internal agenda rather than the organisation's exposure. The substance of the business case doesn't change for different audiences — only the emphasis and language.</p>
+  </div>
+</div>
+
+<div class="kc-block reveal" data-correct="C">
+  <p class="kc-label">Knowledge Check · Module 10 · Q2</p>
+  <p class="kc-q">A technology leader wants to present the GreenOps programme to the board for the first time. Which opening framing is most likely to secure board-level support?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>An overview of technical achievements to date — utilisation improvements, waste removed, and monitoring coverage</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>A detailed breakdown of the carbon intensity of the top ten services in the estate</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>The regulatory risk exposure, ESG rating implications, and competitive dimension — with specific numbers where available</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>The sustainability team's roadmap for the next three years, with milestones and resource requirements</button>
+  </div>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">Explanation — correct answer: C</p>
+    <p>The board operates at the level of strategic risk, regulatory exposure, and competitive position. Opening with regulatory risk, ESG implications for investor relations and cost of capital, and commercial consequences anchors to what boards are accountable for. Option A presents technical achievements to an audience with no context for why they matter — the most common mistake. Option B is too granular for a board setting. Option D leads with IT's internal agenda rather than the organisation's exposure.</p>
+  </div>
+</div>
+
+<div class="pause-reflect reveal"><p class="pause-label">⏸ Pause &amp; Reflect</p><p class="pause-intro">Take 5–10 minutes. Specificity matters more than completeness.</p><div class="pause-questions"><div class="pause-q"><span class="pause-q-num">1</span>Of the three financial value dimensions — waste reduction, improved TCO, green financing, and revenue — which is most relevant to your organisation right now? Do you have the data to make that argument in a budget conversation?</div><div class="pause-q"><span class="pause-q-num">2</span>Think about the four risk dimensions: regulatory, reputational, supply chain, and physical climate. Which represents the most material unquantified exposure in your organisation today?</div><div class="pause-q"><span class="pause-q-num">3</span>Consider your most important non-financial value dimension. Is your current programme credible enough to support that claim? Or is there a gap between the claim and the evidence?</div></div></div><div class="takeaways reveal"><h3 class="takeaways-heading">Key Takeaways</h3><div class="takeaway-list"><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Build the full three-dimension case — financial, risk, and non-financial.</strong><p>Financial alone is insufficient. Risk alone sounds defensive. Non-financial alone lacks operational grounding. All three dimensions must be present for a case that survives scrutiny from finance, risk, and the board simultaneously.</p></div></div><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Lead with waste reduction — it often funds the programme.</strong><p>Idle compute, over-provisioned storage, unnecessary licences, premature refresh: these produce direct cost savings. Starting here creates early wins and builds credibility.</p></div></div><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Quantify risk exposure — especially regulatory and reputational.</strong><p>Boards respond to quantified risk. Frame regulatory exposure as a time-bounded compliance gap with a penalty dimension.</p></div></div><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Translate the case for each audience.</strong><p>Engineers: operational excellence. Finance: cost and risk discipline. Board: strategic and regulatory imperative. The substance doesn't change. The framing must.</p></div></div></div></div></div>
+<div class="module-nav"><a href="module9.html" class="nav-btn"><span><span class="nav-btn-label">← Previous</span><span class="nav-btn-title">M9: The Regulatory and Policy Landscape</span></span></a><button class="complete-btn" onclick="markComplete('module10')">Mark as complete</button><a href="module11.html" class="nav-btn next"><span><span class="nav-btn-label">Next →</span><span class="nav-btn-title">M11: Sustainable IT Strategy and Roadmapping</span></span></a></div>
+<footer><div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 10</div><div class="footer-brand">March 2026 · v2</div></footer>
+<script src="shared.js"></script><script>initProgress(10);</script></body></html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M9 — GreenOps 101</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* Inline brand vars — ensures dark theme even if shared.css path fails */
+:root {
+  --navy:#0F1F2E; --navy-mid:#162840; --navy-card:#1E293B; --navy-light:#1C3A55;
+  --teal:#00A896; --teal-dark:#007A6E; --teal-muted:#B2EDE7;
+  --orange:#E76F51; --orange-light:#F4A261;
+  --slate:#94A3B8; --slate-dark:#64748B;
+  --border:#D1D9E0; --border-light:#E8EDF2; --white:#FFFFFF;
+  --track1:#00A896; --track2:#F4A261; --track3:#E76F51;
+  --correct:#22c55e; --wrong:#ef4444;
+  /* Legacy aliases */
+  --grey-100:rgba(255,255,255,0.06); --grey-300:#94A3B8;
+  --grey-500:#64748B; --grey-700:#4A4840;
+}
+html,body{background:#0F1F2E;color:#FFFFFF;}
+</style>
+</head>
+<body class="track3">
+<nav class="top-nav"><a href="index.html" class="nav-home"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L1 6v7h4v-4h4v4h4V6L7 1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>GreenOps 101</a>
+<span class="nav-sep">/</span><span class="nav-module">Module 9</span>
+<span class="nav-track-pill track3-pill">Track 3 — Leadership and Strategy</span>
+<div class="nav-progress">Progress: <span id="progress-count">0/14</span></div></nav>
+<section class="module-hero"><div class="hero-num">9</div>
+<p class="module-eyebrow">Module 9 &nbsp;·&nbsp; Track 3 — Leadership and Strategy</p>
+<h1 class="module-title">The Regulatory and<br>Policy Landscape</h1><p class="module-subtitle">Sustainability is no longer a voluntary area for enterprise technology organisations. The regulatory picture has shifted materially — and it will continue to shift.</p>
+<div class="module-meta">
+<div class="meta-item"><span class="label">Duration</span><span class="value">22–26 minutes</span></div>
+<div class="meta-item"><span class="label">Track</span><span class="value">Leadership and Strategy</span></div>
+<button class="complete-btn" onclick="markComplete('module9')">Mark as complete</button>
+</div></section>
+<div class="objectives-strip reveal"><p class="objectives-heading">What you will take from this module</p><ul class="objectives-list"><li><span class="obj-num">01</span>Understand the Paris Agreement's relevance to enterprise IT — and why technology estates are material contributors to corporate SBTs</li><li><span class="obj-num">02</span>Know what the EU Taxonomy is, why it matters for capital allocation, and what it means for data centre and ICT investments</li><li><span class="obj-num">03</span>Understand CSRD's double materiality requirement and the specific obligations it creates for IT measurement and Scope 3</li><li><span class="obj-num">04</span>Know how TCFD connects to technology infrastructure through physical and transition climate risk</li><li><span class="obj-num">05</span>Understand the GHG Protocol framework, the Scope 2 dual-method requirement, and sustainable finance instruments</li></ul></div><div class="module-content">
+<div class="content-section reveal"><p class="section-label">Section 1</p>
+<h2 class="section-title">The regulatory landscape has shifted — and it will keep shifting.</h2>
+<p class="section-intro">Sustainability is no longer voluntary for enterprise technology organisations. A series of interconnected frameworks now reshape what IT must disclose, measure, and demonstrate.</p>
+    <div class="callout callout-insight reveal" style="margin-top:1.5rem;">
+      <p class="callout-title">Why IT estates are in scope</p>
+      <p>For most large enterprises, technology consumption — cloud, hardware, managed services — is material enough to sit inside the SBTi Scope 3 boundary. This means technology leaders are directly accountable for part of the corporate emissions reduction target, whether or not they have been explicitly told so. The regulatory and target landscape does not wait for IT to opt in.</p>
+    </div>
+
+    <div style="margin:1.5rem 0;padding:1.25rem 1.5rem;background:#1E293B;border-left:3px solid #00A896;" class="reveal">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#00A896;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem;">The accountability chain</div>
+      <div style="display:flex;align-items:flex-start;gap:0;flex-direction:column;">
+        <div style="display:flex;align-items:center;gap:1rem;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);width:100%;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#00A896;width:120px;flex-shrink:0;">Paris Agreement</span>
+          <span style="font-size:0.8rem;color:#94A3B8;line-height:1.5;">Sets the global temperature target. Creates the framework within which national and corporate commitments operate.</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:1rem;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);width:100%;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#F4A261;width:120px;flex-shrink:0;">Corporate SBTi</span>
+          <span style="font-size:0.8rem;color:#94A3B8;line-height:1.5;">Organisation commits to science-based emissions reductions consistent with the Paris pathway. Scope 3 engagement required for material categories.</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:1rem;padding:0.5rem 0;width:100%;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#E76F51;width:120px;flex-shrink:0;">IT estate</span>
+          <span style="font-size:0.8rem;color:#94A3B8;line-height:1.5;">Cloud, hardware, and managed services are almost always material Scope 3 categories. Technology leaders are in scope — whether or not a formal mandate has arrived.</span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="callout callout-key" style="margin-bottom:1.5rem;">
+      <p class="callout-title">Builds on <a href="module3.html" style="color:var(--teal);text-decoration:none;">Module 3 ↗</a></p>
+      <p>The GHG Protocol scopes, dual-method Scope 2, and Scope 3 categories covered here build on the measurement foundations in Module 3. The regulatory frameworks assume that measurement infrastructure.</p>
+    </div>
+
+<div class="card-grid card-grid-2 reveal">
+<div class="card card-accent-o"><div class="card-label">Paris Agreement &amp; SBTi</div><h4>IT estates are inside the target boundary</h4><p>Corporate sustainability commitments are increasingly anchored to the Paris Agreement through science-based targets. For most large enterprises, the technology estate is material enough to sit inside that SBTi boundary. Technology leaders are directly on the hook for delivery — not adjacent to it.</p></div>
+<div class="card card-accent-t"><div class="card-label">EU Taxonomy</div><h4>Determines access to sustainable capital</div><p>For EU-based or EU-funded organisations, Taxonomy alignment affects green financing access and lending terms. Data centre and ICT investments must meet specific technical screening criteria. Non-aligned investments face increasing cost-of-capital disadvantage.</p></div>
+<div class="card card-accent-p"><div class="card-label">CSRD — Double Materiality</div><h4>IT data must be assurable</h4><p>CSRD requires both financial risk and environmental impact to be reported. Digital footprint data must be capable of audit. Scope 3 must be included where material. For technology estates, it almost always is. Spend-based proxies are insufficient at assurance grade. Silence is not a safe position.</p></div>
+<div class="card"><div class="card-label">TCFD</div><h4>Physical and transition climate risk</h4><p>Physical risk: data centres in exposed locations face operational disruption from extreme weather, heat, and water stress. Transition risk: stranded assets, regulatory shifts, changing capital allocation. Both require technology leaders to understand their infrastructure's climate risk profile.</p></div>
+</div></div>
+<div class="content-section reveal"><p class="section-label">Section 2</p>
+<h2 class="section-title">CSRD double materiality — what it means for IT.</h2>
+<p class="section-intro">Double materiality is the requirement to report from both directions: how sustainability issues affect the organisation financially, and what impact the organisation has on the environment and society.</p>
+<div class="callout callout-warning reveal"><p class="callout-title">The IT data quality implication</p><p>CSRD requires data that is assurable. Spend-based Scope 3 proxies, portfolio-average PUE figures, and self-declared supplier claims will not meet the evidentiary standard required for assurance-grade disclosure. The data quality investment is not optional — it is the compliance requirement.</p></div>
+<table class="compare-table reveal">
+<tr><th>CSRD Obligation</th><th>What it requires from IT</th><th>Gap in most organisations</th></tr>
+<tr><td>Scope 3 measurement where material</td><td>Activity-based data for cloud, hardware, SaaS, and managed services</td><td>Most Scope 3 is spend-based — insufficient for assurance</td></tr>
+<tr><td>Double materiality assessment</td><td>Understanding both financial exposure from sustainability issues and IT's environmental impact</td><td>Few IT functions have completed a formal double materiality assessment</td></tr>
+<tr><td>Assurable disclosures</td><td>Data that can be independently reviewed or assured</td><td>Most IT sustainability data lacks the documentation trail for assurance</td></tr>
+<tr><td>Supply chain coverage</td><td>Supplier engagement and product-level evidence</td><td>Vendor evidence quality is typically low; self-declared data dominates</td></tr>
+</table></div>
+<div class="content-section reveal"><p class="section-label">Section 3</p>
+<h2 class="section-title">Sustainable finance as a practical lever.</h2>
+<p class="section-intro">Green bonds, sustainability-linked loans, and ESG-screened capital are becoming practical instruments — not just aspirational tools. Technology investment increasingly intersects with these mechanisms.</p>
+<div class="stat-row reveal">
+<div class="stat-block"><div class="stat-num">$1T+</div><div class="stat-label">annual green bond issuance globally — growing rapidly with technology infrastructure as a qualifying use of proceeds</div></div>
+<div class="stat-block"><div class="stat-num">SLL</div><div class="stat-label">Sustainability-linked loans tie interest rates to sustainability KPI performance — including IT efficiency metrics</div></div>
+<div class="stat-block"><div class="stat-num">ESG screens</div><div class="stat-label">Institutional capital increasingly requires sustainability performance data — affecting cost of capital for non-aligned organisations</div></div>
+</div></div><!-- REGULATORY FRAMEWORK NAVIGATOR -->
+
+  <!-- 5-FRAMEWORK QUICK REFERENCE TABLE -->
+  <div class="viz-container reveal" style="padding:0;margin-top:1.5rem;">
+    <div style="padding:1rem 1.5rem 0.75rem;border-bottom:1px solid rgba(255,255,255,0.06);">
+      <p class="viz-title">Which framework requires what from IT — use this to brief leadership or prepare for a compliance conversation</p>
+    </div>
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.78rem;min-width:700px;">
+        <thead>
+          <tr>
+            <th style="padding:0.6rem 1rem;text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:#64748B;border-bottom:1px solid rgba(255,255,255,0.1);background:#162840;">Framework</th>
+            <th style="padding:0.6rem 1rem;text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:#64748B;border-bottom:1px solid rgba(255,255,255,0.1);background:#162840;">What triggers it for IT</th>
+            <th style="padding:0.6rem 1rem;text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:#64748B;border-bottom:1px solid rgba(255,255,255,0.1);background:#162840;">What IT must do</th>
+            <th style="padding:0.6rem 1rem;text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:#64748B;border-bottom:1px solid rgba(255,255,255,0.1);background:#162840;">Evidence standard</th>
+            <th style="padding:0.6rem 1rem;text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:#E76F51;border-bottom:1px solid rgba(255,255,255,0.1);background:#162840;">Risk if ignored</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:0.7rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);"><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:600;color:#00A896;">Paris / SBTi</span></td>
+            <td style="padding:0.7rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;line-height:1.5;">SBTi-validated corporate net-zero or 1.5°C target</td>
+            <td style="padding:0.7rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;line-height:1.5;">Include IT estate in Scope 3 reduction pathway; engage material Scope 3 suppliers</td>
+            <td style="padding:0.7rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;line-height:1.5;">Activity-based data for material categories; supplier engagement evidence</td>
+            <td style="padding:0.7rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#E76F51;line-height:1.5;">Target credibility gap; Scope 3 coverage questioned at assurance</td>
+          </tr>
+          <tr style="background:rgba(255,255,255,0.01);">
+            <td style="padding:0.7rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);"><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:600;color:#F4A261;">EU Taxonomy</span></td>
+            <td style="padding:0.7rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;line-height:1.5;">EU-based or EU capital market funded; data centre / ICT investment</td>
+            <td style="padding:0.7rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;line-height:1.5;">DC and ICT investments meet PUE thresholds and renewable sourcing criteria</td>
+            <td style="padding:0.7rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;line-height:1.5;">Site-level operational data; third-party certification for eligible activities</td>
+            <td style="padding:0.7rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#E76F51;line-height:1.5;">Green financing excluded; investor classification impacted</td>
+          </tr>
+          <tr>
+            <td style="padding:0.7rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);"><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:600;color:#E76F51;">CSRD / ESRS</span></td>
+            <td style="padding:0.7rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;line-height:1.5;">250+ employees, €40m+ turnover, or €20m+ balance sheet (EU threshold)</td>
+            <td style="padding:0.7rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;line-height:1.5;">Disclose energy, emissions, water, e-waste; Scope 3 material categories; double materiality</td>
+            <td style="padding:0.7rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;line-height:1.5;">Assurable data — spend proxies insufficient; documented methodology required</td>
+            <td style="padding:0.7rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#E76F51;line-height:1.5;">Regulatory non-compliance; audit qualification; greenwashing exposure</td>
+          </tr>
+          <tr style="background:rgba(255,255,255,0.01);">
+            <td style="padding:0.7rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);"><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:600;color:#B2EDE7;">TCFD</span></td>
+            <td style="padding:0.7rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;line-height:1.5;">Regulated entities; listed companies; many voluntary adopters</td>
+            <td style="padding:0.7rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;line-height:1.5;">Map DC / network assets to physical hazard data; quantify transition risk exposure</td>
+            <td style="padding:0.7rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;line-height:1.5;">Scenario analysis; asset-level climate hazard mapping; governance documentation</td>
+            <td style="padding:0.7rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#E76F51;line-height:1.5;">Climate risk disclosure gap; investor and lender confidence reduced</td>
+          </tr>
+          <tr>
+            <td style="padding:0.7rem 1rem;"><span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:600;color:#94A3B8;">GHG Protocol</span></td>
+            <td style="padding:0.7rem 1rem;color:#94A3B8;line-height:1.5;">Any organisation reporting GHG emissions; foundation for all other frameworks</td>
+            <td style="padding:0.7rem 1rem;color:#94A3B8;line-height:1.5;">Report Scope 1/2/3 correctly; dual-method Scope 2; document incomplete categories</td>
+            <td style="padding:0.7rem 1rem;color:#94A3B8;line-height:1.5;">Both location-based and market-based Scope 2; completeness statement required</td>
+            <td style="padding:0.7rem 1rem;color:#E76F51;line-height:1.5;">Misleading disclosures; non-comparability; foundation for other frameworks fails</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <div class="viz-container reveal" id="regNav" style="padding:0;margin-top:1.75rem;">
+  <div style="padding:1.25rem 1.5rem 0.85rem;border-bottom:1px solid rgba(255,255,255,0.06);">
+    <p class="viz-title">Regulatory framework navigator — click any framework to see what it specifically requires from IT</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(255,255,255,0.06);" id="reg-tabs">
+    <button onclick="showReg('sbti',this)" class="reg-tab" style="background:#1E293B;border:none;padding:1.25rem 0.75rem;cursor:pointer;text-align:center;transition:background 0.12s;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;font-weight:600;color:#00A896;margin-bottom:0.3rem;">Paris / SBTi</div>
+      <div style="font-size:0.72rem;color:#64748B;line-height:1.35;">Science-based targets</div>
+    </button>
+    <button onclick="showReg('taxonomy',this)" class="reg-tab" style="background:#1E293B;border:none;padding:1.25rem 0.75rem;cursor:pointer;text-align:center;transition:background 0.12s;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;font-weight:600;color:#F4A261;margin-bottom:0.3rem;">EU Taxonomy</div>
+      <div style="font-size:0.72rem;color:#64748B;line-height:1.35;">Sustainable finance classification</div>
+    </button>
+    <button onclick="showReg('csrd',this)" class="reg-tab active-reg" style="background:#162840;border:none;padding:1.25rem 0.75rem;cursor:pointer;text-align:center;transition:background 0.12s;border-top:2px solid #E76F51;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;font-weight:600;color:#E76F51;margin-bottom:0.3rem;">CSRD</div>
+      <div style="font-size:0.72rem;color:#94A3B8;line-height:1.35;">Corporate sustainability reporting</div>
+    </button>
+    <button onclick="showReg('tcfd',this)" class="reg-tab" style="background:#1E293B;border:none;padding:1.25rem 0.75rem;cursor:pointer;text-align:center;transition:background 0.12s;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;font-weight:600;color:#B2EDE7;margin-bottom:0.3rem;">TCFD</div>
+      <div style="font-size:0.72rem;color:#64748B;line-height:1.35;">Climate risk disclosure</div>
+    </button>
+    <button onclick="showReg('ghg',this)" class="reg-tab" style="background:#1E293B;border:none;padding:1.25rem 0.75rem;cursor:pointer;text-align:center;transition:background 0.12s;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;font-weight:600;color:#94A3B8;margin-bottom:0.3rem;">GHG Protocol</div>
+      <div style="font-size:0.72rem;color:#64748B;line-height:1.35;">Emissions accounting standard</div>
+    </button>
+  </div>
+  <div id="reg-panel" style="background:#1E293B;"></div>
+</div>
+<script>
+var regData = {
+  sbti: {
+    color:'#00A896',
+    trigger:'SBTi-validated corporate net-zero or 1.5°C target',
+    what:'Include IT estate in Scope 3 reduction pathway. Engage material Scope 3 suppliers — cloud providers, hardware manufacturers, managed services.',
+    evidence:'Activity-based data for material Scope 3 categories. Supplier engagement evidence showing active management.',
+    risk:'Target credibility gap at assurance. Scope 3 coverage questioned — particularly cloud and hardware if not measured.',
+    itActions:[
+      'Map which IT categories are material Scope 3 (almost always cloud, hardware, and major managed services)',
+      'Establish activity-based measurement for those categories — spend proxies are insufficient at SBTi assurance grade',
+      'Begin formal supplier engagement on emissions data for top 3-5 technology vendors',
+      'Ensure technology estate sits explicitly inside the corporate target boundary — not treated as a separate programme'
+    ]
+  },
+  taxonomy: {
+    color:'#F4A261',
+    trigger:'EU-based or EU capital market funded organisation investing in data centres or ICT infrastructure',
+    what:'Data centre and ICT investments must meet specific technical screening criteria: PUE thresholds, renewable energy sourcing requirements, and temperature management standards.',
+    evidence:'Site-level operational data (PUE, WUE, renewable sourcing). Third-party certification for eligible activities. Methodologically documented.',
+    risk:'Green financing excluded. Investor sustainability classification impacted. Capital allocation disadvantage vs Taxonomy-aligned peers.',
+    itActions:[
+      'Identify which data centre investments are seeking green financing or Taxonomy classification',
+      'Check PUE thresholds — current EU Taxonomy technical screening requires PUE ≤ 1.5 for new data centres (1.4 from 2027)',
+      'Confirm renewable energy sourcing method — PPAs or on-site generation preferred over certificates alone',
+      'Document at site level, not portfolio average — Taxonomy compliance is asset-by-asset'
+    ]
+  },
+  csrd: {
+    color:'#E76F51',
+    trigger:'250+ employees, €40m+ turnover, or €20m+ balance sheet (EU threshold). Non-EU organisations with significant EU operations or revenue may also be in scope.',
+    what:'Mandatory disclosure of energy use, emissions, water use, and e-waste. Double materiality assessment required. Scope 3 must be included where material. Methodology must be assurable.',
+    evidence:'Assurable data — spend-based proxies are explicitly insufficient for assurance-grade reporting. Documented methodology. Audit trail required.',
+    risk:'Regulatory non-compliance. Audit qualification. Greenwashing exposure where claims cannot be substantiated. Supply chain data requests from CSRD-obligated customers.',
+    itActions:[
+      'Confirm whether IT is within CSRD scope boundary — for most large organisations, it is',
+      'Upgrade Scope 3 measurement from spend-based to activity-based for cloud, hardware, and major managed services',
+      'Establish a documented measurement methodology with stated confidence levels — informal estimates will not pass assurance',
+      'Begin supply chain data collection — your CSRD-obligated customers are about to ask you for this data'
+    ]
+  },
+  tcfd: {
+    color:'#B2EDE7',
+    trigger:'Regulated financial entities, listed companies, and many voluntary adopters. Increasingly embedded in national regulations.',
+    what:'Map data centre and network infrastructure against physical climate hazards. Quantify transition risk exposure. Include in scenario analysis.',
+    evidence:'Scenario analysis. Asset-level climate hazard mapping. Governance documentation demonstrating board-level oversight of climate risk.',
+    risk:'Climate risk disclosure gap. Reduced investor and lender confidence. Physical climate risk not identified until it becomes operational disruption.',
+    itActions:[
+      'Map data centre locations against physical climate hazard data: flood risk, heat stress, water stress, coastal exposure',
+      'Identify high-carbon infrastructure that faces transition risk — stranding potential if regulation tightens',
+      'Connect the technology estate explicitly to the TCFD disclosure — technology leaders should be named in the governance section',
+      'Build physical climate risk into site selection and data centre investment decisions as a standard criterion'
+    ]
+  },
+  ghg: {
+    color:'#94A3B8',
+    trigger:'Any organisation reporting GHG emissions. Foundation for all other frameworks.',
+    what:'Report Scope 1, 2, and 3 using correct GHG Protocol categories. Scope 2 dual-method (location-based and market-based). Document incomplete categories explicitly.',
+    evidence:'Both location-based and market-based Scope 2. Scope 3 completeness statement. Documented methodology for each category included.',
+    risk:'Misleading disclosures. Non-comparability between periods or organisations. Foundation for CSRD, TCFD, and SBTi fails without correct GHG Protocol application.',
+    itActions:[
+      'Confirm Scope 2 reporting includes both location-based and market-based figures — not just market-based (which hides physical grid impact)',
+      'Check Scope 3 category coverage: Category 1 (hardware), Category 8 (cloud/colocation), Category 11 (use of sold products if relevant)',
+      'Document which Scope 3 categories are included and which are excluded — a complete-with-gaps inventory is more credible than a silent one',
+      'Ensure technology estate emissions are in the right Scope 3 categories — misclassification is common'
+    ]
+  }
+};
+
+function showReg(id, btn) {
+  document.querySelectorAll('.reg-tab').forEach(function(b) {
+    b.style.background = '#1E293B';
+    b.style.borderTop = '2px solid transparent';
+    b.querySelector('div:first-child').style.opacity = '0.6';
+  });
+  var d = regData[id];
+  btn.style.background = '#162840';
+  btn.style.borderTop = '2px solid ' + d.color;
+  btn.querySelector('div:first-child').style.opacity = '1';
+
+  document.getElementById('reg-panel').innerHTML =
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">' +
+      '<div style="padding:1.5rem;border-right:1px solid rgba(255,255,255,0.06);">' +
+        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.58rem;color:' + d.color + ';letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;">What triggers it</div>' +
+        '<p style="font-size:0.82rem;color:#94A3B8;line-height:1.65;margin-bottom:1rem;">' + d.trigger + '</p>' +
+        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.58rem;color:' + d.color + ';letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;">What IT must do</div>' +
+        '<p style="font-size:0.82rem;color:#94A3B8;line-height:1.65;margin-bottom:1rem;">' + d.what + '</p>' +
+        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.58rem;color:#64748B;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;">Evidence standard</div>' +
+        '<p style="font-size:0.82rem;color:#64748B;line-height:1.65;margin-bottom:1rem;">' + d.evidence + '</p>' +
+        '<div style="padding:0.75rem 1rem;background:rgba(231,111,81,0.06);border-left:2px solid #E76F51;">' +
+          '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.55rem;color:#E76F51;text-transform:uppercase;margin-bottom:0.25rem;">Risk if ignored</div>' +
+          '<div style="font-size:0.8rem;color:#94A3B8;line-height:1.55;">' + d.risk + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div style="padding:1.5rem;">' +
+        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.58rem;color:#00A896;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.75rem;">Specific IT actions this creates</div>' +
+        d.itActions.map(function(a, i) {
+          return '<div style="display:flex;gap:0.75rem;align-items:flex-start;padding:0.6rem 0;border-bottom:1px solid rgba(255,255,255,0.04);">' +
+            '<span style="font-family:\'JetBrains Mono\',monospace;font-size:0.62rem;color:' + d.color + ';flex-shrink:0;width:16px;padding-top:0.1rem;">' + (i+1) + '</span>' +
+            '<span style="font-size:0.82rem;color:#94A3B8;line-height:1.55;">' + a + '</span>' +
+          '</div>';
+        }).join('') +
+      '</div>' +
+    '</div>';
+}
+
+// Show CSRD by default
+showReg('csrd', document.querySelector('[onclick="showReg(\'csrd\',this)"]'));
+</script>
+
+
+<div class="kc-block reveal" data-correct="B"><p class="kc-label">Knowledge Check · Module 9 · Q1</p><p class="kc-q">An organisation's sustainability report states that its data centre operations are powered by 100% renewable electricity, citing Renewable Energy Certificates. Under CSRD and the GHG Protocol, what is the most precise statement about what this claim represents?</p><div class="kc-options"><button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>It means the data centres physically run on renewable energy — the claim is fully substantiated</button><button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>It is a valid market-based Scope 2 claim, but it does not mean the physical grid supplying the facility has changed — the location-based figure, reflecting actual grid carbon intensity, must also be reported</button><button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>The claim is invalid — RECs cannot be used for Scope 2 reporting under CSRD</button><button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>The claim is sufficient for both location-based and market-based Scope 2 reporting</button></div><p class="kc-hint">Select an answer to reveal the explanation.</p><div class="kc-reveal"><p class="kc-reveal-label">✓ Correct: Option B</p><p>Under the GHG Protocol, organisations report Scope 2 using both the location-based method (reflecting actual grid carbon intensity) and the market-based method (reflecting contractual instruments like RECs). The REC claim is valid for market-based reporting — but it does not change the physical grid that powers the facility.</p><p>CSRD requires both methods to be disclosed. An organisation reporting only the market-based figure, without also disclosing the location-based intensity, is providing an incomplete picture. The location-based figure is the physically honest number — the one GreenOps operational decisions should be based on.</p></div></div><div class="kc-block reveal" data-correct="B"><p class="kc-label">Knowledge Check · Module 9 · Q2</p><p class="kc-q">A technology director says: "CSRD is a European regulation so it doesn't apply to us — we're headquartered outside the EU." Under what circumstances might CSRD still be relevant to this organisation?</p><div class="kc-options"><button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>CSRD applies globally by default to all companies over 250 employees, regardless of headquarters location</button><button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>CSRD may still be relevant if the organisation operates in the EU, sells to large EU-based enterprises that are themselves under CSRD obligations, or accesses EU capital markets — since those entities will require supply chain sustainability data</button><button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>CSRD only applies if the organisation has EU-listed debt or equity</button><button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>CSRD is not relevant to non-EU headquartered companies under any circumstances</button></div><p class="kc-hint">Select an answer to reveal the explanation.</p><div class="kc-reveal"><p class="kc-reveal-label">✓ Correct: Option B</p><p>CSRD directly applies to EU-headquartered organisations and to non-EU companies with significant EU revenue above specified thresholds. But the indirect reach extends further: any organisation that is a material supplier to a CSRD-obligated entity will face sustainability data requests — because those entities are required to cover material Scope 3 emissions, including supply chain.</p><p>This supply chain pull effect means the regulatory boundary is effectively wider than the direct applicability of the regulation. Organisations that sell to EU-based enterprises, access EU capital markets, or have significant EU operations should treat CSRD as material to their governance planning.</p></div></div><div class="pause-reflect reveal"><p class="pause-label">⏸ Pause &amp; Reflect</p><p class="pause-intro">Take 5–10 minutes. Specificity matters more than completeness.</p><div class="pause-questions"><div class="pause-q"><span class="pause-q-num">1</span>Does your organisation's technology estate currently sit within the boundary of its SBTi commitment or corporate net-zero target? If you're not certain, what would it take to find out — and whose responsibility is it to know?</div><div class="pause-q"><span class="pause-q-num">2</span>Under CSRD double materiality, which sustainability topics are most material for your technology estate? Where do you have both a financial risk exposure and a significant environmental impact?</div><div class="pause-q"><span class="pause-q-num">3</span>Think about your top three or four technology suppliers. Are any of them themselves CSRD-obligated? What sustainability data requests have you already received, and are you equipped to respond?</div></div></div><div class="takeaways reveal"><h3 class="takeaways-heading">Key Takeaways</h3><div class="takeaway-list"><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Paris Agreement and SBTi put IT estates inside corporate target boundaries.</strong><p>For most large enterprises, technology consumption is material enough to sit within the SBTi boundary. Technology leaders are directly on the hook for delivery — not just adjacent to it.</p></div></div><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>EU Taxonomy determines access to sustainable capital — and creates evidence requirements.</strong><p>For EU-based or EU-funded organisations, Taxonomy alignment affects green financing access and lending terms.</p></div></div><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>CSRD requires assurable IT data — spend-based proxies are insufficient.</strong><p>Double materiality means both financial risk and impact must be reported. Digital footprint data must be capable of audit. Scope 3 must be included where material.</p></div></div><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Sustainable finance instruments are becoming practical levers for technology investment.</strong><p>Green bonds, sustainability-linked loans, and ESG-screened capital are connecting sustainability performance directly to cost of capital.</p></div></div></div></div></div>
+<div class="module-nav"><a href="module8.html" class="nav-btn"><span><span class="nav-btn-label">← Previous</span><span class="nav-btn-title">M8: Governance, Maturity and Making It Stick</span></span></a><button class="complete-btn" onclick="markComplete('module9')">Mark as complete</button><a href="module10.html" class="nav-btn next"><span><span class="nav-btn-label">Next →</span><span class="nav-btn-title">M10: The Business Case: Value, Risk and Strategic Opportunity</span></span></a></div>
+<footer><div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 9</div><div class="footer-brand">March 2026 · v2</div></footer>
+<script src="shared.js"></script><script>initProgress(9);</script>
+</body></html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M6: Software Engineering<br>and Application Sustainability — GreenOps 101</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* Inline brand vars — ensures dark theme even if shared.css path fails */
+:root {
+  --navy:#0F1F2E; --navy-mid:#162840; --navy-card:#1E293B; --navy-light:#1C3A55;
+  --teal:#00A896; --teal-dark:#007A6E; --teal-muted:#B2EDE7;
+  --orange:#E76F51; --orange-light:#F4A261;
+  --slate:#94A3B8; --slate-dark:#64748B;
+  --border:#D1D9E0; --border-light:#E8EDF2; --white:#FFFFFF;
+  --track1:#00A896; --track2:#F4A261; --track3:#E76F51;
+  --correct:#22c55e; --wrong:#ef4444;
+  /* Legacy aliases */
+  --grey-100:rgba(255,255,255,0.06); --grey-300:#94A3B8;
+  --grey-500:#64748B; --grey-700:#4A4840;
+}
+html,body{background:#0F1F2E;color:#FFFFFF;}
+</style>
+
+</head>
+<body class="track2">
+<nav class="top-nav">
+  <a href="index.html" class="nav-home"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L1 6v7h4v-4h4v4h4V6L7 1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>GreenOps 101</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-module">Module 6</span>
+  <span class="nav-track-pill track2-pill">Track 2 — Operational Practice</span>
+  <div class="nav-progress">Progress: <span id="progress-count">0/14</span></div>
+</nav>
+<section class="module-hero">
+  <div class="hero-num">6</div>
+  <p class="module-eyebrow">Module 6 &nbsp;·&nbsp; Track 2 — Operational Practice</p>
+  <h1 class="module-title">Software Engineering<br>and Application Sustainability</h1>
+  <p class="module-subtitle">Infrastructure decisions affect how efficiently you run a workload. Software decisions determine whether the workload needs to exist at all — and what it costs to execute when it does.</p>
+  <div class="module-meta">
+    <div class="meta-item"><span class="label">Duration</span><span class="value">24–28 minutes</span></div>
+    <div class="meta-item"><span class="label">Track</span><span class="value">Operational Practice</span></div>
+    <button class="complete-btn" onclick="markComplete('module6')">Mark as complete</button>
+  </div>
+</section>
+
+<div class="objectives-strip reveal">
+  <p class="objectives-heading">What you will take from this module</p>
+  <ul class="objectives-list">
+    <li><span class="obj-num">01</span>Understand why enterprise architecture is a sustainability governance mechanism — and what the TIME model looks like applied to carbon</li>
+    <li><span class="obj-num">02</span>Know the sustainable software development lifecycle: where sustainability enters design, and what the definition of done looks like with it included</li>
+    <li><span class="obj-num">03</span>Understand the Software Carbon Intensity formula and why intensity is the metric engineering teams can directly influence</li>
+    <li><span class="obj-num">04</span>Know the most common energy-efficient code patterns and data management practices — and why dark data is one of the most easily remediated waste categories</li>
+    <li><span class="obj-num">05</span>Understand what to ask SaaS vendors about shared infrastructure emissions</li>
+  </ul>
+</div>
+<div class="module-content">
+
+<div class="content-section reveal">
+  <p class="section-label">Section 1</p>
+  <h2 class="section-title">Enterprise architecture as a sustainability lever.</h2>
+  <p class="section-intro">Before code, before infrastructure — the application portfolio. Every application that continues running because nobody made a deliberate decision to retire it is consuming resources for no business return.</p>
+  <div class="definition reveal">The TIME model applied to carbon: Tolerate, Invest, Migrate, Eliminate. The Eliminate category is where the highest sustainability return per decision lives — and it is almost always underused.</div>
+  <div class="card-grid card-grid-2 reveal">
+    <div class="card card-accent-o"><div class="card-label">Tolerate</div><h4>Runs as-is, no investment</h4><p>Application remains in service at current efficiency. Measure its intensity. If intensity is high and usage is low, tolerance has a cost.</p></div>
+    <div class="card card-accent-t"><div class="card-label">Invest</div><h4>Active improvement</h4><p>The service is worth improving. Sustainability criteria enter the investment case — compute per transaction, data retention policy, architecture pattern.</p></div>
+    <div class="card"><div class="card-label">Migrate</div><h4>Move to more efficient platform</h4><p>Often delivers efficiency gains. Cloud-native, serverless, or managed services that eliminate the overhead of bespoke infrastructure.</p></div>
+    <div class="card"><div class="card-label">Eliminate</div><h4>Retire — the highest-leverage decision</h4><p>Every application retired removes its entire footprint: run cost, licence cost, support overhead, energy, and embodied hardware. Retirement is the most impactful decision portfolio governance can make.</p></div>
+  </div>
+</div>
+
+
+  <!-- TIME MODEL INTERACTIVE CATEGORISER -->
+  <div class="viz-container reveal" id="timeModel" style="padding:0;margin-top:1.75rem;">
+    <div style="padding:1.25rem 1.5rem 0.75rem;border-bottom:1px solid rgba(255,255,255,0.06);">
+      <p class="viz-title">TIME model — click each category to understand how it applies to sustainability governance</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.06);">
+      <button onclick="showTIME('T',this)" class="time-btn" style="background:#1E293B;border:none;padding:1.5rem 1rem;cursor:pointer;text-align:center;transition:background 0.15s;border-top:3px solid #64748B;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:1.8rem;font-weight:700;color:#64748B;margin-bottom:0.35rem;">T</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B;letter-spacing:0.08em;">Tolerate</div>
+      </button>
+      <button onclick="showTIME('I',this)" class="time-btn" style="background:#1E293B;border:none;padding:1.5rem 1rem;cursor:pointer;text-align:center;transition:background 0.15s;border-top:3px solid #64748B;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:1.8rem;font-weight:700;color:#64748B;margin-bottom:0.35rem;">I</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B;letter-spacing:0.08em;">Invest</div>
+      </button>
+      <button onclick="showTIME('M',this)" class="time-btn" style="background:#1E293B;border:none;padding:1.5rem 1rem;cursor:pointer;text-align:center;transition:background 0.15s;border-top:3px solid #64748B;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:1.8rem;font-weight:700;color:#64748B;margin-bottom:0.35rem;">M</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B;letter-spacing:0.08em;">Migrate</div>
+      </button>
+      <button onclick="showTIME('E',this)" class="time-btn" style="background:#162840;border:none;padding:1.5rem 1rem;cursor:pointer;text-align:center;transition:background 0.15s;border-top:3px solid #00A896;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:1.8rem;font-weight:700;color:#00A896;margin-bottom:0.35rem;">E</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#00A896;letter-spacing:0.08em;">Eliminate</div>
+      </button>
+    </div>
+    <div id="time-panel" style="background:#1E293B;padding:1.5rem;min-height:180px;"></div>
+    <div style="padding:0.75rem 1.5rem;border-top:1px solid rgba(255,255,255,0.05);background:rgba(0,168,150,0.04);">
+      <p style="font-size:0.79rem;color:#94A3B8;line-height:1.6;"><strong style="color:#00A896;">Eliminate is the highest leverage action</strong> in most portfolio reviews. The carbon you do not generate by not running an application outweighs any efficiency improvement you could apply to it. Most portfolios find they are over-indexed on Tolerate and under-indexed on Eliminate — not because they've decided to keep those applications, but because nobody has decided anything.</p>
+    </div>
+  </div>
+  <script>
+  var timeData = {
+    T: {
+      color: '#94A3B8',
+      name: 'Tolerate — accept current state for now',
+      question: 'What is the carbon intensity of this application? Is it on a trajectory to improve?',
+      desc: 'Technical debt and sustainability inefficiency accepted where the application still delivers value and change is not yet justified. This is not a permanent state — it is a deliberate decision to defer, with a review date.',
+      signals: ['Application is delivering value and has no viable alternative yet','Carbon intensity is known and being tracked','A specific review date exists — Tolerate with no review date is just neglect','Cost or complexity of change exceeds the sustainability benefit right now'],
+      watchout: 'The most common misuse: Tolerate becomes the default for everything nobody has looked at. That is not Tolerate — that is absence of portfolio management.'
+    },
+    I: {
+      color: '#F4A261',
+      name: 'Invest — actively improve the application',
+      question: 'What are the specific efficiency improvements and what carbon reduction do they deliver?',
+      desc: 'Active sustainability investment: code efficiency, data minimisation, telemetry right-sizing, infrastructure optimisation. Sustainability investment should produce a measurable improvement in carbon per transaction — not just be "doing green things".',
+      signals: ['Application has strong business value and will continue running','Specific efficiency improvements are identified and scoped','Expected carbon intensity improvement can be quantified','Engineering team has capacity and the right to make changes'],
+      watchout: 'Invest without a target is activity without accountability. Define the functional unit and the before/after intensity before committing investment.'
+    },
+    M: {
+      color: '#B2EDE7',
+      name: 'Migrate — move to a more efficient platform',
+      question: 'What is the carbon intensity before and after? Has the functional unit been defined?',
+      desc: 'Cloud migration, architecture modernisation, or consolidation onto a better-utilised shared platform. The carbon argument for migration is strongest when the destination is meaningfully more efficient — not just different. Shared platforms with high utilisation consistently outperform dedicated under-utilised infrastructure.',
+      signals: ['Current platform has structurally poor efficiency (low utilisation, old hardware, high PUE)','Destination platform has documented, better efficiency characteristics','Migration cost is justified by TCO improvement including carbon','Region and energy sourcing at destination have been evaluated'],
+      watchout: 'Migration that moves a workload from an on-premise server to a cloud region running on coal-heavy grid power is not a sustainability improvement. Evaluate destination grid intensity before treating migration as a green action.'
+    },
+    E: {
+      color: '#00A896',
+      name: 'Eliminate — retire applications with no business return',
+      question: 'What is blocking retirement? Is the answer technical, political, or just inertia?',
+      desc: 'The highest-leverage action in most portfolio reviews. The carbon you do not generate by not running an application is far more impactful than any optimisation you could apply to it. Most organisations find that 15–30% of their portfolio is Eliminate-eligible if they look honestly.',
+      signals: ['No active users in the past 90 days','Business owner cannot articulate the value being delivered','Duplicate capability exists elsewhere in the estate','Application was provisioned for a project that completed'],
+      watchout: 'The most common blockers are not technical — they are political or they are inertia. "We might need it" is not a justification for continued resource consumption. Require a named business owner to make an affirmative case for keeping it running.'
+    }
+  };
+  function showTIME(letter, btn) {
+    document.querySelectorAll('.time-btn').forEach(function(b) {
+      b.style.background = '#1E293B';
+      var letter_el = b.querySelector('div:first-child');
+      var label_el = b.querySelector('div:last-child');
+      letter_el.style.color = '#64748B';
+      label_el.style.color = '#64748B';
+      b.style.borderTopColor = '#64748B';
+    });
+    var d = timeData[letter];
+    btn.style.background = '#162840';
+    btn.querySelector('div:first-child').style.color = d.color;
+    btn.querySelector('div:last-child').style.color = d.color;
+    btn.style.borderTopColor = d.color;
+    document.getElementById('time-panel').innerHTML =
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">' +
+        '<div>' +
+          '<div style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:' + d.color + ';text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.4rem;">' + d.name + '</div>' +
+          '<div style="font-size:0.78rem;color:#F4A261;font-style:italic;margin-bottom:0.75rem;padding:0.5rem 0.75rem;background:rgba(244,162,97,0.06);border-left:2px solid #F4A261;">Test: ' + d.question + '</div>' +
+          '<p style="font-size:0.83rem;color:#94A3B8;line-height:1.7;">' + d.desc + '</p>' +
+          '<div style="margin-top:0.85rem;padding:0.6rem 0.85rem;background:rgba(231,111,81,0.06);border-left:2px solid #E76F51;font-size:0.78rem;color:#94A3B8;line-height:1.55;"><strong style="color:#E76F51;">Watch out:</strong> ' + d.watchout + '</div>' +
+        '</div>' +
+        '<div>' +
+          '<div style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:' + d.color + ';text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.75rem;">Signals this is the right category</div>' +
+          d.signals.map(function(s) {
+            return '<div style="display:flex;gap:0.65rem;align-items:flex-start;padding:0.45rem 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.81rem;color:#94A3B8;line-height:1.5;">' +
+              '<span style="color:' + d.color + ';flex-shrink:0;font-size:0.7rem;">✓</span>' + s + '</div>';
+          }).join('') +
+        '</div>' +
+      '</div>';
+  }
+  showTIME('E', document.querySelectorAll('.time-btn')[3]);
+  </script>
+
+
+<div class="content-section reveal">
+  <p class="section-label">Section 2</p>
+  <h2 class="section-title">Software Carbon Intensity — the engineering metric.</h2>
+  <p class="section-intro">Intensity, not total emissions, is the metric engineering teams can directly influence. Total emissions grow with the service — that is expected. Intensity tells you whether engineering decisions are improving or degrading the sustainability of each unit of work.</p>
+
+    <div class="callout callout-key" style="margin-bottom:1.5rem;">
+      <p class="callout-title">Builds on <a href="module3.html" style="color:var(--teal);text-decoration:none;">Module 3 ↗</a></p>
+      <p>The SCI formula uses the same carbon intensity figures and functional unit concepts introduced in Module 3. If those concepts are unfamiliar, start there.</p>
+    </div>
+
+  <div class="viz-container reveal">
+    <p class="viz-title">SCI formula — interactive worked example</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
+      <div>
+        <div class="definition" style="font-size:1rem; margin:0 0 1.5rem;">SCI = (E × I) ÷ R</div>
+        <table class="compare-table">
+          <tr><th>Variable</th><th>Meaning</th><th>Example value</th></tr>
+          <tr><td><strong>E</strong></td><td>Energy consumed (kWh)</td><td>2.4 kWh per run</td></tr>
+          <tr><td><strong>I</strong></td><td>Grid carbon intensity (g CO₂/kWh)</td><td>168 g/kWh (London)</td></tr>
+          <tr><td><strong>R</strong></td><td>Functional unit (transactions, calls, sessions)</td><td>50,000 records</td></tr>
+          <tr style="background:rgba(28,169,160,0.06)"><td><strong>SCI</strong></td><td>Carbon per functional unit</td><td>8.06 g CO₂ per 1,000 records</td></tr>
+        </table>
+        <div class="callout callout-insight" style="margin-top:1rem;">
+          <p class="callout-title">Set an intensity target</p>
+          <p style="font-size:0.82rem">Reduce to 6g CO₂ per 1,000 records within two quarters. That is a specific, ownable engineering goal — independent of how many records the pipeline processes.</p>
+        </div>
+      </div>
+
+  <!-- SCI LIVE CALCULATOR -->
+  <div class="viz-container reveal" id="sciCalc" style="padding:0;margin-top:1.75rem;">
+    <div style="padding:1.5rem 1.5rem 1rem;border-bottom:1px solid rgba(255,255,255,0.06);">
+      <p class="viz-title">SCI live calculator — adjust the inputs and see the formula update in real time</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
+      <div style="padding:1.5rem;border-right:1px solid rgba(255,255,255,0.06);">
+        <div style="margin-bottom:1.25rem;">
+          <label style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B;letter-spacing:0.12em;text-transform:uppercase;display:block;margin-bottom:0.5rem;">E — Energy consumed per run (kWh)</label>
+          <input type="range" id="sci-e" min="0.1" max="20" step="0.1" value="2.4" oninput="updateSCI()" style="width:100%;accent-color:#00A896;margin-bottom:0.3rem;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#00A896;" id="sci-e-val">2.4 kWh</span>
+        </div>
+        <div style="margin-bottom:1.25rem;">
+          <label style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B;letter-spacing:0.12em;text-transform:uppercase;display:block;margin-bottom:0.5rem;">I — Grid carbon intensity (g CO₂/kWh)</label>
+          <div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:0.5rem;">
+            <button onclick="setRegion(18,'Norway')" style="padding:0.25rem 0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.58rem;background:rgba(0,168,150,0.1);border:1px solid rgba(0,168,150,0.25);color:#00A896;cursor:pointer;transition:all 0.12s;" id="reg-Norway">Norway 18g</button>
+            <button onclick="setRegion(28,'Scotland')" style="padding:0.25rem 0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.58rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:#64748B;cursor:pointer;transition:all 0.12s;" id="reg-Scotland">Scotland 28g</button>
+            <button onclick="setRegion(168,'London')" style="padding:0.25rem 0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.58rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:#64748B;cursor:pointer;transition:all 0.12s;" id="reg-London">London 168g</button>
+            <button onclick="setRegion(680,'Poland')" style="padding:0.25rem 0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.58rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:#64748B;cursor:pointer;transition:all 0.12s;" id="reg-Poland">Poland 680g</button>
+          </div>
+          <input type="range" id="sci-i" min="10" max="800" step="5" value="168" oninput="updateSCI()" style="width:100%;accent-color:#F4A261;margin-bottom:0.3rem;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#F4A261;" id="sci-i-val">168 g/kWh (London)</span>
+        </div>
+        <div>
+          <label style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B;letter-spacing:0.12em;text-transform:uppercase;display:block;margin-bottom:0.5rem;">R — Functional unit (records per run)</label>
+          <input type="range" id="sci-r" min="1000" max="500000" step="1000" value="50000" oninput="updateSCI()" style="width:100%;accent-color:#B2EDE7;margin-bottom:0.3rem;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#B2EDE7;" id="sci-r-val">50,000 records</span>
+        </div>
+      </div>
+      <div style="padding:1.5rem;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:1rem;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:#64748B;letter-spacing:0.12em;text-transform:uppercase;">SCI = (E × I) ÷ R</div>
+        <div style="text-align:center;">
+          <div id="sci-formula" style="font-family:'DM Serif Display',serif;font-size:0.95rem;color:#94A3B8;margin-bottom:0.5rem;"></div>
+          <div id="sci-result" style="font-family:'DM Serif Display',serif;font-size:2.8rem;line-height:1;color:#00A896;"></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#64748B;margin-top:0.25rem;">g CO₂ per 1,000 records</div>
+        </div>
+        <div id="sci-benchmark" style="text-align:center;padding:0.75rem 1rem;background:rgba(0,0,0,0.2);border-radius:1px;width:100%;">
+          <div id="sci-bench-text" style="font-size:0.79rem;color:#94A3B8;line-height:1.6;"></div>
+        </div>
+        <div id="sci-region-note" style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B;text-align:center;line-height:1.55;"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+  var sciRegionName = 'London';
+  function setRegion(val, name) {
+    document.getElementById('sci-i').value = val;
+    sciRegionName = name;
+    document.querySelectorAll('[id^="reg-"]').forEach(b => {
+      b.style.background='rgba(255,255,255,0.05)';b.style.borderColor='rgba(255,255,255,0.08)';b.style.color='#64748B';
+    });
+    var btn = document.getElementById('reg-' + name);
+    if(btn){btn.style.background='rgba(244,162,97,0.1)';btn.style.borderColor='rgba(244,162,97,0.25)';btn.style.color='#F4A261';}
+    updateSCI();
+  }
+  function updateSCI() {
+    var E = parseFloat(document.getElementById('sci-e').value);
+    var I = parseFloat(document.getElementById('sci-i').value);
+    var R = parseInt(document.getElementById('sci-r').value);
+    document.getElementById('sci-e-val').textContent = E.toFixed(1) + ' kWh';
+    document.getElementById('sci-i-val').textContent = I + ' g/kWh (' + sciRegionName + ')';
+    document.getElementById('sci-r-val').textContent = R.toLocaleString() + ' records';
+    var raw = (E * I) / (R / 1000);
+    document.getElementById('sci-formula').textContent = '(' + E.toFixed(1) + ' × ' + I + ') ÷ ' + (R/1000).toFixed(1) + 'k';
+    document.getElementById('sci-result').textContent = raw.toFixed(2);
+    // Benchmark context
+    var target = raw * 0.75;
+    var bench = '';
+    if(raw < 2) bench = 'Highly efficient. A 10% further improvement from code optimisation alone is realistic.';
+    else if(raw < 8) bench = 'Moderate intensity. A 25% reduction through caching and query optimisation is a credible engineering target.';
+    else if(raw < 20) bench = 'High intensity. Architecture-level changes — streaming over batch, filter-at-source queries — could deliver 40–60% reduction.';
+    else bench = 'Very high intensity. Significant refactoring opportunity. Start with data access patterns and compute per transaction.';
+    document.getElementById('sci-bench-text').textContent = bench;
+    // Region note  
+    var norVal = (E * 18) / (R / 1000);
+    if(I > 20) {
+      var ratio = (raw/norVal).toFixed(1);
+      document.getElementById('sci-region-note').textContent = 'Running this workload in Norway: ' + norVal.toFixed(2) + 'g — ' + ratio + '× lower than ' + sciRegionName + '. Region selection is an operational lever.';
+    } else {
+      document.getElementById('sci-region-note').textContent = 'Running in Norway — the lowest-intensity major grid in Europe.';
+    }
+  }
+  setRegion(168, 'London');
+  </script>
+
+      <div>
+        <h4 style="font-size:0.88rem; font-weight:500; margin-bottom:0.75rem;">Integrating sustainability into the dev lifecycle</h4>
+        <div class="process-steps">
+          <div class="process-step"><div class="step-icon">1</div><div class="step-body"><strong>Architecture stage</strong><p>Ask sustainability questions at design: does this minimise data movement? Does the data model encourage unnecessary replication?</p></div></div>
+          <div class="process-step"><div class="step-icon">2</div><div class="step-body"><strong>Definition of done</strong><p>Include sustainability acceptance criteria. Treat a significant increase in carbon per transaction with the same seriousness as a latency regression.</p></div></div>
+          <div class="process-step"><div class="step-icon">3</div><div class="step-body"><strong>Product metrics</strong><p>Track carbon intensity as a product KPI alongside latency and availability — not in a separate sustainability review.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content-section reveal">
+  <p class="section-label">Section 3</p>
+  <h2 class="section-title">Data management as a sustainability practice.</h2>
+  <p class="section-intro">Data is infrastructure. Every dataset stored, every backup made, every replica created, every log retained — these are physical resource decisions with energy, storage, and cooling consequences.</p>
+  <div class="card-grid card-grid-2 reveal">
+    <div class="card card-accent-o"><div class="card-label">The problem</div><h4>Why dark data accumulates</h4><p>Storage has historically been cheap relative to its actual footprint. No process asks whether retained data still serves a live purpose. Data is added to systems as part of feature development and never scoped for deletion. Log and telemetry defaults collect at full resolution regardless of operational need.</p></div>
+    <div class="card card-accent-t"><div class="card-label">The fix</div><h4>Data lifecycle governance</h4><p>Automated lifecycle management: move to lower-energy tiers when not accessed, delete when retention expires. Audit telemetry and logging: match collection granularity to operational need, not system defaults. Treat storage growth rate as a product metric with an owner. Dark data audit: what proportion of stored data was accessed in the past 90 days?</p></div>
+  </div>
+  <div class="stat-row reveal">
+    <div class="stat-block"><div class="stat-num">60–70%</div><div class="stat-label">of stored enterprise data never accessed after initial creation</div></div>
+    <div class="stat-block"><div class="stat-num">ROT</div><div class="stat-label">Redundant, Obsolete, Trivial — standard classification for storage rationalisation</div></div>
+    <div class="stat-block"><div class="stat-num">Quick win</div><div class="stat-label">Dark data is one of the most easily remediated waste categories — no code change required</div></div>
+  </div>
+</div>
+
+<div class="kc-block reveal" data-correct="B">
+  <p class="kc-label">Knowledge Check · Module 6 · Q1</p>
+  <p class="kc-q">A product team wants to track the sustainability of their service. Their application serves 2 million transactions per day and is growing at 40% annually. Which metric should they prioritise for engineering accountability?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>Total annual CO₂ emissions from the service</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>Software Carbon Intensity — carbon per transaction — so engineering decisions can be directly linked to sustainability outcomes, independent of business volume growth</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>Total server count used by the service</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>Average carbon intensity of the programming language used</button>
+  </div>
+  <p class="kc-hint">Select an answer to reveal the explanation.</p>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">✓ Correct: Option B</p>
+    <p>A service growing at 40% annually will almost certainly emit more in total each year — even if the team is doing excellent sustainability work. If the metric is total emissions, the engineering team can never show improvement against business growth. Their incentive becomes constraining growth, which is not the right goal.</p>
+    <p>Software Carbon Intensity — carbon per transaction — decouples sustainability performance from business scale. If the service processes 40% more transactions but emits the same or less carbon per transaction, the engineering team has genuinely improved. That is the accountability signal worth tracking.</p>
+  </div>
+</div>
+
+<div class="kc-block reveal" data-correct="B">
+  <p class="kc-label">Knowledge Check · Module 6 · Q2</p>
+  <p class="kc-q">A SaaS vendor states in their annual sustainability report that they are "committed to net zero by 2040 across all operations." What additional information should you request before including this in your Scope 3 reporting?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>No additional information is needed — the vendor's public commitment is sufficient for disclosure purposes</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>The hosting location, energy sourcing at the data centres used, the methodology for allocating shared infrastructure emissions to your tenancy, and whether per-tenant intensity metrics are available</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>The year the commitment was made and whether it covers Scope 1 and 2 only</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>The vendor's CDP disclosure rating</button>
+  </div>
+  <p class="kc-hint">Select an answer to reveal the explanation.</p>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">✓ Correct: Option B</p>
+    <p>A corporate net-zero commitment tells you about the supplier's trajectory and ambition. It tells you almost nothing about the specific emissions associated with your tenancy of their service. Scope 3 reporting requires product-level evidence — not corporate commitments.</p>
+    <p>The questions you need answered are: where is the service hosted, how is the infrastructure powered, how are shared infrastructure emissions allocated to individual tenants, and how confident are you in those allocation figures? The absence of that data does not mean the absence of impact — it means you have an unquantified Scope 3 exposure.</p>
+  </div>
+</div>
+
+<div class="pause-reflect reveal">
+  <p class="pause-label">⏸ Pause &amp; Reflect</p>
+  <p class="pause-intro">Take 5–10 minutes. Specificity matters more than completeness.</p>
+  <div class="pause-questions">
+    <div class="pause-q"><span class="pause-q-num">1</span>Think about the application portfolio you work with. If you had to classify every application using the TIME model today, what proportion would honestly be in the Eliminate category? What is stopping those decisions being made?</div>
+    <div class="pause-q"><span class="pause-q-num">2</span>Pick one service you own or know well. What is its carbon per transaction today? If you don't know, what would it take to find out — and who would need to be involved?</div>
+    <div class="pause-q"><span class="pause-q-num">3</span>How permissive is the data retention policy for the services you work with? When was it last reviewed? Who owns it?</div>
+  </div>
+</div>
+
+<div class="takeaways reveal">
+  <h3 class="takeaways-heading">Module 6 — Key Takeaways</h3>
+  <div class="takeaway-list">
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Enterprise architecture is a sustainability governance mechanism.</strong><p>Every application that runs without a deliberate decision to keep it running is consuming resources for no return. Retiring applications is often the single highest-leverage action in a portfolio review.</p></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Dark data is one of the most easily remediated waste categories.</strong><p>It accumulates through permissive defaults and the absence of any process asking whether retained data still serves a purpose. Data minimisation at design stage is the intervention point — before data exists, not after.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>SaaS absence of data is not absence of impact.</strong><p>Multi-tenant platforms carry Scope 3 exposure whether or not the provider discloses it. Ask the right questions at contract evaluation and renewal — not retrospectively during a reporting cycle.</p></div></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Software Carbon Intensity is the metric engineering teams can directly influence.</strong><p>Intensity — carbon per transaction, per call, per session — moves with engineering decisions. Total emissions move with business volume. Both matter; they serve different purposes.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Energy efficiency and software quality point in the same direction.</strong><p>Efficient algorithms, event-driven patterns, streaming over bulk loading, filter-at-source queries — these are engineering quality practices that also reduce energy per unit of useful work.</p></div></div>
+  </div>
+</div>
+</div>
+
+<div class="module-nav">
+  <a href="module5.html" class="nav-btn"><span><span class="nav-btn-label">← Previous</span><span class="nav-btn-title">M5: From Reporting to Operational Excellence</span></span></a>
+  <button class="complete-btn" onclick="markComplete('module6')">Mark as complete</button>
+  <a href="module7.html" class="nav-btn next"><span><span class="nav-btn-label">Next →</span><span class="nav-btn-title">M7: Procurement, Supply Chains, and Vendor Evidence</span></span></a>
+</div>
+<footer>
+  <div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 6</div>
+  <div class="footer-brand">March 2026 · v2</div>
+</footer>
+<script src="shared.js"></script>
+<script>initProgress(6);</script>
+</body>
+</html>

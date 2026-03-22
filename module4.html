@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M4: Where Impact Lives Across the IT Estate — GreenOps 101</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* Inline brand vars — ensures dark theme even if shared.css path fails */
+:root {
+  --navy:#0F1F2E; --navy-mid:#162840; --navy-card:#1E293B; --navy-light:#1C3A55;
+  --teal:#00A896; --teal-dark:#007A6E; --teal-muted:#B2EDE7;
+  --orange:#E76F51; --orange-light:#F4A261;
+  --slate:#94A3B8; --slate-dark:#64748B;
+  --border:#D1D9E0; --border-light:#E8EDF2; --white:#FFFFFF;
+  --track1:#00A896; --track2:#F4A261; --track3:#E76F51;
+  --correct:#22c55e; --wrong:#ef4444;
+  /* Legacy aliases */
+  --grey-100:rgba(255,255,255,0.06); --grey-300:#94A3B8;
+  --grey-500:#64748B; --grey-700:#4A4840;
+}
+html,body{background:#0F1F2E;color:#FFFFFF;}
+</style>
+
+<style>
+/* Domain selector */
+.domain-selector {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  margin: 2rem 0 0;
+}
+.domain-btn {
+  background: var(--navy-mid);
+  border: none;
+  padding: 1rem 0.5rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.15s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+.domain-btn:hover { background: var(--navy-card); }
+.domain-btn.active { background: var(--navy-card); border-top: 3px solid var(--teal); }
+.domain-icon { font-size: 1.4rem; }
+.domain-label { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate-dark); line-height: 1.3; }
+.domain-btn.active .domain-label { color: var(--teal); }
+.domain-driver {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  color: var(--slate-dark);
+  line-height: 1.3;
+}
+
+.domain-panels { background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.07); border-top: none; }
+.domain-panel { display: none; padding: 2rem; }
+.domain-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.domain-panel h4 { font-weight: 500; font-size: 0.95rem; margin-bottom: 0.6rem; }
+.domain-panel p { font-size: 0.84rem; color: var(--slate); line-height: 1.7; margin-bottom: 0.75rem; }
+.dp-good h5 { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.6rem; }
+.dp-warn h5 { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.6rem; }
+.dp-list { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+.dp-good .dp-list li { font-size: 0.8rem; color: var(--slate); padding-left: 1rem; position: relative; }
+.dp-good .dp-list li::before { content: '✓ '; color: var(--teal); position: absolute; left: 0; }
+.dp-warn .dp-list li { font-size: 0.8rem; color: var(--slate-dark); padding-left: 1.25rem; position: relative; }
+.dp-warn .dp-list li::before { content: '⚠ '; position: absolute; left: 0; }
+
+/* PUE/Utilisation interactive chart */
+.pue-util-chart {
+  position: relative;
+  height: 220px;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.06);
+  margin: 1.5rem 0;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.chart-grid-h {
+  position: absolute;
+  left: 50px; right: 0; top: 0; bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.chart-grid-line {
+  width: 100%;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.chart-y-labels {
+  position: absolute;
+  left: 0; width: 45px; top: 0; bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-right: 6px;
+}
+.chart-y-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  color: var(--slate-dark);
+}
+.chart-x-label {
+  position: absolute;
+  bottom: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  color: var(--slate-dark);
+}
+.chart-x-label.left { left: 55px; }
+.chart-x-label.right { right: 8px; }
+.chart-x-title {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  color: var(--slate-dark);
+}
+/* Scatter dots */
+.chart-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transform: translate(-50%, 50%);
+  cursor: pointer;
+  transition: transform 0.15s, filter 0.15s;
+}
+.chart-dot:hover { transform: translate(-50%, 50%) scale(1.5); filter: brightness(1.3); }
+.chart-dot .dot-tooltip {
+  display: none;
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--navy);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 0.4rem 0.6rem;
+  font-size: 0.68rem;
+  white-space: nowrap;
+  color: var(--white);
+  z-index: 10;
+  pointer-events: none;
+}
+.chart-dot:hover .dot-tooltip { display: block; }
+.zone-target { position: absolute; background: rgba(0,168,150,0.08); border: 1px dashed rgba(0,168,150,0.3); border-radius: 2px; }
+.zone-label { font-size: 0.65rem; color: var(--teal); position: absolute; }
+.zone-warning { font-size: 0.65rem; color: var(--orange); position: absolute; }
+
+/* Stop/Start doing cards */
+.stop-start {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.stop-col { border-top: 3px solid var(--orange); background: var(--navy-mid); padding: 1.5rem; }
+.start-col { border-top: 3px solid var(--teal); background: var(--navy-mid); padding: 1.5rem; }
+.ss-heading {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.stop-col .ss-heading { color: var(--orange); }
+.start-col .ss-heading { color: var(--teal); }
+.ss-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.ss-list li { font-size: 0.82rem; color: var(--slate); padding-left: 1.25rem; position: relative; line-height: 1.5; }
+.stop-col .ss-list li::before { content: 'Stop  '; color: var(--orange); position: absolute; left: 0; font-weight: 500; font-size: 0.72rem; }
+.start-col .ss-list li::before { content: 'Start  '; color: var(--teal); position: absolute; left: 0; font-weight: 500; font-size: 0.72rem; }
+</style>
+</head>
+<body class="track1">
+
+<nav class="top-nav">
+  <a href="index.html" class="nav-home">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L1 6v7h4v-4h4v4h4V6L7 1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+    GreenOps 101
+  </a>
+  <span class="nav-sep">/</span>
+  <span class="nav-module">Module 4</span>
+  <span class="nav-track-pill track1-pill">Track 1 — Technical Foundation</span>
+  <div class="nav-progress">Progress: <span id="progress-count">0/14</span></div>
+</nav>
+
+<section class="module-hero">
+  <div class="hero-num">4</div>
+  <p class="module-eyebrow">Module 4 &nbsp;·&nbsp; Track 1 — Technical Foundation</p>
+  <h1 class="module-title">Where Impact Lives Across<br>the IT Estate.</h1>
+  <p class="module-subtitle">Seven domains. Seven distinct sets of levers. What actually drives footprint in each — and what to do about it.</p>
+  <div class="module-meta">
+    <div class="meta-item"><span class="label">Duration</span><span class="value">28–34 minutes</span></div>
+    <div class="meta-item"><span class="label">Track</span><span class="value">Technical Foundation</span></div>
+    <button class="complete-btn" onclick="markComplete('module4')">Mark as complete</button>
+  </div>
+</section>
+
+<div class="objectives-strip reveal">
+  <p class="objectives-heading">What you will take from this module</p>
+  <ul class="objectives-list">
+    <li><span class="obj-num">01</span>Understand the dominant footprint drivers in each of the seven IT domains</li>
+    <li><span class="obj-num">02</span>Know the most common failure modes in end-user services, data centres, and cloud operations</li>
+    <li><span class="obj-num">03</span>Understand why software and data decisions create long-lived sustainability consequences</li>
+    <li><span class="obj-num">04</span>Know what good hardware lifecycle governance looks like, and what the trade-off traps are</li>
+    <li><span class="obj-num">05</span>Understand AI as a cross-cutting consumption multiplier — with a practical stop/start list</li>
+  </ul>
+</div>
+
+<div class="module-content">
+
+<!-- SECTION 1 — Domain fluency -->
+<div class="content-section reveal">
+  <p class="section-label">Section 1</p>
+  <h2 class="section-title">Domain fluency — why one narrative doesn't work.</h2>
+  <p class="section-intro">The most common mistake is applying the same sustainability narrative everywhere. Each domain has different dominant drivers, different failure modes, and different levers. GreenOps requires domain fluency — not a universal story.</p>
+
+  <!-- Interactive domain explorer -->
+  <div class="viz-container reveal" style="padding: 0;">
+    <div class="domain-selector" id="domainSelector">
+      <button class="domain-btn active" onclick="showDomain('enduser', this)">
+        <span class="domain-icon">💻</span>
+        <span class="domain-label">End-User</span>
+        <span class="domain-driver">Embodied carbon</span>
+      </button>
+      <button class="domain-btn" onclick="showDomain('dc', this)">
+        <span class="domain-icon">🏢</span>
+        <span class="domain-label">Data Centres</span>
+        <span class="domain-driver">PUE & utilisation</span>
+      </button>
+      <button class="domain-btn" onclick="showDomain('cloud', this)">
+        <span class="domain-icon">☁️</span>
+        <span class="domain-label">Cloud</span>
+        <span class="domain-driver">Idle & over-prov.</span>
+      </button>
+      <button class="domain-btn" onclick="showDomain('software', this)">
+        <span class="domain-icon">⚙️</span>
+        <span class="domain-label">Software & Data</span>
+        <span class="domain-driver">Compute per task</span>
+      </button>
+      <button class="domain-btn" onclick="showDomain('hardware', this)">
+        <span class="domain-icon">🖥️</span>
+        <span class="domain-label">Hardware</span>
+        <span class="domain-driver">Embodied & EOL</span>
+      </button>
+      <button class="domain-btn" onclick="showDomain('ai', this)">
+        <span class="domain-icon">🤖</span>
+        <span class="domain-label">AI</span>
+        <span class="domain-driver">Inference at scale</span>
+      </button>
+      <button class="domain-btn" onclick="showDomain('networks', this)">
+        <span class="domain-icon">🌐</span>
+        <span class="domain-label">Networks</span>
+        <span class="domain-driver">Data movement</span>
+      </button>
+    </div>
+    <div class="domain-panels">
+
+      <!-- End-User -->
+      <div class="domain-panel active" id="domain-enduser">
+        <div>
+          <h4>End-User Services: the footprint is mostly before you switch it on</h4>
+          <p>~80% of a laptop's lifetime footprint is manufacturing — before it reaches your desk. The dominant lever in end-user services is lifecycle and procurement, not plug socket behaviour. Every additional year you keep a device in productive use represents a meaningful reduction in embodied carbon per year of service.</p>
+          <div class="dp-warn">
+            <h5>⚠ Common defaults that add up</h5>
+            <ul class="dp-list">
+              <li>Extra devices issued as standard regardless of role</li>
+              <li>Two monitors by default — whether the role needs them or not</li>
+              <li>Docking stations accumulating in storage rooms, never recovered</li>
+              <li>Laptops shipped by air because onboarding was left to the last minute</li>
+              <li>No recovery process — ordering new is easier than redeploying existing</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="dp-good">
+            <h5>✓ What good practice looks like</h5>
+            <ul class="dp-list">
+              <li>Role-based device standards — match specification to actual role requirements</li>
+              <li>Power management enforced centrally by policy, not individual choice</li>
+              <li>Recovery and redeploy process genuinely easier than ordering new</li>
+              <li>Accessory lifecycle management — cables and docks are assets, not consumables</li>
+              <li>Governed AI usage for routine tasks to prevent silent inference growth</li>
+            </ul>
+          </div>
+          <div class="callout callout-insight" style="margin-top:1rem;">
+            <p class="callout-title">The primary lever</p>
+            <p style="font-size:0.82rem;">Lifecycle extension. One additional year of use per device reduces embodied carbon per year of service by ~20% on a typical refresh cycle.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Centres -->
+      <div class="domain-panel" id="domain-dc">
+        <div>
+          <h4>Data Centres: where resource intensity is concentrated and measurable</h4>
+          <p>Data centres are where the numbers are easy to quote — and easy to misuse. PUE without utilisation data is dangerous. A lightly loaded site can have good PUE while still being wasteful in absolute terms.</p>
+          <div class="dp-warn">
+            <h5>⚠ Metric theatre to watch for</h5>
+            <ul class="dp-list">
+              <li>Design PUE presented as if it reflects operational reality</li>
+              <li>Annual average PUE hiding seasonal peaks (ask for seasonal breakdown)</li>
+              <li>Portfolio averages masking the worst-performing sites</li>
+              <li>"Renewable energy" claims without stated instruments or boundaries</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="dp-good">
+            <h5>✓ The metrics — what they measure and what they hide</h5>
+            <ul class="dp-list">
+              <li><strong>PUE</strong> — Total facility power ÷ IT equipment power. ~1.1 exceptional. Context matters.</li>
+              <li><strong>WUE</strong> — Litres of water ÷ kWh of IT energy. Track seasonality and water stress.</li>
+              <li><strong>CUE</strong> — CO₂ emissions ÷ IT equipment energy. Bridge between efficiency and impact.</li>
+              <li><strong>REF/ERF</strong> — Only as good as the evidence behind them. Push for granularity.</li>
+            </ul>
+          </div>
+          <div class="callout callout-warning" style="margin-top:1rem;">
+            <p class="callout-title">The follow-up question</p>
+            <p style="font-size:0.82rem;">For any PUE figure: what is IT server utilisation — and what is the plan to improve it through consolidation and decommissioning?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cloud -->
+      <div class="domain-panel" id="domain-cloud">
+        <div>
+          <h4>Cloud: the continuous control loop</h4>
+          <p>Cloud doesn't remove infrastructure responsibility — it changes where the levers sit. Rightsizing is not a project. It's a discipline that only sticks when owned jointly by platform engineering and FinOps, with application owners brought in on decisions that affect performance.</p>
+          <div class="dp-warn">
+            <h5>⚠ Where cloud waste actually hides</h5>
+            <ul class="dp-list">
+              <li>Zombie resources — running with no active workload</li>
+              <li>Non-production environments left on after business hours</li>
+              <li>Orphaned storage from decommissioned services</li>
+              <li>Oversized instances based on peak provisioning, never revisited</li>
+              <li>Untagged resources with no owner and no review trigger</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="dp-good">
+            <h5>✓ The 5-step remediation loop</h5>
+            <ul class="dp-list">
+              <li>Visibility and attribution — if you can't attribute, you can't govern</li>
+              <li>Baselining unit economics — carbon per VM-hour, idle percentage</li>
+              <li>Remediate with a hierarchy of levers — kill zombies first, then rightsize</li>
+              <li>Prevent recurrence with guardrails — policy-as-code, default sizing limits</li>
+              <li>Verify and institutionalise — bake into FinOps reviews, not heroic side missions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Software & Data -->
+      <div class="domain-panel" id="domain-software">
+        <div>
+          <h4>Software and data: decisions that compound over a service's lifetime</h4>
+          <p>Software behaviour is one of the most underestimated sustainability levers. Inefficient code patterns, unchecked data growth, and ungoverned telemetry aggregate into material footprints at scale — and are rarely attributed to the engineering decisions that drove them.</p>
+          <div class="dp-warn">
+            <h5>⚠ Common patterns to watch for</h5>
+            <ul class="dp-list">
+              <li>Unnecessary computation on every request — cache-first thinking is absent</li>
+              <li>Data retained indefinitely — no lifecycle policy, no review trigger</li>
+              <li>Heavy dependencies for lightweight tasks</li>
+              <li>Telemetry collecting everything "just in case" with no retention policy</li>
+              <li>Applications that continue running because nobody decided to retire them</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="dp-good">
+            <h5>✓ What shifts the software footprint</h5>
+            <ul class="dp-list">
+              <li>Compute efficiency — measure carbon per transaction, not just total compute</li>
+              <li>Software Carbon Intensity (SCI) — intensity, not absolute, is the actionable metric</li>
+              <li>Architecture-level choices — right pattern for the workload, not the familiar one</li>
+              <li>Data minimisation — only collect, process, and retain what's justified</li>
+              <li>Portfolio rationalisation — the TIME model applied to carbon</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hardware Lifecycle -->
+      <div class="domain-panel" id="domain-hardware">
+        <div>
+          <h4>Hardware lifecycle: starts at design, not disposal</h4>
+          <p>Embodied carbon is determined by procurement and use decisions made years before end-of-life. Evidence-based refresh cycles and circular economy criteria are the lever. The recycling bin is not.</p>
+          <div class="dp-warn">
+            <h5>⚠ Three lifecycle trade-off traps</h5>
+            <ul class="dp-list">
+              <li><strong>Trap 1</strong> — Extending asset life isn't always right: if older hardware is dramatically less energy-efficient, keeping it longer may increase operational energy per unit of useful compute</li>
+              <li><strong>Trap 2</strong> — Refresh early "in the name of efficiency": if you replace too frequently, embodied emissions and e-waste rise</li>
+              <li><strong>Trap 3</strong> — Comparing products without comparable functional units: a higher-footprint server may be more efficient per unit of delivered compute</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="dp-good">
+            <h5>✓ The lifecycle governance approach</h5>
+            <ul class="dp-list">
+              <li>Treat lifecycle decisions as a unit economics problem: energy per unit of useful work, balanced against embodied impact and lifespan</li>
+              <li>Include sustainability criteria in procurement — not just performance and cost</li>
+              <li>Design for repairability and component replacement, not whole-unit replacement</li>
+              <li>ITAD governance — certified disposal, data sanitisation, refurbishment pathways</li>
+              <li>Manufacturer take-back programmes for responsible end-of-life</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI -->
+      <div class="domain-panel" id="domain-ai">
+        <div>
+          <h4>AI: the cross-cutting consumption multiplier</h4>
+          <p>The main risk for most organisations is not the training runs that make headlines. It's inference demand scaling quietly across hundreds or thousands of users — embedded in products, integrated into workflows, and left ungoverned because it feels like productivity rather than infrastructure.</p>
+          <p style="color:var(--orange); font-size:0.82rem;">AI is the fastest-growing ungoverned consumption category in enterprise IT.</p>
+        </div>
+        <div>
+          <div style="display:flex; flex-direction:column; gap:0.75rem;">
+            <div class="callout callout-warning" style="margin:0;">
+              <p class="callout-title">The governance failure pattern</p>
+              <p style="font-size:0.82rem;">A large frontier model deployed as the default for all staff — including for writing short emails. Routine tasks using models 10–50× over-specified. Inference demand scales at the rate of adoption, not value.</p>
+            </div>
+            <div class="callout callout-insight" style="margin:0;">
+              <p class="callout-title">The fix: model tiering</p>
+              <p style="font-size:0.82rem;">Small models for routine tasks, mid-range where reasoning is needed, frontier only where it genuinely changes the outcome. Make the smallest reliable model the default. Require justification to escalate.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Networks -->
+      <div class="domain-panel" id="domain-networks">
+        <div>
+          <h4>Networks: the invisible footprint</h4>
+          <p>Networks are the invisible infrastructure of digital services. Their impact is frequently omitted from sustainability programmes because the data is hard to access. That doesn't make the impact smaller.</p>
+          <p>Egress costs and egress footprint move together. If cloud egress charges are significant, data is moving in patterns that were not intentionally designed. Cost and carbon align without additional justification.</p>
+        </div>
+        <div>
+          <div class="dp-good">
+            <h5>✓ Network efficiency levers</h5>
+            <ul class="dp-list">
+              <li>Minimise unnecessary data movement — every API call transferring excess data aggregates at scale</li>
+              <li>Reduce cross-region replication to what's justified — revisit defaults set under different constraints</li>
+              <li>Cache at the appropriate layer — repeated transfers of static content are avoidable</li>
+              <li>Review video conferencing defaults — high-resolution by default is a policy choice, not a technical requirement</li>
+              <li>Treat egress costs and footprint as the same signal — they are</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2 — PUE + Utilisation interactive -->
+<div class="content-section reveal">
+  <p class="section-label">Section 2</p>
+  <h2 class="section-title">PUE and utilisation — both dials matter.</h2>
+  <p class="section-intro">A good PUE on a lightly loaded site is not a success — it's a warning sign. The goal is high utilisation at improving efficiency. Hover over the dots to understand each scenario.</p>
+
+  <div class="viz-container reveal">
+    <p class="viz-title">Data centre performance — PUE vs IT utilisation (hover for detail)</p>
+    <div class="pue-util-chart" id="pueChart">
+      <!-- Zone: target -->
+      <div class="zone-target" style="right:5%; top:5%; width:30%; height:35%;"></div>
+      <div class="zone-label" style="right:6%; top:6%;">★ Target zone</div>
+
+      <!-- Y axis labels -->
+      <div class="chart-y-labels">
+        <span class="chart-y-label">1.1</span>
+        <span class="chart-y-label">1.3</span>
+        <span class="chart-y-label">1.5</span>
+        <span class="chart-y-label">1.7</span>
+        <span class="chart-y-label">2.0</span>
+      </div>
+
+      <!-- X labels -->
+      <div class="chart-x-label left">Low utilisation</div>
+      <div class="chart-x-title">← IT Server Utilisation →</div>
+      <div class="chart-x-label right">High utilisation</div>
+
+      <!-- Scenario dots -->
+      <div class="chart-dot" style="left:15%; bottom:35%; background: var(--orange); width:12px; height:12px;" title="">
+        <div class="dot-tooltip">A: PUE 1.45, Util 15%<br>"Reporting win, operational failure"<br>Good facility, wasted compute</div>
+      </div>
+      <div class="chart-dot" style="left:25%; bottom:60%; background:#ef4444;" title="">
+        <div class="dot-tooltip">B: PUE 2.0, Util 20%<br>"Double failure"<br>Inefficient facility AND low utilisation</div>
+      </div>
+      <div class="chart-dot" style="left:60%; bottom:35%; background: #fde047;" title="">
+        <div class="dot-tooltip">C: PUE 1.45, Util 65%<br>"Acceptable — improving"<br>Reasonable utilisation, scope to improve PUE</div>
+      </div>
+      <div class="chart-dot" style="left:75%; bottom:62%; background: var(--teal);" title="">
+        <div class="dot-tooltip">D: PUE 1.2, Util 80%<br>"★ Target zone"<br>High utilisation, efficient facility</div>
+      </div>
+      <div class="chart-dot" style="left:85%; bottom:70%; background: var(--teal-muted); width:14px; height:14px;" title="">
+        <div class="dot-tooltip">E: PUE 1.1, Util 85%<br>"Exceptional"<br>Hyperscale-level performance on both metrics</div>
+      </div>
+      <div class="chart-dot" style="left:40%; bottom:20%; background:#a855f7;" title="">
+        <div class="dot-tooltip">F: PUE 1.8, Util 40%<br>"Common enterprise reality"<br>Legacy facility, moderate utilisation — needs investment</div>
+      </div>
+    </div>
+    <div class="callout callout-insight" style="margin-top:0.5rem;">
+      <p><strong>First lever: improve utilisation before spending capital on facility efficiency improvements.</strong> A rightsizing programme that takes utilisation from 20% to 60% on an existing facility delivers more absolute carbon reduction than a PUE improvement project on a lightly loaded site.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3 — AI Stop/Start INTERACTIVE -->
+<div class="content-section reveal">
+  <p class="section-label">Section 3</p>
+  <h2 class="section-title">AI consumption — what to stop and start doing.</h2>
+  <p class="section-intro">These are the defaults that silently burn compute for no proportionate value, and the disciplines that let AI scale without becoming a silent waste engine. Neither list is a restriction on using AI well.</p>
+
+  <div class="stop-start reveal">
+    <div class="stop-col">
+      <div class="ss-heading">What to stop doing</div>
+      <ul class="ss-list">
+        <li>Using the biggest model by default when a smaller one is fit for purpose</li>
+        <li>Stuffing the context window with entire documents that aren't needed in full</li>
+        <li>Letting chat threads grow indefinitely — long threads carry silent context overhead</li>
+        <li>Asking vague questions and iterating five times — be specific from the start</li>
+        <li>Generating long outputs you won't use — enforce a length limit</li>
+        <li>Using AI where a search query, template, or rules-based workflow would do the job</li>
+        <li>Running non-urgent AI jobs in peak-carbon periods out of habit</li>
+        <li>Treating AI consumption as ungoverned — if you can't see usage, you can't manage it</li>
+      </ul>
+    </div>
+    <div class="start-col">
+      <div class="ss-heading">What to start doing</div>
+      <ul class="ss-list">
+        <li>Right-size models by use case — smallest reliable model as the default</li>
+        <li>Measure AI consumption: calls per user, tokens per request, cost per call</li>
+        <li>Use templates and default to short outputs — design for efficient behaviour</li>
+        <li>Batch and cache wherever it makes sense — repeated queries shouldn't regenerate</li>
+        <li>Treat non-urgent AI as flexible load — schedule for lower-carbon windows</li>
+        <li>Make product owners accountable for AI unit economics — value per inference</li>
+        <li>Require governance sign-off before deploying frontier models as organisational defaults</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- KC 1 -->
+<div class="kc-block reveal" data-correct="A">
+  <p class="kc-label">Knowledge Check · Module 4 · Q1</p>
+  <p class="kc-q">An IT manager presents data centre sustainability performance using the portfolio average PUE of 1.45 and states the estate is running on "renewable energy." What two follow-up questions should you ask?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>What is the IT server utilisation across the estate? And what instruments support the renewable energy claim — certificates, PPAs, or on-site generation?</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>What is the design PUE for the newest facility? And what is the annual water consumption?</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>What percentage of devices are energy-rated? And what is the average age of the server estate?</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>Is the estate LEED certified? And what is the annual power bill?</button>
+  </div>
+  <p class="kc-hint">Select an answer to reveal the explanation.</p>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">✓ Correct: Option A</p>
+    <p>Portfolio average PUE is one of the most commonly misused metrics in IT sustainability. It blends best and worst sites, hides seasonal variation, and — crucially — tells you nothing about whether the IT equipment being powered is actually doing useful work. A lightly loaded estate can show a respectable PUE while consuming significant energy for very little computational output. The first follow-up is always: what is server utilisation, and what's the plan to improve it?</p>
+    <p>The renewable energy question matters equally. "Renewable energy" can mean very different things: location-based grid renewables, purchased certificates with varying quality, power purchase agreements for dedicated capacity, or on-site generation. Without knowing which instruments are in use and what their boundary is, the claim is narrative rather than evidence.</p>
+  </div>
+</div>
+
+<!-- KC 2 -->
+<div class="kc-block reveal" data-correct="C">
+  <p class="kc-label">Knowledge Check · Module 4 · Q2</p>
+  <p class="kc-q">A product team is deploying a large frontier AI model as the default assistant for all staff, including for writing short emails and basic search tasks. What is the most accurate GreenOps assessment of this decision?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>Acceptable — staff productivity gains offset any additional inference cost</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>Correct approach — using the most capable model maximises quality across all tasks</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>A governance failure — AI model selection should match the task requirement. Routine tasks should use smaller, fit-for-purpose models as the default to avoid unnecessary inference consumption</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>Only a concern if the model is running on non-renewable infrastructure</button>
+  </div>
+  <p class="kc-hint">Select an answer to reveal the explanation.</p>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">✓ Correct: Option C</p>
+    <p>The inference demand from a large frontier model is materially higher than from a smaller, fine-tuned model performing an equivalent task. When that model is deployed as the default for everything — including tasks that could be handled by something far lighter — inference consumption scales at the rate of adoption, not at the rate of genuine value delivered.</p>
+    <p>This is a governance failure, not a technical one. The fix is model tiering: a framework that assigns model types to task categories, makes the smallest fit-for-purpose model the default, and requires a clear justification to escalate to a heavier model.</p>
+  </div>
+</div>
+
+<!-- PAUSE AND REFLECT -->
+<div class="pause-reflect reveal">
+  <p class="pause-label">⏸ Pause &amp; Reflect</p>
+  <p class="pause-intro">Take 5–10 minutes. Write answers down. Specificity matters more than completeness.</p>
+  <div class="pause-questions">
+    <div class="pause-q"><span class="pause-q-num">1</span>Which of the seven domains has the largest footprint in your organisation right now — and do you have measurement to confirm that, or is it an assumption?</div>
+    <div class="pause-q"><span class="pause-q-num">2</span>Where in your estate is waste most likely to be hiding? Pick one domain and one specific waste pattern you suspect is present. What would it take to confirm it and put a number on it?</div>
+    <div class="pause-q"><span class="pause-q-num">3</span>Is AI consumption in your organisation currently governed, measured, or ungoverned? If ungoverned — who would need to be involved to change that, and what's the first step?</div>
+  </div>
+</div>
+
+<!-- KEY TAKEAWAYS -->
+<div class="takeaways reveal">
+  <h3 class="takeaways-heading">Module 4 — Key Takeaways</h3>
+  <div class="takeaway-list">
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Different domains need different lenses.</strong><p>The biggest lever in end-user services is lifecycle. In cloud, it's utilisation discipline. In software, it's compute per transaction. Applying one narrative everywhere produces poor decisions.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>PUE without utilisation is dangerous.</strong><p>A lightly loaded data centre can show a respectable PUE and still be wasteful in absolute terms. Always ask about server utilisation alongside facility efficiency metrics.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Software decisions compound over a service's lifetime.</strong><p>Inefficient code patterns, unchecked data growth, and ungoverned telemetry aggregate into material footprints at scale — and are rarely attributed to the engineering decisions that drove them.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Hardware lifecycle governance starts at design, not disposal.</strong><p>Embodied carbon is determined by procurement and use decisions made years before end-of-life. Evidence-based refresh cycles and circular economy criteria are the lever — not the recycling bin.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>AI inference is the fastest-growing ungoverned consumption category.</strong><p>The risk is not headline training jobs. It's routine inference at scale, embedded in workflows, consuming compute for no proportionate value because nobody has made governance the default.</p></div></div>
+  </div>
+</div>
+
+</div>
+
+<div class="module-nav">
+  <a href="module3.html" class="nav-btn"><span><span class="nav-btn-label">← Previous</span><span class="nav-btn-title">M3: How Digital Sustainability Is Measured</span></span></a>
+  <button class="complete-btn" onclick="markComplete('module4')">Mark as complete</button>
+  <a href="module5.html" class="nav-btn next"><span><span class="nav-btn-label">Next →</span><span class="nav-btn-title">M5: From Reporting to Operational Excellence</span></span></a>
+</div>
+
+<footer>
+  <div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 4</div>
+  <div class="footer-brand">March 2026 · v2</div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+initProgress(4);
+function showDomain(id, btn) {
+  document.querySelectorAll('.domain-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.domain-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('domain-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

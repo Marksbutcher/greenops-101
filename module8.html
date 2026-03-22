@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M8: Governance, Maturity  and Making It Stick — GreenOps 101</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* Inline brand vars — ensures dark theme even if shared.css path fails */
+:root {
+  --navy:#0F1F2E; --navy-mid:#162840; --navy-card:#1E293B; --navy-light:#1C3A55;
+  --teal:#00A896; --teal-dark:#007A6E; --teal-muted:#B2EDE7;
+  --orange:#E76F51; --orange-light:#F4A261;
+  --slate:#94A3B8; --slate-dark:#64748B;
+  --border:#D1D9E0; --border-light:#E8EDF2; --white:#FFFFFF;
+  --track1:#00A896; --track2:#F4A261; --track3:#E76F51;
+  --correct:#22c55e; --wrong:#ef4444;
+  /* Legacy aliases */
+  --grey-100:rgba(255,255,255,0.06); --grey-300:#94A3B8;
+  --grey-500:#64748B; --grey-700:#4A4840;
+}
+html,body{background:#0F1F2E;color:#FFFFFF;}
+</style>
+</head>
+<body class="track2">
+<nav class="top-nav"><a href="index.html" class="nav-home"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L1 6v7h4v-4h4v4h4V6L7 1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>GreenOps 101</a>
+<span class="nav-sep">/</span><span class="nav-module">Module 8</span>
+<span class="nav-track-pill track2-pill">Track 2 — Operational Practice</span>
+<div class="nav-progress">Progress: <span id="progress-count">0/14</span></div></nav>
+<section class="module-hero"><div class="hero-num">8</div>
+<p class="module-eyebrow">Module 8 &nbsp;·&nbsp; Track 2 — Operational Practice</p>
+<h1 class="module-title">Governance, Maturity<br>and Making It Stick</h1><p class="module-subtitle">Most organisations can write a sustainability strategy. Fewer can sustain one through budget cycles, leadership changes, and the relentless pressure of operational priorities.</p>
+<div class="module-meta">
+  <div class="meta-item"><span class="label">Duration</span><span class="value">26–30 minutes</span></div>
+  <div class="meta-item"><span class="label">Track</span><span class="value">Operational Practice</span></div>
+  <button class="complete-btn" onclick="markComplete('module8')">Mark as complete</button>
+</div></section>
+
+<div class="objectives-strip reveal"><p class="objectives-heading">What you will take from this module</p><ul class="objectives-list">
+  <li><span class="obj-num">01</span>Understand role-based accountability — who owns what, and why technology leadership owns outcomes not just targets</li>
+  <li><span class="obj-num">02</span>Know the risks of greenwashing and greenhushing — and what the GreenOps response to both looks like</li>
+  <li><span class="obj-num">03</span>Understand the five maturity dimensions and five maturity levels — and why multi-dimensional assessment is essential</li>
+  <li><span class="obj-num">04</span>Know the three governance artefacts that convert awareness into accountability</li>
+  <li><span class="obj-num">05</span>Understand social sustainability through ITAD — why responsible disposal is a governance matter</li>
+</ul></div>
+<div class="module-content">
+<div class="content-section reveal"><p class="section-label">Section 1</p>
+<h2 class="section-title">Role-based accountability.</h2>
+<p class="section-intro">Governance means role-based accountability, decision forums that matter, measurable KPIs, and evidence that progress is real. Without all four, sustainability becomes a communications function.</p>
+<div class="callout callout-warning reveal"><p class="callout-title">The accountability test</p><p>If a CIO or CTO cannot speak to the carbon intensity of top services, supplier evidence coverage, and waste removal progress without consulting a sustainability manager — the governance is not yet embedded. Technology leadership owns outcomes, not just targets.</p></div>
+<table class="compare-table reveal">
+<tr><th>Role</th><th>Owns</th><th>Accountable for</th></tr>
+<tr><td>Technology leadership (CIO/CTO)</td><td>Programme outcomes</td><td>Carbon intensity of top services; supplier evidence coverage; waste removal progress</td></tr>
+<tr><td>Business unit leaders</td><td>Demand footprint</td><td>Growth that drives IT consumption; data volume; device estate</td></tr>
+<tr><td>Application owners</td><td>Service intensity</td><td>Carbon per transaction; data retention; AI governance for the service</td></tr>
+<tr><td>Cloud / platform leads</td><td>Infrastructure efficiency</td><td>Idle percentage; rightsizing; region carbon intensity; tagging coverage</td></tr>
+<tr><td>Data centre / facilities leads</td><td>Facility metrics</td><td>PUE, WUE, CUE at site level; renewable sourcing evidence; utilisation</td></tr>
+<tr><td>Procurement</td><td>Supply chain evidence</td><td>Vendor evidence register; assurance tiers; circular economy criteria</td></tr>
+</table>
+</div>
+<div class="content-section reveal"><p class="section-label">Section 2</p>
+<h2 class="section-title">Greenwashing and greenhushing — both are risks.</h2>
+<p class="section-intro">Most discussions about sustainability credibility focus on greenwashing. Greenhushing — the deliberate suppression of sustainability performance data — is the less visible but equally problematic failure mode.</p>
+<div class="card-grid card-grid-2 reveal">
+<div class="card card-accent-o"><div class="card-label">Greenwashing</div><h4>Overclaiming sustainability performance</h4><p>Unsupported or misleading claims about environmental performance. Claims that cannot survive scrutiny — whether in annual reports, marketing materials, or regulatory disclosures. Legal exposure is increasing in multiple jurisdictions.</p><p style="margin-top:0.5rem; font-size:0.78rem; color:var(--orange);">GreenOps response: precision. Explicit confidence levels, clear distinction between activity-based and spend-based data, honest methodology documentation.</p></div>
+<div class="card card-accent-t"><div class="card-label">Greenhushing</div><h4>Suppressing legitimate sustainability data</h4><p>Deliberately choosing not to disclose sustainability performance — often from fear of scrutiny, or because the numbers are worse than the narrative. Under CSRD and mandatory disclosure frameworks, silence is not a safe position.</p><p style="margin-top:0.5rem; font-size:0.78rem; color:var(--teal);">GreenOps response: the same precision. Report what you know with stated confidence levels. Acknowledge gaps with a plan to address them. Honest incompleteness is defensible. Concealment is not.</p></div>
+</div>
+</div>
+<div class="content-section reveal"><p class="section-label">Section 3</p>
+<h2 class="section-title">Maturity is multi-dimensional — assess all five.</h2>
+<p class="section-intro">A maturity model is most useful when it is multi-dimensional. You can have excellent measurement and weak governance. Strong procurement criteria and almost no operational practice. Mapping all dimensions prevents the illusion of overall maturity from a single strong area.</p>
+
+  <!-- INTERACTIVE MATURITY RADAR -->
+  <div class="viz-container reveal" id="maturityRadar" style="padding:0;margin-bottom:2rem;">
+    <div style="padding:1.5rem 1.5rem 0.75rem;">
+      <p class="viz-title">Multi-dimensional maturity self-assessment — click levels to score your organisation, then compare your profile to the typical pattern</p>
+      <p style="font-size:0.8rem;color:#64748B;margin-top:0.4rem;">Most organisations find measurement is furthest ahead, governance and operations lag behind it, and supplier management trails both.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1.1fr;gap:0;align-items:start;">
+      <div style="padding:0.75rem 1.5rem 1.5rem;border-right:1px solid rgba(255,255,255,0.06);">
+        <div id="dimControls8"></div>
+        <div style="margin-top:1rem;padding-top:0.85rem;border-top:1px solid rgba(255,255,255,0.06);">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.4rem;">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#64748B;letter-spacing:0.1em;text-transform:uppercase;">Average level</span>
+            <span id="overallLevel8" style="font-family:'DM Serif Display',serif;font-size:1.3rem;color:#00A896;">—</span>
+          </div>
+          <div id="levelDesc8" style="font-size:0.79rem;color:#94A3B8;line-height:1.6;min-height:44px;"></div>
+        </div>
+      </div>
+      <div style="padding:1.5rem;display:flex;flex-direction:column;align-items:center;">
+        <canvas id="radarCanvas8" width="280" height="265"></canvas>
+        <div style="display:flex;gap:1.1rem;margin-top:0.6rem;flex-wrap:wrap;justify-content:center;">
+          <div style="display:flex;align-items:center;gap:0.4rem;"><div style="width:14px;height:2px;background:#00A896;"></div><span style="font-family:'JetBrains Mono',monospace;font-size:0.57rem;color:#64748B;">Your organisation</span></div>
+          <div style="display:flex;align-items:center;gap:0.4rem;"><div style="width:14px;height:0;border-top:2px dashed #F4A261;opacity:0.7;"></div><span style="font-family:'JetBrains Mono',monospace;font-size:0.57rem;color:#64748B;">Typical</span></div>
+        </div>
+      </div>
+    </div>
+    <div id="dimDetail8" style="display:none;margin:0;padding:0.85rem 1.5rem;background:rgba(0,0,0,0.15);border-top:1px solid rgba(255,255,255,0.06);"></div>
+  </div>
+  <script>
+  (function(){
+    const dims=[
+      {id:'strategy',label:'Strategy &amp; Governance',typical:1.5,
+       levels:['No formal ownership. Sustainability in strategy documents, no accountability or real authority.',
+               'Some reporting. Inconsistent definitions. Weak governance, limited supplier engagement.',
+               'Clear ownership, standard definitions, governance forums, repeatable processes.',
+               'KPIs tied to decisions. Role-based ownership. Real authority to make and enforce changes.',
+               'Continuous improvement embedded. Sustainability integrated across all governance forums.']},
+      {id:'measurement',label:'Measurement &amp; Data',typical:3,
+       levels:['No baseline. Reporting via spend proxies only. No unit metrics.',
+               'Basic reporting. Scope 1 and 2 covered. Scope 3 largely absent or spend-based.',
+               'Activity-based data for major Scope 3 categories. Unit metrics defined and tracked.',
+               'Documented methodologies, improving confidence. Supplier data migrating to activity-based.',
+               'Measurement automated where practical. Real-time data for key categories.']},
+      {id:'operations',label:'Operational Practices',typical:2,
+       levels:['Efficiency initiatives exist as one-off projects, not embedded practice.',
+               'Some initiatives delivering results but isolated. No systematic waste removal process.',
+               'Optimisation embedded in engineering workflows. Waste removal backlog active.',
+               'Carbon-aware practices in development. Unit metrics visible in engineering tooling.',
+               'Sustainability alongside cost and performance in all operational decision-making.']},
+      {id:'suppliers',label:'Supplier Management',typical:1,
+       levels:['Sustainability questionnaire completed at contract award only. No evidence register.',
+               'Some suppliers engaged. Evidence largely self-declared. No renewal accountability.',
+               'Vendor evidence register maintained. Procurement criteria applied consistently.',
+               'Supplier evidence improving toward reviewed or assured tier for major categories.',
+               'Active supplier development programme. Scope 3 data improving year-on-year.']},
+      {id:'innovation',label:'Innovation &amp; Impact',typical:1,
+       levels:['Programme entirely inward-facing. No connection to positive sustainability outcomes.',
+               'Handprint awareness exists but not measured. Some outcomes described, none quantified.',
+               'Scope 4 measurement piloted. Specific technology-enabled outcomes estimated.',
+               'Scope 4 reported with documented methodology. SustainTech commercial opportunities identified.',
+               'Technology actively enables sustainability outcomes beyond the estate at measured scale.']},
+    ];
+    const levelNames=['','Beginning','Unstructured','Defined','Managed','Optimised'];
+    const levelDescs=['',
+      'Most organisations discover they are at Level 1 when they look honestly. Individual champions rather than systemic capability.',
+      'Common pattern: one team doing good work with no mechanism to spread or sustain it. Measurement often leads.',
+      'The programme is real and credible. The next step — operational integration — requires deliberate governance investment.',
+      'Genuine operational discipline begins here. Rare without sustained senior leadership commitment.',
+      'Rare. A multi-year commitment. Reached by very few organisations globally.'];
+    const scores={strategy:null,measurement:null,operations:null,suppliers:null,innovation:null};
+    
+    const ctrl=document.getElementById('dimControls8');
+    dims.forEach(dim=>{
+      const row=document.createElement('div');
+      row.style.cssText='margin-bottom:0.85rem;';
+      row.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem;">
+        <span style="font-size:0.8rem;font-weight:400;color:#FFFFFF;">${dim.label}</span>
+        <span id="sc-${dim.id}" style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:#64748B;">—</span>
+      </div>
+      <div style="display:flex;gap:3px;" id="bt-${dim.id}">
+        ${[1,2,3,4,5].map(l=>`<button data-dim="${dim.id}" data-level="${l}" style="flex:1;height:22px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B;transition:all 0.12s;" title="${levelNames[l]}">${l}</button>`).join('')}
+      </div>`;
+      ctrl.appendChild(row);
+    });
+    
+    ctrl.addEventListener('click',e=>{
+      const btn=e.target.closest('[data-dim]');
+      if(!btn)return;
+      const dimId=btn.dataset.dim;
+      const level=parseInt(btn.dataset.level);
+      scores[dimId]=level;
+      document.querySelectorAll(`[data-dim="${dimId}"]`).forEach(b=>{
+        const l=parseInt(b.dataset.level);
+        if(l<=level){b.style.background='#00A896';b.style.color='#0F1F2E';b.style.borderColor='#00A896';}
+        else{b.style.background='rgba(255,255,255,0.05)';b.style.color='#64748B';b.style.borderColor='rgba(255,255,255,0.08)';}
+      });
+      document.getElementById(`sc-${dimId}`).textContent=`L${level}`;
+      document.getElementById(`sc-${dimId}`).style.color='#00A896';
+      
+      const dim=dims.find(d=>d.id===dimId);
+      const dd=document.getElementById('dimDetail8');
+      dd.style.display='block';
+      dd.innerHTML=`<span style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#00A896;text-transform:uppercase;letter-spacing:0.1em;">${dim.label.replace(/&amp;/g,'&')} — L${level}: ${levelNames[level]}</span>
+        <p style="font-size:0.81rem;color:#94A3B8;margin-top:0.3rem;line-height:1.6;">${dim.levels[level-1]}</p>`;
+      
+      const vals=Object.values(scores).filter(v=>v!==null);
+      if(vals.length>0){
+        const avg=vals.reduce((a,b)=>a+b,0)/vals.length;
+        document.getElementById('overallLevel8').textContent=`L${avg.toFixed(1)}`;
+        document.getElementById('levelDesc8').textContent=levelDescs[Math.max(1,Math.min(5,Math.round(avg)))];
+      }
+      drawRadar8();
+    });
+    
+    function drawRadar8(){
+      const canvas=document.getElementById('radarCanvas8');
+      const ctx=canvas.getContext('2d');
+      const W=canvas.width,H=canvas.height,cx=W/2,cy=H/2+8,maxR=98,n=dims.length;
+      const angles=dims.map((_,i)=>(i*2*Math.PI/n)-Math.PI/2);
+      ctx.clearRect(0,0,W,H);
+      
+      // Grid
+      [1,2,3,4,5].forEach(lv=>{
+        const r=(lv/5)*maxR;
+        ctx.beginPath();
+        angles.forEach((a,i)=>{const x=cx+r*Math.cos(a),y=cy+r*Math.sin(a);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+        ctx.closePath();
+        ctx.strokeStyle=lv===3?'rgba(255,255,255,0.1)':'rgba(255,255,255,0.05)';
+        ctx.lineWidth=lv===3?1.5:1;
+        ctx.stroke();
+        ctx.fillStyle='rgba(255,255,255,0.18)';
+        ctx.font='8px monospace';
+        ctx.textAlign='center';
+        ctx.fillText(lv,cx+(r+2)*Math.cos(angles[0])+3,cy+(r+2)*Math.sin(angles[0])+3);
+      });
+      // Spokes + labels
+      angles.forEach((a,i)=>{
+        ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+maxR*Math.cos(a),cy+maxR*Math.sin(a));
+        ctx.strokeStyle='rgba(255,255,255,0.07)';ctx.lineWidth=1;ctx.stroke();
+        const lr=maxR+20,lx=cx+lr*Math.cos(a),ly=cy+lr*Math.sin(a);
+        ctx.fillStyle='#94A3B8';ctx.font='9px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+        const raw=dims[i].label.replace(/&amp;/g,'&');
+        const parts=raw.split(' & ');
+        if(parts.length>1){ctx.fillText(parts[0],lx,ly-5);ctx.fillText('& '+parts[1],lx,ly+5);}
+        else{
+          const ws=raw.split(' ');const mid=Math.ceil(ws.length/2);
+          ctx.fillText(ws.slice(0,mid).join(' '),lx,ly-5);
+          if(ws.length>mid)ctx.fillText(ws.slice(mid).join(' '),lx,ly+5);
+        }
+      });
+      // Typical
+      ctx.beginPath();
+      angles.forEach((a,i)=>{const r=(dims[i].typical/5)*maxR,x=cx+r*Math.cos(a),y=cy+r*Math.sin(a);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+      ctx.closePath();ctx.setLineDash([4,4]);ctx.strokeStyle='rgba(244,162,97,0.5)';ctx.lineWidth=1.5;ctx.stroke();
+      ctx.setLineDash([]);ctx.fillStyle='rgba(244,162,97,0.04)';ctx.fill();
+      // User
+      const uv=dims.map(d=>scores[d.id]);
+      if(uv.some(v=>v!==null)){
+        ctx.beginPath();
+        angles.forEach((a,i)=>{const r=((uv[i]||0)/5)*maxR,x=cx+r*Math.cos(a),y=cy+r*Math.sin(a);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
+        ctx.closePath();ctx.strokeStyle='#00A896';ctx.lineWidth=2;ctx.stroke();
+        ctx.fillStyle='rgba(0,168,150,0.1)';ctx.fill();
+        angles.forEach((a,i)=>{
+          if(uv[i]===null)return;
+          const r=(uv[i]/5)*maxR;
+          ctx.beginPath();ctx.arc(cx+r*Math.cos(a),cy+r*Math.sin(a),4,0,Math.PI*2);
+          ctx.fillStyle='#00A896';ctx.fill();
+        });
+      }
+    }
+    drawRadar8();
+  })();
+  </script>
+
+
+  <div class="card-grid card-grid-auto reveal">
+<div class="card card-accent-t"><div class="card-label">Dimension 1</div><h4>Measurement &amp; Data Quality</h4><p>What you measure, how accurately, and with what confidence level. Activity-based or spend-based. Coverage of Scope 1, 2, 3. Confidence documentation.</p></div>
+<div class="card card-accent-o"><div class="card-label">Dimension 2</div><h4>Governance &amp; Accountability</h4><p>Role-based ownership, decision forums, KPI review cadence. Whether sustainability is in the operating model or the sustainability team's drawer.</p></div>
+<div class="card card-accent-p"><div class="card-label">Dimension 3</div><h4>Operational Practices</h4><p>What you actually do: rightsizing, lifecycle extension, dark data remediation, carbon-aware scheduling. The discipline behind the metrics.</p></div>
+<div class="card"><div class="card-label">Dimension 4</div><h4>Supplier Management</h4><p>Evidence quality, assurance tiers, vendor scorecard, circular economy criteria, ITAD governance. Almost always trails the other dimensions.</p></div>
+<div class="card"><div class="card-label">Dimension 5</div><h4>Strategy &amp; Innovation</h4><p>Roadmap maturity, connection to corporate goals, horizon planning, and whether the programme is driving improvement or managing a baseline.</p></div>
+</div>
+</div>
+<div class="content-section reveal"><p class="section-label">Section 4</p>
+<h2 class="section-title">Three governance artefacts that convert awareness into accountability.</h2>
+<p class="section-intro">Without governance artefacts, sustainability programmes produce reports rather than action. Three specific artefacts are most effective at converting awareness into operational accountability.</p>
+<div class="card-grid card-grid-3 reveal">
+<div class="card card-accent-t"><div class="card-label">Artefact 1</div><h4>Top-Ten Service Register</h4><p>The ten services with the highest carbon footprint, with named owner, current intensity metric, trend direction, and next review date. Reviewed at the same cadence as cost and performance. Creates named accountability where diffuse responsibility existed before.</p></div>
+<div class="card card-accent-o"><div class="card-label">Artefact 2</div><h4>Vendor Evidence Register</h4><p>Every material supplier, with evidence type held, assurance tier, date, and gap status. Makes the programme's Scope 3 coverage visible and auditable. Drives vendor engagement cadence and creates a clear upgrade path from self-declared to assured data.</p></div>
+<div class="card card-accent-p"><div class="card-label">Artefact 3</div><h4>Waste Removal Backlog</h4><p>Identified waste items, estimated financial and carbon value, named owner, and current status. Managed as a live backlog — not a one-time report. Treated with the same seriousness as technical debt. Connects sustainability to operational delivery rather than strategy documents.</p></div>
+</div>
+</div>
+<div class="kc-block reveal" data-correct="B"><p class="kc-label">Knowledge Check · Module 8 · Q1</p>
+<p class="kc-q">An organisation uses a maturity model to assess its sustainable IT programme. It scores highly on measurement and data quality, but has not assessed governance, operational practices, supplier management, or innovation. What is the risk of this approach?</p>
+<div class="kc-options">
+  <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>None — strong measurement capability means the other dimensions will follow naturally</button>
+  <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>The organisation may create the illusion of overall maturity from a single strong dimension, while significant governance, operational, and supplier gaps remain invisible and unaddressed</button>
+  <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>The model is invalid — measurement must always be assessed last</button>
+  <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>The risk is minor — measurement quality is the most important dimension by far</button>
+</div>
+<p class="kc-hint">Select an answer to reveal the explanation.</p>
+<div class="kc-reveal"><p class="kc-reveal-label">✓ Correct: Option B</p>
+<p>Measurement is almost always the most developed dimension in a sustainability programme — because it was usually the starting point. But strong measurement does not imply strong governance, operational discipline, supplier management, or strategy. An organisation can know exactly what its footprint is and be doing almost nothing to change it.</p>
+<p>The multi-dimensional model prevents this illusion. Assessing all five dimensions reveals where genuine progress exists and where significant gaps remain invisible — gaps that would be exploited by any serious external scrutiny.</p></div>
+</div>
+<div class="kc-block reveal" data-correct="B"><p class="kc-label">Knowledge Check · Module 8 · Q2</p>
+<p class="kc-q">A CTO is asked by the board to confirm that the organisation's digital sustainability programme is on track. She delegates the response to the sustainability manager. What does this delegation reveal about the governance model?</p>
+<div class="kc-options">
+  <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>Nothing significant — delegating technical questions to specialists is normal and efficient</button>
+  <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>It suggests the CTO does not have direct ownership of the programme's outcomes and metrics, which means accountability is concentrated in a support function rather than in the leadership role that owns the estate</button>
+  <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>It is appropriate — the sustainability manager has deeper expertise in the reporting metrics</button>
+  <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>It reveals that the board question was too detailed for CTO-level engagement</button>
+</div>
+<p class="kc-hint">Select an answer to reveal the explanation.</p>
+<div class="kc-reveal"><p class="kc-reveal-label">✓ Correct: Option B</p>
+<p>Technology leadership owns outcomes, not just targets. A CTO who cannot speak to the carbon intensity of top services, the coverage of the vendor evidence register, and the progress of the waste removal backlog without deferring to the sustainability manager has not embedded the programme into their operating model.</p>
+<p>This is a meaningful governance signal — not a minor administrative question. If the CTO doesn't own the answers, it is likely that the programme operates as a parallel function rather than as an integrated discipline within technology governance.</p></div>
+</div>
+<div class="pause-reflect reveal"><p class="pause-label">⏸ Pause &amp; Reflect</p>
+<p class="pause-intro">Take 5–10 minutes. Specificity matters more than completeness.</p>
+<div class="pause-questions">
+  <div class="pause-q"><span class="pause-q-num">1</span>For each of the six roles — technology leadership, business unit leaders, application owners, cloud/platform leads, DC/facilities leads, and procurement — does your organisation currently have a named individual who owns sustainability outcomes for that domain? Where are the gaps?</div>
+  <div class="pause-q"><span class="pause-q-num">2</span>Of the three governance artefacts — top-ten service register, vendor evidence register, waste removal backlog — which does your organisation have in some form? Which is entirely absent? What would it take to create the missing ones within the next quarter?</div>
+  <div class="pause-q"><span class="pause-q-num">3</span>Think of a sustainability claim your organisation has made publicly or internally in the past year. Is it backed by activity-based evidence? What assurance level does that evidence carry? Would it survive external scrutiny?</div>
+</div>
+
+  <!-- SERVICE REGISTER EXAMPLE TABLE -->
+  <div class="viz-container reveal" style="padding:0;margin-top:1.5rem;">
+    <div style="padding:1rem 1.5rem 0.75rem;border-bottom:1px solid rgba(255,255,255,0.06);">
+      <p class="viz-title">What a top-ten service register actually contains — a register is only useful if it has specific, owned, updatable information</p>
+    </div>
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.78rem;">
+        <thead>
+          <tr>
+            <th style="padding:0.6rem 1rem;text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:#64748B;border-bottom:1px solid rgba(255,255,255,0.1);background:#162840;white-space:nowrap;">Service</th>
+            <th style="padding:0.6rem 1rem;text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:#64748B;border-bottom:1px solid rgba(255,255,255,0.1);background:#162840;white-space:nowrap;">Owner</th>
+            <th style="padding:0.6rem 1rem;text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:#64748B;border-bottom:1px solid rgba(255,255,255,0.1);background:#162840;white-space:nowrap;">Intensity metric</th>
+            <th style="padding:0.6rem 1rem;text-align:right;font-family:'JetBrains Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:#64748B;border-bottom:1px solid rgba(255,255,255,0.1);background:#162840;white-space:nowrap;">Current (conf.)</th>
+            <th style="padding:0.6rem 1rem;text-align:right;font-family:'JetBrains Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:#64748B;border-bottom:1px solid rgba(255,255,255,0.1);background:#162840;white-space:nowrap;">Target</th>
+            <th style="padding:0.6rem 1rem;text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:#64748B;border-bottom:1px solid rgba(255,255,255,0.1);background:#162840;white-space:nowrap;">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#FFFFFF;font-weight:500;">Customer portal</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;">J. Patel (App)</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;font-family:'JetBrains Mono',monospace;font-size:0.72rem;">gCO₂ / session</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#00A896;font-family:'JetBrains Mono',monospace;font-size:0.72rem;text-align:right;">14.2g <span style="color:#64748B;font-size:0.62rem;">(reviewed)</span></td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;font-family:'JetBrains Mono',monospace;font-size:0.72rem;text-align:right;">10g</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);"><span style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#00A896;background:rgba(0,168,150,0.1);padding:0.15rem 0.5rem;">Active</span></td>
+          </tr>
+          <tr>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#FFFFFF;font-weight:500;">Data warehouse</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;">M. Chen (Infra)</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;font-family:'JetBrains Mono',monospace;font-size:0.72rem;">gCO₂ / GB processed</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#F4A261;font-family:'JetBrains Mono',monospace;font-size:0.72rem;text-align:right;">28.0g <span style="color:#64748B;font-size:0.62rem;">(self-decl.)</span></td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;font-family:'JetBrains Mono',monospace;font-size:0.72rem;text-align:right;">22g</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);"><span style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#00A896;background:rgba(0,168,150,0.1);padding:0.15rem 0.5rem;">Active</span></td>
+          </tr>
+          <tr style="background:rgba(231,111,81,0.04);">
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#FFFFFF;font-weight:500;">Batch billing</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#E76F51;font-weight:500;">UNASSIGNED</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#E76F51;">Not defined</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#E76F51;font-family:'JetBrains Mono',monospace;font-size:0.72rem;text-align:right;">Spend-proxy only</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#64748B;font-family:'JetBrains Mono',monospace;font-size:0.72rem;text-align:right;">TBD</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);"><span style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#E76F51;background:rgba(231,111,81,0.1);padding:0.15rem 0.5rem;">Needs work</span></td>
+          </tr>
+          <tr>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#FFFFFF;font-weight:500;">CRM platform</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;">L. Singh (BU)</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;font-family:'JetBrains Mono',monospace;font-size:0.72rem;">gCO₂ / active user</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#00A896;font-family:'JetBrains Mono',monospace;font-size:0.72rem;text-align:right;">6.1g <span style="color:#64748B;font-size:0.62rem;">(reviewed)</span></td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;font-family:'JetBrains Mono',monospace;font-size:0.72rem;text-align:right;">5g</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);"><span style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#00A896;background:rgba(0,168,150,0.1);padding:0.15rem 0.5rem;">Active</span></td>
+          </tr>
+          <tr style="background:rgba(231,111,81,0.04);">
+            <td style="padding:0.65rem 1rem;color:#FFFFFF;font-weight:500;">Internal BI suite</td>
+            <td style="padding:0.65rem 1rem;color:#94A3B8;">T. Okafor (Data)</td>
+            <td style="padding:0.65rem 1rem;color:#94A3B8;font-family:'JetBrains Mono',monospace;font-size:0.72rem;">gCO₂ / report run</td>
+            <td style="padding:0.65rem 1rem;color:#E76F51;font-family:'JetBrains Mono',monospace;font-size:0.72rem;text-align:right;">Not measured</td>
+            <td style="padding:0.65rem 1rem;color:#64748B;font-family:'JetBrains Mono',monospace;font-size:0.72rem;text-align:right;">Baseline Q3</td>
+            <td style="padding:0.65rem 1rem;"><span style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#E76F51;background:rgba(231,111,81,0.1);padding:0.15rem 0.5rem;">Needs work</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="padding:0.75rem 1.5rem;border-top:1px solid rgba(255,255,255,0.06);background:rgba(231,111,81,0.04);">
+      <p style="font-size:0.79rem;color:#94A3B8;line-height:1.6;">Two services above have no owner and no measurement. These are not minor gaps — they represent unknown footprint exposure and absent accountability. A service register that contains rows like these is doing its job: making the gaps visible so they can be closed.</p>
+    </div>
+  </div>
+</div>
+<div class="takeaways reveal"><h3 class="takeaways-heading">Module 8 — Key Takeaways</h3>
+<div class="takeaway-list">
+  <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Technology leadership owns outcomes, not just targets.</strong><p>If a CIO or CTO cannot speak to carbon intensity of top services, supplier evidence coverage, and waste removal progress without consulting a sustainability manager, the governance is not yet embedded.</p></div></div>
+  <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Greenwashing and greenhushing are both risks.</strong><p>The GreenOps response to both is the same: precision. Explicit confidence levels, clear distinction between activity-based and spend-based data, and honest methodology documentation.</p></div></div>
+  <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Maturity is multi-dimensional — assess all five.</strong><p>Measurement is almost always more developed than governance. Supplier management trails both. Mapping all five dimensions prevents the illusion of overall maturity from a single strong area.</p></div></div>
+  <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Three artefacts convert awareness into accountability.</strong><p>Top-ten service register, vendor evidence register, and waste removal backlog. Managed as live operating instruments, not periodic reports.</p></div></div>
+</div></div>
+</div>
+<div class="module-nav"><a href="module7.html" class="nav-btn"><span><span class="nav-btn-label">← Previous</span><span class="nav-btn-title">M7: Procurement, Supply Chains, and Vendor Evidence</span></span></a><button class="complete-btn" onclick="markComplete('module8')">Mark as complete</button><a href="module9.html" class="nav-btn next"><span><span class="nav-btn-label">Next →</span><span class="nav-btn-title">M9: The Regulatory and Policy Landscape</span></span></a></div>
+<footer><div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 8</div>
+  <div class="viz-container reveal" style="padding:0;margin-top:1.5rem;">
+    <div style="padding:1rem 1.5rem 0.75rem;border-bottom:1px solid rgba(255,255,255,0.06);">
+      <p class="viz-title">Evaluating an ITAD provider — five evidence requirements</p>
+    </div>
+    <div id="itad-items"></div>
+  </div>
+  <script>
+  (function(){
+    var items=[
+      {icon:'🔗',label:'Chain-of-custody documentation',
+       what:'End-to-end traceability from device collection to final outcome — not just a collection receipt.',
+       why:'Without a chain of custody you cannot demonstrate where devices went. Under CSRD, "we gave them to a provider" is not evidence.',
+       ask:'Can you provide a chain-of-custody document tracking each device from collection to final outcome?'},
+      {icon:'🔒',label:'Data sanitisation certificates',
+       what:'To a recognised standard: NIST 800-88, ADISA, or equivalent. Destruction should be witnessed or certified.',
+       why:'Inadequate sanitisation is a data security risk as well as a governance one. The certificate is your evidence that it occurred to a defined standard.',
+       ask:'What standard do you apply and do you provide a per-device certificate? Is destruction independently certified?'},
+      {icon:'♻️',label:'Evidence of downstream outcomes',
+       what:'Where do devices actually go after collection? Reuse, refurbishment, or certified recycling — with documentation.',
+       why:'A provider who collects devices with no downstream evidence may be transferring disposal risk rather than resolving it.',
+       ask:'What percentage of collected devices go to reuse, refurbishment, and recycling respectively?'},
+      {icon:'🏭',label:'Downstream processing commitments',
+       what:'Which facilities handle the materials? What environmental and labour standards apply?',
+       why:'The social risk sits in the downstream processing of materials. A provider with no downstream commitments is outsourcing the problem.',
+       ask:'Which facilities do you use? What certifications do they hold? What labour standards apply?'},
+      {icon:'📋',label:'Reporting for ESG disclosure',
+       what:'Reporting in a format that supports internal governance and external ESG disclosure requirements.',
+       why:'Under CSRD and equivalents, e-waste disposal is reportable. If your provider cannot supply this, you cannot report this category credibly.',
+       ask:'Can you provide reporting suitable for ESG disclosure, including quantities by outcome type?'},
+    ];
+    var c=document.getElementById('itad-items');
+    items.forEach(function(item){
+      var d=document.createElement('div');
+      d.style.cssText='border-bottom:1px solid rgba(255,255,255,0.05);';
+      d.innerHTML='<div class="itad-row" onclick="var det=this.nextElementSibling;det.style.display=det.style.display==='block'?'none':'block'" style="display:flex;align-items:center;gap:1rem;padding:0.85rem 1.5rem;cursor:pointer;transition:background 0.12s;" onmouseover="this.style.background='rgba(255,255,255,0.03)'" onmouseout="this.style.background=''">'+
+        '<span style="font-size:1.1rem;flex-shrink:0;">'+item.icon+'</span>'+
+        '<span style="font-weight:500;font-size:0.85rem;">'+item.label+'</span>'+
+        '<span style="margin-left:auto;font-family:JetBrains Mono,monospace;font-size:0.58rem;color:#64748B;">expand ↓</span>'+
+        '</div>'+
+        '<div style="display:none;padding:0.75rem 1.5rem 1rem 4rem;">'+
+          '<p style="font-size:0.82rem;color:#94A3B8;line-height:1.65;margin-bottom:0.55rem;">'+item.what+'</p>'+
+          '<p style="font-size:0.79rem;color:#64748B;line-height:1.6;margin-bottom:0.55rem;"><strong style="color:#94A3B8;">Why it matters: </strong>'+item.why+'</p>'+
+          '<div style="padding:0.55rem 0.85rem;background:rgba(0,168,150,0.06);border-left:2px solid #00A896;font-size:0.78rem;color:#94A3B8;font-style:italic;">Ask: '+item.ask+'</div>'+
+        '</div>';
+      c.appendChild(d);
+    });
+  })();
+  </script>
+
+
+  <div class="footer-brand">March 2026 · v2</div></footer>
+<script src="shared.js"></script><script>initProgress(8);</script>
+</body></html>

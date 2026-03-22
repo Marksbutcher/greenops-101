@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M2: What Digital Sustainability Is, and What It Isn't — GreenOps 101</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* Inline brand vars — ensures dark theme even if shared.css path fails */
+:root {
+  --navy:#0F1F2E; --navy-mid:#162840; --navy-card:#1E293B; --navy-light:#1C3A55;
+  --teal:#00A896; --teal-dark:#007A6E; --teal-muted:#B2EDE7;
+  --orange:#E76F51; --orange-light:#F4A261;
+  --slate:#94A3B8; --slate-dark:#64748B;
+  --border:#D1D9E0; --border-light:#E8EDF2; --white:#FFFFFF;
+  --track1:#00A896; --track2:#F4A261; --track3:#E76F51;
+  --correct:#22c55e; --wrong:#ef4444;
+  /* Legacy aliases */
+  --grey-100:rgba(255,255,255,0.06); --grey-300:#94A3B8;
+  --grey-500:#64748B; --grey-700:#4A4840;
+}
+html,body{background:#0F1F2E;color:#FFFFFF;}
+</style>
+
+<style>
+/* Dimension explorer */
+.dim-explorer { margin: 2rem 0; }
+.dim-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  margin-bottom: 0;
+}
+.dim-tab {
+  padding: 1.5rem;
+  background: var(--navy-mid);
+  cursor: pointer;
+  border: none;
+  text-align: left;
+  transition: background 0.15s;
+  border-bottom: 3px solid transparent;
+}
+.dim-tab:hover { background: var(--navy-card); }
+.dim-tab.d1 { border-bottom-color: transparent; }
+.dim-tab.d2 { border-bottom-color: transparent; }
+.dim-tab.d3 { border-bottom-color: transparent; }
+.dim-tab.d4 { border-bottom-color: transparent; }
+.dim-tab.active.d1 { border-bottom-color: var(--teal); background: var(--navy-card); }
+.dim-tab.active.d2 { border-bottom-color: var(--orange); background: var(--navy-card); }
+.dim-tab.active.d3 { border-bottom-color: var(--track3); background: var(--navy-card); }
+.dim-tab.active.d4 { border-bottom-color: #f59e0b; background: var(--navy-card); }
+.dim-tab-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.d1 .dim-tab-label { color: var(--teal); }
+.d2 .dim-tab-label { color: var(--orange); }
+.d3 .dim-tab-label { color: var(--track3); }
+.d4 .dim-tab-label { color: #f59e0b; }
+.dim-tab-name { font-weight: 500; font-size: 0.88rem; display: block; margin-bottom: 0.25rem; }
+.dim-tab-sub { font-size: 0.75rem; color: var(--slate-dark); display: block; font-style: italic; }
+.dim-panels {
+  background: var(--navy-mid);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-top: none;
+}
+.dim-panel { display: none; padding: 2rem; gap: 2rem; }
+.dim-panel.active { display: grid; grid-template-columns: 1fr 1fr; }
+.dim-panel h4 { font-weight: 500; font-size: 0.95rem; margin-bottom: 0.6rem; }
+.dim-panel p { font-size: 0.85rem; color: var(--slate); line-height: 1.7; margin-bottom: 0.75rem; }
+.dim-examples { display: flex; flex-direction: column; gap: 0.4rem; }
+.dim-example {
+  font-size: 0.8rem;
+  color: var(--slate-dark);
+  padding: 0.5rem 0.75rem;
+  background: rgba(255,255,255,0.03);
+  border-radius: 2px;
+}
+.dim-example::before { content: '→ '; color: var(--slate-dark); }
+.dim-status {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 2px;
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+.status-established { background: rgba(0,168,150,0.08); border-left: 3px solid var(--teal); color: var(--slate); }
+.status-emerging { background: rgba(231,111,81,0.08); border-left: 3px solid var(--track3); color: var(--slate); }
+
+/* Sequence diagram */
+.sequence-flow {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin: 2rem 0;
+  overflow-x: auto;
+}
+.seq-step {
+  flex: 1;
+  min-width: 160px;
+  background: var(--navy-mid);
+  border: 1px solid rgba(255,255,255,0.07);
+  padding: 1.5rem;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.seq-step:hover { background: var(--navy-card); }
+.seq-step:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--slate-dark);
+  font-size: 1.1rem;
+  z-index: 1;
+}
+.seq-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2rem;
+  line-height: 1;
+  color: rgba(255,255,255,0.06);
+  margin-bottom: 0.5rem;
+}
+.seq-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+.seq-step.s1 .seq-label { color: var(--teal); }
+.seq-step.s2 .seq-label { color: var(--orange); }
+.seq-step.s3 .seq-label { color: #f59e0b; }
+.seq-step.s4 .seq-label { color: var(--track3); }
+.seq-title { font-weight: 500; font-size: 0.82rem; margin-bottom: 0.3rem; }
+.seq-sub { font-size: 0.75rem; color: var(--slate-dark); line-height: 1.4; }
+.seq-note {
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.6rem;
+  background: rgba(255,255,255,0.03);
+  font-size: 0.72rem;
+  color: var(--slate-dark);
+  line-height: 1.4;
+}
+
+/* Is/Isn't toggle */
+.isnt-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.isnt-card {
+  padding: 1.5rem;
+  border-radius: 2px;
+  background: var(--navy-mid);
+  border: 1px solid rgba(255,255,255,0.07);
+}
+.isnt-card.isnt { opacity: 0.65; }
+.isnt-marker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+.isnt-card:not(.isnt) .isnt-marker { color: var(--teal); }
+.isnt-card.isnt .isnt-marker { color: var(--slate-dark); }
+.isnt-card h4 { font-weight: 500; font-size: 0.88rem; margin-bottom: 0.4rem; }
+.isnt-card p { font-size: 0.8rem; color: var(--slate-dark); line-height: 1.6; }
+
+/* Lifecycle bar */
+.lifecycle-bar {
+  display: grid;
+  grid-template-columns: 3fr 5fr 2fr;
+  gap: 1px;
+  margin: 2rem 0;
+  height: 80px;
+}
+.lc-phase {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: filter 0.15s;
+}
+.lc-phase:hover { filter: brightness(1.15); }
+.lc-phase.manufacture { background: linear-gradient(135deg, rgba(231,111,81,0.3), rgba(231,111,81,0.15)); border-left: 3px solid var(--orange); }
+.lc-phase.operate { background: linear-gradient(135deg, rgba(0,168,150,0.2), rgba(0,168,150,0.08)); border-left: 3px solid var(--teal); }
+.lc-phase.eol { background: linear-gradient(135deg, rgba(231,111,81,0.2), rgba(231,111,81,0.08)); border-left: 3px solid var(--track3); }
+.lc-pct { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--white); line-height: 1; margin-bottom: 0.25rem; }
+.lc-label { font-size: 0.72rem; color: var(--slate); line-height: 1.3; }
+.lifecycle-detail {
+  margin-top: 0;
+  background: rgba(0,0,0,0.15);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 1.25rem 1.5rem;
+  font-size: 0.85rem;
+  color: var(--slate);
+  line-height: 1.7;
+  min-height: 60px;
+  border-top: none;
+}
+</style>
+</head>
+<body class="track1">
+
+<nav class="top-nav">
+  <a href="index.html" class="nav-home">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L1 6v7h4v-4h4v4h4V6L7 1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+    GreenOps 101
+  </a>
+  <span class="nav-sep">/</span>
+  <span class="nav-module">Module 2</span>
+  <span class="nav-track-pill track1-pill">Track 1 — Technical Foundation</span>
+  <div class="nav-progress">Progress: <span id="progress-count">0/14</span></div>
+</nav>
+
+<section class="module-hero">
+  <div class="hero-num">2</div>
+  <p class="module-eyebrow">Module 2 &nbsp;·&nbsp; Track 1 — Technical Foundation</p>
+  <h1 class="module-title">What Digital Sustainability Is,<br>and What It Isn't.</h1>
+  <p class="module-subtitle">Definitions, dimensions, what belongs where — and four things that aren't GreenOps.</p>
+  <div class="module-meta">
+    <div class="meta-item"><span class="label">Duration</span><span class="value">22–26 minutes</span></div>
+    <div class="meta-item"><span class="label">Track</span><span class="value">Technical Foundation</span></div>
+    <button class="complete-btn" onclick="markComplete('module2')">Mark as complete</button>
+  </div>
+</section>
+
+<div class="objectives-strip reveal">
+  <p class="objectives-heading">What you will take from this module</p>
+  <ul class="objectives-list">
+    <li><span class="obj-num">01</span>Define digital sustainability in a way that's actually useful — not just for reporting</li>
+    <li><span class="obj-num">02</span>Understand the three dimensions and why conflating them causes programmes to stall</li>
+    <li><span class="obj-num">03</span>Know where the heartprint concept fits and why it matters as a distinct category</li>
+    <li><span class="obj-num">04</span>Explain what digital sustainability is not — and why that distinction saves time</li>
+    <li><span class="obj-num">05</span>Understand where GreenOps sits as an operational discipline</li>
+  </ul>
+</div>
+
+<div class="module-content">
+
+<!-- SECTION 1 — The definition problem -->
+<div class="content-section reveal">
+  <p class="section-label">Section 1</p>
+  <h2 class="section-title">The definition problem.</h2>
+  <p class="section-intro">Ask ten people in a large organisation what sustainable IT means and you'll get ten different answers. None of them are entirely wrong. The problem is they're all partial — each describes a tactic rather than a discipline.</p>
+
+  <div class="callout callout-key reveal">
+    <p class="callout-title">Common partial answers — all tactics, not a discipline</p>
+    <p>Carbon reporting. Renewable energy. Data centre PUE. Device recycling. Ethical AI. Green cloud. Net zero targets. E-waste programmes. None of those are entirely wrong. They're all tactics without a discipline behind them. Without a shared definition, programmes talk past each other, budgets get contested, and accountability doesn't land anywhere useful.</p>
+  </div>
+
+  <div class="definition reveal">
+    Sustainable IT: The lifecycle and leadership discipline of designing, selecting, operating, scaling, and retiring technology so that it meets today's needs without creating avoidable harm or unnecessary future constraints.
+  </div>
+
+  <p class="prose">In practice, that means two things happening simultaneously: reducing negative impacts (energy, carbon, water, materials, waste, and harmful outcomes in supply chains) and increasing positive impacts (technology that enables sustainability outcomes elsewhere, and improves societal outcomes when deployed responsibly).</p>
+</div>
+
+<!-- SECTION 2 — Lifecycle view INTERACTIVE -->
+<div class="content-section reveal">
+  <p class="section-label">Section 2</p>
+  <h2 class="section-title">Where impact actually sits — the lifecycle view.</h2>
+  <p class="section-intro">Most programmes focus on operational energy. The definition includes the full lifecycle — and the biggest surprises are at the edges. Click each phase to explore.</p>
+
+  <div class="viz-container reveal">
+    <p class="viz-title">IT lifecycle — proportional carbon footprint (illustrative) — click to explore</p>
+    <div class="lifecycle-bar">
+      <div class="lc-phase manufacture" onclick="showLcDetail('manufacture')">
+        <div class="lc-pct">60–80%</div>
+        <div class="lc-label">Manufacture</div>
+      </div>
+      <div class="lc-phase operate" onclick="showLcDetail('operate')">
+        <div class="lc-pct">15–35%</div>
+        <div class="lc-label">Operation</div>
+      </div>
+      <div class="lc-phase eol" onclick="showLcDetail('eol')">
+        <div class="lc-pct">5–10%</div>
+        <div class="lc-label">End-of-Life</div>
+      </div>
+    </div>
+    <div class="lifecycle-detail" id="lc-detail">
+      Click a lifecycle phase above to see what drives impact at each stage.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3 — Three Dimensions INTERACTIVE -->
+<div class="content-section reveal">
+  <p class="section-label">Section 3</p>
+  <h2 class="section-title">Three dimensions that prevent confusion.</h2>
+  <p class="section-intro">Without this separation, programmes routinely conflate different types of value — and end up talking past each other. This framework stops that.</p>
+
+  <div class="dim-explorer reveal">
+    <div class="dim-tabs">
+      <button class="dim-tab d1 active" onclick="showDim('d1', this)">
+        <span class="dim-tab-label">Dimension 1</span>
+        <span class="dim-tab-name">Sustainability IN IT</span>
+        <span class="dim-tab-sub">The Footprint</span>
+      </button>
+      <button class="dim-tab d2" onclick="showDim('d2', this)">
+        <span class="dim-tab-label">Dimension 2</span>
+        <span class="dim-tab-name">Sustainability BY IT</span>
+        <span class="dim-tab-sub">The Handprint</span>
+      </button>
+      <button class="dim-tab d3" onclick="showDim('d3', this)">
+        <span class="dim-tab-label">Dimension 3</span>
+        <span class="dim-tab-name">IT FOR Society</span>
+        <span class="dim-tab-sub">The Social Dimension</span>
+      </button>
+      <button class="dim-tab d4" onclick="showDim('d4', this)">
+        <span class="dim-tab-label">4th Concept</span>
+        <span class="dim-tab-name">The Heartprint</span>
+        <span class="dim-tab-sub">Social Conscience of IT</span>
+      </button>
+    </div>
+    <div class="dim-panels">
+      <div class="dim-panel active" id="panel-d1">
+        <div>
+          <h4>The sustainability of the technology estate itself</h4>
+          <p>This is where GreenOps sits. It's where operational control lives. The energy and water consumed by data centres and networks, the utilisation of cloud resources, the embodied impact of devices and servers, the data we grow, retain, and dispose of.</p>
+          <p>This is the non-negotiable foundation. Without it, nothing else is credible. A leader who leads with the handprint before securing the footprint creates a credibility problem the first time anyone asks for evidence.</p>
+          <div class="dim-examples">
+            <div class="dim-example">Energy and water consumed by data centres</div>
+            <div class="dim-example">Cloud utilisation and region selection</div>
+            <div class="dim-example">Embodied impact of devices and servers</div>
+            <div class="dim-example">Data growth, retention, and disposal governance</div>
+            <div class="dim-example">Supplier evidence and supply chain claims</div>
+          </div>
+        </div>
+        <div>
+          <div class="dim-status status-established">
+            <strong>Status: Established</strong><br>
+            Measurement frameworks (GHG Protocol), regulatory requirements (CSRD), and operational practices are established. Most organisations are somewhere on this journey. The question is where — and how honestly they answer it.
+          </div>
+        </div>
+      </div>
+      <div class="dim-panel" id="panel-d2">
+        <div>
+          <h4>How technology enables sustainability outcomes outside the IT estate</h4>
+          <p>Optimisation platforms that reduce waste in operations. Analytics that eliminate unnecessary transport. Building systems that cut energy and water demand. Digital workflows that replace physical activity. The multiplier effects technology creates on the wider business.</p>
+          <p><strong>The catch:</strong> Handprint stories only land credibly once your own footprint is already under discipline. "We enabled significant carbon reductions elsewhere, but we haven't measured our own estate" is a hard position to defend publicly.</p>
+          <div class="dim-examples">
+            <div class="dim-example">Logistics platforms reducing unnecessary transport routes</div>
+            <div class="dim-example">Building management systems cutting energy and cooling demand</div>
+            <div class="dim-example">Analytics platforms eliminating operational waste</div>
+            <div class="dim-example">Remote work platforms substituting travel and commuting</div>
+          </div>
+        </div>
+        <div>
+          <div class="dim-status status-emerging">
+            <strong>Status: Emerging</strong><br>
+            Methodologies are less mature. Attribution is harder. But the scale of the opportunity exceeds the footprint dimension for most technology organisations. The measurement frameworks (Scope 4 / avoided emissions) are developing. The business case is significant.
+          </div>
+        </div>
+      </div>
+      <div class="dim-panel" id="panel-d3">
+        <div>
+          <h4>Broader digital inclusion, equitable access, and responsible deployment</h4>
+          <p>Digital inclusion and accessibility by design. Equitable access to technology. Responsible data use and privacy. Responsible AI deployment. The broader societal consequences of how technology is deployed and who it serves.</p>
+          <p>Treating this as charity is too narrow. Social outcomes intersect with governance and regulation — particularly as regulatory expectations around AI fairness, data ethics, and supply chain standards expand.</p>
+          <div class="dim-examples">
+            <div class="dim-example">Digital inclusion programmes for underserved communities</div>
+            <div class="dim-example">Accessible design in digital services and products</div>
+            <div class="dim-example">Responsible AI deployment — fairness, transparency, accountability</div>
+            <div class="dim-example">Ethical supply chain governance — avoiding harm in hardware manufacture</div>
+          </div>
+        </div>
+        <div>
+          <div class="dim-status status-emerging">
+            <strong>Status: Maturing</strong><br>
+            Regulatory expectations are expanding — supply chain due diligence (CSDDD), AI regulation, and accessibility standards are creating governance obligations. This is no longer purely voluntary; it is increasingly a compliance domain.
+          </div>
+        </div>
+      </div>
+      <div class="dim-panel" id="panel-d4">
+        <div>
+          <h4>The social conscience of the technology function</h4>
+          <p>Introduced in Sundberg's Sustainable IT Playbook, the heartprint is worth treating separately from the broader social dimension because its intent and measurement are different. It's direct positive impact for people, communities, and society through responsible and inclusive design.</p>
+          <div class="dim-examples">
+            <div class="dim-example">Accessible services — designing digital products that work for everyone, including people with disabilities</div>
+            <div class="dim-example">Digital skills programmes — equipping people to participate in a digital economy</div>
+            <div class="dim-example">Equitable access — technology that bridges rather than widens the connected/unconnected gap</div>
+            <div class="dim-example">Responsible AI — deployed with genuine regard for fairness, transparency, and human wellbeing</div>
+          </div>
+        </div>
+        <div>
+          <div class="dim-status" style="background: rgba(245,158,11,0.06); border-left: 3px solid #f59e0b; color: var(--slate); margin-top: 1.5rem; padding: 0.75rem 1rem;">
+            <strong>From Sundberg's Sustainable IT Playbook</strong><br>
+            Introduced as a fourth concept alongside the three dimensions. The heartprint focuses on direct social impact from design decisions — distinct from the broader structural social dimension of digital inclusion policy.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4 — Sequence matters -->
+<div class="content-section reveal">
+  <p class="section-label">Section 4</p>
+  <h2 class="section-title">Why sequence matters.</h2>
+  <p class="section-intro">These aren't competing priorities. They're nested disciplines — and the order in which you build them matters. The footprint is the non-negotiable foundation.</p>
+
+  <div class="sequence-flow reveal">
+    <div class="seq-step s1">
+      <div class="seq-num">1</div>
+      <div class="seq-label">Foundation</div>
+      <div class="seq-title">Footprint</div>
+      <div class="seq-sub">Sustainability IN IT</div>
+      <div class="seq-note">Measure, manage and reduce the environmental impact of IT operations. Without this, nothing else is credible.</div>
+    </div>
+    <div class="seq-step s2">
+      <div class="seq-num">2</div>
+      <div class="seq-label">Builds on 1</div>
+      <div class="seq-title">Handprint</div>
+      <div class="seq-sub">Sustainability BY IT</div>
+      <div class="seq-note">Technology enabling sustainability elsewhere. Only lands credibly once footprint discipline is demonstrated.</div>
+    </div>
+    <div class="seq-step s3">
+      <div class="seq-num">3</div>
+      <div class="seq-label">Concurrent</div>
+      <div class="seq-title">Heartprint</div>
+      <div class="seq-sub">Social Conscience</div>
+      <div class="seq-note">Direct positive impact for people, communities, and society through responsible, inclusive design choices.</div>
+    </div>
+    <div class="seq-step s4">
+      <div class="seq-num">4</div>
+      <div class="seq-label">Structural</div>
+      <div class="seq-title">Social Dimension</div>
+      <div class="seq-sub">IT FOR Society</div>
+      <div class="seq-note">Broader digital inclusion, equitable access, and ethical technology deployment as governance and regulatory obligations.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5 — What it isn't -->
+
+  <!-- GREENOPS / FINOPS PARALLEL INTERACTIVE TABLE -->
+  <div class="viz-container reveal" style="padding:0;margin-top:1.75rem;">
+    <div style="padding:1rem 1.5rem 0.75rem;border-bottom:1px solid rgba(255,255,255,0.06);">
+      <p class="viz-title">GreenOps and FinOps — the same operating model applied to a different resource</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
+      <div style="background:rgba(0,168,150,0.06);padding:1.25rem 1.5rem;border-right:1px solid rgba(255,255,255,0.06);">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#00A896;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;">
+          <div style="width:8px;height:8px;background:#00A896;border-radius:50%;"></div>GreenOps
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0.6rem;" id="go-rows"></div>
+      </div>
+      <div style="background:rgba(244,162,97,0.05);padding:1.25rem 1.5rem;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#F4A261;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;">
+          <div style="width:8px;height:8px;background:#F4A261;border-radius:50%;"></div>FinOps (for comparison)
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0.6rem;" id="fo-rows"></div>
+      </div>
+    </div>
+    <div style="padding:0.75rem 1.5rem;border-top:1px solid rgba(255,255,255,0.05);background:rgba(0,168,150,0.04);">
+      <p style="font-size:0.79rem;color:#94A3B8;line-height:1.6;">If your organisation already runs FinOps, it has the operating model. GreenOps adds the sustainability lens to an existing discipline rather than creating a new one from scratch. The governance structures, the unit economics approach, and the shared-responsibility model are identical.</p>
+    </div>
+  </div>
+  <script>
+  (function(){
+    var pairs = [
+      ['Continuous consumption discipline','Continuous cost optimisation'],
+      ['Energy, water, and material footprint visibility','Cloud spend visibility and accountability'],
+      ['Unit metrics: carbon per transaction','Unit economics: cost per transaction'],
+      ['Digital waste elimination','Cloud waste elimination'],
+      ['Shared responsibility across IT, procurement, and operations','Shared responsibility across engineering and finance'],
+    ];
+    var goRows = document.getElementById('go-rows');
+    var foRows = document.getElementById('fo-rows');
+    pairs.forEach(function(p) {
+      var goEl = document.createElement('div');
+      goEl.style.cssText = 'padding:0.55rem 0.75rem;background:rgba(0,168,150,0.06);border-left:2px solid rgba(0,168,150,0.3);font-size:0.81rem;color:#94A3B8;line-height:1.45;';
+      goEl.textContent = p[0];
+      goRows.appendChild(goEl);
+      var foEl = document.createElement('div');
+      foEl.style.cssText = 'padding:0.55rem 0.75rem;background:rgba(244,162,97,0.06);border-left:2px solid rgba(244,162,97,0.3);font-size:0.81rem;color:#94A3B8;line-height:1.45;';
+      foEl.textContent = p[1];
+      foRows.appendChild(foEl);
+    });
+  })();
+  </script>
+
+
+  <!-- GREENOPS OPERATING LOOP -->
+  <div class="viz-container reveal" style="padding:0;margin-top:1.75rem;">
+    <div style="padding:1rem 1.5rem 0.75rem;border-bottom:1px solid rgba(255,255,255,0.06);">
+      <p class="viz-title">The GreenOps operating loop — a continuous cycle, not a project with a completion date</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.06);" id="loop-steps">
+      <div onclick="showLoop(0,this)" style="background:#162840;padding:1.25rem;cursor:pointer;transition:background 0.12s;border-top:3px solid #00A896;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:#00A896;margin-bottom:0.3rem;">01</div>
+        <div style="font-weight:500;font-size:0.88rem;margin-bottom:0.25rem;">Measure first</div>
+        <div style="font-size:0.76rem;color:#64748B;line-height:1.45;">The gate, not the goal</div>
+      </div>
+      <div onclick="showLoop(1,this)" style="background:#1E293B;padding:1.25rem;cursor:pointer;transition:background 0.12s;border-top:3px solid transparent;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:#64748B;margin-bottom:0.3rem;">02</div>
+        <div style="font-weight:500;font-size:0.88rem;margin-bottom:0.25rem;color:#94A3B8;">Allocate to decisions</div>
+        <div style="font-size:0.76rem;color:#64748B;line-height:1.45;">Connect data to owners</div>
+      </div>
+      <div onclick="showLoop(2,this)" style="background:#1E293B;padding:1.25rem;cursor:pointer;transition:background 0.12s;border-top:3px solid transparent;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:#64748B;margin-bottom:0.3rem;">03</div>
+        <div style="font-weight:500;font-size:0.88rem;margin-bottom:0.25rem;color:#94A3B8;">Optimise before reporting</div>
+        <div style="font-size:0.76rem;color:#64748B;line-height:1.45;">Reduce, then disclose</div>
+      </div>
+      <div onclick="showLoop(3,this)" style="background:#1E293B;padding:1.25rem;cursor:pointer;transition:background 0.12s;border-top:3px solid transparent;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:1.4rem;font-weight:700;color:#64748B;margin-bottom:0.3rem;">↺</div>
+        <div style="font-weight:500;font-size:0.88rem;margin-bottom:0.25rem;color:#94A3B8;">Loop, not project</div>
+        <div style="font-size:0.76rem;color:#64748B;line-height:1.45;">Each cycle improves the next</div>
+      </div>
+    </div>
+    <div id="loop-detail" style="padding:1.25rem 1.5rem;background:#1E293B;min-height:80px;border-top:1px solid rgba(255,255,255,0.06);">
+      <div id="loop-detail-text" style="font-size:0.84rem;color:#94A3B8;line-height:1.7;">
+        <strong style="color:#00A896;">Measure first.</strong> You cannot allocate, optimise, or credibly report what you haven't measured. Measurement is the gate, not the goal. Too many programmes skip directly to reporting and wonder why nothing changes operationally.
+      </div>
+    </div>
+    <div style="padding:0.75rem 1.5rem;border-top:1px solid rgba(255,255,255,0.05);background:rgba(0,168,150,0.04);">
+      <p style="font-size:0.79rem;color:#94A3B8;line-height:1.6;">GreenOps is an operating rhythm, not a programme with an end date. Each cycle improves the baseline for the next. The organisations that get this right don't run a GreenOps project — they run GreenOps as a discipline embedded in how they already manage cost and performance.</p>
+    </div>
+  </div>
+  <script>
+  (function(){
+    var loopData = [
+      {col:'#00A896', title:'Measure first', body:'You cannot allocate, optimise, or credibly report what you haven't measured. Measurement is the gate, not the goal. Too many programmes skip directly to reporting and wonder why nothing changes operationally. The sequence matters: measure first, then act, then disclose.'},
+      {col:'#F4A261', title:'Allocate to decisions', body:'Footprint data only drives change when it's connected to the teams and services that create it. Centralised reporting without allocation produces awareness. Allocated ownership produces action. Every material emission category needs a named owner who can make decisions about it.'},
+      {col:'#E76F51', title:'Optimise before reporting', body:'Reduction before disclosure. Report after you've built a programme — not as a substitute for one. Organisations that report first and act later create accountability theatre. The report is the record of what changed, not the announcement of intent to change.'},
+      {col:'#B2EDE7', title:'Loop, not project', body:'GreenOps is an operating rhythm, not a programme with an end date. Each cycle improves the baseline for the next. The measurement gets more accurate. The allocation gets tighter. The optimisations compound. Projects end. Disciplines don't.'},
+    ];
+    window.showLoop = function(idx, btn) {
+      document.querySelectorAll('#loop-steps > div').forEach(function(d,i) {
+        d.style.background = i===idx ? '#162840' : '#1E293B';
+        d.style.borderTopColor = i===idx ? loopData[i].col : 'transparent';
+        d.querySelector('div:first-child').style.color = i===idx ? loopData[i].col : '#64748B';
+        if(d.querySelector('div:nth-child(2)')) d.querySelector('div:nth-child(2)').style.color = i===idx ? '#FFFFFF' : '#94A3B8';
+      });
+      var d = loopData[idx];
+      document.getElementById('loop-detail-text').innerHTML = '<strong style="color:'+d.col+'">'+d.title+'.</strong> '+d.body;
+    };
+  })();
+  </script>
+
+  <!-- ACCOUNTABILITY GAP TABLE -->
+  <div class="content-section reveal">
+    <p class="section-label">Accountability</p>
+    <h2 class="section-title">The accountability gap — who owns what today, and what needs to change.</h2>
+    <p class="section-intro">The decisions that drive the largest consumption are made across many teams. Ownership needs to follow the decision, not sit in a central sustainability function hoping to influence it.</p>
+    <div style="overflow-x:auto;margin-top:1.5rem;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
+        <thead>
+          <tr>
+            <th style="padding:0.65rem 1rem;text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.57rem;letter-spacing:0.1em;text-transform:uppercase;color:#64748B;border-bottom:1px solid rgba(255,255,255,0.1);background:#162840;">Decision</th>
+            <th style="padding:0.65rem 1rem;text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.57rem;letter-spacing:0.1em;text-transform:uppercase;color:#E76F51;border-bottom:1px solid rgba(255,255,255,0.1);background:#162840;">Typical owner today</th>
+            <th style="padding:0.65rem 1rem;text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.57rem;letter-spacing:0.1em;text-transform:uppercase;color:#00A896;border-bottom:1px solid rgba(255,255,255,0.1);background:#162840;">GreenOps model</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#FFFFFF;font-weight:500;">Cloud provisioning and right-sizing</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#E76F51;">Cloud / platform team alone</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;">Engineering + FinOps + GreenOps joint review</td>
+          </tr>
+          <tr style="background:rgba(255,255,255,0.01);">
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#FFFFFF;font-weight:500;">Data retention and replication policy</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#E76F51;">Application teams (default: keep everything)</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;">Data governance + sustainability policy owner</td>
+          </tr>
+          <tr>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#FFFFFF;font-weight:500;">Device refresh cycle length</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#E76F51;">IT procurement (fixed 3-year cycle)</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;">Procurement + sustainability lead + finance</td>
+          </tr>
+          <tr style="background:rgba(255,255,255,0.01);">
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#FFFFFF;font-weight:500;">AI model selection for tasks</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#E76F51;">Individual engineers or product teams</td>
+            <td style="padding:0.65rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:#94A3B8;">Platform governance + engineering standards</td>
+          </tr>
+          <tr>
+            <td style="padding:0.65rem 1rem;color:#FFFFFF;font-weight:500;">Software architecture efficiency</td>
+            <td style="padding:0.65rem 1rem;color:#E76F51;">Development team (performance focus only)</td>
+            <td style="padding:0.65rem 1rem;color:#94A3B8;">Engineering + architecture + GreenOps review</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout-insight reveal" style="margin-top:1.25rem;">
+      <p class="callout-title">The key principle</p>
+      <p>Accountability without distribution is aspiration. The shift from a central programme to embedded governance — where the right people own the right decisions — is what separates organisations that improve from those that report improvement.</p>
+    </div>
+  </div>
+
+
+  <div class="content-section reveal">
+  <p class="section-label">Section 5</p>
+  <h2 class="section-title">Four things digital sustainability is not.</h2>
+  <p class="section-intro">Being clear about what this isn't will save significant time and prevent the most common programme failures.</p>
+
+  <div class="isnt-grid reveal">
+    <div class="isnt-card isnt">
+      <span class="isnt-marker">✕ Not this</span>
+      <h4>A marketing narrative</h4>
+      <p>If you can't explain what you're measuring, how you're measuring it, and what operational changes that measurement is driving — you're running a communications exercise, not a GreenOps programme.</p>
+    </div>
+    <div class="isnt-card isnt">
+      <span class="isnt-marker">✕ Not this</span>
+      <h4>A single team's responsibility</h4>
+      <p>Treating sustainable IT as a project owned by a central sustainability function turns it into reporting and workshops. Outcomes are driven by decisions across lifecycle phases. If accountability isn't distributed, it stalls.</p>
+    </div>
+    <div class="isnt-card isnt">
+      <span class="isnt-marker">✕ Not this</span>
+      <h4>Just a data centre issue</h4>
+      <p>Data centres matter, but modern estates include cloud, SaaS, networks, end-user devices, software behaviour, and data growth. Focus on one layer and you shift impact elsewhere — and create blind spots you'll struggle to explain later.</p>
+    </div>
+    <div class="isnt-card isnt">
+      <span class="isnt-marker">✕ Not this</span>
+      <h4>A problem only technology can solve</h4>
+      <p>Technology choices matter — but governance, incentives, procurement, and leadership behaviour are equally important. A technical fix applied to a governance failure will not stick.</p>
+    </div>
+  </div>
+
+  <div class="callout callout-warning reveal">
+    <p class="callout-title">The connection to corporate sustainability</p>
+    <p>The drivers creating urgency for corporate sustainability teams are the same ones landing on IT leaders' desks. They're the same conversation. An IT programme that exists in isolation from corporate sustainability goals will compete for investment as if it were a discretionary initiative — and will usually lose.</p>
+  </div>
+</div>
+
+<!-- KC 1 -->
+<div class="kc-block reveal" data-correct="C">
+  <p class="kc-label">Knowledge Check · Module 2 · Q1</p>
+  <p class="kc-q">An organisation's GreenOps lead says: "We offset our IT emissions by purchasing renewable energy certificates — our carbon footprint is covered." What's the most accurate response?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>Correct — purchasing RECs fully addresses the organisation's IT carbon footprint</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>Partially correct — RECs cover operational carbon but not hardware-related Scope 3</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>Incorrect — RECs are a market-based instrument that don't reflect physical grid consumption; GreenOps requires operational discipline on actual consumption, not only certificates</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>Correct for Scope 2, but RECs have no role in a GreenOps programme</button>
+  </div>
+  <p class="kc-hint">Select an answer to reveal the explanation.</p>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">✓ Correct: Option C</p>
+    <p>Renewable energy certificates are a market-based instrument. They're a contractual mechanism used in sustainability reporting — but purchasing one doesn't change which electrons power your workload in a given hour. The grid is still the grid. GreenOps stays anchored in physical operational reality: how much you actually consume, how efficiently you consume it, and what levers you have to reduce waste and intensity.</p>
+    <p>Certificates can be part of a broader corporate sustainability strategy, but treating them as a substitute for operational discipline creates credibility problems the moment someone looks closely. Does your organisation currently distinguish between market-based and location-based carbon reporting?</p>
+  </div>
+</div>
+
+<!-- KC 2 -->
+<div class="kc-block reveal" data-correct="B">
+  <p class="kc-label">Knowledge Check · Module 2 · Q2</p>
+  <p class="kc-q">Which of the following best describes the "handprint" dimension of digital sustainability?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>The carbon footprint of the IT estate, including data centres, cloud, and devices</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>The positive sustainability outcomes that technology enables outside the IT estate — such as reducing transport or optimising buildings</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>The social impact of technology on communities and vulnerable groups</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>The embodied carbon of hardware in the supply chain</button>
+  </div>
+  <p class="kc-hint">Select an answer to reveal the explanation.</p>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">✓ Correct: Option B</p>
+    <p>The handprint is the positive sustainability value that technology creates outside the IT estate. Optimisation platforms that reduce operational waste, analytics that cut unnecessary transport, building management systems that reduce heating and cooling demand. These are real.</p>
+    <p>The catch is that handprint stories only land credibly once you've already demonstrated discipline on your own footprint. "We enabled significant carbon reductions elsewhere, but we haven't measured our own estate" is a hard position to defend publicly. Sequence matters.</p>
+  </div>
+</div>
+
+<!-- PAUSE AND REFLECT -->
+<div class="pause-reflect reveal">
+  <p class="pause-label">⏸ Pause &amp; Reflect</p>
+  <p class="pause-intro">Take 5–10 minutes. Write answers down. Specificity matters more than completeness.</p>
+  <div class="pause-questions">
+    <div class="pause-q"><span class="pause-q-num">1</span>If you described digital sustainability to a colleague right now, which of the three dimensions would you instinctively focus on? Why — and which dimension is most underserved in your organisation?</div>
+    <div class="pause-q"><span class="pause-q-num">2</span>Is IT sustainability in your organisation currently connected to corporate ESG, the CFO, and procurement — or does it operate as a standalone programme? What would it take to change that?</div>
+    <div class="pause-q"><span class="pause-q-num">3</span>Which of the four "what it isn't" failures is most likely happening in your organisation right now? What's the evidence for that?</div>
+  </div>
+</div>
+
+<!-- KEY TAKEAWAYS -->
+<div class="takeaways reveal">
+  <h3 class="takeaways-heading">Module 2 — Key Takeaways</h3>
+  <div class="takeaway-list">
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>A useful definition is operational, not aspirational.</strong><p>Digital sustainability is a lifecycle and leadership discipline — not a brand position or a reporting exercise.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>The three dimensions stop programmes talking past each other.</strong><p>Footprint (in IT), Handprint (by IT), Social dimension (IT for society). Don't conflate them — they serve different purposes and require different measurement.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>The heartprint is a distinct fourth concept.</strong><p>IT's direct positive social impact — accessible design, digital inclusion, responsible AI — is worth separating from the broader social dimension.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>The footprint comes first — and is non-negotiable.</strong><p>Leaders who lead with the handprint before securing the footprint create a credibility problem the first time anyone asks for evidence.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Connection to corporate sustainability is essential.</strong><p>IT sustainability operating in isolation from the broader corporate agenda will consistently lose the resource allocation argument.</p></div></div>
+  </div>
+</div>
+
+</div><!-- module-content -->
+
+<div class="module-nav">
+  <a href="module1.html" class="nav-btn"><span><span class="nav-btn-label">← Previous</span><span class="nav-btn-title">M1: Why Digital Sustainability Matters Now</span></span></a>
+  <button class="complete-btn" onclick="markComplete('module2')">Mark as complete</button>
+  <a href="module3.html" class="nav-btn next"><span><span class="nav-btn-label">Next →</span><span class="nav-btn-title">M3: How Digital Sustainability Is Measured</span></span></a>
+</div>
+
+<footer>
+  <div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 2</div>
+  <div class="footer-brand">March 2026 · v2</div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+initProgress(2);
+
+function showDim(id, btn) {
+  document.querySelectorAll('.dim-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.dim-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+const lcDetails = {
+  manufacture: '<strong>Hardware manufacture — 60–80% of a device\'s lifetime footprint, before it reaches your desk.</strong> Embodied carbon is front-loaded and largely fixed once the device exists. The biggest lever in end-user services is therefore lifecycle governance — not plug socket behaviour. Every additional year you keep a device in productive use represents a meaningful reduction in embodied carbon per year of service.',
+  operate: '<strong>Operational phase — where energy, cooling water, and carbon accumulate year after year.</strong> This is the phase most organisations focus on: PUE, server utilisation, cloud rightsizing, renewable energy. Real levers — but they address a minority of total lifecycle impact for hardware. For data centres and cloud, the operational phase is the dominant category.',
+  eol: '<strong>End-of-life disposal — the fastest-growing waste stream globally.</strong> Disposal choices have real material and social supply chain implications. Certified ITAD, data sanitisation, manufacturer take-back programmes, and refurbishment pathways are governance decisions — not operational afterthoughts. The wrong choice here also carries social risk: informal e-waste processing at scale causes documented harm in global supply chains.'
+};
+
+function showLcDetail(phase) {
+  document.querySelectorAll('.lc-phase').forEach(function(p) {
+    p.style.opacity='0.5'; p.style.outline='none';
+  });
+  var el = document.querySelector('.lc-phase.' + phase);
+  if(el) { el.style.opacity='1'; el.style.outline='2px solid '+(phase==='operate'?'#00A896':'#E76F51'); }
+  var det = document.getElementById('lc-detail');
+  var colors = {manufacture:'#E76F51', operate:'#00A896', eol:'#E76F51'};
+  var col = colors[phase] || '#00A896';
+  det.style.borderLeft = '3px solid '+col;
+  det.innerHTML = '<div style="font-family:JetBrains Mono,monospace;font-size:0.58rem;text-transform:uppercase;letter-spacing:0.12em;color:'+col+';margin-bottom:0.5rem;">'+phase.charAt(0).toUpperCase()+phase.slice(1)+'</div>'+lcDetails[phase];
+}
+</script>
+</body>
+</html>
