@@ -118,9 +118,9 @@
         total++;
         var checked = !!p[item.id];
         if(checked) done++;
-        items += '<div onclick="toggleItem('' + item.id + '')" style="display:flex;gap:0.65rem;align-items:flex-start;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.04);cursor:pointer;transition:opacity 0.15s;' + (checked?'opacity:0.5;':'') + '">' +
-          '<div style="width:16px;height:16px;flex-shrink:0;margin-top:1px;border:1px solid ' + (checked?phase.col:'rgba(255,255,255,0.2)') + ';background:' + (checked?phase.col:'transparent') + ';display:flex;align-items:center;justify-content:center;transition:all 0.15s;">' +
-          (checked?'<svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="#0F1F2E" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>':'') +
+        items += '<div onclick="toggleItem('' + item.id + '')" style="display:flex;gap:0.65rem;align-items:flex-start;padding:0.5rem 0;border-bottom:1px solid var(--border-light);cursor:pointer;transition:opacity 0.15s;' + (checked?'opacity:0.5;':'') + '">' +
+          '<div style="width:16px;height:16px;flex-shrink:0;margin-top:1px;border:1px solid ' + (checked?phase.col:'var(--section-alt)') + ';background:' + (checked?phase.col:'transparent') + ';display:flex;align-items:center;justify-content:center;transition:all 0.15s;">' +
+          (checked?'<svg width="10" height="8" viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke="var(--navy)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>':'') +
           '</div>' +
           '<div style="font-size:0.79rem;color:' + (checked?'#64748B':'#94A3B8') + ';line-height:1.5;">' + item.text + '</div>' +
           '</div>';
@@ -165,14 +165,39 @@ function initKnowledgeChecks(){
         if(block.classList.contains('answered'))return;
         block.classList.add('answered');
         const chosen=this.dataset.val;
+        const isCorrect=(chosen===correct);
+
         block.querySelectorAll('.kc-option').forEach(o=>{
           if(o.dataset.val===correct)o.classList.add('selected-correct');
-          else if(o.dataset.val===chosen&&chosen!==correct)o.classList.add('selected-wrong');
+          else if(o.dataset.val===chosen&&!isCorrect)o.classList.add('selected-wrong');
         });
-        const fb=block.querySelector(chosen===correct?'.kc-correct':'.kc-wrong');
-        if(fb)fb.style.display='block';
+
+        // Find the correct option text for feedback
+        const correctBtn=block.querySelector('.kc-option[data-val="'+correct+'"]');
+        const correctText=correctBtn?correctBtn.textContent.replace(/^[A-D]\s*/,'').trim():'';
+
+        // Build or find feedback label
+        let revealLabel=block.querySelector('.kc-reveal-label');
+        if(!revealLabel){
+          revealLabel=document.createElement('p');
+          revealLabel.className='kc-reveal-label';
+          const rv=block.querySelector('.kc-reveal');
+          if(rv)rv.insertBefore(revealLabel,rv.firstChild);
+        }
+
+        if(isCorrect){
+          revealLabel.style.color='var(--teal-dark)';
+          revealLabel.textContent='✓ Correct — Option '+correct;
+        } else {
+          revealLabel.style.color='#B54D12';
+          revealLabel.innerHTML='✗ Incorrect — the correct answer was <strong>Option '+correct+'</strong>: '+correctText;
+        }
+
         const rv=block.querySelector('.kc-reveal');
         if(rv)rv.style.display='block';
+
+        const hint=block.querySelector('.kc-hint');
+        if(hint)hint.style.display='none';
       });
     });
   });
@@ -193,10 +218,5 @@ function initProgress(current){
   if(isComplete('module'+current))document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
 }
 
-document.addEventListener('DOMContentLoaded',function(){
-  initKnowledgeChecks();
-  initScrollReveal();
-  if(typeof renderSprint==='function')renderSprint();
-});
 </script>
 </body></html>
