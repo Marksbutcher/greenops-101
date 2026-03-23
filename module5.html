@@ -342,7 +342,7 @@
         const now = new Date();
         const from = now.toISOString().slice(0,16) + 'Z';
         const to = new Date(now.getTime() + 24*60*60*1000).toISOString().slice(0,16) + 'Z';
-        const resp = await fetch(`https://api.carbonintensity.org.uk/intensity/\${from}/\${to}`);
+        const resp = await fetch(`https://api.carbonintensity.org.uk/intensity/${from}/${to}`);
         if(!resp.ok) throw new Error('API error');
         const data = await resp.json();
         const periods = data.data;
@@ -360,9 +360,9 @@
         const pts = vals.map((v,i) => {
           const x = (i/(vals.length-1))*W;
           const y = H - ((v-minVal)/(maxVal-minVal+1))*(H-10) - 5;
-          return `\${x},\${y}`;
+          return `${x},${y}`;
         });
-        const areaPath = `M0,\${H} L` + pts.join(' L') + ` L\${W},\${H} Z`;
+        const areaPath = `M0,${H} L` + pts.join(' L') + ` L${W},${H} Z`;
         const linePath = `M` + pts.join(' L');
         
         svgEl.innerHTML = `
@@ -372,8 +372,8 @@
               <stop offset="100%" stop-color="#00A896" stop-opacity="0.02"/>
             </linearGradient>
           </defs>
-          <path d="\${areaPath}" fill="url(#swGrad)"/>
-          <path d="\${linePath}" fill="none" stroke="#00A896" stroke-width="1.5" opacity="0.8"/>
+          <path d="${areaPath}" fill="url(#swGrad)"/>
+          <path d="${linePath}" fill="none" stroke="#00A896" stroke-width="1.5" opacity="0.8"/>
         `;
         
         // Mark current position
@@ -401,10 +401,10 @@
           const col = intColor(w.v);
           const saving = Math.round(currentVal - w.v);
           wDiv.innerHTML += `<div style="display:flex;align-items:center;gap:0.65rem;padding:0.45rem 0.6rem;background:var(--section-alt);">
-            <span style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);width:18px;">\${rank+1}.</span>
-            <span style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-primary);width:48px;">\${tStr}</span>
-            <span style="font-family:Calibri,sans-serif;font-size:0.92rem;color:\${col};width:40px;">\${w.v}g</span>
-            <span style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);">\${saving>0?saving+'g cleaner than now':'—'}</span>
+            <span style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);width:18px;">${rank+1}.</span>
+            <span style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-primary);width:48px;">${tStr}</span>
+            <span style="font-family:Calibri,sans-serif;font-size:0.92rem;color:${col};width:40px;">${w.v}g</span>
+            <span style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);">${saving>0?saving+'g cleaner than now':'—'}</span>
           </div>`;
         });
         
@@ -448,19 +448,19 @@
         <line x1="10" y1="200" x2="175" y2="105" stroke="rgba(30,41,59,0.12)" stroke-width="1" stroke-dasharray="4,4"/>
         <line x1="230" y1="200" x2="65" y2="105" stroke="rgba(30,41,59,0.12)" stroke-width="1" stroke-dasharray="4,4"/>
         <!-- Cost vertex -->
-        <g class="tri-vertex" onclick="showTriDetail('cost')" style="cursor:pointer;">
+        <g class="tri-vertex" data-key="cost" onclick="showTriDetail('cost')" style="cursor:pointer;">
           <circle cx="10" cy="200" r="26" fill="rgba(0,168,150,0.12)" stroke="#00A896" stroke-width="2"/>
           <text x="10" y="196" text-anchor="middle" fill="#007A6E" font-family="Georgia,serif" font-size="12" font-weight="400">Cost</text>
           <text x="10" y="210" text-anchor="middle" fill="#00A896" font-family="Calibri,sans-serif" font-size="12" font-weight="600">£</text>
         </g>
         <!-- Carbon vertex -->
-        <g class="tri-vertex" onclick="showTriDetail('carbon')" style="cursor:pointer;">
+        <g class="tri-vertex" data-key="carbon" onclick="showTriDetail('carbon')" style="cursor:pointer;">
           <circle cx="120" cy="10" r="26" fill="rgba(231,111,81,0.12)" stroke="#E76F51" stroke-width="2"/>
           <text x="120" y="6" text-anchor="middle" fill="#C45B3A" font-family="Georgia,serif" font-size="12" font-weight="400">Carbon</text>
           <text x="120" y="20" text-anchor="middle" fill="#E76F51" font-family="Calibri,sans-serif" font-size="12" font-weight="600">CO₂</text>
         </g>
         <!-- Performance vertex -->
-        <g class="tri-vertex" onclick="showTriDetail('perf')" style="cursor:pointer;">
+        <g class="tri-vertex" data-key="perf" onclick="showTriDetail('perf')" style="cursor:pointer;">
           <circle cx="230" cy="200" r="26" fill="rgba(231,111,81,0.12)" stroke="#E76F51" stroke-width="2"/>
           <text x="230" y="196" text-anchor="middle" fill="#C45B3A" font-family="Georgia,serif" font-size="12" font-weight="400">Perf.</text>
           <text x="230" y="210" text-anchor="middle" fill="#E76F51" font-family="Calibri,sans-serif" font-size="12" font-weight="600">SLA</text>
@@ -597,49 +597,22 @@ const triContent = {
 };
 function showTriDetail(key) {
   const d = triContent[key];
-  document.getElementById('triDetail').className = 'tri-detail ' + d.cls;
-  document.getElementById('triDetail').innerHTML = `<div class="tradeoff-container">
-    <div class="triangle-wrap">
-      <svg class="triangle-svg" viewBox="0 0 320 290" preserveAspectRatio="xMidYMid meet">
-        <defs>
-          <radialGradient id="glowC" cx="50%" cy="15%" r="40%"><stop offset="0%" stop-color="rgba(231,111,81,0.12)"/><stop offset="100%" stop-color="transparent"/></radialGradient>
-          <radialGradient id="glowL" cx="15%" cy="85%" r="40%"><stop offset="0%" stop-color="rgba(0,168,150,0.12)"/><stop offset="100%" stop-color="transparent"/></radialGradient>
-          <radialGradient id="glowR" cx="85%" cy="85%" r="40%"><stop offset="0%" stop-color="rgba(244,162,97,0.12)"/><stop offset="100%" stop-color="transparent"/></radialGradient>
-        </defs>
-        <rect width="320" height="290" fill="url(#glowC)"/><rect width="320" height="290" fill="url(#glowL)"/><rect width="320" height="290" fill="url(#glowR)"/>
-        <!-- Triangle edges -->
-        <line x1="160" y1="40" x2="38" y2="252" stroke="rgba(30,41,59,0.2)" stroke-width="1.5" stroke-dasharray="6,4"/>
-        <line x1="160" y1="40" x2="282" y2="252" stroke="rgba(30,41,59,0.2)" stroke-width="1.5" stroke-dasharray="6,4"/>
-        <line x1="38" y1="252" x2="282" y2="252" stroke="rgba(30,41,59,0.2)" stroke-width="1.5" stroke-dasharray="6,4"/>
-        <!-- Centre label -->
-        <text x="160" y="150" text-anchor="middle" fill="rgba(30,41,59,0.07)" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="3">TRADE-OFF</text>
-        <text x="160" y="164" text-anchor="middle" fill="rgba(30,41,59,0.07)" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="3">ZONE</text>
-        <!-- Carbon (top) -->
-        <g class="tri-vertex" onclick="showTriDetail('carbon')" style="cursor:pointer">
-          <circle cx="160" cy="40" r="36" fill="rgba(231,111,81,0.1)" stroke="#E76F51" stroke-width="1.5"/>
-          <text x="160" y="34" text-anchor="middle" fill="#E76F51" font-family="Georgia,serif" font-size="15" font-weight="600">Carbon</text>
-          <text x="160" y="52" text-anchor="middle" fill="rgba(231,111,81,0.7)" font-family="JetBrains Mono,monospace" font-size="10">CO₂</text>
-        </g>
-        <!-- Cost (bottom-left) -->
-        <g class="tri-vertex" onclick="showTriDetail('cost')" style="cursor:pointer">
-          <circle cx="38" cy="252" r="36" fill="rgba(0,168,150,0.1)" stroke="#00A896" stroke-width="1.5"/>
-          <text x="38" y="246" text-anchor="middle" fill="#00A896" font-family="Georgia,serif" font-size="15" font-weight="600">Cost</text>
-          <text x="38" y="264" text-anchor="middle" fill="rgba(0,168,150,0.7)" font-family="JetBrains Mono,monospace" font-size="10">£ $</text>
-        </g>
-        <!-- Performance (bottom-right) -->
-        <g class="tri-vertex" onclick="showTriDetail('perf')" style="cursor:pointer">
-          <circle cx="282" cy="252" r="36" fill="rgba(244,162,97,0.1)" stroke="#F4A261" stroke-width="1.5"/>
-          <text x="282" y="246" text-anchor="middle" fill="#F4A261" font-family="Georgia,serif" font-size="13" font-weight="600">Perf.</text>
-          <text x="282" y="264" text-anchor="middle" fill="rgba(244,162,97,0.7)" font-family="JetBrains Mono,monospace" font-size="10">SLA</text>
-        </g>
-      </svg>
-    </div>
-    <div id="triDetail" class="tri-detail">
-      <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7;"><span style="color:#00A896;font-weight:600;">Click a vertex</span> to explore each dimension.</p>
-      <p style="margin-top:0.75rem;font-size:0.95rem;color:var(--text-secondary);line-height:1.7;">The goal is not to always win on carbon — it is to make the trade-off with cost and performance visible and deliberate. Invisible trade-offs produce accidental outcomes.</p>
-      <p style="margin-top:0.85rem;font-size:0.88rem;color:var(--text-secondary);font-style:italic;padding-left:0.85rem;border-left:2px solid rgba(0,168,150,0.35);line-height:1.65;">A worked example: selecting a cloud region for a new overnight batch analytics workload. Europe West (London) is the instinctive default. Europe North has materially lower carbon intensity. Cost difference: ~5–10%. Carbon difference: three to five times that. The case is clear — but only if the carbon variable is visible alongside cost and latency.</p>
-    </div>
-  </div><p>${d.text}</p><p class="example">${d.example}</p>`;
+  if (!d) return;
+  
+  // Update detail panel
+  const det = document.getElementById('triDetail');
+  if (!det) return;
+  det.innerHTML =
+    '<div class="tri-detail-name">' + d.name + '</div>' +
+    '<p>' + d.text + '</p>' +
+    (d.example ? '<p class="example">' + d.example + '</p>' : '');
+  
+  // Highlight selected vertex in static SVG
+  document.querySelectorAll('.tri-vertex').forEach(function(g) {
+    g.style.opacity = '0.35';
+  });
+  const sel = document.querySelector('.tri-vertex[data-key="' + key + '"]');
+  if (sel) sel.style.opacity = '1';
 }
 </script>
 <script>
