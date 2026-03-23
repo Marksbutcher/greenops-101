@@ -1,36 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>M12 — GreenOps 101</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shared.css">
-<style>
-:root{--page-bg:#F7F8FA;--card-bg:#FFFFFF;--section-alt:#E8EDF2;--text-primary:#1E293B;--text-secondary:#4A5568;--text-muted:#64748B;--navy:#0F1F2E;--navy-mid:#162840;--navy-card:#1E293B;--teal:#00A896;--teal-dark:#007A6E;--teal-muted:#B2EDE7;--teal-bg:rgba(0,168,150,0.07);--teal-border:rgba(0,168,150,0.25);--orange:#E76F51;--orange-light:#F4A261;--orange-bg:#FFF3E8;--orange-border:rgba(231,111,81,0.25);--border:#D1D9E0;--border-light:#E8EDF2;--track1:#00A896;--track2:#F4A261;--track3:#E76F51;--correct:#16a34a;--wrong:#dc2626;--white:#FFFFFF;--space-1:0.25rem;--space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;--space-5:1.5rem;--space-6:2rem;--space-7:3rem;--space-8:4rem;--navy-light:#1C3A55;--navy-raised:#1C3A55;--navy-border:rgba(255,255,255,0.07);--navy-mid-alt:#162840;--teal-light:#B2EDE7;--teal-glow:rgba(0,168,150,0.15);--teal-subtle:rgba(0,168,150,0.07);--slate:#4A5568;--slate-mid:#64748B;--slate-dim:#94A3B8;--grey-100:#F7F8FA;--grey-300:#D1D9E0;--grey-500:#4A5568;--border-dark:rgba(255,255,255,0.08);}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;font-size:16px;}img,svg{display:block;max-width:100%;}body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,'Trebuchet MS',system-ui,-apple-system,sans-serif;font-weight:400;font-size:1rem;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}.top-nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:1px solid rgba(0,168,150,0.2);padding:0 var(--space-7);height:52px;display:flex;align-items:center;gap:1rem;}.top-nav::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00A896 0%,#F4A261 60%,#E76F51 100%);}.nav-home{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.85);text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:color 0.15s;flex-shrink:0;}.nav-home:hover{color:#FFFFFF;}.nav-sep{color:rgba(255,255,255,0.5);font-size:0.8rem;}.nav-module{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#FFFFFF;font-weight:500;}.nav-track-pill{font-family:Calibri,sans-serif;font-size:0.69rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.22rem 0.65rem;border-radius:2px;}.track1-pill{background:rgba(0,168,150,0.2);color:#B2EDE7;}.track2-pill{background:rgba(244,162,97,0.2);color:#F4D0B0;}.track3-pill{background:rgba(231,111,81,0.2);color:#F4C4B9;}.nav-progress{margin-left:auto;font-family:Calibri,sans-serif;font-size:0.72rem;color:rgba(255,255,255,0.7);}.nav-prog-bar{width:80px;height:2px;background:rgba(255,255,255,0.12);border-radius:1px;margin-left:0.5rem;overflow:hidden;display:inline-block;vertical-align:middle;}.nav-prog-fill{height:100%;background:var(--teal);border-radius:1px;transition:width 0.4s ease;}.module-hero{position:relative;overflow:hidden;padding:var(--space-8) var(--space-7) var(--space-7);background:#0F1F2E;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;}.module-hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 70% 50%,rgba(0,168,150,0.08) 0%,transparent 65%);pointer-events:none;}.hero-num{font-family:Georgia,serif;font-size:clamp(5rem,12vw,10rem);color:rgba(255,255,255,0.12);line-height:1;position:absolute;right:var(--space-7);bottom:0;font-weight:400;user-select:none;}.module-eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal-muted);margin-bottom:0.75rem;}.module-title{font-family:Georgia,serif;font-weight:700;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.12;letter-spacing:-0.02em;color:#FFFFFF;margin-bottom:1.25rem;}.module-subtitle{font-size:1.1rem;color:rgba(255,255,255,0.92);line-height:1.65;max-width:620px;margin-bottom:2rem;}.module-meta{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}.meta-item{display:flex;flex-direction:column;gap:0.15rem;}.meta-item .label{font-family:Calibri,sans-serif;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.65);}.meta-item .value{font-size:0.92rem;color:rgba(255,255,255,0.95);font-weight:500;}.complete-btn{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.6rem 1.25rem;background:rgba(0,168,150,0.15);border:1px solid #00A896;color:#B2EDE7;cursor:pointer;transition:all 0.15s;}.complete-btn:hover{background:rgba(0,168,150,0.3);border-color:#00A896;}.complete-btn.done{background:rgba(0,168,150,0.25);border-color:#00A896;color:#B2EDE7;}.objectives-strip{padding:0;}.module-content{max-width:1200px;margin:0 auto;padding:0 var(--space-7) var(--space-6);}.content-section{padding:var(--space-7) 0;border-bottom:1px solid var(--border-light);}.content-section:last-child{border-bottom:none;}.section-label{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:0.65rem;display:block;font-weight:700;}.section-title{font-family:Georgia,serif;font-weight:700;font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.15;letter-spacing:-0.02em;color:var(--text-primary);margin-bottom:1.25rem;}.section-intro{font-size:1.12rem;font-weight:400;color:var(--text-secondary);line-height:1.75;max-width:780px;margin-bottom:2rem;}.card-grid{display:grid;gap:1px;background:var(--border);}.card-grid-2{grid-template-columns:1fr 1fr;}.card-grid-3{grid-template-columns:repeat(3,1fr);}.card-grid-4{grid-template-columns:repeat(4,1fr);}.card{background:var(--card-bg);padding:1.75rem;position:relative;}.card-title{font-family:Georgia,serif;font-size:1.1rem;font-weight:400;color:var(--text-primary);margin-bottom:0.65rem;}.card-body{font-size:0.97rem;color:var(--text-secondary);line-height:1.7;}.card--teal-top{border-top:3px solid var(--teal);}.card--orange-top{border-top:3px solid var(--orange);}.card--navy-bg{background:var(--navy);color:#FFFFFF;}.stat-strip{display:grid;gap:1px;background:var(--border);margin:2.25rem 0;border-radius:3px;overflow:hidden;}.stat-strip.cols-3{grid-template-columns:repeat(3,1fr);}.stat-strip.cols-4{grid-template-columns:repeat(4,1fr);}.stat-cell{background:var(--card-bg);padding:2rem 1.5rem;text-align:center;position:relative;border-top:3px solid var(--cell-accent,var(--teal));transition:background 0.15s;}.stat-cell:hover{background:var(--section-alt);}.stat-num{font-family:Georgia,serif;font-size:clamp(2.4rem,4.5vw,3.5rem);color:var(--cell-accent,var(--teal-dark));line-height:1;margin-bottom:0.5rem;display:block;}.stat-label{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);line-height:1.5;display:block;}.viz-container{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);margin:2rem 0;box-shadow:0 2px 8px rgba(0,0,0,0.07);}.viz-header{padding:1rem 1.5rem;border-bottom:2px solid var(--teal);display:flex;align-items:center;gap:0.75rem;background:var(--section-alt);}.viz-header-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;}.viz-title{font-family:'JetBrains Mono',monospace;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;}.callout{padding:1.35rem 1.75rem;margin:1.75rem 0;border-left:4px solid var(--teal);background:var(--teal-bg);}.callout-insight{border-left-color:var(--teal);background:var(--teal-bg);}.callout-warning{border-left-color:var(--orange);background:var(--orange-bg);}.callout-key{border-left-color:var(--teal-dark);background:var(--teal-bg);}.callout-title{font-family:'JetBrains Mono',monospace;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;display:block;margin-bottom:0.6rem;}.callout-warning .callout-title{color:var(--orange);}.callout p{font-size:1rem;color:var(--text-primary);line-height:1.72;}.pause-questions{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem var(--space-7);}.pause-q{font-size:1rem;color:var(--text-primary);line-height:1.7;margin-bottom:0.85rem;padding-left:1.25rem;border-left:2px solid var(--teal-dark);}.pause-q:last-child{margin-bottom:0;}.kc-block{background:var(--card-bg);border:1px solid var(--border);padding:2.25rem;margin:0.5rem 0;}.kc-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:1rem;}.kc-q{font-family:Georgia,serif;font-weight:500;font-size:1.15rem;color:var(--text-primary);line-height:1.6;margin-bottom:1.5rem;}.kc-options{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1rem;}.kc-option{display:flex;align-items:flex-start;gap:0.85rem;padding:0.9rem 1.1rem;background:var(--page-bg);border:1px solid var(--border);cursor:pointer;text-align:left;width:100%;font-family:Calibri,'Trebuchet MS',system-ui,sans-serif;font-size:1rem;color:var(--text-primary);line-height:1.55;transition:all 0.15s;}.kc-option:hover{border-color:var(--teal);background:var(--teal-bg);}.kc-option.selected-correct{background:rgba(22,163,74,0.08);border-color:var(--correct);color:var(--text-primary);}.kc-option.selected-wrong{background:rgba(220,38,38,0.07);border-color:var(--wrong);color:var(--text-primary);}.kc-opt-key{font-family:Calibri,sans-serif;font-size:0.78rem;font-weight:700;color:var(--text-muted);flex-shrink:0;width:1.2rem;padding-top:0.1rem;}.kc-feedback{padding:1rem 1.25rem;margin-top:0.5rem;font-size:1rem;line-height:1.7;border-left:3px solid;}.kc-correct{background:rgba(22,163,74,0.07);border-left-color:var(--correct);color:var(--text-primary);}.kc-wrong{background:rgba(220,38,38,0.06);border-left-color:var(--wrong);color:var(--text-primary);}.kc-hint{font-size:0.92rem;color:var(--text-muted);font-style:italic;margin-top:0.5rem;display:none;}.kc-hint.visible{display:block;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem var(--space-7);border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;}.module-footer{padding:3rem var(--space-7);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;background:var(--card-bg);}.next{display:inline-flex;align-items:center;gap:0.75rem;padding:0.85rem 1.75rem;background:var(--teal);color:var(--navy);font-family:'JetBrains Mono',monospace;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;font-weight:700;transition:background 0.15s;}.next:hover{background:var(--teal-dark);color:#FFFFFF;}.reveal{opacity:1;transition:opacity 0.4s ease,transform 0.4s ease;}.reveal.animate{opacity:0;transform:translateY(12px);}.reveal.animate.visible{opacity:1;transform:none;}@media (max-width:860px){.module-content{padding:0 var(--space-5) var(--space-5);}.objectives-strip{padding:1.5rem var(--space-5);}.top-nav{padding:0 var(--space-5);}.module-hero{padding:var(--space-6) var(--space-5) var(--space-5);}.card-grid-3{grid-template-columns:1fr 1fr;}.card-grid-4{grid-template-columns:1fr 1fr;}}@media (max-width:540px){.card-grid-2,.card-grid-3,.card-grid-4{grid-template-columns:1fr;}.stat-strip.cols-3,.stat-strip.cols-4{grid-template-columns:1fr;}.module-title{font-size:1.75rem;}}.objectives-strip{background:#0F1F2E;border-bottom:none;padding:2.5rem 3rem;}.objectives-heading{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:#B2EDE7;margin-bottom:1.5rem;font-weight:700;}.objectives-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0.85rem;max-width:1160px;}.objectives-list li{display:flex;align-items:flex-start;gap:1rem;font-size:1rem;color:#FFFFFF;line-height:1.6;padding:0.75rem 0;border-left:2px solid rgba(0,168,150,0.5);padding-left:1rem;}.objectives-list li:hover{background:#1C3A55;border-left-color:#00A896;}.obj-num{font-family:Calibri,sans-serif;font-size:0.72rem;color:#00A896;font-weight:700;letter-spacing:0.1em;flex-shrink:0;padding-top:0.12rem;}.pause-reflect{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem var(--space-7);}.pause-label{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:0.5rem;display:block;}.pause-intro{font-size:0.97rem;color:var(--text-muted);margin-bottom:1.25rem;font-style:italic;}.pause-questions{background:transparent;border:none;padding:0;display:flex;flex-direction:column;gap:0.75rem;}.pause-q{display:flex;align-items:flex-start;gap:0.85rem;font-size:1rem;color:var(--text-primary);line-height:1.65;padding:0.85rem 1.1rem;background:var(--card-bg);border-left:3px solid var(--teal-dark);border:1px solid var(--border);border-left:3px solid var(--teal-dark);}.pause-q-num{font-family:Calibri,sans-serif;font-size:0.72rem;color:var(--teal-dark);font-weight:700;flex-shrink:0;padding-top:0.2rem;min-width:1.4rem;}.pause-note{font-size:0.92rem;color:var(--text-muted);margin-top:1rem;font-style:italic;}.takeaways{background:#0F1F2E;padding:2.5rem 3rem;margin-top:0;}.takeaways-heading{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:#B2EDE7;font-weight:700;margin-bottom:1.5rem;}.takeaway-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,0.08);width:100%;}.takeaway-item{display:flex;gap:1rem;padding:1.5rem;background:#162840;border-top:2px solid rgba(0,168,150,0.4);transition:background 0.15s;}.takeaway-item:hover{background:#1C3A55;}.takeaway-icon{color:var(--teal);font-size:0.65rem;flex-shrink:0;padding-top:0.4rem;}.takeaway-body strong{display:block;font-family:Georgia,serif;font-size:1.05rem;font-weight:700;color:#FFFFFF;margin-bottom:0.4rem;line-height:1.35;} .takeaway-body p{font-size:0.95rem;color:rgba(255,255,255,0.88);line-height:1.65;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem var(--space-7);border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;flex-wrap:wrap;}.nav-btn{display:inline-flex;flex-direction:column;padding:0.75rem 1.25rem;border:1px solid var(--border);background:var(--page-bg);text-decoration:none;transition:all 0.15s;color:inherit;}.nav-btn:hover{border-color:var(--teal-dark);background:var(--teal-bg);}.nav-btn.next{text-align:right;}.nav-btn-label{font-family:'JetBrains Mono',monospace;font-size:0.69rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);display:block;}.nav-btn-title{font-size:0.97rem;color:var(--text-primary);font-weight:500;display:block;margin-top:0.15rem;}.nav-btn.next .nav-btn-label{color:var(--teal-dark);}.nav-btn.next .nav-btn-title{color:var(--teal-dark);}.kc-reveal{display:none;padding:1rem 1.25rem;margin-top:0.5rem;background:var(--teal-bg);border-left:3px solid var(--teal-dark);font-size:1rem;color:var(--text-primary);line-height:1.72;}.kc-reveal-label{font-family:Calibri,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-dark);display:block;margin-bottom:0.5rem;}.footer-brand{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);}
-</style>
-<style>
-/* ── MISSING COMPONENTS + REDESIGNED SECTIONS ── */
-.objectives-strip{background:#0F1F2E;border-bottom:none;padding:2.5rem 3rem;}.objectives-heading{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:#B2EDE7;margin-bottom:1.5rem;font-weight:700;}.objectives-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0.85rem;max-width:1160px;}.objectives-list li{display:flex;align-items:flex-start;gap:1rem;font-size:1rem;color:#FFFFFF;line-height:1.6;padding:0.75rem 0;border-left:2px solid rgba(0,168,150,0.5);padding-left:1rem;}.objectives-list li:hover{background:#1C3A55;border-left-color:#00A896;}.obj-num{font-family:Calibri,sans-serif;font-size:0.72rem;color:#00A896;font-weight:700;letter-spacing:0.1em;flex-shrink:0;padding-top:0.12rem;}.pause-reflect{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem var(--space-7);}.pause-label{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:0.5rem;display:block;}.pause-intro{font-size:0.97rem;color:var(--text-muted);margin-bottom:1.25rem;font-style:italic;}.pause-questions{background:transparent;border:none;padding:0;display:flex;flex-direction:column;gap:0.75rem;}.pause-q{display:flex;align-items:flex-start;gap:0.85rem;font-size:1rem;color:var(--text-primary);line-height:1.65;padding:0.85rem 1.1rem;background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--teal-dark);}.pause-q-num{font-family:Calibri,sans-serif;font-size:0.72rem;color:var(--teal-dark);font-weight:700;flex-shrink:0;padding-top:0.2rem;min-width:1.4rem;}.pause-note{font-size:0.92rem;color:var(--text-muted);margin-top:1rem;font-style:italic;}.takeaways{background:#0F1F2E;padding:2.5rem 3rem;margin-top:0;}.takeaways-heading{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:#B2EDE7;font-weight:700;margin-bottom:1.5rem;}.takeaway-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,0.08);width:100%;}.takeaway-item{display:flex;gap:1rem;padding:1.5rem;background:#162840;border-top:2px solid rgba(0,168,150,0.4);transition:background 0.15s;}.takeaway-item:hover{background:#1C3A55;}.takeaway-icon{color:var(--teal);font-size:0.65rem;flex-shrink:0;padding-top:0.4rem;}.takeaway-body strong{display:block;font-family:Georgia,serif;font-size:1.05rem;font-weight:700;color:#FFFFFF;margin-bottom:0.4rem;line-height:1.35;} .takeaway-body p{font-size:0.95rem;color:rgba(255,255,255,0.88);line-height:1.65;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem var(--space-7);border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;flex-wrap:wrap;}.nav-btn{display:inline-flex;flex-direction:column;padding:0.75rem 1.25rem;border:1px solid var(--border);background:var(--page-bg);text-decoration:none;transition:all 0.15s;color:inherit;}.nav-btn:hover{border-color:var(--teal-dark);background:var(--teal-bg);}.nav-btn.next{text-align:right;}.nav-btn-label{font-family:'JetBrains Mono',monospace;font-size:0.69rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);display:block;}.nav-btn-title{font-size:0.97rem;color:var(--text-primary);font-weight:500;display:block;margin-top:0.15rem;}.nav-btn.next .nav-btn-label{color:var(--teal-dark);}.nav-btn.next .nav-btn-title{color:var(--teal-dark);}.kc-reveal{display:none;padding:1rem 1.25rem;margin-top:0.5rem;background:var(--teal-bg);border-left:3px solid var(--teal-dark);font-size:1rem;color:var(--text-primary);line-height:1.72;}.kc-reveal-label{font-family:Calibri,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-dark);display:block;margin-bottom:0.5rem;}.footer-brand{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);}
-</style>
-<style>
-/* ── MODULE 12 SPECIFIC ── */
-/* ── SHARED COMPONENT RULES (inline supplement) ── */
-.objectives-strip{background:var(--navy-mid);border-bottom:1px solid var(--navy-border);padding:2rem var(--space-7)}
-.objectives-heading{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal-muted);margin-bottom:1rem}
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 
-.obj-num{font-family:Calibri,sans-serif;font-size:0.72rem;color:var(--teal);letter-spacing:0.1em;flex-shrink:0}
-.pause-questions{background:var(--navy-mid);border-top:1px solid var(--navy-border);border-bottom:1px solid var(--navy-border);padding:2rem var(--space-7)}
-.pause-q{font-size:0.97rem;color:var(--slate);line-height:1.7;margin-bottom:0.5rem;padding-left:1.25rem;border-left:2px solid rgba(255,255,255,0.08)}
-.kc-hint{font-size:0.85rem;color:var(--slate);font-style:italic;margin-top:0.5rem;display:none}
-.kc-hint.visible{display:block}
-.next{display:inline-flex;align-items:center;gap:0.75rem;padding:0.85rem 1.75rem;background:rgba(0,168,150,0.1);border:1px solid rgba(0,168,150,0.25);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:0.82rem;letter-spacing:0.08em;text-decoration:none;transition:background 0.15s}
-.next:hover{background:rgba(0,168,150,0.18)}
-.module-footer{padding:3rem var(--space-7);border-top:1px solid var(--navy-border);display:flex;justify-content:space-between;align-items:center}
-</style>
-
 <style>
-/* ── UNIVERSAL MISSING COMPONENTS ── */
-.card-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:0.5rem;display:block;}.card h4{font-family:Georgia,serif;font-size:1.05rem;font-weight:400;color:var(--text-primary);margin-bottom:0.5rem;line-height:1.35;}.card p{font-size:0.97rem;color:var(--text-secondary);line-height:1.65;}.card-accent-p{border-top:3px solid var(--teal);}.card-accent-o{border-top:3px solid var(--orange-light);}.card-accent-t{border-top:3px solid var(--orange);}.card-grid-auto{display:grid;gap:1px;background:var(--border);grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));}.viz-body{padding:1.25rem 1.5rem 1rem;}.ci-bar{height:100%;background:var(--teal);transition:width 0.8s ease;border-radius:2px;}.ci-bar-fill{height:100%;border-radius:2px;transition:width 0.8s ease;}.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:1px;background:var(--border);margin:2rem 0;}.stat-block{background:var(--card-bg);padding:1.75rem 1.5rem;border-top:3px solid var(--teal);}.reg-tab{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.6rem 1.1rem;cursor:pointer;border:1px solid var(--border);background:var(--card-bg);color:var(--text-muted);font-weight:600;transition:all 0.15s;}.reg-tab:hover{border-color:var(--teal-dark);color:var(--teal-dark);}.active-reg{background:var(--teal) !important;border-color:var(--teal) !important;color:var(--navy) !important;font-weight:700;}.process-steps{display:flex;flex-direction:column;gap:0;margin:1.5rem 0;}.process-step{display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem 1.5rem;background:var(--card-bg);border:1px solid var(--border);border-top:none;position:relative;}.process-step:first-child{border-top:1px solid var(--border);border-top-left-radius:3px;border-top-right-radius:3px;}.process-step:last-child{border-bottom-left-radius:3px;border-bottom-right-radius:3px;}.step-icon{font-family:Calibri,sans-serif;font-size:0.75rem;font-weight:700;width:2rem;height:2rem;flex-shrink:0;background:var(--teal);color:var(--navy);display:flex;align-items:center;justify-content:center;border-radius:2px;margin-top:0.1rem;}.step-body{flex:1;}.step-body strong{display:block;font-family:Georgia,serif;font-size:1rem;font-weight:400;color:var(--text-primary);margin-bottom:0.35rem;}.step-body p{font-size:0.97rem;color:var(--text-secondary);line-height:1.65;margin:0;}.kc-header{display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;}.kc-icon{width:20px;height:20px;color:var(--teal-dark);flex-shrink:0;}.kc-question{font-family:Georgia,serif;font-size:1.15rem;color:var(--text-primary);line-height:1.6;margin-bottom:1.5rem;}.not-arrow{font-family:Calibri,sans-serif;font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;}.waste-bar{height:8px;background:var(--teal);border-radius:2px;transition:width 0.6s ease;}.fail-arrow{color:var(--orange);font-size:1.25rem;text-align:center;padding:0.25rem 0;}.itad-row{display:flex;gap:1rem;padding:0.85rem 1rem;border-bottom:1px solid var(--border-light);font-size:0.97rem;color:var(--text-primary);line-height:1.6;align-items:flex-start;}.itad-row:last-child{border-bottom:none;}.bc-evidence-col{flex:1;padding:1rem 1.25rem;border-right:1px solid var(--border);}.bc-evidence-col:last-child{border-right:none;}.courage-card{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);padding:1.5rem;}
+:root{--page-bg:#F7F8FA;--card-bg:#FFFFFF;--section-alt:#E8EDF2;--text-primary:#1E293B;--text-secondary:#4A5568;--text-muted:#64748B;--navy:#0F1F2E;--navy-mid:#162840;--navy-card:#1E293B;--navy-light:#1C3A55;--teal:#00A896;--teal-dark:#007A6E;--teal-muted:#B2EDE7;--teal-bg:rgba(0,168,150,0.07);--teal-border:rgba(0,168,150,0.25);--orange:#E76F51;--orange-light:#F4A261;--orange-bg:#FFF3E8;--orange-border:rgba(231,111,81,0.25);--border:#D1D9E0;--border-light:#E8EDF2;--track1:#00A896;--track2:#F4A261;--track3:#E76F51;--correct:#16a34a;--wrong:#dc2626;--white:#FFFFFF;--slate:#4A5568;--slate-mid:#64748B;--slate-dim:#94A3B8;--teal-light:#B2EDE7;--teal-glow:rgba(0,168,150,0.15);--teal-subtle:rgba(0,168,150,0.07);--grey-100:#F7F8FA;--grey-300:#D1D9E0;--grey-500:#4A5568;--navy-raised:#1C3A55;--navy-border:rgba(255,255,255,0.07);--navy-mid-alt:#162840;}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;font-size:16px;}img,svg{display:block;max-width:100%;}body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Trebuchet MS",system-ui,-apple-system,sans-serif;font-weight:400;font-size:1rem;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}.top-nav{position:sticky;top:0;z-index:100;background:#0F1F2E;border-bottom:1px solid rgba(0,168,150,0.2);padding:0 3rem;height:52px;display:flex;align-items:center;gap:1rem;}.top-nav::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00A896 0%,#F4A261 60%,#E76F51 100%);}.nav-home{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .15s;flex-shrink:0;}.nav-home:hover{color:#fff;}.nav-sep{color:rgba(255,255,255,0.25);}.nav-module{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;font-weight:500;}.nav-track-pill{font-family:"JetBrains Mono",monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .65rem;border-radius:2px;}.track1-pill{background:rgba(0,168,150,.2);color:#B2EDE7;}.track2-pill{background:rgba(244,162,97,.2);color:#F4D0B0;}.track3-pill{background:rgba(231,111,81,.2);color:#F4C4B9;}.nav-progress{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:.72rem;color:rgba(255,255,255,0.5);}.module-hero{position:relative;overflow:hidden;padding:4rem 3rem 3rem;background:#0F1F2E;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;}.module-hero::after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 70% 50%,rgba(0,168,150,.08) 0%,transparent 65%);pointer-events:none;}.hero-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(5rem,12vw,10rem);color:rgba(255,255,255,.06);line-height:1;position:absolute;right:3rem;bottom:0;font-weight:400;user-select:none;}.module-eyebrow{font-family:"JetBrains Mono",monospace;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:#B2EDE7;margin-bottom:.75rem;}.module-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.12;letter-spacing:-.02em;font-weight:700;color:#fff;margin-bottom:1.25rem;}.module-subtitle{font-size:1.1rem;color:rgba(255,255,255,.72);line-height:1.65;max-width:620px;margin-bottom:2rem;}.module-meta{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}.meta-item{display:flex;flex-direction:column;gap:.15rem;}.meta-item .label{font-family:"JetBrains Mono",monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);}.meta-item .value{font-size:.92rem;color:rgba(255,255,255,.85);font-weight:500;}.complete-btn{font-family:"JetBrains Mono",monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:.65rem 1.4rem;background:#00A896;border:2px solid #00A896;color:#FFFFFF;cursor:pointer;transition:all .15s;font-weight:700;}.complete-btn:hover{background:var(--teal-dark);border-color:var(--teal-dark);}.complete-btn.done{background:transparent;border:2px solid rgba(255,255,255,.4);color:rgba(255,255,255,.7);cursor:default;}.objectives-strip{background:#0F1F2E;padding:2.5rem 3rem;}.objectives-heading{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#B2EDE7;margin-bottom:1.5rem;font-weight:700;}.objectives-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:.85rem;max-width:1160px;}.objectives-list li{display:flex;align-items:flex-start;gap:1rem;font-size:1rem;color:rgba(255,255,255,.88);line-height:1.55;padding:.85rem 1rem;background:#162840;border-left:2px solid rgba(0,168,150,.5);}.obj-num{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:#00A896;font-weight:700;letter-spacing:.1em;flex-shrink:0;padding-top:.12rem;}.module-content{max-width:1200px;margin:0 auto;padding:0 3rem 2rem;}.content-section{padding:3rem 0;border-bottom:1px solid var(--border-light);}.content-section:last-child{border-bottom:none;}.section-label{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:.65rem;display:block;font-weight:700;}.section-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.15;letter-spacing:-.02em;font-weight:700;color:var(--text-primary);margin-bottom:1.25rem;}.section-intro{font-size:1.12rem;color:var(--text-secondary);line-height:1.75;max-width:780px;margin-bottom:2rem;}.card-grid{display:grid;gap:1px;background:var(--border);}.card-grid-2{grid-template-columns:1fr 1fr;}.card-grid-3{grid-template-columns:repeat(3,1fr);}.card-grid-4{grid-template-columns:repeat(4,1fr);}.card-grid-auto{display:grid;gap:1px;background:var(--border);grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));}.card{background:var(--card-bg);padding:1.75rem;position:relative;}.card-title{font-family:Georgia,"Times New Roman",serif;font-size:1.1rem;font-weight:400;color:var(--text-primary);margin-bottom:.65rem;}.card-body{font-size:.97rem;color:var(--text-secondary);line-height:1.7;}.card-label{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:.5rem;display:block;}.card h4{font-weight:600;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;color:var(--text-primary);margin-bottom:.5rem;line-height:1.35;}.card p{font-size:.97rem;color:var(--text-secondary);line-height:1.65;}.card-accent-p{border-top:3px solid var(--teal);}.card-accent-o{border-top:3px solid var(--orange-light);}.card-accent-t{border-top:3px solid var(--orange);}.stat-strip{display:grid;gap:1px;background:var(--border);margin:2.25rem 0;border-radius:3px;overflow:hidden;}.stat-strip.cols-3{grid-template-columns:repeat(3,1fr);}.stat-strip.cols-4{grid-template-columns:repeat(4,1fr);}.stat-cell{background:var(--card-bg);padding:2rem 1.5rem;text-align:center;border-top:3px solid var(--cell-accent,var(--teal));}.stat-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.4rem,4.5vw,3.5rem);color:var(--cell-accent,var(--teal-dark));line-height:1;margin-bottom:.5rem;display:block;}.stat-label{font-family:"JetBrains Mono",monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);line-height:1.5;display:block;}.viz-container{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);margin:2rem 0;box-shadow:0 2px 8px rgba(0,0,0,.07);}.viz-header{padding:1rem 1.5rem;border-bottom:2px solid var(--border-light);display:flex;align-items:center;gap:.75rem;background:var(--section-alt);}.viz-header-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;}.viz-title{font-family:"JetBrains Mono",monospace;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;}.viz-body{padding:1.25rem 1.5rem 1rem;}.callout{padding:1.35rem 1.75rem;margin:1.75rem 0;border-left:4px solid var(--teal);background:var(--teal-bg);}.callout-warning{border-left-color:var(--orange);background:var(--orange-bg);}.callout-key{border-left-color:var(--teal-dark);background:var(--teal-bg);}.callout-title{font-family:"JetBrains Mono",monospace;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:#007A6E;font-weight:700;display:block;margin-bottom:.6rem;}.callout-warning .callout-title{color:#B54D12;}.callout p{font-size:1rem;color:var(--text-primary);line-height:1.72;}.pause-reflect{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 3rem;}.pause-label{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:.5rem;display:block;}.pause-intro{font-size:.97rem;color:var(--text-muted);margin-bottom:1.25rem;font-style:italic;}.pause-q{display:flex;align-items:flex-start;gap:.85rem;font-size:1rem;color:var(--text-primary);line-height:1.65;padding:.85rem 1.1rem;background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--teal-dark);margin-bottom:.5rem;}.pause-q-num{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--teal-dark);font-weight:700;flex-shrink:0;padding-top:.2rem;min-width:1.4rem;}.kc-block{background:var(--card-bg);border:1px solid var(--border);padding:2.25rem;margin:.5rem 0;}.kc-label{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:1rem;}.kc-q{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:1.15rem;color:var(--text-primary);line-height:1.6;margin-bottom:1.5rem;}.kc-options{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem;}.kc-option{display:flex;align-items:flex-start;gap:.85rem;padding:.9rem 1.1rem;background:var(--page-bg);border:1px solid var(--border);cursor:pointer;text-align:left;width:100%;font-family:Calibri,"Trebuchet MS",system-ui,sans-serif;font-size:1rem;color:var(--text-primary);line-height:1.55;transition:all .15s;}.kc-option:hover{border-color:var(--teal);background:var(--teal-bg);}.kc-option.selected-correct{background:rgba(22,163,74,.08);border-color:var(--correct);}.kc-option.selected-wrong{background:rgba(220,38,38,.07);border-color:var(--wrong);}.kc-opt-key{font-family:"JetBrains Mono",monospace;font-size:.78rem;font-weight:700;color:var(--text-muted);flex-shrink:0;width:1.2rem;padding-top:.1rem;}.kc-feedback{padding:1rem 1.25rem;margin-top:.5rem;font-size:1rem;line-height:1.7;border-left:3px solid;display:none;}.kc-correct{background:rgba(22,163,74,.07);border-left-color:var(--correct);color:var(--text-primary);}.kc-wrong{background:rgba(220,38,38,.06);border-left-color:var(--wrong);color:var(--text-primary);}.kc-reveal{display:none;padding:1rem 1.25rem;margin-top:.5rem;background:var(--teal-bg);border-left:3px solid var(--teal-dark);font-size:1rem;color:var(--text-primary);line-height:1.72;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;flex-wrap:wrap;}.nav-btn{display:inline-flex;flex-direction:column;padding:.75rem 1.25rem;border:1px solid var(--border);background:var(--page-bg);text-decoration:none;transition:all .15s;color:inherit;}.nav-btn:hover{border-color:var(--teal-dark);background:var(--teal-bg);}.nav-btn.next{text-align:right;}.nav-btn-label{font-family:"JetBrains Mono",monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);display:block;}.nav-btn-title{font-size:.97rem;color:var(--text-primary);font-weight:500;display:block;margin-top:.15rem;}.nav-btn.next .nav-btn-label,.nav-btn.next .nav-btn-title{color:var(--teal-dark);}.takeaways{background:#0F1F2E;padding:2.5rem 3rem;}.takeaways-heading{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#B2EDE7;font-weight:700;margin-bottom:1.5rem;}.takeaway-list{display:grid;gap:1px;background:rgba(255,255,255,.08);width:100%;}.takeaway-item{display:flex;gap:1rem;padding:1.5rem;background:#162840;border-top:2px solid rgba(0,168,150,.4);transition:background .15s;}.takeaway-item:hover{background:#1C3A55;}.takeaway-icon{color:#00A896;font-size:.65rem;flex-shrink:0;padding-top:.4rem;}.takeaway-body strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;font-weight:700;color:#FFFFFF;margin-bottom:.4rem;line-height:1.35;}.takeaway-body p{font-size:.95rem;color:rgba(255,255,255,.75);line-height:1.65;}.reveal{opacity:1;transition:opacity .4s ease,transform .4s ease;}.reveal.animate{opacity:0;transform:translateY(12px);}.reveal.animate.visible{opacity:1;transform:none;}.tri-detail{padding:1.5rem;background:var(--card-bg);border:1px solid var(--border);}.tri-detail-name{font-weight:700;font-size:1.1rem;color:var(--teal-dark);margin-bottom:.75rem;}.tradeoff-container{display:grid;grid-template-columns:1fr 1.2fr;gap:2rem;align-items:start;}.triangle-wrap{display:flex;align-items:center;justify-content:center;}.triangle-svg{width:100%;max-width:320px;height:auto;}.example{font-style:italic;color:var(--text-secondary);font-size:.97rem;border-left:3px solid var(--border);padding-left:1rem;margin-top:.75rem;}.reg-tab{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:.6rem 1.1rem;cursor:pointer;border:1px solid var(--border);background:var(--card-bg);color:var(--text-muted);font-weight:600;transition:all .15s;}.reg-tab:hover{border-color:var(--teal-dark);color:var(--teal-dark);}.active-reg{background:var(--teal)!important;border-color:var(--teal)!important;color:#0F1F2E!important;font-weight:700!important;}.courage-card{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);padding:1.5rem;}.footer-brand{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);}.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:1px;background:var(--border);margin:2rem 0;}.stat-block{background:var(--card-bg);padding:1.75rem 1.5rem;border-top:3px solid var(--teal);}@media(max-width:860px){.module-content,.objectives-strip,.top-nav,.pause-reflect,.module-nav,.takeaways{padding-left:1.5rem;padding-right:1.5rem;}.module-hero{padding:2.5rem 1.5rem 2rem;}.card-grid-3{grid-template-columns:1fr 1fr;}.card-grid-4{grid-template-columns:1fr 1fr;}.takeaway-list{grid-template-columns:1fr!important;}}@media(max-width:540px){.card-grid-2,.card-grid-3,.card-grid-4{grid-template-columns:1fr;}.stat-strip.cols-3,.stat-strip.cols-4{grid-template-columns:1fr;}.module-title{font-size:1.75rem;}.tradeoff-container{grid-template-columns:1fr;}}
 </style>
 </head>
 <body class="track3">
@@ -49,24 +23,24 @@
 <h2 class="section-title">The 5Cs of sustainable technology leadership.</h2>
 <p class="section-intro">Five qualities that are all necessary, and none of which is sufficient on its own. The hardest is often Courage.</p>
 <div class="card-grid card-grid-auto reveal">
-<div class="card card-accent-t"><div class="card-label">Clarity</div><h4>People can't move in a direction they can't see.</h4><p>As a leader, you need to be able to articulate what digital sustainability means for your organisation in plain, concrete terms. Not a vision statement — an answer to the question: what will be different in eighteen months, and how will we know?</p><p style="margin-top:0.75rem;font-size:0.92rem;color:var(--grey-700)"><em>Test: Your team can explain the programme's objectives without referring to a slide deck.</em></p></div>
-<div class="card card-accent-t"><div class="card-label">Conviction</div><h4>Sustainability programmes face scepticism at every level.</h4><p>Your own belief in the importance of the programme — expressed consistently and specifically rather than only in all-hands addresses — determines whether others invest their credibility in it. If people sense you would trade the programme for a budget saving, it won't get the commitment it needs.</p><p style="margin-top:0.75rem;font-size:0.92rem;color:var(--grey-700)"><em>Test: When did you last mention the programme in a conversation that wasn't a sustainability meeting?</em></p></div>
-<div class="card card-accent-o"><div class="card-label">Courage</div><h4>Some decisions in a sustainability programme are genuinely difficult.</h4><p>Stopping a project that has consumed investment but has no sustainable justification. Telling a business unit that their demand growth requires mitigation. Requiring a supplier to produce evidence they have never had to produce before. These require a clear position held under pressure.</p><p style="margin-top:0.75rem;font-size:0.92rem;color:var(--grey-700)"><em>Test: What is the most difficult decision your programme requires that has not yet been made? What is preventing it?</em></p></div>
-<div class="card card-accent-p"><div class="card-label">Communication</div><h4>The sustainability story needs to be told differently to different audiences.</h4><p>Engineers: operational excellence. Finance: cost and risk discipline. Board: strategic and regulatory imperative. Employees: meaningful work. A leader who can translate the same programme into each framing, without losing the thread between them, is significantly more effective.</p><p style="margin-top:0.75rem;font-size:0.92rem;color:var(--grey-700)"><em>Test: Can you describe the programme in the language of each of your key audiences without changing the substance?</em></p></div>
-<div class="card"><div class="card-label">Commitment</div><h4>Sustainability programmes that depend on a single champion rarely survive leadership changes.</h4><p>The most durable programmes are built with distributed ownership from the start. Commitment means building the people, processes, and governance structures that will continue without you.</p><p style="margin-top:0.75rem;font-size:0.92rem;color:var(--grey-700)"><em>Test: If you left tomorrow, would the programme continue? If not, what capability is missing?</em></p></div>
+<div class="card card-accent-t"><div class="card-label">Clarity</div><h4>People can't move in a direction they can't see.</h4><p>As a leader, you need to be able to articulate what digital sustainability means for your organisation in plain, concrete terms. Not a vision statement — an answer to the question: what will be different in eighteen months, and how will we know?</p><p style="margin-top:0.75rem;font-size:0.78rem;color:var(--grey-700)"><em>Test: Your team can explain the programme's objectives without referring to a slide deck.</em></p></div>
+<div class="card card-accent-t"><div class="card-label">Conviction</div><h4>Sustainability programmes face scepticism at every level.</h4><p>Your own belief in the importance of the programme — expressed consistently and specifically rather than only in all-hands addresses — determines whether others invest their credibility in it. If people sense you would trade the programme for a budget saving, it won't get the commitment it needs.</p><p style="margin-top:0.75rem;font-size:0.78rem;color:var(--grey-700)"><em>Test: When did you last mention the programme in a conversation that wasn't a sustainability meeting?</em></p></div>
+<div class="card card-accent-o"><div class="card-label">Courage</div><h4>Some decisions in a sustainability programme are genuinely difficult.</h4><p>Stopping a project that has consumed investment but has no sustainable justification. Telling a business unit that their demand growth requires mitigation. Requiring a supplier to produce evidence they have never had to produce before. These require a clear position held under pressure.</p><p style="margin-top:0.75rem;font-size:0.78rem;color:var(--grey-700)"><em>Test: What is the most difficult decision your programme requires that has not yet been made? What is preventing it?</em></p></div>
+<div class="card card-accent-p"><div class="card-label">Communication</div><h4>The sustainability story needs to be told differently to different audiences.</h4><p>Engineers: operational excellence. Finance: cost and risk discipline. Board: strategic and regulatory imperative. Employees: meaningful work. A leader who can translate the same programme into each framing, without losing the thread between them, is significantly more effective.</p><p style="margin-top:0.75rem;font-size:0.78rem;color:var(--grey-700)"><em>Test: Can you describe the programme in the language of each of your key audiences without changing the substance?</em></p></div>
+<div class="card"><div class="card-label">Commitment</div><h4>Sustainability programmes that depend on a single champion rarely survive leadership changes.</h4><p>The most durable programmes are built with distributed ownership from the start. Commitment means building the people, processes, and governance structures that will continue without you.</p><p style="margin-top:0.75rem;font-size:0.78rem;color:var(--grey-700)"><em>Test: If you left tomorrow, would the programme continue? If not, what capability is missing?</em></p></div>
 </div></div>
 
   <!-- 5Cs SELF-ASSESSMENT -->
   <div class="viz-container reveal" id="fivecs" style="padding:0;margin-top:1.75rem;">
     <div style="padding:1.5rem 1.5rem 1rem;border-bottom:1px solid var(--border-light);">
       <p class="viz-title">5Cs leadership self-assessment — rate yourself on each dimension, then identify your development priority</p>
-      <p style="font-size:0.92rem;color:var(--text-secondary);margin-top:0.35rem;">Be honest. Optimistic self-placement is the most common bias here.</p>
+      <p style="font-size:0.79rem;color:#64748B;margin-top:0.35rem;">Be honest. Optimistic self-placement is the most common bias here.</p>
     </div>
     <div id="fivecs-controls" style="padding:0.75rem 1.5rem;"></div>
-    <div id="fivecs-output" style="display:none;padding:1.25rem 1.5rem;border-top:1px solid var(--border-light);background:var(--page-bg);">
-      <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem;">Your assessment</div>
+    <div id="fivecs-output" style="display:none;padding:1.25rem 1.5rem;border-top:1px solid rgba(255,255,255,0.06);background:rgba(0,0,0,0.1);">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem;">Your assessment</div>
       <div id="fivecs-bars" style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.25rem;"></div>
-      <div id="fivecs-priority" style="padding:1rem;background:var(--orange-bg);border-left:3px solid #E76F51;font-size:0.92rem;color:var(--text-secondary);line-height:1.65;"></div>
+      <div id="fivecs-priority" style="padding:1rem;background:rgba(231,111,81,0.06);border-left:3px solid #E76F51;font-size:0.83rem;color:var(--text-secondary);line-height:1.65;"></div>
     </div>
   </div>
   <script>
@@ -102,16 +76,16 @@
     var ctrl = document.getElementById('fivecs-controls');
     cs.forEach(function(c) {
       var row = document.createElement('div');
-      row.style.cssText = 'padding:0.85rem 0;border-bottom:1px solid var(--border-light);';
+      row.style.cssText = 'padding:0.85rem 0;border-bottom:1px solid rgba(255,255,255,0.05);';
       row.innerHTML = '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.6rem;">' +
         '<div style="display:flex;gap:0.6rem;align-items:center;"><span style="font-size:1.1rem;">' + c.icon + '</span>' +
         '<span style="font-weight:500;font-size:0.88rem;">' + c.label + '</span></div>' +
-        '<span id="sc5-' + c.id + '" style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);">—</span></div>' +
-        '<div style="font-size:0.92rem;color:var(--text-secondary);font-style:italic;margin-bottom:0.55rem;">' + c.q + '</div>' +
+        '<span id="sc5-' + c.id + '" style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:#64748B;">—</span></div>' +
+        '<div style="font-size:0.78rem;color:#64748B;font-style:italic;margin-bottom:0.55rem;">' + c.q + '</div>' +
         '<div style="display:flex;gap:4px;" id="bt5-' + c.id + '">' +
         [1,2,3,4,5].map(function(l){
           var labels=['Very low','Low','Moderate','Strong','Exceptional'];
-          return '<button data-c="' + c.id + '" data-l="' + l + '" title="' + labels[l-1] + '" style="flex:1;padding:0.35rem 0;font-family:Calibri,sans-serif;font-size:0.92rem;background:var(--border-light);border:1px solid var(--border);cursor:pointer;color:var(--text-secondary);transition:all 0.12s;">' + l + '</button>';
+          return '<button data-c="' + c.id + '" data-l="' + l + '" title="' + labels[l-1] + '" style="flex:1;padding:0.35rem 0;font-family:'JetBrains Mono',monospace;font-size:0.6rem;background:var(--border-light);border:1px solid var(--border);cursor:pointer;color:#64748B;transition:all 0.12s;">' + l + '</button>';
         }).join('') + '</div>';
       ctrl.appendChild(row);
     });
@@ -125,7 +99,7 @@
       document.querySelectorAll('[data-c="' + cId + '"]').forEach(function(b) {
         var l = parseInt(b.dataset.l);
         if(l<=level){b.style.background='#00A896';b.style.color='#0F1F2E';b.style.borderColor='#00A896';}
-        else{b.style.background='var(--border-light)';b.style.color='#64748B';b.style.borderColor='var(--border)';}
+        else{b.style.background='rgba(255,255,255,0.05)';b.style.color='#64748B';b.style.borderColor='rgba(255,255,255,0.08)';}
       });
       document.getElementById('sc5-' + cId).textContent = ['','Very low','Low','Moderate','Strong','Exceptional'][level];
       document.getElementById('sc5-' + cId).style.color = '#00A896';
@@ -145,16 +119,16 @@
         var pct = (v/5)*100;
         var col = v>=4?'#00A896':v>=3?'#F4A261':'#E76F51';
         var bar = '<div style="display:flex;align-items:center;gap:0.75rem;">' +
-          '<div style="width:88px;flex-shrink:0;font-size:0.92rem;color:var(--text-secondary);">' + c.label + '</div>' +
+          '<div style="width:88px;flex-shrink:0;font-size:0.78rem;color:var(--text-secondary);">' + c.label + '</div>' +
           '<div style="flex:1;height:16px;background:var(--border-light);overflow:hidden;">' +
           '<div style="height:100%;width:' + pct + '%;background:' + col + ';transition:width 0.4s;"></div></div>' +
-          '<div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:' + col + ';width:22px;text-align:right;">' + (v||'—') + '</div></div>';
+          '<div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:' + col + ';width:22px;text-align:right;">' + (v||'—') + '</div></div>';
         barsDiv.innerHTML += bar;
       });
       
       var priority = document.getElementById('fivecs-priority');
       if(lowestC) {
-        priority.innerHTML = '<strong style="color:#E76F51;">Development priority: ' + lowestC.label + '</strong><br>' +
+        priority.innerHTML = '<strong style="color:#B54D12;">Development priority: ' + lowestC.label + '</strong><br>' +
           'Current profile: ' + (lowestScore<=2?lowestC.low:lowestC.high) + '<br><br>' +
           '<strong style="color:var(--text-primary);">Suggested action: </strong>' + lowestC.action;
       } else {
@@ -165,872 +139,73 @@
   </script>
 
 
-<!-- COURAGEOUS DECISIONS SCENARIOS -->
-<div class="viz-container reveal" id="courageScenarios" style="padding:0;margin-top:1.75rem;">
-  <div style="padding:1.25rem 1.5rem 0.85rem;border-bottom:1px solid var(--border-light);">
-    <p class="viz-title">Courageous decisions — four scenarios where leadership is tested. Click each one.</p>
-    <p style="font-size:0.92rem;color:var(--text-secondary);margin-top:0.3rem;">Courage is the hardest of the 5Cs because it requires making decisions that nobody has forced yet.</p>
-  </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border-light);">
-    <div class="courage-card" onclick="showCourage(0,this)" style="background:var(--card-bg);border:1px solid var(--border);padding:1.35rem;cursor:pointer;transition:background 0.12s;border-left:3px solid rgba(231,111,81,0.3);">
-      <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#B54D12;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem;">Decision 01</div>
-      <div style="font-weight:500;font-size:0.88rem;margin-bottom:0.3rem;">Stopping a high-profile project</div>
-      <div style="font-size:0.92rem;color:var(--text-secondary);">A digital initiative that cannot be justified on sustainability grounds</div>
-    </div>
-    <div class="courage-card" onclick="showCourage(1,this)" style="background:var(--card-bg);border:1px solid var(--border);padding:1.35rem;cursor:pointer;transition:background 0.12s;border-left:3px solid rgba(231,111,81,0.3);">
-      <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#B54D12;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem;">Decision 02</div>
-      <div style="font-weight:500;font-size:0.88rem;margin-bottom:0.3rem;">Confronting demand growth</div>
-      <div style="font-size:0.92rem;color:var(--text-secondary);">Telling a business unit their consumption requires active mitigation</div>
-    </div>
-    <div class="courage-card" onclick="showCourage(2,this)" style="background:var(--card-bg);border:1px solid var(--border);padding:1.35rem;cursor:pointer;transition:background 0.12s;border-left:3px solid rgba(231,111,81,0.3);">
-      <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#B54D12;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem;">Decision 03</div>
-      <div style="font-weight:500;font-size:0.88rem;margin-bottom:0.3rem;">Holding a supplier to evidence requirements</div>
-      <div style="font-size:0.92rem;color:var(--text-secondary);">Requiring activity-based emissions data at contract renewal</div>
-    </div>
-    <div class="courage-card" onclick="showCourage(3,this)" style="background:var(--card-bg);border:1px solid var(--border);padding:1.35rem;cursor:pointer;transition:background 0.12s;border-left:3px solid rgba(231,111,81,0.3);">
-      <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#B54D12;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.4rem;">Decision 04</div>
-      <div style="font-weight:500;font-size:0.88rem;margin-bottom:0.3rem;">Publishing an honest baseline</div>
-      <div style="font-size:0.92rem;color:var(--text-secondary);">Disclosing that the programme is behind where it claimed to be</div>
-    </div>
-  </div>
-  <div id="courage-detail" style="display:none;border-top:1px solid var(--border-light);"></div>
-</div>
-
-<!-- COALITION BUILDER -->
-<div class="viz-container reveal" id="coalitionBuilder" style="padding:0;margin-top:1.75rem;">
-  <div style="padding:1.25rem 1.5rem 0.85rem;border-bottom:1px solid var(--border-light);">
-    <p class="viz-title">Coalition builder — four allies every durable programme needs. Click each role to see how to engage them.</p>
-  </div>
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border-light);" id="coalition-tabs">
-    <button onclick="showCoalition('exec',this)" style="background:var(--card-bg);border:1px solid var(--border);border:none;padding:1rem 0.75rem;cursor:pointer;transition:background 0.12s;border-bottom:2px solid #00A896;">
-      <div style="font-size:1.3rem;margin-bottom:0.3rem;">👔</div>
-      <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#007A6E;margin-bottom:0.2rem;">Senior exec sponsor</div>
-      <div style="font-size:0.92rem;color:var(--text-secondary);">Regulatory &amp; board</div>
-    </button>
-    <button onclick="showCoalition('finance',this)" style="background:var(--card-bg);border:1px solid var(--border);border:none;padding:1rem 0.75rem;cursor:pointer;transition:background 0.12s;border-bottom:2px solid transparent;">
-      <div style="font-size:1.3rem;margin-bottom:0.3rem;">📊</div>
-      <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);margin-bottom:0.2rem;">Finance partner</div>
-      <div style="font-size:0.92rem;color:var(--text-secondary);">Cost &amp; risk numbers</div>
-    </button>
-    <button onclick="showCoalition('engineering',this)" style="background:var(--card-bg);border:1px solid var(--border);border:none;padding:1rem 0.75rem;cursor:pointer;transition:background 0.12s;border-bottom:2px solid transparent;">
-      <div style="font-size:1.3rem;margin-bottom:0.3rem;">⚙️</div>
-      <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);margin-bottom:0.2rem;">Engineering leads</div>
-      <div style="font-size:0.92rem;color:var(--text-secondary);">Operational excellence</div>
-    </button>
-    <button onclick="showCoalition('procurement',this)" style="background:var(--card-bg);border:1px solid var(--border);border:none;padding:1rem 0.75rem;cursor:pointer;transition:background 0.12s;border-bottom:2px solid transparent;">
-      <div style="font-size:1.3rem;margin-bottom:0.3rem;">🛒</div>
-      <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);margin-bottom:0.2rem;">Procurement leaders</div>
-      <div style="font-size:0.92rem;color:var(--text-secondary);">Scope 3 &amp; supply chain</div>
-    </button>
-  </div>
-  <div id="coalition-panel" style="background:var(--card-bg);border:1px solid var(--border);padding:1.5rem;min-height:160px;"></div>
-</div>
-<script>
-var courageItems = [
-  {
-    title:'Stopping a high-profile project',
-    pressure:'The project has executive sponsors, sunk cost, and a communications plan already drafted. The sustainability argument feels like a late-stage disruption.',
-    why:'Stopping it demonstrates that sustainability criteria are real governance gates — not retrospective decoration. Every other project team notices. The signal is worth more than the individual decision.',
-    howto:'Frame as risk management, not values. What are the sustainability grounds specifically? Quantify. Bring a summary of the evidence that would be needed to proceed — and show it isn\'t there. Offer an alternative pathway if one exists.'
-  },
-  {
-    title:'Confronting demand growth',
-    pressure:'The business unit is a major revenue contributor. The conversation is uncomfortable. Nobody else has raised it. You\'re not sure it\'s your place.',
-    why:'If demand growth outpaces efficiency gains indefinitely, the programme cannot succeed. The earlier this is said clearly, the more credible the programme is with the rest of the organisation. The later it is said, the harder the conversation.',
-    howto:'Lead with their carbon per session or per transaction data — make it about their service, not IT. Show the trajectory. Ask: what\'s the demand governance plan? Frame mitigation as a shared responsibility, not an IT restriction.'
-  },
-  {
-    title:'Holding a supplier to evidence requirements',
-    pressure:'The supplier relationship is long-standing. The account manager has escalated. Legal is uncertain about contract terms. It feels like picking a fight over a principle.',
-    why:'A vendor evidence register with no enforcement mechanism is a filing exercise. Using a renewal as the lever is how supplier evidence quality actually improves. One enforced standard changes the behaviour of everyone watching.',
-    howto:'Give suppliers advance notice — 12 months is reasonable. Be specific about what you need and what tier. Offer to help them understand the requirement. At renewal: document the evidence gap formally, and weight it in the evaluation accordingly.'
-  },
-  {
-    title:'Publishing an honest baseline',
-    pressure:'The board presentation is scheduled. The sustainability report has used optimistic language. There is pressure to stay on message and not undermine what has already been communicated.',
-    why:'Publishing an honest baseline with documented gaps and a credible recovery plan builds more long-term trust than a gap that surfaces at assurance. The moment it surfaces externally after being obscured internally, the credibility damage is far greater.',
-    howto:'Frame it as programme maturity: "We now have the measurement to know accurately where we are." State confidence levels explicitly. Pair the gap with a named action plan and owner. Honest incompleteness with a plan is defensible. Silence is not.'
-  }
-];
-
-function showCourage(i, btn) {
-  document.querySelectorAll('.courage-card').forEach(function(c,idx) {
-    c.style.background = idx === i ? '#162840' : '#1E293B';
-    c.style.borderLeftColor = idx === i ? '#E76F51' : 'rgba(231,111,81,0.3)';
-  });
-  var d = courageItems[i];
-  var detail = document.getElementById('courage-detail');
-  detail.style.display = 'block';
-  detail.innerHTML =
-    '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;">' +
-      '<div style="padding:1.25rem 1.35rem;border-right:1px solid var(--border-light);">' +
-        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.92rem;color:#E76F51;text-transform:uppercase;margin-bottom:0.4rem;">Pressure against it</div>' +
-        '<p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.65;">' + d.pressure + '</p>' +
-      '</div>' +
-      '<div style="padding:1.25rem 1.35rem;border-right:1px solid var(--border-light);">' +
-        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.92rem;color:#00A896;text-transform:uppercase;margin-bottom:0.4rem;">Why it builds credibility</div>' +
-        '<p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.65;">' + d.why + '</p>' +
-      '</div>' +
-      '<div style="padding:1.25rem 1.35rem;">' +
-        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.92rem;color:#F4A261;text-transform:uppercase;margin-bottom:0.4rem;">How to approach it</div>' +
-        '<p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.65;">' + d.howto + '</p>' +
-      '</div>' +
-    '</div>';
-}
-
-var coalitionData = {
-  exec: {
-    color:'#00A896',
-    what:'Regulatory and reputational dimension. Board-level advocacy. ESG implications for investor relations and cost of capital.',
-    how:'Lead with the compliance gap and what it costs if unaddressed. Connect to the board agenda — investor ESG screening, greenwashing exposure, supply chain requirements from major customers. Avoid leading with operational metrics.',
-    win:'They become the programme\'s board-level voice. They ask the right questions in the right forums. They provide cover for the difficult decisions.',
-    avoid:'Don\'t open with operational progress metrics. Don\'t lead with values language in a boardroom context. Anchor to strategic risk and regulatory reality.'
-  },
-  finance: {
-    color:'#F4A261',
-    what:'Cost reduction and risk management value. Specific numbers: waste savings, regulatory penalty exposure, financing term improvement. They need the financial case built, not assumed.',
-    how:'Quantify the waste reduction case first — it is almost always strong enough to fund the programme. Then quantify regulatory exposure. Then introduce the green financing angle. Give them something to put in a model.',
-    win:'They become advocates in budget conversations. They ask for updates. They help you access capital or green financing structures.',
-    avoid:'Don\'t ask for budget without the financial case first. Don\'t frame as a values or reputational issue — that\'s not their language. Be specific and conservative with the numbers.'
-  },
-  engineering: {
-    color:'#B2EDE7',
-    what:'Operational efficiency angle. Utilisation discipline. Estate simplification as technical debt reduction. They already care about the operational problems — sustainability is the same problems with a carbon dimension added.',
-    how:'Start from the operational problems they already recognise: idle resources, bloated data, unnecessary compute. Carbon per transaction alongside latency and cost. Engineering autonomy to make sustainable design decisions at service level.',
-    win:'They build sustainability into how they work. Carbon intensity becomes a metric they track. The programme has operational rather than just governance momentum.',
-    avoid:'Don\'t lead with sustainability as a principle or corporate commitment. Don\'t add it as a new process on top of existing ones. Show it is the same problem they\'re already solving.'
-  },
-  procurement: {
-    color:'#64748B',
-    what:'Supply chain credibility requirements. Scope 3 exposure. The vendor evidence register as an instrument of procurement governance — not a sustainability team filing exercise.',
-    how:'Frame the vendor evidence register as their register — they own supplier relationships and contract renewals. Show them the Scope 3 exposure they\'re currently carrying. Make sustainability criteria a standard procurement gate, not an add-on.',
-    win:'Sustainability evidence becomes part of every contract renewal evaluation. Scope 3 data quality improves systematically. The programme has commercial leverage.',
-    avoid:'Don\'t position sustainability as an external requirement that procurement must accommodate. It is a supply chain quality and risk management function — which is their core job.'
-  }
-};
-
-function showCoalition(id, btn) {
-  document.querySelectorAll('#coalition-tabs button').forEach(function(b) {
-    b.style.background = '#1E293B';
-    b.style.borderBottomColor = 'transparent';
-    b.querySelector('[style*="JetBrains"]').style.color = '#64748B';
-  });
-  var d = coalitionData[id];
-  btn.style.background = '#162840';
-  btn.style.borderBottomColor = d.color;
-  btn.querySelector('[style*="JetBrains"]').style.color = d.color;
-
-  document.getElementById('coalition-panel').innerHTML =
-    '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;">' +
-      '<div>' +
-        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.92rem;color:' + d.color + ';text-transform:uppercase;margin-bottom:0.5rem;">What they need to hear</div>' +
-        '<p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.65;">' + d.what + '</p>' +
-      '</div>' +
-      '<div>' +
-        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.92rem;color:' + d.color + ';text-transform:uppercase;margin-bottom:0.5rem;">How to approach the conversation</div>' +
-        '<p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.65;">' + d.how + '</p>' +
-      '</div>' +
-      '<div>' +
-        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.92rem;color:#00A896;text-transform:uppercase;margin-bottom:0.5rem;">What winning looks like</div>' +
-        '<p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.65;">' + d.win + '</p>' +
-        '<div style="margin-top:0.75rem;padding:0.6rem 0.85rem;background:var(--orange-bg);border-left:2px solid #E76F51;">' +
-          '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.92rem;color:#E76F51;margin-bottom:0.2rem;">Avoid</div>' +
-          '<div style="font-size:0.92rem;color:var(--text-secondary);line-height:1.5;">' + d.avoid + '</div>' +
-        '</div>' +
-      '</div>' +
-    '</div>';
-}
-showCourage(0, document.querySelector('.courage-card'));
-showCoalition('exec', document.querySelector('#coalition-tabs button'));
-</script>
-
-<!-- ══ M12 S2: Engaging sceptical audiences ═════════════════ -->
-
-
-  <div class="viz-container reveal" id="fiveCsViz">
-    <div class="viz-header">
-      <div class="viz-header-dot" style="background:#B2EDE7"></div>
-      <span class="viz-title">The 5Cs — click any quality to explore what it looks like in practice and the test that reveals whether you have it</span>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:0;align-items:stretch;">
-      <div style="padding:1.75rem;display:flex;align-items:center;justify-content:center;background:var(--page-bg);">
-        <svg id="fiveCsSvg" viewBox="0 0 300 300" style="width:100%;max-width:280px;height:auto;display:block;"></svg>
-      </div>
-      <div id="fiveCsDetail" style="padding:1.75rem;border-left:1px solid var(--border-light);display:flex;flex-direction:column;justify-content:center;min-height:280px;">
-        <p style="font-size:0.95rem;color:var(--text-secondary);font-style:italic;line-height:1.7;">Five qualities that are all necessary, none sufficient on its own. Select any point on the pentagon to explore what it means in practice.</p>
-      </div>
-    </div>
-  </div>
-
-<div class="content-section reveal">
-  <p class="section-label">Section 2</p>
-  <h2 class="section-title">Engaging sceptical audiences.</h2>
-  <p class="section-intro">Every sustainability programme faces scepticism — from finance, from engineering, from business units that see it as overhead. Engaging sceptics effectively requires understanding what is driving the scepticism, not dismissing it.</p>
-
-  <div class="viz-container reveal" id="scepticsViz">
-    <div class="viz-header">
-      <div class="viz-header-dot" style="background:#F4A261"></div>
-      <span class="viz-title">Four sceptic profiles — click any to see what they need to hear and what will backfire</span>
-    </div>
-    <div id="scepticGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border-light);"></div>
-    <div id="scepticDetail" style="display:none;padding:1.25rem 1.75rem;border-top:1px solid var(--border-light);background:var(--page-bg);"></div>
-  </div>
-
-  <div class="callout callout-insight reveal">
-    <span class="callout-title">Courageous decisions — what they look like in practice</span>
-    <p>Courage is the hardest of the 5Cs because it requires making decisions nobody has forced yet. Stopping a high-profile project that cannot be justified on sustainability grounds. Requiring a Tier 1 supplier to produce activity-based emissions data — and holding the renewal to it. Each of these will face pressure. Each of them, when made, demonstrates that sustainability criteria are real governance gates — not retrospective decoration. Every team will notice.</p>
-  </div>
-</div>
-
-<!-- ══ M12 S3: Energy as strategic resource ═════════════════ -->
-
-
-<div class="content-section reveal">
-  <p class="section-label">Section 3</p>
-  <h2 class="section-title">Energy as a strategic resource.</h2>
-  <p class="section-intro">For most of IT's history, energy was an operational cost — managed by facilities, largely invisible to technology strategy. That is changing. Power availability constraints, water stress, and the energy demands of AI are making energy a genuine strategic variable for technology leaders.</p>
-
-  <div class="viz-container reveal" id="energyViz">
-    <div class="viz-header">
-      <div class="viz-header-dot" style="background:#E76F51"></div>
-      <span class="viz-title">Energy as a strategic constraint — four dimensions that technology leaders need to own</span>
-    </div>
-    <div style="padding:1.75rem;">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border-light);">
-        <div style="background:var(--card-bg);border:1px solid var(--border);padding:1.5rem;border-top:3px solid #E76F51;">
-          <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#B54D12;margin-bottom:0.65rem;">Power availability</div>
-          <p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.65;">Grid capacity constraints are limiting data centre expansion in key markets — London, Dublin, Singapore, Amsterdam. Power availability is already a planning variable. AI demand is accelerating this constraint. Technology leaders need to understand the power envelope of their infrastructure decisions.</p>
-        </div>
-        <div style="background:var(--card-bg);border:1px solid var(--border);padding:1.5rem;border-top:3px solid #F4A261;">
-          <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#9B5E00;margin-bottom:0.65rem;">Water stress</div>
-          <p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.65;">Hyperscale data centres can consume millions of litres of water daily through evaporative cooling. Water availability is beginning to shape where data centres can be built — and whether they will receive planning permission. Water stress is a physical risk that belongs in infrastructure strategy.</p>
-        </div>
-        <div style="background:var(--section-alt);padding:1.5rem;border-top:3px solid #B2EDE7;">
-          <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#007A6E;margin-bottom:0.65rem;">AI energy demand</div>
-          <p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.65;">AI inference at scale is a qualitatively different energy demand than traditional IT workloads. A frontier model query uses approximately 10× the energy of a standard search. As AI embeds into products and workflows, this demand multiplier scales at the rate of adoption — not at a manageable incremental rate.</p>
-        </div>
-        <div style="background:var(--section-alt);padding:1.5rem;border-top:3px solid #00A896;">
-          <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#007A6E;margin-bottom:0.65rem;">Carbon pricing trajectory</div>
-          <p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.65;">Carbon pricing mechanisms are expanding in scope and tightening in cost. Organisations with energy-intensive IT estates face a risk that was not in the cost model five years ago. Improving energy efficiency now reduces exposure to future carbon cost increases — a financial argument that connects sustainability to treasury.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-</div><!-- /module-content -->
-
-<div class="kc-block reveal" data-correct="A">
-    <p class="kc-label">Knowledge check — question 1 of 2</p>
-    <p class="kc-q">A technology leader tells their team: "I believe in this programme and I'm committed to it" — but has not mentioned the programme outside of dedicated sustainability meetings in the past six months. Which of the 5Cs is most underdeveloped?</p>
-    <div class="kc-options">
-      <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>Clarity — the team may not understand the programme's objectives clearly enough</button>
-      <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>Conviction — genuine belief in a programme is expressed consistently across all contexts, not only in sustainability-specific forums</button>
-      <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>Communication — the leader needs to develop different messages for different audiences</button>
-      <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>Commitment — the programme lacks structural capability to survive without this individual's involvement</button>
-    </div>
-        <div class="kc-reveal">
-      <p class="kc-reveal-label">Explanation</p>
-      <p>Conviction is expressed through consistent behaviour across all contexts — not only in dedicated sustainability forums. A leader who says they believe in the programme but never mentions it in operational reviews, budget conversations, or 1:1s is communicating, through their actions, that the programme is a separate track rather than a genuine priority. The test for Conviction is straightforward: when did you last mention the programme in a conversation that wasn't a sustainability meeting?</p>
-      <p>Clarity is possible here — the leader is clearly communicating something. Communication is a separate capability about tailoring the message to different audiences. Commitment is about structural durability, not personal expression of belief. Conviction is specifically about the consistency and authenticity of belief expressed through action across all management contexts.</p>
-    </div>
-  </div>
-
-  <div class="kc-block reveal" data-correct="A">
-    <p class="kc-label">Knowledge check — question 2 of 2</p>
-    <p class="kc-q">A programme has strong board sponsorship and a well-resourced central sustainability team, but is not making meaningful progress. The most likely structural explanation is:</p>
-    <div class="kc-options">
-      <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>The sustainability team lacks technical expertise to implement the programme effectively</button>
-      <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>Board sponsorship is insufficient — the programme also needs C-suite operational involvement</button>
-      <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>The programme is operating as a central function rather than as a distributed discipline — it lacks the coalition of operational owners needed to embed sustainability in day-to-day decisions</button>
-      <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>The programme needs a more detailed roadmap before implementation can begin</button>
-    </div>
-        <div class="kc-reveal">
-      <p class="kc-reveal-label">Explanation</p>
-      <p>Programmes that sit in a central sustainability function typically produce good reports and workshops. They do not produce operational change — because operational change requires ownership distributed across the teams that make the actual decisions: engineering leads, application owners, procurement, data centre operations. A well-resourced central team with board support but no operational coalition is a communications programme, not a performance discipline.</p>
-      <p>Option A may be a symptom, not the cause — technical gaps in the sustainability team rarely explain a lack of progress when board support and resources exist. Option B misidentifies the problem: C-suite involvement is valuable, but the gap is distribution of ownership, not seniority of sponsorship. Option D is the most common stalling tactic — more planning when what is needed is operational ownership.</p>
-    </div>
-  </div>
-
-
-<div class="pause-reflect reveal"><p class="pause-label">⏸ Pause &amp; Reflect</p><p class="pause-intro">Take 5–10 minutes. Specificity matters more than completeness.</p><div class="pause-questions"><div class="pause-q"><span class="pause-q-num">1</span>Of the 5Cs — Clarity, Conviction, Courage, Communication, Commitment — which is the most underdeveloped in your own leadership of this programme right now? What would changing that look like in the next 30 days?</div><div class="pause-q"><span class="pause-q-num">2</span>For each of your three most important sceptical audiences: what would it take to shift them from sceptic to ally? What do they need to see that they haven't seen yet?</div><div class="pause-q"><span class="pause-q-num">3</span>Is your sustainable IT programme currently functioning as a project or a discipline? What is the single most important governance integration that would move it from one to the other?</div></div></div><div class="takeaways reveal">
-  <h3 class="takeaways-heading">Module 12 — Key Takeaways</h3>
-  <div class="takeaway-list">
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>The 5Cs frame what effective sustainable IT leadership looks like.</strong><p>Clarity, Conviction, Courage, Communication, and Commitment — all five are necessary. The hardest is often Courage: making difficult decisions that the programme requires but that nobody has forced yet.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Engage sceptical audiences from their own perspective, not yours.</strong><p>Engineers from operational problems. Finance from numbers. Business unit leaders from the footprint and demand growth that is already their problem. Starting from your sustainability framing and working backwards to their concern rarely works.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Energy is a strategic resource — treat it as one.</strong><p>Power availability is a constraint in real markets. Renewable procurement at a physical level requires PPAs, not just certificates. End-user energy is material at scale. Leaders who understand energy as a strategic variable make better infrastructure decisions.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>The transition from project to discipline requires operational integration.</strong><p>Sustainability becomes a discipline when it appears in the same forums as cost and performance — not when it has its own separate meeting. Integration into governance, architecture, procurement, and product ownership is the test.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Build a coalition — not a programme that depends on one champion.</strong><p>Four key allies: a senior executive who understands the regulatory and risk dimension, a finance partner who sees the numbers, engineering leads who recognise the efficiency angle, and procurement leaders who own supplier evidence.</p></div></div>
-  </div>
-</div>/div></div>
+<div class="content-section reveal"><p class="section-label">Section 2</p>
+<h2 class="section-title">Engaging sceptical audiences.</h2>
+<p class="section-intro">Starting from your sustainability framing and working backwards to their concern rarely works. Start from their concern and work towards the sustainability implication.</p>
+<table class="compare-table reveal">
+<tr><th>Audience</th><th>Their actual concern</th><th>The sustainability connection that lands</th></tr>
+<tr><td>Engineers</td><td>Technical excellence, system performance, reducing toil</td><td>Efficient code reduces infrastructure overhead. Waste is technical debt with a carbon dimension. GreenOps is engineering quality by another name.</td></tr>
+<tr><td>Finance</td><td>Cost, risk, and capital efficiency</td><td>Idle compute is cash waste. Regulatory exposure is quantifiable risk. Green financing improves lending terms. The numbers are the same conversation.</td></tr>
+<tr><td>Business unit leaders</td><td>Service performance and competitive position</td><td>Their demand growth is already driving footprint. Their ungoverned AI usage is already a cost they carry. They own the demand side of the problem.</td></tr>
+<tr><td>Board</td><td>Strategy, risk, and long-term resilience</td><td>SBTi trajectory, reputational exposure, investor and customer requirements. Energy as a strategic resource constraint in real markets.</td></tr>
+</table></div>
+<div class="content-section reveal"><p class="section-label">Section 3</p>
+<h2 class="section-title">Energy as a strategic resource.</h2>
+<p class="section-intro">Power availability for data centres is becoming a genuine bottleneck in some markets. Leaders who understand energy as a strategic variable make better infrastructure decisions.</p>
+<div class="callout callout-warning reveal"><p class="callout-title">The constraint is becoming structural</p><p>In some markets, power availability is already constraining where data centres can be built, when they can expand, and what planning consent looks like. Leaders who treat energy as an abundant utility are making decisions with an outdated model. Renewable procurement at a physical level requires PPAs, not just certificates. End-user energy is material at scale. These are now infrastructure governance questions, not sustainability team questions.</p></div></div><div class="pause-reflect reveal"><p class="pause-label">⏸ Pause &amp; Reflect</p><p class="pause-intro">Take 5–10 minutes. Specificity matters more than completeness.</p><div class="pause-questions"><div class="pause-q"><span class="pause-q-num">1</span>Of the 5Cs — Clarity, Conviction, Courage, Communication, Commitment — which is the most underdeveloped in your own leadership of this programme right now? What would changing that look like in the next 30 days?</div><div class="pause-q"><span class="pause-q-num">2</span>For each of your three most important sceptical audiences: what would it take to shift them from sceptic to ally? What do they need to see that they haven't seen yet?</div><div class="pause-q"><span class="pause-q-num">3</span>Is your sustainable IT programme currently functioning as a project or a discipline? What is the single most important governance integration that would move it from one to the other?</div></div></div><div class="takeaways reveal"><h3 class="takeaways-heading">Key Takeaways</h3><div class="takeaway-list"><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>The 5Cs frame what effective sustainable IT leadership looks like.</strong><p>Clarity, Conviction, Courage, Communication, and Commitment — all five are necessary. The hardest is often Courage: making difficult decisions that the programme requires but that nobody has forced yet.</p></div></div><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Engage sceptical audiences from their own perspective, not yours.</strong><p>Engineers from operational problems. Finance from numbers. Business unit leaders from the footprint and demand growth that is already their problem.</p></div></div><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Energy is a strategic resource — treat it as one.</strong><p>Power availability is a constraint in real markets. Renewable procurement at a physical level requires PPAs, not just certificates. Leaders who understand energy as a strategic variable make better infrastructure decisions.</p></div></div><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Build for durability, not dependency.</strong><p>The most resilient programmes have distributed ownership. If the programme depends entirely on one champion, it is one leadership change away from collapse.</p></div></div></div></div></div>
 <div class="module-nav"><a href="module11.html" class="nav-btn"><span><span class="nav-btn-label">← Previous</span><span class="nav-btn-title">M11: Sustainable IT Strategy and Roadmapping</span></span></a><button class="complete-btn" onclick="markComplete('module12')">Mark as complete</button><a href="module13.html" class="nav-btn next"><span><span class="nav-btn-label">Next →</span><span class="nav-btn-title">M13: Sustainability by IT: Enabling Positive Impact Beyond the Estate</span></span></a></div>
 <footer><div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 12</div><div class="footer-brand">March 2026 · v2</div></footer>
-<script>
-</script><script>
-(function(){
-'use strict';
-
-// ── SCEPTIC PROFILES ──────────────────────────────────────
-var sceptics = [
-  { label:'The Finance\nSceptic', col:'#E76F51',
-    driver:'Sees sustainability as overhead — cost without return. Believes it competes with operational priorities for budget.',
-    what:['Lead with waste reduction: specific savings, 90-day payback','Quantify regulatory risk: estimated cost of non-compliance','Show green financing access: basis point advantage on capital','Connect to TCO: refresh cycles, procurement, storage costs'],
-    backfires:'Abstract sustainability language, carbon metrics without financial translation, appeals to values over economics. This audience needs numbers, not narrative.' },
-  { label:'The Engineering\nSceptic', col:'#F4A261',
-    driver:'Sees sustainability as external imposition — another reporting requirement that doesn\'t improve engineering quality.',
-    what:['Frame as technical debt: efficiency is engineering quality','Show unit economics: carbon per transaction is the same discipline as cost per transaction','Connect to existing FinOps: GreenOps adds a column, not a new function','Provide the data — engineers respond to evidence, not appeals'],
-    backfires:'Top-down mandates without explanation, reporting requirements without operational connection, anything that sounds like a compliance checkbox rather than an engineering quality standard.' },
-  { label:'The Business\nUnit Sceptic', col:'#64748B',
-    driver:'Sees IT sustainability as IT\'s problem, not theirs. Doesn\'t connect their demand decisions to footprint.',
-    what:['Make demand visible: show the carbon footprint of their top services','Connect to procurement criteria: their customers are asking for evidence','Connect to regulatory exposure: Scope 3 from their digital services is material','Show the cost: their demand growth is driving infrastructure cost as well as carbon'],
-    backfires:'Presenting it as a corporate initiative they are expected to support. The framing must be: this is your footprint, and it is connected to your commercial and regulatory exposure — not IT asking for your co-operation.' },
-  { label:'The\nCynic', col:'#B2EDE7',
-    driver:'Has seen sustainability programmes come and go. Believes this one will be performative like the others — good intentions, no sustained impact.',
-    what:['Acknowledge the history honestly: most programmes have been performative','Show specific governance: named owners, named KPIs, operational forum accountability','Show delivered outcomes: waste reduced, costs saved, measurement improved','Don\'t ask for belief — show progress and let the evidence speak'],
-    backfires:'Grand ambitions and strategy documents. Cynics become advocates when they see specific, sustained outcomes — not when they are asked to believe in a vision. Show the work, not the plan.' },
-];
-
-var selectedSceptic = null;
-function buildSceptics() {
-  var grid = document.getElementById('scepticGrid');
-  if (!grid) return;
-  grid.innerHTML = '';
-  sceptics.forEach(function(s, i) {
-    var isSelected = selectedSceptic === i;
-    var cell = document.createElement('div');
-    cell.style.cssText = 'background:'+(isSelected?s.col:'#1E293B')+';padding:1.5rem 1.25rem;cursor:pointer;transition:background 0.2s;text-align:center;border-top:3px solid '+s.col+';';
-    var lines = s.label.split('\n');
-    cell.innerHTML = lines.map(function(l,j){
-      return '<div style="font-size:'+(j===0?'1.0rem':'0.92rem')+';font-weight:'+(j===0?'600':'400')+';color:'+(isSelected?'#0F1F2E':j===0?'#FFFFFF':'#64748B')+';line-height:1.35;'+(j>0?'margin-top:0.1rem;':'')+'">' + l + '</div>';
-    }).join('');
-    cell.addEventListener('click', function(){
-      selectedSceptic = (selectedSceptic===i)?null:i;
-      buildSceptics();
-      var det = document.getElementById('scepticDetail');
-      if (!det) return;
-      if (selectedSceptic !== null) {
-        var sc = sceptics[selectedSceptic];
-        det.style.display = 'block';
-        var items = sc.what.map(function(w){ return '<li style="display:flex;gap:0.6rem;margin-bottom:0.35rem;font-size:0.92rem;color:var(--text-secondary);line-height:1.5;"><span style="color:'+sc.col+';flex-shrink:0;">→</span>'+w+'</li>'; }).join('');
-        det.innerHTML =
-          '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.25rem;">'+
-            '<div><div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:0.4rem;">What drives the scepticism</div><p style="font-size:0.88rem;color:var(--text-secondary);line-height:1.65;">'+sc.driver+'</p></div>'+
-            '<div><div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:#00A896;margin-bottom:0.4rem;">What to say</div><ul style="list-style:none;padding:0;">'+items+'</ul></div>'+
-            '<div><div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:#E76F51;margin-bottom:0.4rem;">What backfires</div><div style="padding:0.75rem;background:var(--orange-bg);border-left:2px solid rgba(231,111,81,0.3);font-size:0.88rem;color:var(--text-secondary);line-height:1.65;font-style:italic;">'+sc.backfires+'</div></div>'+
-          '</div>';
-      } else {
-        det.style.display = 'none';
-      }
-    });
-    grid.appendChild(cell);
-  });
-}
-buildSceptics();
-
-})();
-</script>
-
-
-<script>
-(function(){
-'use strict';
-
-// ── M10 THREE-DIMENSION VALUE CASE ────────────────────────
-var valueDimensions = [
-  { label:'Financial', col:'#00A896',
-    items:[
-      { title:'Waste reduction', desc:'Often funds the programme itself. Cloud idle resources, storage waste, and dark data elimination are almost always financially positive. Quantify and lead with this.' },
-      { title:'Total cost of ownership', desc:'Evidence-based refresh cycles, circular procurement, data minimisation, and application rationalisation all reduce TCO. Connect each to a financial figure.' },
-      { title:'Green financing', desc:'Green bonds and sustainability-linked loans offer preferential terms to organisations that meet sustainability criteria — including IT-related targets. The capital markets case is becoming more material.' },
-      { title:'Revenue and procurement', desc:'Sustainability criteria appear increasingly in enterprise and public sector procurement scoring. A credible programme with evidence is a commercial differentiator in competitive bids.' },
-    ]},
-  { label:'Risk', col:'#E76F51',
-    items:[
-      { title:'Regulatory risk', desc:'CSRD, EU Taxonomy, and equivalent frameworks carry compliance gaps with penalties and reputational exposure. Non-compliance is no longer cost-free. Quantify the exposure for your organisation.' },
-      { title:'Reputational risk', desc:'Greenwashing claims attract regulatory challenge under the Green Claims Directive and media scrutiny. The risk of claiming more than evidence supports is now a legal risk as much as a reputational one.' },
-      { title:'Supply chain risk', desc:'Geopolitical disruption, material scarcity in technology supply chains, and concentration risk are all sustainability-adjacent. The same evidence programme that supports GHG reporting builds supply chain resilience.' },
-      { title:'Physical climate risk', desc:'Data centres in exposed locations face operational disruption from extreme weather, heat stress, and water availability constraints. Infrastructure investment decisions need to account for this.' },
-    ]},
-  { label:'Strategic', col:'#B2EDE7',
-    items:[
-      { title:'Talent attraction and retention', desc:'Sustainability performance influences technology professionals\' career decisions — particularly earlier in careers and in competitive hiring markets. A credible programme is a retention and recruitment asset.' },
-      { title:'Employee engagement', desc:'Employees engaged with a sustainability programme they believe is real are more committed to the organisation. This matters most in cultures where meaningful work drives performance.' },
-      { title:'Innovation capability', desc:'Building operational sustainability capability creates the internal expertise that can be commercialised — sustainability analytics, supply chain traceability, energy management platforms.' },
-      { title:'Licence to operate', desc:'Investors, regulators, and key customers increasingly require credible sustainability governance. This is less about competitive advantage and more about baseline expectations that are rising.' },
-    ]},
-];
-
-var selectedValueDim = null;
-function buildValueDims() {
-  var grid = document.getElementById('valueDims');
-  if (!grid) return;
-  grid.innerHTML = '';
-  valueDimensions.forEach(function(dim, i) {
-    var isSelected = selectedValueDim === i;
-    var cell = document.createElement('div');
-    cell.style.cssText = 'background:'+(isSelected?dim.col:'#1E293B')+';padding:1.75rem 1.25rem;cursor:pointer;transition:background 0.2s;text-align:center;';
-    cell.innerHTML =
-      '<div style="font-family:Georgia,serif;font-size:1.6rem;color:'+(isSelected?'rgba(11,25,41,0.4)':dim.col)+';margin-bottom:0.5rem;">'+
-        (i===0?'£':i===1?'⚠':'◈')+'</div>'+
-      '<div style="font-size:1.05rem;font-weight:600;color:'+(isSelected?'#0F1F2E':'#FFFFFF')+';margin-bottom:0.3rem;">'+dim.label+'</div>'+
-      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;color:'+(isSelected?'rgba(11,25,41,0.55)':'#64748B')+';letter-spacing:0.06em;">'+dim.items.length+' value categories</div>';
-    cell.addEventListener('click', function(){
-      selectedValueDim = (selectedValueDim===i)?null:i;
-      buildValueDims(); updateValueDetail();
-    });
-    grid.appendChild(cell);
-  });
-}
-function updateValueDetail() {
-  var det = document.getElementById('valueDetail');
-  if (!det) return;
-  if (selectedValueDim===null) {
-    det.style.borderLeftColor='#94A3B8';
-    det.innerHTML='<p style="font-size:0.95rem;color:var(--text-secondary);font-style:italic;">Select a dimension to see what it includes and how to frame it for each audience.</p>';
-    return;
-  }
-  var dim = valueDimensions[selectedValueDim];
-  det.style.borderLeftColor = dim.col;
-  var items = dim.items.map(function(item){
-    return '<div style="margin-bottom:0.85rem;">'+
-      '<div style="font-size:0.95rem;font-weight:600;color:var(--text-primary);margin-bottom:0.25rem;">'+item.title+'</div>'+
-      '<p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.65;">'+item.desc+'</p>'+
-      '</div>';
-  }).join('');
-  det.innerHTML = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">'+
-    '<div>'+items.split('</div>').slice(0,2).join('</div>')+'</div>'+
-    '<div>'+items.split('</div>').slice(2,4).join('</div>')+'</div>'+
-    '</div>';
-}
-buildValueDims(); updateValueDetail();
-
-
-// ── M11 OKR EXAMPLES ──────────────────────────────────────
-var okrs = [
-  { obj:'Reduce the carbon intensity of the technology estate by 30% within three years, aligned to the corporate SBTi pathway',
-    col:'#00A896',
-    krs:[
-      { kr:'KR1: Carbon intensity baseline documented by Q1 — with confidence levels per category', status:'foundation' },
-      { kr:'KR2: Top-10 service register with named owners and carbon intensity metrics established by Q2', status:'governance' },
-      { kr:'KR3: 10% unit intensity reduction achieved by year-end', status:'outcome' },
-    ],
-    cadence:'Monthly: KR1 owner reports measurement progress. Quarterly: top-10 register reviewed with owners present. Annual: intensity trajectory vs SBTi pathway presented to leadership.' },
-  { obj:'Achieve Level 4 measurement maturity on the GreenOps framework by end of next financial year',
-    col:'#F4A261',
-    krs:[
-      { kr:'KR1: Governance roles, decision forums, and KPI owners defined and active by Q1', status:'governance' },
-      { kr:'KR2: Vendor evidence register established with coverage ratings for top 10 suppliers by Q2', status:'foundation' },
-      { kr:'KR3: Role-based sustainability KPIs live in quarterly reviews for all four governance roles by Q3', status:'outcome' },
-    ],
-    cadence:'Q1 check: governance structure confirmed. Q2 check: vendor evidence register reviewed. Q3 check: KPI dashboards demonstrated. End of year: maturity assessment against Level 4 criteria.' },
-  { obj:'Demonstrate credible Scope 3 coverage for the top ten technology suppliers',
-    col:'#B2EDE7',
-    krs:[
-      { kr:'KR1: Evidence register complete for all ten suppliers — with tier ratings — by Q1', status:'foundation' },
-      { kr:'KR2: Data requests sent to all suppliers with gaps; responses tracked by Q2', status:'governance' },
-      { kr:'KR3: Confidence ratings improved (self-declared → reviewed or better) for at least 7/10 suppliers by year-end', status:'outcome' },
-    ],
-    cadence:'Q1: register reviewed. Q2: response tracking reviewed. Q3: supplier engagement status reviewed. Year-end: confidence ratings reassessed and improvement plan for remaining gaps presented.' },
-];
-
-var statusLabels = { foundation:'Foundation', governance:'Governance', outcome:'Outcome' };
-var statusCols = { foundation:'#64748B', governance:'#F4A261', outcome:'#00A896' };
-
-var expandedOkr = null;
-function buildOkrs() {
-  var container = document.getElementById('okrList');
-  if (!container) return;
-  container.innerHTML = '';
-  okrs.forEach(function(okr, i) {
-    var wrap = document.createElement('div');
-    wrap.style.cssText = 'border-bottom:1px solid var(--border-light);';
-
-    var hdr = document.createElement('div');
-    hdr.style.cssText = 'padding:1.1rem 1.5rem;cursor:pointer;display:flex;align-items:flex-start;gap:0.85rem;transition:background 0.12s;';
-    hdr.innerHTML =
-      '<div style="width:20px;height:20px;border-radius:50%;border:2px solid '+okr.col+';background:'+(expandedOkr===i?okr.col:'transparent')+';flex-shrink:0;margin-top:0.15rem;transition:background 0.15s;"></div>'+
-      '<div style="flex:1;"><div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:'+okr.col+';margin-bottom:0.3rem;">Objective '+(i+1)+'</div>'+
-      '<div style="font-size:0.95rem;color:var(--text-primary);font-weight:500;line-height:1.5;">'+okr.obj+'</div></div>'+
-      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;color:'+okr.col+';flex-shrink:0;transition:transform 0.2s;">'+(expandedOkr===i?'▲':'▼')+'</div>';
-
-    var detail = document.createElement('div');
-    detail.style.cssText = 'display:'+(expandedOkr===i?'block':'none')+';padding:0 1.5rem 1.25rem 3.25rem;';
-    var krs = okr.krs.map(function(kr){
-      return '<div style="display:flex;gap:0.85rem;margin-bottom:0.65rem;align-items:flex-start;">'+
-        '<span style="display:inline-block;padding:0.15rem 0.45rem;background:rgba(0,0,0,0.2);border:1px solid '+statusCols[kr.status]+';font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;color:'+statusCols[kr.status]+';white-space:nowrap;flex-shrink:0;margin-top:0.1rem;">'+statusLabels[kr.status]+'</span>'+
-        '<span style="font-size:0.92rem;color:var(--text-secondary);line-height:1.55;">'+kr.kr+'</span>'+
-        '</div>';
-    }).join('');
-    detail.innerHTML = krs +
-      '<div style="margin-top:0.75rem;padding:0.65rem 0.85rem;background:var(--teal-bg);border-left:2px solid rgba(0,168,150,0.3);font-size:0.85rem;color:var(--text-secondary);line-height:1.6;">'+
-      '<strong style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.1em;text-transform:uppercase;color:#00A896;display:block;margin-bottom:0.3rem;">Review cadence</strong>'+
-      okr.cadence+'</div>';
-
-    hdr.addEventListener('mouseenter', function(){ hdr.style.background='var(--page-bg)'; });
-    hdr.addEventListener('mouseleave', function(){ hdr.style.background=''; });
-    hdr.addEventListener('click', function(){
-      expandedOkr = (expandedOkr===i)?null:i;
-      buildOkrs();
-    });
-
-    wrap.appendChild(hdr); wrap.appendChild(detail);
-    container.appendChild(wrap);
-  });
-}
-buildOkrs();
-
-
-// ── M13 INNOVATION / CLEANTECH CARDS ─────────────────────
-var innItems = [
-  { label:'Sustainability hackathons', icon:'💡', col:'#00A896',
-    desc:'A well-structured hackathon focused on a specific operational or business problem — with clear judging criteria and implementation support — surfaces solutions that standard product development processes miss.',
-    why:'The person who knows a batch job is running unnecessarily every night is often not the person who attends the governance forum. Hackathons create channels for that knowledge to surface.',
-    examples:['Energy consumption optimisation challenge — best proposal to reduce data centre PUE by 10%','AI efficiency challenge — smallest model that maintains quality for specific use cases','Dark data challenge — largest reduction in storage cost and footprint within 30 days'],
-    condition:'Works when: there is visible sponsorship, clear judging criteria linked to operational metrics, and a credible implementation path for winning ideas.' },
-  { label:'Citizen-driven innovation', icon:'🔍', col:'#B2EDE7',
-    desc:'Platforms and processes that enable employees at any level to identify and surface improvements. The knowledge gap between governance forums and operational reality is one of the most consistently underexploited improvement opportunities in large technology estates.',
-    why:'Governance forums know what the strategy says. Operational staff know what is actually happening. Building channels to close that gap produces both operational improvements and cultural engagement.',
-    examples:['Operational improvement submissions with a sustainability category and named reviewer','Embedded sustainability criteria in change and release processes — "what is the carbon impact of this change?"','Sustainability-focused communities of practice with quarterly showcase of implemented improvements'],
-    condition:'Works when: there is a clear path from idea to action, and recognition for ideas that are implemented rather than just submitted.' },
-  { label:'CleanTech and SustainTech', icon:'⚡', col:'#F4A261',
-    desc:'Technology organisations with genuine operational sustainability capability are better positioned to develop commercial sustainability solutions. The insight from managing energy consumption, hardware lifecycle, and supply chain evidence at scale is the same insight needed to build products that help others do the same.',
-    why:'Internal capability and commercial opportunity reinforce each other. Running a credible GreenOps programme builds the domain expertise, the tooling, and the credibility to offer it commercially.',
-    examples:['Sustainability reporting platforms — built on internal carbon accounting capability','Smart building / energy management — built on data centre efficiency operational experience','Supply chain traceability — built on vendor evidence programme experience'],
-    condition:'Applies when the organisation has built genuine operational depth rather than a reporting function. Commercialising a spreadsheet is not a product strategy.' },
-];
-
-var selectedInn = null;
-function buildInnCards() {
-  var cells = document.getElementById('innCards');
-  if (!cells) return;
-  cells.innerHTML = '';
-  innItems.forEach(function(item, i) {
-    var isSelected = selectedInn === i;
-    var cell = document.createElement('div');
-    cell.style.cssText = 'background:'+(isSelected?item.col:'#1E293B')+';padding:1.75rem 1.25rem;cursor:pointer;transition:background 0.2s;border-top:3px solid '+item.col+';';
-    cell.innerHTML =
-      '<div style="font-size:1.75rem;margin-bottom:0.5rem;">'+item.icon+'</div>'+
-      '<div style="font-size:1.0rem;font-weight:600;color:'+(isSelected?'#0F1F2E':'#FFFFFF')+';margin-bottom:0.5rem;line-height:1.3;">'+item.label+'</div>'+
-      '<p style="font-size:0.88rem;color:'+(isSelected?'rgba(11,25,41,0.7)':'#64748B')+';line-height:1.6;">'+item.desc+'</p>';
-    cell.addEventListener('click', function(){
-      selectedInn = (selectedInn===i)?null:i;
-      buildInnCards();
-      var det = document.getElementById('innDetail');
-      var txt2 = document.getElementById('innDetailText');
-      if (!det) return;
-      if (selectedInn!==null) {
-        var it = innItems[selectedInn];
-        det.style.display='block';
-        var exs = it.examples.map(function(e){ return '<li style="display:flex;gap:0.6rem;margin-bottom:0.35rem;font-size:0.88rem;color:var(--text-secondary);line-height:1.5;"><span style="color:'+it.col+';flex-shrink:0;">→</span>'+e+'</li>'; }).join('');
-        txt2.innerHTML =
-          '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">'+
-            '<div>'+
-              '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:'+it.col+';margin-bottom:0.5rem;">Why it works</div>'+
-              '<p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.65;margin-bottom:0.65rem;">'+it.why+'</p>'+
-              '<div style="padding:0.6rem 0.85rem;background:var(--teal-bg);border-left:2px solid rgba(0,168,150,0.3);font-size:0.85rem;color:var(--text-secondary);font-style:italic;line-height:1.6;">'+it.condition+'</div>'+
-            '</div>'+
-            '<div>'+
-              '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:#00A896;margin-bottom:0.5rem;">Practical examples</div>'+
-              '<ul style="list-style:none;padding:0;">'+exs+'</ul>'+
-            '</div>'+
-          '</div>';
-      } else {
-        det.style.display='none';
-      }
-    });
-    cells.appendChild(cell);
-  });
-}
-buildInnCards();
-
-
-// ── M14 STARTING ARTEFACTS + OPERATING CONTEXT ───────────
-var startArts = [
-  { num:'01', label:'Top-ten service register', col:'#00A896',
-    first:'This week: list the ten applications or services that consume the most compute, storage, or network in your estate. For each: write down a name, a rough consumption figure (even if estimated), and who you think owns it. That is your starting register. It will be wrong and incomplete — that is expected and acceptable.',
-    improve:'Next 90 days: confirm owners, define one carbon intensity metric per service, establish the review cadence. The register becomes the anchor for quarterly operational governance.' },
-  { num:'02', label:'Vendor evidence register', col:'#B2EDE7',
-    first:'This week: for your three highest-spend suppliers (typically cloud, hardware, and one managed service), note what sustainability evidence you have seen, what you have not asked for, and what you would request at the next contract touchpoint. Three rows. That is enough to start.',
-    improve:'Next 90 days: extend to top 10 suppliers, apply tier ratings (self-declared / reviewed / assured), send first evidence requests where gaps exist. Review at procurement governance.' },
-  { num:'03', label:'Waste removal backlog', col:'#F4A261',
-    first:'This week: write down five things you already know are waste in your estate: idle cloud instances, orphaned storage, an application nobody uses, devices with no lifecycle policy. Name each one and put a rough cost or energy figure against it. Assign yourself or a named colleague as owner of each.',
-    improve:'Next 90 days: formalise in your operational tracking system (not a separate spreadsheet), assign target dates, review completion in the same forum as financial waste.' },
-];
-
-var expandedArt = null;
-function buildStartArts() {
-  var container = document.getElementById('startCards');
-  if (!container) return;
-  container.innerHTML = '';
-  startArts.forEach(function(art, i) {
-    var wrap = document.createElement('div');
-    wrap.style.cssText = 'border-bottom:1px solid var(--border-light);';
-    var hdr = document.createElement('div');
-    hdr.style.cssText = 'padding:1.1rem 1.5rem;cursor:pointer;display:flex;gap:0.85rem;align-items:center;transition:background 0.12s;';
-    hdr.innerHTML =
-      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:'+art.col+';min-width:30px;">'+art.num+'</div>'+
-      '<div style="font-size:0.97rem;font-weight:600;color:var(--text-primary);flex:1;">'+art.label+'</div>'+
-      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.75rem;color:'+art.col+';transition:transform 0.2s;">'+(expandedArt===i?'▲':'▼')+'</div>';
-    var detail = document.createElement('div');
-    detail.style.cssText = 'display:'+(expandedArt===i?'grid':'none')+';grid-template-columns:1fr 1fr;gap:1px;background:var(--border-light);';
-    detail.innerHTML =
-      '<div style="padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-left:3px solid '+art.col+';">'+
-        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:'+art.col+';margin-bottom:0.5rem;">This week</div>'+
-        '<p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.65;">'+art.first+'</p>'+
-      '</div>'+
-      '<div style="padding:1rem 1.25rem;background:var(--section-alt);border-left:3px solid rgba(0,168,150,0.3);">'+
-        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:#00A896;margin-bottom:0.5rem;">Next 90 days</div>'+
-        '<p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.65;">'+art.improve+'</p>'+
-      '</div>';
-    hdr.addEventListener('mouseenter', function(){ hdr.style.background='var(--page-bg)'; });
-    hdr.addEventListener('mouseleave', function(){ hdr.style.background=''; });
-    hdr.addEventListener('click', function(){
-      expandedArt=(expandedArt===i)?null:i;
-      buildStartArts();
-    });
-    wrap.appendChild(hdr); wrap.appendChild(detail);
-    container.appendChild(wrap);
-  });
-}
-buildStartArts();
-
-// ── M14 OPERATING CONTEXT SHIFTS ────────────────────────
-var contextShifts = [
-  { label:'Power availability as a constraint', col:'#E76F51',
-    detail:'Grid capacity constraints are already limiting data centre expansion in London, Dublin, Singapore, and Amsterdam. Power availability — not just cost — is becoming a planning variable for infrastructure decisions. AI demand is accelerating this constraint. Organisations that plan infrastructure without understanding the local power envelope are making decisions that will be revisited.' },
-  { label:'Water stress entering planning decisions', col:'#F4A261',
-    detail:'Hyperscale data centres can consume millions of litres of water daily. Water availability is beginning to shape where data centres receive planning permission — not a future scenario but a present reality in several markets. Water stress belongs in infrastructure strategy alongside cost and connectivity.' },
-  { label:'AI changing the energy calculus', col:'#E76F51',
-    detail:'A frontier AI model query uses approximately 10× the energy of a standard web search. As AI embeds into products and workflows at scale, this is not an incremental increase in IT energy demand — it is a structural change. The organisations that govern AI consumption now are building an advantage over those that will need to retrofit governance when the bill arrives.' },
-  { label:'Regulatory obligation arriving in waves', col:'#F4A261',
-    detail:'CSRD applies to large EU entities for financial year 2024 onwards, with phased extension. The Green Claims Directive introduces legal liability for unsubstantiated sustainability claims. Supply chain due diligence requirements are extending. Organisations outside current scope are receiving obligations through customer and investor pressure that creates a commercial equivalent.' },
-  { label:'Digital sustainability as operational excellence', col:'#00A896',
-    detail:'The organisations that treat digital sustainability as an operational discipline — rather than a reporting function or a communications strategy — will be better positioned on cost, risk, talent, and regulatory compliance simultaneously. The tools are measurement maturity, governance artefacts, and distributed accountability. None of those requires a perfect programme to start.' },
-];
-
-function buildContextShifts() {
-  var container = document.getElementById('contextShifts');
-  if (!container) return;
-  container.innerHTML='';
-  var selectedCtx = null;
-
-  contextShifts.forEach(function(shift, i) {
-    var row = document.createElement('div');
-    row.style.cssText='display:flex;align-items:center;gap:0.85rem;padding:0.75rem 0;border-bottom:1px solid var(--border-light);cursor:pointer;transition:background 0.12s;';
-    row.innerHTML=
-      '<div style="width:10px;height:10px;border-radius:50%;background:'+shift.col+';flex-shrink:0;box-shadow:0 0 6px '+shift.col+'55;"></div>'+
-      '<div style="font-size:0.95rem;color:var(--text-primary);font-weight:500;flex:1;">'+shift.label+'</div>'+
-      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.75rem;color:'+shift.col+';">▶</div>';
-    row.addEventListener('mouseenter', function(){ row.style.background='var(--page-bg)'; });
-    row.addEventListener('mouseleave', function(){ row.style.background=''; });
-    row.addEventListener('click', function(){
-      selectedCtx=(selectedCtx===i)?null:i;
-      var det=document.getElementById('contextDetail');
-      var txt2=document.getElementById('contextDetailText');
-      if (!det) return;
-      if (selectedCtx!==null) {
-        det.style.display='block';
-        txt2.innerHTML='<strong style="color:'+shift.col+';">'+shift.label+'</strong><br><br>'+contextShifts[selectedCtx].detail;
-      } else {
-        det.style.display='none';
-      }
-    });
-    container.appendChild(row);
-  });
-}
-buildContextShifts();
-
-})();
-</script>
-
-
-
-<script>
-(function(){
-'use strict';
-// ── M12: FIVECS PENTAGON SVG ──────────────────────────────
-var fiveCs = [
-  { label:'Clarity', col:'#00A896', angle:-90,
-    desc:'People cannot move in a direction they cannot see. Clarity means being able to articulate what digital sustainability means for your organisation in plain, concrete terms. Not a vision statement — an answer to the question: what will be different in eighteen months, and how will we know?',
-    test:'Your team can explain the programme\'s objectives without referring to a slide deck. If they reach for slides, the articulation has not been done yet.' },
-  { label:'Conviction', col:'#B2EDE7', angle:-18,
-    desc:'Sustainability programmes face scepticism at every level. Your own belief — expressed consistently and specifically, not only in all-hands addresses — determines whether others invest their credibility in it. If people sense you would trade the programme for a budget saving, it will not get the commitment it needs.',
-    test:'When did you last mention the programme in a conversation that was not a sustainability meeting? Conviction is visible in everyday decisions, not scheduled presentations.' },
-  { label:'Courage', col:'#E76F51', angle:54,
-    desc:'There are decisions in a sustainability transformation that are genuinely difficult: stopping a project that has consumed investment; requiring a supplier to produce evidence they have never had to produce; telling a business unit their demand growth requires mitigation. These require a clear position held under pressure.',
-    test:'What is the most difficult decision your programme requires that has not yet been made? What is preventing it? The answer reveals where courage is needed and where it is absent.' },
-  { label:'Communication', col:'#F4A261', angle:126,
-    desc:'The sustainability story needs to be told differently to different audiences — engineers (operational excellence), finance (cost and risk), board (strategic imperative), employees (meaningful work) — without changing its substance. A leader who can translate the same programme into each framing moves faster.',
-    test:'Can you describe the programme in the language of each of your key audiences without changing the substance? If the engineering version and the board version sound like different programmes, the translation is failing.' },
-  { label:'Commitment', col:'#64748B', angle:198,
-    desc:'Sustainability programmes that depend on a single champion rarely survive leadership changes or budget cycles. Commitment means building the people, processes, and governance structures that will continue without you. Distributed ownership from the start is both more resilient and more effective.',
-    test:'If you left tomorrow, would the programme continue? If not, what capability is missing? Commitment is measurable by whether the programme is institution-dependent or champion-dependent.' },
-];
-
-var selected5C = null;
-function buildPentagon() {
-  var svg = document.getElementById('fiveCsSvg');
-  if (!svg) return;
-  var CX=150, CY=150, R=110;
-  function el(tag,attrs){ var e=document.createElementNS('http://www.w3.org/2000/svg',tag); Object.keys(attrs).forEach(function(k){e.setAttribute(k,attrs[k]);}); return e; }
-
-  svg.innerHTML='';
-
-  // Background pentagon fill
-  var pts = fiveCs.map(function(c,i){
-    var a = (c.angle) * Math.PI/180;
-    return [CX + R*Math.cos(a), CY + R*Math.sin(a)];
-  });
-  var polyPts = pts.map(function(p){ return p[0]+','+p[1]; }).join(' ');
-  svg.appendChild(el('polygon',{points:polyPts,fill:'#EDF8F6',
-    stroke:'var(--border-light)','stroke-width':'1'}));
-
-  fiveCs.forEach(function(c, i) {
-    var a = c.angle * Math.PI/180;
-    var x = CX + R*Math.cos(a), y = CY + R*Math.sin(a);
-    var isSel = selected5C === i;
-
-    var dot = el('circle',{cx:x,cy:y,r:isSel?14:10,fill:c.col,
-      stroke:'#0F1F2E','stroke-width':'2',style:'cursor:pointer;transition:r 0.15s;'});
-    dot.addEventListener('click', function(){
-      selected5C = (selected5C===i)?null:i;
-      buildPentagon(); updateFiveCs();
-    });
-
-    // Label
-    var lx = CX + (R+26)*Math.cos(a), ly = CY + (R+26)*Math.sin(a);
-    var anchor = Math.abs(a) < 0.3 ? 'middle' : (Math.cos(a) > 0.3 ? 'start' : Math.cos(a) < -0.3 ? 'end' : 'middle');
-    var lt = el('text',{x:lx,y:ly+(Math.sin(a)>0.5?4:-4),'text-anchor':anchor,fill:c.col,
-      'font-family':'Georgia,serif','font-size':'14','font-weight':'600',style:'pointer-events:none'});
-    lt.textContent = c.label;
-
-    svg.appendChild(dot); svg.appendChild(lt);
-  });
-
-  // Centre label
-  var ct = el('text',{x:CX,y:CY+5,'text-anchor':'middle',fill:'rgba(30,41,59,0.12)',
-    'font-family':'Georgia,serif','font-size':'13'});
-  ct.textContent = '5Cs';
-  svg.appendChild(ct);
-}
-
-function updateFiveCs() {
-  var det = document.getElementById('fiveCsDetail');
-  if (!det) return;
-  if (selected5C === null) {
-    det.innerHTML = '<p style="font-size:0.95rem;color:var(--text-secondary);font-style:italic;line-height:1.7;">Five qualities that are all necessary, none sufficient on its own. Select any point to explore what it means in practice.</p>';
-    return;
-  }
-  var c = fiveCs[selected5C];
-  det.innerHTML =
-    '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:'+c.col+';margin-bottom:0.75rem;">'+c.label+'</div>'+
-    '<p style="font-size:0.97rem;color:var(--text-primary);font-weight:500;line-height:1.6;margin-bottom:1rem;">'+c.desc+'</p>'+
-    '<div style="padding:0.75rem 1rem;background:var(--orange-bg);border-left:2px solid rgba(231,111,81,0.3);">'+
-      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:#E76F51;margin-bottom:0.35rem;">Test</div>'+
-      '<p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.65;font-style:italic;">'+c.test+'</p>'+
-    '</div>';
-}
-buildPentagon(); updateFiveCs();
-})();
-</script>
-
-
-
-<script>
-// GreenOps 101 — Shared module utilities v4 (light theme)
+<script></script><script>
+// GreenOps 101 — Shared utilities v4 light theme
 
 const STORAGE_KEY = 'greenops101_progress';
-
-function getProgress() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
-  catch { return {}; }
+function getProgress(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');}catch{return {};}}
+function markComplete(moduleKey){
+  const p=getProgress();p[moduleKey]={completedAt:new Date().toISOString()};
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(p));
+  document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
 }
-
-function markComplete(moduleKey) {
-  const p = getProgress();
-  p[moduleKey] = { completedAt: new Date().toISOString() };
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
-  document.querySelectorAll('.complete-btn').forEach(b => {
-    b.textContent = '✓ Module complete';
-    b.classList.add('done');
-  });
-}
-
-function isComplete(moduleKey) {
-  return !!getProgress()[moduleKey];
-}
-
-// Knowledge check handling
-function initKnowledgeChecks() {
-  document.querySelectorAll('.kc-block').forEach(block => {
-    const correct = block.dataset.correct;
-    block.querySelectorAll('.kc-option').forEach(opt => {
-      opt.addEventListener('click', function() {
-        if (block.classList.contains('answered')) return;
+function isComplete(k){return !!getProgress()[k];}
+function initKnowledgeChecks(){
+  document.querySelectorAll('.kc-block').forEach(block=>{
+    const correct=block.dataset.correct;
+    block.querySelectorAll('.kc-option').forEach(opt=>{
+      opt.addEventListener('click',function(){
+        if(block.classList.contains('answered'))return;
         block.classList.add('answered');
-        const chosen = this.dataset.val;
-        block.querySelectorAll('.kc-option').forEach(o => {
-          if (o.dataset.val === correct) {
-            o.classList.add('selected-correct');
-          } else if (o.dataset.val === chosen && chosen !== correct) {
-            o.classList.add('selected-wrong');
-          }
+        const chosen=this.dataset.val;
+        block.querySelectorAll('.kc-option').forEach(o=>{
+          if(o.dataset.val===correct)o.classList.add('selected-correct');
+          else if(o.dataset.val===chosen&&chosen!==correct)o.classList.add('selected-wrong');
         });
-        // Show feedback
-        const fb = block.querySelector(chosen === correct ? '.kc-correct' : '.kc-wrong');
-        if (fb) fb.style.display = 'block';
-        // Also show .kc-reveal if present (legacy)
-        const reveal = block.querySelector('.kc-reveal');
-        if (reveal) reveal.style.display = 'block';
+        const fb=block.querySelector(chosen===correct?'.kc-correct':'.kc-wrong');
+        if(fb)fb.style.display='block';
+        const rv=block.querySelector('.kc-reveal');
+        if(rv)rv.style.display='block';
       });
     });
   });
 }
-
-// Scroll-triggered reveals
-function initScrollReveal() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+function initScrollReveal(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+  },{threshold:0.06,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+}
+function initProgress(current){
+  const p=getProgress(),total=14;
+  const done=Object.keys(p).filter(k=>k.startsWith('module')).length;
+  const el=document.getElementById('progress-count');
+  if(el)el.textContent=done+'/'+total;
+  const fill=document.getElementById('prog-fill');
+  if(fill)fill.style.width=((done/total)*100)+'%';
+  if(isComplete('module'+current))document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
 }
 
-// Sticky nav progress
-function initProgress(current) {
-  const p = getProgress();
-  const total = 14;
-  const done = Object.keys(p).filter(k => k.startsWith('module')).length;
-  const el = document.getElementById('progress-count');
-  if (el) el.textContent = `${done}/${total}`;
-  const fill = document.getElementById('prog-fill');
-  if (fill) fill.style.width = `${(done/total)*100}%`;
-  if (isComplete('module' + current)) {
-    document.querySelectorAll('.complete-btn').forEach(b => {
-      b.textContent = '✓ Module complete';
-      b.classList.add('done');
-    });
-  }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded',function(){
   initKnowledgeChecks();
   initScrollReveal();
-  initProgress(12);
-  renderOutput();
-  buildSceptics();
-  buildValueDims();
-  buildOkrs();
-  buildInnCards();
-  buildStartArts();
-  buildContextShifts();
-  buildPentagon();
+  if(typeof renderOutput==='function')renderOutput();
 });
-
 </script>
 </body></html>

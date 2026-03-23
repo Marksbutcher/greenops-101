@@ -1,180 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<!DOCTYPE html>
-<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>M3: How Digital Sustainability Is Measured — GreenOps 101</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shared.css">
-<style>
-:root{--page-bg:#F7F8FA;--card-bg:#FFFFFF;--section-alt:#E8EDF2;--text-primary:#1E293B;--text-secondary:#4A5568;--text-muted:#64748B;--navy:#0F1F2E;--navy-mid:#162840;--navy-card:#1E293B;--teal:#00A896;--teal-dark:#007A6E;--teal-muted:#B2EDE7;--teal-bg:rgba(0,168,150,0.07);--teal-border:rgba(0,168,150,0.25);--orange:#E76F51;--orange-light:#F4A261;--orange-bg:#FFF3E8;--orange-border:rgba(231,111,81,0.25);--border:#D1D9E0;--border-light:#E8EDF2;--track1:#00A896;--track2:#F4A261;--track3:#E76F51;--correct:#16a34a;--wrong:#dc2626;--white:#FFFFFF;--space-1:0.25rem;--space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;--space-5:1.5rem;--space-6:2rem;--space-7:3rem;--space-8:4rem;--navy-light:#1C3A55;--navy-raised:#1C3A55;--navy-border:rgba(255,255,255,0.07);--navy-mid-alt:#162840;--teal-light:#B2EDE7;--teal-glow:rgba(0,168,150,0.15);--teal-subtle:rgba(0,168,150,0.07);--slate:#4A5568;--slate-mid:#64748B;--slate-dim:#94A3B8;--grey-100:#F7F8FA;--grey-300:#D1D9E0;--grey-500:#4A5568;--border-dark:rgba(255,255,255,0.08);}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;font-size:16px;}img,svg{display:block;max-width:100%;}body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,'Trebuchet MS',system-ui,-apple-system,sans-serif;font-weight:400;font-size:1rem;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}.top-nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:1px solid rgba(0,168,150,0.2);padding:0 var(--space-7);height:52px;display:flex;align-items:center;gap:1rem;}.top-nav::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00A896 0%,#F4A261 60%,#E76F51 100%);}.nav-home{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.85);text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:color 0.15s;flex-shrink:0;}.nav-home:hover{color:#FFFFFF;}.nav-sep{color:rgba(255,255,255,0.5);font-size:0.8rem;}.nav-module{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#FFFFFF;font-weight:500;}.nav-track-pill{font-family:Calibri,sans-serif;font-size:0.69rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.22rem 0.65rem;border-radius:2px;}.track1-pill{background:rgba(0,168,150,0.2);color:#B2EDE7;}.track2-pill{background:rgba(244,162,97,0.2);color:#F4D0B0;}.track3-pill{background:rgba(231,111,81,0.2);color:#F4C4B9;}.nav-progress{margin-left:auto;font-family:Calibri,sans-serif;font-size:0.72rem;color:rgba(255,255,255,0.7);}.nav-prog-bar{width:80px;height:2px;background:rgba(255,255,255,0.12);border-radius:1px;margin-left:0.5rem;overflow:hidden;display:inline-block;vertical-align:middle;}.nav-prog-fill{height:100%;background:var(--teal);border-radius:1px;transition:width 0.4s ease;}.module-hero{position:relative;overflow:hidden;padding:var(--space-8) var(--space-7) var(--space-7);background:#0F1F2E;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;}.module-hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 70% 50%,rgba(0,168,150,0.08) 0%,transparent 65%);pointer-events:none;}.hero-num{font-family:Georgia,serif;font-size:clamp(5rem,12vw,10rem);color:rgba(255,255,255,0.12);line-height:1;position:absolute;right:var(--space-7);bottom:0;font-weight:400;user-select:none;}.module-eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal-muted);margin-bottom:0.75rem;}.module-title{font-family:Georgia,serif;font-weight:700;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.12;letter-spacing:-0.02em;color:#FFFFFF;margin-bottom:1.25rem;}.module-subtitle{font-size:1.1rem;color:rgba(255,255,255,0.92);line-height:1.65;max-width:620px;margin-bottom:2rem;}.module-meta{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}.meta-item{display:flex;flex-direction:column;gap:0.15rem;}.meta-item .label{font-family:Calibri,sans-serif;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.65);}.meta-item .value{font-size:0.92rem;color:rgba(255,255,255,0.95);font-weight:500;}.complete-btn{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.6rem 1.25rem;background:rgba(0,168,150,0.15);border:1px solid #00A896;color:#B2EDE7;cursor:pointer;transition:all 0.15s;}.complete-btn:hover{background:rgba(0,168,150,0.3);border-color:#00A896;}.complete-btn.done{background:rgba(0,168,150,0.25);border-color:#00A896;color:#B2EDE7;}.objectives-strip{padding:0;}.module-content{max-width:1200px;margin:0 auto;padding:0 var(--space-7) var(--space-6);}.content-section{padding:var(--space-7) 0;border-bottom:1px solid var(--border-light);}.content-section:last-child{border-bottom:none;}.section-label{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:0.65rem;display:block;font-weight:700;}.section-title{font-family:Georgia,serif;font-weight:700;font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.15;letter-spacing:-0.02em;color:var(--text-primary);margin-bottom:1.25rem;}.section-intro{font-size:1.12rem;font-weight:400;color:var(--text-secondary);line-height:1.75;max-width:780px;margin-bottom:2rem;}.card-grid{display:grid;gap:1px;background:var(--border);}.card-grid-2{grid-template-columns:1fr 1fr;}.card-grid-3{grid-template-columns:repeat(3,1fr);}.card-grid-4{grid-template-columns:repeat(4,1fr);}.card{background:var(--card-bg);padding:1.75rem;position:relative;}.card-title{font-family:Georgia,serif;font-size:1.1rem;font-weight:400;color:var(--text-primary);margin-bottom:0.65rem;}.card-body{font-size:0.97rem;color:var(--text-secondary);line-height:1.7;}.card--teal-top{border-top:3px solid var(--teal);}.card--orange-top{border-top:3px solid var(--orange);}.card--navy-bg{background:var(--navy);color:#FFFFFF;}.stat-strip{display:grid;gap:1px;background:var(--border);margin:2.25rem 0;border-radius:3px;overflow:hidden;}.stat-strip.cols-3{grid-template-columns:repeat(3,1fr);}.stat-strip.cols-4{grid-template-columns:repeat(4,1fr);}.stat-cell{background:var(--card-bg);padding:2rem 1.5rem;text-align:center;position:relative;border-top:3px solid var(--cell-accent,var(--teal));transition:background 0.15s;}.stat-cell:hover{background:var(--section-alt);}.stat-num{font-family:Georgia,serif;font-size:clamp(2.4rem,4.5vw,3.5rem);color:var(--cell-accent,var(--teal-dark));line-height:1;margin-bottom:0.5rem;display:block;}.stat-label{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);line-height:1.5;display:block;}.viz-container{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);margin:2rem 0;box-shadow:0 2px 8px rgba(0,0,0,0.07);}.viz-header{padding:1rem 1.5rem;border-bottom:2px solid var(--teal);display:flex;align-items:center;gap:0.75rem;background:var(--section-alt);}.viz-header-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;}.viz-title{font-family:'JetBrains Mono',monospace;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;}.callout{padding:1.35rem 1.75rem;margin:1.75rem 0;border-left:4px solid var(--teal);background:var(--teal-bg);}.callout-insight{border-left-color:var(--teal);background:var(--teal-bg);}.callout-warning{border-left-color:var(--orange);background:var(--orange-bg);}.callout-key{border-left-color:var(--teal-dark);background:var(--teal-bg);}.callout-title{font-family:'JetBrains Mono',monospace;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;display:block;margin-bottom:0.6rem;}.callout-warning .callout-title{color:var(--orange);}.callout p{font-size:1rem;color:var(--text-primary);line-height:1.72;}.pause-questions{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem var(--space-7);}.pause-q{font-size:1rem;color:var(--text-primary);line-height:1.7;margin-bottom:0.85rem;padding-left:1.25rem;border-left:2px solid var(--teal-dark);}.pause-q:last-child{margin-bottom:0;}.kc-block{background:var(--card-bg);border:1px solid var(--border);padding:2.25rem;margin:0.5rem 0;}.kc-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:1rem;}.kc-q{font-family:Georgia,serif;font-weight:500;font-size:1.15rem;color:var(--text-primary);line-height:1.6;margin-bottom:1.5rem;}.kc-options{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1rem;}.kc-option{display:flex;align-items:flex-start;gap:0.85rem;padding:0.9rem 1.1rem;background:var(--page-bg);border:1px solid var(--border);cursor:pointer;text-align:left;width:100%;font-family:Calibri,'Trebuchet MS',system-ui,sans-serif;font-size:1rem;color:var(--text-primary);line-height:1.55;transition:all 0.15s;}.kc-option:hover{border-color:var(--teal);background:var(--teal-bg);}.kc-option.selected-correct{background:rgba(22,163,74,0.08);border-color:var(--correct);color:var(--text-primary);}.kc-option.selected-wrong{background:rgba(220,38,38,0.07);border-color:var(--wrong);color:var(--text-primary);}.kc-opt-key{font-family:Calibri,sans-serif;font-size:0.78rem;font-weight:700;color:var(--text-muted);flex-shrink:0;width:1.2rem;padding-top:0.1rem;}.kc-feedback{padding:1rem 1.25rem;margin-top:0.5rem;font-size:1rem;line-height:1.7;border-left:3px solid;}.kc-correct{background:rgba(22,163,74,0.07);border-left-color:var(--correct);color:var(--text-primary);}.kc-wrong{background:rgba(220,38,38,0.06);border-left-color:var(--wrong);color:var(--text-primary);}.kc-hint{font-size:0.92rem;color:var(--text-muted);font-style:italic;margin-top:0.5rem;display:none;}.kc-hint.visible{display:block;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem var(--space-7);border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;}.module-footer{padding:3rem var(--space-7);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;background:var(--card-bg);}.next{display:inline-flex;align-items:center;gap:0.75rem;padding:0.85rem 1.75rem;background:var(--teal);color:var(--navy);font-family:'JetBrains Mono',monospace;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;font-weight:700;transition:background 0.15s;}.next:hover{background:var(--teal-dark);color:#FFFFFF;}.reveal{opacity:1;transition:opacity 0.4s ease,transform 0.4s ease;}.reveal.animate{opacity:0;transform:translateY(12px);}.reveal.animate.visible{opacity:1;transform:none;}@media (max-width:860px){.module-content{padding:0 var(--space-5) var(--space-5);}.objectives-strip{padding:1.5rem var(--space-5);}.top-nav{padding:0 var(--space-5);}.module-hero{padding:var(--space-6) var(--space-5) var(--space-5);}.card-grid-3{grid-template-columns:1fr 1fr;}.card-grid-4{grid-template-columns:1fr 1fr;}}@media (max-width:540px){.card-grid-2,.card-grid-3,.card-grid-4{grid-template-columns:1fr;}.stat-strip.cols-3,.stat-strip.cols-4{grid-template-columns:1fr;}.module-title{font-size:1.75rem;}}.objectives-strip{background:#0F1F2E;border-bottom:none;padding:2.5rem 3rem;}.objectives-heading{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:#B2EDE7;margin-bottom:1.5rem;font-weight:700;}.objectives-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0.85rem;max-width:1160px;}.objectives-list li{display:flex;align-items:flex-start;gap:1rem;font-size:1rem;color:#FFFFFF;line-height:1.6;padding:0.75rem 0;border-left:2px solid rgba(0,168,150,0.5);padding-left:1rem;}.objectives-list li:hover{background:#1C3A55;border-left-color:#00A896;}.obj-num{font-family:Calibri,sans-serif;font-size:0.72rem;color:#00A896;font-weight:700;letter-spacing:0.1em;flex-shrink:0;padding-top:0.12rem;}.pause-reflect{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem var(--space-7);}.pause-label{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:0.5rem;display:block;}.pause-intro{font-size:0.97rem;color:var(--text-muted);margin-bottom:1.25rem;font-style:italic;}.pause-questions{background:transparent;border:none;padding:0;display:flex;flex-direction:column;gap:0.75rem;}.pause-q{display:flex;align-items:flex-start;gap:0.85rem;font-size:1rem;color:var(--text-primary);line-height:1.65;padding:0.85rem 1.1rem;background:var(--card-bg);border-left:3px solid var(--teal-dark);border:1px solid var(--border);border-left:3px solid var(--teal-dark);}.pause-q-num{font-family:Calibri,sans-serif;font-size:0.72rem;color:var(--teal-dark);font-weight:700;flex-shrink:0;padding-top:0.2rem;min-width:1.4rem;}.pause-note{font-size:0.92rem;color:var(--text-muted);margin-top:1rem;font-style:italic;}.takeaways{background:#0F1F2E;padding:2.5rem 3rem;margin-top:0;}.takeaways-heading{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:#B2EDE7;font-weight:700;margin-bottom:1.5rem;}.takeaway-list{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.08);width:100%;}.takeaway-item{display:flex;gap:1rem;padding:1.5rem;background:#162840;border-top:2px solid rgba(0,168,150,0.4);transition:background 0.15s;}.takeaway-item:hover{background:#1C3A55;}.takeaway-icon{color:var(--teal);font-size:0.65rem;flex-shrink:0;padding-top:0.4rem;}.takeaway-body strong{display:block;font-family:Georgia,serif;font-size:1.05rem;font-weight:700;color:#FFFFFF;margin-bottom:0.4rem;line-height:1.35;} .takeaway-body p{font-size:0.95rem;color:rgba(255,255,255,0.88);line-height:1.65;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem var(--space-7);border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;flex-wrap:wrap;}.nav-btn{display:inline-flex;flex-direction:column;padding:0.75rem 1.25rem;border:1px solid var(--border);background:var(--page-bg);text-decoration:none;transition:all 0.15s;color:inherit;}.nav-btn:hover{border-color:var(--teal-dark);background:var(--teal-bg);}.nav-btn.next{text-align:right;}.nav-btn-label{font-family:'JetBrains Mono',monospace;font-size:0.69rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);display:block;}.nav-btn-title{font-size:0.97rem;color:var(--text-primary);font-weight:500;display:block;margin-top:0.15rem;}.nav-btn.next .nav-btn-label{color:var(--teal-dark);}.nav-btn.next .nav-btn-title{color:var(--teal-dark);}.kc-reveal{display:none;padding:1rem 1.25rem;margin-top:0.5rem;background:var(--teal-bg);border-left:3px solid var(--teal-dark);font-size:1rem;color:var(--text-primary);line-height:1.72;}.kc-reveal-label{font-family:Calibri,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-dark);display:block;margin-bottom:0.5rem;}.footer-brand{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);}
-</style>
-<style>
-/* ── MISSING COMPONENTS + REDESIGNED SECTIONS ── */
-.objectives-strip{background:#0F1F2E;border-bottom:none;padding:2.5rem 3rem;}.objectives-heading{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:#B2EDE7;margin-bottom:1.5rem;font-weight:700;}.objectives-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0.85rem;max-width:1160px;}.objectives-list li{display:flex;align-items:flex-start;gap:1rem;font-size:1rem;color:#FFFFFF;line-height:1.6;padding:0.75rem 0;border-left:2px solid rgba(0,168,150,0.5);padding-left:1rem;}.objectives-list li:hover{background:#1C3A55;border-left-color:#00A896;}.obj-num{font-family:Calibri,sans-serif;font-size:0.72rem;color:#00A896;font-weight:700;letter-spacing:0.1em;flex-shrink:0;padding-top:0.12rem;}.pause-reflect{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem var(--space-7);}.pause-label{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:0.5rem;display:block;}.pause-intro{font-size:0.97rem;color:var(--text-muted);margin-bottom:1.25rem;font-style:italic;}.pause-questions{background:transparent;border:none;padding:0;display:flex;flex-direction:column;gap:0.75rem;}.pause-q{display:flex;align-items:flex-start;gap:0.85rem;font-size:1rem;color:var(--text-primary);line-height:1.65;padding:0.85rem 1.1rem;background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--teal-dark);}.pause-q-num{font-family:Calibri,sans-serif;font-size:0.72rem;color:var(--teal-dark);font-weight:700;flex-shrink:0;padding-top:0.2rem;min-width:1.4rem;}.pause-note{font-size:0.92rem;color:var(--text-muted);margin-top:1rem;font-style:italic;}.takeaways{background:#0F1F2E;padding:2.5rem 3rem;margin-top:0;}.takeaways-heading{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:#B2EDE7;font-weight:700;margin-bottom:1.5rem;}.takeaway-list{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.08);width:100%;}.takeaway-item{display:flex;gap:1rem;padding:1.5rem;background:#162840;border-top:2px solid rgba(0,168,150,0.4);transition:background 0.15s;}.takeaway-item:hover{background:#1C3A55;}.takeaway-icon{color:var(--teal);font-size:0.65rem;flex-shrink:0;padding-top:0.4rem;}.takeaway-body strong{display:block;font-family:Georgia,serif;font-size:1.05rem;font-weight:700;color:#FFFFFF;margin-bottom:0.4rem;line-height:1.35;} .takeaway-body p{font-size:0.95rem;color:rgba(255,255,255,0.88);line-height:1.65;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem var(--space-7);border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;flex-wrap:wrap;}.nav-btn{display:inline-flex;flex-direction:column;padding:0.75rem 1.25rem;border:1px solid var(--border);background:var(--page-bg);text-decoration:none;transition:all 0.15s;color:inherit;}.nav-btn:hover{border-color:var(--teal-dark);background:var(--teal-bg);}.nav-btn.next{text-align:right;}.nav-btn-label{font-family:'JetBrains Mono',monospace;font-size:0.69rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);display:block;}.nav-btn-title{font-size:0.97rem;color:var(--text-primary);font-weight:500;display:block;margin-top:0.15rem;}.nav-btn.next .nav-btn-label{color:var(--teal-dark);}.nav-btn.next .nav-btn-title{color:var(--teal-dark);}.kc-reveal{display:none;padding:1rem 1.25rem;margin-top:0.5rem;background:var(--teal-bg);border-left:3px solid var(--teal-dark);font-size:1rem;color:var(--text-primary);line-height:1.72;}.kc-reveal-label{font-family:Calibri,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-dark);display:block;margin-bottom:0.5rem;}.footer-brand{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);}
-</style>
-<style>
-/* ── MODULE 3 SPECIFIC ── */
-/* Carbon intensity map viz */
-.intensity-map {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  margin: 2rem 0;
-}
-.intensity-region {
-  padding: 1.25rem;
-  border-radius: 2px;
-  cursor: pointer;
-  transition: transform 0.15s, filter 0.15s;
-  position: relative;
-  overflow: hidden;
-}
-.intensity-region:hover { transform: translateY(-2px); filter: brightness(1.1); }
-.intensity-region::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0.25;
-}
-.ci-low { background: rgba(0,168,150,0.15); border: 1px solid rgba(0,168,150,0.3); }
-.ci-low::before { background: var(--teal); }
-.ci-med-low { background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.25); }
-.ci-med { background: rgba(234,179,8,0.12); border: 1px solid rgba(234,179,8,0.25); }
-.ci-high { background: rgba(231,111,81,0.15); border: 1px solid rgba(231,111,81,0.3); }
-.ci-very-high { background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.3); }
-.region-name { font-weight: 500; font-size: 0.88rem; margin-bottom: 0.3rem; }
-.region-val {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 1.6rem;
-  line-height: 1;
-  margin-bottom: 0.2rem;
-}
-.ci-low .region-val { color: var(--teal-muted); }
-.ci-med-low .region-val { color: #86efac; }
-.ci-med .region-val { color: #fde047; }
-.ci-high .region-val { color: var(--orange-light); }
-.ci-very-high .region-val { color: #f87171; }
-.region-unit { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color:var(--text-secondary); }
-.region-source { font-size: 0.72rem; color:var(--text-secondary); margin-top: 0.35rem; line-height: 1.35; }
-.intensity-bar {
-  height: 4px;
-  border-radius: 2px;
-  margin-top: 0.75rem;
-}
-.ci-low .intensity-bar { background: var(--teal); width: 3%; }
-.ci-med-low .intensity-bar { background: #86efac; width: 5%; }
-.ci-med .intensity-bar { background: #fde047; width: 25%; }
-.ci-high .intensity-bar { background: var(--orange); width: 50%; }
-.ci-very-high .intensity-bar { background: #ef4444; width: 100%; }
-.intensity-note {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.07);
-  padding: 1rem 1.5rem;
-  font-size: 0.82rem;
-  color:var(--text-secondary);
-  margin-top: 0.75rem;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
-}
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-/* Activity vs Spend comparison */
-.method-compare {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: rgba(255,255,255,0.06);
-  margin: 2rem 0;
-}
-.method-col {
-  background: var(--card-bg);
-  padding: 2rem;
-}
-.method-col.activity { border-top: 3px solid var(--teal); }
-.method-col.spend { border-top: 3px solid var(--slate-dark); }
-.method-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.3rem; }
-.method-col.activity .method-name { color: var(--teal); }
-.method-col.spend .method-name { color: var(--text-secondary); }
-.method-desc { font-size: 0.83rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 1.25rem; }
-.method-pros, .method-cons { margin-bottom: 0.75rem; }
-.method-pros-label, .method-cons-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 0.4rem;
-}
-.method-pros .method-pros-label { color: var(--teal); }
-.method-cons .method-cons-label { color: var(--orange); }
-.method-list { list-style: none; display: flex; flex-direction: column; gap: 0.25rem; }
-.method-list li { font-size: 0.8rem; color:var(--text-secondary); padding-left: 1rem; position: relative; }
-.method-pros .method-list li::before { content: '✓ '; color: var(--teal); position: absolute; left: 0; }
-.method-cons .method-list li::before { content: '✗ '; color:var(--text-secondary); position: absolute; left: 0; }
 
-/* Unit metrics by role */
-.role-metrics {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
-  background: rgba(255,255,255,0.06);
-  margin: 2rem 0;
-}
-.role-metric-card {
-  background: var(--card-bg);
-  padding: 1.5rem;
-}
-.role-name {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--orange);
-  margin-bottom: 0.75rem;
-}
-.metric-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-.metric-chip {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  padding: 0.25rem 0.6rem;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 2px;
-  color: var(--text-secondary);
-}
-.metric-chip.primary { background: rgba(0,168,150,0.1); border-color: rgba(0,168,150,0.2); color: var(--teal-muted); }
 
-/* Baseline steps */
-.baseline-steps {
-  counter-reset: steps;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-.baseline-step {
-  display: grid;
-  grid-template-columns: 48px 1fr;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  padding: 1.25rem 0;
-}
-.baseline-step:last-child { border-bottom: none; }
-.bs-num {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 2.5rem;
-  color: rgba(255,255,255,0.06);
-  line-height: 1;
-}
-.bs-body strong { display: block; font-size: 0.88rem; font-weight: 500; margin-bottom: 0.3rem; }
-.bs-body p { font-size: 0.83rem; color:var(--text-secondary); line-height: 1.65; }
-</style>
 
 <style>
-/* ── UNIVERSAL MISSING COMPONENTS ── */
-.card-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:0.5rem;display:block;}.card h4{font-family:Georgia,serif;font-size:1.05rem;font-weight:400;color:var(--text-primary);margin-bottom:0.5rem;line-height:1.35;}.card p{font-size:0.97rem;color:var(--text-secondary);line-height:1.65;}.card-accent-p{border-top:3px solid var(--teal);}.card-accent-o{border-top:3px solid var(--orange-light);}.card-accent-t{border-top:3px solid var(--orange);}.card-grid-auto{display:grid;gap:1px;background:var(--border);grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));}.viz-body{padding:1.25rem 1.5rem 1rem;}.ci-bar{height:100%;background:var(--teal);transition:width 0.8s ease;border-radius:2px;}.ci-bar-fill{height:100%;border-radius:2px;transition:width 0.8s ease;}.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:1px;background:var(--border);margin:2rem 0;}.stat-block{background:var(--card-bg);padding:1.75rem 1.5rem;border-top:3px solid var(--teal);}.reg-tab{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.6rem 1.1rem;cursor:pointer;border:1px solid var(--border);background:var(--card-bg);color:var(--text-muted);font-weight:600;transition:all 0.15s;}.reg-tab:hover{border-color:var(--teal-dark);color:var(--teal-dark);}.active-reg{background:var(--teal) !important;border-color:var(--teal) !important;color:var(--navy) !important;font-weight:700;}.process-steps{display:flex;flex-direction:column;gap:0;margin:1.5rem 0;}.process-step{display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem 1.5rem;background:var(--card-bg);border:1px solid var(--border);border-top:none;position:relative;}.process-step:first-child{border-top:1px solid var(--border);border-top-left-radius:3px;border-top-right-radius:3px;}.process-step:last-child{border-bottom-left-radius:3px;border-bottom-right-radius:3px;}.step-icon{font-family:Calibri,sans-serif;font-size:0.75rem;font-weight:700;width:2rem;height:2rem;flex-shrink:0;background:var(--teal);color:var(--navy);display:flex;align-items:center;justify-content:center;border-radius:2px;margin-top:0.1rem;}.step-body{flex:1;}.step-body strong{display:block;font-family:Georgia,serif;font-size:1rem;font-weight:400;color:var(--text-primary);margin-bottom:0.35rem;}.step-body p{font-size:0.97rem;color:var(--text-secondary);line-height:1.65;margin:0;}.kc-header{display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;}.kc-icon{width:20px;height:20px;color:var(--teal-dark);flex-shrink:0;}.kc-question{font-family:Georgia,serif;font-size:1.15rem;color:var(--text-primary);line-height:1.6;margin-bottom:1.5rem;}.not-arrow{font-family:Calibri,sans-serif;font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;}.waste-bar{height:8px;background:var(--teal);border-radius:2px;transition:width 0.6s ease;}.fail-arrow{color:var(--orange);font-size:1.25rem;text-align:center;padding:0.25rem 0;}.itad-row{display:flex;gap:1rem;padding:0.85rem 1rem;border-bottom:1px solid var(--border-light);font-size:0.97rem;color:var(--text-primary);line-height:1.6;align-items:flex-start;}.itad-row:last-child{border-bottom:none;}.bc-evidence-col{flex:1;padding:1rem 1.25rem;border-right:1px solid var(--border);}.bc-evidence-col:last-child{border-right:none;}.courage-card{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);padding:1.5rem;}
+:root{--page-bg:#F7F8FA;--card-bg:#FFFFFF;--section-alt:#E8EDF2;--text-primary:#1E293B;--text-secondary:#4A5568;--text-muted:#64748B;--navy:#0F1F2E;--navy-mid:#162840;--navy-card:#1E293B;--navy-light:#1C3A55;--teal:#00A896;--teal-dark:#007A6E;--teal-muted:#B2EDE7;--teal-bg:rgba(0,168,150,0.07);--teal-border:rgba(0,168,150,0.25);--orange:#E76F51;--orange-light:#F4A261;--orange-bg:#FFF3E8;--orange-border:rgba(231,111,81,0.25);--border:#D1D9E0;--border-light:#E8EDF2;--track1:#00A896;--track2:#F4A261;--track3:#E76F51;--correct:#16a34a;--wrong:#dc2626;--white:#FFFFFF;--slate:#4A5568;--slate-mid:#64748B;--slate-dim:#94A3B8;--teal-light:#B2EDE7;--teal-glow:rgba(0,168,150,0.15);--teal-subtle:rgba(0,168,150,0.07);--grey-100:#F7F8FA;--grey-300:#D1D9E0;--grey-500:#4A5568;--navy-raised:#1C3A55;--navy-border:rgba(255,255,255,0.07);--navy-mid-alt:#162840;}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;font-size:16px;}img,svg{display:block;max-width:100%;}body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Trebuchet MS",system-ui,-apple-system,sans-serif;font-weight:400;font-size:1rem;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}.top-nav{position:sticky;top:0;z-index:100;background:#0F1F2E;border-bottom:1px solid rgba(0,168,150,0.2);padding:0 3rem;height:52px;display:flex;align-items:center;gap:1rem;}.top-nav::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00A896 0%,#F4A261 60%,#E76F51 100%);}.nav-home{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .15s;flex-shrink:0;}.nav-home:hover{color:#fff;}.nav-sep{color:rgba(255,255,255,0.25);}.nav-module{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;font-weight:500;}.nav-track-pill{font-family:"JetBrains Mono",monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .65rem;border-radius:2px;}.track1-pill{background:rgba(0,168,150,.2);color:#B2EDE7;}.track2-pill{background:rgba(244,162,97,.2);color:#F4D0B0;}.track3-pill{background:rgba(231,111,81,.2);color:#F4C4B9;}.nav-progress{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:.72rem;color:rgba(255,255,255,0.5);}.module-hero{position:relative;overflow:hidden;padding:4rem 3rem 3rem;background:#0F1F2E;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;}.module-hero::after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 70% 50%,rgba(0,168,150,.08) 0%,transparent 65%);pointer-events:none;}.hero-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(5rem,12vw,10rem);color:rgba(255,255,255,.06);line-height:1;position:absolute;right:3rem;bottom:0;font-weight:400;user-select:none;}.module-eyebrow{font-family:"JetBrains Mono",monospace;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:#B2EDE7;margin-bottom:.75rem;}.module-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.12;letter-spacing:-.02em;font-weight:700;color:#fff;margin-bottom:1.25rem;}.module-subtitle{font-size:1.1rem;color:rgba(255,255,255,.72);line-height:1.65;max-width:620px;margin-bottom:2rem;}.module-meta{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}.meta-item{display:flex;flex-direction:column;gap:.15rem;}.meta-item .label{font-family:"JetBrains Mono",monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);}.meta-item .value{font-size:.92rem;color:rgba(255,255,255,.85);font-weight:500;}.complete-btn{font-family:"JetBrains Mono",monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:.65rem 1.4rem;background:#00A896;border:2px solid #00A896;color:#FFFFFF;cursor:pointer;transition:all .15s;font-weight:700;}.complete-btn:hover{background:var(--teal-dark);border-color:var(--teal-dark);}.complete-btn.done{background:transparent;border:2px solid rgba(255,255,255,.4);color:rgba(255,255,255,.7);cursor:default;}.objectives-strip{background:#0F1F2E;padding:2.5rem 3rem;}.objectives-heading{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#B2EDE7;margin-bottom:1.5rem;font-weight:700;}.objectives-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:.85rem;max-width:1160px;}.objectives-list li{display:flex;align-items:flex-start;gap:1rem;font-size:1rem;color:rgba(255,255,255,.88);line-height:1.55;padding:.85rem 1rem;background:#162840;border-left:2px solid rgba(0,168,150,.5);}.obj-num{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:#00A896;font-weight:700;letter-spacing:.1em;flex-shrink:0;padding-top:.12rem;}.module-content{max-width:1200px;margin:0 auto;padding:0 3rem 2rem;}.content-section{padding:3rem 0;border-bottom:1px solid var(--border-light);}.content-section:last-child{border-bottom:none;}.section-label{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:.65rem;display:block;font-weight:700;}.section-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.15;letter-spacing:-.02em;font-weight:700;color:var(--text-primary);margin-bottom:1.25rem;}.section-intro{font-size:1.12rem;color:var(--text-secondary);line-height:1.75;max-width:780px;margin-bottom:2rem;}.card-grid{display:grid;gap:1px;background:var(--border);}.card-grid-2{grid-template-columns:1fr 1fr;}.card-grid-3{grid-template-columns:repeat(3,1fr);}.card-grid-4{grid-template-columns:repeat(4,1fr);}.card-grid-auto{display:grid;gap:1px;background:var(--border);grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));}.card{background:var(--card-bg);padding:1.75rem;position:relative;}.card-title{font-family:Georgia,"Times New Roman",serif;font-size:1.1rem;font-weight:400;color:var(--text-primary);margin-bottom:.65rem;}.card-body{font-size:.97rem;color:var(--text-secondary);line-height:1.7;}.card-label{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:.5rem;display:block;}.card h4{font-weight:600;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;color:var(--text-primary);margin-bottom:.5rem;line-height:1.35;}.card p{font-size:.97rem;color:var(--text-secondary);line-height:1.65;}.card-accent-p{border-top:3px solid var(--teal);}.card-accent-o{border-top:3px solid var(--orange-light);}.card-accent-t{border-top:3px solid var(--orange);}.stat-strip{display:grid;gap:1px;background:var(--border);margin:2.25rem 0;border-radius:3px;overflow:hidden;}.stat-strip.cols-3{grid-template-columns:repeat(3,1fr);}.stat-strip.cols-4{grid-template-columns:repeat(4,1fr);}.stat-cell{background:var(--card-bg);padding:2rem 1.5rem;text-align:center;border-top:3px solid var(--cell-accent,var(--teal));}.stat-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.4rem,4.5vw,3.5rem);color:var(--cell-accent,var(--teal-dark));line-height:1;margin-bottom:.5rem;display:block;}.stat-label{font-family:"JetBrains Mono",monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);line-height:1.5;display:block;}.viz-container{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);margin:2rem 0;box-shadow:0 2px 8px rgba(0,0,0,.07);}.viz-header{padding:1rem 1.5rem;border-bottom:2px solid var(--border-light);display:flex;align-items:center;gap:.75rem;background:var(--section-alt);}.viz-header-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;}.viz-title{font-family:"JetBrains Mono",monospace;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;}.viz-body{padding:1.25rem 1.5rem 1rem;}.callout{padding:1.35rem 1.75rem;margin:1.75rem 0;border-left:4px solid var(--teal);background:var(--teal-bg);}.callout-warning{border-left-color:var(--orange);background:var(--orange-bg);}.callout-key{border-left-color:var(--teal-dark);background:var(--teal-bg);}.callout-title{font-family:"JetBrains Mono",monospace;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:#007A6E;font-weight:700;display:block;margin-bottom:.6rem;}.callout-warning .callout-title{color:#B54D12;}.callout p{font-size:1rem;color:var(--text-primary);line-height:1.72;}.pause-reflect{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 3rem;}.pause-label{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:.5rem;display:block;}.pause-intro{font-size:.97rem;color:var(--text-muted);margin-bottom:1.25rem;font-style:italic;}.pause-q{display:flex;align-items:flex-start;gap:.85rem;font-size:1rem;color:var(--text-primary);line-height:1.65;padding:.85rem 1.1rem;background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--teal-dark);margin-bottom:.5rem;}.pause-q-num{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--teal-dark);font-weight:700;flex-shrink:0;padding-top:.2rem;min-width:1.4rem;}.kc-block{background:var(--card-bg);border:1px solid var(--border);padding:2.25rem;margin:.5rem 0;}.kc-label{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:1rem;}.kc-q{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:1.15rem;color:var(--text-primary);line-height:1.6;margin-bottom:1.5rem;}.kc-options{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem;}.kc-option{display:flex;align-items:flex-start;gap:.85rem;padding:.9rem 1.1rem;background:var(--page-bg);border:1px solid var(--border);cursor:pointer;text-align:left;width:100%;font-family:Calibri,"Trebuchet MS",system-ui,sans-serif;font-size:1rem;color:var(--text-primary);line-height:1.55;transition:all .15s;}.kc-option:hover{border-color:var(--teal);background:var(--teal-bg);}.kc-option.selected-correct{background:rgba(22,163,74,.08);border-color:var(--correct);}.kc-option.selected-wrong{background:rgba(220,38,38,.07);border-color:var(--wrong);}.kc-opt-key{font-family:"JetBrains Mono",monospace;font-size:.78rem;font-weight:700;color:var(--text-muted);flex-shrink:0;width:1.2rem;padding-top:.1rem;}.kc-feedback{padding:1rem 1.25rem;margin-top:.5rem;font-size:1rem;line-height:1.7;border-left:3px solid;display:none;}.kc-correct{background:rgba(22,163,74,.07);border-left-color:var(--correct);color:var(--text-primary);}.kc-wrong{background:rgba(220,38,38,.06);border-left-color:var(--wrong);color:var(--text-primary);}.kc-reveal{display:none;padding:1rem 1.25rem;margin-top:.5rem;background:var(--teal-bg);border-left:3px solid var(--teal-dark);font-size:1rem;color:var(--text-primary);line-height:1.72;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;flex-wrap:wrap;}.nav-btn{display:inline-flex;flex-direction:column;padding:.75rem 1.25rem;border:1px solid var(--border);background:var(--page-bg);text-decoration:none;transition:all .15s;color:inherit;}.nav-btn:hover{border-color:var(--teal-dark);background:var(--teal-bg);}.nav-btn.next{text-align:right;}.nav-btn-label{font-family:"JetBrains Mono",monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);display:block;}.nav-btn-title{font-size:.97rem;color:var(--text-primary);font-weight:500;display:block;margin-top:.15rem;}.nav-btn.next .nav-btn-label,.nav-btn.next .nav-btn-title{color:var(--teal-dark);}.takeaways{background:#0F1F2E;padding:2.5rem 3rem;}.takeaways-heading{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#B2EDE7;font-weight:700;margin-bottom:1.5rem;}.takeaway-list{display:grid;gap:1px;background:rgba(255,255,255,.08);width:100%;}.takeaway-item{display:flex;gap:1rem;padding:1.5rem;background:#162840;border-top:2px solid rgba(0,168,150,.4);transition:background .15s;}.takeaway-item:hover{background:#1C3A55;}.takeaway-icon{color:#00A896;font-size:.65rem;flex-shrink:0;padding-top:.4rem;}.takeaway-body strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;font-weight:700;color:#FFFFFF;margin-bottom:.4rem;line-height:1.35;}.takeaway-body p{font-size:.95rem;color:rgba(255,255,255,.75);line-height:1.65;}.reveal{opacity:1;transition:opacity .4s ease,transform .4s ease;}.reveal.animate{opacity:0;transform:translateY(12px);}.reveal.animate.visible{opacity:1;transform:none;}.tri-detail{padding:1.5rem;background:var(--card-bg);border:1px solid var(--border);}.tri-detail-name{font-weight:700;font-size:1.1rem;color:var(--teal-dark);margin-bottom:.75rem;}.tradeoff-container{display:grid;grid-template-columns:1fr 1.2fr;gap:2rem;align-items:start;}.triangle-wrap{display:flex;align-items:center;justify-content:center;}.triangle-svg{width:100%;max-width:320px;height:auto;}.example{font-style:italic;color:var(--text-secondary);font-size:.97rem;border-left:3px solid var(--border);padding-left:1rem;margin-top:.75rem;}.reg-tab{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:.6rem 1.1rem;cursor:pointer;border:1px solid var(--border);background:var(--card-bg);color:var(--text-muted);font-weight:600;transition:all .15s;}.reg-tab:hover{border-color:var(--teal-dark);color:var(--teal-dark);}.active-reg{background:var(--teal)!important;border-color:var(--teal)!important;color:#0F1F2E!important;font-weight:700!important;}.courage-card{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);padding:1.5rem;}.footer-brand{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);}.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:1px;background:var(--border);margin:2rem 0;}.stat-block{background:var(--card-bg);padding:1.75rem 1.5rem;border-top:3px solid var(--teal);}@media(max-width:860px){.module-content,.objectives-strip,.top-nav,.pause-reflect,.module-nav,.takeaways{padding-left:1.5rem;padding-right:1.5rem;}.module-hero{padding:2.5rem 1.5rem 2rem;}.card-grid-3{grid-template-columns:1fr 1fr;}.card-grid-4{grid-template-columns:1fr 1fr;}.takeaway-list{grid-template-columns:1fr!important;}}@media(max-width:540px){.card-grid-2,.card-grid-3,.card-grid-4{grid-template-columns:1fr;}.stat-strip.cols-3,.stat-strip.cols-4{grid-template-columns:1fr;}.module-title{font-size:1.75rem;}.tradeoff-container{grid-template-columns:1fr;}}
 </style>
 </head>
 <body class="track1">
@@ -214,202 +52,125 @@
 </div>
 
 <div class="module-content">
-<!-- ═══════════════════════════════════════════════════════
-     SECTION 1 — Scopes 1/2/3/4 + activity vs spend
-     ═══════════════════════════════════════════════════════ -->
+
+<!-- SECTION 1 — Measurement credibility -->
 <div class="content-section reveal">
   <p class="section-label">Section 1</p>
-  <h2 class="section-title">Scopes 1, 2, 3, and 4 in an IT context.</h2>
-  <p class="section-intro">Measurement is the dividing line between a programme and a communications exercise. This is the minimum fluency you need — not to become a carbon accountant, but to understand what the numbers mean, where they come from, and how to spot the ones that mislead.</p>
+  <h2 class="section-title">Where programmes build credibility — or lose it.</h2>
+  <p class="section-intro">Measurement is the dividing line. This module gives you the minimum fluency needed — not to become a carbon accountant, but to understand what the numbers mean, where they come from, and how to spot the ones that mislead.</p>
 
-  <!-- Scope diagram — proportional, interactive -->
-  <div class="viz-container reveal" id="m3ScopeViz">
-    <div class="viz-header">
-      <div class="viz-header-dot"></div>
-      <span class="viz-title">Four scopes in IT — proportional view. Click any scope to explore.</span>
-    </div>
-    <div style="padding:1.75rem 1.75rem 0.75rem;">
-      <svg id="m3ScopeSvg" viewBox="0 0 800 100" style="width:100%;height:auto;display:block;"></svg>
-      <div id="m3ScopeDetail" style="display:none;margin-top:1.25rem;padding:1.1rem 1.5rem;background:rgba(0,0,0,0.2);border-left:3px solid #00A896;transition:border-color 0.2s;">
-        <div id="m3ScopeText" style="font-size:0.97rem;color:var(--text-secondary);line-height:1.72;"></div>
-      </div>
-    </div>
-    <div style="padding:0.85rem 1.75rem;border-top:1px solid var(--border-light);background:var(--teal-bg);">
-      <p style="font-size:0.82rem;color:var(--text-secondary);">Proportions illustrative for a typical modern enterprise IT estate using significant cloud. On-premises-heavy estates will have higher Scope 2 relative to Scope 3. Source: GHG Protocol Corporate Standard; published IT sector lifecycle assessments.</p>
-    </div>
-  </div>
-
-  <!-- Activity vs spend comparison -->
-  <div class="viz-container reveal" id="spendViz">
-    <div class="viz-header">
-      <div class="viz-header-dot" style="background:#F4A261"></div>
-      <span class="viz-title">Activity-based vs spend-based — what each sees. Toggle the lens to compare.</span>
-    </div>
-    <div style="padding:1.75rem;">
-      <!-- Toggle -->
-      <div style="display:flex;gap:0;margin-bottom:1.5rem;width:fit-content;">
-        <button id="btnActivity" onclick="setSpendView('activity')" style="padding:0.6rem 1.25rem;background:#00A896;border:1px solid #00A896;color:#0F1F2E;font-family:Calibri,sans-serif;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:all 0.15s;">Activity-based</button>
-        <button id="btnSpend" onclick="setSpendView('spend')" style="padding:0.6rem 1.25rem;background:transparent;border:1px solid var(--border);color:var(--text-secondary);font-family:Calibri,sans-serif;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all 0.15s;">Spend-based</button>
-      </div>
-      <!-- Scenario: two teams, same spend, different reality -->
-      <svg id="spendSvg" viewBox="0 0 820 200" style="width:100%;height:auto;display:block;"></svg>
-      <div id="spendNote" style="margin-top:1.25rem;padding:0.85rem 1.1rem;background:var(--section-alt);border-left:3px solid #F4A261;font-size:0.92rem;color:var(--text-secondary);font-style:italic;line-height:1.65;"></div>
-    </div>
-    <div style="padding:0.85rem 1.75rem;border-top:1px solid var(--border-light);background:var(--teal-bg);">
-      <p style="font-size:0.82rem;color:var(--text-secondary);">Illustrative scenario — two teams, identical cloud spend of £1m/year. Values are indicative to show the principle. Activity-based measurement reveals what spend-based hides.</p>
-    </div>
+  <div class="callout callout-warning reveal">
+    <p class="callout-title">The measurement credibility test</p>
+    <p>Can you explain what each number in your sustainability report is measuring, how it was calculated, what the confidence level is, and what operational decision it informs? If the answer to any of those is "I'm not sure," you have a measurement credibility gap.</p>
   </div>
 </div>
 
+<!-- SECTION 2 — Activity vs Spend INTERACTIVE -->
+<div class="content-section reveal">
+  <p class="section-label">Section 2</p>
+  <h2 class="section-title">Activity-based vs spend-based measurement.</h2>
+  <p class="section-intro">These are not equally good methods with different trade-offs. Spend-based is acceptable as a starting point. It is genuinely weak as an operational tool.</p>
+
+  <div class="method-compare reveal">
+    <div class="method-col activity">
+      <div class="method-name">Activity-Based Measurement</div>
+      <div class="method-desc">Uses real physical drivers — energy in kWh, number of devices, server hours, VM-hours, storage capacity, data transferred. Linked to emission factors by location and time. Closer to operational truth.</div>
+      <div class="method-pros">
+        <div class="method-pros-label">Strengths</div>
+        <ul class="method-list">
+          <li>Reflects actual consumption</li>
+          <li>Supports operational optimisation</li>
+          <li>Can distinguish utilisation and location differences</li>
+          <li>Enables meaningful trend analysis</li>
+        </ul>
+      </div>
+      <div class="method-cons">
+        <div class="method-cons-label">Requirements</div>
+        <ul class="method-list">
+          <li>Requires actual data feeds from systems</li>
+          <li>Consistent definitions across the estate</li>
+          <li>Higher data collection burden initially</li>
+        </ul>
+      </div>
+    </div>
+    <div class="method-col spend">
+      <div class="method-name">Spend-Based Measurement</div>
+      <div class="method-desc">Financial expenditure multiplied by average emission factors. Scales well because procurement systems have spend data even where operational systems don't. Acceptable for Scope 3 baseline reporting — weak as an optimisation tool.</div>
+      <div class="method-pros">
+        <div class="method-pros-label">Where it works</div>
+        <ul class="method-list">
+          <li>Scope 3 first-pass baseline (no better data available)</li>
+          <li>Supplier categories without activity data</li>
+          <li>Initial portfolio-level sizing</li>
+        </ul>
+      </div>
+      <div class="method-cons">
+        <div class="method-cons-label">What it hides</div>
+        <ul class="method-list">
+          <li>Utilisation differences between teams</li>
+          <li>Geography and carbon intensity differences</li>
+          <li>Time-of-day and grid condition variations</li>
+          <li>Whether the workload was necessary at all</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-insight reveal">
+    <p class="callout-title">Why it matters in practice</p>
+    <p>If two teams both spend £1m on cloud, spend-based methods report similar emissions. In reality, one could be running efficient workloads at low carbon intensity in Scotland; the other wasting resources on idle infrastructure in a coal-heavy region. The same spend. Dramatically different actual footprint. Only activity-based measurement reveals this — and therefore only activity-based measurement can drive the right operational decision.</p>
+  </div>
+</div>
+
+
+  <!-- Activity vs Spend interactive comparison -->
+  <div class="viz-container reveal" id="spendViz">
+    <div class="viz-header">
+      <div class="viz-header-dot" style="background:#E76F51"></div>
+      <span class="viz-title">Activity-based vs spend-based — what each sees. Toggle the lens to compare.</span>
+    </div>
+    <div style="padding:1.5rem 1.75rem 0.5rem;">
+      <div style="display:flex;gap:0;margin-bottom:1.5rem;">
+        <button id="btnActivity" onclick="setSpendView('activity')" style="padding:0.6rem 1.25rem;background:#00A896;border:1px solid #00A896;color:#0F1F2E;font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:all 0.15s;">Activity-based</button>
+        <button id="btnSpend" onclick="setSpendView('spend')" style="padding:0.6rem 1.25rem;background:transparent;border:1px solid #D1D9E0;color:#64748B;font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all 0.15s;">Spend-based</button>
+      </div>
+      <svg id="spendSvg" style="width:100%;display:block;" viewBox="0 0 820 160"></svg>
+    </div>
+    <div id="spendNote" style="margin:0 1.75rem 1.5rem;padding:1rem 1.25rem;border-left:3px solid #00A896;background:#F0FAF9;font-style:italic;font-size:0.97rem;color:#1E293B;line-height:1.7;"></div>
+    <div style="padding:0.75rem 1.75rem;border-top:1px solid #E8EDF2;background:#F7F8FA;">
+      <p style="font-size:0.82rem;color:#64748B;">Illustrative scenario — two teams, identical cloud spend of £1m/year. Values are indicative to show the principle. Activity-based measurement reveals what spend-based hides.</p>
+    </div>
+  </div>
+
+<!-- SECTION 3 — Carbon intensity map INTERACTIVE -->
 <div class="content-section reveal">
   <p class="section-label">Section 3</p>
   <h2 class="section-title">Carbon intensity is not constant.</h2>
   <p class="section-intro">The same workload in two different places — or at two different times of day — can have a dramatically different physical footprint. Region selection is one of the most underestimated levers in enterprise GreenOps.</p>
 
 <!-- REPLACE existing carbon intensity viz in M3 with this -->
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border-light);margin-bottom:1.75rem;" class="reveal">
-    <div style="background:var(--section-alt);padding:2rem 1.5rem;text-align:center;">
-      <div style="font-family:Georgia,serif;font-size:3.2rem;color:#B54D12;line-height:1;margin-bottom:0.4rem;">38×</div>
-      <div style="font-family:Calibri,sans-serif;font-size:0.72rem;color:var(--text-secondary);letter-spacing:0.1em;text-transform:uppercase;line-height:1.5;">Norway vs Poland<br>carbon difference</div>
-    </div>
-    <div style="background:var(--section-alt);padding:2rem 1.5rem;text-align:center;">
-      <div style="font-family:Georgia,serif;font-size:3.2rem;color:#9B5E00;line-height:1;margin-bottom:0.4rem;">6×</div>
-      <div style="font-family:Calibri,sans-serif;font-size:0.72rem;color:var(--text-secondary);letter-spacing:0.1em;text-transform:uppercase;line-height:1.5;">Scotland vs London<br>same national grid</div>
-    </div>
-    <div style="background:var(--section-alt);padding:2rem 1.5rem;text-align:center;">
-      <div style="font-family:Georgia,serif;font-size:3.2rem;color:#007A6E;line-height:1;margin-bottom:0.4rem;">18g</div>
-      <div style="font-family:Calibri,sans-serif;font-size:0.72rem;color:var(--text-secondary);letter-spacing:0.1em;text-transform:uppercase;line-height:1.5;">Norway baseline<br>CO₂ per kWh</div>
-    </div>
-  </div>
-
   <div class="viz-container reveal" id="intensityViz">
-  <div class="viz-header">
-    <div class="viz-header-dot"></div>
-    <span class="viz-title">Grid carbon intensity by region — click any row to explore. Figures illustrative.</span>
-  </div>
-  <div class="viz-body" style="padding:1.25rem 1.75rem 0.5rem;">
-    <div id="ciChart" style="display:flex;flex-direction:column;gap:5px;"></div>
-    <div id="ciDetail" style="display:none;margin-top:1.25rem;padding:1.25rem 1.5rem;background:rgba(0,0,0,0.2);border-left:3px solid #00A896;">
+    <p class="viz-title">Grid carbon intensity by region — click any bar to compare. Figures illustrative, based on historical averages.</p>
+    <div id="ciChart"></div>
+    <div id="ciDetail" style="margin-top:1.25rem; min-height:60px; padding:1rem 1.25rem; background:rgba(0,0,0,0.2); border-left:3px solid var(--teal); display:none;">
       <div id="ciDetailText"></div>
     </div>
-    <!-- Norway baseline reference note -->
-    <div style="display:flex;align-items:center;gap:1.5rem;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--border-light);flex-wrap:wrap;">
-      <div style="display:flex;align-items:center;gap:0.5rem;">
-        <div style="width:12px;height:3px;background:#00A896;border-radius:1px;"></div>
-        <span style="font-family:Calibri,sans-serif;font-size:0.75rem;color:var(--text-secondary);letter-spacing:0.08em;">Norway baseline (18g)</span>
-      </div>
-      <div style="display:flex;align-items:center;gap:0.5rem;">
-        <div style="width:12px;height:3px;background:#E76F51;border-radius:1px;"></div>
-        <span style="font-family:Calibri,sans-serif;font-size:0.75rem;color:var(--text-secondary);letter-spacing:0.08em;">High intensity</span>
-      </div>
-      <div style="display:flex;align-items:center;gap:0.5rem;">
-        <div style="width:12px;height:3px;background:#F4A261;border-radius:1px;"></div>
-        <span style="font-family:Calibri,sans-serif;font-size:0.75rem;color:var(--text-secondary);letter-spacing:0.08em;">Medium intensity</span>
-      </div>
+    <div style="margin-top:1rem; display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;">
+      <div style="display:flex; align-items:center; gap:0.5rem;"><div style="width:12px;height:12px;background:#00A896;"></div><span style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:var(--slate-dark)">Low carbon (&lt;50g)</span></div>
+      <div style="display:flex; align-items:center; gap:0.5rem;"><div style="width:12px;height:12px;background:#2D7D46;"></div><span style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:var(--slate-dark)">Medium (50–200g)</span></div>
+      <div style="display:flex; align-items:center; gap:0.5rem;"><div style="width:12px;height:12px;background:#F4A261;"></div><span style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:var(--slate-dark)">High (200–500g)</span></div>
+      <div style="display:flex; align-items:center; gap:0.5rem;"><div style="width:12px;height:12px;background:#E76F51;"></div><span style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:var(--slate-dark)">Very high (&gt;500g)</span></div>
     </div>
+    <p style="margin-top:0.75rem;font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:var(--slate-dark)">Source: historical grid average data. Real-time data: National Grid ESO Carbon Intensity API and equivalent services. Generation mixes evolve year on year.</p>
   </div>
-</div>
-<script>
-(function(){
-  var regions = [
-    {name:'Norway',         flag:'🇳🇴', val:18,   gen:'~90% hydroelectric',     col:'#00A896',
-     note:'The lowest-intensity major grid in Europe. Workloads here are <strong style="color:#00A896">38× cleaner than Poland</strong> on the same day. Hydroelectric-dominant grids produce near-zero carbon electricity consistently.'},
-    {name:'Scotland',       flag:'🏴󠁧󠁢󠁳󠁣󠁴󠁿', val:28,   gen:'Wind and hydro dominant',  col:'#00A896',
-     note:'Scotland's wind-heavy grid means intensity varies significantly by weather. On a high-wind day, closer to Norway. Choosing Edinburgh over London for a cloud workload is a 6× carbon improvement on the same national grid.'},
-    {name:'Sweden',         flag:'🇸🇪', val:40,   gen:'Hydro and nuclear mix',    col:'#4ade80',
-     note:'Nuclear provides reliable low-carbon baseload. Stable and relatively insensitive to weather — unlike wind-dominated grids. Sweden ranks consistently among the cleanest in Europe.'},
-    {name:'France',         flag:'🇫🇷', val:70,   gen:'Nuclear-heavy generation', col:'#86efac',
-     note:'France's nuclear fleet makes it one of the cleaner grids in Western Europe, though intensity rises in high-demand winters when electric heating increases load. Historically very stable.'},
-    {name:'UK average',     flag:'🇬🇧', val:168,  gen:'Gas and wind mix',          col:'#fbbf24',
-     note:'The UK average blends Scotland's clean wind with England's heavier gas reliance. <strong style="color:#fbbf24">Scotland vs London is a 6× difference</strong> on the same national grid — a fact most cloud architects don't factor into region selection.'},
-    {name:'Germany',        flag:'🇩🇪', val:350,  gen:'Coal, gas, and renewables', col:'#f97316',
-     note:'Germany's coal and gas dependency keeps intensity high despite significant renewable capacity — particularly when wind is low. Transitioning, but slowly. The evening grid is significantly heavier than midday.'},
-    {name:'Poland',         flag:'🇵🇱', val:680,  gen:'Coal dominant (declining)', col:'#E76F51',
-     note:'Poland's coal-heavy grid is the highest-intensity in the EU. The <strong style="color:#E76F51">Norway–Poland difference reaches 38×</strong>. Region selection here is not a marginal efficiency question — it is a transformational one.'},
-    {name:'Australia (NSW)',flag:'🇦🇺', val:730,  gen:'Coal and gas intensive',    col:'#E76F51',
-     note:'NSW's coal-dominated grid means workloads here carry very high carbon intensity. Other Australian states vary significantly — South Australia is substantially cleaner with high solar and wind penetration.'},
-  ];
-
-  var maxVal = 730;
-  var selectedIdx = null;
-  var container = document.getElementById('ciChart');
-  var animated = false;
-
-  function buildChart() {
-    container.innerHTML = '';
-    regions.forEach(function(r, i) {
-      var pct = (r.val / maxVal) * 100;
-      var isSelected = selectedIdx === i;
-
-      var row = document.createElement('div');
-      row.style.cssText = 'display:flex;align-items:center;gap:0.85rem;cursor:pointer;padding:0.25rem 0.35rem;border-radius:2px;transition:background 0.12s;';
-      row.addEventListener('mouseenter', function(){ if(selectedIdx!==i) row.style.background='var(--section-alt)'; });
-      row.addEventListener('mouseleave', function(){ if(selectedIdx!==i) row.style.background=''; });
-
-      row.innerHTML =
-        '<div style="width:24px;flex-shrink:0;font-size:1.1rem;line-height:1;">' + r.flag + '</div>' +
-        '<div style="width:140px;flex-shrink:0;font-family:Calibri,sans-serif;font-size:0.92rem;font-weight:'+(isSelected?'600':'400')+';color:'+(isSelected?r.col:'#64748B')+';text-align:right;">' + r.name + '</div>' +
-        '<div style="flex:1;height:32px;background:var(--border-light);border-radius:2px;overflow:hidden;position:relative;">' +
-          '<div class="ci-bar" data-w="'+pct+'" style="height:100%;width:'+(animated ? pct+'%' : '0%')+';background:linear-gradient(90deg,'+r.col+','+r.col+'cc);transition:width 1.2s cubic-bezier(.16,1,.3,1);transition-delay:'+(i*0.08)+'s;border-radius:2px;"></div>' +
-        '</div>' +
-        '<div style="width:60px;flex-shrink:0;font-family:Calibri,sans-serif;font-size:0.95rem;color:'+r.col+';font-weight:600;text-align:right;">' + r.val + 'g</div>' +
-        '<div style="width:40px;flex-shrink:0;font-family:Calibri,sans-serif;font-size:0.75rem;color:var(--text-secondary);text-align:left;line-height:1.3;">CO₂<br>/kWh</div>';
-
-      row.addEventListener('click', function() {
-        selectedIdx = (selectedIdx === i) ? null : i;
-        buildChart();
-        var det = document.getElementById('ciDetail');
-        var txt = document.getElementById('ciDetailText');
-        if (selectedIdx !== null) {
-          var sel = regions[selectedIdx];
-          var ratio = (sel.val / 18).toFixed(1);
-          var vsNorway = sel.val > 18
-            ? '<span style="color:'+sel.col+';font-weight:600">'+ratio+'× higher</span> than Norway'
-            : '<span style="color:#00A896;font-weight:600">Baseline</span> — the lowest-intensity major grid in Europe';
-          det.style.display = 'block';
-          det.style.borderLeftColor = sel.col;
-          txt.innerHTML =
-            '<div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:0.65rem;">' +
-              '<span style="font-family:Georgia,serif;font-size:2.2rem;color:'+sel.col+';line-height:1">'+sel.val+'g</span>' +
-              '<span style="font-family:Calibri,sans-serif;font-size:0.82rem;color:#64748B">CO₂/kWh · '+sel.name+'</span>' +
-            '</div>' +
-            '<div style="font-size:0.97rem;color:var(--text-secondary);line-height:1.7;margin-bottom:0.5rem;">' +
-              '<strong style="color:#FFFFFF">'+sel.gen+'.</strong> ' + sel.note + '</div>' +
-            '<div style="font-family:Calibri,sans-serif;font-size:0.75rem;color:var(--text-secondary);margin-top:0.5rem;">Ratio vs Norway: ' + vsNorway + '</div>';
-        } else {
-          det.style.display = 'none';
-        }
-      });
-
-      container.appendChild(row);
-    });
-  }
-
-  buildChart();
-
-  // Animate bars on scroll
-  var obs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting && !animated) {
-        animated = true;
-        document.querySelectorAll('.ci-bar').forEach(function(b) {
-          b.style.width = b.dataset.w + '%';
-        });
-        obs.unobserve(e.target);
-      }
-    });
-  }, {threshold: 0.2});
-  obs.observe(document.getElementById('intensityViz'));
-})();
-</script>
   <script>
   (function(){
     const regions = [
       {name:"Norway",        val:18,  gen:"~90% hydroelectric", note:"The lowest-intensity major grid in Europe. Workloads here are 38× cleaner than Poland on the same day.",          col:"#00A896"},
       {name:"Scotland (UK)", val:28,  gen:"Wind and hydro dominant", note:"Scotland's wind-heavy grid means intensity varies significantly by weather. On a high-wind day, closer to Norway.",  col:"#00A896"},
       {name:"Sweden",        val:40,  gen:"Hydro and nuclear mix", note:"Nuclear provides reliable low-carbon baseload. Stable, relatively insensitive to weather conditions.",            col:"#00A896"},
-      {name:"France",        val:70,  gen:"Nuclear-heavy generation", note:"France's nuclear fleet makes it one of the cleaner grids in Western Europe, though intensity rises in high-demand winters.", col:"#4ade80"},
-      {name:"UK average",    val:168, gen:"Gas and wind mix", note:"The UK average blends Scotland's clean wind with England's heavier gas reliance. Scotland vs London is a 6× difference on the same national grid.", col:"#86efac"},
+      {name:"France",        val:70,  gen:"Nuclear-heavy generation", note:"France's nuclear fleet makes it one of the cleaner grids in Western Europe, though intensity rises in high-demand winters.", col:"#2D7D46"},
+      {name:"UK average",    val:168, gen:"Gas and wind mix", note:"The UK average blends Scotland's clean wind with England's heavier gas reliance. Scotland vs London is a 6× difference on the same national grid.", col:"#2D7D46"},
       {name:"Germany",       val:350, gen:"Coal, gas, and renewables", note:"Germany's coal and gas dependency keeps intensity high despite significant renewable capacity. Transitioning, but slowly.", col:"#F4A261"},
       {name:"Poland",        val:680, gen:"Coal dominant (declining)", note:"Poland's coal-heavy grid is the highest-intensity in the EU. The Norway-Poland difference reaches 38×. Region selection here is a major lever.", col:"#E76F51"},
       {name:"Australia (NSW)",val:730,gen:"Coal and gas intensive", note:"NSW's coal-dominated grid means workloads here carry very high carbon intensity. Other Australian states vary — SA is much cleaner.", col:"#E76F51"},
@@ -417,10 +178,10 @@
     const maxVal = 730;
     
     function getColor(val) {
-      if (val < 50) return "#00A896";
-      if (val < 200) return "#4ade80";
-      if (val < 500) return "#F4A261";
-      return "#E76F51";
+      if (val < 50) return "#007A6E";
+      if (val < 200) return "#2D7D46";
+      if (val < 500) return "#9B5E00";
+      return "#B54D12";
     }
     
     let selected = null;
@@ -435,13 +196,12 @@
       const row = document.createElement('div');
       row.style.cssText = 'display:flex; align-items:center; gap:0.75rem; cursor:pointer;';
       row.innerHTML = `
-        <div style="width:130px;flex-shrink:0;font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);text-align:right;">${r.name}</div>
-        <div style="flex:1;height:36px;background:var(--border-light);border-radius:1px;overflow:hidden;position:relative;">
+        <div style="width:130px;flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text-secondary);text-align:right;">${r.name}</div>
+        <div style="flex:1;height:28px;background:var(--border-light);border-radius:1px;overflow:hidden;position:relative;">
           <div class="ci-bar-fill" data-width="${pct}" style="height:100%;width:0%;background:${col};transition:width 1s cubic-bezier(.16,1,.3,1);border-radius:1px;"></div>
         </div>
-        <div style="width:52px;flex-shrink:0;font-family:Calibri,sans-serif;font-size:1.05rem;color:${col};font-weight:600;">${r.val}g</div>
-        <div style="font-family:Calibri,sans-serif;font-size:0.75rem;color:var(--text-secondary);">CO₂/kWh</div>
-        ${r.val > 18 ? `<div style="font-family:Calibri,sans-serif;font-size:0.72rem;color:rgba(148,163,184,0.6);">${(r.val/18).toFixed(0)}× Norway</div>` : '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;color:#00A896;">baseline</div>'}
+        <div style="width:52px;flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:${col};font-weight:500;">${r.val}g</div>
+        <div style="width:20px;flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#64748B;">CO₂/kWh</div>
       `;
       row.addEventListener('click', () => {
         // Highlight selected
@@ -449,7 +209,7 @@
           el.style.background = 'none';
           el.classList.remove('ci-row-active');
         });
-        row.style.background = 'var(--page-bg)';
+        row.style.background = 'var(--teal-bg)';
         row.classList.add('ci-row-active');
         // Show detail
         const detail = document.getElementById('ciDetail');
@@ -461,12 +221,12 @@
         const vsNorway = r.val > 18 ? `<span style="color:${col};font-weight:500">${ratio}× higher</span> than Norway` : 'baseline — the lowest-intensity major grid in Europe';
         text.innerHTML = `
           <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:0.5rem;">
-            <span style="font-family:Georgia,serif;font-size:1.6rem;color:${col}">${r.val}g</span>
-            <span style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#64748B">CO₂/kWh &nbsp;·&nbsp; ${r.name}</span>
+            <span style="font-family:'DM Serif Display',serif;font-size:1.6rem;color:${col}">${r.val}g</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:#64748B">CO₂/kWh &nbsp;·&nbsp; ${r.name}</span>
           </div>
-          <div style="font-size:0.92rem;color:var(--text-secondary);line-height:1.65;">
-            <strong style="color:#FFFFFF">${r.gen}.</strong> ${r.note}
-            <span style="display:block;margin-top:0.35rem;font-family:Calibri,sans-serif;font-size:0.92rem;color:#64748B">Ratio vs Norway: ${vsNorway}</span>
+          <div style="font-size:0.82rem;color:var(--text-secondary);line-height:1.65;">
+            <strong style="color:var(--text-primary)">${r.gen}.</strong> ${r.note}
+            <span style="display:block;margin-top:0.35rem;font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B">Ratio vs Norway: ${vsNorway}</span>
           </div>`;
         selected = i;
       });
@@ -494,57 +254,57 @@
     <div style="padding:1.25rem 1.5rem 0.85rem;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
       <div>
         <p class="viz-title" style="margin-bottom:0.2rem;">Live UK regional carbon intensity — right now, from the National Grid ESO API</p>
-        <p style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);" id="li-timestamp">Loading...</p>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:0.57rem;color:#64748B;" id="li-timestamp">Loading...</p>
       </div>
       <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
         <div id="li-gb-now" style="padding:0.35rem 0.85rem;background:rgba(0,168,150,0.08);border:1px solid rgba(0,168,150,0.2);">
-          <span style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);display:block;">GB average now</span>
-          <span id="li-gb-val" style="font-family:Calibri,sans-serif;font-size:0.9rem;color:#007A6E;font-weight:500;">—</span>
-          <span style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);"> gCO₂/kWh</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.57rem;color:#64748B;display:block;">GB average now</span>
+          <span id="li-gb-val" style="font-family:'JetBrains Mono',monospace;font-size:0.9rem;color:#007A6E;font-weight:500;">—</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.55rem;color:#64748B;"> gCO₂/kWh</span>
         </div>
-        <a href="https://uk-carbon-intensity.netlify.app" target="_blank" rel="noopener" style="padding:0.35rem 0.85rem;background:var(--border-light);border:1px solid var(--border);font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);text-decoration:none;display:flex;align-items:center;gap:0.35rem;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--border)'" onmouseout="this.style.borderColor='var(--border)'">
+        <a href="https://uk-carbon-intensity.netlify.app" target="_blank" rel="noopener" style="padding:0.35rem 0.85rem;background:var(--page-bg);border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:0.57rem;color:#64748B;text-decoration:none;display:flex;align-items:center;gap:0.35rem;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)'">
           Full dashboard ↗
         </a>
       </div>
     </div>
     <div id="li-regions" style="padding:1.25rem 1.5rem;display:flex;flex-direction:column;gap:5px;">
-      <div style="color:var(--text-secondary);font-family:Calibri,sans-serif;font-size:0.92rem;padding:1rem 0;">Loading regional data from NESO API...</div>
+      <div style="color:#64748B;font-family:'JetBrains Mono',monospace;font-size:0.68rem;padding:1rem 0;">Loading regional data from NESO API...</div>
     </div>
-    <div id="li-error" style="display:none;padding:1rem 1.5rem;font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);">
+    <div id="li-error" style="display:none;padding:1rem 1.5rem;font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#64748B;">
       Live data unavailable — API may be temporarily down. 
       <a href="https://uk-carbon-intensity.netlify.app" target="_blank" style="color:#007A6E;">View live data on the dedicated dashboard ↗</a>
     </div>
-    <div style="padding:0.75rem 1.5rem;border-top:1px solid var(--border-light);display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;">
+    <div style="padding:0.75rem 1.5rem;border-top:1px solid rgba(255,255,255,0.05);display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;">
       <div style="text-align:center;">
-        <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);margin-bottom:0.2rem;">Cleanest region now</div>
-        <div id="li-cleanest" style="font-size:0.92rem;font-weight:500;color:#007A6E;">—</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.55rem;color:#64748B;margin-bottom:0.2rem;">Cleanest region now</div>
+        <div id="li-cleanest" style="font-size:0.8rem;font-weight:500;color:#007A6E;">—</div>
       </div>
       <div style="text-align:center;">
-        <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);margin-bottom:0.2rem;">Dirtiest region now</div>
-        <div id="li-dirtiest" style="font-size:0.92rem;font-weight:500;color:#B54D12;">—</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.55rem;color:#64748B;margin-bottom:0.2rem;">Dirtiest region now</div>
+        <div id="li-dirtiest" style="font-size:0.8rem;font-weight:500;color:#B54D12;">—</div>
       </div>
       <div style="text-align:center;">
-        <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);margin-bottom:0.2rem;">Regional spread</div>
-        <div id="li-spread" style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#9B5E00;">—</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.55rem;color:#64748B;margin-bottom:0.2rem;">Regional spread</div>
+        <div id="li-spread" style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:#9B5E00;">—</div>
       </div>
       <div style="text-align:center;">
-        <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);margin-bottom:0.2rem;">Data source</div>
-        <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);">NESO API</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.55rem;color:#64748B;margin-bottom:0.2rem;">Data source</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#64748B;">NESO API</div>
       </div>
     </div>
-    <div style="padding:0.65rem 1.5rem;border-top:1px solid var(--border-light);background:rgba(231,111,81,0.04);">
-      <p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.6;"><strong style="color:#B54D12;">The GreenOps implication:</strong> The spread you see above is real right now. When you run a workload in the dirtiest region vs the cleanest, you are accepting that difference as the carbon cost of the location decision. Region selection is not an academic point — it is this.</p>
+    <div style="padding:0.65rem 1.5rem;border-top:1px solid rgba(255,255,255,0.04);background:rgba(231,111,81,0.04);">
+      <p style="font-size:0.78rem;color:var(--text-secondary);line-height:1.6;"><strong style="color:#B54D12;">The GreenOps implication:</strong> The spread you see above is real right now. When you run a workload in the dirtiest region vs the cleanest, you are accepting that difference as the carbon cost of the location decision. Region selection is not an academic point — it is this.</p>
     </div>
   </div>
   <script>
   (function(){
     function intensityColor(val) {
-      if(val < 50)  return '#00A896';
-      if(val < 100) return '#4ade80';
-      if(val < 150) return '#86efac';
-      if(val < 200) return '#fde047';
-      if(val < 300) return '#F4A261';
-      return '#E76F51';
+      if(val < 50)  return '#007A6E';
+      if(val < 100) return '#2D7D46';
+      if(val < 150) return '#2D7D46';
+      if(val < 200) return '#7A6200';
+      if(val < 300) return '#9B5E00';
+      return '#B54D12';
     }
     
     async function loadLiveIntensity() {
@@ -584,12 +344,12 @@
           const row = document.createElement('div');
           row.style.cssText = 'display:flex;align-items:center;gap:0.65rem;';
           row.innerHTML = 
-            '<div style="width:140px;flex-shrink:0;font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);text-align:right;">' + r.shortname + '</div>' +
+            '<div style="width:140px;flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text-secondary);text-align:right;">' + r.shortname + '</div>' +
             '<div style="flex:1;height:22px;background:var(--border-light);overflow:hidden;">' +
               '<div style="height:100%;width:' + pct + '%;background:' + col + ';transition:width 0.8s cubic-bezier(.16,1,.3,1);"></div>' +
             '</div>' +
-            '<div style="width:48px;flex-shrink:0;font-family:Calibri,sans-serif;font-size:0.92rem;color:' + col + ';font-weight:500;">' + val + 'g</div>' +
-            '<div style="width:60px;flex-shrink:0;font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);">' + (r.intensity.index || '') + '</div>';
+            '<div style="width:48px;flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:' + col + ';font-weight:500;">' + val + 'g</div>' +
+            '<div style="width:60px;flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:0.55rem;color:#64748B;">' + (r.intensity.index || '') + '</div>';
           container.appendChild(row);
         });
         
@@ -638,84 +398,98 @@
 </div>
 
 <!-- SECTION 4 — Unit metrics by role INTERACTIVE -->
-
-<!-- ═══════════════════════════════════════════════════════
-     SECTION 4 — Unit metrics by role
-     ═══════════════════════════════════════════════════════ -->
 <div class="content-section reveal">
   <p class="section-label">Section 4</p>
   <h2 class="section-title">Unit metrics — the operational tool.</h2>
-  <p class="section-intro">Total emissions figures matter for compliance. They are the rear-view mirror. Unit metrics tell you whether the intensity of what you are doing is improving — even as the business grows. The right metric is the one that maps to decisions your role can actually influence.</p>
+  <p class="section-intro">Total emissions figures matter for compliance — they're the rear-view mirror. Unit metrics are what tell you whether the intensity of what you're doing is improving, even as the business grows. The right metric depends on your role.</p>
 
-  <!-- Role-based metric selector -->
-  <div class="viz-container reveal" id="unitMetricsViz">
-    <div class="viz-header">
-      <div class="viz-header-dot"></div>
-      <span class="viz-title">Unit metrics by role — click your function to see the relevant indicators</span>
-    </div>
-    <div style="padding:1.75rem;">
-      <div id="roleGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border-light);margin-bottom:1.25rem;"></div>
-      <div id="roleDetail" style="background:var(--section-alt);border-left:3px solid #00A896;padding:1.25rem 1.5rem;min-height:100px;transition:border-color 0.2s;">
-        <p style="font-size:0.95rem;color:var(--text-secondary);font-style:italic;">Select a role above to see the unit metrics most relevant to that function.</p>
+  <div class="role-metrics reveal">
+    <div class="role-metric-card">
+      <div class="role-name">Product &amp; App Owners</div>
+      <div class="metric-chips">
+        <span class="metric-chip primary">Carbon per transaction</span>
+        <span class="metric-chip primary">Carbon per user session</span>
+        <span class="metric-chip primary">Carbon per API call</span>
       </div>
+      <p style="margin-top:0.75rem; font-size:0.78rem; color:var(--slate-dark);">Maps to engineering decisions and service behaviour. The metric a product owner can directly influence through architecture, code efficiency, and data management choices.</p>
+    </div>
+    <div class="role-metric-card">
+      <div class="role-name">Platform &amp; Cloud Teams</div>
+      <div class="metric-chips">
+        <span class="metric-chip primary">Carbon per VM-hour</span>
+        <span class="metric-chip primary">Carbon per container-hour</span>
+        <span class="metric-chip">Idle percentage</span>
+        <span class="metric-chip">Region carbon mix</span>
+      </div>
+      <p style="margin-top:0.75rem; font-size:0.78rem; color:var(--slate-dark);">Maps to provisioning and utilisation decisions. Platform teams control rightsizing, scheduling, and region selection — the primary levers for cloud carbon intensity.</p>
+    </div>
+    <div class="role-metric-card">
+      <div class="role-name">Data Centre Teams</div>
+      <div class="metric-chips">
+        <span class="metric-chip primary">PUE</span>
+        <span class="metric-chip primary">WUE</span>
+        <span class="metric-chip primary">CUE</span>
+        <span class="metric-chip">REF / ERF</span>
+        <span class="metric-chip">Server utilisation</span>
+      </div>
+      <p style="margin-top:0.75rem; font-size:0.78rem; color:var(--slate-dark);">Maps to facility efficiency and operational risk. Critical note: PUE without utilisation data is dangerous. Always ask about server utilisation alongside facility efficiency metrics.</p>
+    </div>
+    <div class="role-metric-card">
+      <div class="role-name">Technology Leadership</div>
+      <div class="metric-chips">
+        <span class="metric-chip primary">Carbon intensity of top services</span>
+        <span class="metric-chip primary">% estate on activity-based measurement</span>
+        <span class="metric-chip">Supplier evidence coverage</span>
+      </div>
+      <p style="margin-top:0.75rem; font-size:0.78rem; color:var(--slate-dark);">Maps to portfolio decisions and governance. The metrics that connect operational reality to strategic choices, investment decisions, and disclosure obligations.</p>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════
-     SECTION 5 — Measurement maturity ladder
-     ═══════════════════════════════════════════════════════ -->
-
-  <div class="callout callout-key reveal">
-    <span class="callout-title">The unit metric is the operational lever</span>
-    <p>Total emissions tell you where you are. Unit intensity — carbon per transaction, per user, per GB processed — tells you whether you are getting better or worse relative to the value you deliver. It is the metric that engineering teams can directly influence and that survives business growth without becoming misleading.</p>
-  </div>
+<!-- SECTION 5 — Building a baseline -->
 <div class="content-section reveal">
   <p class="section-label">Section 5</p>
-  <h2 class="section-title">Establishing a baseline — and knowing where you are.</h2>
-  <p class="section-intro">Every credible programme starts with a baseline. The goal is not precision — it is honesty about confidence levels and a clear plan to improve. Most organisations start at Level 2. Knowing which rung you are on matters more than overstating your position.</p>
+  <h2 class="section-title">Establishing a baseline.</h2>
+  <p class="section-intro">Every credible sustainability programme starts here. Without a baseline, you have no way to know whether anything is improving — and no basis for setting targets that can actually be verified.</p>
 
-  <!-- Measurement maturity ladder — animated SVG -->
-  <div class="viz-container reveal" id="maturityLadder">
-    <div class="viz-header">
-      <div class="viz-header-dot" style="background:#B2EDE7"></div>
-      <span class="viz-title">Measurement maturity — five levels. Click any level to see what it looks like in practice.</span>
-    </div>
-    <div style="padding:1.75rem;">
-      <svg id="ladderSvg" viewBox="0 0 820 160" style="width:100%;height:auto;display:block;margin-bottom:1.25rem;"></svg>
-      <div id="ladderDetail" style="background:var(--section-alt);border-left:3px solid #00A896;padding:1.25rem 1.5rem;min-height:90px;transition:border-color 0.2s;">
-        <p style="font-size:0.95rem;color:var(--text-secondary);font-style:italic;">Click a level to understand what it looks like in practice — and what the step up requires.</p>
+  <div class="baseline-steps reveal">
+    <div class="baseline-step">
+      <div class="bs-num">01</div>
+      <div class="bs-body">
+        <strong>IT Asset Registry</strong>
+        <p>A structured inventory of what you own, run, and consume as a service. On-premises data centres, owned and leased end-user devices, network equipment, cloud and SaaS services, outsourced IT operations. Captures quantity, location, and actual consumption data where available.</p>
       </div>
     </div>
-    <div style="padding:0.85rem 1.75rem;border-top:1px solid var(--border-light);background:var(--teal-bg);">
-      <p style="font-size:0.88rem;color:var(--text-secondary);">The most valuable single action: assess honestly which level you are at, then identify the one data gap that would move you to the next rung. A directional, honest, improving baseline is more valuable than a precise but shaky one.</p>
+    <div class="baseline-step">
+      <div class="bs-num">02</div>
+      <div class="bs-body">
+        <strong>Emissions Table</strong>
+        <p>For each asset category, identify emission sources and apply appropriate emission factors for that geography and time period. Document the boundary clearly — what's in scope, what's excluded and why. Sum to a total with documented confidence levels.</p>
+      </div>
+    </div>
+    <div class="baseline-step">
+      <div class="bs-num">03</div>
+      <div class="bs-body">
+        <strong>Hybrid Approach for First Pass</strong>
+        <p>Most first baselines mix activity data (metered energy, device counts, cloud billing) with spend-based estimates where supplier data is missing. That's fine. Document confidence levels and build a clear plan for migrating from spend proxies to activity data as the programme matures.</p>
+      </div>
+    </div>
+    <div class="baseline-step">
+      <div class="bs-num">04</div>
+      <div class="bs-body">
+        <strong>Target State Simulation</strong>
+        <p>Once you have a baseline year, simulate your target state. What does the footprint look like if you achieve your planned optimisations — rightsizing, extended device lifespans, reduced dark data? This becomes a multi-year model linking current state to commitments.</p>
+      </div>
     </div>
   </div>
 
-  <!-- Baseline steps -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border-light);margin:1.75rem 0;" class="reveal">
-    <div style="background:var(--card-bg);border:1px solid var(--border);padding:1.5rem;border-top:3px solid #00A896;">
-      <div style="font-family:Calibri,sans-serif;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:#007A6E;margin-bottom:0.6rem;">Step 1 — IT Asset Registry</div>
-      <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;">Structured inventory of what you own, run, and consume as a service. On-premises data centres, owned and leased devices, network equipment, cloud and SaaS. Capture quantity, location, and actual consumption data where available.</p>
-    </div>
-    <div style="background:var(--card-bg);border:1px solid var(--border);padding:1.5rem;border-top:3px solid #B2EDE7;">
-      <div style="font-family:Calibri,sans-serif;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:#007A6E;margin-bottom:0.6rem;">Step 2 — Emissions Table</div>
-      <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;">For each asset category, identify emission sources and apply emission factors for that geography and period. Document the boundary clearly — what is in scope, what is excluded and why. Record confidence levels.</p>
-    </div>
-    <div style="background:var(--section-alt);padding:1.5rem;border-top:3px solid #F4A261;">
-      <div style="font-family:Calibri,sans-serif;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:#9B5E00;margin-bottom:0.6rem;">Step 3 — Hybrid First Pass</div>
-      <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;">Most first baselines mix activity data with spend-based estimates where supplier data is missing. That is acceptable. Document confidence levels and build a clear plan to migrate from spend proxies to activity data as the programme matures.</p>
-    </div>
-    <div style="background:var(--section-alt);padding:1.5rem;border-top:3px solid #E76F51;">
-      <div style="font-family:Calibri,sans-serif;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:#B54D12;margin-bottom:0.6rem;">Step 4 — Target State Simulation</div>
-      <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;">Once you have a baseline year, simulate your target state. What does the footprint look like if you achieve planned optimisations? This becomes a multi-year model linking current state to commitments — and the basis for any public target.</p>
-    </div>
+  <div class="callout callout-warning reveal">
+    <p class="callout-title">A warning about baselines</p>
+    <p>A baseline that's directional and honest is better than one that's precise and shaky. False precision in headline figures — achieved by using spend-based proxies everywhere and stating them as accurate — creates a credibility problem when someone with technical knowledge examines the methodology. Document confidence levels. Acknowledge gaps. Build a migration plan.</p>
   </div>
 </div>
 
-
-</div><!-- /module-content -->
-
+<!-- KC 1 -->
 <div class="kc-block reveal" data-correct="B">
   <p class="kc-label">Knowledge Check · Module 3 · Q1</p>
   <p class="kc-q">Two engineering teams each spend £1 million per year on cloud infrastructure. A spend-based emissions model reports similar footprints for both. Why might this be seriously misleading?</p>
@@ -766,13 +540,13 @@
 <div class="takeaways reveal">
   <h3 class="takeaways-heading">Module 3 — Key Takeaways</h3>
   <div class="takeaway-list">
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Scope 3 is usually the biggest and least-measured category.</strong><p>Cloud, hardware, managed services, and end-of-life typically account for 70-80% of IT footprint. Most organisations have very limited visibility into it.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Scope 3 is usually the biggest and least-measured category.</strong><p>Cloud, hardware, managed services, and end-of-life typically account for 70–80% of IT footprint. Most organisations have very limited visibility into it.</p></div></div>
     <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Spend-based measurement is a starting point, not an operational tool.</strong><p>It hides utilisation, location, time-of-day, and whether workloads were necessary. GreenOps needs physical reality, not financial proxies.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Where and when you run work has a dramatic impact.</strong><p>Norway to Poland is up to 40x difference in carbon intensity. Scotland to London is 6x on the same grid. Region selection is a real lever — not a theoretical one.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Where and when you run work has a dramatic impact.</strong><p>Norway to Poland is up to 40× difference in carbon intensity. Scotland to London is 6× on the same grid. Region selection is a real lever — not a theoretical one.</p></div></div>
     <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Use unit metrics to track intensity, not just totals.</strong><p>Total emissions are the rear-view mirror. Carbon per transaction, per VM-hour, per device tells you whether what you're doing is getting more or less efficient.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>A baseline that's directional and honest is better than one that's precise and shaky.</strong><p>Document confidence levels, build a clear improvement plan, and avoid false precision in headline figures at the expense of operational relevance.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>A directional, honest baseline beats a precise, shaky one.</strong><p>Document confidence levels, build a clear improvement plan, and avoid false precision at the expense of operational relevance.</p></div></div>
   </div>
-</div>/div>
+</div>
 
 </div>
 
@@ -788,501 +562,167 @@
 </footer>
 
 
+<script></script>
 <script>
-</script>
-<script>
-(function(){
-'use strict';
-
-// ── M3 SCOPE PROPORTION SVG ────────────────────────────────
-var m3Scopes = [
-  { id:'s1', label:'Scope 1', sub:'Direct', pct:5, col:'#B2EDE7',
-    items:['Diesel generators and backup power','Refrigerants leaking from cooling systems','On-site fuel combustion','Company fleet vehicles (IT-owned)'],
-    note:'Usually the smallest category for IT organisations — under 5% of total. Measurable with reasonable accuracy from fuel and refrigerant procurement records.' },
-  { id:'s2', label:'Scope 2', sub:'Electricity', pct:20, col:'#00A896',
-    items:['Electricity for data centres you operate or lease','Office electricity for IT equipment','Network infrastructure energy consumption','End-user device charging and operation'],
-    note:'Two reporting methods: location-based (actual grid intensity — the operationally honest number) and market-based (adjusted for certificates or PPAs). GreenOps requires you track both. Market-based numbers can mask physical grid reality.' },
-  { id:'s3', label:'Scope 3', sub:'Value chain — 70–80%', pct:72, col:'#E76F51',
-    items:['Cloud provider infrastructure and operations','Hardware manufacturing: servers, laptops, network equipment','Managed services, SaaS platforms, and software supply chain','Employee devices and end-of-life treatment'],
-    note:'For most modern enterprise IT estates, Scope 3 is 70–80% of total footprint and the hardest to measure. Requires supplier data and lifecycle assessments. Under SBTi and CSRD, engagement is required where material. For IT, it almost always is.' },
-  { id:'s4', label:'Scope 4', sub:'Avoided (handprint)', pct:3, col:'#64748B',
-    items:['Logistics platforms reducing vehicle trips','Smart building systems cutting energy demand','Analytics eliminating unnecessary physical activity','Digital workflows replacing carbon-intensive processes'],
-    note:'Positive impact enabled outside your boundary — the handprint. Real value, but not a substitute for managing your own footprint. Scope 4 is not yet a standardised reporting category, though frameworks are developing. Only credible after Scope 1–3 is under discipline.' },
-];
-
-function buildM3Scope() {
-  var svg = document.getElementById('m3ScopeSvg');
-  if (!svg) return;
-  var W=800, H=100, barH=48, barY=20, gap=3;
-  var total = m3Scopes.reduce(function(s,x){ return s+x.pct; }, 0);
-
-  function el(tag, attrs) {
-    var e = document.createElementNS('http://www.w3.org/2000/svg', tag);
-    Object.keys(attrs).forEach(function(k){ e.setAttribute(k, attrs[k]); });
-    return e;
-  }
-
-  svg.innerHTML = '';
-  var x = 0, selectedScope = null;
-
-  m3Scopes.forEach(function(s, i) {
-    var w = Math.round((s.pct/total) * W);
-    if (i < m3Scopes.length-1) w -= gap;
-
-    var rect = el('rect', {x:x, y:barY, width:w, height:barH, fill:s.col,
-      opacity:'0.85', rx:'2', style:'cursor:pointer;transition:opacity 0.15s;'});
-    rect.addEventListener('mouseenter', function(){ rect.setAttribute('opacity','1'); });
-    rect.addEventListener('mouseleave', function(){ rect.setAttribute('opacity','0.85'); });
-
-    function doClick(){
-      selectedScope = selectedScope===i?null:i;
-      var det = document.getElementById('m3ScopeDetail');
-      var txt = document.getElementById('m3ScopeText');
-      if (selectedScope!==null) {
-        det.style.display='block';
-        det.style.borderLeftColor=s.col;
-        var b = s.items.map(function(it){
-          return '<li style="display:flex;gap:0.6rem;margin-bottom:0.35rem;"><span style="color:'+s.col+';flex-shrink:0;">▸</span><span style="font-size:0.92rem;color:var(--text-secondary);">'+it+'</span></li>';
-        }).join('');
-        txt.innerHTML='<strong style="color:'+s.col+';font-size:1rem;display:block;margin-bottom:0.6rem;">'+s.label+' — '+s.sub+'</strong><ul style="list-style:none;padding:0;margin-bottom:0.6rem;">'+b+'</ul><p style="font-size:0.88rem;color:var(--text-secondary);font-style:italic;border-left:2px solid var(--border);padding-left:0.85rem;">'+s.note+'</p>';
-      } else {
-        det.style.display='none';
-      }
-    }
-    rect.addEventListener('click', doClick);
-
-    var pctLabel = document.createElementNS('http://www.w3.org/2000/svg','text');
-    pctLabel.setAttribute('x', x+w/2); pctLabel.setAttribute('y', barY+barH/2+7);
-    pctLabel.setAttribute('text-anchor','middle'); pctLabel.setAttribute('fill','#FFFFFF');
-    pctLabel.setAttribute('font-family','Georgia,serif'); pctLabel.setAttribute('font-size', w>80?'18':'13');
-    pctLabel.style.pointerEvents='none';
-    pctLabel.textContent = s.pct+'%';
-
-    var subLabel = document.createElementNS('http://www.w3.org/2000/svg','text');
-    subLabel.setAttribute('x', x+w/2); subLabel.setAttribute('y', H-3);
-    subLabel.setAttribute('text-anchor','middle'); subLabel.setAttribute('fill',s.col);
-    subLabel.setAttribute('font-family','JetBrains Mono,monospace'); subLabel.setAttribute('font-size','10');
-    subLabel.setAttribute('letter-spacing','0.5'); subLabel.style.pointerEvents='none';
-    subLabel.textContent = s.label;
-
-    var hit = el('rect',{x:x,y:0,width:w,height:H,fill:'transparent',style:'cursor:pointer;'});
-    hit.addEventListener('click', doClick);
-
-    svg.appendChild(rect);
-    if (w > 30) svg.appendChild(pctLabel);
-    svg.appendChild(subLabel);
-    svg.appendChild(hit);
-    x += w + gap;
-  });
-}
-buildM3Scope();
-
-
-// ── UNIT METRICS BY ROLE ───────────────────────────────────
-var roles = [
-  { label:'Product &\nApp Owners', col:'#00A896',
-    metrics:['Carbon per transaction','Carbon per user session','Carbon per API call'],
-    maps:'Maps to engineering decisions and service behaviour. These are the metrics that connect architecture choices to their real-world carbon cost.',
-    actions:['Measure SCI (Software Carbon Intensity) per functional unit','Review API call patterns — are heavyweight models used unnecessarily?','Compare per-transaction intensity across code versions and environments'] },
-  { label:'Platform &\nCloud Teams', col:'#B2EDE7',
-    metrics:['Carbon per VM-hour / container-hour','Idle resource percentage','Region carbon intensity mix'],
-    maps:'Maps to provisioning and utilisation decisions. Cloud teams have direct control over where and how resources are allocated.',
-    actions:['Report utilisation-adjusted cloud footprint by region','Track idle percentage as a primary GreenOps KPI alongside cost','Factor carbon intensity into cloud region selection defaults'] },
-  { label:'Data Centre\nTeams', col:'#F4A261',
-    metrics:['PUE — Power Usage Effectiveness','WUE — Water Usage Effectiveness','CUE — Carbon Usage Effectiveness','REF, ERF — Renewable energy metrics','Server utilisation rates'],
-    maps:'Maps to facility efficiency and operational risk. These are the metrics that reveal whether the infrastructure overhead is proportionate.',
-    actions:['Report PUE at site level — portfolio averages hide underperforming facilities','Add WUE to facility KPI set — water stress is an emerging planning constraint','Track CUE as the combined energy and intensity measure'] },
-  { label:'Technology\nLeadership', col:'#E76F51',
-    metrics:['Carbon intensity of top services','% estate on activity-based measurement','Supplier evidence coverage','Intensity trend: carbon per unit of business output'],
-    maps:'Maps to portfolio decisions and governance. Leadership metrics connect operational discipline to strategic commitments and regulatory exposure.',
-    actions:['Set a target to migrate from spend-based to activity-based measurement','Report supplier evidence coverage as a programme maturity indicator','Use intensity (not absolute total) as the primary improvement metric — it remains meaningful as the business grows'] },
-];
-
-var selectedRole = null;
-function buildRoles() {
-  var grid = document.getElementById('roleGrid');
-  if (!grid) return;
-  grid.innerHTML='';
-  roles.forEach(function(r, i) {
-    var isSelected = selectedRole===i;
-    var cell = document.createElement('div');
-    cell.style.cssText='background:'+(isSelected?r.col:'#1E293B')+';padding:1.5rem 1.25rem;cursor:pointer;transition:background 0.2s;text-align:center;';
-    var lines = r.label.split('\n');
-    cell.innerHTML = lines.map(function(l, j){
-      return '<div style="font-size:'+(j===0?'1.0rem':'0.88rem')+';font-weight:'+(j===0?'600':'400')+';color:'+(isSelected?'#0F1F2E':r.col)+';line-height:1.35;'+(j===0?'':'margin-top:0.15rem;')+'">'+l+'</div>';
-    }).join('');
-    cell.addEventListener('click', function(){
-      selectedRole=(selectedRole===i)?null:i;
-      buildRoles();
-      updateRoleDetail();
-    });
-    grid.appendChild(cell);
-  });
-}
-
-function updateRoleDetail() {
-  var det = document.getElementById('roleDetail');
-  if (!det) return;
-  if (selectedRole===null) {
-    det.style.borderLeftColor='#00A896';
-    det.innerHTML='<p style="font-size:0.95rem;color:var(--text-secondary);font-style:italic;">Select a role above to see the unit metrics most relevant to that function.</p>';
-    return;
-  }
-  var r = roles[selectedRole];
-  det.style.borderLeftColor = r.col;
-  var metricPills = r.metrics.map(function(m){
-    return '<span style="display:inline-block;padding:0.3rem 0.75rem;background:rgba(0,0,0,0.2);border:1px solid '+r.col+'44;font-family:\'JetBrains Mono\',monospace;font-size:0.78rem;color:'+r.col+';margin:0 0.4rem 0.4rem 0;">'+m+'</span>';
-  }).join('');
-  var actions = r.actions.map(function(a){
-    return '<li style="display:flex;gap:0.6rem;margin-bottom:0.45rem;font-size:0.92rem;color:var(--text-secondary);line-height:1.55;"><span style="color:'+r.col+';flex-shrink:0;">→</span>'+a+'</li>';
-  }).join('');
-  det.innerHTML =
-    '<div style="margin-bottom:0.85rem;">'+metricPills+'</div>'+
-    '<p style="font-size:0.92rem;color:var(--text-secondary);font-style:italic;margin-bottom:0.85rem;line-height:1.6;">'+r.maps+'</p>'+
-    '<ul style="list-style:none;padding:0;">'+actions+'</ul>';
-}
-buildRoles();
-updateRoleDetail();
-
-
-// ── MEASUREMENT MATURITY LADDER ────────────────────────────
-var ladderLevels = [
-  { num:'1', label:'Ad hoc', col:'#E76F51',
-    title:'Level 1 — Ad hoc',
-    what:'No consistent methodology. Emissions from memory or one-off supplier claims. No baseline. Numbers change with the narrator.',
-    characteristics:['No baseline exists','No documented methodology','Numbers based on opinion or one-off supplier statements','No accountability for measurement quality'],
-    next:'First step: commit to a methodology. Even a spend-based approach with documented assumptions is a Level 2 — and that is a genuine improvement.' },
-  { num:'2', label:'Spend proxies', col:'#F4A261',
-    title:'Level 2 — Spend-based estimates',
-    what:'Emissions estimated from financial spend and average emission factors. Numbers exist but cannot drive operational decisions. Most organisations start here.',
-    characteristics:['Scope 1+2 partially covered','Scope 3 estimated from spend × average factors','No utilisation data','Numbers exist but hide efficiency differences'],
-    next:'Step up: start metering actual energy for on-premises data centres. Get cloud billing data with usage metrics. These are usually available without major investment.' },
-  { num:'3', label:'Partial activity', col:'#64748B',
-    title:'Level 3 — Partial activity data',
-    what:'Key categories measured from physical data — metered energy, device counts, cloud billing. Spend proxies remain for gaps. Confidence levels documented.',
-    characteristics:['On-premises energy metered at facility level','Cloud billing data with regional breakdowns','Device inventory with counts and categories','Spend proxies remain for managed services and SaaS'],
-    next:'Step up: engage key managed service providers for usage data. Build a structured supplier evidence request process (covered in Module 7).' },
-  { num:'4', label:'Full activity', col:'#B2EDE7',
-    title:'Level 4 — Activity data dominant',
-    what:'All material categories covered by activity-based data. Confidence levels documented. Location-based and market-based both tracked and distinguished.',
-    characteristics:['Activity data dominant across all material categories','Scope 3 improving with supplier data requests','Documented confidence levels per category','Both location-based and market-based tracked separately'],
-    next:'Step up: automate data collection. Start embedding carbon data into engineering and procurement workflows so it appears at decision points rather than only in quarterly reports.' },
-  { num:'5', label:'Continuous', col:'#00A896',
-    title:'Level 5 — Continuous telemetry',
-    what:'Real-time consumption data feeding dashboards and decision gates. Carbon embedded in engineering and procurement workflows. Unit metrics tracked live.',
-    characteristics:['Real-time visibility across the estate','Unit metrics (carbon per transaction, per VM-hour) tracked live','Carbon data embedded in CI/CD pipelines and procurement approvals','Scope 3 supplier engagement is systematic and contractual'],
-    next:'Maintain: keep pace with estate changes, new suppliers, new service categories. Continuous improvement rather than a destination.' },
-];
-
-var selectedLadder = null;
-function buildLadder() {
-  var svg = document.getElementById('ladderSvg');
-  if (!svg) return;
-  var W=820, H=160, blockH=80, gap=8;
-  var blockW = (W - gap*4) / 5;
-  svg.innerHTML='';
-
-  function el(tag,attrs){ var e=document.createElementNS('http://www.w3.org/2000/svg',tag); Object.keys(attrs).forEach(function(k){e.setAttribute(k,attrs[k]);}); return e; }
-
-  ladderLevels.forEach(function(lv,i){
-    var x = i*(blockW+gap);
-    var isSelected = selectedLadder===i;
-    var blockY = H - blockH - (i * 12); // staircase effect
-
-    // Connecting line
-    if (i < ladderLevels.length-1) {
-      var nextY = H - blockH - ((i+1)*12);
-      svg.appendChild(el('line',{x1:x+blockW,y1:blockY+blockH/2,x2:x+blockW+gap,y2:nextY+blockH/2,
-        stroke:'var(--border)','stroke-width':'1','stroke-dasharray':'3,2'}));
-    }
-
-    svg.appendChild(el('rect',{x:x,y:blockY,width:blockW,height:blockH,rx:'2',
-      fill:isSelected?lv.col:'#1E293B',
-      stroke:lv.col,'stroke-width':isSelected?'2':'1',
-      style:'cursor:pointer;transition:all 0.2s;'}));
-
-    // "Most start here" marker on level 2
-    if (i===1) {
-      svg.appendChild(el('rect',{x:x+2,y:blockY-18,width:blockW-4,height:16,rx:'2',
-        fill:'rgba(244,162,97,0.15)',stroke:'rgba(244,162,97,0.3)','stroke-width':'1'}));
-      var markerT = document.createElementNS('http://www.w3.org/2000/svg','text');
-      markerT.setAttribute('x',x+blockW/2); markerT.setAttribute('y',blockY-6);
-      markerT.setAttribute('text-anchor','middle'); markerT.setAttribute('fill','rgba(244,162,97,0.8)');
-      markerT.setAttribute('font-family','JetBrains Mono,monospace'); markerT.setAttribute('font-size','11');
-      markerT.style.pointerEvents='none'; markerT.textContent='MOST START HERE';
-      svg.appendChild(markerT);
-    }
-
-    var numT = document.createElementNS('http://www.w3.org/2000/svg','text');
-    numT.setAttribute('x',x+14); numT.setAttribute('y',blockY+28);
-    numT.setAttribute('fill',isSelected?'rgba(11,25,41,0.5)':'rgba('+lv.col.slice(1).match(/../g).map(function(h){return parseInt(h,16)}).join(',')+',0.25)');
-    numT.setAttribute('font-family','Georgia,serif'); numT.setAttribute('font-size','36');
-    numT.style.pointerEvents='none'; numT.textContent=lv.num;
-    svg.appendChild(numT);
-
-    var labelT = document.createElementNS('http://www.w3.org/2000/svg','text');
-    labelT.setAttribute('x',x+blockW/2); labelT.setAttribute('y',blockY+blockH-14);
-    labelT.setAttribute('text-anchor','middle');
-    labelT.setAttribute('fill',isSelected?'#0F1F2E':lv.col);
-    labelT.setAttribute('font-family','JetBrains Mono,monospace'); labelT.setAttribute('font-size','11');
-    labelT.setAttribute('font-weight','700'); labelT.setAttribute('letter-spacing','0.5');
-    labelT.style.pointerEvents='none'; labelT.textContent=lv.label.toUpperCase();
-    svg.appendChild(labelT);
-
-    var hit = el('rect',{x:x,y:blockY,width:blockW,height:blockH,fill:'transparent',style:'cursor:pointer;'});
-    hit.addEventListener('click',function(){
-      selectedLadder=(selectedLadder===i)?null:i;
-      buildLadder();
-      updateLadderDetail();
-    });
-    svg.appendChild(hit);
-  });
-}
-
-function updateLadderDetail() {
-  var det = document.getElementById('ladderDetail');
-  if (!det) return;
-  if (selectedLadder===null) {
-    det.style.borderLeftColor='#00A896';
-    det.innerHTML='<p style="font-size:0.95rem;color:var(--text-secondary);font-style:italic;">Click a level to understand what it looks like in practice — and what the step up requires.</p>';
-    return;
-  }
-  var lv = ladderLevels[selectedLadder];
-  det.style.borderLeftColor=lv.col;
-  var chars = lv.characteristics.map(function(ch){
-    return '<li style="display:flex;gap:0.6rem;margin-bottom:0.35rem;"><span style="color:'+lv.col+';flex-shrink:0;font-size:0.8rem;">▸</span><span style="font-size:0.92rem;color:var(--text-secondary);">'+ch+'</span></li>';
-  }).join('');
-  det.innerHTML=
-    '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:'+lv.col+';margin-bottom:0.6rem;">'+lv.title+'</div>'+
-    '<p style="font-size:0.97rem;color:var(--text-primary);font-weight:500;margin-bottom:0.75rem;">'+lv.what+'</p>'+
-    '<ul style="list-style:none;padding:0;margin-bottom:0.75rem;">'+chars+'</ul>'+
-    '<div style="padding:0.6rem 0.85rem;background:var(--teal-bg);border-left:2px solid rgba(0,168,150,0.3);font-size:0.88rem;color:var(--text-secondary);line-height:1.6;"><strong style="color:#00A896;font-size:0.75rem;font-family:\'JetBrains Mono\',monospace;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.35rem;">Next step</strong>'+lv.next+'</div>';
-}
-buildLadder();
-updateLadderDetail();
-
-
-// ── ACTIVITY VS SPEND ANIMATED COMPARISON ──────────────────
+// ── ACTIVITY vs SPEND COMPARISON ─────────────────────────────
 var spendViewMode = 'activity';
-
 var teams = [
-  { name:'Team A', spend:1000000, 
-    utilisation:78, region:'Norway', intensity:18, waste:'5%',
-    activity_co2: Math.round(1000000 * 0.00003 * 18),  // illustrative
-    spend_co2: 420,  // spend-based estimate
-    col:'#00A896', label:'Efficient · Low-carbon region' },
-  { name:'Team B', spend:1000000,
-    utilisation:12, region:'Poland', intensity:680, waste:'61%',
-    activity_co2: Math.round(1000000 * 0.00003 * 680),
-    spend_co2: 430,  // spend-based shows almost same
-    col:'#E76F51', label:'Idle resources · High-carbon region' },
+  { name:'Team A', spend:1000000, utilisation:78, region:'Norway', intensity:18,
+    activity_co2:540, spend_co2:420, col:'#00A896', label:'Efficient · Low-carbon region' },
+  { name:'Team B', spend:1000000, utilisation:12, region:'Poland', intensity:680,
+    activity_co2:20400, spend_co2:430, col:'#E76F51', label:'Idle resources · High-carbon region' }
 ];
 
 function setSpendView(mode) {
   spendViewMode = mode;
-  document.getElementById('btnActivity').style.background = mode==='activity'?'#00A896':'transparent';
-  document.getElementById('btnActivity').style.color = mode==='activity'?'#0F1F2E':'#64748B';
-  document.getElementById('btnActivity').style.borderColor = mode==='activity'?'#00A896':'var(--border)';
-  document.getElementById('btnSpend').style.background = mode==='spend'?'#F4A261':'transparent';
-  document.getElementById('btnSpend').style.color = mode==='spend'?'#0F1F2E':'#64748B';
-  document.getElementById('btnSpend').style.borderColor = mode==='spend'?'#F4A261':'var(--border)';
+  var btnA = document.getElementById('btnActivity');
+  var btnS = document.getElementById('btnSpend');
+  if (btnA) {
+    btnA.style.background = mode==='activity' ? '#00A896' : 'transparent';
+    btnA.style.color = mode==='activity' ? '#0F1F2E' : '#64748B';
+    btnA.style.borderColor = mode==='activity' ? '#00A896' : '#D1D9E0';
+  }
+  if (btnS) {
+    btnS.style.background = mode==='spend' ? '#F4A261' : 'transparent';
+    btnS.style.color = mode==='spend' ? '#0F1F2E' : '#64748B';
+    btnS.style.borderColor = mode==='spend' ? '#F4A261' : '#D1D9E0';
+  }
   drawSpend();
 }
 
 function drawSpend() {
   var svg = document.getElementById('spendSvg');
   if (!svg) return;
-  var W=820, H=200, PAD_L=20, PAD_R=20, PAD_TOP=40, BAR_H=52, BAR_GAP=30;
+  var W=820, PAD_T=32, BAR_H=52, BAR_GAP=24;
+  var LABEL_W=192, BAR_X=LABEL_W+8, TRAIL=96;
+  var BAR_W=W-BAR_X-TRAIL;
+  var totalH = PAD_T + 2*BAR_H + BAR_GAP + 8;
+  svg.setAttribute('viewBox','0 0 '+W+' '+totalH);
   svg.innerHTML='';
 
-  function el(tag,attrs){ var e=document.createElementNS('http://www.w3.org/2000/svg',tag); Object.keys(attrs).forEach(function(k){e.setAttribute(k,attrs[k]);}); return e; }
-  function txt(content,attrs){ var t=el('text',attrs); t.textContent=content; return t; }
+  function el(tag,a){var e=document.createElementNS('http://www.w3.org/2000/svg',tag);Object.keys(a).forEach(function(k){e.setAttribute(k,a[k]);});return e;}
+  function tx(s,a){var t=el('text',a);t.textContent=s;return t;}
 
-  var availW = W - PAD_L - PAD_R;
-  var totalH = BAR_H*2 + BAR_GAP + PAD_TOP + 20;
+  var isAct = spendViewMode==='activity';
+  var maxV = isAct ? Math.max(teams[0].activity_co2, teams[1].activity_co2)*1.08
+                   : Math.max(teams[0].spend_co2, teams[1].spend_co2)*1.08;
 
-  // Get values based on mode
-  var maxVal = spendViewMode==='activity'
-    ? Math.max(teams[0].activity_co2, teams[1].activity_co2) * 1.1
-    : Math.max(teams[0].spend_co2, teams[1].spend_co2) * 1.1;
+  // Heading
+  svg.appendChild(tx(isAct?'Activity-based: what is actually happening':'Spend-based: what the model reports',
+    {x:0,y:16,fill:isAct?'#007A6E':'#9B5E00','font-family':'Calibri,sans-serif',
+     'font-size':'12','font-weight':'700','letter-spacing':'0.4'}));
 
-  var isActivity = spendViewMode==='activity';
+  teams.forEach(function(team,i){
+    var bY = PAD_T + i*(BAR_H+BAR_GAP);
+    var val = isAct ? team.activity_co2 : team.spend_co2;
+    var bW = Math.max(4, (val/maxV)*BAR_W);
+    var nameCol = team.col==='#00A896' ? '#007A6E' : '#B54D12';
 
-  // Title
-  svg.appendChild(txt(isActivity?'Activity-based: what is actually happening':'Spend-based: what the model reports', {
-    x:PAD_L, y:18, fill:isActivity?'#00A896':'#F4A261',
-    'font-family':'JetBrains Mono,monospace', 'font-size':'12',
-    'font-weight':'700', 'letter-spacing':'0.5'
-  }));
+    // Name
+    svg.appendChild(tx(team.name,{x:0,y:bY+BAR_H/2-9,
+      fill:nameCol,'font-family':'Georgia,serif','font-size':'15','font-weight':'600'}));
+    // Sub-label — stays in the 192px column, never overlaps bar
+    svg.appendChild(tx(team.label,{x:0,y:bY+BAR_H/2+9,
+      fill:'#4A5568','font-family':'Calibri,sans-serif','font-size':'11'}));
 
-  teams.forEach(function(team, i) {
-    var barY = PAD_TOP + i*(BAR_H+BAR_GAP);
-    var val = isActivity ? team.activity_co2 : team.spend_co2;
-    var barW = Math.max(4, (val/maxVal) * (availW - 200));
+    // Track
+    svg.appendChild(el('rect',{x:BAR_X,y:bY,width:BAR_W,height:BAR_H,fill:'#E8EDF2',rx:'2'}));
 
-    // Team label
-    svg.appendChild(txt(team.name, {
-      x:PAD_L, y:barY+BAR_H/2-8,
-      fill:team.col,'font-family':'Georgia,serif','font-size':'15','font-weight':'600'
-    }));
-    svg.appendChild(txt(team.label, {
-      x:PAD_L, y:barY+BAR_H/2+8,
-      fill:'#4A5568','font-family':'JetBrains Mono,monospace','font-size':'11'
-    }));
-
-    // Bar track
-    var BAR_X = PAD_L + 160;
-    svg.appendChild(el('rect',{x:BAR_X,y:barY,width:availW-200,height:BAR_H,
-      fill:'var(--border-light)',rx:'2'}));
-
-    // Animated bar
-    var bar = el('rect',{x:BAR_X,y:barY,width:'0',height:BAR_H,
-      fill:team.col,opacity:'0.85',rx:'2'});
+    // Bar
+    var bar=el('rect',{x:BAR_X,y:bY,width:'0',height:BAR_H,fill:team.col,opacity:'0.88',rx:'2'});
     svg.appendChild(bar);
 
-    // Value label
-    var valLabel = txt(isActivity?(val.toLocaleString()+'t CO₂'):(val+'t CO₂ (est.)'), {
-      x:BAR_X+barW+10, y:barY+BAR_H/2+6,
-      fill:team.col,'font-family':'Georgia,serif','font-size':'16','font-weight':'600'
-    });
-    svg.appendChild(valLabel);
-
-    // Key metric badges (activity mode only)
-    if (isActivity) {
-      var badge1X = BAR_X + 8;
-      var badgeT = txt('Utilisation: '+team.utilisation+'%', {
-        x:badge1X, y:barY+22, fill:'#4A5568',
-        'font-family':'JetBrains Mono,monospace','font-size':'10','font-weight':'600'
-      });
-      var badgeT2 = txt('Region: '+team.region+' ('+team.intensity+'g CO₂/kWh)', {
-        x:badge1X, y:barY+38, fill:'#64748B',
-        'font-family':'JetBrains Mono,monospace','font-size':'10'
-      });
-      if (barW > 120) { svg.appendChild(badgeT); svg.appendChild(badgeT2); }
+    // Badges (only when bar is wide enough to hold them)
+    if(isAct && bW>160){
+      svg.appendChild(tx('Utilisation: '+team.utilisation+'%',
+        {x:BAR_X+10,y:bY+20,fill:'#1E293B','font-family':'Calibri,sans-serif','font-size':'11','font-weight':'600'}));
+      svg.appendChild(tx('Region: '+team.region+' ('+team.intensity+'g CO₂/kWh)',
+        {x:BAR_X+10,y:bY+36,fill:'#1E293B','font-family':'Calibri,sans-serif','font-size':'10'}));
     }
 
-    // Animate bar
-    setTimeout(function(barEl, targetW){ 
-      barEl.style.transition='width 0.8s cubic-bezier(.16,1,.3,1)';
-      barEl.style.transitionDelay=(i*0.12)+'s';
-      barEl.setAttribute('width', targetW);
-    }.bind(null, bar, barW), 50);
+    // Value
+    svg.appendChild(tx(isAct?(val.toLocaleString()+'t CO₂'):(val+'t CO₂ (est.)'),
+      {x:BAR_X+BAR_W+8,y:bY+BAR_H/2+6,fill:nameCol,
+       'font-family':'Georgia,serif','font-size':'14','font-weight':'700'}));
+
+    // Animate
+    (function(b,w,d){setTimeout(function(){
+      b.style.transition='width 0.8s cubic-bezier(.16,1,.3,1)';
+      b.setAttribute('width',w);
+    },d);})(bar,bW,i*120+50);
   });
 
-  // Note
-  var noteEl = document.getElementById('spendNote');
-  if (noteEl) {
-    if (isActivity) {
-      noteEl.style.borderLeftColor='#00A896';
-      noteEl.innerHTML='<strong style="color:#00A896">Activity-based measurement reveals</strong> that two teams spending the same amount have dramatically different footprints — because it captures utilisation (12% vs 78%), region (Poland vs Norway), and the 40× carbon intensity difference. This is the information that enables an operational response.';
-    } else {
-      noteEl.style.borderLeftColor='#F4A261';
-      noteEl.innerHTML='<strong style="color:#F4A261">Spend-based measurement reports</strong> near-identical footprints for both teams — because it knows only the spend. It cannot see that Team B is running at 12% utilisation in a coal-heavy grid. The numbers satisfy a reporting requirement. They cannot drive an operational decision.';
-    }
+  var note=document.getElementById('spendNote');
+  if(note){
+    note.style.borderLeftColor=isAct?'#00A896':'#F4A261';
+    note.style.background=isAct?'#F0FAF9':'#FFF8EE';
+    note.innerHTML=isAct
+      ? '<strong style="color:#007A6E">Activity-based measurement reveals</strong> that two teams spending the same amount have dramatically different footprints — because it captures utilisation (12% vs 78%), region (Poland vs Norway), and the 40× carbon intensity difference. This is the information that enables an operational response.'
+      : '<strong style="color:#9B5E00">Spend-based measurement reports</strong> near-identical footprints for both teams — because it knows only the spend. It cannot see that Team B is running at 12% utilisation in a coal-heavy grid. The numbers satisfy a reporting requirement. They cannot drive an operational decision.';
   }
 }
-
-// Init
-setTimeout(function(){ drawSpend(); }, 200);
-
-})();
 </script>
 
-
-
-
 <script>
-// GreenOps 101 — Shared module utilities v4 (light theme)
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof initKnowledgeChecks === 'function') initKnowledgeChecks();
+  if (typeof initScrollReveal === 'function') initScrollReveal();
+  if (typeof drawSpend === 'function') drawSpend();
+});
+</script>
+<script>
+// GreenOps 101 — Shared utilities v4 light theme
 
 const STORAGE_KEY = 'greenops101_progress';
-
-function getProgress() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
-  catch { return {}; }
+function getProgress(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');}catch{return {};}}
+function markComplete(moduleKey){
+  const p=getProgress();p[moduleKey]={completedAt:new Date().toISOString()};
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(p));
+  document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
 }
-
-function markComplete(moduleKey) {
-  const p = getProgress();
-  p[moduleKey] = { completedAt: new Date().toISOString() };
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
-  document.querySelectorAll('.complete-btn').forEach(b => {
-    b.textContent = '✓ Module complete';
-    b.classList.add('done');
-  });
-}
-
-function isComplete(moduleKey) {
-  return !!getProgress()[moduleKey];
-}
-
-// Knowledge check handling
-function initKnowledgeChecks() {
-  document.querySelectorAll('.kc-block').forEach(block => {
-    const correct = block.dataset.correct;
-    block.querySelectorAll('.kc-option').forEach(opt => {
-      opt.addEventListener('click', function() {
-        if (block.classList.contains('answered')) return;
+function isComplete(k){return !!getProgress()[k];}
+function initKnowledgeChecks(){
+  document.querySelectorAll('.kc-block').forEach(block=>{
+    const correct=block.dataset.correct;
+    block.querySelectorAll('.kc-option').forEach(opt=>{
+      opt.addEventListener('click',function(){
+        if(block.classList.contains('answered'))return;
         block.classList.add('answered');
-        const chosen = this.dataset.val;
-        block.querySelectorAll('.kc-option').forEach(o => {
-          if (o.dataset.val === correct) {
-            o.classList.add('selected-correct');
-          } else if (o.dataset.val === chosen && chosen !== correct) {
-            o.classList.add('selected-wrong');
-          }
+        const chosen=this.dataset.val;
+        block.querySelectorAll('.kc-option').forEach(o=>{
+          if(o.dataset.val===correct)o.classList.add('selected-correct');
+          else if(o.dataset.val===chosen&&chosen!==correct)o.classList.add('selected-wrong');
         });
-        // Show feedback
-        const fb = block.querySelector(chosen === correct ? '.kc-correct' : '.kc-wrong');
-        if (fb) fb.style.display = 'block';
-        // Also show .kc-reveal if present (legacy)
-        const reveal = block.querySelector('.kc-reveal');
-        if (reveal) reveal.style.display = 'block';
+        const fb=block.querySelector(chosen===correct?'.kc-correct':'.kc-wrong');
+        if(fb)fb.style.display='block';
+        const rv=block.querySelector('.kc-reveal');
+        if(rv)rv.style.display='block';
       });
     });
   });
 }
-
-// Scroll-triggered reveals
-function initScrollReveal() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+function initScrollReveal(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+  },{threshold:0.06,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+}
+function initProgress(current){
+  const p=getProgress(),total=14;
+  const done=Object.keys(p).filter(k=>k.startsWith('module')).length;
+  const el=document.getElementById('progress-count');
+  if(el)el.textContent=done+'/'+total;
+  const fill=document.getElementById('prog-fill');
+  if(fill)fill.style.width=((done/total)*100)+'%';
+  if(isComplete('module'+current))document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
 }
 
-// Sticky nav progress
-function initProgress(current) {
-  const p = getProgress();
-  const total = 14;
-  const done = Object.keys(p).filter(k => k.startsWith('module')).length;
-  const el = document.getElementById('progress-count');
-  if (el) el.textContent = `${done}/${total}`;
-  const fill = document.getElementById('prog-fill');
-  if (fill) fill.style.width = `${(done/total)*100}%`;
-  if (isComplete('module' + current)) {
-    document.querySelectorAll('.complete-btn').forEach(b => {
-      b.textContent = '✓ Module complete';
-      b.classList.add('done');
-    });
-  }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded',function(){
   initKnowledgeChecks();
   initScrollReveal();
   initProgress(3);
-  buildChart();
-  buildM3Scope();
-  buildRoles();
-  buildLadder();
-  drawSpend();
+  if(typeof drawSpend==='function')drawSpend();
 });
-
 </script>
 </body>
 </html>

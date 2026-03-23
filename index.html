@@ -6,7 +6,7 @@
 <title>GreenOps 101 — TBM Council Practitioner Course</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* ── BRAND VARS ────────────────────────────────────────────────── */
 :root {
@@ -34,12 +34,18 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--navy);
   color: var(--white);
-  font-family: Calibri, 'Trebuchet MS', system-ui, -apple-system, sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-weight: 300;
   line-height: 1.65;
   overflow-x: hidden;
 }
-/* grain overlay removed */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 0; opacity: 0.4;
+}
 
 /* ── SITE NAV ──────────────────────────────────────────────────── */
 .site-nav {
@@ -57,26 +63,26 @@ body {
 }
 .nav-tbm {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+  font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--teal); font-weight: 500;
 }
 .nav-divider { color: rgba(255,255,255,0.15); }
 .nav-course {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
-  color: #94A3B8;
+  font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--slate);
 }
 .nav-progress-wrap { margin-left: auto; display: flex; align-items: center; gap: 0.85rem; }
 .nav-prog-bar { width: 80px; height: 3px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; }
 .nav-prog-fill { height: 100%; background: var(--teal); transition: width 0.4s; border-radius: 2px; }
-.nav-prog-label { font-family: 'JetBrains Mono', monospace; font-size:0.69rem; color: rgba(255,255,255,0.6); }
+.nav-prog-label { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; color: rgba(255,255,255,0.6); }
 
 /* ── HERO ──────────────────────────────────────────────────────── */
 .hero {
   position: relative;
   min-height: 65vh;
   display: flex; flex-direction: column; justify-content: flex-end;
-  padding: 3.5rem 3rem 4rem;
+  padding: 4rem 3rem 4.5rem;
   overflow: hidden;
 }
 .hero-bg {
@@ -98,7 +104,7 @@ body {
 
 .hero-badge {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
+  font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--teal-muted);
   margin-bottom: 1.25rem;
   display: flex; align-items: center; gap: 0.75rem;
@@ -107,7 +113,7 @@ body {
 .hero-badge::before { content: ''; width: 20px; height: 1.5px; background: var(--teal); display: block; }
 
 .hero-title {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: 'DM Serif Display', serif;
   font-size: clamp(3rem, 6.5vw, 5.5rem);
   line-height: 1.02;
   letter-spacing: -0.025em;
@@ -119,7 +125,7 @@ body {
 .hero-tagline {
   margin-top: 1.5rem;
   font-size: 1rem;
-  color: #94A3B8;
+  color: var(--slate);
   max-width: 540px;
   line-height: 1.72;
   opacity: 0; animation: fadeUp 0.7s 0.4s forwards;
@@ -131,7 +137,7 @@ body {
   opacity: 0; animation: fadeUp 0.7s 0.55s forwards;
 }
 .hero-meta-item { display: flex; flex-direction: column; gap: 0.15rem; }
-.hero-meta-item .label { font-family: 'JetBrains Mono', monospace; font-size:0.69rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
+.hero-meta-item .label { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
 .hero-meta-item .value { font-size: 0.88rem; font-weight: 500; }
 .meta-divider { width: 1px; height: 32px; background: rgba(255,255,255,0.08); }
 
@@ -157,24 +163,24 @@ body {
 }
 .frame-block h3 {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem; letter-spacing: 0.17em; text-transform: uppercase;
+  font-size: 0.6rem; letter-spacing: 0.17em; text-transform: uppercase;
   color: var(--orange-light); margin-bottom: 0.85rem;
 }
 .course-def {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: 'DM Serif Display', serif;
   font-size: 1.05rem; font-style: italic; line-height: 1.6;
   color: var(--white);
   border-left: 3px solid var(--orange);
   padding: 1rem 1.35rem;
   background: rgba(231,111,81,0.05);
 }
-.frame-block p { font-size: 0.88rem; color: #94A3B8; line-height: 1.75; }
+.frame-block p { font-size: 0.88rem; color: var(--slate); line-height: 1.75; }
 .frame-block p + p { margin-top: 0.75rem; }
 
 /* ── IS / ISN'T GRID ─────────────────────────────────────────── */
 .is-section { padding: 3rem; max-width: 980px; }
-.is-section h2 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing: -0.02em; margin-bottom: 0.5rem; }
-.section-sub { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--slate-dark); margin-bottom: 2rem; }
+.is-section h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+.section-sub { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 2rem; }
 .is-grid {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 1px; background: rgba(255,255,255,0.06);
@@ -186,9 +192,9 @@ body {
 .is-item.is { border-left: 3px solid var(--teal); }
 .is-item.not { border-left: 3px solid rgba(255,255,255,0.1); opacity: 0.6; }
 .is-icon { font-size: 1rem; flex-shrink: 0; color: var(--teal); padding-top: 0.1rem; }
-.is-item.not .is-icon { color: var(--slate-dark); }
+.is-item.not .is-icon { color: rgba(255,255,255,0.6); }
 .is-text strong { display: block; font-size: 0.86rem; font-weight: 500; margin-bottom: 0.3rem; }
-.is-text p { font-size: 0.8rem; color: var(--slate-dark); line-height: 1.6; }
+.is-text p { font-size: 0.8rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
 
 /* ── INTERACTIVE COURSE MAP ──────────────────────────────────── */
 .map-section {
@@ -196,16 +202,16 @@ body {
   border-top: 1px solid rgba(0,168,150,0.12);
   padding: 3rem;
 }
-.map-section h2 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing: -0.02em; margin-bottom: 0.4rem; }
+.map-section h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing: -0.02em; margin-bottom: 0.4rem; }
 
 /* Track tabs */
 .track-tabs { display: flex; gap: 0; border-bottom: 1px solid rgba(255,255,255,0.08); margin: 2rem 0 0; }
 .track-tab {
   padding: 0.75rem 1.5rem;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+  font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
   cursor: pointer; border: none; border-bottom: 2px solid transparent;
-  background: none; color: var(--slate-dark); white-space: nowrap;
+  background: none; color: rgba(255,255,255,0.6); white-space: nowrap;
   transition: color 0.15s, border-color 0.15s;
 }
 .track-tab:hover { color: var(--white); }
@@ -225,17 +231,17 @@ body {
   display: flex; align-items: flex-start; gap: 2rem;
 }
 .track-header-left { flex: 1; }
-.track-num { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.4rem; }
+.track-num { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.4rem; }
 .t1 .track-num { color: var(--track1); }
 .t2 .track-num { color: var(--track2); }
 .t3 .track-num { color: var(--track3); }
-.track-name { font-family: Georgia, 'Times New Roman', serif; font-size: 1.3rem; margin-bottom: 0.35rem; }
-.track-desc { font-size: 0.83rem; color: var(--slate-dark); line-height: 1.6; max-width: 560px; }
+.track-name { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin-bottom: 0.35rem; }
+.track-desc { font-size: 0.83rem; color: rgba(255,255,255,0.6); line-height: 1.6; max-width: 560px; }
 .track-audience {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+  font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
   padding: 0.3rem 0.75rem; background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08); color: var(--slate-dark);
+  border: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.6);
   white-space: nowrap; align-self: flex-start; margin-top: 0.35rem;
 }
 
@@ -259,14 +265,14 @@ body {
 .module-row-num {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.7rem; font-weight: 500;
-  color: var(--slate-dark); padding: 1rem 1.25rem;
+  color: rgba(255,255,255,0.6); padding: 1rem 1.25rem;
   text-align: center; border-right: 1px solid rgba(255,255,255,0.05);
 }
 .module-row-body { padding: 1rem 1.25rem; }
-.module-row-title { font-size: 0.86rem; font-weight: 400; line-height: 1.35; color: #94A3B8; }
+.module-row-title { font-size: 0.86rem; font-weight: 400; line-height: 1.35; color: var(--slate); }
 .module-row-duration {
   font-family: 'JetBrains Mono', monospace;
-  font-size:0.69rem; color: var(--slate-dark); padding: 1rem 0.75rem; text-align: right;
+  font-size: 0.58rem; color: rgba(255,255,255,0.6); padding: 1rem 0.75rem; text-align: right;
 }
 .module-row-status-wrap { padding: 1rem 0.75rem; display: flex; align-items: center; justify-content: flex-end; gap: 0.4rem; }
 .module-status {
@@ -285,7 +291,7 @@ body {
   padding: 1rem 1.25rem;
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
-.at-label { font-family: 'JetBrains Mono', monospace; font-size:0.69rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.2rem; }
+.at-label { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.2rem; }
 .at1 .at-label { color: var(--track1); }
 .at2 .at-label { color: var(--track2); }
 .at3 .at-label { color: var(--track3); }
@@ -300,8 +306,8 @@ body {
 }
 .at-module-link:last-child { border-bottom: none; }
 .at-module-link:hover { background: rgba(255,255,255,0.03); }
-.at-num { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--slate-dark); width: 20px; flex-shrink: 0; }
-.at-title { font-size: 0.8rem; color: #94A3B8; line-height: 1.35; flex: 1; }
+.at-num { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: rgba(255,255,255,0.6); width: 20px; flex-shrink: 0; }
+.at-title { font-size: 0.8rem; color: var(--slate); line-height: 1.35; flex: 1; }
 .at-module-link:hover .at-title { color: var(--white); }
 .at-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.08); flex-shrink: 0; }
 .at-module-link.complete .at-dot { background: var(--teal); }
@@ -309,14 +315,14 @@ body {
 
 /* ── AUDIENCE GUIDE ──────────────────────────────────────────── */
 .audience-section { padding: 3rem; max-width: 980px; }
-.audience-section h2 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.02em; margin-bottom: 0.4rem; }
+.audience-section h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.02em; margin-bottom: 0.4rem; }
 .audience-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.06); margin-top: 2rem; }
 .audience-card { background: var(--navy-mid); padding: 1.4rem; }
 .aud-icon { font-size: 1.4rem; margin-bottom: 0.65rem; }
 .aud-role { font-weight: 500; font-size: 0.86rem; margin-bottom: 0.35rem; line-height: 1.3; }
 .aud-entry {
   font-family: 'JetBrains Mono', monospace;
-  font-size:0.69rem; letter-spacing: 0.08em; text-transform: uppercase;
+  font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--orange-light); line-height: 1.4;
 }
 
@@ -326,16 +332,16 @@ body {
   border-top: 1px solid rgba(0,168,150,0.12);
   padding: 3rem;
 }
-.how-section h2 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.02em; margin-bottom: 0.4rem; }
+.how-section h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.02em; margin-bottom: 0.4rem; }
 .how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
 .how-step { display: flex; gap: 0.85rem; align-items: flex-start; }
 .how-num {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: 'DM Serif Display', serif;
   font-size: 2.5rem; color: rgba(0,168,150,0.12); line-height: 1;
   margin-top: -0.25rem; flex-shrink: 0; width: 40px;
 }
 .how-body strong { display: block; font-size: 0.87rem; font-weight: 500; margin-bottom: 0.3rem; }
-.how-body p { font-size: 0.8rem; color: var(--slate-dark); line-height: 1.65; }
+.how-body p { font-size: 0.8rem; color: rgba(255,255,255,0.6); line-height: 1.65; }
 
 /* ── ACCREDITATION CALLOUT ──────────────────────────────────── */
 .accred-strip {
@@ -346,8 +352,8 @@ body {
   display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap;
 }
 .accred-icon { font-size: 2.25rem; flex-shrink: 0; }
-.accred-body h3 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.15rem; margin-bottom: 0.3rem; }
-.accred-body p { font-size: 0.83rem; color: #94A3B8; line-height: 1.62; max-width: 580px; }
+.accred-body h3 { font-family: 'DM Serif Display', serif; font-size: 1.15rem; margin-bottom: 0.3rem; }
+.accred-body p { font-size: 0.83rem; color: var(--slate); line-height: 1.62; max-width: 580px; }
 .accred-badge {
   margin-left: auto; flex-shrink: 0; text-align: center;
 }
@@ -357,9 +363,9 @@ body {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   gap: 0.05rem; margin: 0 auto 0.5rem;
 }
-.badge-ring .bl1 { font-family: 'JetBrains Mono', monospace; font-size:0.69rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); }
-.badge-ring .bl2 { font-family: Georgia, 'Times New Roman', serif; font-size: 1rem; color: var(--white); }
-.badge-sub { font-family: 'JetBrains Mono', monospace; font-size:0.69rem; color: var(--slate-dark); letter-spacing: 0.1em; text-transform: uppercase; }
+.badge-ring .bl1 { font-family: 'JetBrains Mono', monospace; font-size: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); }
+.badge-ring .bl2 { font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--white); }
+.badge-sub { font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; color: rgba(255,255,255,0.6); letter-spacing: 0.1em; text-transform: uppercase; }
 
 /* ── FOOTER ──────────────────────────────────────────────────── */
 footer {
@@ -367,7 +373,7 @@ footer {
   padding: 1.75rem 3rem;
   display: flex; justify-content: space-between; align-items: center;
 }
-.footer-brand { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate-dark); }
+.footer-brand { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
 .footer-brand span { color: var(--teal); }
 
 /* ── ANIMATIONS ──────────────────────────────────────────────── */
@@ -412,15 +418,22 @@ footer {
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
-  <p class="hero-badge">Practitioner Accreditation Course &nbsp;·&nbsp; March 2026</p>
-  <h1 class="hero-title">GreenOps 101<br><em>Digital Sustainability</em><br>for IT Practitioners<br>and Leaders.</h1>
+  
+  <div class="hero-title-block">
+    <p class="hero-eyebrow-title" style="font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(0,168,150,0.9);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem;">
+      <span style="width:20px;height:1.5px;background:#00A896;display:inline-block;"></span>
+      Practitioner Accreditation Course &nbsp;·&nbsp; March 2026
+    </p>
+    <h1 class="hero-title" style="margin-bottom:0;">GreenOps 101<br><em>Digital Sustainability</em></h1>
+    <p class="hero-subtitle" style="font-family:Georgia,'Times New Roman',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);color:rgba(255,255,255,0.88);font-weight:700;letter-spacing:-.01em;line-height:1.15;margin-top:.5rem;margin-bottom:0;">for IT Practitioners and Leaders.</p>
+  </div>
   <p class="hero-tagline">A practical foundation in operational reality and consumption discipline. Not a climate lecture. Not a reporting exercise. Built around how IT actually works.</p>
   <div class="hero-meta">
     <div class="hero-meta-item"><span class="label">Modules</span><span class="value">14 + Orientation</span></div>
     <div class="meta-divider"></div>
     <div class="hero-meta-item"><span class="label">Tracks</span><span class="value">3</span></div>
     <div class="meta-divider"></div>
-    <div class="hero-meta-item"><span class="label">Duration</span><span class="value">~5 hours total</span></div>
+    <div class="hero-meta-item"><span class="label">Duration</span><span class="value">~4.5–5 hours</span></div>
     <div class="meta-divider"></div>
     <div class="hero-meta-item"><span class="label">Format</span><span class="value">Self-paced</span></div>
   </div>
@@ -461,8 +474,8 @@ footer {
 
 <!-- INTERACTIVE COURSE MAP -->
 <section class="map-section" id="course-map">
-  <p class="section-sub" style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:#64748B;margin-bottom:0.4rem">Course structure</p>
-  <h2 style="font-family:Georgia,serif;font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-0.02em;margin-bottom:0.35rem">Three tracks. One discipline.</h2>
+  <p class="section-sub" style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:#64748B;margin-bottom:0.4rem">Course structure</p>
+  <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-0.02em;margin-bottom:0.35rem">Three tracks. One discipline.</h2>
   <p style="font-size:0.86rem;color:var(--slate-dark);max-width:520px;margin-bottom:0">Choose the track closest to your role — or work through all three.</p>
 
   <div class="track-tabs" id="trackTabs">
@@ -476,26 +489,22 @@ footer {
     <!-- ALL TRACKS VIEW -->
     <div class="track-panel active" id="panel-all">
       <div class="all-tracks">
-        <div class="all-track-col" style="border-top:3px solid #B2EDE7;min-width:200px;">
-          <div class="all-track-header"><div class="at-label" style="color:#B2EDE7;">Orientation</div><div class="at-name">Start Here</div></div>
-          <a href="module0.html" class="at-module-link" data-mod="module0"><span class="at-num" style="color:#B2EDE7;">M0</span><span class="at-title">How to Use This Course</span><span class="at-dot"></span></a>
-        </div>
         <div class="all-track-col at1">
-          <div class="all-track-header"><div class="at-label">Track 1 · M1–4 · ~95 min</div><div class="at-name">Technical Foundation</div></div>
+          <div class="all-track-header"><div class="at-label">Track 1 · M1–4</div><div class="at-name">Technical Foundation</div></div>
           <a href="module1.html" class="at-module-link" data-mod="module1"><span class="at-num">M1</span><span class="at-title">Why Digital Sustainability Matters Now</span><span class="at-dot"></span></a>
           <a href="module2.html" class="at-module-link" data-mod="module2"><span class="at-num">M2</span><span class="at-title">What Digital Sustainability Is, and What It Isn't</span><span class="at-dot"></span></a>
           <a href="module3.html" class="at-module-link" data-mod="module3"><span class="at-num">M3</span><span class="at-title">How Digital Sustainability Is Measured</span><span class="at-dot"></span></a>
           <a href="module4.html" class="at-module-link" data-mod="module4"><span class="at-num">M4</span><span class="at-title">Where Impact Lives Across the IT Estate</span><span class="at-dot"></span></a>
         </div>
         <div class="all-track-col at2">
-          <div class="all-track-header"><div class="at-label">Track 2 · M5–8 · ~100 min</div><div class="at-name">Operational Practice</div></div>
+          <div class="all-track-header"><div class="at-label">Track 2 · M5–8</div><div class="at-name">Operational Practice</div></div>
           <a href="module5.html" class="at-module-link" data-mod="module5"><span class="at-num">M5</span><span class="at-title">From Reporting to Operational Excellence</span><span class="at-dot"></span></a>
           <a href="module6.html" class="at-module-link" data-mod="module6"><span class="at-num">M6</span><span class="at-title">Software Engineering and Application Sustainability</span><span class="at-dot"></span></a>
           <a href="module7.html" class="at-module-link" data-mod="module7"><span class="at-num">M7</span><span class="at-title">Procurement, Supply Chains, and Vendor Evidence</span><span class="at-dot"></span></a>
           <a href="module8.html" class="at-module-link" data-mod="module8"><span class="at-num">M8</span><span class="at-title">Governance, Maturity and Making It Stick</span><span class="at-dot"></span></a>
         </div>
         <div class="all-track-col at3">
-          <div class="all-track-header"><div class="at-label">Track 3 · M9–14 · ~130 min</div><div class="at-name">Leadership and Strategy</div></div>
+          <div class="all-track-header"><div class="at-label">Track 3 · M9–14</div><div class="at-name">Leadership and Strategy</div></div>
           <a href="module9.html"  class="at-module-link" data-mod="module9"><span class="at-num">M9</span><span class="at-title">The Regulatory and Policy Landscape</span><span class="at-dot"></span></a>
           <a href="module10.html" class="at-module-link" data-mod="module10"><span class="at-num">M10</span><span class="at-title">The Business Case: Value, Risk and Strategic Opportunity</span><span class="at-dot"></span></a>
           <a href="module11.html" class="at-module-link" data-mod="module11"><span class="at-num">M11</span><span class="at-title">Sustainable IT Strategy and Roadmapping</span><span class="at-dot"></span></a>
@@ -614,7 +623,7 @@ footer {
 
 <!-- AUDIENCE GUIDE -->
 <section class="audience-section reveal">
-  <p class="section-sub" style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:#64748B;margin-bottom:0.35rem">Who this is for</p>
+  <p class="section-sub" style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:#64748B;margin-bottom:0.35rem">Who this is for</p>
   <h2>If you make decisions about what technology to buy, build, run, or retire — this course is for you.</h2>
   <div class="audience-grid">
     <div class="audience-card"><div class="aud-icon">⚙️</div><div class="aud-role">Infrastructure &amp; Platform Engineers</div><div class="aud-entry">Start: Track 1 or 2</div></div>
@@ -630,7 +639,7 @@ footer {
 
 <!-- HOW TO USE -->
 <section class="how-section reveal">
-  <p class="section-sub" style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:#64748B;margin-bottom:0.35rem">Navigation</p>
+  <p class="section-sub" style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:#64748B;margin-bottom:0.35rem">Navigation</p>
   <h2>How to use this course.</h2>
   <div class="how-steps">
     <div class="how-step"><span class="how-num">01</span><div class="how-body"><strong>Start at your track</strong><p>Each track is a coherent entry point. Track 1 is recommended for anyone new to the domain. Tracks 2 and 3 assume familiarity with the foundational concepts.</p></div></div>
@@ -718,93 +727,6 @@ document.querySelectorAll('.module-row, .at-module-link').forEach(el => {
 });
 
 updateProgress();
-</script>
-<script>
-// GreenOps 101 — Shared module utilities v4 (light theme)
-
-const STORAGE_KEY = 'greenops101_progress';
-
-function getProgress() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
-  catch { return {}; }
-}
-
-function markComplete(moduleKey) {
-  const p = getProgress();
-  p[moduleKey] = { completedAt: new Date().toISOString() };
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
-  document.querySelectorAll('.complete-btn').forEach(b => {
-    b.textContent = '✓ Module complete';
-    b.classList.add('done');
-  });
-}
-
-function isComplete(moduleKey) {
-  return !!getProgress()[moduleKey];
-}
-
-// Knowledge check handling
-function initKnowledgeChecks() {
-  document.querySelectorAll('.kc-block').forEach(block => {
-    const correct = block.dataset.correct;
-    block.querySelectorAll('.kc-option').forEach(opt => {
-      opt.addEventListener('click', function() {
-        if (block.classList.contains('answered')) return;
-        block.classList.add('answered');
-        const chosen = this.dataset.val;
-        block.querySelectorAll('.kc-option').forEach(o => {
-          if (o.dataset.val === correct) {
-            o.classList.add('selected-correct');
-          } else if (o.dataset.val === chosen && chosen !== correct) {
-            o.classList.add('selected-wrong');
-          }
-        });
-        // Show feedback
-        const fb = block.querySelector(chosen === correct ? '.kc-correct' : '.kc-wrong');
-        if (fb) fb.style.display = 'block';
-        // Also show .kc-reveal if present (legacy)
-        const reveal = block.querySelector('.kc-reveal');
-        if (reveal) reveal.style.display = 'block';
-      });
-    });
-  });
-}
-
-// Scroll-triggered reveals
-function initScrollReveal() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-}
-
-// Sticky nav progress
-function initProgress(current) {
-  const p = getProgress();
-  const total = 14;
-  const done = Object.keys(p).filter(k => k.startsWith('module')).length;
-  const el = document.getElementById('progress-count');
-  if (el) el.textContent = `${done}/${total}`;
-  const fill = document.getElementById('prog-fill');
-  if (fill) fill.style.width = `${(done/total)*100}%`;
-  if (isComplete('module' + current)) {
-    document.querySelectorAll('.complete-btn').forEach(b => {
-      b.textContent = '✓ Module complete';
-      b.classList.add('done');
-    });
-  }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  initKnowledgeChecks();
-  initScrollReveal();
-});
-
 </script>
 </body>
 </html>

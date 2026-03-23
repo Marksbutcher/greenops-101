@@ -1,38 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>M8: Governance, Maturity  and Making It Stick — GreenOps 101</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shared.css">
-<style>
-:root{--page-bg:#F7F8FA;--card-bg:#FFFFFF;--section-alt:#E8EDF2;--text-primary:#1E293B;--text-secondary:#4A5568;--text-muted:#64748B;--navy:#0F1F2E;--navy-mid:#162840;--navy-card:#1E293B;--teal:#00A896;--teal-dark:#007A6E;--teal-muted:#B2EDE7;--teal-bg:rgba(0,168,150,0.07);--teal-border:rgba(0,168,150,0.25);--orange:#E76F51;--orange-light:#F4A261;--orange-bg:#FFF3E8;--orange-border:rgba(231,111,81,0.25);--border:#D1D9E0;--border-light:#E8EDF2;--track1:#00A896;--track2:#F4A261;--track3:#E76F51;--correct:#16a34a;--wrong:#dc2626;--white:#FFFFFF;--space-1:0.25rem;--space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;--space-5:1.5rem;--space-6:2rem;--space-7:3rem;--space-8:4rem;--navy-light:#1C3A55;--navy-raised:#1C3A55;--navy-border:rgba(255,255,255,0.07);--navy-mid-alt:#162840;--teal-light:#B2EDE7;--teal-glow:rgba(0,168,150,0.15);--teal-subtle:rgba(0,168,150,0.07);--slate:#4A5568;--slate-mid:#64748B;--slate-dim:#94A3B8;--grey-100:#F7F8FA;--grey-300:#D1D9E0;--grey-500:#4A5568;--border-dark:rgba(255,255,255,0.08);}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;font-size:16px;}img,svg{display:block;max-width:100%;}body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,'Trebuchet MS',system-ui,-apple-system,sans-serif;font-weight:400;font-size:1rem;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}.top-nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:1px solid rgba(0,168,150,0.2);padding:0 var(--space-7);height:52px;display:flex;align-items:center;gap:1rem;}.top-nav::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00A896 0%,#F4A261 60%,#E76F51 100%);}.nav-home{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.85);text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:color 0.15s;flex-shrink:0;}.nav-home:hover{color:#FFFFFF;}.nav-sep{color:rgba(255,255,255,0.5);font-size:0.8rem;}.nav-module{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#FFFFFF;font-weight:500;}.nav-track-pill{font-family:Calibri,sans-serif;font-size:0.69rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.22rem 0.65rem;border-radius:2px;}.track1-pill{background:rgba(0,168,150,0.2);color:#B2EDE7;}.track2-pill{background:rgba(244,162,97,0.2);color:#F4D0B0;}.track3-pill{background:rgba(231,111,81,0.2);color:#F4C4B9;}.nav-progress{margin-left:auto;font-family:Calibri,sans-serif;font-size:0.72rem;color:rgba(255,255,255,0.7);}.nav-prog-bar{width:80px;height:2px;background:rgba(255,255,255,0.12);border-radius:1px;margin-left:0.5rem;overflow:hidden;display:inline-block;vertical-align:middle;}.nav-prog-fill{height:100%;background:var(--teal);border-radius:1px;transition:width 0.4s ease;}.module-hero{position:relative;overflow:hidden;padding:var(--space-8) var(--space-7) var(--space-7);background:#0F1F2E;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;}.module-hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 70% 50%,rgba(0,168,150,0.08) 0%,transparent 65%);pointer-events:none;}.hero-num{font-family:Georgia,serif;font-size:clamp(5rem,12vw,10rem);color:rgba(255,255,255,0.12);line-height:1;position:absolute;right:var(--space-7);bottom:0;font-weight:400;user-select:none;}.module-eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal-muted);margin-bottom:0.75rem;}.module-title{font-family:Georgia,serif;font-weight:700;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.12;letter-spacing:-0.02em;color:#FFFFFF;margin-bottom:1.25rem;}.module-subtitle{font-size:1.1rem;color:rgba(255,255,255,0.92);line-height:1.65;max-width:620px;margin-bottom:2rem;}.module-meta{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}.meta-item{display:flex;flex-direction:column;gap:0.15rem;}.meta-item .label{font-family:Calibri,sans-serif;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.65);}.meta-item .value{font-size:0.92rem;color:rgba(255,255,255,0.95);font-weight:500;}.complete-btn{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.6rem 1.25rem;background:rgba(0,168,150,0.15);border:1px solid #00A896;color:#B2EDE7;cursor:pointer;transition:all 0.15s;}.complete-btn:hover{background:rgba(0,168,150,0.3);border-color:#00A896;}.complete-btn.done{background:rgba(0,168,150,0.25);border-color:#00A896;color:#B2EDE7;}.objectives-strip{padding:0;}.module-content{max-width:1200px;margin:0 auto;padding:0 var(--space-7) var(--space-6);}.content-section{padding:var(--space-7) 0;border-bottom:1px solid var(--border-light);}.content-section:last-child{border-bottom:none;}.section-label{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:0.65rem;display:block;font-weight:700;}.section-title{font-family:Georgia,serif;font-weight:700;font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.15;letter-spacing:-0.02em;color:var(--text-primary);margin-bottom:1.25rem;}.section-intro{font-size:1.12rem;font-weight:400;color:var(--text-secondary);line-height:1.75;max-width:780px;margin-bottom:2rem;}.card-grid{display:grid;gap:1px;background:var(--border);}.card-grid-2{grid-template-columns:1fr 1fr;}.card-grid-3{grid-template-columns:repeat(3,1fr);}.card-grid-4{grid-template-columns:repeat(4,1fr);}.card{background:var(--card-bg);padding:1.75rem;position:relative;}.card-title{font-family:Georgia,serif;font-size:1.1rem;font-weight:400;color:var(--text-primary);margin-bottom:0.65rem;}.card-body{font-size:0.97rem;color:var(--text-secondary);line-height:1.7;}.card--teal-top{border-top:3px solid var(--teal);}.card--orange-top{border-top:3px solid var(--orange);}.card--navy-bg{background:var(--navy);color:#FFFFFF;}.stat-strip{display:grid;gap:1px;background:var(--border);margin:2.25rem 0;border-radius:3px;overflow:hidden;}.stat-strip.cols-3{grid-template-columns:repeat(3,1fr);}.stat-strip.cols-4{grid-template-columns:repeat(4,1fr);}.stat-cell{background:var(--card-bg);padding:2rem 1.5rem;text-align:center;position:relative;border-top:3px solid var(--cell-accent,var(--teal));transition:background 0.15s;}.stat-cell:hover{background:var(--section-alt);}.stat-num{font-family:Georgia,serif;font-size:clamp(2.4rem,4.5vw,3.5rem);color:var(--cell-accent,var(--teal-dark));line-height:1;margin-bottom:0.5rem;display:block;}.stat-label{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);line-height:1.5;display:block;}.viz-container{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);margin:2rem 0;box-shadow:0 2px 8px rgba(0,0,0,0.07);}.viz-header{padding:1rem 1.5rem;border-bottom:2px solid var(--teal);display:flex;align-items:center;gap:0.75rem;background:var(--section-alt);}.viz-header-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;}.viz-title{font-family:'JetBrains Mono',monospace;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;}.callout{padding:1.35rem 1.75rem;margin:1.75rem 0;border-left:4px solid var(--teal);background:var(--teal-bg);}.callout-insight{border-left-color:var(--teal);background:var(--teal-bg);}.callout-warning{border-left-color:var(--orange);background:var(--orange-bg);}.callout-key{border-left-color:var(--teal-dark);background:var(--teal-bg);}.callout-title{font-family:'JetBrains Mono',monospace;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;display:block;margin-bottom:0.6rem;}.callout-warning .callout-title{color:var(--orange);}.callout p{font-size:1rem;color:var(--text-primary);line-height:1.72;}.pause-questions{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem var(--space-7);}.pause-q{font-size:1rem;color:var(--text-primary);line-height:1.7;margin-bottom:0.85rem;padding-left:1.25rem;border-left:2px solid var(--teal-dark);}.pause-q:last-child{margin-bottom:0;}.kc-block{background:var(--card-bg);border:1px solid var(--border);padding:2.25rem;margin:0.5rem 0;}.kc-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:1rem;}.kc-q{font-family:Georgia,serif;font-weight:500;font-size:1.15rem;color:var(--text-primary);line-height:1.6;margin-bottom:1.5rem;}.kc-options{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1rem;}.kc-option{display:flex;align-items:flex-start;gap:0.85rem;padding:0.9rem 1.1rem;background:var(--page-bg);border:1px solid var(--border);cursor:pointer;text-align:left;width:100%;font-family:Calibri,'Trebuchet MS',system-ui,sans-serif;font-size:1rem;color:var(--text-primary);line-height:1.55;transition:all 0.15s;}.kc-option:hover{border-color:var(--teal);background:var(--teal-bg);}.kc-option.selected-correct{background:rgba(22,163,74,0.08);border-color:var(--correct);color:var(--text-primary);}.kc-option.selected-wrong{background:rgba(220,38,38,0.07);border-color:var(--wrong);color:var(--text-primary);}.kc-opt-key{font-family:Calibri,sans-serif;font-size:0.78rem;font-weight:700;color:var(--text-muted);flex-shrink:0;width:1.2rem;padding-top:0.1rem;}.kc-feedback{padding:1rem 1.25rem;margin-top:0.5rem;font-size:1rem;line-height:1.7;border-left:3px solid;}.kc-correct{background:rgba(22,163,74,0.07);border-left-color:var(--correct);color:var(--text-primary);}.kc-wrong{background:rgba(220,38,38,0.06);border-left-color:var(--wrong);color:var(--text-primary);}.kc-hint{font-size:0.92rem;color:var(--text-muted);font-style:italic;margin-top:0.5rem;display:none;}.kc-hint.visible{display:block;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem var(--space-7);border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;}.module-footer{padding:3rem var(--space-7);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;background:var(--card-bg);}.next{display:inline-flex;align-items:center;gap:0.75rem;padding:0.85rem 1.75rem;background:var(--teal);color:var(--navy);font-family:'JetBrains Mono',monospace;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;font-weight:700;transition:background 0.15s;}.next:hover{background:var(--teal-dark);color:#FFFFFF;}.reveal{opacity:1;transition:opacity 0.4s ease,transform 0.4s ease;}.reveal.animate{opacity:0;transform:translateY(12px);}.reveal.animate.visible{opacity:1;transform:none;}@media (max-width:860px){.module-content{padding:0 var(--space-5) var(--space-5);}.objectives-strip{padding:1.5rem var(--space-5);}.top-nav{padding:0 var(--space-5);}.module-hero{padding:var(--space-6) var(--space-5) var(--space-5);}.card-grid-3{grid-template-columns:1fr 1fr;}.card-grid-4{grid-template-columns:1fr 1fr;}}@media (max-width:540px){.card-grid-2,.card-grid-3,.card-grid-4{grid-template-columns:1fr;}.stat-strip.cols-3,.stat-strip.cols-4{grid-template-columns:1fr;}.module-title{font-size:1.75rem;}}.objectives-strip{background:#0F1F2E;border-bottom:none;padding:2.5rem 3rem;}.objectives-heading{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:#B2EDE7;margin-bottom:1.5rem;font-weight:700;}.objectives-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0.85rem;max-width:1160px;}.objectives-list li{display:flex;align-items:flex-start;gap:1rem;font-size:1rem;color:#FFFFFF;line-height:1.6;padding:0.75rem 0;border-left:2px solid rgba(0,168,150,0.5);padding-left:1rem;}.objectives-list li:hover{background:#1C3A55;border-left-color:#00A896;}.obj-num{font-family:Calibri,sans-serif;font-size:0.72rem;color:#00A896;font-weight:700;letter-spacing:0.1em;flex-shrink:0;padding-top:0.12rem;}.pause-reflect{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem var(--space-7);}.pause-label{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:0.5rem;display:block;}.pause-intro{font-size:0.97rem;color:var(--text-muted);margin-bottom:1.25rem;font-style:italic;}.pause-questions{background:transparent;border:none;padding:0;display:flex;flex-direction:column;gap:0.75rem;}.pause-q{display:flex;align-items:flex-start;gap:0.85rem;font-size:1rem;color:var(--text-primary);line-height:1.65;padding:0.85rem 1.1rem;background:var(--card-bg);border-left:3px solid var(--teal-dark);border:1px solid var(--border);border-left:3px solid var(--teal-dark);}.pause-q-num{font-family:Calibri,sans-serif;font-size:0.72rem;color:var(--teal-dark);font-weight:700;flex-shrink:0;padding-top:0.2rem;min-width:1.4rem;}.pause-note{font-size:0.92rem;color:var(--text-muted);margin-top:1rem;font-style:italic;}.takeaways{background:#0F1F2E;padding:2.5rem 3rem;margin-top:0;}.takeaways-heading{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:#B2EDE7;font-weight:700;margin-bottom:1.5rem;}.takeaway-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,0.08);width:100%;}.takeaway-item{display:flex;gap:1rem;padding:1.5rem;background:#162840;border-top:2px solid rgba(0,168,150,0.4);transition:background 0.15s;}.takeaway-item:hover{background:#1C3A55;}.takeaway-icon{color:var(--teal);font-size:0.65rem;flex-shrink:0;padding-top:0.4rem;}.takeaway-body strong{display:block;font-family:Georgia,serif;font-size:1.05rem;font-weight:700;color:#FFFFFF;margin-bottom:0.4rem;line-height:1.35;} .takeaway-body p{font-size:0.95rem;color:rgba(255,255,255,0.88);line-height:1.65;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem var(--space-7);border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;flex-wrap:wrap;}.nav-btn{display:inline-flex;flex-direction:column;padding:0.75rem 1.25rem;border:1px solid var(--border);background:var(--page-bg);text-decoration:none;transition:all 0.15s;color:inherit;}.nav-btn:hover{border-color:var(--teal-dark);background:var(--teal-bg);}.nav-btn.next{text-align:right;}.nav-btn-label{font-family:'JetBrains Mono',monospace;font-size:0.69rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);display:block;}.nav-btn-title{font-size:0.97rem;color:var(--text-primary);font-weight:500;display:block;margin-top:0.15rem;}.nav-btn.next .nav-btn-label{color:var(--teal-dark);}.nav-btn.next .nav-btn-title{color:var(--teal-dark);}.kc-reveal{display:none;padding:1rem 1.25rem;margin-top:0.5rem;background:var(--teal-bg);border-left:3px solid var(--teal-dark);font-size:1rem;color:var(--text-primary);line-height:1.72;}.kc-reveal-label{font-family:Calibri,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-dark);display:block;margin-bottom:0.5rem;}.footer-brand{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);}
-</style>
-<style>
-/* ── MISSING COMPONENTS + REDESIGNED SECTIONS ── */
-.objectives-strip{background:#0F1F2E;border-bottom:none;padding:2.5rem 3rem;}.objectives-heading{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:#B2EDE7;margin-bottom:1.5rem;font-weight:700;}.objectives-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0.85rem;max-width:1160px;}.objectives-list li{display:flex;align-items:flex-start;gap:1rem;font-size:1rem;color:#FFFFFF;line-height:1.6;padding:0.75rem 0;border-left:2px solid rgba(0,168,150,0.5);padding-left:1rem;}.objectives-list li:hover{background:#1C3A55;border-left-color:#00A896;}.obj-num{font-family:Calibri,sans-serif;font-size:0.72rem;color:#00A896;font-weight:700;letter-spacing:0.1em;flex-shrink:0;padding-top:0.12rem;}.pause-reflect{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem var(--space-7);}.pause-label{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:0.5rem;display:block;}.pause-intro{font-size:0.97rem;color:var(--text-muted);margin-bottom:1.25rem;font-style:italic;}.pause-questions{background:transparent;border:none;padding:0;display:flex;flex-direction:column;gap:0.75rem;}.pause-q{display:flex;align-items:flex-start;gap:0.85rem;font-size:1rem;color:var(--text-primary);line-height:1.65;padding:0.85rem 1.1rem;background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--teal-dark);}.pause-q-num{font-family:Calibri,sans-serif;font-size:0.72rem;color:var(--teal-dark);font-weight:700;flex-shrink:0;padding-top:0.2rem;min-width:1.4rem;}.pause-note{font-size:0.92rem;color:var(--text-muted);margin-top:1rem;font-style:italic;}.takeaways{background:#0F1F2E;padding:2.5rem 3rem;margin-top:0;}.takeaways-heading{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:#B2EDE7;font-weight:700;margin-bottom:1.5rem;}.takeaway-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,0.08);width:100%;}.takeaway-item{display:flex;gap:1rem;padding:1.5rem;background:#162840;border-top:2px solid rgba(0,168,150,0.4);transition:background 0.15s;}.takeaway-item:hover{background:#1C3A55;}.takeaway-icon{color:var(--teal);font-size:0.65rem;flex-shrink:0;padding-top:0.4rem;}.takeaway-body strong{display:block;font-family:Georgia,serif;font-size:1.05rem;font-weight:700;color:#FFFFFF;margin-bottom:0.4rem;line-height:1.35;} .takeaway-body p{font-size:0.95rem;color:rgba(255,255,255,0.88);line-height:1.65;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem var(--space-7);border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;flex-wrap:wrap;}.nav-btn{display:inline-flex;flex-direction:column;padding:0.75rem 1.25rem;border:1px solid var(--border);background:var(--page-bg);text-decoration:none;transition:all 0.15s;color:inherit;}.nav-btn:hover{border-color:var(--teal-dark);background:var(--teal-bg);}.nav-btn.next{text-align:right;}.nav-btn-label{font-family:'JetBrains Mono',monospace;font-size:0.69rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);display:block;}.nav-btn-title{font-size:0.97rem;color:var(--text-primary);font-weight:500;display:block;margin-top:0.15rem;}.nav-btn.next .nav-btn-label{color:var(--teal-dark);}.nav-btn.next .nav-btn-title{color:var(--teal-dark);}.kc-reveal{display:none;padding:1rem 1.25rem;margin-top:0.5rem;background:var(--teal-bg);border-left:3px solid var(--teal-dark);font-size:1rem;color:var(--text-primary);line-height:1.72;}.kc-reveal-label{font-family:Calibri,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-dark);display:block;margin-bottom:0.5rem;}.footer-brand{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);}
-</style>
-<style>
-/* ── MODULE 8 SPECIFIC ── */
-/* ── SHARED COMPONENT RULES (inline supplement) ── */
-.objectives-strip{background:var(--navy-mid);border-bottom:1px solid var(--navy-border);padding:2rem var(--space-7)}
-.objectives-heading{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal-muted);margin-bottom:1rem}
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 
-.obj-num{font-family:Calibri,sans-serif;font-size:0.72rem;color:var(--teal);letter-spacing:0.1em;flex-shrink:0}
-.pause-questions{background:var(--navy-mid);border-top:1px solid var(--navy-border);border-bottom:1px solid var(--navy-border);padding:2rem var(--space-7)}
-.pause-q{font-size:0.97rem;color:var(--slate);line-height:1.7;margin-bottom:0.5rem;padding-left:1.25rem;border-left:2px solid rgba(255,255,255,0.08)}
-.kc-hint{font-size:0.85rem;color:var(--slate);font-style:italic;margin-top:0.5rem;display:none}
-.kc-hint.visible{display:block}
-.next{display:inline-flex;align-items:center;gap:0.75rem;padding:0.85rem 1.75rem;background:rgba(0,168,150,0.1);border:1px solid rgba(0,168,150,0.25);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:0.82rem;letter-spacing:0.08em;text-decoration:none;transition:background 0.15s}
-.next:hover{background:rgba(0,168,150,0.18)}
-.module-footer{padding:3rem var(--space-7);border-top:1px solid var(--navy-border);display:flex;justify-content:space-between;align-items:center}
-</style>
-
 <style>
-/* ── UNIVERSAL MISSING COMPONENTS ── */
-.card-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:0.5rem;display:block;}.card h4{font-family:Georgia,serif;font-size:1.05rem;font-weight:400;color:var(--text-primary);margin-bottom:0.5rem;line-height:1.35;}.card p{font-size:0.97rem;color:var(--text-secondary);line-height:1.65;}.card-accent-p{border-top:3px solid var(--teal);}.card-accent-o{border-top:3px solid var(--orange-light);}.card-accent-t{border-top:3px solid var(--orange);}.card-grid-auto{display:grid;gap:1px;background:var(--border);grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));}.viz-body{padding:1.25rem 1.5rem 1rem;}.ci-bar{height:100%;background:var(--teal);transition:width 0.8s ease;border-radius:2px;}.ci-bar-fill{height:100%;border-radius:2px;transition:width 0.8s ease;}.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:1px;background:var(--border);margin:2rem 0;}.stat-block{background:var(--card-bg);padding:1.75rem 1.5rem;border-top:3px solid var(--teal);}.reg-tab{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.6rem 1.1rem;cursor:pointer;border:1px solid var(--border);background:var(--card-bg);color:var(--text-muted);font-weight:600;transition:all 0.15s;}.reg-tab:hover{border-color:var(--teal-dark);color:var(--teal-dark);}.active-reg{background:var(--teal) !important;border-color:var(--teal) !important;color:var(--navy) !important;font-weight:700;}.process-steps{display:flex;flex-direction:column;gap:0;margin:1.5rem 0;}.process-step{display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem 1.5rem;background:var(--card-bg);border:1px solid var(--border);border-top:none;position:relative;}.process-step:first-child{border-top:1px solid var(--border);border-top-left-radius:3px;border-top-right-radius:3px;}.process-step:last-child{border-bottom-left-radius:3px;border-bottom-right-radius:3px;}.step-icon{font-family:Calibri,sans-serif;font-size:0.75rem;font-weight:700;width:2rem;height:2rem;flex-shrink:0;background:var(--teal);color:var(--navy);display:flex;align-items:center;justify-content:center;border-radius:2px;margin-top:0.1rem;}.step-body{flex:1;}.step-body strong{display:block;font-family:Georgia,serif;font-size:1rem;font-weight:400;color:var(--text-primary);margin-bottom:0.35rem;}.step-body p{font-size:0.97rem;color:var(--text-secondary);line-height:1.65;margin:0;}.kc-header{display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;}.kc-icon{width:20px;height:20px;color:var(--teal-dark);flex-shrink:0;}.kc-question{font-family:Georgia,serif;font-size:1.15rem;color:var(--text-primary);line-height:1.6;margin-bottom:1.5rem;}.not-arrow{font-family:Calibri,sans-serif;font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;}.waste-bar{height:8px;background:var(--teal);border-radius:2px;transition:width 0.6s ease;}.fail-arrow{color:var(--orange);font-size:1.25rem;text-align:center;padding:0.25rem 0;}.itad-row{display:flex;gap:1rem;padding:0.85rem 1rem;border-bottom:1px solid var(--border-light);font-size:0.97rem;color:var(--text-primary);line-height:1.6;align-items:flex-start;}.itad-row:last-child{border-bottom:none;}.bc-evidence-col{flex:1;padding:1rem 1.25rem;border-right:1px solid var(--border);}.bc-evidence-col:last-child{border-right:none;}.courage-card{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);padding:1.5rem;}
+:root{--page-bg:#F7F8FA;--card-bg:#FFFFFF;--section-alt:#E8EDF2;--text-primary:#1E293B;--text-secondary:#4A5568;--text-muted:#64748B;--navy:#0F1F2E;--navy-mid:#162840;--navy-card:#1E293B;--navy-light:#1C3A55;--teal:#00A896;--teal-dark:#007A6E;--teal-muted:#B2EDE7;--teal-bg:rgba(0,168,150,0.07);--teal-border:rgba(0,168,150,0.25);--orange:#E76F51;--orange-light:#F4A261;--orange-bg:#FFF3E8;--orange-border:rgba(231,111,81,0.25);--border:#D1D9E0;--border-light:#E8EDF2;--track1:#00A896;--track2:#F4A261;--track3:#E76F51;--correct:#16a34a;--wrong:#dc2626;--white:#FFFFFF;--slate:#4A5568;--slate-mid:#64748B;--slate-dim:#94A3B8;--teal-light:#B2EDE7;--teal-glow:rgba(0,168,150,0.15);--teal-subtle:rgba(0,168,150,0.07);--grey-100:#F7F8FA;--grey-300:#D1D9E0;--grey-500:#4A5568;--navy-raised:#1C3A55;--navy-border:rgba(255,255,255,0.07);--navy-mid-alt:#162840;}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;font-size:16px;}img,svg{display:block;max-width:100%;}body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Trebuchet MS",system-ui,-apple-system,sans-serif;font-weight:400;font-size:1rem;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}.top-nav{position:sticky;top:0;z-index:100;background:#0F1F2E;border-bottom:1px solid rgba(0,168,150,0.2);padding:0 3rem;height:52px;display:flex;align-items:center;gap:1rem;}.top-nav::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00A896 0%,#F4A261 60%,#E76F51 100%);}.nav-home{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .15s;flex-shrink:0;}.nav-home:hover{color:#fff;}.nav-sep{color:rgba(255,255,255,0.25);}.nav-module{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;font-weight:500;}.nav-track-pill{font-family:"JetBrains Mono",monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .65rem;border-radius:2px;}.track1-pill{background:rgba(0,168,150,.2);color:#B2EDE7;}.track2-pill{background:rgba(244,162,97,.2);color:#F4D0B0;}.track3-pill{background:rgba(231,111,81,.2);color:#F4C4B9;}.nav-progress{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:.72rem;color:rgba(255,255,255,0.5);}.module-hero{position:relative;overflow:hidden;padding:4rem 3rem 3rem;background:#0F1F2E;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;}.module-hero::after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 70% 50%,rgba(0,168,150,.08) 0%,transparent 65%);pointer-events:none;}.hero-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(5rem,12vw,10rem);color:rgba(255,255,255,.06);line-height:1;position:absolute;right:3rem;bottom:0;font-weight:400;user-select:none;}.module-eyebrow{font-family:"JetBrains Mono",monospace;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:#B2EDE7;margin-bottom:.75rem;}.module-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.12;letter-spacing:-.02em;font-weight:700;color:#fff;margin-bottom:1.25rem;}.module-subtitle{font-size:1.1rem;color:rgba(255,255,255,.72);line-height:1.65;max-width:620px;margin-bottom:2rem;}.module-meta{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}.meta-item{display:flex;flex-direction:column;gap:.15rem;}.meta-item .label{font-family:"JetBrains Mono",monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);}.meta-item .value{font-size:.92rem;color:rgba(255,255,255,.85);font-weight:500;}.complete-btn{font-family:"JetBrains Mono",monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:.65rem 1.4rem;background:#00A896;border:2px solid #00A896;color:#FFFFFF;cursor:pointer;transition:all .15s;font-weight:700;}.complete-btn:hover{background:var(--teal-dark);border-color:var(--teal-dark);}.complete-btn.done{background:transparent;border:2px solid rgba(255,255,255,.4);color:rgba(255,255,255,.7);cursor:default;}.objectives-strip{background:#0F1F2E;padding:2.5rem 3rem;}.objectives-heading{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#B2EDE7;margin-bottom:1.5rem;font-weight:700;}.objectives-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:.85rem;max-width:1160px;}.objectives-list li{display:flex;align-items:flex-start;gap:1rem;font-size:1rem;color:rgba(255,255,255,.88);line-height:1.55;padding:.85rem 1rem;background:#162840;border-left:2px solid rgba(0,168,150,.5);}.obj-num{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:#00A896;font-weight:700;letter-spacing:.1em;flex-shrink:0;padding-top:.12rem;}.module-content{max-width:1200px;margin:0 auto;padding:0 3rem 2rem;}.content-section{padding:3rem 0;border-bottom:1px solid var(--border-light);}.content-section:last-child{border-bottom:none;}.section-label{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:.65rem;display:block;font-weight:700;}.section-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.15;letter-spacing:-.02em;font-weight:700;color:var(--text-primary);margin-bottom:1.25rem;}.section-intro{font-size:1.12rem;color:var(--text-secondary);line-height:1.75;max-width:780px;margin-bottom:2rem;}.card-grid{display:grid;gap:1px;background:var(--border);}.card-grid-2{grid-template-columns:1fr 1fr;}.card-grid-3{grid-template-columns:repeat(3,1fr);}.card-grid-4{grid-template-columns:repeat(4,1fr);}.card-grid-auto{display:grid;gap:1px;background:var(--border);grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));}.card{background:var(--card-bg);padding:1.75rem;position:relative;}.card-title{font-family:Georgia,"Times New Roman",serif;font-size:1.1rem;font-weight:400;color:var(--text-primary);margin-bottom:.65rem;}.card-body{font-size:.97rem;color:var(--text-secondary);line-height:1.7;}.card-label{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:.5rem;display:block;}.card h4{font-weight:600;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;color:var(--text-primary);margin-bottom:.5rem;line-height:1.35;}.card p{font-size:.97rem;color:var(--text-secondary);line-height:1.65;}.card-accent-p{border-top:3px solid var(--teal);}.card-accent-o{border-top:3px solid var(--orange-light);}.card-accent-t{border-top:3px solid var(--orange);}.stat-strip{display:grid;gap:1px;background:var(--border);margin:2.25rem 0;border-radius:3px;overflow:hidden;}.stat-strip.cols-3{grid-template-columns:repeat(3,1fr);}.stat-strip.cols-4{grid-template-columns:repeat(4,1fr);}.stat-cell{background:var(--card-bg);padding:2rem 1.5rem;text-align:center;border-top:3px solid var(--cell-accent,var(--teal));}.stat-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.4rem,4.5vw,3.5rem);color:var(--cell-accent,var(--teal-dark));line-height:1;margin-bottom:.5rem;display:block;}.stat-label{font-family:"JetBrains Mono",monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);line-height:1.5;display:block;}.viz-container{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);margin:2rem 0;box-shadow:0 2px 8px rgba(0,0,0,.07);}.viz-header{padding:1rem 1.5rem;border-bottom:2px solid var(--border-light);display:flex;align-items:center;gap:.75rem;background:var(--section-alt);}.viz-header-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;}.viz-title{font-family:"JetBrains Mono",monospace;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;}.viz-body{padding:1.25rem 1.5rem 1rem;}.callout{padding:1.35rem 1.75rem;margin:1.75rem 0;border-left:4px solid var(--teal);background:var(--teal-bg);}.callout-warning{border-left-color:var(--orange);background:var(--orange-bg);}.callout-key{border-left-color:var(--teal-dark);background:var(--teal-bg);}.callout-title{font-family:"JetBrains Mono",monospace;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:#007A6E;font-weight:700;display:block;margin-bottom:.6rem;}.callout-warning .callout-title{color:#B54D12;}.callout p{font-size:1rem;color:var(--text-primary);line-height:1.72;}.pause-reflect{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 3rem;}.pause-label{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:.5rem;display:block;}.pause-intro{font-size:.97rem;color:var(--text-muted);margin-bottom:1.25rem;font-style:italic;}.pause-q{display:flex;align-items:flex-start;gap:.85rem;font-size:1rem;color:var(--text-primary);line-height:1.65;padding:.85rem 1.1rem;background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--teal-dark);margin-bottom:.5rem;}.pause-q-num{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--teal-dark);font-weight:700;flex-shrink:0;padding-top:.2rem;min-width:1.4rem;}.kc-block{background:var(--card-bg);border:1px solid var(--border);padding:2.25rem;margin:.5rem 0;}.kc-label{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:1rem;}.kc-q{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:1.15rem;color:var(--text-primary);line-height:1.6;margin-bottom:1.5rem;}.kc-options{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem;}.kc-option{display:flex;align-items:flex-start;gap:.85rem;padding:.9rem 1.1rem;background:var(--page-bg);border:1px solid var(--border);cursor:pointer;text-align:left;width:100%;font-family:Calibri,"Trebuchet MS",system-ui,sans-serif;font-size:1rem;color:var(--text-primary);line-height:1.55;transition:all .15s;}.kc-option:hover{border-color:var(--teal);background:var(--teal-bg);}.kc-option.selected-correct{background:rgba(22,163,74,.08);border-color:var(--correct);}.kc-option.selected-wrong{background:rgba(220,38,38,.07);border-color:var(--wrong);}.kc-opt-key{font-family:"JetBrains Mono",monospace;font-size:.78rem;font-weight:700;color:var(--text-muted);flex-shrink:0;width:1.2rem;padding-top:.1rem;}.kc-feedback{padding:1rem 1.25rem;margin-top:.5rem;font-size:1rem;line-height:1.7;border-left:3px solid;display:none;}.kc-correct{background:rgba(22,163,74,.07);border-left-color:var(--correct);color:var(--text-primary);}.kc-wrong{background:rgba(220,38,38,.06);border-left-color:var(--wrong);color:var(--text-primary);}.kc-reveal{display:none;padding:1rem 1.25rem;margin-top:.5rem;background:var(--teal-bg);border-left:3px solid var(--teal-dark);font-size:1rem;color:var(--text-primary);line-height:1.72;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;flex-wrap:wrap;}.nav-btn{display:inline-flex;flex-direction:column;padding:.75rem 1.25rem;border:1px solid var(--border);background:var(--page-bg);text-decoration:none;transition:all .15s;color:inherit;}.nav-btn:hover{border-color:var(--teal-dark);background:var(--teal-bg);}.nav-btn.next{text-align:right;}.nav-btn-label{font-family:"JetBrains Mono",monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);display:block;}.nav-btn-title{font-size:.97rem;color:var(--text-primary);font-weight:500;display:block;margin-top:.15rem;}.nav-btn.next .nav-btn-label,.nav-btn.next .nav-btn-title{color:var(--teal-dark);}.takeaways{background:#0F1F2E;padding:2.5rem 3rem;}.takeaways-heading{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#B2EDE7;font-weight:700;margin-bottom:1.5rem;}.takeaway-list{display:grid;gap:1px;background:rgba(255,255,255,.08);width:100%;}.takeaway-item{display:flex;gap:1rem;padding:1.5rem;background:#162840;border-top:2px solid rgba(0,168,150,.4);transition:background .15s;}.takeaway-item:hover{background:#1C3A55;}.takeaway-icon{color:#00A896;font-size:.65rem;flex-shrink:0;padding-top:.4rem;}.takeaway-body strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;font-weight:700;color:#FFFFFF;margin-bottom:.4rem;line-height:1.35;}.takeaway-body p{font-size:.95rem;color:rgba(255,255,255,.75);line-height:1.65;}.reveal{opacity:1;transition:opacity .4s ease,transform .4s ease;}.reveal.animate{opacity:0;transform:translateY(12px);}.reveal.animate.visible{opacity:1;transform:none;}.tri-detail{padding:1.5rem;background:var(--card-bg);border:1px solid var(--border);}.tri-detail-name{font-weight:700;font-size:1.1rem;color:var(--teal-dark);margin-bottom:.75rem;}.tradeoff-container{display:grid;grid-template-columns:1fr 1.2fr;gap:2rem;align-items:start;}.triangle-wrap{display:flex;align-items:center;justify-content:center;}.triangle-svg{width:100%;max-width:320px;height:auto;}.example{font-style:italic;color:var(--text-secondary);font-size:.97rem;border-left:3px solid var(--border);padding-left:1rem;margin-top:.75rem;}.reg-tab{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:.6rem 1.1rem;cursor:pointer;border:1px solid var(--border);background:var(--card-bg);color:var(--text-muted);font-weight:600;transition:all .15s;}.reg-tab:hover{border-color:var(--teal-dark);color:var(--teal-dark);}.active-reg{background:var(--teal)!important;border-color:var(--teal)!important;color:#0F1F2E!important;font-weight:700!important;}.courage-card{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);padding:1.5rem;}.footer-brand{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);}.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:1px;background:var(--border);margin:2rem 0;}.stat-block{background:var(--card-bg);padding:1.75rem 1.5rem;border-top:3px solid var(--teal);}@media(max-width:860px){.module-content,.objectives-strip,.top-nav,.pause-reflect,.module-nav,.takeaways{padding-left:1.5rem;padding-right:1.5rem;}.module-hero{padding:2.5rem 1.5rem 2rem;}.card-grid-3{grid-template-columns:1fr 1fr;}.card-grid-4{grid-template-columns:1fr 1fr;}.takeaway-list{grid-template-columns:1fr!important;}}@media(max-width:540px){.card-grid-2,.card-grid-3,.card-grid-4{grid-template-columns:1fr;}.stat-strip.cols-3,.stat-strip.cols-4{grid-template-columns:1fr;}.module-title{font-size:1.75rem;}.tradeoff-container{grid-template-columns:1fr;}}
 </style>
 </head>
 <body class="track2">
@@ -57,55 +31,28 @@
   <li><span class="obj-num">05</span>Understand social sustainability through ITAD — why responsible disposal is a governance matter</li>
 </ul></div>
 <div class="module-content">
-<!-- ══ M8 S1: Role-based accountability ═══════════════════════ -->
-<div class="content-section reveal">
-  <p class="section-label">Section 1</p>
-  <h2 class="section-title">Role-based accountability.</h2>
-  <p class="section-intro">Governance means role-based accountability, decision forums that matter, measurable KPIs, and evidence that progress is real. Without all four, sustainability becomes a communications function — and the gap between reported and actual position widens every year.</p>
-
-  <div class="viz-container reveal" id="rolesViz">
-    <div class="viz-header">
-      <div class="viz-header-dot"></div>
-      <span class="viz-title">Who owns what — and the test that reveals whether governance is real. Click any role.</span>
-    </div>
-    <div style="padding:1.75rem;">
-      <div id="rolesGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border-light);margin-bottom:1.25rem;"></div>
-      <div id="rolesDetail" style="background:var(--section-alt);border-left:3px solid #94A3B8;padding:1.25rem 1.5rem;min-height:80px;transition:border-color 0.2s;">
-        <p style="font-size:0.95rem;color:var(--text-secondary);font-style:italic;">Select a role to see what they own, what metrics they are accountable for, and the governance test.</p>
-      </div>
-    </div>
-  </div>
+<div class="content-section reveal"><p class="section-label">Section 1</p>
+<h2 class="section-title">Role-based accountability.</h2>
+<p class="section-intro">Governance means role-based accountability, decision forums that matter, measurable KPIs, and evidence that progress is real. Without all four, sustainability becomes a communications function.</p>
+<div class="callout callout-warning reveal"><p class="callout-title">The accountability test</p><p>If a CIO or CTO cannot speak to the carbon intensity of top services, supplier evidence coverage, and waste removal progress without consulting a sustainability manager — the governance is not yet embedded. Technology leadership owns outcomes, not just targets.</p></div>
+<table class="compare-table reveal">
+<tr><th>Role</th><th>Owns</th><th>Accountable for</th></tr>
+<tr><td>Technology leadership (CIO/CTO)</td><td>Programme outcomes</td><td>Carbon intensity of top services; supplier evidence coverage; waste removal progress</td></tr>
+<tr><td>Business unit leaders</td><td>Demand footprint</td><td>Growth that drives IT consumption; data volume; device estate</td></tr>
+<tr><td>Application owners</td><td>Service intensity</td><td>Carbon per transaction; data retention; AI governance for the service</td></tr>
+<tr><td>Cloud / platform leads</td><td>Infrastructure efficiency</td><td>Idle percentage; rightsizing; region carbon intensity; tagging coverage</td></tr>
+<tr><td>Data centre / facilities leads</td><td>Facility metrics</td><td>PUE, WUE, CUE at site level; renewable sourcing evidence; utilisation</td></tr>
+<tr><td>Procurement</td><td>Supply chain evidence</td><td>Vendor evidence register; assurance tiers; circular economy criteria</td></tr>
+</table>
 </div>
-
-<!-- ══ M8 S2: Greenwashing / greenhushing spectrum ═══════════ -->
-
-  <div class="callout callout-key reveal">
-    <span class="callout-title">The governance test</span>
-    <p>If a technology leader cannot speak to the carbon intensity of the top ten services without consulting a sustainability manager, the governance is insufficiently embedded. The test is not whether a report has been published — it is whether named individuals can be held accountable for specific metrics in an operational forum.</p>
-  </div>
-<div class="content-section reveal">
-  <p class="section-label">Section 2</p>
-  <h2 class="section-title">Greenwashing and greenhushing — both are risks.</h2>
-  <p class="section-intro">Most discussions focus on greenwashing. Greenhushing — staying silent about real sustainability progress out of fear of scrutiny — is an equally significant risk. Neither produces the operational transparency GreenOps requires.</p>
-
-  <div class="viz-container reveal" id="washingViz">
-    <div class="viz-header">
-      <div class="viz-header-dot" style="background:#E76F51"></div>
-      <span class="viz-title">The greenwashing–greenhushing spectrum — click any position to see what it looks like in IT sustainability</span>
-    </div>
-    <div style="padding:1.75rem 1.75rem 1rem;">
-      <svg id="spectrumSvg" viewBox="0 0 820 80" style="width:100%;height:auto;display:block;margin-bottom:1.25rem;"></svg>
-      <div id="spectrumDetail" style="background:var(--section-alt);border-left:3px solid #94A3B8;padding:1.1rem 1.5rem;min-height:70px;transition:border-color 0.2s;">
-        <p style="font-size:0.95rem;color:var(--text-secondary);font-style:italic;">Click any position on the spectrum to see what it looks like in practice.</p>
-      </div>
-    </div>
-    <div style="padding:0.85rem 1.75rem;border-top:1px solid var(--border-light);">
-      <p style="font-size:0.82rem;color:var(--text-secondary);">The GreenOps response to greenwashing: make claims specific, measurable, and attributable. The response to greenhushing: communicate progress with evidence, caveats, and confidence levels rather than silence. Investors, auditors, and regulators increasingly see unexplained silence as a risk signal.</p>
-    </div>
-  </div>
+<div class="content-section reveal"><p class="section-label">Section 2</p>
+<h2 class="section-title">Greenwashing and greenhushing — both are risks.</h2>
+<p class="section-intro">Most discussions about sustainability credibility focus on greenwashing. Greenhushing — the deliberate suppression of sustainability performance data — is the less visible but equally problematic failure mode.</p>
+<div class="card-grid card-grid-2 reveal">
+<div class="card card-accent-o"><div class="card-label">Greenwashing</div><h4>Overclaiming sustainability performance</h4><p>Unsupported or misleading claims about environmental performance. Claims that cannot survive scrutiny — whether in annual reports, marketing materials, or regulatory disclosures. Legal exposure is increasing in multiple jurisdictions.</p><p style="margin-top:0.5rem; font-size:0.78rem; color:var(--orange);">GreenOps response: precision. Explicit confidence levels, clear distinction between activity-based and spend-based data, honest methodology documentation.</p></div>
+<div class="card card-accent-t"><div class="card-label">Greenhushing</div><h4>Suppressing legitimate sustainability data</h4><p>Deliberately choosing not to disclose sustainability performance — often from fear of scrutiny, or because the numbers are worse than the narrative. Under CSRD and mandatory disclosure frameworks, silence is not a safe position.</p><p style="margin-top:0.5rem; font-size:0.78rem; color:var(--teal);">GreenOps response: the same precision. Report what you know with stated confidence levels. Acknowledge gaps with a plan to address them. Honest incompleteness is defensible. Concealment is not.</p></div>
 </div>
-
-<!-- ══ M8 S3: Maturity radar (preserved) ═════════════════════ -->
+</div>
 <div class="content-section reveal"><p class="section-label">Section 3</p>
 <h2 class="section-title">Maturity is multi-dimensional — assess all five.</h2>
 <p class="section-intro">A maturity model is most useful when it is multi-dimensional. You can have excellent measurement and weak governance. Strong procurement criteria and almost no operational practice. Mapping all dimensions prevents the illusion of overall maturity from a single strong area.</p>
@@ -114,28 +61,28 @@
   <div class="viz-container reveal" id="maturityRadar" style="padding:0;margin-bottom:2rem;">
     <div style="padding:1.5rem 1.5rem 0.75rem;">
       <p class="viz-title">Multi-dimensional maturity self-assessment — click levels to score your organisation, then compare your profile to the typical pattern</p>
-      <p style="font-size:0.92rem;color:var(--text-secondary);margin-top:0.4rem;">Most organisations find measurement is furthest ahead, governance and operations lag behind it, and supplier management trails both.</p>
+      <p style="font-size:0.8rem;color:#64748B;margin-top:0.4rem;">Most organisations find measurement is furthest ahead, governance and operations lag behind it, and supplier management trails both.</p>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1.1fr;gap:0;align-items:start;">
-      <div style="padding:0.75rem 1.5rem 1.5rem;border-right:1px solid var(--border-light);">
+      <div style="padding:0.75rem 1.5rem 1.5rem;border-right:1px solid rgba(255,255,255,0.06);">
         <div id="dimControls8"></div>
-        <div style="margin-top:1rem;padding-top:0.85rem;border-top:1px solid var(--border-light);">
+        <div style="margin-top:1rem;padding-top:0.85rem;border-top:1px solid rgba(255,255,255,0.06);">
           <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.4rem;">
-            <span style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);letter-spacing:0.1em;text-transform:uppercase;">Average level</span>
-            <span id="overallLevel8" style="font-family:Georgia,serif;font-size:1.3rem;color:#007A6E;">—</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#64748B;letter-spacing:0.1em;text-transform:uppercase;">Average level</span>
+            <span id="overallLevel8" style="font-family:'DM Serif Display',serif;font-size:1.3rem;color:#007A6E;">—</span>
           </div>
-          <div id="levelDesc8" style="font-size:0.92rem;color:var(--text-secondary);line-height:1.6;min-height:44px;"></div>
+          <div id="levelDesc8" style="font-size:0.79rem;color:var(--text-secondary);line-height:1.6;min-height:44px;"></div>
         </div>
       </div>
       <div style="padding:1.5rem;display:flex;flex-direction:column;align-items:center;">
         <canvas id="radarCanvas8" width="280" height="265"></canvas>
         <div style="display:flex;gap:1.1rem;margin-top:0.6rem;flex-wrap:wrap;justify-content:center;">
-          <div style="display:flex;align-items:center;gap:0.4rem;"><div style="width:14px;height:2px;background:#00A896;"></div><span style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);">Your organisation</span></div>
-          <div style="display:flex;align-items:center;gap:0.4rem;"><div style="width:14px;height:0;border-top:2px dashed #F4A261;opacity:0.7;"></div><span style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);">Typical</span></div>
+          <div style="display:flex;align-items:center;gap:0.4rem;"><div style="width:14px;height:2px;background:#00A896;"></div><span style="font-family:'JetBrains Mono',monospace;font-size:0.57rem;color:#64748B;">Your organisation</span></div>
+          <div style="display:flex;align-items:center;gap:0.4rem;"><div style="width:14px;height:0;border-top:2px dashed #F4A261;opacity:0.7;"></div><span style="font-family:'JetBrains Mono',monospace;font-size:0.57rem;color:#64748B;">Typical</span></div>
         </div>
       </div>
     </div>
-    <div id="dimDetail8" style="display:none;margin:0;padding:0.85rem 1.5rem;background:var(--section-alt);border-top:1px solid var(--border-light);"></div>
+    <div id="dimDetail8" style="display:none;margin:0;padding:0.85rem 1.5rem;background:rgba(0,0,0,0.15);border-top:1px solid rgba(255,255,255,0.06);"></div>
   </div>
   <script>
   (function(){
@@ -185,11 +132,11 @@
       const row=document.createElement('div');
       row.style.cssText='margin-bottom:0.85rem;';
       row.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem;">
-        <span style="font-size:0.92rem;font-weight:400;color:var(--text-primary);">${dim.label}</span>
-        <span id="sc-${dim.id}" style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);">—</span>
+        <span style="font-size:0.8rem;font-weight:400;color:var(--text-primary);">${dim.label}</span>
+        <span id="sc-${dim.id}" style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:#64748B;">—</span>
       </div>
       <div style="display:flex;gap:3px;" id="bt-${dim.id}">
-        ${[1,2,3,4,5].map(l=>`<button data-dim="${dim.id}" data-level="${l}" style="flex:1;height:22px;background:var(--border-light);border:1px solid var(--border);cursor:pointer;font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);transition:all 0.12s;" title="${levelNames[l]}">${l}</button>`).join('')}
+        ${[1,2,3,4,5].map(l=>`<button data-dim="${dim.id}" data-level="${l}" style="flex:1;height:22px;background:var(--border-light);border:1px solid var(--border);cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B;transition:all 0.12s;" title="${levelNames[l]}">${l}</button>`).join('')}
       </div>`;
       ctrl.appendChild(row);
     });
@@ -203,7 +150,7 @@
       document.querySelectorAll(`[data-dim="${dimId}"]`).forEach(b=>{
         const l=parseInt(b.dataset.level);
         if(l<=level){b.style.background='#00A896';b.style.color='#0F1F2E';b.style.borderColor='#00A896';}
-        else{b.style.background='var(--border-light)';b.style.color='#64748B';b.style.borderColor='var(--border)';}
+        else{b.style.background='rgba(255,255,255,0.05)';b.style.color='#64748B';b.style.borderColor='rgba(255,255,255,0.08)';}
       });
       document.getElementById(`sc-${dimId}`).textContent=`L${level}`;
       document.getElementById(`sc-${dimId}`).style.color='#00A896';
@@ -211,8 +158,8 @@
       const dim=dims.find(d=>d.id===dimId);
       const dd=document.getElementById('dimDetail8');
       dd.style.display='block';
-      dd.innerHTML=`<span style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#00A896;text-transform:uppercase;letter-spacing:0.1em;">${dim.label.replace(/&amp;/g,'&')} — L${level}: ${levelNames[level]}</span>
-        <p style="font-size:0.92rem;color:var(--text-secondary);margin-top:0.3rem;line-height:1.6;">${dim.levels[level-1]}</p>`;
+      dd.innerHTML=`<span style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#007A6E;text-transform:uppercase;letter-spacing:0.1em;">${dim.label.replace(/&amp;/g,'&')} — L${level}: ${levelNames[level]}</span>
+        <p style="font-size:0.81rem;color:var(--text-secondary);margin-top:0.3rem;line-height:1.6;">${dim.levels[level-1]}</p>`;
       
       const vals=Object.values(scores).filter(v=>v!==null);
       if(vals.length>0){
@@ -236,10 +183,10 @@
         ctx.beginPath();
         angles.forEach((a,i)=>{const x=cx+r*Math.cos(a),y=cy+r*Math.sin(a);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
         ctx.closePath();
-        ctx.strokeStyle=lv===3?'rgba(30,41,59,0.12)':'rgba(30,41,59,0.06)';
+        ctx.strokeStyle=lv===3?'rgba(255,255,255,0.1)':'rgba(255,255,255,0.05)';
         ctx.lineWidth=lv===3?1.5:1;
         ctx.stroke();
-        ctx.fillStyle='rgba(30,41,59,0.08)';
+        ctx.fillStyle='rgba(255,255,255,0.18)';
         ctx.font='8px monospace';
         ctx.textAlign='center';
         ctx.fillText(lv,cx+(r+2)*Math.cos(angles[0])+3,cy+(r+2)*Math.sin(angles[0])+3);
@@ -247,7 +194,7 @@
       // Spokes + labels
       angles.forEach((a,i)=>{
         ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+maxR*Math.cos(a),cy+maxR*Math.sin(a));
-        ctx.strokeStyle='rgba(30,41,59,0.08)';ctx.lineWidth=1;ctx.stroke();
+        ctx.strokeStyle='rgba(255,255,255,0.07)';ctx.lineWidth=1;ctx.stroke();
         const lr=maxR+20,lx=cx+lr*Math.cos(a),ly=cy+lr*Math.sin(a);
         ctx.fillStyle='#94A3B8';ctx.font='9px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
         const raw=dims[i].label.replace(/&amp;/g,'&');
@@ -292,41 +239,15 @@
 <div class="card"><div class="card-label">Dimension 5</div><h4>Strategy &amp; Innovation</h4><p>Roadmap maturity, connection to corporate goals, horizon planning, and whether the programme is driving improvement or managing a baseline.</p></div>
 </div>
 </div>
-
-<!-- ══ M8 S4: Three governance artefacts ══════════════════════ -->
-
-  <div class="callout callout-insight reveal">
-    <span class="callout-title">Why multi-dimensional assessment matters</span>
-    <p>Assessing maturity across five dimensions prevents the illusion of overall maturity from a single strong area. An organisation with excellent measurement but no governance has a metric with no lever. An organisation with strong supplier engagement but no internal data has a story with no foundation. Both dimensions must improve together.</p>
-  </div>
-<div class="content-section reveal">
-  <p class="section-label">Section 4</p>
-  <h2 class="section-title">Three artefacts that make governance real.</h2>
-  <p class="section-intro">Strategy documents and maturity assessments create a record. These three artefacts create accountability — they force ownership, make progress visible, and produce something that can be held to account in an operational forum.</p>
-
-  <div class="viz-container reveal" id="artefactsViz">
-    <div class="viz-header">
-      <div class="viz-header-dot" style="background:#B2EDE7"></div>
-      <span class="viz-title">Three governance artefacts — click any to see what it contains and how it is used</span>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border-light);" id="artefactCells"></div>
-    <div id="artefactDetail" style="display:none;padding:1.25rem 1.75rem;border-top:1px solid var(--border-light);background:var(--page-bg);">
-      <div id="artefactDetailText" style="font-size:0.92rem;color:var(--text-secondary);line-height:1.7;"></div>
-    </div>
-    <div style="padding:0.85rem 1.75rem;border-top:1px solid var(--border-light);">
-      <p style="font-size:0.82rem;color:var(--text-secondary);">Waste removal is almost always financially positive as well as environmentally positive. The backlog connects the sustainability programme to cost governance — which gives it operational credibility that a sustainability strategy document alone cannot.</p>
-    </div>
-  </div>
+<div class="content-section reveal"><p class="section-label">Section 4</p>
+<h2 class="section-title">Three governance artefacts that convert awareness into accountability.</h2>
+<p class="section-intro">Without governance artefacts, sustainability programmes produce reports rather than action. Three specific artefacts are most effective at converting awareness into operational accountability.</p>
+<div class="card-grid card-grid-3 reveal">
+<div class="card card-accent-t"><div class="card-label">Artefact 1</div><h4>Top-Ten Service Register</h4><p>The ten services with the highest carbon footprint, with named owner, current intensity metric, trend direction, and next review date. Reviewed at the same cadence as cost and performance. Creates named accountability where diffuse responsibility existed before.</p></div>
+<div class="card card-accent-o"><div class="card-label">Artefact 2</div><h4>Vendor Evidence Register</h4><p>Every material supplier, with evidence type held, assurance tier, date, and gap status. Makes the programme's Scope 3 coverage visible and auditable. Drives vendor engagement cadence and creates a clear upgrade path from self-declared to assured data.</p></div>
+<div class="card card-accent-p"><div class="card-label">Artefact 3</div><h4>Waste Removal Backlog</h4><p>Identified waste items, estimated financial and carbon value, named owner, and current status. Managed as a live backlog — not a one-time report. Treated with the same seriousness as technical debt. Connects sustainability to operational delivery rather than strategy documents.</p></div>
 </div>
-
-
-
-  <div class="callout callout-insight reveal">
-    <span class="callout-title">Waste removal is almost always financially positive</span>
-    <p>The waste removal backlog connects the sustainability programme to cost governance — which gives it the operational credibility that a sustainability strategy document alone cannot provide. When sustainability and cost savings point in the same direction, resistance weakens and progress accelerates.</p>
-  </div>
-</div><!-- /module-content -->
-
+</div>
 <div class="kc-block reveal" data-correct="B"><p class="kc-label">Knowledge Check · Module 8 · Q1</p>
 <p class="kc-q">An organisation uses a maturity model to assess its sustainable IT programme. It scores highly on measurement and data quality, but has not assessed governance, operational practices, supplier management, or innovation. What is the risk of this approach?</p>
 <div class="kc-options">
@@ -359,471 +280,69 @@
   <div class="pause-q"><span class="pause-q-num">1</span>For each of the six roles — technology leadership, business unit leaders, application owners, cloud/platform leads, DC/facilities leads, and procurement — does your organisation currently have a named individual who owns sustainability outcomes for that domain? Where are the gaps?</div>
   <div class="pause-q"><span class="pause-q-num">2</span>Of the three governance artefacts — top-ten service register, vendor evidence register, waste removal backlog — which does your organisation have in some form? Which is entirely absent? What would it take to create the missing ones within the next quarter?</div>
   <div class="pause-q"><span class="pause-q-num">3</span>Think of a sustainability claim your organisation has made publicly or internally in the past year. Is it backed by activity-based evidence? What assurance level does that evidence carry? Would it survive external scrutiny?</div>
-</div>
-
-  <!-- SERVICE REGISTER EXAMPLE TABLE -->
-  <div class="viz-container reveal" style="padding:0;margin-top:1.5rem;">
-    <div style="padding:1rem 1.5rem 0.75rem;border-bottom:1px solid var(--border-light);">
-      <p class="viz-title">What a top-ten service register actually contains — a register is only useful if it has specific, owned, updatable information</p>
-    </div>
-    <div style="overflow-x:auto;">
-      <table style="width:100%;border-collapse:collapse;font-size:0.92rem;">
-        <thead>
-          <tr>
-            <th style="padding:0.6rem 1rem;text-align:left;font-family:Calibri,sans-serif;font-size:0.92rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-secondary);border-bottom:1px solid var(--border);background:var(--section-alt);white-space:nowrap;">Service</th>
-            <th style="padding:0.6rem 1rem;text-align:left;font-family:Calibri,sans-serif;font-size:0.92rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-secondary);border-bottom:1px solid var(--border);background:var(--section-alt);white-space:nowrap;">Owner</th>
-            <th style="padding:0.6rem 1rem;text-align:left;font-family:Calibri,sans-serif;font-size:0.92rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-secondary);border-bottom:1px solid var(--border);background:var(--section-alt);white-space:nowrap;">Intensity metric</th>
-            <th style="padding:0.6rem 1rem;text-align:right;font-family:Calibri,sans-serif;font-size:0.92rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-secondary);border-bottom:1px solid var(--border);background:var(--section-alt);white-space:nowrap;">Current (conf.)</th>
-            <th style="padding:0.6rem 1rem;text-align:right;font-family:Calibri,sans-serif;font-size:0.92rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-secondary);border-bottom:1px solid var(--border);background:var(--section-alt);white-space:nowrap;">Target</th>
-            <th style="padding:0.6rem 1rem;text-align:left;font-family:Calibri,sans-serif;font-size:0.92rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-secondary);border-bottom:1px solid var(--border);background:var(--section-alt);white-space:nowrap;">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="padding:0.65rem 1rem;border-bottom:1px solid var(--border-light);color:var(--text-primary);font-weight:500;">Customer portal</td>
-            <td style="padding:0.65rem 1rem;border-bottom:1px solid var(--border-light);color:var(--text-secondary);">J. Patel (App)</td>
-            <td style="padding:0.65rem 1rem;border-bottom:1px solid var(--border-light);color:var(--text-secondary);font-family:Calibri,sans-serif;font-size:0.92rem;">gCO₂ / session</td>
-            <td style="padding:0.65rem 1rem;border-bottom:1px solid var(--border-light);color:#007A6E;font-family:Calibri,sans-serif;font-size:0.92rem;text-align:right;">14.2g <span style="color:var(--text-secondary);font-size:0.92rem;">(reviewed)</span></td>
-            <td style="padding:0.65rem 1rem;border-bottom:1px solid var(--border-light);color:var(--text-secondary);font-family:Calibri,sans-serif;font-size:0.92rem;text-align:right;">10g</td>
-            <td style="padding:0.65rem 1rem;border-bottom:1px solid var(--border-light);"><span style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#007A6E;background:rgba(0,168,150,0.1);padding:0.15rem 0.5rem;">Active</span></td>
-          </tr>
-          <tr>
-            <td style="padding:0.65rem 1rem;border-bottom:1px solid var(--border-light);color:var(--text-primary);font-weight:500;">Data warehouse</td>
-            <td style="padding:0.65rem 1rem;border-bottom:1px solid var(--border-light);color:var(--text-secondary);">M. Chen (Infra)</td>
-            <td style="padding:0.65rem 1rem;border-bottom:1px solid var(--border-light);color:var(--text-secondary);font-family:Calibri,sans-serif;font-size:0.92rem;">gCO₂ / GB processed</td>
-            <td style="padding:0.65rem 1rem;border-bottom:1px solid var(--border-light);color:#9B5E00;font-family:Calibri,sans-serif;font-size:0.92rem;text-align:right;">28.0g <span style="color:var(--text-secondary);font-size:0.92rem;">(self-decl.)</span></td>
-            <td style="padding:0.65rem 1rem;border-bottom:1px solid var(--border-light);color:var(--text-secondary);font-family:Calibri,sans-serif;font-size:0.92rem;text-align:right;">22g</td>
-            <td style="padding:0.65rem 1rem;border-bottom:1px solid var(--border-light);"><span style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#007A6E;background:rgba(0,168,150,0.1);padding:0.15rem 0.5rem;">Active</span></td>
-          </tr>
-          <tr style="background:rgba(231,111,81,0.04);">
-            <td style="padding:0.65rem 1rem;border-bottom:1px solid var(--border-light);color:var(--text-primary);font-weight:500;">Batch billing</td>
-            <td style="padding:0.65rem 1rem;border-bottom:1px solid var(--border-light);color:#B54D12;font-weight:500;">UNASSIGNED</td>
-            <td style="padding:0.65rem 1rem;border-bottom:1px solid var(--border-light);color:#B54D12;">Not defined</td>
-            <td style="padding:0.65rem 1rem;border-bottom:1px solid var(--border-light);color:#B54D12;font-family:Calibri,sans-serif;font-size:0.92rem;text-align:right;">Spend-proxy only</td>
-            <td style="padding:0.65rem 1rem;border-bottom:1px solid var(--border-light);color:var(--text-secondary);font-family:Calibri,sans-serif;font-size:0.92rem;text-align:right;">TBD</td>
-            <td style="padding:0.65rem 1rem;border-bottom:1px solid var(--border-light);"><span style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#B54D12;background:rgba(231,111,81,0.1);padding:0.15rem 0.5rem;">Needs work</span></td>
-          </tr>
-          <tr>
-            <td style="padding:0.65rem 1rem;border-bottom:1px solid var(--border-light);color:var(--text-primary);font-weight:500;">CRM platform</td>
-            <td style="padding:0.65rem 1rem;border-bottom:1px solid var(--border-light);color:var(--text-secondary);">L. Singh (BU)</td>
-            <td style="padding:0.65rem 1rem;border-bottom:1px solid var(--border-light);color:var(--text-secondary);font-family:Calibri,sans-serif;font-size:0.92rem;">gCO₂ / active user</td>
-            <td style="padding:0.65rem 1rem;border-bottom:1px solid var(--border-light);color:#007A6E;font-family:Calibri,sans-serif;font-size:0.92rem;text-align:right;">6.1g <span style="color:var(--text-secondary);font-size:0.92rem;">(reviewed)</span></td>
-            <td style="padding:0.65rem 1rem;border-bottom:1px solid var(--border-light);color:var(--text-secondary);font-family:Calibri,sans-serif;font-size:0.92rem;text-align:right;">5g</td>
-            <td style="padding:0.65rem 1rem;border-bottom:1px solid var(--border-light);"><span style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#007A6E;background:rgba(0,168,150,0.1);padding:0.15rem 0.5rem;">Active</span></td>
-          </tr>
-          <tr style="background:rgba(231,111,81,0.04);">
-            <td style="padding:0.65rem 1rem;color:var(--text-primary);font-weight:500;">Internal BI suite</td>
-            <td style="padding:0.65rem 1rem;color:var(--text-secondary);">T. Okafor (Data)</td>
-            <td style="padding:0.65rem 1rem;color:var(--text-secondary);font-family:Calibri,sans-serif;font-size:0.92rem;">gCO₂ / report run</td>
-            <td style="padding:0.65rem 1rem;color:#B54D12;font-family:Calibri,sans-serif;font-size:0.92rem;text-align:right;">Not measured</td>
-            <td style="padding:0.65rem 1rem;color:var(--text-secondary);font-family:Calibri,sans-serif;font-size:0.92rem;text-align:right;">Baseline Q3</td>
-            <td style="padding:0.65rem 1rem;"><span style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#B54D12;background:rgba(231,111,81,0.1);padding:0.15rem 0.5rem;">Needs work</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div style="padding:0.75rem 1.5rem;border-top:1px solid var(--border-light);background:rgba(231,111,81,0.04);">
-      <p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.6;">Two services above have no owner and no measurement. These are not minor gaps — they represent unknown footprint exposure and absent accountability. A service register that contains rows like these is doing its job: making the gaps visible so they can be closed.</p>
-    </div>
-  </div>
-</div>
-<div class="takeaways reveal">
-  <h3 class="takeaways-heading">Module 8 — Key Takeaways</h3>
-  <div class="takeaway-list">
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Technology leadership owns outcomes, not just targets.</strong><p>If a CIO or CTO cannot speak to carbon intensity of top services, supplier evidence coverage, and waste removal progress without consulting a sustainability manager, the governance is not yet embedded.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Greenwashing and greenhushing are both risks.</strong><p>The GreenOps response to both is the same: precision. Explicit confidence levels, clear distinction between activity-based and spend-based data, and honest methodology documentation.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Maturity is multi-dimensional — assess all five.</strong><p>Measurement is almost always more developed than governance. Supplier management trails both. Mapping all five dimensions prevents the illusion of overall maturity from a single strong area.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Three artefacts convert awareness into accountability.</strong><p>A top-ten service register, a vendor evidence register, and a waste removal backlog. Without these, the programme will remain honest but ineffective — no named owners, no visible progress, no one held to account.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>ITAD is a social governance matter, not only environmental.</strong><p>Chain-of-custody documentation, data sanitisation to recognised standards, downstream processing commitments, and audit-supporting reporting are the minimum requirements for responsible device disposal.</p></div></div>
-  </div>
-</div>/div>
+</div></div>
+<div class="takeaways reveal"><h3 class="takeaways-heading">Module 8 — Key Takeaways</h3>
+<div class="takeaway-list">
+  <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Technology leadership owns outcomes, not just targets.</strong><p>If a CIO or CTO cannot speak to carbon intensity of top services, supplier evidence coverage, and waste removal progress without consulting a sustainability manager, the governance is not yet embedded.</p></div></div>
+  <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Greenwashing and greenhushing are both risks.</strong><p>The GreenOps response to both is the same: precision. Explicit confidence levels, clear distinction between activity-based and spend-based data, and honest methodology documentation.</p></div></div>
+  <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Maturity is multi-dimensional — assess all five.</strong><p>Measurement is almost always more developed than governance. Supplier management trails both. Mapping all five dimensions prevents the illusion of overall maturity from a single strong area.</p></div></div>
+  <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Three artefacts convert awareness into accountability.</strong><p>Top-ten service register, vendor evidence register, and waste removal backlog. Managed as live operating instruments, not periodic reports.</p></div></div>
+</div></div>
 </div>
 <div class="module-nav"><a href="module7.html" class="nav-btn"><span><span class="nav-btn-label">← Previous</span><span class="nav-btn-title">M7: Procurement, Supply Chains, and Vendor Evidence</span></span></a><button class="complete-btn" onclick="markComplete('module8')">Mark as complete</button><a href="module9.html" class="nav-btn next"><span><span class="nav-btn-label">Next →</span><span class="nav-btn-title">M9: The Regulatory and Policy Landscape</span></span></a></div>
-<footer><div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 8</div>
-  <div class="viz-container reveal" style="padding:0;margin-top:1.5rem;">
-    <div style="padding:1rem 1.5rem 0.75rem;border-bottom:1px solid var(--border-light);">
-      <p class="viz-title">Evaluating an ITAD provider — five evidence requirements</p>
-    </div>
-    <div id="itad-items"></div>
-  </div>
-  <script>
-  (function(){
-    var items=[
-      {icon:'🔗',label:'Chain-of-custody documentation',
-       what:'End-to-end traceability from device collection to final outcome — not just a collection receipt.',
-       why:'Without a chain of custody you cannot demonstrate where devices went. Under CSRD, "we gave them to a provider" is not evidence.',
-       ask:'Can you provide a chain-of-custody document tracking each device from collection to final outcome?'},
-      {icon:'🔒',label:'Data sanitisation certificates',
-       what:'To a recognised standard: NIST 800-88, ADISA, or equivalent. Destruction should be witnessed or certified.',
-       why:'Inadequate sanitisation is a data security risk as well as a governance one. The certificate is your evidence that it occurred to a defined standard.',
-       ask:'What standard do you apply and do you provide a per-device certificate? Is destruction independently certified?'},
-      {icon:'♻️',label:'Evidence of downstream outcomes',
-       what:'Where do devices actually go after collection? Reuse, refurbishment, or certified recycling — with documentation.',
-       why:'A provider who collects devices with no downstream evidence may be transferring disposal risk rather than resolving it.',
-       ask:'What percentage of collected devices go to reuse, refurbishment, and recycling respectively?'},
-      {icon:'🏭',label:'Downstream processing commitments',
-       what:'Which facilities handle the materials? What environmental and labour standards apply?',
-       why:'The social risk sits in the downstream processing of materials. A provider with no downstream commitments is outsourcing the problem.',
-       ask:'Which facilities do you use? What certifications do they hold? What labour standards apply?'},
-      {icon:'📋',label:'Reporting for ESG disclosure',
-       what:'Reporting in a format that supports internal governance and external ESG disclosure requirements.',
-       why:'Under CSRD and equivalents, e-waste disposal is reportable. If your provider cannot supply this, you cannot report this category credibly.',
-       ask:'Can you provide reporting suitable for ESG disclosure, including quantities by outcome type?'},
-    ];
-    var c=document.getElementById('itad-items');
-    items.forEach(function(item){
-      var d=document.createElement('div');
-      d.style.cssText='border-bottom:1px solid var(--border-light);';
-      d.innerHTML='<div class="itad-row" onclick="var det=this.nextElementSibling;det.style.display=det.style.display==='block'?'none':'block'" style="display:flex;align-items:center;gap:1rem;padding:0.85rem 1.5rem;cursor:pointer;transition:background 0.12s;" onmouseover="this.style.background='var(--section-alt)'" onmouseout="this.style.background=''">'+
-        '<span style="font-size:1.1rem;flex-shrink:0;">'+item.icon+'</span>'+
-        '<span style="font-weight:500;font-size:0.92rem;">'+item.label+'</span>'+
-        '<span style="margin-left:auto;font-family:JetBrains Mono,monospace;font-size:0.92rem;color:var(--text-secondary);">expand ↓</span>'+
-        '</div>'+
-        '<div style="display:none;padding:0.75rem 1.5rem 1rem 4rem;">'+
-          '<p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.65;margin-bottom:0.55rem;">'+item.what+'</p>'+
-          '<p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.6;margin-bottom:0.55rem;"><strong style="color:var(--text-secondary);">Why it matters: </strong>'+item.why+'</p>'+
-          '<div style="padding:0.55rem 0.85rem;background:var(--teal-bg);border-left:2px solid #00A896;font-size:0.92rem;color:var(--text-secondary);font-style:italic;">Ask: '+item.ask+'</div>'+
-        '</div>';
-      c.appendChild(d);
-    });
-  })();
-  </script>
-
-
-  <div class="footer-brand">March 2026 · v2</div></footer>
+<footer><div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 8</div><div class="footer-brand">March 2026 · v2</div></footer>
+<script></script>
 <script>
-</script>
-<script>
-(function(){
-'use strict';
-
-// ── ROLE-BASED ACCOUNTABILITY ──────────────────────────────
-var roles = [
-  { label:'Technology\nLeadership', col:'#00A896',
-    owns:'Outcomes — not just targets.',
-    metrics:['Carbon intensity of top services','% of estate on activity-based measurement','Supplier evidence coverage','Progress against waste removal backlog'],
-    test:'If a technology leader cannot speak to these without consulting a sustainability manager, the governance is insufficiently embedded.' },
-  { label:'Business Unit\nLeaders', col:'#B2EDE7',
-    owns:'Demand discipline.',
-    metrics:['Carbon per transaction for key digital services','Demand growth rate vs efficiency improvement rate','AI consumption per user vs value delivered','Data growth rate of products they own'],
-    test:'Does each product team track carbon per session or per transaction alongside cost and latency? If not, the signal is absent from the daily conversation.' },
-  { label:'Application\nOwners', col:'#F4A261',
-    owns:'Service behaviour.',
-    metrics:['SCI (Software Carbon Intensity) for their application','Storage and data growth rate','Background job frequency vs operational need','API efficiency — data transferred vs data needed'],
-    test:'Can the application owner produce a current SCI figure? If not, they cannot govern what they do not measure.' },
-  { label:'Cloud &\nPlatform Teams', col:'#E76F51',
-    owns:'Utilisation discipline.',
-    metrics:['Idle percentage across the estate','Carbon per VM-hour by region','Non-production environment uptime','Tagging compliance — untagged resources as a KPI'],
-    test:'Is idle percentage a reported KPI in platform reviews? Is it falling? If it is not tracked, it is not governed.' },
-];
-
-var selectedRole = null;
-function buildRoles() {
-  var grid = document.getElementById('rolesGrid');
-  if (!grid) return;
-  grid.innerHTML = '';
-  roles.forEach(function(r, i) {
-    var isSelected = selectedRole === i;
-    var cell = document.createElement('div');
-    cell.style.cssText = 'background:'+(isSelected?r.col:'#1E293B')+';padding:1.5rem 1.25rem;cursor:pointer;transition:background 0.2s;text-align:center;';
-    var lines = r.label.split('\n');
-    cell.innerHTML = lines.map(function(l,j){
-      return '<div style="font-size:'+(j===0?'1.0rem':'0.88rem')+';font-weight:'+(j===0?'600':'400')+';color:'+(isSelected?'#0F1F2E':r.col)+';line-height:1.3;'+(j>0?'margin-top:0.15rem;':'')+'">' + l + '</div>';
-    }).join('') +
-    '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;color:'+(isSelected?'rgba(11,25,41,0.6)':'#64748B')+';margin-top:0.5rem;letter-spacing:0.05em;">Owns: '+r.owns+'</div>';
-    cell.addEventListener('click', function(){
-      selectedRole = (selectedRole===i)?null:i;
-      buildRoles(); updateRoleDetail();
-    });
-    grid.appendChild(cell);
-  });
-}
-function updateRoleDetail() {
-  var det = document.getElementById('rolesDetail');
-  if (!det) return;
-  if (selectedRole===null) {
-    det.style.borderLeftColor='#94A3B8';
-    det.innerHTML='<p style="font-size:0.95rem;color:var(--text-secondary);font-style:italic;">Select a role to see what they own, what metrics they are accountable for, and the governance test.</p>';
-    return;
-  }
-  var r = roles[selectedRole];
-  det.style.borderLeftColor = r.col;
-  var metrics = r.metrics.map(function(m){ return '<li style="display:flex;gap:0.6rem;margin-bottom:0.35rem;font-size:0.92rem;color:var(--text-secondary);line-height:1.5;"><span style="color:'+r.col+';flex-shrink:0;font-size:0.78rem;">▸</span>'+m+'</li>'; }).join('');
-  det.innerHTML =
-    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">'+
-      '<div>'+
-        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:'+r.col+';margin-bottom:0.5rem;">Metrics they own</div>'+
-        '<ul style="list-style:none;padding:0;">'+metrics+'</ul>'+
-      '</div>'+
-      '<div>'+
-        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:#E76F51;margin-bottom:0.5rem;">Governance test</div>'+
-        '<div style="padding:0.75rem 0.85rem;background:var(--orange-bg);border-left:2px solid rgba(231,111,81,0.3);font-size:0.92rem;color:var(--text-secondary);line-height:1.65;font-style:italic;">'+r.test+'</div>'+
-      '</div>'+
-    '</div>';
-}
-buildRoles(); updateRoleDetail();
-
-
-// ── GREENWASHING SPECTRUM ──────────────────────────────────
-var spectrumPoints = [
-  { x:40, label:'Active\ngreenwashing', col:'#E76F51',
-    title:'Active greenwashing',
-    desc:'Deliberately misleading claims: "carbon neutral" without methodology, net-zero targets with no credible pathway, renewable energy claims covering only a fraction of consumption. In the EU, this creates legal exposure under the Green Claims Directive.',
-    examples:['Claiming "net zero" while Scope 3 is completely unmeasured','Stating "100% renewable" using certificates that don\'t match the grid reality','Publishing PUE figures without stating the measurement methodology or boundary'],
-    response:'Specific, attributable claims with stated methodology. Location-based and market-based figures both disclosed. Confidence levels documented per category.' },
-  { x:200, label:'Misleading\nby omission', col:'#F4A261',
-    title:'Misleading by omission',
-    desc:'True statements that create a false impression: improving PUE while total consumption rises; highlighting efficiency gains while ignoring that the footprint grew overall; reporting Scope 1+2 while Scope 3 is material and unmeasured.',
-    examples:['Reporting PUE improvement while total facility energy consumption rose 40%','Disclosing Scope 1+2 only when Scope 3 represents 75% of actual footprint','Announcing efficiency milestones without reporting total emissions trend'],
-    response:'Always report unit metrics alongside totals. Disclose the scope boundary explicitly. Explain when totals rise alongside efficiency improvements — the rebound effect must be named, not hidden.' },
-  { x:410, label:'GreenOps\nstandard', col:'#00A896',
-    title:'The GreenOps standard — operationally honest',
-    desc:'Claims are specific, measurable, and attributable. Confidence levels are documented. Scope boundaries are explicit. Progress is reported with caveats. Totals and intensity metrics are both tracked and both disclosed.',
-    examples:['Carbon intensity of top 10 services with confidence levels and measurement method','Scope 3 data with stated coverage, methodology, and improvement roadmap','Waste removal backlog published alongside completion rate'],
-    response:'This is the target state. It requires the three governance artefacts and the measurement maturity to support assurance-grade reporting.' },
-  { x:620, label:'Greenhushing\nby caution', col:'#F4A261',
-    title:'Greenhushing — staying silent out of caution',
-    desc:'Real progress exists but is not communicated because legal, reputational, or assurance concerns create a preference for silence. The result: investors and customers cannot distinguish genuine progress from inaction.',
-    examples:['Waste removal programme delivering real results but not reported externally','Emissions reduction achieved but not disclosed because numbers "aren\'t perfect"','Supplier evidence programme under way but not mentioned in ESG reporting'],
-    response:'Communicate progress with evidence, caveats, and confidence levels. Acknowledge what is not yet measured. Regulators and investors increasingly treat unexplained silence as a risk signal.' },
-  { x:760, label:'Strategic\nsilence', col:'#E76F51',
-    title:'Strategic silence — deliberate non-disclosure',
-    desc:'Intentional decision not to measure or disclose. Under CSRD, this is no longer a viable position for in-scope organisations. Voluntary silence in competitive or investor contexts creates a credibility gap — perceived as worse than a moderate honest disclosure.',
-    examples:['No sustainability data in procurement responses despite customer requirements','No IT sustainability disclosure in ESG report when industry peers all report'],
-    response:'In-scope organisations under CSRD have no legal alternative to measurement and disclosure. Out-of-scope organisations increasingly face supply chain pressure that creates a similar commercial imperative.' },
-];
-
-function buildSpectrum() {
-  var svg = document.getElementById('spectrumSvg');
-  if (!svg) return;
-  var W=820, H=80, selected=null;
-
-  function el(tag,attrs){ var e=document.createElementNS('http://www.w3.org/2000/svg',tag); Object.keys(attrs).forEach(function(k){e.setAttribute(k,attrs[k]);}); return e; }
-  function txt(content,attrs){ var t=el('text',attrs); t.textContent=content; return t; }
-
-  svg.innerHTML='';
-
-  // Gradient bar
-  var defs=el('defs',{});
-  var grad=el('linearGradient',{id:'specGrad',x1:'0',y1:'0',x2:'1',y2:'0'});
-  [['0%','#E76F51'],['40%','#F4A261'],['50%','#00A896'],['65%','#F4A261'],['100%','#E76F51']].forEach(function(stop){
-    var s=el('stop',{'offset':stop[0],'stop-color':stop[1],'stop-opacity':'0.4'});
-    grad.appendChild(s);
-  });
-  defs.appendChild(grad);
-  svg.insertBefore(defs,svg.firstChild);
-
-  svg.appendChild(el('rect',{x:0,y:28,width:W,height:18,fill:'url(#specGrad)',rx:'2'}));
-
-  // GreenOps zone highlight
-  svg.appendChild(el('rect',{x:350,y:22,width:130,height:30,
-    fill:'rgba(0,168,150,0.12)',stroke:'rgba(0,168,150,0.3)','stroke-width':'1',rx:'3'}));
-
-  spectrumPoints.forEach(function(pt, i) {
-    var isSelected = selected === i;
-    var dot = el('circle',{cx:pt.x,cy:37,r:isSelected?'11':'8',
-      fill:pt.col,stroke:'#0F1F2E','stroke-width':'2',
-      style:'cursor:pointer;transition:r 0.15s;'});
-
-    function doClick(){
-      selected=(selected===i)?null:i;
-      buildSpectrum();
-      var det=document.getElementById('spectrumDetail');
-      if (!det) return;
-      if (selected!==null) {
-        var p=spectrumPoints[selected];
-        det.style.borderLeftColor=p.col;
-        var exs=p.examples?p.examples.map(function(e){ return '<li style="display:flex;gap:0.6rem;margin-bottom:0.3rem;font-size:0.88rem;color:var(--text-secondary);line-height:1.5;"><span style="color:'+p.col+';flex-shrink:0;font-size:0.78rem;">→</span>'+e+'</li>'; }).join(''):'';
-        det.innerHTML=
-          '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">'+
-            '<div><div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:'+p.col+';margin-bottom:0.5rem;">'+p.title+'</div><p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.65;margin-bottom:0.65rem;">'+p.desc+'</p>'+(exs?'<ul style="list-style:none;padding:0;">'+exs+'</ul>':'')+'</div>'+
-            '<div><div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:#00A896;margin-bottom:0.5rem;">GreenOps response</div><div style="padding:0.75rem 0.85rem;background:var(--teal-bg);border-left:2px solid rgba(0,168,150,0.3);font-size:0.92rem;color:var(--text-secondary);line-height:1.65;">'+p.response+'</div></div>'+
-          '</div>';
-      } else {
-        det.style.borderLeftColor='#94A3B8';
-        det.innerHTML='<p style="font-size:0.95rem;color:var(--text-secondary);font-style:italic;">Click any position on the spectrum to see what it looks like in practice.</p>';
-      }
-    }
-
-    dot.addEventListener('click',doClick);
-    svg.appendChild(dot);
-
-    // Label below
-    var lines=pt.label.split('\n');
-    lines.forEach(function(line,j){
-      svg.appendChild(txt(line,{x:pt.x,y:H-16+(j*13),'text-anchor':'middle',
-        fill:pt.col,'font-family':'JetBrains Mono,monospace','font-size':'10',
-        'font-weight':isSelected?'700':'400',style:'pointer-events:none'}));
-    });
-
-    var hit=el('rect',{x:pt.x-25,y:20,width:50,height:H-20,fill:'transparent',style:'cursor:pointer;'});
-    hit.addEventListener('click',doClick);
-    svg.appendChild(hit);
-  });
-
-  // Axis labels
-  svg.appendChild(txt('← Greenwashing',{x:5,y:18,fill:'rgba(231,111,81,0.6)',
-    'font-family':'JetBrains Mono,monospace','font-size':'10'}));
-  svg.appendChild(txt('Greenhushing →',{x:W-5,y:18,'text-anchor':'end',fill:'rgba(231,111,81,0.6)',
-    'font-family':'JetBrains Mono,monospace','font-size':'10'}));
-}
-buildSpectrum();
-
-
-// ── THREE GOVERNANCE ARTEFACTS ─────────────────────────────
-var artefacts = [
-  { num:'01', label:'Top-ten\nservice register', col:'#00A896',
-    desc:'List the most material digital services in your estate. For each: assign a named owner, define the carbon intensity metric, state the current measurement approach and its confidence level, and set a target.',
-    why:'Without named services and named owners, accountability for the footprint of the estate defaults to "IT as a whole" — which is no accountability at all.',
-    how:'Review quarterly in an operational forum — not a sustainability committee. This forces accountability to be specific and named rather than collective and diffuse.',
-    contains:['Service name and named owner','Carbon intensity metric (e.g. gCO₂ per session)','Current value with confidence level (assured / reviewed / self-declared)','Target and review date','Status: active / needs work / at risk'] },
-  { num:'02', label:'Vendor evidence\nregister', col:'#B2EDE7',
-    desc:'For key suppliers and product categories: record what evidence exists, what is missing, what has been requested, and the quality rating of each piece of evidence.',
-    why:'Without it, Scope 3 reporting relies on unexamined vendor claims. This register creates a record of supplier engagement that supports both audit and improvement conversations.',
-    how:'Updated at every contract touchpoint and reviewed at procurement governance forums. Not a spreadsheet filed once a year — a living instrument of supplier engagement.',
-    contains:['Supplier and product category','Evidence type (PCF, LCA, carbon intensity data)','Assurance tier (self-declared / reviewed / independently assured)','Evidence gap and request status','Last review date'] },
-  { num:'03', label:'Waste removal\nbacklog', col:'#F4A261',
-    desc:'Capture the waste you already know exists or strongly suspect: idle instances, zombie resources, orphaned storage, applications running without active users, devices issued without lifecycle governance.',
-    why:'Waste removal is almost always financially positive as well as environmentally positive. The backlog connects the sustainability programme to cost governance — which gives it operational credibility.',
-    how:'Assign a named owner and target date to each item. Track completion in the same forum as financial waste. This is the operational instrument that converts awareness into action.',
-    contains:['Waste item description and domain','Estimated financial and carbon value','Named owner','Target completion date','Status and blockers'] },
-];
-
-var selectedArt = null;
-function buildArtefacts() {
-  var cells = document.getElementById('artefactCells');
-  if (!cells) return;
-  cells.innerHTML = '';
-  artefacts.forEach(function(art, i) {
-    var isSelected = selectedArt === i;
-    var cell = document.createElement('div');
-    cell.style.cssText = 'background:'+(isSelected?art.col:'#1E293B')+';padding:1.75rem 1.25rem;cursor:pointer;transition:background 0.2s;border-top:3px solid '+art.col+';';
-    var lines = art.label.split('\n');
-    cell.innerHTML =
-      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:'+(isSelected?'rgba(11,25,41,0.6)':art.col)+';margin-bottom:0.5rem;">'+art.num+'</div>'+
-      lines.map(function(l,j){ return '<div style="font-size:'+(j===0?'1.0rem':'0.92rem')+';font-weight:'+(j===0?'600':'400')+';color:'+(isSelected?'#0F1F2E':'#FFFFFF')+';line-height:1.3;">'+l+'</div>'; }).join('')+
-      '<p style="font-size:0.88rem;color:'+(isSelected?'rgba(11,25,41,0.65)':'#64748B')+';line-height:1.6;margin-top:0.65rem;">'+art.desc+'</p>';
-    cell.addEventListener('click', function(){
-      selectedArt = (selectedArt===i)?null:i;
-      buildArtefacts();
-      var det = document.getElementById('artefactDetail');
-      var txt2 = document.getElementById('artefactDetailText');
-      if (!det) return;
-      if (selectedArt!==null) {
-        var a = artefacts[selectedArt];
-        det.style.display='block';
-        var contents = a.contains.map(function(c){ return '<li style="display:flex;gap:0.6rem;margin-bottom:0.3rem;font-size:0.88rem;color:var(--text-secondary);line-height:1.5;"><span style="color:'+a.col+';flex-shrink:0;">▸</span>'+c+'</li>'; }).join('');
-        txt2.innerHTML=
-          '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.25rem;">'+
-            '<div><div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:#E76F51;margin-bottom:0.4rem;">Why it matters</div><p style="font-size:0.88rem;color:var(--text-secondary);line-height:1.6;">'+a.why+'</p></div>'+
-            '<div><div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:#00A896;margin-bottom:0.4rem;">How it is used</div><p style="font-size:0.88rem;color:var(--text-secondary);line-height:1.6;">'+a.how+'</p></div>'+
-            '<div><div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:'+a.col+';margin-bottom:0.4rem;">What it contains</div><ul style="list-style:none;padding:0;">'+contents+'</ul></div>'+
-          '</div>';
-      } else {
-        det.style.display='none';
-      }
-    });
-    cells.appendChild(cell);
-  });
-}
-buildArtefacts();
-
-})();
-</script>
-
-
-
-
-<script>
-// GreenOps 101 — Shared module utilities v4 (light theme)
+// GreenOps 101 — Shared utilities v4 light theme
 
 const STORAGE_KEY = 'greenops101_progress';
-
-function getProgress() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
-  catch { return {}; }
+function getProgress(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');}catch{return {};}}
+function markComplete(moduleKey){
+  const p=getProgress();p[moduleKey]={completedAt:new Date().toISOString()};
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(p));
+  document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
 }
-
-function markComplete(moduleKey) {
-  const p = getProgress();
-  p[moduleKey] = { completedAt: new Date().toISOString() };
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
-  document.querySelectorAll('.complete-btn').forEach(b => {
-    b.textContent = '✓ Module complete';
-    b.classList.add('done');
-  });
-}
-
-function isComplete(moduleKey) {
-  return !!getProgress()[moduleKey];
-}
-
-// Knowledge check handling
-function initKnowledgeChecks() {
-  document.querySelectorAll('.kc-block').forEach(block => {
-    const correct = block.dataset.correct;
-    block.querySelectorAll('.kc-option').forEach(opt => {
-      opt.addEventListener('click', function() {
-        if (block.classList.contains('answered')) return;
+function isComplete(k){return !!getProgress()[k];}
+function initKnowledgeChecks(){
+  document.querySelectorAll('.kc-block').forEach(block=>{
+    const correct=block.dataset.correct;
+    block.querySelectorAll('.kc-option').forEach(opt=>{
+      opt.addEventListener('click',function(){
+        if(block.classList.contains('answered'))return;
         block.classList.add('answered');
-        const chosen = this.dataset.val;
-        block.querySelectorAll('.kc-option').forEach(o => {
-          if (o.dataset.val === correct) {
-            o.classList.add('selected-correct');
-          } else if (o.dataset.val === chosen && chosen !== correct) {
-            o.classList.add('selected-wrong');
-          }
+        const chosen=this.dataset.val;
+        block.querySelectorAll('.kc-option').forEach(o=>{
+          if(o.dataset.val===correct)o.classList.add('selected-correct');
+          else if(o.dataset.val===chosen&&chosen!==correct)o.classList.add('selected-wrong');
         });
-        // Show feedback
-        const fb = block.querySelector(chosen === correct ? '.kc-correct' : '.kc-wrong');
-        if (fb) fb.style.display = 'block';
-        // Also show .kc-reveal if present (legacy)
-        const reveal = block.querySelector('.kc-reveal');
-        if (reveal) reveal.style.display = 'block';
+        const fb=block.querySelector(chosen===correct?'.kc-correct':'.kc-wrong');
+        if(fb)fb.style.display='block';
+        const rv=block.querySelector('.kc-reveal');
+        if(rv)rv.style.display='block';
       });
     });
   });
 }
-
-// Scroll-triggered reveals
-function initScrollReveal() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+function initScrollReveal(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+  },{threshold:0.06,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+}
+function initProgress(current){
+  const p=getProgress(),total=14;
+  const done=Object.keys(p).filter(k=>k.startsWith('module')).length;
+  const el=document.getElementById('progress-count');
+  if(el)el.textContent=done+'/'+total;
+  const fill=document.getElementById('prog-fill');
+  if(fill)fill.style.width=((done/total)*100)+'%';
+  if(isComplete('module'+current))document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
 }
 
-// Sticky nav progress
-function initProgress(current) {
-  const p = getProgress();
-  const total = 14;
-  const done = Object.keys(p).filter(k => k.startsWith('module')).length;
-  const el = document.getElementById('progress-count');
-  if (el) el.textContent = `${done}/${total}`;
-  const fill = document.getElementById('prog-fill');
-  if (fill) fill.style.width = `${(done/total)*100}%`;
-  if (isComplete('module' + current)) {
-    document.querySelectorAll('.complete-btn').forEach(b => {
-      b.textContent = '✓ Module complete';
-      b.classList.add('done');
-    });
-  }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded',function(){
   initKnowledgeChecks();
   initScrollReveal();
-  initProgress(8);
-  drawRadar8();
-  buildRoles();
-  buildSpectrum();
-  buildArtefacts();
+  if(typeof drawRadar8==='function')drawRadar8();
 });
-
 </script>
 </body></html>

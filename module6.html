@@ -1,39 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<!DOCTYPE html>
-<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>M6: Software Engineering<br>and Application Sustainability — GreenOps 101</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shared.css">
-<style>
-:root{--page-bg:#F7F8FA;--card-bg:#FFFFFF;--section-alt:#E8EDF2;--text-primary:#1E293B;--text-secondary:#4A5568;--text-muted:#64748B;--navy:#0F1F2E;--navy-mid:#162840;--navy-card:#1E293B;--teal:#00A896;--teal-dark:#007A6E;--teal-muted:#B2EDE7;--teal-bg:rgba(0,168,150,0.07);--teal-border:rgba(0,168,150,0.25);--orange:#E76F51;--orange-light:#F4A261;--orange-bg:#FFF3E8;--orange-border:rgba(231,111,81,0.25);--border:#D1D9E0;--border-light:#E8EDF2;--track1:#00A896;--track2:#F4A261;--track3:#E76F51;--correct:#16a34a;--wrong:#dc2626;--white:#FFFFFF;--space-1:0.25rem;--space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;--space-5:1.5rem;--space-6:2rem;--space-7:3rem;--space-8:4rem;--navy-light:#1C3A55;--navy-raised:#1C3A55;--navy-border:rgba(255,255,255,0.07);--navy-mid-alt:#162840;--teal-light:#B2EDE7;--teal-glow:rgba(0,168,150,0.15);--teal-subtle:rgba(0,168,150,0.07);--slate:#4A5568;--slate-mid:#64748B;--slate-dim:#94A3B8;--grey-100:#F7F8FA;--grey-300:#D1D9E0;--grey-500:#4A5568;--border-dark:rgba(255,255,255,0.08);}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;font-size:16px;}img,svg{display:block;max-width:100%;}body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,'Trebuchet MS',system-ui,-apple-system,sans-serif;font-weight:400;font-size:1rem;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}.top-nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:1px solid rgba(0,168,150,0.2);padding:0 var(--space-7);height:52px;display:flex;align-items:center;gap:1rem;}.top-nav::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00A896 0%,#F4A261 60%,#E76F51 100%);}.nav-home{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.85);text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:color 0.15s;flex-shrink:0;}.nav-home:hover{color:#FFFFFF;}.nav-sep{color:rgba(255,255,255,0.5);font-size:0.8rem;}.nav-module{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#FFFFFF;font-weight:500;}.nav-track-pill{font-family:Calibri,sans-serif;font-size:0.69rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.22rem 0.65rem;border-radius:2px;}.track1-pill{background:rgba(0,168,150,0.2);color:#B2EDE7;}.track2-pill{background:rgba(244,162,97,0.2);color:#F4D0B0;}.track3-pill{background:rgba(231,111,81,0.2);color:#F4C4B9;}.nav-progress{margin-left:auto;font-family:Calibri,sans-serif;font-size:0.72rem;color:rgba(255,255,255,0.7);}.nav-prog-bar{width:80px;height:2px;background:rgba(255,255,255,0.12);border-radius:1px;margin-left:0.5rem;overflow:hidden;display:inline-block;vertical-align:middle;}.nav-prog-fill{height:100%;background:var(--teal);border-radius:1px;transition:width 0.4s ease;}.module-hero{position:relative;overflow:hidden;padding:var(--space-8) var(--space-7) var(--space-7);background:#0F1F2E;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;}.module-hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 70% 50%,rgba(0,168,150,0.08) 0%,transparent 65%);pointer-events:none;}.hero-num{font-family:Georgia,serif;font-size:clamp(5rem,12vw,10rem);color:rgba(255,255,255,0.12);line-height:1;position:absolute;right:var(--space-7);bottom:0;font-weight:400;user-select:none;}.module-eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal-muted);margin-bottom:0.75rem;}.module-title{font-family:Georgia,serif;font-weight:700;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.12;letter-spacing:-0.02em;color:#FFFFFF;margin-bottom:1.25rem;}.module-subtitle{font-size:1.1rem;color:rgba(255,255,255,0.92);line-height:1.65;max-width:620px;margin-bottom:2rem;}.module-meta{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}.meta-item{display:flex;flex-direction:column;gap:0.15rem;}.meta-item .label{font-family:Calibri,sans-serif;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.65);}.meta-item .value{font-size:0.92rem;color:rgba(255,255,255,0.95);font-weight:500;}.complete-btn{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.6rem 1.25rem;background:rgba(0,168,150,0.15);border:1px solid #00A896;color:#B2EDE7;cursor:pointer;transition:all 0.15s;}.complete-btn:hover{background:rgba(0,168,150,0.3);border-color:#00A896;}.complete-btn.done{background:rgba(0,168,150,0.25);border-color:#00A896;color:#B2EDE7;}.objectives-strip{padding:0;}.module-content{max-width:1200px;margin:0 auto;padding:0 var(--space-7) var(--space-6);}.content-section{padding:var(--space-7) 0;border-bottom:1px solid var(--border-light);}.content-section:last-child{border-bottom:none;}.section-label{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:0.65rem;display:block;font-weight:700;}.section-title{font-family:Georgia,serif;font-weight:700;font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.15;letter-spacing:-0.02em;color:var(--text-primary);margin-bottom:1.25rem;}.section-intro{font-size:1.12rem;font-weight:400;color:var(--text-secondary);line-height:1.75;max-width:780px;margin-bottom:2rem;}.card-grid{display:grid;gap:1px;background:var(--border);}.card-grid-2{grid-template-columns:1fr 1fr;}.card-grid-3{grid-template-columns:repeat(3,1fr);}.card-grid-4{grid-template-columns:repeat(4,1fr);}.card{background:var(--card-bg);padding:1.75rem;position:relative;}.card-title{font-family:Georgia,serif;font-size:1.1rem;font-weight:400;color:var(--text-primary);margin-bottom:0.65rem;}.card-body{font-size:0.97rem;color:var(--text-secondary);line-height:1.7;}.card--teal-top{border-top:3px solid var(--teal);}.card--orange-top{border-top:3px solid var(--orange);}.card--navy-bg{background:var(--navy);color:#FFFFFF;}.stat-strip{display:grid;gap:1px;background:var(--border);margin:2.25rem 0;border-radius:3px;overflow:hidden;}.stat-strip.cols-3{grid-template-columns:repeat(3,1fr);}.stat-strip.cols-4{grid-template-columns:repeat(4,1fr);}.stat-cell{background:var(--card-bg);padding:2rem 1.5rem;text-align:center;position:relative;border-top:3px solid var(--cell-accent,var(--teal));transition:background 0.15s;}.stat-cell:hover{background:var(--section-alt);}.stat-num{font-family:Georgia,serif;font-size:clamp(2.4rem,4.5vw,3.5rem);color:var(--cell-accent,var(--teal-dark));line-height:1;margin-bottom:0.5rem;display:block;}.stat-label{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);line-height:1.5;display:block;}.viz-container{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);margin:2rem 0;box-shadow:0 2px 8px rgba(0,0,0,0.07);}.viz-header{padding:1rem 1.5rem;border-bottom:2px solid var(--teal);display:flex;align-items:center;gap:0.75rem;background:var(--section-alt);}.viz-header-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;}.viz-title{font-family:'JetBrains Mono',monospace;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;}.callout{padding:1.35rem 1.75rem;margin:1.75rem 0;border-left:4px solid var(--teal);background:var(--teal-bg);}.callout-insight{border-left-color:var(--teal);background:var(--teal-bg);}.callout-warning{border-left-color:var(--orange);background:var(--orange-bg);}.callout-key{border-left-color:var(--teal-dark);background:var(--teal-bg);}.callout-title{font-family:'JetBrains Mono',monospace;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;display:block;margin-bottom:0.6rem;}.callout-warning .callout-title{color:var(--orange);}.callout p{font-size:1rem;color:var(--text-primary);line-height:1.72;}.pause-questions{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem var(--space-7);}.pause-q{font-size:1rem;color:var(--text-primary);line-height:1.7;margin-bottom:0.85rem;padding-left:1.25rem;border-left:2px solid var(--teal-dark);}.pause-q:last-child{margin-bottom:0;}.kc-block{background:var(--card-bg);border:1px solid var(--border);padding:2.25rem;margin:0.5rem 0;}.kc-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:1rem;}.kc-q{font-family:Georgia,serif;font-weight:500;font-size:1.15rem;color:var(--text-primary);line-height:1.6;margin-bottom:1.5rem;}.kc-options{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1rem;}.kc-option{display:flex;align-items:flex-start;gap:0.85rem;padding:0.9rem 1.1rem;background:var(--page-bg);border:1px solid var(--border);cursor:pointer;text-align:left;width:100%;font-family:Calibri,'Trebuchet MS',system-ui,sans-serif;font-size:1rem;color:var(--text-primary);line-height:1.55;transition:all 0.15s;}.kc-option:hover{border-color:var(--teal);background:var(--teal-bg);}.kc-option.selected-correct{background:rgba(22,163,74,0.08);border-color:var(--correct);color:var(--text-primary);}.kc-option.selected-wrong{background:rgba(220,38,38,0.07);border-color:var(--wrong);color:var(--text-primary);}.kc-opt-key{font-family:Calibri,sans-serif;font-size:0.78rem;font-weight:700;color:var(--text-muted);flex-shrink:0;width:1.2rem;padding-top:0.1rem;}.kc-feedback{padding:1rem 1.25rem;margin-top:0.5rem;font-size:1rem;line-height:1.7;border-left:3px solid;}.kc-correct{background:rgba(22,163,74,0.07);border-left-color:var(--correct);color:var(--text-primary);}.kc-wrong{background:rgba(220,38,38,0.06);border-left-color:var(--wrong);color:var(--text-primary);}.kc-hint{font-size:0.92rem;color:var(--text-muted);font-style:italic;margin-top:0.5rem;display:none;}.kc-hint.visible{display:block;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem var(--space-7);border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;}.module-footer{padding:3rem var(--space-7);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;background:var(--card-bg);}.next{display:inline-flex;align-items:center;gap:0.75rem;padding:0.85rem 1.75rem;background:var(--teal);color:var(--navy);font-family:'JetBrains Mono',monospace;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;font-weight:700;transition:background 0.15s;}.next:hover{background:var(--teal-dark);color:#FFFFFF;}.reveal{opacity:1;transition:opacity 0.4s ease,transform 0.4s ease;}.reveal.animate{opacity:0;transform:translateY(12px);}.reveal.animate.visible{opacity:1;transform:none;}@media (max-width:860px){.module-content{padding:0 var(--space-5) var(--space-5);}.objectives-strip{padding:1.5rem var(--space-5);}.top-nav{padding:0 var(--space-5);}.module-hero{padding:var(--space-6) var(--space-5) var(--space-5);}.card-grid-3{grid-template-columns:1fr 1fr;}.card-grid-4{grid-template-columns:1fr 1fr;}}@media (max-width:540px){.card-grid-2,.card-grid-3,.card-grid-4{grid-template-columns:1fr;}.stat-strip.cols-3,.stat-strip.cols-4{grid-template-columns:1fr;}.module-title{font-size:1.75rem;}}.objectives-strip{background:#0F1F2E;border-bottom:none;padding:2.5rem 3rem;}.objectives-heading{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:#B2EDE7;margin-bottom:1.5rem;font-weight:700;}.objectives-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0.85rem;max-width:1160px;}.objectives-list li{display:flex;align-items:flex-start;gap:1rem;font-size:1rem;color:#FFFFFF;line-height:1.6;padding:0.75rem 0;border-left:2px solid rgba(0,168,150,0.5);padding-left:1rem;}.objectives-list li:hover{background:#1C3A55;border-left-color:#00A896;}.obj-num{font-family:Calibri,sans-serif;font-size:0.72rem;color:#00A896;font-weight:700;letter-spacing:0.1em;flex-shrink:0;padding-top:0.12rem;}.pause-reflect{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem var(--space-7);}.pause-label{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:0.5rem;display:block;}.pause-intro{font-size:0.97rem;color:var(--text-muted);margin-bottom:1.25rem;font-style:italic;}.pause-questions{background:transparent;border:none;padding:0;display:flex;flex-direction:column;gap:0.75rem;}.pause-q{display:flex;align-items:flex-start;gap:0.85rem;font-size:1rem;color:var(--text-primary);line-height:1.65;padding:0.85rem 1.1rem;background:var(--card-bg);border-left:3px solid var(--teal-dark);border:1px solid var(--border);border-left:3px solid var(--teal-dark);}.pause-q-num{font-family:Calibri,sans-serif;font-size:0.72rem;color:var(--teal-dark);font-weight:700;flex-shrink:0;padding-top:0.2rem;min-width:1.4rem;}.pause-note{font-size:0.92rem;color:var(--text-muted);margin-top:1rem;font-style:italic;}.takeaways{background:#0F1F2E;padding:2.5rem 3rem;margin-top:0;}.takeaways-heading{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:#B2EDE7;font-weight:700;margin-bottom:1.5rem;}.takeaway-list{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.08);width:100%;}.takeaway-item{display:flex;gap:1rem;padding:1.5rem;background:#162840;border-top:2px solid rgba(0,168,150,0.4);transition:background 0.15s;}.takeaway-item:hover{background:#1C3A55;}.takeaway-icon{color:var(--teal);font-size:0.65rem;flex-shrink:0;padding-top:0.4rem;}.takeaway-body strong{display:block;font-family:Georgia,serif;font-size:1.05rem;font-weight:700;color:#FFFFFF;margin-bottom:0.4rem;line-height:1.35;} .takeaway-body p{font-size:0.95rem;color:rgba(255,255,255,0.88);line-height:1.65;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem var(--space-7);border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;flex-wrap:wrap;}.nav-btn{display:inline-flex;flex-direction:column;padding:0.75rem 1.25rem;border:1px solid var(--border);background:var(--page-bg);text-decoration:none;transition:all 0.15s;color:inherit;}.nav-btn:hover{border-color:var(--teal-dark);background:var(--teal-bg);}.nav-btn.next{text-align:right;}.nav-btn-label{font-family:'JetBrains Mono',monospace;font-size:0.69rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);display:block;}.nav-btn-title{font-size:0.97rem;color:var(--text-primary);font-weight:500;display:block;margin-top:0.15rem;}.nav-btn.next .nav-btn-label{color:var(--teal-dark);}.nav-btn.next .nav-btn-title{color:var(--teal-dark);}.kc-reveal{display:none;padding:1rem 1.25rem;margin-top:0.5rem;background:var(--teal-bg);border-left:3px solid var(--teal-dark);font-size:1rem;color:var(--text-primary);line-height:1.72;}.kc-reveal-label{font-family:Calibri,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-dark);display:block;margin-bottom:0.5rem;}.footer-brand{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);}
-</style>
-<style>
-/* ── MISSING COMPONENTS + REDESIGNED SECTIONS ── */
-.objectives-strip{background:#0F1F2E;border-bottom:none;padding:2.5rem 3rem;}.objectives-heading{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:#B2EDE7;margin-bottom:1.5rem;font-weight:700;}.objectives-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0.85rem;max-width:1160px;}.objectives-list li{display:flex;align-items:flex-start;gap:1rem;font-size:1rem;color:#FFFFFF;line-height:1.6;padding:0.75rem 0;border-left:2px solid rgba(0,168,150,0.5);padding-left:1rem;}.objectives-list li:hover{background:#1C3A55;border-left-color:#00A896;}.obj-num{font-family:Calibri,sans-serif;font-size:0.72rem;color:#00A896;font-weight:700;letter-spacing:0.1em;flex-shrink:0;padding-top:0.12rem;}.pause-reflect{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem var(--space-7);}.pause-label{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:0.5rem;display:block;}.pause-intro{font-size:0.97rem;color:var(--text-muted);margin-bottom:1.25rem;font-style:italic;}.pause-questions{background:transparent;border:none;padding:0;display:flex;flex-direction:column;gap:0.75rem;}.pause-q{display:flex;align-items:flex-start;gap:0.85rem;font-size:1rem;color:var(--text-primary);line-height:1.65;padding:0.85rem 1.1rem;background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--teal-dark);}.pause-q-num{font-family:Calibri,sans-serif;font-size:0.72rem;color:var(--teal-dark);font-weight:700;flex-shrink:0;padding-top:0.2rem;min-width:1.4rem;}.pause-note{font-size:0.92rem;color:var(--text-muted);margin-top:1rem;font-style:italic;}.takeaways{background:#0F1F2E;padding:2.5rem 3rem;margin-top:0;}.takeaways-heading{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:#B2EDE7;font-weight:700;margin-bottom:1.5rem;}.takeaway-list{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.08);width:100%;}.takeaway-item{display:flex;gap:1rem;padding:1.5rem;background:#162840;border-top:2px solid rgba(0,168,150,0.4);transition:background 0.15s;}.takeaway-item:hover{background:#1C3A55;}.takeaway-icon{color:var(--teal);font-size:0.65rem;flex-shrink:0;padding-top:0.4rem;}.takeaway-body strong{display:block;font-family:Georgia,serif;font-size:1.05rem;font-weight:700;color:#FFFFFF;margin-bottom:0.4rem;line-height:1.35;} .takeaway-body p{font-size:0.95rem;color:rgba(255,255,255,0.88);line-height:1.65;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem var(--space-7);border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;flex-wrap:wrap;}.nav-btn{display:inline-flex;flex-direction:column;padding:0.75rem 1.25rem;border:1px solid var(--border);background:var(--page-bg);text-decoration:none;transition:all 0.15s;color:inherit;}.nav-btn:hover{border-color:var(--teal-dark);background:var(--teal-bg);}.nav-btn.next{text-align:right;}.nav-btn-label{font-family:'JetBrains Mono',monospace;font-size:0.69rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);display:block;}.nav-btn-title{font-size:0.97rem;color:var(--text-primary);font-weight:500;display:block;margin-top:0.15rem;}.nav-btn.next .nav-btn-label{color:var(--teal-dark);}.nav-btn.next .nav-btn-title{color:var(--teal-dark);}.kc-reveal{display:none;padding:1rem 1.25rem;margin-top:0.5rem;background:var(--teal-bg);border-left:3px solid var(--teal-dark);font-size:1rem;color:var(--text-primary);line-height:1.72;}.kc-reveal-label{font-family:Calibri,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-dark);display:block;margin-bottom:0.5rem;}.footer-brand{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);}
-</style>
-<style>
-/* ── MODULE 6 SPECIFIC ── */
-/* ── SHARED COMPONENT RULES (inline supplement) ── */
-.objectives-strip{background:var(--navy-mid);border-bottom:1px solid var(--navy-border);padding:2rem var(--space-7)}
-.objectives-heading{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal-muted);margin-bottom:1rem}
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 
-.obj-num{font-family:Calibri,sans-serif;font-size:0.72rem;color:var(--teal);letter-spacing:0.1em;flex-shrink:0}
-.pause-questions{background:var(--navy-mid);border-top:1px solid var(--navy-border);border-bottom:1px solid var(--navy-border);padding:2rem var(--space-7)}
-.pause-q{font-size:0.97rem;color:var(--slate);line-height:1.7;margin-bottom:0.5rem;padding-left:1.25rem;border-left:2px solid rgba(255,255,255,0.08)}
-.kc-hint{font-size:0.85rem;color:var(--slate);font-style:italic;margin-top:0.5rem;display:none}
-.kc-hint.visible{display:block}
-.next{display:inline-flex;align-items:center;gap:0.75rem;padding:0.85rem 1.75rem;background:rgba(0,168,150,0.1);border:1px solid rgba(0,168,150,0.25);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:0.82rem;letter-spacing:0.08em;text-decoration:none;transition:background 0.15s}
-.next:hover{background:rgba(0,168,150,0.18)}
-.module-footer{padding:3rem var(--space-7);border-top:1px solid var(--navy-border);display:flex;justify-content:space-between;align-items:center}
-</style>
 
+<style>
+:root{--page-bg:#F7F8FA;--card-bg:#FFFFFF;--section-alt:#E8EDF2;--text-primary:#1E293B;--text-secondary:#4A5568;--text-muted:#64748B;--navy:#0F1F2E;--navy-mid:#162840;--navy-card:#1E293B;--navy-light:#1C3A55;--teal:#00A896;--teal-dark:#007A6E;--teal-muted:#B2EDE7;--teal-bg:rgba(0,168,150,0.07);--teal-border:rgba(0,168,150,0.25);--orange:#E76F51;--orange-light:#F4A261;--orange-bg:#FFF3E8;--orange-border:rgba(231,111,81,0.25);--border:#D1D9E0;--border-light:#E8EDF2;--track1:#00A896;--track2:#F4A261;--track3:#E76F51;--correct:#16a34a;--wrong:#dc2626;--white:#FFFFFF;--slate:#4A5568;--slate-mid:#64748B;--slate-dim:#94A3B8;--teal-light:#B2EDE7;--teal-glow:rgba(0,168,150,0.15);--teal-subtle:rgba(0,168,150,0.07);--grey-100:#F7F8FA;--grey-300:#D1D9E0;--grey-500:#4A5568;--navy-raised:#1C3A55;--navy-border:rgba(255,255,255,0.07);--navy-mid-alt:#162840;}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;font-size:16px;}img,svg{display:block;max-width:100%;}body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Trebuchet MS",system-ui,-apple-system,sans-serif;font-weight:400;font-size:1rem;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}.top-nav{position:sticky;top:0;z-index:100;background:#0F1F2E;border-bottom:1px solid rgba(0,168,150,0.2);padding:0 3rem;height:52px;display:flex;align-items:center;gap:1rem;}.top-nav::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00A896 0%,#F4A261 60%,#E76F51 100%);}.nav-home{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .15s;flex-shrink:0;}.nav-home:hover{color:#fff;}.nav-sep{color:rgba(255,255,255,0.25);}.nav-module{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;font-weight:500;}.nav-track-pill{font-family:"JetBrains Mono",monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .65rem;border-radius:2px;}.track1-pill{background:rgba(0,168,150,.2);color:#B2EDE7;}.track2-pill{background:rgba(244,162,97,.2);color:#F4D0B0;}.track3-pill{background:rgba(231,111,81,.2);color:#F4C4B9;}.nav-progress{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:.72rem;color:rgba(255,255,255,0.5);}.module-hero{position:relative;overflow:hidden;padding:4rem 3rem 3rem;background:#0F1F2E;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;}.module-hero::after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 70% 50%,rgba(0,168,150,.08) 0%,transparent 65%);pointer-events:none;}.hero-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(5rem,12vw,10rem);color:rgba(255,255,255,.06);line-height:1;position:absolute;right:3rem;bottom:0;font-weight:400;user-select:none;}.module-eyebrow{font-family:"JetBrains Mono",monospace;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:#B2EDE7;margin-bottom:.75rem;}.module-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.12;letter-spacing:-.02em;font-weight:700;color:#fff;margin-bottom:1.25rem;}.module-subtitle{font-size:1.1rem;color:rgba(255,255,255,.72);line-height:1.65;max-width:620px;margin-bottom:2rem;}.module-meta{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}.meta-item{display:flex;flex-direction:column;gap:.15rem;}.meta-item .label{font-family:"JetBrains Mono",monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);}.meta-item .value{font-size:.92rem;color:rgba(255,255,255,.85);font-weight:500;}.complete-btn{font-family:"JetBrains Mono",monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:.65rem 1.4rem;background:#00A896;border:2px solid #00A896;color:#FFFFFF;cursor:pointer;transition:all .15s;font-weight:700;}.complete-btn:hover{background:var(--teal-dark);border-color:var(--teal-dark);}.complete-btn.done{background:transparent;border:2px solid rgba(255,255,255,.4);color:rgba(255,255,255,.7);cursor:default;}.objectives-strip{background:#0F1F2E;padding:2.5rem 3rem;}.objectives-heading{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#B2EDE7;margin-bottom:1.5rem;font-weight:700;}.objectives-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:.85rem;max-width:1160px;}.objectives-list li{display:flex;align-items:flex-start;gap:1rem;font-size:1rem;color:rgba(255,255,255,.88);line-height:1.55;padding:.85rem 1rem;background:#162840;border-left:2px solid rgba(0,168,150,.5);}.obj-num{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:#00A896;font-weight:700;letter-spacing:.1em;flex-shrink:0;padding-top:.12rem;}.module-content{max-width:1200px;margin:0 auto;padding:0 3rem 2rem;}.content-section{padding:3rem 0;border-bottom:1px solid var(--border-light);}.content-section:last-child{border-bottom:none;}.section-label{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:.65rem;display:block;font-weight:700;}.section-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.15;letter-spacing:-.02em;font-weight:700;color:var(--text-primary);margin-bottom:1.25rem;}.section-intro{font-size:1.12rem;color:var(--text-secondary);line-height:1.75;max-width:780px;margin-bottom:2rem;}.card-grid{display:grid;gap:1px;background:var(--border);}.card-grid-2{grid-template-columns:1fr 1fr;}.card-grid-3{grid-template-columns:repeat(3,1fr);}.card-grid-4{grid-template-columns:repeat(4,1fr);}.card-grid-auto{display:grid;gap:1px;background:var(--border);grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));}.card{background:var(--card-bg);padding:1.75rem;position:relative;}.card-title{font-family:Georgia,"Times New Roman",serif;font-size:1.1rem;font-weight:400;color:var(--text-primary);margin-bottom:.65rem;}.card-body{font-size:.97rem;color:var(--text-secondary);line-height:1.7;}.card-label{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:.5rem;display:block;}.card h4{font-weight:600;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;color:var(--text-primary);margin-bottom:.5rem;line-height:1.35;}.card p{font-size:.97rem;color:var(--text-secondary);line-height:1.65;}.card-accent-p{border-top:3px solid var(--teal);}.card-accent-o{border-top:3px solid var(--orange-light);}.card-accent-t{border-top:3px solid var(--orange);}.stat-strip{display:grid;gap:1px;background:var(--border);margin:2.25rem 0;border-radius:3px;overflow:hidden;}.stat-strip.cols-3{grid-template-columns:repeat(3,1fr);}.stat-strip.cols-4{grid-template-columns:repeat(4,1fr);}.stat-cell{background:var(--card-bg);padding:2rem 1.5rem;text-align:center;border-top:3px solid var(--cell-accent,var(--teal));}.stat-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.4rem,4.5vw,3.5rem);color:var(--cell-accent,var(--teal-dark));line-height:1;margin-bottom:.5rem;display:block;}.stat-label{font-family:"JetBrains Mono",monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);line-height:1.5;display:block;}.viz-container{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);margin:2rem 0;box-shadow:0 2px 8px rgba(0,0,0,.07);}.viz-header{padding:1rem 1.5rem;border-bottom:2px solid var(--border-light);display:flex;align-items:center;gap:.75rem;background:var(--section-alt);}.viz-header-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;}.viz-title{font-family:"JetBrains Mono",monospace;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;}.viz-body{padding:1.25rem 1.5rem 1rem;}.callout{padding:1.35rem 1.75rem;margin:1.75rem 0;border-left:4px solid var(--teal);background:var(--teal-bg);}.callout-warning{border-left-color:var(--orange);background:var(--orange-bg);}.callout-key{border-left-color:var(--teal-dark);background:var(--teal-bg);}.callout-title{font-family:"JetBrains Mono",monospace;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:#007A6E;font-weight:700;display:block;margin-bottom:.6rem;}.callout-warning .callout-title{color:#B54D12;}.callout p{font-size:1rem;color:var(--text-primary);line-height:1.72;}.pause-reflect{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 3rem;}.pause-label{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:.5rem;display:block;}.pause-intro{font-size:.97rem;color:var(--text-muted);margin-bottom:1.25rem;font-style:italic;}.pause-q{display:flex;align-items:flex-start;gap:.85rem;font-size:1rem;color:var(--text-primary);line-height:1.65;padding:.85rem 1.1rem;background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--teal-dark);margin-bottom:.5rem;}.pause-q-num{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--teal-dark);font-weight:700;flex-shrink:0;padding-top:.2rem;min-width:1.4rem;}.kc-block{background:var(--card-bg);border:1px solid var(--border);padding:2.25rem;margin:.5rem 0;}.kc-label{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:1rem;}.kc-q{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:1.15rem;color:var(--text-primary);line-height:1.6;margin-bottom:1.5rem;}.kc-options{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem;}.kc-option{display:flex;align-items:flex-start;gap:.85rem;padding:.9rem 1.1rem;background:var(--page-bg);border:1px solid var(--border);cursor:pointer;text-align:left;width:100%;font-family:Calibri,"Trebuchet MS",system-ui,sans-serif;font-size:1rem;color:var(--text-primary);line-height:1.55;transition:all .15s;}.kc-option:hover{border-color:var(--teal);background:var(--teal-bg);}.kc-option.selected-correct{background:rgba(22,163,74,.08);border-color:var(--correct);}.kc-option.selected-wrong{background:rgba(220,38,38,.07);border-color:var(--wrong);}.kc-opt-key{font-family:"JetBrains Mono",monospace;font-size:.78rem;font-weight:700;color:var(--text-muted);flex-shrink:0;width:1.2rem;padding-top:.1rem;}.kc-feedback{padding:1rem 1.25rem;margin-top:.5rem;font-size:1rem;line-height:1.7;border-left:3px solid;display:none;}.kc-correct{background:rgba(22,163,74,.07);border-left-color:var(--correct);color:var(--text-primary);}.kc-wrong{background:rgba(220,38,38,.06);border-left-color:var(--wrong);color:var(--text-primary);}.kc-reveal{display:none;padding:1rem 1.25rem;margin-top:.5rem;background:var(--teal-bg);border-left:3px solid var(--teal-dark);font-size:1rem;color:var(--text-primary);line-height:1.72;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;flex-wrap:wrap;}.nav-btn{display:inline-flex;flex-direction:column;padding:.75rem 1.25rem;border:1px solid var(--border);background:var(--page-bg);text-decoration:none;transition:all .15s;color:inherit;}.nav-btn:hover{border-color:var(--teal-dark);background:var(--teal-bg);}.nav-btn.next{text-align:right;}.nav-btn-label{font-family:"JetBrains Mono",monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);display:block;}.nav-btn-title{font-size:.97rem;color:var(--text-primary);font-weight:500;display:block;margin-top:.15rem;}.nav-btn.next .nav-btn-label,.nav-btn.next .nav-btn-title{color:var(--teal-dark);}.takeaways{background:#0F1F2E;padding:2.5rem 3rem;}.takeaways-heading{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#B2EDE7;font-weight:700;margin-bottom:1.5rem;}.takeaway-list{display:grid;gap:1px;background:rgba(255,255,255,.08);width:100%;}.takeaway-item{display:flex;gap:1rem;padding:1.5rem;background:#162840;border-top:2px solid rgba(0,168,150,.4);transition:background .15s;}.takeaway-item:hover{background:#1C3A55;}.takeaway-icon{color:#00A896;font-size:.65rem;flex-shrink:0;padding-top:.4rem;}.takeaway-body strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;font-weight:700;color:#FFFFFF;margin-bottom:.4rem;line-height:1.35;}.takeaway-body p{font-size:.95rem;color:rgba(255,255,255,.75);line-height:1.65;}.reveal{opacity:1;transition:opacity .4s ease,transform .4s ease;}.reveal.animate{opacity:0;transform:translateY(12px);}.reveal.animate.visible{opacity:1;transform:none;}.tri-detail{padding:1.5rem;background:var(--card-bg);border:1px solid var(--border);}.tri-detail-name{font-weight:700;font-size:1.1rem;color:var(--teal-dark);margin-bottom:.75rem;}.tradeoff-container{display:grid;grid-template-columns:1fr 1.2fr;gap:2rem;align-items:start;}.triangle-wrap{display:flex;align-items:center;justify-content:center;}.triangle-svg{width:100%;max-width:320px;height:auto;}.example{font-style:italic;color:var(--text-secondary);font-size:.97rem;border-left:3px solid var(--border);padding-left:1rem;margin-top:.75rem;}.reg-tab{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:.6rem 1.1rem;cursor:pointer;border:1px solid var(--border);background:var(--card-bg);color:var(--text-muted);font-weight:600;transition:all .15s;}.reg-tab:hover{border-color:var(--teal-dark);color:var(--teal-dark);}.active-reg{background:var(--teal)!important;border-color:var(--teal)!important;color:#0F1F2E!important;font-weight:700!important;}.courage-card{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);padding:1.5rem;}.footer-brand{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);}.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:1px;background:var(--border);margin:2rem 0;}.stat-block{background:var(--card-bg);padding:1.75rem 1.5rem;border-top:3px solid var(--teal);}@media(max-width:860px){.module-content,.objectives-strip,.top-nav,.pause-reflect,.module-nav,.takeaways{padding-left:1.5rem;padding-right:1.5rem;}.module-hero{padding:2.5rem 1.5rem 2rem;}.card-grid-3{grid-template-columns:1fr 1fr;}.card-grid-4{grid-template-columns:1fr 1fr;}.takeaway-list{grid-template-columns:1fr!important;}}@media(max-width:540px){.card-grid-2,.card-grid-3,.card-grid-4{grid-template-columns:1fr;}.stat-strip.cols-3,.stat-strip.cols-4{grid-template-columns:1fr;}.module-title{font-size:1.75rem;}.tradeoff-container{grid-template-columns:1fr;}}
+</style>
 </head>
 <body class="track2">
 <nav class="top-nav">
@@ -66,131 +45,153 @@
   </ul>
 </div>
 <div class="module-content">
-<!-- ══ M6 S1: TIME model ══════════════════════════════════════ -->
+
 <div class="content-section reveal">
   <p class="section-label">Section 1</p>
   <h2 class="section-title">Enterprise architecture as a sustainability lever.</h2>
-  <p class="section-intro">Before code, before infrastructure — the application portfolio. Every application that continues running because nobody made a deliberate decision to retire it is consuming resources for no business return. Portfolio rationalisation is the highest-leverage action in most estates.</p>
-
-  <div class="viz-container reveal" id="timeViz">
-    <div class="viz-header">
-      <div class="viz-header-dot"></div>
-      <span class="viz-title">The TIME model applied to sustainability — click each category to explore the questions and actions</span>
-    </div>
-    <div style="padding:1.75rem;">
-      <div id="timeGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border-light);margin-bottom:1.25rem;"></div>
-      <div id="timeDetail" style="background:var(--section-alt);border-left:3px solid #94A3B8;padding:1.25rem 1.5rem;min-height:80px;transition:border-color 0.2s;">
-        <p style="font-size:0.95rem;color:var(--text-secondary);font-style:italic;">Select a category to see the sustainability questions to ask and the actions it requires.</p>
-      </div>
-    </div>
-    <div style="padding:0.85rem 1.75rem;border-top:1px solid var(--border-light);">
-      <p style="font-size:0.82rem;color:var(--text-secondary);">The carbon you do not generate by not running an application outweighs any optimisation you could apply to it. Eliminate is the highest-leverage category — and the most politically difficult. Every blocked retirement is a governance conversation waiting to happen.</p>
-    </div>
-  </div>
-
-  <div class="callout callout-insight reveal">
-    <span class="callout-title">The portfolio is the programme</span>
-    <p>Without active portfolio management, applications accumulate. They are added when a need arises and rarely retired when that need diminishes. The result is a portfolio that grows by default, consuming compute, licence cost, and operational attention for no corresponding value. This is not primarily a technical problem — it is a governance one.</p>
+  <p class="section-intro">Before code, before infrastructure — the application portfolio. Every application that continues running because nobody made a deliberate decision to retire it is consuming resources for no business return.</p>
+  <div class="definition reveal">The TIME model applied to carbon: Tolerate, Invest, Migrate, Eliminate. The Eliminate category is where the highest sustainability return per decision lives — and it is almost always underused.</div>
+  <div class="card-grid card-grid-2 reveal">
+    <div class="card card-accent-o"><div class="card-label">Tolerate</div><h4>Runs as-is, no investment</h4><p>Application remains in service at current efficiency. Measure its intensity. If intensity is high and usage is low, tolerance has a cost.</p></div>
+    <div class="card card-accent-t"><div class="card-label">Invest</div><h4>Active improvement</h4><p>The service is worth improving. Sustainability criteria enter the investment case — compute per transaction, data retention policy, architecture pattern.</p></div>
+    <div class="card"><div class="card-label">Migrate</div><h4>Move to more efficient platform</h4><p>Often delivers efficiency gains. Cloud-native, serverless, or managed services that eliminate the overhead of bespoke infrastructure.</p></div>
+    <div class="card"><div class="card-label">Eliminate</div><h4>Retire — the highest-leverage decision</h4><p>Every application retired removes its entire footprint: run cost, licence cost, support overhead, energy, and embodied hardware. Retirement is the most impactful decision portfolio governance can make.</p></div>
   </div>
 </div>
 
-<!-- ══ M6 S2: SCI + sustainable dev lifecycle ════════════════ -->
 <div class="content-section reveal">
   <p class="section-label">Section 2</p>
-  <h2 class="section-title">Sustainable software development — the SCI metric.</h2>
-  <p class="section-intro">Software behaviour is one of the most underestimated sustainability levers in enterprise IT. Efficiency improvements at the code level compound across every execution. The Software Carbon Intensity (SCI) specification gives engineering teams a metric that maps directly to their decisions.</p>
-
-  <div class="viz-container reveal" id="sciViz">
-    <div class="viz-header">
-      <div class="viz-header-dot" style="background:#B2EDE7"></div>
-      <span class="viz-title">SCI calculator — adjust each variable to see how carbon per transaction changes</span>
-    </div>
-    <div style="padding:1.75rem;">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;">
-        <div>
-          <div style="font-family:Calibri,sans-serif;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:#007A6E;margin-bottom:0.5rem;">SCI = (E × I) ÷ R</div>
-          <div style="font-size:0.88rem;color:var(--text-secondary);line-height:1.6;margin-bottom:1rem;">Energy consumed × Grid carbon intensity, divided by the functional unit.</div>
-          <div style="display:flex;flex-direction:column;gap:0.85rem;" id="sciSliders"></div>
-        </div>
-        <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;background:var(--section-alt);padding:1.5rem;border-radius:2px;">
-          <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:0.5rem;">Carbon per transaction</div>
-          <div id="sciResult" style="font-family:Georgia,serif;font-size:3.5rem;color:#007A6E;line-height:1;">8.06g</div>
-          <div style="font-family:Calibri,sans-serif;font-size:0.75rem;color:var(--text-secondary);margin-top:0.25rem;">CO₂ per 1,000 transactions</div>
-          <div id="sciDelta" style="font-family:Calibri,sans-serif;font-size:0.82rem;color:var(--text-secondary);margin-top:0.75rem;text-align:center;"></div>
+  <h2 class="section-title">Software Carbon Intensity — the engineering metric.</h2>
+  <p class="section-intro">Intensity, not total emissions, is the metric engineering teams can directly influence. Total emissions grow with the service — that is expected. Intensity tells you whether engineering decisions are improving or degrading the sustainability of each unit of work.</p>
+  <div class="viz-container reveal">
+    <p class="viz-title">SCI formula — interactive worked example</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
+      <div>
+        <div class="definition" style="font-size:1rem; margin:0 0 1.5rem;">SCI = (E × I) ÷ R</div>
+        <table class="compare-table">
+          <tr><th>Variable</th><th>Meaning</th><th>Example value</th></tr>
+          <tr><td><strong>E</strong></td><td>Energy consumed (kWh)</td><td>2.4 kWh per run</td></tr>
+          <tr><td><strong>I</strong></td><td>Grid carbon intensity (g CO₂/kWh)</td><td>168 g/kWh (London)</td></tr>
+          <tr><td><strong>R</strong></td><td>Functional unit (transactions, calls, sessions)</td><td>50,000 records</td></tr>
+          <tr style="background:rgba(28,169,160,0.06)"><td><strong>SCI</strong></td><td>Carbon per functional unit</td><td>8.06 g CO₂ per 1,000 records</td></tr>
+        </table>
+        <div class="callout callout-insight" style="margin-top:1rem;">
+          <p class="callout-title">Set an intensity target</p>
+          <p style="font-size:0.82rem">Reduce to 6g CO₂ per 1,000 records within two quarters. That is a specific, ownable engineering goal — independent of how many records the pipeline processes.</p>
         </div>
       </div>
-      <div id="sciFormula" style="padding:0.75rem 1rem;background:var(--teal-bg);border-left:2px solid rgba(0,168,150,0.3);font-family:Calibri,sans-serif;font-size:0.82rem;color:var(--text-secondary);line-height:1.65;"></div>
+
+  <!-- SCI LIVE CALCULATOR -->
+  <div class="viz-container reveal" id="sciCalc" style="padding:0;margin-top:1.75rem;">
+    <div style="padding:1.5rem 1.5rem 1rem;border-bottom:1px solid var(--border-light);">
+      <p class="viz-title">SCI live calculator — adjust the inputs and see the formula update in real time</p>
     </div>
-    <div style="padding:0.85rem 1.75rem;border-top:1px solid var(--border-light);">
-      <p style="font-size:0.82rem;color:var(--text-secondary);">SCI is specified by the Green Software Foundation. The functional unit must match what the software actually produces: a transaction, a user session, an API call, a gigabyte processed. Changing the functional unit changes the number — define it before comparing.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
+      <div style="padding:1.5rem;border-right:1px solid rgba(255,255,255,0.06);">
+        <div style="margin-bottom:1.25rem;">
+          <label style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B;letter-spacing:0.12em;text-transform:uppercase;display:block;margin-bottom:0.5rem;">E — Energy consumed per run (kWh)</label>
+          <input type="range" id="sci-e" min="0.1" max="20" step="0.1" value="2.4" oninput="updateSCI()" style="width:100%;accent-color:#007A6E;margin-bottom:0.3rem;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#007A6E;" id="sci-e-val">2.4 kWh</span>
+        </div>
+        <div style="margin-bottom:1.25rem;">
+          <label style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B;letter-spacing:0.12em;text-transform:uppercase;display:block;margin-bottom:0.5rem;">I — Grid carbon intensity (g CO₂/kWh)</label>
+          <div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:0.5rem;">
+            <button onclick="setRegion(18,'Norway')" style="padding:0.25rem 0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.58rem;background:rgba(0,168,150,0.1);border:1px solid rgba(0,168,150,0.25);color:#007A6E;cursor:pointer;transition:all 0.12s;" id="reg-Norway">Norway 18g</button>
+            <button onclick="setRegion(28,'Scotland')" style="padding:0.25rem 0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.58rem;background:var(--border-light);border:1px solid var(--border);color:#64748B;cursor:pointer;transition:all 0.12s;" id="reg-Scotland">Scotland 28g</button>
+            <button onclick="setRegion(168,'London')" style="padding:0.25rem 0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.58rem;background:var(--border-light);border:1px solid var(--border);color:#64748B;cursor:pointer;transition:all 0.12s;" id="reg-London">London 168g</button>
+            <button onclick="setRegion(680,'Poland')" style="padding:0.25rem 0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.58rem;background:var(--border-light);border:1px solid var(--border);color:#64748B;cursor:pointer;transition:all 0.12s;" id="reg-Poland">Poland 680g</button>
+          </div>
+          <input type="range" id="sci-i" min="10" max="800" step="5" value="168" oninput="updateSCI()" style="width:100%;accent-color:#9B5E00;margin-bottom:0.3rem;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#9B5E00;" id="sci-i-val">168 g/kWh (London)</span>
+        </div>
+        <div>
+          <label style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B;letter-spacing:0.12em;text-transform:uppercase;display:block;margin-bottom:0.5rem;">R — Functional unit (records per run)</label>
+          <input type="range" id="sci-r" min="1000" max="500000" step="1000" value="50000" oninput="updateSCI()" style="width:100%;accent-color:#007A6E;margin-bottom:0.3rem;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#007A6E;" id="sci-r-val">50,000 records</span>
+        </div>
+      </div>
+      <div style="padding:1.5rem;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:1rem;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:#64748B;letter-spacing:0.12em;text-transform:uppercase;">SCI = (E × I) ÷ R</div>
+        <div style="text-align:center;">
+          <div id="sci-formula" style="font-family:'DM Serif Display',serif;font-size:0.95rem;color:var(--text-secondary);margin-bottom:0.5rem;"></div>
+          <div id="sci-result" style="font-family:'DM Serif Display',serif;font-size:2.8rem;line-height:1;color:#007A6E;"></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#64748B;margin-top:0.25rem;">g CO₂ per 1,000 records</div>
+        </div>
+        <div id="sci-benchmark" style="text-align:center;padding:0.75rem 1rem;background:rgba(0,0,0,0.2);border-radius:1px;width:100%;">
+          <div id="sci-bench-text" style="font-size:0.79rem;color:var(--text-secondary);line-height:1.6;"></div>
+        </div>
+        <div id="sci-region-note" style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B;text-align:center;line-height:1.55;"></div>
+      </div>
     </div>
   </div>
+  <script>
+  var sciRegionName = 'London';
+  function setRegion(val, name) {
+    document.getElementById('sci-i').value = val;
+    sciRegionName = name;
+    document.querySelectorAll('[id^="reg-"]').forEach(b => {
+      b.style.background='rgba(255,255,255,0.05)';b.style.borderColor='rgba(255,255,255,0.08)';b.style.color='#64748B';
+    });
+    var btn = document.getElementById('reg-' + name);
+    if(btn){btn.style.background='rgba(244,162,97,0.1)';btn.style.borderColor='rgba(244,162,97,0.25)';btn.style.color='#F4A261';}
+    updateSCI();
+  }
+  function updateSCI() {
+    var E = parseFloat(document.getElementById('sci-e').value);
+    var I = parseFloat(document.getElementById('sci-i').value);
+    var R = parseInt(document.getElementById('sci-r').value);
+    document.getElementById('sci-e-val').textContent = E.toFixed(1) + ' kWh';
+    document.getElementById('sci-i-val').textContent = I + ' g/kWh (' + sciRegionName + ')';
+    document.getElementById('sci-r-val').textContent = R.toLocaleString() + ' records';
+    var raw = (E * I) / (R / 1000);
+    document.getElementById('sci-formula').textContent = '(' + E.toFixed(1) + ' × ' + I + ') ÷ ' + (R/1000).toFixed(1) + 'k';
+    document.getElementById('sci-result').textContent = raw.toFixed(2);
+    // Benchmark context
+    var target = raw * 0.75;
+    var bench = '';
+    if(raw < 2) bench = 'Highly efficient. A 10% further improvement from code optimisation alone is realistic.';
+    else if(raw < 8) bench = 'Moderate intensity. A 25% reduction through caching and query optimisation is a credible engineering target.';
+    else if(raw < 20) bench = 'High intensity. Architecture-level changes — streaming over batch, filter-at-source queries — could deliver 40–60% reduction.';
+    else bench = 'Very high intensity. Significant refactoring opportunity. Start with data access patterns and compute per transaction.';
+    document.getElementById('sci-bench-text').textContent = bench;
+    // Region note  
+    var norVal = (E * 18) / (R / 1000);
+    if(I > 20) {
+      var ratio = (raw/norVal).toFixed(1);
+      document.getElementById('sci-region-note').textContent = 'Running this workload in Norway: ' + norVal.toFixed(2) + 'g — ' + ratio + '× lower than ' + sciRegionName + '. Region selection is an operational lever.';
+    } else {
+      document.getElementById('sci-region-note').textContent = 'Running in Norway — the lowest-intensity major grid in Europe.';
+    }
+  }
+  setRegion(168, 'London');
+  </script>
 
-  <div class="callout callout-key reveal">
-    <span class="callout-title">Where in the development lifecycle does sustainability fit?</span>
-    <p>Design (architecture and data model choices), development (code efficiency and test coverage of sustainability acceptance criteria), test (SCI measurement as a gate, not an afterthought), deploy (infrastructure right-sizing at provisioning), and operate (ongoing SCI monitoring). Sustainability acceptance criteria belong in the definition of done — not in the quarterly sustainability review.</p>
+      <div>
+        <h4 style="font-size:0.88rem; font-weight:500; margin-bottom:0.75rem;">Integrating sustainability into the dev lifecycle</h4>
+        <div class="process-steps">
+          <div class="process-step"><div class="step-icon">1</div><div class="step-body"><strong>Architecture stage</strong><p>Ask sustainability questions at design: does this minimise data movement? Does the data model encourage unnecessary replication?</p></div></div>
+          <div class="process-step"><div class="step-icon">2</div><div class="step-body"><strong>Definition of done</strong><p>Include sustainability acceptance criteria. Treat a significant increase in carbon per transaction with the same seriousness as a latency regression.</p></div></div>
+          <div class="process-step"><div class="step-icon">3</div><div class="step-body"><strong>Product metrics</strong><p>Track carbon intensity as a product KPI alongside latency and availability — not in a separate sustainability review.</p></div></div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- ══ M6 S3: Data management ════════════════════════════════ -->
 <div class="content-section reveal">
   <p class="section-label">Section 3</p>
   <h2 class="section-title">Data management as a sustainability practice.</h2>
-  <p class="section-intro">Data growth is the silent driver behind storage costs, replication overhead, and security exposure. Treating storage growth as a performance metric with an owner — not a technical inevitability — is what separates organisations that manage data from those that accumulate it.</p>
-
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border-light);margin:1.75rem 0;" class="reveal">
-    <div style="background:var(--card-bg);border:1px solid var(--border);padding:1.5rem;border-top:3px solid #E76F51;">
-      <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#B54D12;margin-bottom:0.75rem;">Default behaviours that accumulate</div>
-      <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.5rem;">
-        <li style="display:flex;gap:0.65rem;font-size:0.92rem;color:var(--text-secondary);line-height:1.5;"><span style="color:#B54D12;flex-shrink:0;">⚠</span>Logs retained at maximum resolution indefinitely</li>
-        <li style="display:flex;gap:0.65rem;font-size:0.92rem;color:var(--text-secondary);line-height:1.5;"><span style="color:#B54D12;flex-shrink:0;">⚠</span>Multiple uncompressed copies across environments</li>
-        <li style="display:flex;gap:0.65rem;font-size:0.92rem;color:var(--text-secondary);line-height:1.5;"><span style="color:#B54D12;flex-shrink:0;">⚠</span>Data replicated to regions "just in case"</li>
-        <li style="display:flex;gap:0.65rem;font-size:0.92rem;color:var(--text-secondary);line-height:1.5;"><span style="color:#B54D12;flex-shrink:0;">⚠</span>Dark data — stored, protected, and never accessed</li>
-        <li style="display:flex;gap:0.65rem;font-size:0.92rem;color:var(--text-secondary);line-height:1.5;"><span style="color:#B54D12;flex-shrink:0;">⚠</span>No lifecycle policy — the default is to keep everything</li>
-      </ul>
-    </div>
-    <div style="background:var(--section-alt);padding:1.5rem;border-top:3px solid #00A896;">
-      <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#007A6E;margin-bottom:0.75rem;">Governance actions that change the default</div>
-      <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.5rem;">
-        <li style="display:flex;gap:0.65rem;font-size:0.92rem;color:var(--text-secondary);line-height:1.5;"><span style="color:#007A6E;flex-shrink:0;">✓</span>Treat storage growth as a KPI with a named owner</li>
-        <li style="display:flex;gap:0.65rem;font-size:0.92rem;color:var(--text-secondary);line-height:1.5;"><span style="color:#007A6E;flex-shrink:0;">✓</span>Define retention tiers: hot / warm / cold / delete</li>
-        <li style="display:flex;gap:0.65rem;font-size:0.92rem;color:var(--text-secondary);line-height:1.5;"><span style="color:#007A6E;flex-shrink:0;">✓</span>Log resolution and sampling matched to operational need</li>
-        <li style="display:flex;gap:0.65rem;font-size:0.92rem;color:var(--text-secondary);line-height:1.5;"><span style="color:#007A6E;flex-shrink:0;">✓</span>Data minimisation as a design constraint — collect only what you will use</li>
-        <li style="display:flex;gap:0.65rem;font-size:0.92rem;color:var(--text-secondary);line-height:1.5;"><span style="color:#007A6E;flex-shrink:0;">✓</span>Active deletion policy: data that has passed its retention date is deleted, not archived indefinitely</li>
-      </ul>
-    </div>
+  <p class="section-intro">Data is infrastructure. Every dataset stored, every backup made, every replica created, every log retained — these are physical resource decisions with energy, storage, and cooling consequences.</p>
+  <div class="card-grid card-grid-2 reveal">
+    <div class="card card-accent-o"><div class="card-label">The problem</div><h4>Why dark data accumulates</h4><p>Storage has historically been cheap relative to its actual footprint. No process asks whether retained data still serves a live purpose. Data is added to systems as part of feature development and never scoped for deletion. Log and telemetry defaults collect at full resolution regardless of operational need.</p></div>
+    <div class="card card-accent-t"><div class="card-label">The fix</div><h4>Data lifecycle governance</h4><p>Automated lifecycle management: move to lower-energy tiers when not accessed, delete when retention expires. Audit telemetry and logging: match collection granularity to operational need, not system defaults. Treat storage growth rate as a product metric with an owner. Dark data audit: what proportion of stored data was accessed in the past 90 days?</p></div>
+  </div>
+  <div class="stat-row reveal">
+    <div class="stat-block"><div class="stat-num">60–70%</div><div class="stat-label">of stored enterprise data never accessed after initial creation</div></div>
+    <div class="stat-block"><div class="stat-num">ROT</div><div class="stat-label">Redundant, Obsolete, Trivial — standard classification for storage rationalisation</div></div>
+    <div class="stat-block"><div class="stat-num">Quick win</div><div class="stat-label">Dark data is one of the most easily remediated waste categories — no code change required</div></div>
   </div>
 </div>
-
-
-
-
-
-<!-- ══ M6 S4: SaaS measurement challenge ═══════════════════ -->
-<div class="content-section reveal">
-  <p class="section-label">Section 4</p>
-  <h2 class="section-title">The SaaS measurement challenge.</h2>
-  <p class="section-intro">Multi-tenant SaaS platforms share infrastructure across many customers. The allocation methodology used by the provider materially affects what you see — and the absence of data does not mean the absence of impact. Asking the right questions at contract renewal is how Scope 3 coverage gets built.</p>
-
-  <div class="viz-container reveal" id="saasViz">
-    <div class="viz-header">
-      <div class="viz-header-dot" style="background:#F4A261"></div>
-      <span class="viz-title">Questions to ask any SaaS vendor — click each to see why it matters and what a good answer looks like</span>
-    </div>
-    <div style="padding:0;" id="saasRows"></div>
-    <div style="padding:0.85rem 1.75rem;border-top:1px solid var(--border-light);">
-      <p style="font-size:0.82rem;color:var(--text-secondary);">The absence of data is not absence of impact — it is absence of measurement. A vendor who cannot answer these questions is exposing you to unquantified Scope 3 emissions in your inventory. Use contract renewal as the lever to require improvement over time.</p>
-    </div>
-  </div>
-
-  <div class="callout callout-warning reveal">
-    <span class="callout-title">The portfolio question — before any SaaS procurement decision</span>
-    <p>Think about the application portfolio you work with. If you had to classify every application using the TIME model today — Tolerate, Invest, Migrate, Eliminate — what proportion would honestly be in the Eliminate category? The answer in most organisations is 20–40%. What is stopping those decisions being made is almost never technical. It is political.</p>
-  </div>
-</div>
-
-
-</div><!-- /module-content -->
 
 <div class="kc-block reveal" data-correct="B">
   <p class="kc-label">Knowledge Check · Module 6 · Q1</p>
@@ -242,10 +243,8 @@
     <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Enterprise architecture is a sustainability governance mechanism.</strong><p>Every application that runs without a deliberate decision to keep it running is consuming resources for no return. Retiring applications is often the single highest-leverage action in a portfolio review.</p></div></div>
     <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Software Carbon Intensity is the metric engineering teams can directly influence.</strong><p>Intensity — carbon per transaction, per call, per session — moves with engineering decisions. Total emissions move with business volume. Both matter; they serve different purposes.</p></div></div>
     <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Energy efficiency and software quality point in the same direction.</strong><p>Efficient algorithms, event-driven patterns, streaming over bulk loading, filter-at-source queries — these are engineering quality practices that also reduce energy per unit of useful work.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Dark data is one of the most easily remediated waste categories.</strong><p>It accumulates through permissive defaults and the absence of any process asking whether retained data is still serving a purpose. Data minimisation at design stage is the intervention point.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>SaaS absence of data is not absence of impact.</strong><p>Multi-tenant platforms carry Scope 3 exposure whether or not the provider discloses it. Ask the right questions at contract evaluation and renewal — not retrospectively during a reporting cycle.</p></div></div>
   </div>
-</div>/div>
+</div>
 </div>
 
 <div class="module-nav">
@@ -258,326 +257,60 @@
   <div class="footer-brand">March 2026 · v2</div>
 </footer>
 
+<script></script>
 <script>
-</script>
-<script>
-(function(){
-'use strict';
-
-// ── TIME MODEL ────────────────────────────────────────────
-var timeCategories = [
-  { letter:'T', label:'Tolerate', col:'#64748B',
-    subtitle:'Accept current state — for now',
-    questions:['What is the carbon intensity of this application?','Is it on a trajectory to improve, or is intensity drifting upward?','What would it cost to eliminate vs what it would save?'],
-    actions:['Set a review date — Tolerate is not a permanent category','Document the sustainability debt alongside technical debt','Flag for re-evaluation when the next major change is triggered'],
-    insight:'Technical debt and sustainability inefficiency can be accepted where the application still delivers genuine value and change is not yet justified. But "tolerate" must be an active decision with a review date — not the default for applications nobody thought about.' },
-  { letter:'I', label:'Invest', col:'#00A896',
-    subtitle:'Actively improve the application',
-    questions:['What are the specific efficiency improvements and what carbon reduction will they deliver?','Has a functional unit been defined so improvement can be measured?','Are sustainability acceptance criteria in the investment scope?'],
-    actions:['Add sustainability KPIs (SCI targets) to the investment scope','Include code efficiency, data minimisation, and telemetry right-sizing','Measure carbon intensity before and after — not just performance metrics'],
-    insight:'Sustainability investment includes code efficiency, data minimisation, telemetry right-sizing, and infrastructure optimisation. If these are not in the investment scope, efficiency improvements will be incidental rather than systematic.' },
-  { letter:'M', label:'Migrate', col:'#F4A261',
-    subtitle:'Move to a more efficient platform',
-    questions:['What is the carbon intensity before and after migration?','Has the functional unit been defined so comparison is valid?','Does the migration plan include a decommission date for the source?'],
-    actions:['Calculate the carbon argument before approving migration — do not assume cloud is always lower','Define the functional unit before migrating so pre/post comparison is possible','Set a hard decommission date for the legacy system — migrations that run in parallel indefinitely are a waste multiplier'],
-    insight:'Cloud migration, architecture modernisation, or consolidation onto a better-utilised shared platform can reduce carbon intensity — but only if the calculation is done rather than assumed. Migration without decommission doubles the footprint during transition.' },
-  { letter:'E', label:'Eliminate', col:'#E76F51',
-    subtitle:'Retire — the highest-leverage action',
-    questions:['What is blocking retirement — is the answer technical, political, or just inertia?','Is there a named individual who would be accountable for the decision to retire?','Has the downstream impact been assessed and a migration path defined for users?'],
-    actions:['Make retirement a named governance action, not an assumption','Assign a named owner to the elimination decision','Set a hard retirement date and track it in the waste removal backlog'],
-    insight:'The carbon you do not generate by not running an application outweighs any optimisation you could apply to it. Eliminate is the highest-leverage category. The resistance is almost never technical — it is political. Every blocked retirement deserves an explicit decision, not indefinite deferral.' },
-];
-
-var selectedTime = null;
-function buildTime() {
-  var grid = document.getElementById('timeGrid');
-  if (!grid) return;
-  grid.innerHTML = '';
-  timeCategories.forEach(function(cat, i) {
-    var isSelected = selectedTime === i;
-    var cell = document.createElement('div');
-    cell.style.cssText = 'background:'+(isSelected?cat.col:'#1E293B')+';padding:1.75rem 1.25rem;cursor:pointer;transition:background 0.2s;text-align:center;';
-    cell.innerHTML =
-      '<div style="font-family:Georgia,serif;font-size:3rem;color:'+(isSelected?'rgba(11,25,41,0.4)':cat.col)+';line-height:1;margin-bottom:0.4rem;">'+cat.letter+'</div>'+
-      '<div style="font-size:1.0rem;font-weight:600;color:'+(isSelected?'#0F1F2E':'#FFFFFF')+';margin-bottom:0.2rem;">'+cat.label+'</div>'+
-      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;color:'+(isSelected?'rgba(11,25,41,0.6)':'#64748B')+';letter-spacing:0.05em;">'+cat.subtitle+'</div>';
-    cell.addEventListener('click', function(){
-      selectedTime = (selectedTime===i)?null:i;
-      buildTime(); updateTimeDetail();
-    });
-    grid.appendChild(cell);
-  });
-}
-function updateTimeDetail() {
-  var det = document.getElementById('timeDetail');
-  if (!det) return;
-  if (selectedTime===null) {
-    det.style.borderLeftColor='#94A3B8';
-    det.innerHTML='<p style="font-size:0.95rem;color:var(--text-secondary);font-style:italic;">Select a category to explore the sustainability questions and required actions.</p>';
-    return;
-  }
-  var cat = timeCategories[selectedTime];
-  det.style.borderLeftColor = cat.col;
-  var qs = cat.questions.map(function(q){ return '<li style="display:flex;gap:0.6rem;margin-bottom:0.35rem;font-size:0.92rem;color:var(--text-secondary);line-height:1.5;"><span style="color:'+cat.col+';flex-shrink:0;font-size:0.8rem;">?</span>'+q+'</li>'; }).join('');
-  var as = cat.actions.map(function(a){ return '<li style="display:flex;gap:0.6rem;margin-bottom:0.35rem;font-size:0.92rem;color:var(--text-secondary);line-height:1.5;"><span style="color:#00A896;flex-shrink:0;">→</span>'+a+'</li>'; }).join('');
-  det.innerHTML =
-    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:0.85rem;">'+
-      '<div><div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:'+cat.col+';margin-bottom:0.5rem;">Questions to ask</div><ul style="list-style:none;padding:0;">'+qs+'</ul></div>'+
-      '<div><div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:#00A896;margin-bottom:0.5rem;">Actions required</div><ul style="list-style:none;padding:0;">'+as+'</ul></div>'+
-    '</div>'+
-    '<div style="padding:0.6rem 0.85rem;background:var(--section-alt);border-left:2px solid '+cat.col+';font-size:0.88rem;color:var(--text-secondary);font-style:italic;line-height:1.65;">'+cat.insight+'</div>';
-}
-buildTime(); updateTimeDetail();
-
-
-// ── SCI CALCULATOR ────────────────────────────────────────
-var sciBaseline = { E: 0.5, I: 168, R: 1000 };
-var sciCurrent = { E: 0.5, I: 168, R: 1000 };
-
-var sciParams = [
-  { key:'E', label:'Energy per 1k txns (kWh)', min:0.1, max:2.0, step:0.05, unit:'kWh',
-    desc:'Energy consumed by the software for 1,000 functional units. Reduced by code efficiency, infrastructure right-sizing, and utilisation improvement.' },
-  { key:'I', label:'Grid carbon intensity (gCO₂/kWh)', min:18, max:700, step:10, unit:'g',
-    desc:'Carbon intensity of the grid at the time and place of execution. Reduced by region selection and temporal shifting to cleaner periods.' },
-  { key:'R', label:'Functional units', min:100, max:5000, step:100, unit:'transactions',
-    desc:'The unit of work the software produces — transactions, sessions, API calls, GB processed. R is in the denominator: more output per joule = lower SCI.' },
-];
-
-function calcSCI(p) { return (p.E * p.I) / (p.R / 1000); }
-
-function buildSCI() {
-  var container = document.getElementById('sciSliders');
-  if (!container) return;
-  container.innerHTML = '';
-
-  sciParams.forEach(function(param) {
-    var wrap = document.createElement('div');
-    var val = sciCurrent[param.key];
-    wrap.innerHTML =
-      '<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.3rem;">'+
-        '<span style="font-family:\'JetBrains Mono\',monospace;font-size:0.75rem;color:var(--text-secondary);">'+param.label+'</span>'+
-        '<span id="sci_val_'+param.key+'" style="font-family:\'JetBrains Mono\',monospace;font-size:0.82rem;color:#00A896;font-weight:600;">'+val+param.unit+'</span>'+
-      '</div>'+
-      '<input type="range" min="'+param.min+'" max="'+param.max+'" step="'+param.step+'" value="'+val+'"'+
-        ' style="width:100%;accent-color:#00A896;cursor:pointer;" id="sci_slider_'+param.key+'">'+
-      '<div style="font-size:0.78rem;color:var(--text-secondary);line-height:1.45;margin-top:0.25rem;">'+param.desc+'</div>';
-    container.appendChild(wrap);
-  });
-
-  // Attach listeners after building
-  sciParams.forEach(function(param) {
-    var slider = document.getElementById('sci_slider_'+param.key);
-    var valDisplay = document.getElementById('sci_val_'+param.key);
-    if (slider) {
-      slider.addEventListener('input', function() {
-        sciCurrent[param.key] = parseFloat(this.value);
-        valDisplay.textContent = this.value + param.unit;
-        updateSCIResult();
-      });
-    }
-  });
-  updateSCIResult();
-}
-
-function updateSCIResult() {
-  var result = document.getElementById('sciResult');
-  var delta = document.getElementById('sciDelta');
-  var formula = document.getElementById('sciFormula');
-  if (!result) return;
-
-  var sci = calcSCI(sciCurrent);
-  var baseline = calcSCI(sciBaseline);
-  var change = ((sci - baseline) / baseline * 100).toFixed(0);
-  var changeSign = change > 0 ? '+' : '';
-
-  result.textContent = sci.toFixed(2) + 'g';
-  result.style.color = sci < baseline ? '#00A896' : sci > baseline ? '#E76F51' : '#94A3B8';
-
-  if (sci !== baseline) {
-    var improved = sci < baseline;
-    delta.innerHTML = '<span style="color:'+(improved?'#00A896':'#E76F51')+';">'+(improved?'▼ ':'▲ ')+Math.abs(change)+'% vs baseline</span>';
-  } else {
-    delta.textContent = 'Baseline';
-    delta.style.color = '#94A3B8';
-  }
-
-  formula.textContent =
-    'SCI = (' + sciCurrent.E + ' kWh × ' + sciCurrent.I + ' gCO₂/kWh) ÷ ' +
-    (sciCurrent.R/1000).toFixed(1) + 'k transactions = ' + sci.toFixed(3) + ' gCO₂ per transaction';
-}
-
-buildSCI();
-
-})();
-</script>
-
-
-<script>
-(function(){
-'use strict';
-
-// ── M6 S4: SaaS measurement questions ─────────────────────
-var saasQs = [
-  { q:'Where is the service hosted?', col:'#00A896',
-    why:'Not "the cloud" — which provider, which regions, which facilities. Grid carbon intensity varies by factor of 29× across regions. Location determines the physical footprint of what you consume.',
-    good:'Specific region and data centre location, with carbon intensity data per region. For multi-region services: usage distribution and per-region intensity.',
-    flag:'Generic "cloud" answer with no regional specificity. This makes Scope 3 calculation impossible beyond spend-proxy.' },
-  { q:'How are emissions allocated to your tenancy?', col:'#F4A261',
-    why:'Shared infrastructure means shared emissions — but the allocation basis determines what you see. Revenue-based allocation hides operational levers. Metered IT load reflects physical consumption.',
-    good:'Allocation based on metered IT load or server-hours, not revenue. Published methodology with boundary documentation.',
-    flag:'No stated methodology, or revenue-based allocation. Means you cannot connect your operational decisions to the number you receive.' },
-  { q:'What energy sources power the service?', col:'#B2EDE7',
-    why:'A vendor claiming "100% renewable" may mean RECs (certificates) rather than physical supply from renewable generation. These are not equivalent — RECs do not change which electrons power your servers at runtime.',
-    good:'Power Purchase Agreements (PPAs) or on-site generation, with evidence of additionality. Hourly matching data rather than annual averages.',
-    flag:'"100% renewable" with no methodology. Almost certainly certificate-based without physical matching. Ask for the distinction explicitly.' },
-  { q:'What assurance tier applies to the data?', col:'#E76F51',
-    why:'Self-declared data, reviewed data, and independently assured data represent fundamentally different confidence levels. Using self-declared data in assurance-grade Scope 3 reporting creates a credibility gap.',
-    good:'Independently assured against a stated standard (ISAE 3000, ISO 14064, or equivalent) with the assurance statement available.',
-    flag:'No mention of assurance, or "reviewed internally". This is self-declared regardless of how it is phrased.' },
-  { q:'What contractual commitments are available?', col:'#64748B',
-    why:'A vendor\'s net-zero 2040 commitment tells you nothing about the footprint of the specific service today. Contractually enforceable carbon intensity requirements are rare but achievable — and contract renewal is the lever.',
-    good:'Carbon intensity targets in the contract, with reporting obligations and remedies for non-delivery.',
-    flag:'No contractual element. Commitments in sustainability reports are not binding and cannot be relied on for compliance purposes.' },
-];
-
-function buildSaas() {
-  var container = document.getElementById('saasRows');
-  if (!container) return;
-  container.innerHTML = '';
-  saasQs.forEach(function(q, i) {
-    var wrap = document.createElement('div');
-    wrap.style.cssText = 'border-bottom:1px solid var(--border-light);';
-    var open = false;
-
-    var hdr = document.createElement('div');
-    hdr.style.cssText = 'padding:1rem 1.75rem;cursor:pointer;display:flex;align-items:flex-start;gap:0.85rem;transition:background 0.12s;';
-    hdr.innerHTML =
-      '<div style="width:8px;height:8px;border-radius:50%;background:'+q.col+';flex-shrink:0;margin-top:0.45rem;"></div>'+
-      '<div style="flex:1;font-size:0.97rem;color:var(--text-primary);font-weight:500;">'+q.q+'</div>'+
-      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.75rem;color:'+q.col+';flex-shrink:0;transition:transform 0.2s;padding-top:0.3rem;">▼</div>';
-
-    var body = document.createElement('div');
-    body.style.display = 'none';
-    body.style.cssText = 'display:none;padding:0 1.75rem 1.1rem 2.35rem;';
-    body.innerHTML =
-      '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;">'+
-        '<div><div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:0.35rem;">Why it matters</div>'+
-          '<p style="font-size:0.88rem;color:var(--text-secondary);line-height:1.6;">'+q.why+'</p></div>'+
-        '<div><div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.1em;text-transform:uppercase;color:#00A896;margin-bottom:0.35rem;">Good answer</div>'+
-          '<p style="font-size:0.88rem;color:var(--text-secondary);line-height:1.6;">'+q.good+'</p></div>'+
-        '<div><div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.1em;text-transform:uppercase;color:#E76F51;margin-bottom:0.35rem;">Red flag</div>'+
-          '<p style="font-size:0.88rem;color:var(--text-secondary);line-height:1.6;">'+q.flag+'</p></div>'+
-      '</div>';
-
-    hdr.addEventListener('mouseenter', function(){ hdr.style.background='var(--page-bg)'; });
-    hdr.addEventListener('mouseleave', function(){ hdr.style.background=''; });
-    hdr.addEventListener('click', function(){
-      open = !open;
-      body.style.display = open ? 'block' : 'none';
-      hdr.querySelector('div:last-child').style.transform = open ? 'rotate(180deg)' : '';
-    });
-
-    wrap.appendChild(hdr); wrap.appendChild(body);
-    container.appendChild(wrap);
-  });
-}
-if (document.getElementById('saasRows')) buildSaas();
-
-})();
-</script>
-
-
-
-<script>
-// GreenOps 101 — Shared module utilities v4 (light theme)
+// GreenOps 101 — Shared utilities v4 light theme
 
 const STORAGE_KEY = 'greenops101_progress';
-
-function getProgress() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
-  catch { return {}; }
+function getProgress(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');}catch{return {};}}
+function markComplete(moduleKey){
+  const p=getProgress();p[moduleKey]={completedAt:new Date().toISOString()};
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(p));
+  document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
 }
-
-function markComplete(moduleKey) {
-  const p = getProgress();
-  p[moduleKey] = { completedAt: new Date().toISOString() };
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
-  document.querySelectorAll('.complete-btn').forEach(b => {
-    b.textContent = '✓ Module complete';
-    b.classList.add('done');
-  });
-}
-
-function isComplete(moduleKey) {
-  return !!getProgress()[moduleKey];
-}
-
-// Knowledge check handling
-function initKnowledgeChecks() {
-  document.querySelectorAll('.kc-block').forEach(block => {
-    const correct = block.dataset.correct;
-    block.querySelectorAll('.kc-option').forEach(opt => {
-      opt.addEventListener('click', function() {
-        if (block.classList.contains('answered')) return;
+function isComplete(k){return !!getProgress()[k];}
+function initKnowledgeChecks(){
+  document.querySelectorAll('.kc-block').forEach(block=>{
+    const correct=block.dataset.correct;
+    block.querySelectorAll('.kc-option').forEach(opt=>{
+      opt.addEventListener('click',function(){
+        if(block.classList.contains('answered'))return;
         block.classList.add('answered');
-        const chosen = this.dataset.val;
-        block.querySelectorAll('.kc-option').forEach(o => {
-          if (o.dataset.val === correct) {
-            o.classList.add('selected-correct');
-          } else if (o.dataset.val === chosen && chosen !== correct) {
-            o.classList.add('selected-wrong');
-          }
+        const chosen=this.dataset.val;
+        block.querySelectorAll('.kc-option').forEach(o=>{
+          if(o.dataset.val===correct)o.classList.add('selected-correct');
+          else if(o.dataset.val===chosen&&chosen!==correct)o.classList.add('selected-wrong');
         });
-        // Show feedback
-        const fb = block.querySelector(chosen === correct ? '.kc-correct' : '.kc-wrong');
-        if (fb) fb.style.display = 'block';
-        // Also show .kc-reveal if present (legacy)
-        const reveal = block.querySelector('.kc-reveal');
-        if (reveal) reveal.style.display = 'block';
+        const fb=block.querySelector(chosen===correct?'.kc-correct':'.kc-wrong');
+        if(fb)fb.style.display='block';
+        const rv=block.querySelector('.kc-reveal');
+        if(rv)rv.style.display='block';
       });
     });
   });
 }
-
-// Scroll-triggered reveals
-function initScrollReveal() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+function initScrollReveal(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+  },{threshold:0.06,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+}
+function initProgress(current){
+  const p=getProgress(),total=14;
+  const done=Object.keys(p).filter(k=>k.startsWith('module')).length;
+  const el=document.getElementById('progress-count');
+  if(el)el.textContent=done+'/'+total;
+  const fill=document.getElementById('prog-fill');
+  if(fill)fill.style.width=((done/total)*100)+'%';
+  if(isComplete('module'+current))document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
 }
 
-// Sticky nav progress
-function initProgress(current) {
-  const p = getProgress();
-  const total = 14;
-  const done = Object.keys(p).filter(k => k.startsWith('module')).length;
-  const el = document.getElementById('progress-count');
-  if (el) el.textContent = `${done}/${total}`;
-  const fill = document.getElementById('prog-fill');
-  if (fill) fill.style.width = `${(done/total)*100}%`;
-  if (isComplete('module' + current)) {
-    document.querySelectorAll('.complete-btn').forEach(b => {
-      b.textContent = '✓ Module complete';
-      b.classList.add('done');
-    });
-  }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded',function(){
   initKnowledgeChecks();
   initScrollReveal();
   initProgress(6);
-  buildTime();
-  buildSCI();
-  buildSaas();
-});
 
+});
 </script>
 </body>
 </html>

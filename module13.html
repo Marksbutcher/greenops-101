@@ -1,36 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>M13 — GreenOps 101</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shared.css">
-<style>
-:root{--page-bg:#F7F8FA;--card-bg:#FFFFFF;--section-alt:#E8EDF2;--text-primary:#1E293B;--text-secondary:#4A5568;--text-muted:#64748B;--navy:#0F1F2E;--navy-mid:#162840;--navy-card:#1E293B;--teal:#00A896;--teal-dark:#007A6E;--teal-muted:#B2EDE7;--teal-bg:rgba(0,168,150,0.07);--teal-border:rgba(0,168,150,0.25);--orange:#E76F51;--orange-light:#F4A261;--orange-bg:#FFF3E8;--orange-border:rgba(231,111,81,0.25);--border:#D1D9E0;--border-light:#E8EDF2;--track1:#00A896;--track2:#F4A261;--track3:#E76F51;--correct:#16a34a;--wrong:#dc2626;--white:#FFFFFF;--space-1:0.25rem;--space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;--space-5:1.5rem;--space-6:2rem;--space-7:3rem;--space-8:4rem;--navy-light:#1C3A55;--navy-raised:#1C3A55;--navy-border:rgba(255,255,255,0.07);--navy-mid-alt:#162840;--teal-light:#B2EDE7;--teal-glow:rgba(0,168,150,0.15);--teal-subtle:rgba(0,168,150,0.07);--slate:#4A5568;--slate-mid:#64748B;--slate-dim:#94A3B8;--grey-100:#F7F8FA;--grey-300:#D1D9E0;--grey-500:#4A5568;--border-dark:rgba(255,255,255,0.08);}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;font-size:16px;}img,svg{display:block;max-width:100%;}body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,'Trebuchet MS',system-ui,-apple-system,sans-serif;font-weight:400;font-size:1rem;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}.top-nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:1px solid rgba(0,168,150,0.2);padding:0 var(--space-7);height:52px;display:flex;align-items:center;gap:1rem;}.top-nav::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00A896 0%,#F4A261 60%,#E76F51 100%);}.nav-home{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.85);text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:color 0.15s;flex-shrink:0;}.nav-home:hover{color:#FFFFFF;}.nav-sep{color:rgba(255,255,255,0.5);font-size:0.8rem;}.nav-module{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#FFFFFF;font-weight:500;}.nav-track-pill{font-family:Calibri,sans-serif;font-size:0.69rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.22rem 0.65rem;border-radius:2px;}.track1-pill{background:rgba(0,168,150,0.2);color:#B2EDE7;}.track2-pill{background:rgba(244,162,97,0.2);color:#F4D0B0;}.track3-pill{background:rgba(231,111,81,0.2);color:#F4C4B9;}.nav-progress{margin-left:auto;font-family:Calibri,sans-serif;font-size:0.72rem;color:rgba(255,255,255,0.7);}.nav-prog-bar{width:80px;height:2px;background:rgba(255,255,255,0.12);border-radius:1px;margin-left:0.5rem;overflow:hidden;display:inline-block;vertical-align:middle;}.nav-prog-fill{height:100%;background:var(--teal);border-radius:1px;transition:width 0.4s ease;}.module-hero{position:relative;overflow:hidden;padding:var(--space-8) var(--space-7) var(--space-7);background:#0F1F2E;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;}.module-hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 70% 50%,rgba(0,168,150,0.08) 0%,transparent 65%);pointer-events:none;}.hero-num{font-family:Georgia,serif;font-size:clamp(5rem,12vw,10rem);color:rgba(255,255,255,0.12);line-height:1;position:absolute;right:var(--space-7);bottom:0;font-weight:400;user-select:none;}.module-eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal-muted);margin-bottom:0.75rem;}.module-title{font-family:Georgia,serif;font-weight:700;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.12;letter-spacing:-0.02em;color:#FFFFFF;margin-bottom:1.25rem;}.module-subtitle{font-size:1.1rem;color:rgba(255,255,255,0.92);line-height:1.65;max-width:620px;margin-bottom:2rem;}.module-meta{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}.meta-item{display:flex;flex-direction:column;gap:0.15rem;}.meta-item .label{font-family:Calibri,sans-serif;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.65);}.meta-item .value{font-size:0.92rem;color:rgba(255,255,255,0.95);font-weight:500;}.complete-btn{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.6rem 1.25rem;background:rgba(0,168,150,0.15);border:1px solid #00A896;color:#B2EDE7;cursor:pointer;transition:all 0.15s;}.complete-btn:hover{background:rgba(0,168,150,0.3);border-color:#00A896;}.complete-btn.done{background:rgba(0,168,150,0.25);border-color:#00A896;color:#B2EDE7;}.objectives-strip{padding:0;}.module-content{max-width:1200px;margin:0 auto;padding:0 var(--space-7) var(--space-6);}.content-section{padding:var(--space-7) 0;border-bottom:1px solid var(--border-light);}.content-section:last-child{border-bottom:none;}.section-label{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:0.65rem;display:block;font-weight:700;}.section-title{font-family:Georgia,serif;font-weight:700;font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.15;letter-spacing:-0.02em;color:var(--text-primary);margin-bottom:1.25rem;}.section-intro{font-size:1.12rem;font-weight:400;color:var(--text-secondary);line-height:1.75;max-width:780px;margin-bottom:2rem;}.card-grid{display:grid;gap:1px;background:var(--border);}.card-grid-2{grid-template-columns:1fr 1fr;}.card-grid-3{grid-template-columns:repeat(3,1fr);}.card-grid-4{grid-template-columns:repeat(4,1fr);}.card{background:var(--card-bg);padding:1.75rem;position:relative;}.card-title{font-family:Georgia,serif;font-size:1.1rem;font-weight:400;color:var(--text-primary);margin-bottom:0.65rem;}.card-body{font-size:0.97rem;color:var(--text-secondary);line-height:1.7;}.card--teal-top{border-top:3px solid var(--teal);}.card--orange-top{border-top:3px solid var(--orange);}.card--navy-bg{background:var(--navy);color:#FFFFFF;}.stat-strip{display:grid;gap:1px;background:var(--border);margin:2.25rem 0;border-radius:3px;overflow:hidden;}.stat-strip.cols-3{grid-template-columns:repeat(3,1fr);}.stat-strip.cols-4{grid-template-columns:repeat(4,1fr);}.stat-cell{background:var(--card-bg);padding:2rem 1.5rem;text-align:center;position:relative;border-top:3px solid var(--cell-accent,var(--teal));transition:background 0.15s;}.stat-cell:hover{background:var(--section-alt);}.stat-num{font-family:Georgia,serif;font-size:clamp(2.4rem,4.5vw,3.5rem);color:var(--cell-accent,var(--teal-dark));line-height:1;margin-bottom:0.5rem;display:block;}.stat-label{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);line-height:1.5;display:block;}.viz-container{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);margin:2rem 0;box-shadow:0 2px 8px rgba(0,0,0,0.07);}.viz-header{padding:1rem 1.5rem;border-bottom:2px solid var(--teal);display:flex;align-items:center;gap:0.75rem;background:var(--section-alt);}.viz-header-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;}.viz-title{font-family:'JetBrains Mono',monospace;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;}.callout{padding:1.35rem 1.75rem;margin:1.75rem 0;border-left:4px solid var(--teal);background:var(--teal-bg);}.callout-insight{border-left-color:var(--teal);background:var(--teal-bg);}.callout-warning{border-left-color:var(--orange);background:var(--orange-bg);}.callout-key{border-left-color:var(--teal-dark);background:var(--teal-bg);}.callout-title{font-family:'JetBrains Mono',monospace;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;display:block;margin-bottom:0.6rem;}.callout-warning .callout-title{color:var(--orange);}.callout p{font-size:1rem;color:var(--text-primary);line-height:1.72;}.pause-questions{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem var(--space-7);}.pause-q{font-size:1rem;color:var(--text-primary);line-height:1.7;margin-bottom:0.85rem;padding-left:1.25rem;border-left:2px solid var(--teal-dark);}.pause-q:last-child{margin-bottom:0;}.kc-block{background:var(--card-bg);border:1px solid var(--border);padding:2.25rem;margin:0.5rem 0;}.kc-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:1rem;}.kc-q{font-family:Georgia,serif;font-weight:500;font-size:1.15rem;color:var(--text-primary);line-height:1.6;margin-bottom:1.5rem;}.kc-options{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1rem;}.kc-option{display:flex;align-items:flex-start;gap:0.85rem;padding:0.9rem 1.1rem;background:var(--page-bg);border:1px solid var(--border);cursor:pointer;text-align:left;width:100%;font-family:Calibri,'Trebuchet MS',system-ui,sans-serif;font-size:1rem;color:var(--text-primary);line-height:1.55;transition:all 0.15s;}.kc-option:hover{border-color:var(--teal);background:var(--teal-bg);}.kc-option.selected-correct{background:rgba(22,163,74,0.08);border-color:var(--correct);color:var(--text-primary);}.kc-option.selected-wrong{background:rgba(220,38,38,0.07);border-color:var(--wrong);color:var(--text-primary);}.kc-opt-key{font-family:Calibri,sans-serif;font-size:0.78rem;font-weight:700;color:var(--text-muted);flex-shrink:0;width:1.2rem;padding-top:0.1rem;}.kc-feedback{padding:1rem 1.25rem;margin-top:0.5rem;font-size:1rem;line-height:1.7;border-left:3px solid;}.kc-correct{background:rgba(22,163,74,0.07);border-left-color:var(--correct);color:var(--text-primary);}.kc-wrong{background:rgba(220,38,38,0.06);border-left-color:var(--wrong);color:var(--text-primary);}.kc-hint{font-size:0.92rem;color:var(--text-muted);font-style:italic;margin-top:0.5rem;display:none;}.kc-hint.visible{display:block;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem var(--space-7);border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;}.module-footer{padding:3rem var(--space-7);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;background:var(--card-bg);}.next{display:inline-flex;align-items:center;gap:0.75rem;padding:0.85rem 1.75rem;background:var(--teal);color:var(--navy);font-family:'JetBrains Mono',monospace;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;font-weight:700;transition:background 0.15s;}.next:hover{background:var(--teal-dark);color:#FFFFFF;}.reveal{opacity:1;transition:opacity 0.4s ease,transform 0.4s ease;}.reveal.animate{opacity:0;transform:translateY(12px);}.reveal.animate.visible{opacity:1;transform:none;}@media (max-width:860px){.module-content{padding:0 var(--space-5) var(--space-5);}.objectives-strip{padding:1.5rem var(--space-5);}.top-nav{padding:0 var(--space-5);}.module-hero{padding:var(--space-6) var(--space-5) var(--space-5);}.card-grid-3{grid-template-columns:1fr 1fr;}.card-grid-4{grid-template-columns:1fr 1fr;}}@media (max-width:540px){.card-grid-2,.card-grid-3,.card-grid-4{grid-template-columns:1fr;}.stat-strip.cols-3,.stat-strip.cols-4{grid-template-columns:1fr;}.module-title{font-size:1.75rem;}}.objectives-strip{background:#0F1F2E;border-bottom:none;padding:2.5rem 3rem;}.objectives-heading{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:#B2EDE7;margin-bottom:1.5rem;font-weight:700;}.objectives-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0.85rem;max-width:1160px;}.objectives-list li{display:flex;align-items:flex-start;gap:1rem;font-size:1rem;color:#FFFFFF;line-height:1.6;padding:0.75rem 0;border-left:2px solid rgba(0,168,150,0.5);padding-left:1rem;}.objectives-list li:hover{background:#1C3A55;border-left-color:#00A896;}.obj-num{font-family:Calibri,sans-serif;font-size:0.72rem;color:#00A896;font-weight:700;letter-spacing:0.1em;flex-shrink:0;padding-top:0.12rem;}.pause-reflect{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem var(--space-7);}.pause-label{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:0.5rem;display:block;}.pause-intro{font-size:0.97rem;color:var(--text-muted);margin-bottom:1.25rem;font-style:italic;}.pause-questions{background:transparent;border:none;padding:0;display:flex;flex-direction:column;gap:0.75rem;}.pause-q{display:flex;align-items:flex-start;gap:0.85rem;font-size:1rem;color:var(--text-primary);line-height:1.65;padding:0.85rem 1.1rem;background:var(--card-bg);border-left:3px solid var(--teal-dark);border:1px solid var(--border);border-left:3px solid var(--teal-dark);}.pause-q-num{font-family:Calibri,sans-serif;font-size:0.72rem;color:var(--teal-dark);font-weight:700;flex-shrink:0;padding-top:0.2rem;min-width:1.4rem;}.pause-note{font-size:0.92rem;color:var(--text-muted);margin-top:1rem;font-style:italic;}.takeaways{background:#0F1F2E;padding:2.5rem 3rem;margin-top:0;}.takeaways-heading{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:#B2EDE7;font-weight:700;margin-bottom:1.5rem;}.takeaway-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,0.08);width:100%;}.takeaway-item{display:flex;gap:1rem;padding:1.5rem;background:#162840;border-top:2px solid rgba(0,168,150,0.4);transition:background 0.15s;}.takeaway-item:hover{background:#1C3A55;}.takeaway-icon{color:var(--teal);font-size:0.65rem;flex-shrink:0;padding-top:0.4rem;}.takeaway-body strong{display:block;font-family:Georgia,serif;font-size:1.05rem;font-weight:700;color:#FFFFFF;margin-bottom:0.4rem;line-height:1.35;} .takeaway-body p{font-size:0.95rem;color:rgba(255,255,255,0.88);line-height:1.65;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem var(--space-7);border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;flex-wrap:wrap;}.nav-btn{display:inline-flex;flex-direction:column;padding:0.75rem 1.25rem;border:1px solid var(--border);background:var(--page-bg);text-decoration:none;transition:all 0.15s;color:inherit;}.nav-btn:hover{border-color:var(--teal-dark);background:var(--teal-bg);}.nav-btn.next{text-align:right;}.nav-btn-label{font-family:'JetBrains Mono',monospace;font-size:0.69rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);display:block;}.nav-btn-title{font-size:0.97rem;color:var(--text-primary);font-weight:500;display:block;margin-top:0.15rem;}.nav-btn.next .nav-btn-label{color:var(--teal-dark);}.nav-btn.next .nav-btn-title{color:var(--teal-dark);}.kc-reveal{display:none;padding:1rem 1.25rem;margin-top:0.5rem;background:var(--teal-bg);border-left:3px solid var(--teal-dark);font-size:1rem;color:var(--text-primary);line-height:1.72;}.kc-reveal-label{font-family:Calibri,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-dark);display:block;margin-bottom:0.5rem;}.footer-brand{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);}
-</style>
-<style>
-/* ── MISSING COMPONENTS + REDESIGNED SECTIONS ── */
-.objectives-strip{background:#0F1F2E;border-bottom:none;padding:2.5rem 3rem;}.objectives-heading{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:#B2EDE7;margin-bottom:1.5rem;font-weight:700;}.objectives-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0.85rem;max-width:1160px;}.objectives-list li{display:flex;align-items:flex-start;gap:1rem;font-size:1rem;color:#FFFFFF;line-height:1.6;padding:0.75rem 0;border-left:2px solid rgba(0,168,150,0.5);padding-left:1rem;}.objectives-list li:hover{background:#1C3A55;border-left-color:#00A896;}.obj-num{font-family:Calibri,sans-serif;font-size:0.72rem;color:#00A896;font-weight:700;letter-spacing:0.1em;flex-shrink:0;padding-top:0.12rem;}.pause-reflect{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem var(--space-7);}.pause-label{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:0.5rem;display:block;}.pause-intro{font-size:0.97rem;color:var(--text-muted);margin-bottom:1.25rem;font-style:italic;}.pause-questions{background:transparent;border:none;padding:0;display:flex;flex-direction:column;gap:0.75rem;}.pause-q{display:flex;align-items:flex-start;gap:0.85rem;font-size:1rem;color:var(--text-primary);line-height:1.65;padding:0.85rem 1.1rem;background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--teal-dark);}.pause-q-num{font-family:Calibri,sans-serif;font-size:0.72rem;color:var(--teal-dark);font-weight:700;flex-shrink:0;padding-top:0.2rem;min-width:1.4rem;}.pause-note{font-size:0.92rem;color:var(--text-muted);margin-top:1rem;font-style:italic;}.takeaways{background:#0F1F2E;padding:2.5rem 3rem;margin-top:0;}.takeaways-heading{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:#B2EDE7;font-weight:700;margin-bottom:1.5rem;}.takeaway-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,0.08);width:100%;}.takeaway-item{display:flex;gap:1rem;padding:1.5rem;background:#162840;border-top:2px solid rgba(0,168,150,0.4);transition:background 0.15s;}.takeaway-item:hover{background:#1C3A55;}.takeaway-icon{color:var(--teal);font-size:0.65rem;flex-shrink:0;padding-top:0.4rem;}.takeaway-body strong{display:block;font-family:Georgia,serif;font-size:1.05rem;font-weight:700;color:#FFFFFF;margin-bottom:0.4rem;line-height:1.35;} .takeaway-body p{font-size:0.95rem;color:rgba(255,255,255,0.88);line-height:1.65;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem var(--space-7);border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;flex-wrap:wrap;}.nav-btn{display:inline-flex;flex-direction:column;padding:0.75rem 1.25rem;border:1px solid var(--border);background:var(--page-bg);text-decoration:none;transition:all 0.15s;color:inherit;}.nav-btn:hover{border-color:var(--teal-dark);background:var(--teal-bg);}.nav-btn.next{text-align:right;}.nav-btn-label{font-family:'JetBrains Mono',monospace;font-size:0.69rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);display:block;}.nav-btn-title{font-size:0.97rem;color:var(--text-primary);font-weight:500;display:block;margin-top:0.15rem;}.nav-btn.next .nav-btn-label{color:var(--teal-dark);}.nav-btn.next .nav-btn-title{color:var(--teal-dark);}.kc-reveal{display:none;padding:1rem 1.25rem;margin-top:0.5rem;background:var(--teal-bg);border-left:3px solid var(--teal-dark);font-size:1rem;color:var(--text-primary);line-height:1.72;}.kc-reveal-label{font-family:Calibri,sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-dark);display:block;margin-bottom:0.5rem;}.footer-brand{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);}
-</style>
-<style>
-/* ── MODULE 13 SPECIFIC ── */
-/* ── SHARED COMPONENT RULES (inline supplement) ── */
-.objectives-strip{background:var(--navy-mid);border-bottom:1px solid var(--navy-border);padding:2rem var(--space-7)}
-.objectives-heading{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal-muted);margin-bottom:1rem}
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 
-.obj-num{font-family:Calibri,sans-serif;font-size:0.72rem;color:var(--teal);letter-spacing:0.1em;flex-shrink:0}
-.pause-questions{background:var(--navy-mid);border-top:1px solid var(--navy-border);border-bottom:1px solid var(--navy-border);padding:2rem var(--space-7)}
-.pause-q{font-size:0.97rem;color:var(--slate);line-height:1.7;margin-bottom:0.5rem;padding-left:1.25rem;border-left:2px solid rgba(255,255,255,0.08)}
-.kc-hint{font-size:0.85rem;color:var(--slate);font-style:italic;margin-top:0.5rem;display:none}
-.kc-hint.visible{display:block}
-.next{display:inline-flex;align-items:center;gap:0.75rem;padding:0.85rem 1.75rem;background:rgba(0,168,150,0.1);border:1px solid rgba(0,168,150,0.25);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:0.82rem;letter-spacing:0.08em;text-decoration:none;transition:background 0.15s}
-.next:hover{background:rgba(0,168,150,0.18)}
-.module-footer{padding:3rem var(--space-7);border-top:1px solid var(--navy-border);display:flex;justify-content:space-between;align-items:center}
-</style>
-
 <style>
-/* ── UNIVERSAL MISSING COMPONENTS ── */
-.card-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:0.5rem;display:block;}.card h4{font-family:Georgia,serif;font-size:1.05rem;font-weight:400;color:var(--text-primary);margin-bottom:0.5rem;line-height:1.35;}.card p{font-size:0.97rem;color:var(--text-secondary);line-height:1.65;}.card-accent-p{border-top:3px solid var(--teal);}.card-accent-o{border-top:3px solid var(--orange-light);}.card-accent-t{border-top:3px solid var(--orange);}.card-grid-auto{display:grid;gap:1px;background:var(--border);grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));}.viz-body{padding:1.25rem 1.5rem 1rem;}.ci-bar{height:100%;background:var(--teal);transition:width 0.8s ease;border-radius:2px;}.ci-bar-fill{height:100%;border-radius:2px;transition:width 0.8s ease;}.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:1px;background:var(--border);margin:2rem 0;}.stat-block{background:var(--card-bg);padding:1.75rem 1.5rem;border-top:3px solid var(--teal);}.reg-tab{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.6rem 1.1rem;cursor:pointer;border:1px solid var(--border);background:var(--card-bg);color:var(--text-muted);font-weight:600;transition:all 0.15s;}.reg-tab:hover{border-color:var(--teal-dark);color:var(--teal-dark);}.active-reg{background:var(--teal) !important;border-color:var(--teal) !important;color:var(--navy) !important;font-weight:700;}.process-steps{display:flex;flex-direction:column;gap:0;margin:1.5rem 0;}.process-step{display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem 1.5rem;background:var(--card-bg);border:1px solid var(--border);border-top:none;position:relative;}.process-step:first-child{border-top:1px solid var(--border);border-top-left-radius:3px;border-top-right-radius:3px;}.process-step:last-child{border-bottom-left-radius:3px;border-bottom-right-radius:3px;}.step-icon{font-family:Calibri,sans-serif;font-size:0.75rem;font-weight:700;width:2rem;height:2rem;flex-shrink:0;background:var(--teal);color:var(--navy);display:flex;align-items:center;justify-content:center;border-radius:2px;margin-top:0.1rem;}.step-body{flex:1;}.step-body strong{display:block;font-family:Georgia,serif;font-size:1rem;font-weight:400;color:var(--text-primary);margin-bottom:0.35rem;}.step-body p{font-size:0.97rem;color:var(--text-secondary);line-height:1.65;margin:0;}.kc-header{display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;}.kc-icon{width:20px;height:20px;color:var(--teal-dark);flex-shrink:0;}.kc-question{font-family:Georgia,serif;font-size:1.15rem;color:var(--text-primary);line-height:1.6;margin-bottom:1.5rem;}.not-arrow{font-family:Calibri,sans-serif;font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;}.waste-bar{height:8px;background:var(--teal);border-radius:2px;transition:width 0.6s ease;}.fail-arrow{color:var(--orange);font-size:1.25rem;text-align:center;padding:0.25rem 0;}.itad-row{display:flex;gap:1rem;padding:0.85rem 1rem;border-bottom:1px solid var(--border-light);font-size:0.97rem;color:var(--text-primary);line-height:1.6;align-items:flex-start;}.itad-row:last-child{border-bottom:none;}.bc-evidence-col{flex:1;padding:1rem 1.25rem;border-right:1px solid var(--border);}.bc-evidence-col:last-child{border-right:none;}.courage-card{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);padding:1.5rem;}
+:root{--page-bg:#F7F8FA;--card-bg:#FFFFFF;--section-alt:#E8EDF2;--text-primary:#1E293B;--text-secondary:#4A5568;--text-muted:#64748B;--navy:#0F1F2E;--navy-mid:#162840;--navy-card:#1E293B;--navy-light:#1C3A55;--teal:#00A896;--teal-dark:#007A6E;--teal-muted:#B2EDE7;--teal-bg:rgba(0,168,150,0.07);--teal-border:rgba(0,168,150,0.25);--orange:#E76F51;--orange-light:#F4A261;--orange-bg:#FFF3E8;--orange-border:rgba(231,111,81,0.25);--border:#D1D9E0;--border-light:#E8EDF2;--track1:#00A896;--track2:#F4A261;--track3:#E76F51;--correct:#16a34a;--wrong:#dc2626;--white:#FFFFFF;--slate:#4A5568;--slate-mid:#64748B;--slate-dim:#94A3B8;--teal-light:#B2EDE7;--teal-glow:rgba(0,168,150,0.15);--teal-subtle:rgba(0,168,150,0.07);--grey-100:#F7F8FA;--grey-300:#D1D9E0;--grey-500:#4A5568;--navy-raised:#1C3A55;--navy-border:rgba(255,255,255,0.07);--navy-mid-alt:#162840;}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;font-size:16px;}img,svg{display:block;max-width:100%;}body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Trebuchet MS",system-ui,-apple-system,sans-serif;font-weight:400;font-size:1rem;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}.top-nav{position:sticky;top:0;z-index:100;background:#0F1F2E;border-bottom:1px solid rgba(0,168,150,0.2);padding:0 3rem;height:52px;display:flex;align-items:center;gap:1rem;}.top-nav::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00A896 0%,#F4A261 60%,#E76F51 100%);}.nav-home{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .15s;flex-shrink:0;}.nav-home:hover{color:#fff;}.nav-sep{color:rgba(255,255,255,0.25);}.nav-module{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;font-weight:500;}.nav-track-pill{font-family:"JetBrains Mono",monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .65rem;border-radius:2px;}.track1-pill{background:rgba(0,168,150,.2);color:#B2EDE7;}.track2-pill{background:rgba(244,162,97,.2);color:#F4D0B0;}.track3-pill{background:rgba(231,111,81,.2);color:#F4C4B9;}.nav-progress{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:.72rem;color:rgba(255,255,255,0.5);}.module-hero{position:relative;overflow:hidden;padding:4rem 3rem 3rem;background:#0F1F2E;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;}.module-hero::after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 70% 50%,rgba(0,168,150,.08) 0%,transparent 65%);pointer-events:none;}.hero-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(5rem,12vw,10rem);color:rgba(255,255,255,.06);line-height:1;position:absolute;right:3rem;bottom:0;font-weight:400;user-select:none;}.module-eyebrow{font-family:"JetBrains Mono",monospace;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:#B2EDE7;margin-bottom:.75rem;}.module-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.12;letter-spacing:-.02em;font-weight:700;color:#fff;margin-bottom:1.25rem;}.module-subtitle{font-size:1.1rem;color:rgba(255,255,255,.72);line-height:1.65;max-width:620px;margin-bottom:2rem;}.module-meta{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}.meta-item{display:flex;flex-direction:column;gap:.15rem;}.meta-item .label{font-family:"JetBrains Mono",monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);}.meta-item .value{font-size:.92rem;color:rgba(255,255,255,.85);font-weight:500;}.complete-btn{font-family:"JetBrains Mono",monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:.65rem 1.4rem;background:#00A896;border:2px solid #00A896;color:#FFFFFF;cursor:pointer;transition:all .15s;font-weight:700;}.complete-btn:hover{background:var(--teal-dark);border-color:var(--teal-dark);}.complete-btn.done{background:transparent;border:2px solid rgba(255,255,255,.4);color:rgba(255,255,255,.7);cursor:default;}.objectives-strip{background:#0F1F2E;padding:2.5rem 3rem;}.objectives-heading{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#B2EDE7;margin-bottom:1.5rem;font-weight:700;}.objectives-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:.85rem;max-width:1160px;}.objectives-list li{display:flex;align-items:flex-start;gap:1rem;font-size:1rem;color:rgba(255,255,255,.88);line-height:1.55;padding:.85rem 1rem;background:#162840;border-left:2px solid rgba(0,168,150,.5);}.obj-num{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:#00A896;font-weight:700;letter-spacing:.1em;flex-shrink:0;padding-top:.12rem;}.module-content{max-width:1200px;margin:0 auto;padding:0 3rem 2rem;}.content-section{padding:3rem 0;border-bottom:1px solid var(--border-light);}.content-section:last-child{border-bottom:none;}.section-label{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:.65rem;display:block;font-weight:700;}.section-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.15;letter-spacing:-.02em;font-weight:700;color:var(--text-primary);margin-bottom:1.25rem;}.section-intro{font-size:1.12rem;color:var(--text-secondary);line-height:1.75;max-width:780px;margin-bottom:2rem;}.card-grid{display:grid;gap:1px;background:var(--border);}.card-grid-2{grid-template-columns:1fr 1fr;}.card-grid-3{grid-template-columns:repeat(3,1fr);}.card-grid-4{grid-template-columns:repeat(4,1fr);}.card-grid-auto{display:grid;gap:1px;background:var(--border);grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));}.card{background:var(--card-bg);padding:1.75rem;position:relative;}.card-title{font-family:Georgia,"Times New Roman",serif;font-size:1.1rem;font-weight:400;color:var(--text-primary);margin-bottom:.65rem;}.card-body{font-size:.97rem;color:var(--text-secondary);line-height:1.7;}.card-label{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:.5rem;display:block;}.card h4{font-weight:600;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;color:var(--text-primary);margin-bottom:.5rem;line-height:1.35;}.card p{font-size:.97rem;color:var(--text-secondary);line-height:1.65;}.card-accent-p{border-top:3px solid var(--teal);}.card-accent-o{border-top:3px solid var(--orange-light);}.card-accent-t{border-top:3px solid var(--orange);}.stat-strip{display:grid;gap:1px;background:var(--border);margin:2.25rem 0;border-radius:3px;overflow:hidden;}.stat-strip.cols-3{grid-template-columns:repeat(3,1fr);}.stat-strip.cols-4{grid-template-columns:repeat(4,1fr);}.stat-cell{background:var(--card-bg);padding:2rem 1.5rem;text-align:center;border-top:3px solid var(--cell-accent,var(--teal));}.stat-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.4rem,4.5vw,3.5rem);color:var(--cell-accent,var(--teal-dark));line-height:1;margin-bottom:.5rem;display:block;}.stat-label{font-family:"JetBrains Mono",monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);line-height:1.5;display:block;}.viz-container{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);margin:2rem 0;box-shadow:0 2px 8px rgba(0,0,0,.07);}.viz-header{padding:1rem 1.5rem;border-bottom:2px solid var(--border-light);display:flex;align-items:center;gap:.75rem;background:var(--section-alt);}.viz-header-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;}.viz-title{font-family:"JetBrains Mono",monospace;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;}.viz-body{padding:1.25rem 1.5rem 1rem;}.callout{padding:1.35rem 1.75rem;margin:1.75rem 0;border-left:4px solid var(--teal);background:var(--teal-bg);}.callout-warning{border-left-color:var(--orange);background:var(--orange-bg);}.callout-key{border-left-color:var(--teal-dark);background:var(--teal-bg);}.callout-title{font-family:"JetBrains Mono",monospace;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:#007A6E;font-weight:700;display:block;margin-bottom:.6rem;}.callout-warning .callout-title{color:#B54D12;}.callout p{font-size:1rem;color:var(--text-primary);line-height:1.72;}.pause-reflect{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 3rem;}.pause-label{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:.5rem;display:block;}.pause-intro{font-size:.97rem;color:var(--text-muted);margin-bottom:1.25rem;font-style:italic;}.pause-q{display:flex;align-items:flex-start;gap:.85rem;font-size:1rem;color:var(--text-primary);line-height:1.65;padding:.85rem 1.1rem;background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--teal-dark);margin-bottom:.5rem;}.pause-q-num{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--teal-dark);font-weight:700;flex-shrink:0;padding-top:.2rem;min-width:1.4rem;}.kc-block{background:var(--card-bg);border:1px solid var(--border);padding:2.25rem;margin:.5rem 0;}.kc-label{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:1rem;}.kc-q{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:1.15rem;color:var(--text-primary);line-height:1.6;margin-bottom:1.5rem;}.kc-options{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem;}.kc-option{display:flex;align-items:flex-start;gap:.85rem;padding:.9rem 1.1rem;background:var(--page-bg);border:1px solid var(--border);cursor:pointer;text-align:left;width:100%;font-family:Calibri,"Trebuchet MS",system-ui,sans-serif;font-size:1rem;color:var(--text-primary);line-height:1.55;transition:all .15s;}.kc-option:hover{border-color:var(--teal);background:var(--teal-bg);}.kc-option.selected-correct{background:rgba(22,163,74,.08);border-color:var(--correct);}.kc-option.selected-wrong{background:rgba(220,38,38,.07);border-color:var(--wrong);}.kc-opt-key{font-family:"JetBrains Mono",monospace;font-size:.78rem;font-weight:700;color:var(--text-muted);flex-shrink:0;width:1.2rem;padding-top:.1rem;}.kc-feedback{padding:1rem 1.25rem;margin-top:.5rem;font-size:1rem;line-height:1.7;border-left:3px solid;display:none;}.kc-correct{background:rgba(22,163,74,.07);border-left-color:var(--correct);color:var(--text-primary);}.kc-wrong{background:rgba(220,38,38,.06);border-left-color:var(--wrong);color:var(--text-primary);}.kc-reveal{display:none;padding:1rem 1.25rem;margin-top:.5rem;background:var(--teal-bg);border-left:3px solid var(--teal-dark);font-size:1rem;color:var(--text-primary);line-height:1.72;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;flex-wrap:wrap;}.nav-btn{display:inline-flex;flex-direction:column;padding:.75rem 1.25rem;border:1px solid var(--border);background:var(--page-bg);text-decoration:none;transition:all .15s;color:inherit;}.nav-btn:hover{border-color:var(--teal-dark);background:var(--teal-bg);}.nav-btn.next{text-align:right;}.nav-btn-label{font-family:"JetBrains Mono",monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);display:block;}.nav-btn-title{font-size:.97rem;color:var(--text-primary);font-weight:500;display:block;margin-top:.15rem;}.nav-btn.next .nav-btn-label,.nav-btn.next .nav-btn-title{color:var(--teal-dark);}.takeaways{background:#0F1F2E;padding:2.5rem 3rem;}.takeaways-heading{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#B2EDE7;font-weight:700;margin-bottom:1.5rem;}.takeaway-list{display:grid;gap:1px;background:rgba(255,255,255,.08);width:100%;}.takeaway-item{display:flex;gap:1rem;padding:1.5rem;background:#162840;border-top:2px solid rgba(0,168,150,.4);transition:background .15s;}.takeaway-item:hover{background:#1C3A55;}.takeaway-icon{color:#00A896;font-size:.65rem;flex-shrink:0;padding-top:.4rem;}.takeaway-body strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;font-weight:700;color:#FFFFFF;margin-bottom:.4rem;line-height:1.35;}.takeaway-body p{font-size:.95rem;color:rgba(255,255,255,.75);line-height:1.65;}.reveal{opacity:1;transition:opacity .4s ease,transform .4s ease;}.reveal.animate{opacity:0;transform:translateY(12px);}.reveal.animate.visible{opacity:1;transform:none;}.tri-detail{padding:1.5rem;background:var(--card-bg);border:1px solid var(--border);}.tri-detail-name{font-weight:700;font-size:1.1rem;color:var(--teal-dark);margin-bottom:.75rem;}.tradeoff-container{display:grid;grid-template-columns:1fr 1.2fr;gap:2rem;align-items:start;}.triangle-wrap{display:flex;align-items:center;justify-content:center;}.triangle-svg{width:100%;max-width:320px;height:auto;}.example{font-style:italic;color:var(--text-secondary);font-size:.97rem;border-left:3px solid var(--border);padding-left:1rem;margin-top:.75rem;}.reg-tab{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:.6rem 1.1rem;cursor:pointer;border:1px solid var(--border);background:var(--card-bg);color:var(--text-muted);font-weight:600;transition:all .15s;}.reg-tab:hover{border-color:var(--teal-dark);color:var(--teal-dark);}.active-reg{background:var(--teal)!important;border-color:var(--teal)!important;color:#0F1F2E!important;font-weight:700!important;}.courage-card{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);padding:1.5rem;}.footer-brand{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);}.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:1px;background:var(--border);margin:2rem 0;}.stat-block{background:var(--card-bg);padding:1.75rem 1.5rem;border-top:3px solid var(--teal);}@media(max-width:860px){.module-content,.objectives-strip,.top-nav,.pause-reflect,.module-nav,.takeaways{padding-left:1.5rem;padding-right:1.5rem;}.module-hero{padding:2.5rem 1.5rem 2rem;}.card-grid-3{grid-template-columns:1fr 1fr;}.card-grid-4{grid-template-columns:1fr 1fr;}.takeaway-list{grid-template-columns:1fr!important;}}@media(max-width:540px){.card-grid-2,.card-grid-3,.card-grid-4{grid-template-columns:1fr;}.stat-strip.cols-3,.stat-strip.cols-4{grid-template-columns:1fr;}.module-title{font-size:1.75rem;}.tradeoff-container{grid-template-columns:1fr;}}
 </style>
 </head>
 <body class="track3">
@@ -45,49 +19,17 @@
 <li><span class="obj-num">05</span>Understand why the handprint argument requires footprint credibility first</li>
 </ul></div>
 <div class="module-content">
-<div class="content-section reveal">
-  <p class="section-label">Section 1</p>
-  <h2 class="section-title">Footprint and handprint — both dimensions matter.</h2>
-  <p class="section-intro">Everything in Modules 1–12 was about reducing the negative impact of the IT estate — the footprint. This module is the other side of the equation: how technology creates positive sustainability outcomes beyond its own boundary. The handprint. And why it only lands credibly when your footprint is already under discipline.</p>
-
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border-light);margin:1.75rem 0;" class="reveal">
-    <div style="background:var(--card-bg);border:1px solid var(--border);padding:1.75rem;border-top:3px solid #E76F51;">
-      <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#B54D12;margin-bottom:0.75rem;">Footprint — the impact dimension</div>
-      <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;margin-bottom:0.75rem;">The environmental impact of running the IT estate. Energy, water, materials, and emissions from data centres, cloud, end-user devices, software, and supply chains.</p>
-      <div style="font-family:Calibri,sans-serif;font-size:0.75rem;color:var(--text-secondary);padding:0.5rem 0.75rem;background:var(--section-alt);border-left:2px solid rgba(231,111,81,0.3);">Status: Maturing. Measurement frameworks, regulatory requirements, and operational practices are established. Most organisations are somewhere on this journey.</div>
-    </div>
-    <div style="background:var(--section-alt);padding:1.75rem;border-top:3px solid #00A896;">
-      <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#007A6E;margin-bottom:0.75rem;">Handprint — the enablement dimension</div>
-      <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;margin-bottom:0.75rem;">The positive sustainability outcomes that technology enables beyond its own boundary. Avoided emissions. Resource efficiency in other sectors. Social outcomes enabled by digital access and transparency.</p>
-      <div style="font-family:Calibri,sans-serif;font-size:0.75rem;color:var(--text-secondary);padding:0.5rem 0.75rem;background:var(--section-alt);border-left:2px solid rgba(0,168,150,0.3);">Status: Emerging. Methodologies are less mature. Attribution is harder. But the scale of the opportunity exceeds the footprint dimension for most organisations.</div>
-    </div>
-  </div>
-
-  <!-- Applications grid -->
-  <div class="viz-container reveal" id="handprintApps">
-    <div class="viz-header">
-      <div class="viz-header-dot"></div>
-      <span class="viz-title">Technology-enabled sustainability outcomes — click any category to explore applications</span>
-    </div>
-    <div id="appGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border-light);"></div>
-    <div id="appDetail" style="display:none;padding:1.25rem 1.75rem;border-top:1px solid var(--border-light);background:var(--page-bg);"></div>
-    <div style="padding:0.85rem 1.75rem;border-top:1px solid var(--border-light);">
-      <p style="font-size:0.82rem;color:var(--text-secondary);">The key is connecting applications to measurable outcomes — not describing them aspirationally. Each item is only as credible as its measurement. Scope 4 requires honest methodology and documented assumptions.</p>
-    </div>
-  </div>
+<div class="content-section reveal"><p class="section-label">Section 1</p>
+<h2 class="section-title">Footprint and handprint — both dimensions matter.</h2>
+<p class="section-intro">The footprint is the negative environmental impact of running the IT estate. The handprint is the positive sustainability outcomes that technology enables beyond its own boundary. Both matter. The sequence in which you address them matters equally.</p>
+<div class="card-grid card-grid-2 reveal">
+<div class="card card-accent-o"><div class="card-label">Footprint — The impact dimension</div><h4>The environmental impact of running the IT estate</h4><p>Energy, water, materials, and emissions from data centres, cloud, end-user devices, software, and supply chains. This has been the primary focus of Modules 1–12. Reduce it through efficiency, utilisation, lifecycle governance, procurement, and demand management.</p><p style="margin-top:0.75rem;font-size:0.78rem;color:var(--grey-500)">Status: Maturing. Measurement frameworks, regulatory requirements, and operational practices are established. Most organisations are somewhere on this journey.</p></div>
+<div class="card card-accent-t"><div class="card-label">Handprint — The enablement dimension</div><h4>Positive sustainability outcomes technology enables beyond its boundary</h4><p>Avoided emissions. Resource efficiency enabled in other sectors. Social outcomes enabled by digital access and transparency. Measured through Scope 4 — avoided emissions — and through specific outcome metrics for technology-enabled programmes.</p><p style="margin-top:0.75rem;font-size:0.78rem;color:var(--grey-500)">Status: Emerging. Methodologies are less mature. Attribution is harder. But the scale of the opportunity exceeds the footprint dimension for most technology organisations.</p></div>
 </div>
-
-<!-- ══ M13 S2: Scope 4 calculator (preserved) ══════════════ -->
-
+<div class="callout callout-warning reveal"><p class="callout-title">The credibility constraint — sequence matters</p><p>Handprint stories only land credibly once you have already demonstrated discipline on your own footprint. "We enabled significant carbon reductions elsewhere, but we haven't measured our own estate" is a hard position to defend publicly — and harder still under assurance scrutiny.</p></div></div>
 <div class="content-section reveal"><p class="section-label">Section 2</p>
 <h2 class="section-title">Scope 4 — avoided emissions.</h2>
 <p class="section-intro">Scope 4 is the formal mechanism for measuring avoided emissions — the positive sustainability value that technology creates outside the IT estate. Imperfect measurement that is honest is more credible than no measurement.</p>
-
-    <div class="callout callout-key" style="margin-bottom:1.5rem;">
-      <p class="callout-title">Builds on <a href="module3.html" style="color:var(--teal);text-decoration:none;">Module 3 ↗</a></p>
-      <p>Scope 4 sits alongside the Scope 1/2/3 framework introduced in Module 3. It is supplementary guidance from the GHG Protocol, not a standalone standard — but it uses the same measurement rigour.</p>
-    </div>
-
 <div class="viz-container reveal"><p class="viz-title">How Scope 4 avoided emissions are calculated</p>
 <div class="process-steps">
 <div class="process-step"><div class="step-icon">1</div><div class="step-body"><strong>Define the counterfactual</strong><p>What behaviour is the technology replacing? The counterfactual must be realistic and specific — not the worst-case alternative. A route optimisation platform: the counterfactual is the same deliveries without route optimisation, using average fleet emission factors.</p></div></div>
@@ -101,65 +43,65 @@
     <div style="padding:1.5rem 1.5rem 1rem;border-bottom:1px solid var(--border-light);">
       <p class="viz-title">Scope 4 avoided emissions calculator — work through the five-step method using the course examples or your own figures</p>
     </div>
-    <div style="padding:1.25rem 1.5rem;border-bottom:1px solid var(--border-light);">
+    <div style="padding:1.25rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.05);">
       <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:0;">
-        <button onclick="loadScenario('fleet')" id="sc-fleet" style="padding:0.35rem 0.85rem;font-family:Calibri,sans-serif;font-size:0.92rem;background:rgba(0,168,150,0.1);border:1px solid rgba(0,168,150,0.25);color:#007A6E;cursor:pointer;transition:all 0.12s;">Route optimisation (fleet)</button>
-        <button onclick="loadScenario('video')" id="sc-video" style="padding:0.35rem 0.85rem;font-family:Calibri,sans-serif;font-size:0.92rem;background:var(--border-light);border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;transition:all 0.12s;">Teleconferencing (flights avoided)</button>
-        <button onclick="loadScenario('custom')" id="sc-custom" style="padding:0.35rem 0.85rem;font-family:Calibri,sans-serif;font-size:0.92rem;background:var(--border-light);border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;transition:all 0.12s;">Custom inputs</button>
+        <button onclick="loadScenario('fleet')" id="sc-fleet" style="padding:0.35rem 0.85rem;font-family:'JetBrains Mono',monospace;font-size:0.6rem;background:rgba(0,168,150,0.1);border:1px solid rgba(0,168,150,0.25);color:#007A6E;cursor:pointer;transition:all 0.12s;">Route optimisation (fleet)</button>
+        <button onclick="loadScenario('video')" id="sc-video" style="padding:0.35rem 0.85rem;font-family:'JetBrains Mono',monospace;font-size:0.6rem;background:var(--border-light);border:1px solid var(--border);color:#64748B;cursor:pointer;transition:all 0.12s;">Teleconferencing (flights avoided)</button>
+        <button onclick="loadScenario('custom')" id="sc-custom" style="padding:0.35rem 0.85rem;font-family:'JetBrains Mono',monospace;font-size:0.6rem;background:var(--border-light);border:1px solid var(--border);color:#64748B;cursor:pointer;transition:all 0.12s;">Custom inputs</button>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
-      <div style="padding:1.5rem;border-right:1px solid var(--border-light);">
-        <div id="s4-scenario-desc" style="font-size:0.92rem;color:var(--text-secondary);line-height:1.6;margin-bottom:1.25rem;padding:0.75rem 1rem;background:var(--section-alt);border-left:3px solid #00A896;"></div>
+      <div style="padding:1.5rem;border-right:1px solid rgba(255,255,255,0.06);">
+        <div id="s4-scenario-desc" style="font-size:0.81rem;color:var(--text-secondary);line-height:1.6;margin-bottom:1.25rem;padding:0.75rem 1rem;background:rgba(0,0,0,0.15);border-left:3px solid #00A896;"></div>
         
         <div style="margin-bottom:1rem;">
-          <label style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.4rem;">Step 1 — Baseline activity (units/year)</label>
+          <label style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#64748B;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.4rem;">Step 1 — Baseline activity (units/year)</label>
           <div style="display:flex;gap:0.5rem;align-items:center;">
-            <input id="s4-baseline" type="number" min="1" value="1008000" oninput="calcScope4()" style="flex:1;padding:0.5rem 0.75rem;background:var(--border-light);border:1px solid var(--border);color:var(--text-primary);font-family:Calibri,sans-serif;font-size:0.92rem;">
-            <span id="s4-baseline-unit" style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);white-space:nowrap;">km/year</span>
+            <input id="s4-baseline" type="number" min="1" value="1008000" oninput="calcScope4()" style="flex:1;padding:0.5rem 0.75rem;background:var(--border-light);border:1px solid rgba(255,255,255,0.12);color:var(--text-primary);font-family:'JetBrains Mono',monospace;font-size:0.72rem;">
+            <span id="s4-baseline-unit" style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:#64748B;white-space:nowrap;">km/year</span>
           </div>
         </div>
         <div style="margin-bottom:1rem;">
-          <label style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.4rem;">Step 2 — Reduction achieved (%)</label>
+          <label style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#64748B;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.4rem;">Step 2 — Reduction achieved (%)</label>
           <div style="display:flex;align-items:center;gap:0.75rem;">
             <input type="range" id="s4-reduction" min="1" max="80" value="11" oninput="calcScope4()" style="flex:1;accent-color:#007A6E;">
-            <span id="s4-reduction-val" style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#007A6E;width:36px;">11%</span>
+            <span id="s4-reduction-val" style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#007A6E;width:36px;">11%</span>
           </div>
         </div>
         <div style="margin-bottom:1rem;">
-          <label style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.4rem;">Step 3 — Emission factor (kg CO₂e per unit)</label>
+          <label style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#64748B;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.4rem;">Step 3 — Emission factor (kg CO₂e per unit)</label>
           <div style="display:flex;gap:0.5rem;align-items:center;">
-            <input id="s4-efactor" type="number" min="0.001" step="0.001" value="0.27" oninput="calcScope4()" style="flex:1;padding:0.5rem 0.75rem;background:var(--border-light);border:1px solid var(--border);color:var(--text-primary);font-family:Calibri,sans-serif;font-size:0.92rem;">
-            <span id="s4-ef-unit" style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);white-space:nowrap;">kgCO₂e/km</span>
+            <input id="s4-efactor" type="number" min="0.001" step="0.001" value="0.27" oninput="calcScope4()" style="flex:1;padding:0.5rem 0.75rem;background:var(--border-light);border:1px solid rgba(255,255,255,0.12);color:var(--text-primary);font-family:'JetBrains Mono',monospace;font-size:0.72rem;">
+            <span id="s4-ef-unit" style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:#64748B;white-space:nowrap;">kgCO₂e/km</span>
           </div>
         </div>
         <div>
-          <label style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.4rem;">Step 4 — Attribution confidence (%)</label>
+          <label style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#64748B;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.4rem;">Step 4 — Attribution confidence (%)</label>
           <div style="display:flex;align-items:center;gap:0.75rem;">
             <input type="range" id="s4-confidence" min="50" max="100" value="85" oninput="calcScope4()" style="flex:1;accent-color:#9B5E00;">
-            <span id="s4-confidence-val" style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#9B5E00;width:42px;">85%</span>
+            <span id="s4-confidence-val" style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#9B5E00;width:42px;">85%</span>
           </div>
-          <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);margin-top:0.25rem;">Not all reduction is attributable to the technology. Discount for other factors (fuel price, regulation, driver behaviour).</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#64748B;margin-top:0.25rem;">Not all reduction is attributable to the technology. Discount for other factors (fuel price, regulation, driver behaviour).</div>
         </div>
       </div>
       <div style="padding:1.5rem;display:flex;flex-direction:column;gap:1rem;">
         <div>
-          <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Step 5 — Results</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#64748B;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Step 5 — Results</div>
           <div style="background:rgba(0,0,0,0.2);padding:1rem;display:flex;flex-direction:column;gap:0.75rem;">
-            <div><div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);margin-bottom:0.2rem;">Gross avoided activity</div><div id="s4-gross-activity" style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);"></div></div>
-            <div><div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);margin-bottom:0.2rem;">Gross avoided emissions</div><div id="s4-gross-emissions" style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);"></div></div>
-            <div style="border-top:1px solid var(--border-light);padding-top:0.75rem;">
-              <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#007A6E;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.3rem;">Reported Scope 4 avoided emissions</div>
-              <div id="s4-final" style="font-family:Georgia,serif;font-size:2.2rem;color:#007A6E;line-height:1;"></div>
-              <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);margin-top:0.2rem;">tCO₂e / year</div>
+            <div><div style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#64748B;margin-bottom:0.2rem;">Gross avoided activity</div><div id="s4-gross-activity" style="font-family:'JetBrains Mono',monospace;font-size:0.82rem;color:var(--text-secondary);"></div></div>
+            <div><div style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#64748B;margin-bottom:0.2rem;">Gross avoided emissions</div><div id="s4-gross-emissions" style="font-family:'JetBrains Mono',monospace;font-size:0.82rem;color:var(--text-secondary);"></div></div>
+            <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:0.75rem;">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#007A6E;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.3rem;">Reported Scope 4 avoided emissions</div>
+              <div id="s4-final" style="font-family:'DM Serif Display',serif;font-size:2.2rem;color:#007A6E;line-height:1;"></div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:#64748B;margin-top:0.2rem;">tCO₂e / year</div>
             </div>
           </div>
         </div>
-        <div id="s4-disclosure" style="padding:0.85rem;background:var(--section-alt);border-left:3px solid #F4A261;font-size:0.92rem;color:var(--text-secondary);line-height:1.6;"></div>
-        <div style="padding:0.75rem;background:var(--page-bg);border:1px solid var(--border);">
-          <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.35rem;">Confidence label</div>
-          <div id="s4-conf-label" style="font-size:0.92rem;color:#9B5E00;font-weight:500;"></div>
-          <div id="s4-conf-note" style="font-size:0.92rem;color:var(--text-secondary);margin-top:0.2rem;line-height:1.5;"></div>
+        <div id="s4-disclosure" style="padding:0.85rem;background:rgba(0,0,0,0.15);border-left:3px solid #F4A261;font-size:0.79rem;color:var(--text-secondary);line-height:1.6;"></div>
+        <div style="padding:0.75rem;background:rgba(255,255,255,0.03);border:1px solid var(--border);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#64748B;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.35rem;">Confidence label</div>
+          <div id="s4-conf-label" style="font-size:0.8rem;color:#9B5E00;font-weight:500;"></div>
+          <div id="s4-conf-note" style="font-size:0.76rem;color:#64748B;margin-top:0.2rem;line-height:1.5;"></div>
         </div>
       </div>
     </div>
@@ -194,7 +136,7 @@
     ['fleet','video','custom'].forEach(function(sc) {
       var btn = document.getElementById('sc-'+sc);
       if(sc===id){btn.style.background='rgba(0,168,150,0.1)';btn.style.borderColor='rgba(0,168,150,0.25)';btn.style.color='#00A896';}
-      else{btn.style.background='var(--border-light)';btn.style.borderColor='var(--border)';btn.style.color='#64748B';}
+      else{btn.style.background='rgba(255,255,255,0.05)';btn.style.borderColor='rgba(255,255,255,0.08)';btn.style.color='#64748B';}
     });
     calcScope4();
   }
@@ -225,627 +167,70 @@
   loadScenario('fleet');
   </script>
 
-<!-- ══ M13 S3 + S4: Innovation and CleanTech ════════════════ -->
 
-<div class="content-section reveal">
-  <p class="section-label">Section 3</p>
-  <h2 class="section-title">Innovation, CleanTech, and the commercial opportunity.</h2>
-  <p class="section-intro">Technology organisations that have built genuine operational capability in sustainable IT are better positioned to develop commercial sustainability solutions. The insight from actually managing energy consumption, hardware lifecycle, carbon accounting, and supply chain evidence at scale is the same insight needed to build platforms that help other organisations do the same.</p>
-
-  <div class="viz-container reveal" id="innovationViz">
-    <div class="viz-header">
-      <div class="viz-header-dot" style="background:#00A896"></div>
-      <span class="viz-title">Innovation, CleanTech, and the commercial opportunity — three pathways</span>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border-light);">
-      <div style="background:var(--card-bg);border:1px solid var(--border);padding:1.5rem;border-top:3px solid #00A896;">
-        <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#007A6E;margin-bottom:0.65rem;">Internal innovation</div>
-        <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;margin-bottom:0.65rem;">Structured hackathons focused on specific operational problems — with clear criteria and implementation support for winning ideas — surface solutions the central programme would never identify.</p>
-        <p style="font-size:0.88rem;color:var(--text-secondary);font-style:italic;border-left:2px solid rgba(0,168,150,0.3);padding-left:0.75rem;line-height:1.6;">The insight from managing energy and Scope 3 at scale translates directly into platforms that other organisations need.</p>
-      </div>
-      <div style="background:var(--card-bg);border:1px solid var(--border);padding:1.5rem;border-top:3px solid #B2EDE7;">
-        <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#007A6E;margin-bottom:0.65rem;">CleanTech partnerships</div>
-        <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;margin-bottom:0.65rem;">Technology organisations that have built real GreenOps capability become credible partners for CleanTech ventures. The operational experience is the differentiator — not the aspiration.</p>
-        <p style="font-size:0.88rem;color:var(--text-secondary);font-style:italic;border-left:2px solid rgba(178,237,231,0.3);padding-left:0.75rem;line-height:1.6;">Carbon accounting platforms, energy optimisation tools, circular economy tracking — all need technology partners with operational credibility.</p>
-      </div>
-      <div style="background:var(--card-bg);border:1px solid var(--border);padding:1.5rem;border-top:3px solid #F4A261;">
-        <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#9B5E00;margin-bottom:0.65rem;">Customer differentiation</div>
-        <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;margin-bottom:0.65rem;">Enterprise procurement increasingly includes sustainability criteria. Organisations with measurable, evidenced sustainability performance win contracts that others cannot. This is happening now — not in five years.</p>
-        <p style="font-size:0.88rem;color:var(--text-secondary);font-style:italic;border-left:2px solid rgba(244,162,97,0.3);padding-left:0.75rem;line-height:1.6;">The same work that reduces cost and improves governance also satisfies supplier questionnaires and ESG screening requirements.</p>
-      </div>
-    </div>
-  </div>
-
-
-
-  <div class="viz-container reveal" id="innViz">
-    <div class="viz-header">
-      <div class="viz-header-dot" style="background:#00A896"></div>
-      <span class="viz-title">Three pathways from operational capability to innovation opportunity — click any to explore</span>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border-light);" id="innCards"></div>
-    <div id="innDetail" style="display:none;padding:1.25rem 1.75rem;border-top:1px solid var(--border-light);background:var(--page-bg);">
-      <div id="innDetailText" style="font-size:0.92rem;color:var(--text-secondary);line-height:1.72;"></div>
-    </div>
-  </div>
-</div>
-
-
-</div><!-- /module-content -->
-
-<div class="kc-block reveal" data-correct="A">
-    <p class="kc-label">Knowledge check — question 1 of 2</p>
-    <p class="kc-q">An organisation wants to report Scope 4 avoided emissions from its route optimisation platform. The platform reduced average vehicle distance by 11%. What is the correct next step after quantifying the avoided activity?</p>
-    <div class="kc-options">
-      <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>Report the full avoided emissions figure without adjustment, as the reduction is directly attributable to the platform</button>
-      <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>Scope 4 is not an accepted reporting category, so the figure should be reported as a footnote to Scope 3</button>
-      <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>Apply an appropriate emission factor to the avoided activity, then apply an attribution confidence factor to account for non-platform contributors such as fuel price changes or driver behaviour</button>
-      <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>Report the reduction as a Scope 1 improvement, since it relates to the organisation's own vehicle fleet operations</button>
-    </div>
-        <div class="kc-reveal">
-      <p class="kc-reveal-label">Explanation</p>
-      <p>The five-step Scope 4 method requires: establish baseline behaviour, define the technology intervention, quantify avoided activity, apply an emissions factor, then state a confidence level and assumptions. The confidence factor is essential because not all of the reduction may be attributable to the platform — fuel price changes, regulatory pressure, or driver behaviour changes may have contributed. In the course worked example, a 15% confidence adjustment is applied, reducing 1,490 tCO₂e gross to 1,267 tCO₂e reported.</p>
-      <p>Option A overstates the claim by omitting the attribution adjustment — this is a greenwashing risk. Option B is incorrect: Scope 4 is a recognised category in the GHG Protocol supplementary guidance, increasingly used for technology-enabled avoided emissions claims. Option D misclassifies the emission — avoided emissions from customer or partner operations are not Scope 1, which covers the organisation's own direct emissions.</p>
-    </div>
-  </div>
-
-  <div class="kc-block reveal" data-correct="A">
-    <p class="kc-label">Knowledge check — question 2 of 2</p>
-    <p class="kc-q">A technology director says: "Our handprint is larger than our footprint — our sustainability story should lead with the positive impact we enable." What is the most important challenge to this position?</p>
-    <div class="kc-options">
-      <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>Handprint claims are not accepted by regulators and should not be used in sustainability communications</button>
-      <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>Handprint claims only land credibly when the organisation has demonstrated footprint discipline — leading with positive impact before addressing the footprint creates a credibility gap that external stakeholders and regulators will challenge</button>
-      <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>The handprint should not be quantified because attribution is too uncertain to make credible claims</button>
-      <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>This is the correct approach — the handprint is the more compelling story for board and investor audiences</button>
-    </div>
-        <div class="kc-reveal">
-      <p class="kc-reveal-label">Explanation</p>
-      <p>The sequence matters. Footprint discipline is the non-negotiable foundation — organisations that lead with their handprint before demonstrating genuine footprint reduction are exposed to the accusation of using positive impact claims to distract from unmanaged negative impact. That is greenwashing by narrative, even when the handprint claims are legitimate.</p>
-      <p>Option A overstates the restriction — Scope 4 and handprint claims are accepted when documented with methodology. Option C is too pessimistic: attribution uncertainty is manageable through confidence levels and stated assumptions. Option D is partially right about the board audience, but misses the sequencing requirement — the handprint is a compelling story once the footprint is credibly under management, not before it.</p>
-    </div>
-  </div>
-
-
-<div class="pause-reflect reveal"><p class="pause-label">⏸ Pause &amp; Reflect</p><p class="pause-intro">Take 5–10 minutes. Specificity matters more than completeness.</p><div class="pause-questions"><div class="pause-q"><span class="pause-q-num">1</span>Think about the products or services your organisation provides using technology. Is there a credible Scope 4 claim — avoided emissions enabled by your technology? If yes, is it currently measured? If not, what would a first pass calculation require?</div><div class="pause-q"><span class="pause-q-num">2</span>Does your organisation currently distinguish between its footprint narrative and its handprint narrative in external communications? Is the sequence correct — footprint credibility established before handprint claims?</div><div class="pause-q"><span class="pause-q-num">3</span>Where is technology already creating a measurable positive sustainability outcome in your organisation's operations or products — even if it's not currently framed or measured as such?</div></div></div><div class="takeaways reveal">
-  <h3 class="takeaways-heading">Module 13 — Key Takeaways</h3>
-  <div class="takeaway-list">
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>The handprint dimension is often the story that resonates most at board level.</strong><p>Technology as an enabler of broader sustainability goals — not just a problem to be managed — is increasingly a component of how organisations report and are evaluated. Lead with specific, measurable outcomes, not aspirational language.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Applications must be connected to measurable outcomes.</strong><p>Carbon reporting platforms, smart buildings, route optimisation, Product-as-a-Service, supply chain traceability — each is only as credible as its measurement. Scope 4 requires honest methodology and documented assumptions.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Scope 4 is the formal mechanism for measuring avoided emissions.</strong><p>Quantify the counterfactual: what behaviour is the technology replacing? Estimate emissions avoided with stated assumptions. Be transparent about confidence. Imperfect measurement that is honest is more credible than no measurement.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Hackathons and citizen-driven innovation surface what governance misses.</strong><p>The people who know where the unnecessary waste is are often not the people in the governance forum. Structured mechanisms to surface and act on that knowledge are both culturally valuable and operationally powerful.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Internal sustainability capability and commercial opportunity reinforce each other.</strong><p>Organisations that lead on sustainable IT are better positioned to build and sell sustainability-enabling technology. The insight from managing energy, lifecycle, and Scope 3 at scale is directly translatable into commercial platforms others need.</p></div></div>
-  </div>
-</div>/div></div>
+<div class="content-section reveal"><p class="section-label">Section 3</p>
+<h2 class="section-title">What sustainability by IT looks like in practice.</h2>
+<p class="section-intro">The applications are wide-ranging. The key is connecting them to measurable outcomes rather than describing them aspirationally.</p>
+<div class="card-grid card-grid-2 reveal">
+<div class="card card-accent-t"><div class="card-label">Transportation &amp; Logistics</div><h4>Route optimisation and demand aggregation</h4><p>Platforms that reduce unnecessary vehicle journeys, aggregate demand to reduce delivery frequency, and optimise fleet routing. Measurable in kilometres avoided and fuel not consumed.</p></div>
+<div class="card card-accent-t"><div class="card-label">Buildings &amp; Energy</div><h4>Smart building and grid management</h4><p>Building management systems that reduce heating, cooling, and lighting energy based on occupancy and weather. Grid management platforms that integrate renewable generation. Measurable in kWh avoided.</p></div>
+<div class="card card-accent-o"><div class="card-label">Agriculture &amp; Food</div><h4>Precision agriculture and food waste reduction</h4><p>Platforms that reduce agricultural input (water, fertiliser, pesticide) through precision application. Supply chain visibility that reduces food waste. Measurable in resources not consumed.</p></div>
+<div class="card card-accent-p"><div class="card-label">Carbon &amp; ESG Management</div><h4>Enabling better sustainability decisions</h4><p>Platforms that make sustainability data visible to decision-makers across value chains. Enabling better procurement decisions, more accurate reporting, and evidence-based investment allocation. The meta-category: technology that enables all the others.</p></div>
+</div></div><div class="pause-reflect reveal"><p class="pause-label">⏸ Pause &amp; Reflect</p><p class="pause-intro">Take 5–10 minutes. Specificity matters more than completeness.</p><div class="pause-questions"><div class="pause-q"><span class="pause-q-num">1</span>Think about the products or services your organisation provides using technology. Is there a credible Scope 4 claim — avoided emissions enabled by your technology? If yes, is it currently measured? If not, what would a first pass calculation require?</div><div class="pause-q"><span class="pause-q-num">2</span>Does your organisation currently distinguish between its footprint narrative and its handprint narrative in external communications? Is the sequence correct — footprint credibility established before handprint claims?</div><div class="pause-q"><span class="pause-q-num">3</span>Where is technology already creating a measurable positive sustainability outcome in your organisation's operations or products — even if it's not currently framed or measured as such?</div></div></div><div class="takeaways reveal"><h3 class="takeaways-heading">Key Takeaways</h3><div class="takeaway-list"><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>The handprint dimension is often the story that resonates most at board level.</strong><p>Technology as an enabler of broader sustainability goals — not just a problem to be managed — is increasingly a component of how organisations report and are evaluated.</p></div></div><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Applications must be connected to measurable outcomes.</strong><p>Carbon reporting platforms, smart buildings, route optimisation, Product-as-a-Service, supply chain traceability — each is only as credible as its measurement.</p></div></div><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Scope 4 is the formal mechanism for measuring avoided emissions.</strong><p>Quantify the counterfactual. Estimate emissions avoided with stated assumptions. Be transparent about confidence. Imperfect measurement that is honest is more credible than no measurement.</p></div></div><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>The handprint argument requires footprint credibility first.</strong><p>Sequence matters. A handprint claim from an organisation that cannot speak to its own footprint is not credible — and will not survive scrutiny.</p></div></div></div></div></div>
 <div class="module-nav"><a href="module12.html" class="nav-btn"><span><span class="nav-btn-label">← Previous</span><span class="nav-btn-title">M12: Courageous Leadership in Practice</span></span></a><button class="complete-btn" onclick="markComplete('module13')">Mark as complete</button><a href="module14.html" class="nav-btn next"><span><span class="nav-btn-label">Next →</span><span class="nav-btn-title">M14: Wrap-Up, Next Steps, and Making Progress Last</span></span></a></div>
 <footer><div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 13</div><div class="footer-brand">March 2026 · v2</div></footer>
-<script>
-</script><script>
-(function(){
-'use strict';
-
-// ── HANDPRINT APPLICATIONS GRID ───────────────────────────
-var appCategories = [
-  { label:'Carbon &\nESG Management', col:'#00A896',
-    apps:['Carbon emission reporting platforms providing daily operational granularity','ESG risk management systems integrating sustainability data into enterprise risk processes','Supply chain analytics identifying sustainability hotspots for procurement teams','Traceability platforms for responsible sourcing verification'],
-    outcome:'Measurable through: reduced time to produce credible ESG disclosures, improved Scope 3 supplier engagement coverage, audit pass rates.' },
-  { label:'Transport &\nLogistics', col:'#F4A261',
-    apps:['Route optimisation platforms reducing vehicle emissions and trip frequency','Load consolidation systems reducing unnecessary movement across supply chains','Real-time logistics analytics continuously minimising operational emissions','Fleet management platforms extending vehicle lifecycle and reducing idle time'],
-    outcome:'Measurable through: vehicle km avoided, fuel consumption reduction, CO₂e avoided per tonne-km. Example: 11% route optimisation → 1,267 tCO₂e/year avoided for 500-vehicle fleet.' },
-  { label:'Buildings &\nWorkplaces', col:'#B2EDE7',
-    apps:['Smart building systems adjusting heating, cooling, and lighting to real occupancy and external conditions','Hybrid work infrastructure reducing commuting emissions and office space demand','Predictive maintenance extending equipment life and reducing replacement cycles','Space optimisation platforms reducing under-utilised real estate energy consumption'],
-    outcome:'Measurable through: kWh reduction per m², occupancy-adjusted energy intensity, commuting emissions displaced (requires baseline survey data and utilisation data).' },
-  { label:'Product &\nService Models', col:'#E76F51',
-    apps:['Product-as-a-Service creating incentives for durability over planned obsolescence','Connected devices and usage-based billing aligning manufacturer and customer interests around longevity','Remote monitoring enabling efficient lifecycle management and reduced service travel','Digital delivery replacing physical distribution for media, software, and documentation'],
-    outcome:'Measurable through: product lifespan extension, reduced returns and early replacement rates, avoided logistics emissions per digital vs physical fulfilment.' },
-];
-
-var selectedApp = null;
-function buildApps() {
-  var grid = document.getElementById('appGrid');
-  if (!grid) return;
-  grid.innerHTML = '';
-  appCategories.forEach(function(cat, i) {
-    var isSelected = selectedApp === i;
-    var cell = document.createElement('div');
-    cell.style.cssText = 'background:'+(isSelected?cat.col:'#1E293B')+';padding:1.5rem 1.25rem;cursor:pointer;transition:background 0.2s;text-align:center;border-top:3px solid '+cat.col+';';
-    var lines = cat.label.split('\n');
-    cell.innerHTML = lines.map(function(l,j){
-      return '<div style="font-size:'+(j===0?'1.0rem':'0.92rem')+';font-weight:'+(j===0?'600':'400')+';color:'+(isSelected?'#0F1F2E':j===0?'#FFFFFF':'#64748B')+';line-height:1.3;'+(j>0?'margin-top:0.1rem;':'')+'">' + l + '</div>';
-    }).join('');
-    cell.addEventListener('click', function(){
-      selectedApp = (selectedApp===i)?null:i;
-      buildApps();
-      var det = document.getElementById('appDetail');
-      if (!det) return;
-      if (selectedApp !== null) {
-        var ca = appCategories[selectedApp];
-        det.style.display = 'block';
-        var appList = ca.apps.map(function(a){ return '<li style="display:flex;gap:0.6rem;margin-bottom:0.4rem;font-size:0.92rem;color:var(--text-secondary);line-height:1.5;"><span style="color:'+ca.col+';flex-shrink:0;">▸</span>'+a+'</li>'; }).join('');
-        det.innerHTML =
-          '<div style="display:grid;grid-template-columns:2fr 1fr;gap:1.25rem;">'+
-            '<div><div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:'+ca.col+';margin-bottom:0.5rem;">Applications</div><ul style="list-style:none;padding:0;">'+appList+'</ul></div>'+
-            '<div><div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:#00A896;margin-bottom:0.5rem;">Measurement approach</div><p style="font-size:0.88rem;color:var(--text-secondary);line-height:1.65;">'+ca.outcome+'</p></div>'+
-          '</div>';
-      } else {
-        det.style.display = 'none';
-      }
-    });
-    grid.appendChild(cell);
-  });
-}
-buildApps();
-
-})();
-</script>
-
-
-<script>
-(function(){
-'use strict';
-
-// ── M10 THREE-DIMENSION VALUE CASE ────────────────────────
-var valueDimensions = [
-  { label:'Financial', col:'#00A896',
-    items:[
-      { title:'Waste reduction', desc:'Often funds the programme itself. Cloud idle resources, storage waste, and dark data elimination are almost always financially positive. Quantify and lead with this.' },
-      { title:'Total cost of ownership', desc:'Evidence-based refresh cycles, circular procurement, data minimisation, and application rationalisation all reduce TCO. Connect each to a financial figure.' },
-      { title:'Green financing', desc:'Green bonds and sustainability-linked loans offer preferential terms to organisations that meet sustainability criteria — including IT-related targets. The capital markets case is becoming more material.' },
-      { title:'Revenue and procurement', desc:'Sustainability criteria appear increasingly in enterprise and public sector procurement scoring. A credible programme with evidence is a commercial differentiator in competitive bids.' },
-    ]},
-  { label:'Risk', col:'#E76F51',
-    items:[
-      { title:'Regulatory risk', desc:'CSRD, EU Taxonomy, and equivalent frameworks carry compliance gaps with penalties and reputational exposure. Non-compliance is no longer cost-free. Quantify the exposure for your organisation.' },
-      { title:'Reputational risk', desc:'Greenwashing claims attract regulatory challenge under the Green Claims Directive and media scrutiny. The risk of claiming more than evidence supports is now a legal risk as much as a reputational one.' },
-      { title:'Supply chain risk', desc:'Geopolitical disruption, material scarcity in technology supply chains, and concentration risk are all sustainability-adjacent. The same evidence programme that supports GHG reporting builds supply chain resilience.' },
-      { title:'Physical climate risk', desc:'Data centres in exposed locations face operational disruption from extreme weather, heat stress, and water availability constraints. Infrastructure investment decisions need to account for this.' },
-    ]},
-  { label:'Strategic', col:'#B2EDE7',
-    items:[
-      { title:'Talent attraction and retention', desc:'Sustainability performance influences technology professionals\' career decisions — particularly earlier in careers and in competitive hiring markets. A credible programme is a retention and recruitment asset.' },
-      { title:'Employee engagement', desc:'Employees engaged with a sustainability programme they believe is real are more committed to the organisation. This matters most in cultures where meaningful work drives performance.' },
-      { title:'Innovation capability', desc:'Building operational sustainability capability creates the internal expertise that can be commercialised — sustainability analytics, supply chain traceability, energy management platforms.' },
-      { title:'Licence to operate', desc:'Investors, regulators, and key customers increasingly require credible sustainability governance. This is less about competitive advantage and more about baseline expectations that are rising.' },
-    ]},
-];
-
-var selectedValueDim = null;
-function buildValueDims() {
-  var grid = document.getElementById('valueDims');
-  if (!grid) return;
-  grid.innerHTML = '';
-  valueDimensions.forEach(function(dim, i) {
-    var isSelected = selectedValueDim === i;
-    var cell = document.createElement('div');
-    cell.style.cssText = 'background:'+(isSelected?dim.col:'#1E293B')+';padding:1.75rem 1.25rem;cursor:pointer;transition:background 0.2s;text-align:center;';
-    cell.innerHTML =
-      '<div style="font-family:Georgia,serif;font-size:1.6rem;color:'+(isSelected?'rgba(11,25,41,0.4)':dim.col)+';margin-bottom:0.5rem;">'+
-        (i===0?'£':i===1?'⚠':'◈')+'</div>'+
-      '<div style="font-size:1.05rem;font-weight:600;color:'+(isSelected?'#0F1F2E':'#FFFFFF')+';margin-bottom:0.3rem;">'+dim.label+'</div>'+
-      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;color:'+(isSelected?'rgba(11,25,41,0.55)':'#64748B')+';letter-spacing:0.06em;">'+dim.items.length+' value categories</div>';
-    cell.addEventListener('click', function(){
-      selectedValueDim = (selectedValueDim===i)?null:i;
-      buildValueDims(); updateValueDetail();
-    });
-    grid.appendChild(cell);
-  });
-}
-function updateValueDetail() {
-  var det = document.getElementById('valueDetail');
-  if (!det) return;
-  if (selectedValueDim===null) {
-    det.style.borderLeftColor='#94A3B8';
-    det.innerHTML='<p style="font-size:0.95rem;color:var(--text-secondary);font-style:italic;">Select a dimension to see what it includes and how to frame it for each audience.</p>';
-    return;
-  }
-  var dim = valueDimensions[selectedValueDim];
-  det.style.borderLeftColor = dim.col;
-  var items = dim.items.map(function(item){
-    return '<div style="margin-bottom:0.85rem;">'+
-      '<div style="font-size:0.95rem;font-weight:600;color:var(--text-primary);margin-bottom:0.25rem;">'+item.title+'</div>'+
-      '<p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.65;">'+item.desc+'</p>'+
-      '</div>';
-  }).join('');
-  det.innerHTML = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">'+
-    '<div>'+items.split('</div>').slice(0,2).join('</div>')+'</div>'+
-    '<div>'+items.split('</div>').slice(2,4).join('</div>')+'</div>'+
-    '</div>';
-}
-buildValueDims(); updateValueDetail();
-
-
-// ── M11 OKR EXAMPLES ──────────────────────────────────────
-var okrs = [
-  { obj:'Reduce the carbon intensity of the technology estate by 30% within three years, aligned to the corporate SBTi pathway',
-    col:'#00A896',
-    krs:[
-      { kr:'KR1: Carbon intensity baseline documented by Q1 — with confidence levels per category', status:'foundation' },
-      { kr:'KR2: Top-10 service register with named owners and carbon intensity metrics established by Q2', status:'governance' },
-      { kr:'KR3: 10% unit intensity reduction achieved by year-end', status:'outcome' },
-    ],
-    cadence:'Monthly: KR1 owner reports measurement progress. Quarterly: top-10 register reviewed with owners present. Annual: intensity trajectory vs SBTi pathway presented to leadership.' },
-  { obj:'Achieve Level 4 measurement maturity on the GreenOps framework by end of next financial year',
-    col:'#F4A261',
-    krs:[
-      { kr:'KR1: Governance roles, decision forums, and KPI owners defined and active by Q1', status:'governance' },
-      { kr:'KR2: Vendor evidence register established with coverage ratings for top 10 suppliers by Q2', status:'foundation' },
-      { kr:'KR3: Role-based sustainability KPIs live in quarterly reviews for all four governance roles by Q3', status:'outcome' },
-    ],
-    cadence:'Q1 check: governance structure confirmed. Q2 check: vendor evidence register reviewed. Q3 check: KPI dashboards demonstrated. End of year: maturity assessment against Level 4 criteria.' },
-  { obj:'Demonstrate credible Scope 3 coverage for the top ten technology suppliers',
-    col:'#B2EDE7',
-    krs:[
-      { kr:'KR1: Evidence register complete for all ten suppliers — with tier ratings — by Q1', status:'foundation' },
-      { kr:'KR2: Data requests sent to all suppliers with gaps; responses tracked by Q2', status:'governance' },
-      { kr:'KR3: Confidence ratings improved (self-declared → reviewed or better) for at least 7/10 suppliers by year-end', status:'outcome' },
-    ],
-    cadence:'Q1: register reviewed. Q2: response tracking reviewed. Q3: supplier engagement status reviewed. Year-end: confidence ratings reassessed and improvement plan for remaining gaps presented.' },
-];
-
-var statusLabels = { foundation:'Foundation', governance:'Governance', outcome:'Outcome' };
-var statusCols = { foundation:'#64748B', governance:'#F4A261', outcome:'#00A896' };
-
-var expandedOkr = null;
-function buildOkrs() {
-  var container = document.getElementById('okrList');
-  if (!container) return;
-  container.innerHTML = '';
-  okrs.forEach(function(okr, i) {
-    var wrap = document.createElement('div');
-    wrap.style.cssText = 'border-bottom:1px solid var(--border-light);';
-
-    var hdr = document.createElement('div');
-    hdr.style.cssText = 'padding:1.1rem 1.5rem;cursor:pointer;display:flex;align-items:flex-start;gap:0.85rem;transition:background 0.12s;';
-    hdr.innerHTML =
-      '<div style="width:20px;height:20px;border-radius:50%;border:2px solid '+okr.col+';background:'+(expandedOkr===i?okr.col:'transparent')+';flex-shrink:0;margin-top:0.15rem;transition:background 0.15s;"></div>'+
-      '<div style="flex:1;"><div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:'+okr.col+';margin-bottom:0.3rem;">Objective '+(i+1)+'</div>'+
-      '<div style="font-size:0.95rem;color:var(--text-primary);font-weight:500;line-height:1.5;">'+okr.obj+'</div></div>'+
-      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;color:'+okr.col+';flex-shrink:0;transition:transform 0.2s;">'+(expandedOkr===i?'▲':'▼')+'</div>';
-
-    var detail = document.createElement('div');
-    detail.style.cssText = 'display:'+(expandedOkr===i?'block':'none')+';padding:0 1.5rem 1.25rem 3.25rem;';
-    var krs = okr.krs.map(function(kr){
-      return '<div style="display:flex;gap:0.85rem;margin-bottom:0.65rem;align-items:flex-start;">'+
-        '<span style="display:inline-block;padding:0.15rem 0.45rem;background:rgba(0,0,0,0.2);border:1px solid '+statusCols[kr.status]+';font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;color:'+statusCols[kr.status]+';white-space:nowrap;flex-shrink:0;margin-top:0.1rem;">'+statusLabels[kr.status]+'</span>'+
-        '<span style="font-size:0.92rem;color:var(--text-secondary);line-height:1.55;">'+kr.kr+'</span>'+
-        '</div>';
-    }).join('');
-    detail.innerHTML = krs +
-      '<div style="margin-top:0.75rem;padding:0.65rem 0.85rem;background:var(--teal-bg);border-left:2px solid rgba(0,168,150,0.3);font-size:0.85rem;color:var(--text-secondary);line-height:1.6;">'+
-      '<strong style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.1em;text-transform:uppercase;color:#00A896;display:block;margin-bottom:0.3rem;">Review cadence</strong>'+
-      okr.cadence+'</div>';
-
-    hdr.addEventListener('mouseenter', function(){ hdr.style.background='var(--page-bg)'; });
-    hdr.addEventListener('mouseleave', function(){ hdr.style.background=''; });
-    hdr.addEventListener('click', function(){
-      expandedOkr = (expandedOkr===i)?null:i;
-      buildOkrs();
-    });
-
-    wrap.appendChild(hdr); wrap.appendChild(detail);
-    container.appendChild(wrap);
-  });
-}
-buildOkrs();
-
-
-// ── M13 INNOVATION / CLEANTECH CARDS ─────────────────────
-var innItems = [
-  { label:'Sustainability hackathons', icon:'💡', col:'#00A896',
-    desc:'A well-structured hackathon focused on a specific operational or business problem — with clear judging criteria and implementation support — surfaces solutions that standard product development processes miss.',
-    why:'The person who knows a batch job is running unnecessarily every night is often not the person who attends the governance forum. Hackathons create channels for that knowledge to surface.',
-    examples:['Energy consumption optimisation challenge — best proposal to reduce data centre PUE by 10%','AI efficiency challenge — smallest model that maintains quality for specific use cases','Dark data challenge — largest reduction in storage cost and footprint within 30 days'],
-    condition:'Works when: there is visible sponsorship, clear judging criteria linked to operational metrics, and a credible implementation path for winning ideas.' },
-  { label:'Citizen-driven innovation', icon:'🔍', col:'#B2EDE7',
-    desc:'Platforms and processes that enable employees at any level to identify and surface improvements. The knowledge gap between governance forums and operational reality is one of the most consistently underexploited improvement opportunities in large technology estates.',
-    why:'Governance forums know what the strategy says. Operational staff know what is actually happening. Building channels to close that gap produces both operational improvements and cultural engagement.',
-    examples:['Operational improvement submissions with a sustainability category and named reviewer','Embedded sustainability criteria in change and release processes — "what is the carbon impact of this change?"','Sustainability-focused communities of practice with quarterly showcase of implemented improvements'],
-    condition:'Works when: there is a clear path from idea to action, and recognition for ideas that are implemented rather than just submitted.' },
-  { label:'CleanTech and SustainTech', icon:'⚡', col:'#F4A261',
-    desc:'Technology organisations with genuine operational sustainability capability are better positioned to develop commercial sustainability solutions. The insight from managing energy consumption, hardware lifecycle, and supply chain evidence at scale is the same insight needed to build products that help others do the same.',
-    why:'Internal capability and commercial opportunity reinforce each other. Running a credible GreenOps programme builds the domain expertise, the tooling, and the credibility to offer it commercially.',
-    examples:['Sustainability reporting platforms — built on internal carbon accounting capability','Smart building / energy management — built on data centre efficiency operational experience','Supply chain traceability — built on vendor evidence programme experience'],
-    condition:'Applies when the organisation has built genuine operational depth rather than a reporting function. Commercialising a spreadsheet is not a product strategy.' },
-];
-
-var selectedInn = null;
-function buildInnCards() {
-  var cells = document.getElementById('innCards');
-  if (!cells) return;
-  cells.innerHTML = '';
-  innItems.forEach(function(item, i) {
-    var isSelected = selectedInn === i;
-    var cell = document.createElement('div');
-    cell.style.cssText = 'background:'+(isSelected?item.col:'#1E293B')+';padding:1.75rem 1.25rem;cursor:pointer;transition:background 0.2s;border-top:3px solid '+item.col+';';
-    cell.innerHTML =
-      '<div style="font-size:1.75rem;margin-bottom:0.5rem;">'+item.icon+'</div>'+
-      '<div style="font-size:1.0rem;font-weight:600;color:'+(isSelected?'#0F1F2E':'#FFFFFF')+';margin-bottom:0.5rem;line-height:1.3;">'+item.label+'</div>'+
-      '<p style="font-size:0.88rem;color:'+(isSelected?'rgba(11,25,41,0.7)':'#64748B')+';line-height:1.6;">'+item.desc+'</p>';
-    cell.addEventListener('click', function(){
-      selectedInn = (selectedInn===i)?null:i;
-      buildInnCards();
-      var det = document.getElementById('innDetail');
-      var txt2 = document.getElementById('innDetailText');
-      if (!det) return;
-      if (selectedInn!==null) {
-        var it = innItems[selectedInn];
-        det.style.display='block';
-        var exs = it.examples.map(function(e){ return '<li style="display:flex;gap:0.6rem;margin-bottom:0.35rem;font-size:0.88rem;color:var(--text-secondary);line-height:1.5;"><span style="color:'+it.col+';flex-shrink:0;">→</span>'+e+'</li>'; }).join('');
-        txt2.innerHTML =
-          '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">'+
-            '<div>'+
-              '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:'+it.col+';margin-bottom:0.5rem;">Why it works</div>'+
-              '<p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.65;margin-bottom:0.65rem;">'+it.why+'</p>'+
-              '<div style="padding:0.6rem 0.85rem;background:var(--teal-bg);border-left:2px solid rgba(0,168,150,0.3);font-size:0.85rem;color:var(--text-secondary);font-style:italic;line-height:1.6;">'+it.condition+'</div>'+
-            '</div>'+
-            '<div>'+
-              '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:#00A896;margin-bottom:0.5rem;">Practical examples</div>'+
-              '<ul style="list-style:none;padding:0;">'+exs+'</ul>'+
-            '</div>'+
-          '</div>';
-      } else {
-        det.style.display='none';
-      }
-    });
-    cells.appendChild(cell);
-  });
-}
-buildInnCards();
-
-
-// ── M14 STARTING ARTEFACTS + OPERATING CONTEXT ───────────
-var startArts = [
-  { num:'01', label:'Top-ten service register', col:'#00A896',
-    first:'This week: list the ten applications or services that consume the most compute, storage, or network in your estate. For each: write down a name, a rough consumption figure (even if estimated), and who you think owns it. That is your starting register. It will be wrong and incomplete — that is expected and acceptable.',
-    improve:'Next 90 days: confirm owners, define one carbon intensity metric per service, establish the review cadence. The register becomes the anchor for quarterly operational governance.' },
-  { num:'02', label:'Vendor evidence register', col:'#B2EDE7',
-    first:'This week: for your three highest-spend suppliers (typically cloud, hardware, and one managed service), note what sustainability evidence you have seen, what you have not asked for, and what you would request at the next contract touchpoint. Three rows. That is enough to start.',
-    improve:'Next 90 days: extend to top 10 suppliers, apply tier ratings (self-declared / reviewed / assured), send first evidence requests where gaps exist. Review at procurement governance.' },
-  { num:'03', label:'Waste removal backlog', col:'#F4A261',
-    first:'This week: write down five things you already know are waste in your estate: idle cloud instances, orphaned storage, an application nobody uses, devices with no lifecycle policy. Name each one and put a rough cost or energy figure against it. Assign yourself or a named colleague as owner of each.',
-    improve:'Next 90 days: formalise in your operational tracking system (not a separate spreadsheet), assign target dates, review completion in the same forum as financial waste.' },
-];
-
-var expandedArt = null;
-function buildStartArts() {
-  var container = document.getElementById('startCards');
-  if (!container) return;
-  container.innerHTML = '';
-  startArts.forEach(function(art, i) {
-    var wrap = document.createElement('div');
-    wrap.style.cssText = 'border-bottom:1px solid var(--border-light);';
-    var hdr = document.createElement('div');
-    hdr.style.cssText = 'padding:1.1rem 1.5rem;cursor:pointer;display:flex;gap:0.85rem;align-items:center;transition:background 0.12s;';
-    hdr.innerHTML =
-      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:'+art.col+';min-width:30px;">'+art.num+'</div>'+
-      '<div style="font-size:0.97rem;font-weight:600;color:var(--text-primary);flex:1;">'+art.label+'</div>'+
-      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.75rem;color:'+art.col+';transition:transform 0.2s;">'+(expandedArt===i?'▲':'▼')+'</div>';
-    var detail = document.createElement('div');
-    detail.style.cssText = 'display:'+(expandedArt===i?'grid':'none')+';grid-template-columns:1fr 1fr;gap:1px;background:var(--border-light);';
-    detail.innerHTML =
-      '<div style="padding:1rem 1.25rem;background:var(--card-bg);border:1px solid var(--border);border-left:3px solid '+art.col+';">'+
-        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:'+art.col+';margin-bottom:0.5rem;">This week</div>'+
-        '<p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.65;">'+art.first+'</p>'+
-      '</div>'+
-      '<div style="padding:1rem 1.25rem;background:var(--section-alt);border-left:3px solid rgba(0,168,150,0.3);">'+
-        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:#00A896;margin-bottom:0.5rem;">Next 90 days</div>'+
-        '<p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.65;">'+art.improve+'</p>'+
-      '</div>';
-    hdr.addEventListener('mouseenter', function(){ hdr.style.background='var(--page-bg)'; });
-    hdr.addEventListener('mouseleave', function(){ hdr.style.background=''; });
-    hdr.addEventListener('click', function(){
-      expandedArt=(expandedArt===i)?null:i;
-      buildStartArts();
-    });
-    wrap.appendChild(hdr); wrap.appendChild(detail);
-    container.appendChild(wrap);
-  });
-}
-buildStartArts();
-
-// ── M14 OPERATING CONTEXT SHIFTS ────────────────────────
-var contextShifts = [
-  { label:'Power availability as a constraint', col:'#E76F51',
-    detail:'Grid capacity constraints are already limiting data centre expansion in London, Dublin, Singapore, and Amsterdam. Power availability — not just cost — is becoming a planning variable for infrastructure decisions. AI demand is accelerating this constraint. Organisations that plan infrastructure without understanding the local power envelope are making decisions that will be revisited.' },
-  { label:'Water stress entering planning decisions', col:'#F4A261',
-    detail:'Hyperscale data centres can consume millions of litres of water daily. Water availability is beginning to shape where data centres receive planning permission — not a future scenario but a present reality in several markets. Water stress belongs in infrastructure strategy alongside cost and connectivity.' },
-  { label:'AI changing the energy calculus', col:'#E76F51',
-    detail:'A frontier AI model query uses approximately 10× the energy of a standard web search. As AI embeds into products and workflows at scale, this is not an incremental increase in IT energy demand — it is a structural change. The organisations that govern AI consumption now are building an advantage over those that will need to retrofit governance when the bill arrives.' },
-  { label:'Regulatory obligation arriving in waves', col:'#F4A261',
-    detail:'CSRD applies to large EU entities for financial year 2024 onwards, with phased extension. The Green Claims Directive introduces legal liability for unsubstantiated sustainability claims. Supply chain due diligence requirements are extending. Organisations outside current scope are receiving obligations through customer and investor pressure that creates a commercial equivalent.' },
-  { label:'Digital sustainability as operational excellence', col:'#00A896',
-    detail:'The organisations that treat digital sustainability as an operational discipline — rather than a reporting function or a communications strategy — will be better positioned on cost, risk, talent, and regulatory compliance simultaneously. The tools are measurement maturity, governance artefacts, and distributed accountability. None of those requires a perfect programme to start.' },
-];
-
-function buildContextShifts() {
-  var container = document.getElementById('contextShifts');
-  if (!container) return;
-  container.innerHTML='';
-  var selectedCtx = null;
-
-  contextShifts.forEach(function(shift, i) {
-    var row = document.createElement('div');
-    row.style.cssText='display:flex;align-items:center;gap:0.85rem;padding:0.75rem 0;border-bottom:1px solid var(--border-light);cursor:pointer;transition:background 0.12s;';
-    row.innerHTML=
-      '<div style="width:10px;height:10px;border-radius:50%;background:'+shift.col+';flex-shrink:0;box-shadow:0 0 6px '+shift.col+'55;"></div>'+
-      '<div style="font-size:0.95rem;color:var(--text-primary);font-weight:500;flex:1;">'+shift.label+'</div>'+
-      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.75rem;color:'+shift.col+';">▶</div>';
-    row.addEventListener('mouseenter', function(){ row.style.background='var(--page-bg)'; });
-    row.addEventListener('mouseleave', function(){ row.style.background=''; });
-    row.addEventListener('click', function(){
-      selectedCtx=(selectedCtx===i)?null:i;
-      var det=document.getElementById('contextDetail');
-      var txt2=document.getElementById('contextDetailText');
-      if (!det) return;
-      if (selectedCtx!==null) {
-        det.style.display='block';
-        txt2.innerHTML='<strong style="color:'+shift.col+';">'+shift.label+'</strong><br><br>'+contextShifts[selectedCtx].detail;
-      } else {
-        det.style.display='none';
-      }
-    });
-    container.appendChild(row);
-  });
-}
-buildContextShifts();
-
-})();
-</script>
-
-
-
-
-<script>
-(function(){
-'use strict';
-var innItems = [
-  { num:'01', label:'Sustainability hackathons', col:'#00A896',
-    desc:'A well-structured hackathon focused on a specific operational sustainability problem — with clear judging criteria and commitment to implement winning ideas — surfaces solutions that standard development processes never produce.',
-    benefit:'Engages employees directly in the sustainability mission. The person who knows a batch job is running unnecessarily is often not in the governance forum. Hackathons create the channel for that knowledge.',
-    action:'Define the problem specifically. Require implementation plans, not concepts. Commit to acting on at least one winning idea within 90 days. Systems that accept ideas but produce no visible outcome generate cynicism.' },
-  { num:'02', label:'Citizen-driven innovation', col:'#B2EDE7',
-    desc:'Platforms and processes that enable employees at any level to identify and surface operational improvements. The gap between governance forums and operational reality is one of the most consistently underexploited improvement opportunities in large estates.',
-    benefit:'The knowledge gap between what governance forums discuss and what engineers observe is large. Closing it requires deliberate infrastructure — not just an open-door policy.',
-    action:'Make submission easy. Make outcomes visible. Close the loop: acknowledge, provide feedback, publish results. Channels that accept ideas without responding destroy the behaviour you are trying to build.' },
-  { num:'03', label:'Commercial sustainability products', col:'#F4A261',
-    desc:'Technology organisations that build genuine operational capability in sustainable IT are better positioned to develop commercial solutions. The insight from managing energy, lifecycle, carbon accounting, and supply chain evidence at scale is the same insight needed to build platforms others will pay for.',
-    benefit:'The commercial opportunity in sustainability technology is significant and growing. Financial services, logistics, manufacturing, retail — all face the same measurement and governance challenges.',
-    action:'Identify where internal capability exceeds market availability. Assess whether the IP and operational knowledge could be productised. Start with the segments you understand most deeply — that is where your credibility is highest.' },
-];
-
-var selInn = null;
-function buildInnCards() {
-  var cards = document.getElementById('innCards');
-  if (!cards) return;
-  cards.innerHTML = '';
-  innItems.forEach(function(item, i) {
-    var isSel = selInn === i;
-    var cell = document.createElement('div');
-    cell.style.cssText = 'background:'+(isSel?item.col:'#1E293B')+';padding:1.75rem 1.25rem;cursor:pointer;transition:background 0.15s;border-top:3px solid '+item.col+';';
-    cell.innerHTML =
-      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:'+(isSel?'rgba(11,25,41,0.6)':item.col)+';margin-bottom:0.5rem;">'+item.num+'</div>'+
-      '<div style="font-size:1.0rem;font-weight:600;color:'+(isSel?'#0F1F2E':'#FFFFFF')+';margin-bottom:0.65rem;line-height:1.3;">'+item.label+'</div>'+
-      '<p style="font-size:0.88rem;color:'+(isSel?'rgba(11,25,41,0.65)':'#64748B')+';line-height:1.6;">'+item.desc+'</p>';
-    cell.addEventListener('click', function(){
-      selInn = (selInn===i)?null:i;
-      buildInnCards();
-      var det = document.getElementById('innDetail');
-      var txt2 = document.getElementById('innDetailText');
-      if (!det) return;
-      if (selInn !== null) {
-        var it = innItems[selInn];
-        det.style.display = 'block';
-        txt2.innerHTML =
-          '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">'+
-            '<div><div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:#F4A261;margin-bottom:0.4rem;">Why it matters</div>'+
-              '<p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.65;">'+it.benefit+'</p></div>'+
-            '<div><div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:#00A896;margin-bottom:0.4rem;">How to make it real</div>'+
-              '<div style="padding:0.75rem 0.85rem;background:var(--teal-bg);border-left:2px solid rgba(0,168,150,0.3);font-size:0.92rem;color:var(--text-secondary);line-height:1.65;">'+it.action+'</div></div>'+
-          '</div>';
-      } else {
-        det.style.display = 'none';
-      }
-    });
-    cards.appendChild(cell);
-  });
-}
-buildInnCards();
-})();
-</script>
-
-
-
-<script>
-// GreenOps 101 — Shared module utilities v4 (light theme)
+<script></script><script>
+// GreenOps 101 — Shared utilities v4 light theme
 
 const STORAGE_KEY = 'greenops101_progress';
-
-function getProgress() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
-  catch { return {}; }
+function getProgress(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');}catch{return {};}}
+function markComplete(moduleKey){
+  const p=getProgress();p[moduleKey]={completedAt:new Date().toISOString()};
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(p));
+  document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
 }
-
-function markComplete(moduleKey) {
-  const p = getProgress();
-  p[moduleKey] = { completedAt: new Date().toISOString() };
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
-  document.querySelectorAll('.complete-btn').forEach(b => {
-    b.textContent = '✓ Module complete';
-    b.classList.add('done');
-  });
-}
-
-function isComplete(moduleKey) {
-  return !!getProgress()[moduleKey];
-}
-
-// Knowledge check handling
-function initKnowledgeChecks() {
-  document.querySelectorAll('.kc-block').forEach(block => {
-    const correct = block.dataset.correct;
-    block.querySelectorAll('.kc-option').forEach(opt => {
-      opt.addEventListener('click', function() {
-        if (block.classList.contains('answered')) return;
+function isComplete(k){return !!getProgress()[k];}
+function initKnowledgeChecks(){
+  document.querySelectorAll('.kc-block').forEach(block=>{
+    const correct=block.dataset.correct;
+    block.querySelectorAll('.kc-option').forEach(opt=>{
+      opt.addEventListener('click',function(){
+        if(block.classList.contains('answered'))return;
         block.classList.add('answered');
-        const chosen = this.dataset.val;
-        block.querySelectorAll('.kc-option').forEach(o => {
-          if (o.dataset.val === correct) {
-            o.classList.add('selected-correct');
-          } else if (o.dataset.val === chosen && chosen !== correct) {
-            o.classList.add('selected-wrong');
-          }
+        const chosen=this.dataset.val;
+        block.querySelectorAll('.kc-option').forEach(o=>{
+          if(o.dataset.val===correct)o.classList.add('selected-correct');
+          else if(o.dataset.val===chosen&&chosen!==correct)o.classList.add('selected-wrong');
         });
-        // Show feedback
-        const fb = block.querySelector(chosen === correct ? '.kc-correct' : '.kc-wrong');
-        if (fb) fb.style.display = 'block';
-        // Also show .kc-reveal if present (legacy)
-        const reveal = block.querySelector('.kc-reveal');
-        if (reveal) reveal.style.display = 'block';
+        const fb=block.querySelector(chosen===correct?'.kc-correct':'.kc-wrong');
+        if(fb)fb.style.display='block';
+        const rv=block.querySelector('.kc-reveal');
+        if(rv)rv.style.display='block';
       });
     });
   });
 }
-
-// Scroll-triggered reveals
-function initScrollReveal() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+function initScrollReveal(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+  },{threshold:0.06,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+}
+function initProgress(current){
+  const p=getProgress(),total=14;
+  const done=Object.keys(p).filter(k=>k.startsWith('module')).length;
+  const el=document.getElementById('progress-count');
+  if(el)el.textContent=done+'/'+total;
+  const fill=document.getElementById('prog-fill');
+  if(fill)fill.style.width=((done/total)*100)+'%';
+  if(isComplete('module'+current))document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
 }
 
-// Sticky nav progress
-function initProgress(current) {
-  const p = getProgress();
-  const total = 14;
-  const done = Object.keys(p).filter(k => k.startsWith('module')).length;
-  const el = document.getElementById('progress-count');
-  if (el) el.textContent = `${done}/${total}`;
-  const fill = document.getElementById('prog-fill');
-  if (fill) fill.style.width = `${(done/total)*100}%`;
-  if (isComplete('module' + current)) {
-    document.querySelectorAll('.complete-btn').forEach(b => {
-      b.textContent = '✓ Module complete';
-      b.classList.add('done');
-    });
-  }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded',function(){
   initKnowledgeChecks();
   initScrollReveal();
   initProgress(13);
-  buildApps();
-  buildValueDims();
-  buildOkrs();
-  buildInnCards();
-  buildStartArts();
-  buildContextShifts();
-});
 
+});
 </script>
 </body></html>
