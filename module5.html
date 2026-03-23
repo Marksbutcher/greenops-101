@@ -563,13 +563,13 @@
 <div class="takeaways reveal">
   <h3 class="takeaways-heading">Module 5 — Key Takeaways</h3>
   <div class="takeaway-list">
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Reporting is the starting point, not the destination.</strong><p>Optimisation and avoidance are where operational value lives — and they require different governance to activate.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Reporting is the starting point, not the destination.</strong><p>Most sustainability programmes are running a reporting function. Optimisation and avoidance are where operational value lives — and they require different governance to activate.</p></div></div>
     <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>The rebound effect is a governance failure, not a technical one.</strong><p>Freed capacity must be subject to an explicit decision before reallocation. Without active demand management, efficiency gains are absorbed rather than accumulated.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Carbon-aware computing works — for genuinely flexible workloads.</strong><p>Quantify your flexible load first. It is almost always smaller than hoped and larger than zero.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Carbon is a named variable in every material operational decision.</strong><p>The goal is not to always win on carbon — it is to make the trade-off with cost and performance visible and deliberate.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>GreenOps integrates with FinOps — it does not compete with it.</strong><p>The most efficient model shares the same tooling, attribution model, and governance cadence.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Carbon-aware computing works — for genuinely flexible workloads.</strong><p>Temporal and spatial shifting are practical levers with measurable impact. Quantify your flexible load first. It is almost always smaller than hoped and larger than zero.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Carbon is a named variable in every material operational decision.</strong><p>The goal is not to always win on carbon — it is to make the trade-off with cost and performance visible and deliberate. Invisible trade-offs produce accidental outcomes.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>GreenOps integrates with FinOps — it does not compete with it.</strong><p>The most efficient model shares the same tooling, attribution model, and governance cadence. Separate disciplines create duplication, friction, and two teams explaining the same numbers differently.</p></div></div>
   </div>
-</div>
+</div>/div>
 
 </div>
 
@@ -622,7 +622,7 @@ function showTriDetail(key) {
 
 // ── THREE LEVELS SELF-ASSESSMENT ──────────────────────────
 var levels = [
-  { num:'1', label:'Reporting', col:'#94A3B8',
+  { num:'1', label:'Reporting', col:'#64748B',
     title:'Level 1 — Reporting: the rear-view mirror',
     body:'Measurement, baselines, dashboards, annual disclosure. Necessary for compliance and setting direction. Not sufficient for operational improvement.',
     symptoms:['Metrics exist but operational decisions are unchanged','Sustainability team produces reports; engineering teams are unaware of their consumption','Annual sustainability report published; no team-level KPIs','"We track our Scope 2 emissions." But not Scope 3. And no reduction plan.'],
@@ -651,7 +651,7 @@ function buildLevels() {
     cell.innerHTML =
       '<div style="font-family:Calibri,sans-serif;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:'+(isSelected?'rgba(11,25,41,0.6)':lv.col)+';margin-bottom:0.5rem;">Level '+lv.num+'</div>'+
       '<div style="font-family:Georgia,serif;font-size:1.5rem;color:'+(isSelected?'#0F1F2E':'#FFFFFF')+';margin-bottom:0.25rem;">'+lv.label+'</div>'+
-      '<div style="font-size:0.88rem;color:'+(isSelected?'rgba(11,25,41,0.65)':'#94A3B8')+';line-height:1.4;">'+lv.body.split('.')[0]+'.</div>';
+      '<div style="font-size:0.88rem;color:'+(isSelected?'rgba(11,25,41,0.65)':'#64748B')+';line-height:1.4;">'+lv.body.split('.')[0]+'.</div>';
     cell.addEventListener('click', function(){
       selectedLevel = (selectedLevel===i)?null:i;
       buildLevels();
@@ -737,7 +737,7 @@ updateLevelsDetail();
       var y = scaleY(v);
       svg.appendChild(el('line',{x1:PAD.left,y1:y,x2:PAD.left+CW,y2:y,stroke:'var(--border-light)',
         'stroke-width':'1'}));
-      svg.appendChild(text(v+'%', {x:PAD.left-8,y:y+4,'text-anchor':'end',fill:'#94A3B8',
+      svg.appendChild(text(v+'%', {x:PAD.left-8,y:y+4,'text-anchor':'end',fill:'#64748B',
         'font-family':'JetBrains Mono,monospace','font-size':'10'}));
     });
 
@@ -745,15 +745,15 @@ updateLevelsDetail();
     ['Start','Month 3','Month 6','Month 9','Month 12'].forEach(function(lbl,i) {
       var xi = Math.round(i * (months-1) / 4);
       svg.appendChild(text(lbl,{x:scaleX(xi),y:H-PAD.bottom+16,'text-anchor':'middle',
-        fill:'#94A3B8','font-family':'JetBrains Mono,monospace','font-size':'11'}));
+        fill:'#64748B','font-family':'JetBrains Mono,monospace','font-size':'11'}));
     });
 
     // Axis labels
     svg.appendChild(text('% of baseline',{x:PAD.left-40,y:PAD.top+CH/2,'text-anchor':'middle',
-      fill:'#94A3B8','font-family':'JetBrains Mono,monospace','font-size':'11',
+      fill:'#64748B','font-family':'JetBrains Mono,monospace','font-size':'11',
       transform:'rotate(-90,'+(PAD.left-40)+','+(PAD.top+CH/2)+')'}));
     svg.appendChild(text('Time →',{x:PAD.left+CW/2,y:H-8,'text-anchor':'middle',
-      fill:'#94A3B8','font-family':'JetBrains Mono,monospace','font-size':'11'}));
+      fill:'#64748B','font-family':'JetBrains Mono,monospace','font-size':'11'}));
 
     // "Optimisation starts" marker
     svg.appendChild(el('line',{x1:scaleX(0),y1:PAD.top,x2:scaleX(0),y2:H-PAD.bottom,

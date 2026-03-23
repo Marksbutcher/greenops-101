@@ -288,25 +288,68 @@ html,body{background:#0F1F2E;color:var(--text-primary);}
   </div>
 </div>
 
+<!-- ── COURSE COMPLETION ──────────────────────────────── -->
+<div class="takeaways reveal">
+  <h3 class="takeaways-heading">Module 14 — Key Takeaways</h3>
+  <div class="takeaway-list">
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>GreenOps is an operational discipline, not a reporting function.</strong><p>Strategy documents, governance committees, and annual reports are infrastructure. Named service owners, intensity metrics, and a waste removal backlog are what convert strategy into operational change.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>The operating context is changing faster than most organisations are responding.</strong><p>Power availability, water stress, AI infrastructure cost, and supply chain pressure are not abstract future risks. They are reshaping technology strategy decisions now.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Digital is physical — and that is the starting point for everything.</strong><p>Every efficiency gain, every waste removal, every demand avoidance decision has a physical consequence. The organisations that understand this build better programmes than those that treat sustainability as a narrative exercise.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Imperfect data acted on beats perfect data deferred.</strong><p>A directional baseline with documented assumptions and a plan to improve is more valuable than waiting for complete telemetry. Start now. Improve iteratively. Build the evidence register as you go.</p></div></div>
+  </div>
+</div>
 
-</div>';
-        cell.addEventListener('mouseenter', function(){ cell.style.background='var(--section-alt)'; });
-        cell.addEventListener('mouseleave', function(){ cell.style.background=''; });
-        cell.addEventListener('click', function(){
-          window.location.href = 'module'+m.num+'.html';
-        });
-      } else {
-        cell.style.cssText = 'padding:0.75rem 1rem;';
-      }
-      rowEl.appendChild(cell);
-    });
-    grid.appendChild(rowEl);
-  }
-}
+<!-- ── COURSE COMPLETION PANEL ──────────────────────────── -->
+<div style="background:#0F1F2E;padding:4rem 3rem;">
+  <div style="max-width:860px;margin:0 auto;text-align:center;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:#B2EDE7;margin-bottom:1.25rem;">Course Complete</div>
+    <h2 style="font-family:Georgia,serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#FFFFFF;line-height:1.12;letter-spacing:-0.02em;margin-bottom:1.5rem;">You have completed GreenOps 101.</h2>
+    <p style="font-size:1.1rem;color:rgba(255,255,255,0.75);line-height:1.75;max-width:680px;margin:0 auto 2.5rem;">Fourteen modules. Three tracks. The physical reality of digital, the operational disciplines of GreenOps, and the leadership and governance principles that make it sustainable at scale. What you do with this is the question that matters.</p>
 
-})();
-</script>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:1px;background:rgba(255,255,255,0.1);max-width:860px;margin:0 auto 3rem;">
+      <div style="background:#162840;padding:2rem 1.5rem;border-top:3px solid #00A896;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:#B2EDE7;margin-bottom:0.75rem;">Track 1 Complete</div>
+        <div style="font-family:Georgia,serif;font-size:1.05rem;color:#FFFFFF;font-weight:400;">Technical Foundation</div>
+        <div style="font-size:0.92rem;color:rgba(255,255,255,0.6);margin-top:0.35rem;">Modules 1–4</div>
+      </div>
+      <div style="background:#162840;padding:2rem 1.5rem;border-top:3px solid #F4A261;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:#F4D0B0;margin-bottom:0.75rem;">Track 2 Complete</div>
+        <div style="font-family:Georgia,serif;font-size:1.05rem;color:#FFFFFF;font-weight:400;">Operational Practice</div>
+        <div style="font-size:0.92rem;color:rgba(255,255,255,0.6);margin-top:0.35rem;">Modules 5–8</div>
+      </div>
+      <div style="background:#162840;padding:2rem 1.5rem;border-top:3px solid #E76F51;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:#F4C4B9;margin-bottom:0.75rem;">Track 3 Complete</div>
+        <div style="font-family:Georgia,serif;font-size:1.05rem;color:#FFFFFF;font-weight:400;">Leadership &amp; Governance</div>
+        <div style="font-size:0.92rem;color:rgba(255,255,255,0.6);margin-top:0.35rem;">Modules 9–14</div>
+      </div>
+    </div>
 
+    <div style="background:rgba(0,168,150,0.12);border:1px solid rgba(0,168,150,0.3);padding:2.5rem;max-width:640px;margin:0 auto 2rem;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.14em;text-transform:uppercase;color:#B2EDE7;margin-bottom:1rem;">Ready for Accreditation?</div>
+      <p style="font-size:1.05rem;color:rgba(255,255,255,0.85);line-height:1.7;margin-bottom:1.75rem;">The GreenOps 101 Practitioner Accreditation test covers all three tracks. It takes approximately 30 minutes. You should feel comfortable with the key concepts from each module before attempting it.</p>
+      <a href="https://tbmcouncil.org/learn-tbm/greenops/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.75rem;padding:0.9rem 2rem;background:#00A896;color:#0F1F2E;font-family:'JetBrains Mono',monospace;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;text-decoration:none;transition:background 0.15s;">Take the Practitioner Test →</a>
+    </div>
+
+    <p style="font-size:0.92rem;color:rgba(255,255,255,0.45);margin-top:1.5rem;">GreenOps 101 · TBM Council · <a href="index.html" style="color:rgba(0,168,150,0.7);text-decoration:none;">Return to course hub</a></p>
+  </div>
+</div>
+
+<!-- ── BOTTOM NAV ──────────────────────────────────────── -->
+<div class="module-nav">
+  <a href="module13.html" class="nav-btn">
+    <span>
+      <span class="nav-btn-label">← Previous</span>
+      <span class="nav-btn-title">M13: GreenOps and the Broader Sustainability Agenda</span>
+    </span>
+  </a>
+  <button class="complete-btn" onclick="markComplete('module14')">Mark as complete</button>
+  <a href="index.html" class="nav-btn next">
+    <span>
+      <span class="nav-btn-label">Course Hub →</span>
+      <span class="nav-btn-title">Return to course index</span>
+    </span>
+  </a>
+</div>
 
 <script>
 (function(){
@@ -350,7 +393,7 @@ function buildValueDims() {
       '<div style="font-family:Georgia,serif;font-size:1.6rem;color:'+(isSelected?'rgba(11,25,41,0.4)':dim.col)+';margin-bottom:0.5rem;">'+
         (i===0?'£':i===1?'⚠':'◈')+'</div>'+
       '<div style="font-size:1.05rem;font-weight:600;color:'+(isSelected?'#0F1F2E':'#FFFFFF')+';margin-bottom:0.3rem;">'+dim.label+'</div>'+
-      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;color:'+(isSelected?'rgba(11,25,41,0.55)':'#94A3B8')+';letter-spacing:0.06em;">'+dim.items.length+' value categories</div>';
+      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;color:'+(isSelected?'rgba(11,25,41,0.55)':'#64748B')+';letter-spacing:0.06em;">'+dim.items.length+' value categories</div>';
     cell.addEventListener('click', function(){
       selectedValueDim = (selectedValueDim===i)?null:i;
       buildValueDims(); updateValueDetail();
@@ -411,7 +454,7 @@ var okrs = [
 ];
 
 var statusLabels = { foundation:'Foundation', governance:'Governance', outcome:'Outcome' };
-var statusCols = { foundation:'#94A3B8', governance:'#F4A261', outcome:'#00A896' };
+var statusCols = { foundation:'#64748B', governance:'#F4A261', outcome:'#00A896' };
 
 var expandedOkr = null;
 function buildOkrs() {
@@ -488,7 +531,7 @@ function buildInnCards() {
     cell.innerHTML =
       '<div style="font-size:1.75rem;margin-bottom:0.5rem;">'+item.icon+'</div>'+
       '<div style="font-size:1.0rem;font-weight:600;color:'+(isSelected?'#0F1F2E':'#FFFFFF')+';margin-bottom:0.5rem;line-height:1.3;">'+item.label+'</div>'+
-      '<p style="font-size:0.88rem;color:'+(isSelected?'rgba(11,25,41,0.7)':'#94A3B8')+';line-height:1.6;">'+item.desc+'</p>';
+      '<p style="font-size:0.88rem;color:'+(isSelected?'rgba(11,25,41,0.7)':'#64748B')+';line-height:1.6;">'+item.desc+'</p>';
     cell.addEventListener('click', function(){
       selectedInn = (selectedInn===i)?null:i;
       buildInnCards();
@@ -758,7 +801,7 @@ var contextShiftsData = [
     detail:'AI infrastructure is materially more power-dense than conventional compute. GPU clusters require cooling infrastructure that most existing data centres cannot support without significant investment. Organisations that have efficient, well-governed estates are better positioned to absorb AI demand without triggering a power or cooling crisis.' },
   { label:'Supply chain obligations moving upstream', col:'#00A896',
     detail:'Scope 3 requirements and customer ESG pressure are creating a wave of sustainability obligations that flow through supply chains. Technology organisations face these demands from customers while simultaneously imposing them on suppliers. Evidence quality — not just commitments — is becoming the differentiator in both directions.' },
-  { label:'Regulation arriving with audit requirements', col:'#94A3B8',
+  { label:'Regulation arriving with audit requirements', col:'#64748B',
     detail:'CSRD, EU Taxonomy, and equivalent frameworks require third-party assured sustainability disclosure. Spend-based proxies for Scope 3 will not meet the assurance standard. The organisations that have built measurement infrastructure, governance frameworks, and supplier evidence programmes are prepared. Those that have not will face compliance gaps and the cost of rapid remediation.' },
 ];
 
@@ -776,7 +819,7 @@ function buildContextShifts() {
     row.style.cssText = 'display:flex;align-items:center;gap:1rem;padding:0.85rem 1.75rem;cursor:pointer;border-bottom:1px solid var(--border-light);transition:background 0.12s;background:'+(isSel?'var(--page-bg)':'');
     row.innerHTML =
       '<div style="width:8px;height:8px;border-radius:50%;flex-shrink:0;background:'+shift.col+';"></div>'+
-      '<div style="font-size:0.97rem;color:'+(isSel?'#FFFFFF':'#94A3B8')+';font-weight:'+(isSel?'500':'400')+';line-height:1.4;flex:1;">'+shift.label+'</div>'+
+      '<div style="font-size:0.97rem;color:'+(isSel?'#FFFFFF':'#64748B')+';font-weight:'+(isSel?'500':'400')+';line-height:1.4;flex:1;">'+shift.label+'</div>'+
       '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;color:'+shift.col+';flex-shrink:0;transition:transform 0.15s;transform:'+(isSel?'rotate(90deg)':'')+';">▶</div>';
     row.addEventListener('mouseenter', function(){ if(!isSel) row.style.background='var(--page-bg)'; });
     row.addEventListener('mouseleave', function(){ if(!isSel) row.style.background=''; });

@@ -493,10 +493,10 @@
     <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>A useful definition is operational, not aspirational.</strong><p>Digital sustainability is a lifecycle and leadership discipline — not a brand position or a reporting exercise.</p></div></div>
     <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>The three dimensions stop programmes talking past each other.</strong><p>Footprint (in IT), Handprint (by IT), Social dimension (IT for society). Don't conflate them — they serve different purposes and require different measurement.</p></div></div>
     <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>The heartprint is a distinct fourth concept.</strong><p>IT's direct positive social impact — accessible design, digital inclusion, responsible AI — is worth separating from the broader social dimension.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>The footprint comes first — and is non-negotiable.</strong><p>Leaders who lead with the handprint before securing the footprint create a credibility problem the first time anyone asks for evidence.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Connection to corporate sustainability is essential.</strong><p>IT sustainability operating in isolation from the broader corporate agenda will consistently lose the resource allocation argument.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Four things that aren't GreenOps.</strong><p>Not a marketing narrative. Not one team's job. Not just data centres. Not solved by certificates. Any of these defaults will stall the programme.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>GreenOps is an operational discipline, not a reporting cycle.</strong><p>It works the same way FinOps works: continuous visibility, distributed accountability, and improvement tied to everyday decisions across the estate.</p></div></div>
   </div>
-</div>
+</div>/div>
 
 </div><!-- module-content -->
 
@@ -534,7 +534,7 @@ function showLcDetail(phase) {
   });
   var el = document.querySelector('.lc-phase.' + phase);
   if(el) { el.style.opacity='1'; el.style.outline='2px solid '+(phase==='operate'?'#00A896':'#E76F51'); }
-  var det = document.getElementById('lc-detail');
+  var det = document.getElementById('lcDetail');
   var colors = {manufacture:'#E76F51', operate:'#00A896', eol:'#E76F51'};
   var col = colors[phase] || '#00A896';
   det.style.borderLeft = '3px solid '+col;
@@ -701,7 +701,7 @@ function buildDimFlow() {
     cell.innerHTML =
       '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:'+(isSelected?'rgba(11,25,41,0.7)':d.col)+';margin-bottom:0.6rem;">' + d.num + '</div>' +
       '<div style="font-size:1.0rem;font-weight:600;color:'+(isSelected?'#0F1F2E':'#FFFFFF')+';margin-bottom:0.25rem;line-height:1.3;">' + d.label.replace(' IT','<br>') + '</div>' +
-      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;color:'+(isSelected?'rgba(11,25,41,0.6)':'#94A3B8')+';letter-spacing:0.05em;">' + d.sub + '</div>';
+      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;color:'+(isSelected?'rgba(11,25,41,0.6)':'#64748B')+';letter-spacing:0.05em;">' + d.sub + '</div>';
     cell.addEventListener('click', function(){
       selectedDim = (selectedDim === i) ? null : i;
       buildDimFlow();
@@ -995,7 +995,7 @@ if (accTable) {
     var cells = [row.decision, row.today, row.greenops];
     cells.forEach(function(text, j) {
       var td = document.createElement('div');
-      td.style.cssText = 'padding:0.85rem 1.1rem;font-size:0.92rem;color:'+(j===0?'#FFFFFF':(j===2?row.col:'#94A3B8'))+';line-height:1.5;border-top:1px solid var(--border-light);'+(j===0?'font-weight:500;border-left:3px solid '+row.col+';':'');
+      td.style.cssText = 'padding:0.85rem 1.1rem;font-size:0.92rem;color:'+(j===0?'#FFFFFF':(j===2?row.col:'#64748B'))+';line-height:1.5;border-top:1px solid var(--border-light);'+(j===0?'font-weight:500;border-left:3px solid '+row.col+';':'');
       td.textContent = text;
       rowEl.appendChild(td);
     });

@@ -239,13 +239,13 @@
 <div class="takeaways reveal">
   <h3 class="takeaways-heading">Module 6 — Key Takeaways</h3>
   <div class="takeaway-list">
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Enterprise architecture is a sustainability governance mechanism.</strong><p>Every application that runs without a deliberate decision to keep it running is consuming resources for no return. Retiring applications is often the single highest-leverage action in a portfolio review.</p></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Dark data is one of the most easily remediated waste categories.</strong><p>It accumulates through permissive defaults and the absence of any process asking whether retained data still serves a purpose. Data minimisation at design stage is the intervention point — before data exists, not after.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>SaaS absence of data is not absence of impact.</strong><p>Multi-tenant platforms carry Scope 3 exposure whether or not the provider discloses it. Ask the right questions at contract evaluation and renewal — not retrospectively during a reporting cycle.</p></div></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Enterprise architecture is a sustainability governance mechanism.</strong><p>Every application that runs without a deliberate decision to keep it running is consuming resources for no return. Retiring applications is often the single highest-leverage action in a portfolio review.</p></div></div>
     <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Software Carbon Intensity is the metric engineering teams can directly influence.</strong><p>Intensity — carbon per transaction, per call, per session — moves with engineering decisions. Total emissions move with business volume. Both matter; they serve different purposes.</p></div></div>
     <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Energy efficiency and software quality point in the same direction.</strong><p>Efficient algorithms, event-driven patterns, streaming over bulk loading, filter-at-source queries — these are engineering quality practices that also reduce energy per unit of useful work.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Dark data is one of the most easily remediated waste categories.</strong><p>It accumulates through permissive defaults and the absence of any process asking whether retained data is still serving a purpose. Data minimisation at design stage is the intervention point.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>SaaS absence of data is not absence of impact.</strong><p>Multi-tenant platforms carry Scope 3 exposure whether or not the provider discloses it. Ask the right questions at contract evaluation and renewal — not retrospectively during a reporting cycle.</p></div></div>
   </div>
-</div>
+</div>/div>
 </div>
 
 <div class="module-nav">
@@ -265,7 +265,7 @@
 
 // ── TIME MODEL ────────────────────────────────────────────
 var timeCategories = [
-  { letter:'T', label:'Tolerate', col:'#94A3B8',
+  { letter:'T', label:'Tolerate', col:'#64748B',
     subtitle:'Accept current state — for now',
     questions:['What is the carbon intensity of this application?','Is it on a trajectory to improve, or is intensity drifting upward?','What would it cost to eliminate vs what it would save?'],
     actions:['Set a review date — Tolerate is not a permanent category','Document the sustainability debt alongside technical debt','Flag for re-evaluation when the next major change is triggered'],
@@ -299,7 +299,7 @@ function buildTime() {
     cell.innerHTML =
       '<div style="font-family:Georgia,serif;font-size:3rem;color:'+(isSelected?'rgba(11,25,41,0.4)':cat.col)+';line-height:1;margin-bottom:0.4rem;">'+cat.letter+'</div>'+
       '<div style="font-size:1.0rem;font-weight:600;color:'+(isSelected?'#0F1F2E':'#FFFFFF')+';margin-bottom:0.2rem;">'+cat.label+'</div>'+
-      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;color:'+(isSelected?'rgba(11,25,41,0.6)':'#94A3B8')+';letter-spacing:0.05em;">'+cat.subtitle+'</div>';
+      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;color:'+(isSelected?'rgba(11,25,41,0.6)':'#64748B')+';letter-spacing:0.05em;">'+cat.subtitle+'</div>';
     cell.addEventListener('click', function(){
       selectedTime = (selectedTime===i)?null:i;
       buildTime(); updateTimeDetail();
@@ -433,7 +433,7 @@ var saasQs = [
     why:'Self-declared data, reviewed data, and independently assured data represent fundamentally different confidence levels. Using self-declared data in assurance-grade Scope 3 reporting creates a credibility gap.',
     good:'Independently assured against a stated standard (ISAE 3000, ISO 14064, or equivalent) with the assurance statement available.',
     flag:'No mention of assurance, or "reviewed internally". This is self-declared regardless of how it is phrased.' },
-  { q:'What contractual commitments are available?', col:'#94A3B8',
+  { q:'What contractual commitments are available?', col:'#64748B',
     why:'A vendor\'s net-zero 2040 commitment tells you nothing about the footprint of the specific service today. Contractually enforceable carbon intensity requirements are rare but achievable — and contract renewal is the lever.',
     good:'Carbon intensity targets in the contract, with reporting obligations and remedies for non-delivery.',
     flag:'No contractual element. Commitments in sustainability reports are not binding and cannot be relied on for compliance purposes.' },

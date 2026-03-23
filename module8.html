@@ -427,13 +427,16 @@
     </div>
   </div>
 </div>
-<div class="takeaways reveal"><h3 class="takeaways-heading">Module 8 — Key Takeaways</h3>
-<div class="takeaway-list">
-  <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Technology leadership owns outcomes, not just targets.</strong><p>If a CIO or CTO cannot speak to carbon intensity of top services, supplier evidence coverage, and waste removal progress without consulting a sustainability manager, the governance is not yet embedded.</p></div></div>
-  <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Greenwashing and greenhushing are both risks.</strong><p>The GreenOps response to both is the same: precision. Explicit confidence levels, clear distinction between activity-based and spend-based data, and honest methodology documentation.</p></div></div>
-  <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Maturity is multi-dimensional — assess all five.</strong><p>Measurement is almost always more developed than governance. Supplier management trails both. Mapping all five dimensions prevents the illusion of overall maturity from a single strong area.</p></div></div>
-  <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Three artefacts convert awareness into accountability.</strong><p>Top-ten service register, vendor evidence register, and waste removal backlog. Managed as live operating instruments, not periodic reports.</p></div></div>
-</div></div>
+<div class="takeaways reveal">
+  <h3 class="takeaways-heading">Module 8 — Key Takeaways</h3>
+  <div class="takeaway-list">
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Technology leadership owns outcomes, not just targets.</strong><p>If a CIO or CTO cannot speak to carbon intensity of top services, supplier evidence coverage, and waste removal progress without consulting a sustainability manager, the governance is not yet embedded.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Greenwashing and greenhushing are both risks.</strong><p>The GreenOps response to both is the same: precision. Explicit confidence levels, clear distinction between activity-based and spend-based data, and honest methodology documentation.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Maturity is multi-dimensional — assess all five.</strong><p>Measurement is almost always more developed than governance. Supplier management trails both. Mapping all five dimensions prevents the illusion of overall maturity from a single strong area.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Three artefacts convert awareness into accountability.</strong><p>A top-ten service register, a vendor evidence register, and a waste removal backlog. Without these, the programme will remain honest but ineffective — no named owners, no visible progress, no one held to account.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>ITAD is a social governance matter, not only environmental.</strong><p>Chain-of-custody documentation, data sanitisation to recognised standards, downstream processing commitments, and audit-supporting reporting are the minimum requirements for responsible device disposal.</p></div></div>
+  </div>
+</div>/div>
 </div>
 <div class="module-nav"><a href="module7.html" class="nav-btn"><span><span class="nav-btn-label">← Previous</span><span class="nav-btn-title">M7: Procurement, Supply Chains, and Vendor Evidence</span></span></a><button class="complete-btn" onclick="markComplete('module8')">Mark as complete</button><a href="module9.html" class="nav-btn next"><span><span class="nav-btn-label">Next →</span><span class="nav-btn-title">M9: The Regulatory and Policy Landscape</span></span></a></div>
 <footer><div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 8</div>
@@ -526,7 +529,7 @@ function buildRoles() {
     cell.innerHTML = lines.map(function(l,j){
       return '<div style="font-size:'+(j===0?'1.0rem':'0.88rem')+';font-weight:'+(j===0?'600':'400')+';color:'+(isSelected?'#0F1F2E':r.col)+';line-height:1.3;'+(j>0?'margin-top:0.15rem;':'')+'">' + l + '</div>';
     }).join('') +
-    '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;color:'+(isSelected?'rgba(11,25,41,0.6)':'#94A3B8')+';margin-top:0.5rem;letter-spacing:0.05em;">Owns: '+r.owns+'</div>';
+    '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;color:'+(isSelected?'rgba(11,25,41,0.6)':'#64748B')+';margin-top:0.5rem;letter-spacing:0.05em;">Owns: '+r.owns+'</div>';
     cell.addEventListener('click', function(){
       selectedRole = (selectedRole===i)?null:i;
       buildRoles(); updateRoleDetail();
@@ -698,7 +701,7 @@ function buildArtefacts() {
     cell.innerHTML =
       '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:'+(isSelected?'rgba(11,25,41,0.6)':art.col)+';margin-bottom:0.5rem;">'+art.num+'</div>'+
       lines.map(function(l,j){ return '<div style="font-size:'+(j===0?'1.0rem':'0.92rem')+';font-weight:'+(j===0?'600':'400')+';color:'+(isSelected?'#0F1F2E':'#FFFFFF')+';line-height:1.3;">'+l+'</div>'; }).join('')+
-      '<p style="font-size:0.88rem;color:'+(isSelected?'rgba(11,25,41,0.65)':'#94A3B8')+';line-height:1.6;margin-top:0.65rem;">'+art.desc+'</p>';
+      '<p style="font-size:0.88rem;color:'+(isSelected?'rgba(11,25,41,0.65)':'#64748B')+';line-height:1.6;margin-top:0.65rem;">'+art.desc+'</p>';
     cell.addEventListener('click', function(){
       selectedArt = (selectedArt===i)?null:i;
       buildArtefacts();

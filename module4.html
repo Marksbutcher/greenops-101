@@ -451,11 +451,11 @@
   <div class="takeaway-list">
     <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Different domains need different lenses.</strong><p>The biggest lever in end-user services is lifecycle. In cloud, it's utilisation discipline. In software, it's compute per transaction. Applying one narrative everywhere produces poor decisions.</p></div></div>
     <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>PUE without utilisation is dangerous.</strong><p>A lightly loaded data centre can show a respectable PUE and still be wasteful in absolute terms. Always ask about server utilisation alongside facility efficiency metrics.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Software decisions compound over a service's lifetime.</strong><p>Inefficient code patterns, unchecked data growth, and ungoverned telemetry aggregate into material footprints at scale — and are rarely attributed to the engineering decisions that drove them.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Software decisions compound over a service's lifetime.</strong><p>Inefficient code patterns, unchecked data growth, and ungoverned telemetry aggregate into material footprints at scale — and are rarely attributed to engineering decisions that drove them.</p></div></div>
     <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Hardware lifecycle governance starts at design, not disposal.</strong><p>Embodied carbon is determined by procurement and use decisions made years before end-of-life. Evidence-based refresh cycles and circular economy criteria are the lever — not the recycling bin.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>AI inference is the fastest-growing ungoverned consumption category.</strong><p>The risk is not headline training jobs. It's routine inference at scale, embedded in workflows, consuming compute for no proportionate value because nobody has made governance the default.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>AI inference is the fastest-growing ungoverned consumption category.</strong><p>The risk is not the headline training jobs. It's routine inference at scale, embedded in workflows, consuming compute for no proportionate value because nobody has made governance the default.</p></div></div>
   </div>
-</div>
+</div>/div>
 
 </div>
 
@@ -504,7 +504,7 @@ var domains = [
     drivers:['Zombie resources — never terminated test and dev environments','Untagged resources with no owner or environment label','No time-to-live policy for non-production','Oversized instance defaults — nobody right-sized after initial provisioning','Region selected for latency without considering carbon intensity'],
     good:['Every resource tagged with owner, environment, and service identifier','Unit economics tracked: carbon per VM-hour, idle percentage','Remediation hierarchy: kill zombies → enforce TTL → rightsize → structural levers','Policy-as-code guardrails preventing waste from returning','Carbon intensity factored into region selection defaults'],
     lever:'Visibility and attribution first — if you cannot attribute consumption you cannot govern it.' },
-  { id:'sw', icon:'⚙️', label:'Software & Data', driver:'Compute per task', col:'#94A3B8',
+  { id:'sw', icon:'⚙️', label:'Software & Data', driver:'Compute per task', col:'#64748B',
     title:'Software & Data',
     stat:'SCI = (Energy × Grid intensity) ÷ Functional unit. Reducing compute per transaction reduces carbon per transaction.',
     drivers:['Telemetry and logging at maximum resolution regardless of need','Dark data — stored, protected, and never accessed','Background processes running at default frequency with no review','Unnecessary cross-region replication and redundant API calls','No data lifecycle policy — default is to keep everything'],
@@ -522,7 +522,7 @@ var domains = [
     drivers:['Biggest available model used by default for all tasks','No model tiering — same model for short emails and complex analysis','No caching — identical queries run the same compute repeatedly','Prompt inefficiency: verbose, over-specified prompts × thousands of users','No measurement: calls per user, tokens per request, cost per inference'],
     good:['Model tiering: smallest reliable model is the default','Measure at minimum: calls per user, tokens per request, cost per inference','Template-based prompts — short outputs, relevant excerpts only','Batch and cache: repeated queries should not generate repeated inference','Make product owners accountable for AI unit economics: value per inference'],
     lever:'Governance at the platform level — model selection defaults, usage measurement, and clear criteria for escalating to heavier models.' },
-  { id:'net', icon:'🌐', label:'Networks', driver:'Data movement', col:'#94A3B8',
+  { id:'net', icon:'🌐', label:'Networks', driver:'Data movement', col:'#64748B',
     title:'Networks',
     stat:'Cloud egress charges and egress footprint move together — high egress costs signal unintentionally designed data movement patterns.',
     drivers:['Default replication patterns set under different constraints and never revisited','Redundant cross-region synchronisation without operational justification','No caching for static or slowly-changing content','High-resolution video conferencing by default regardless of connection or context','APIs transferring more data than the consumer actually needs'],
@@ -639,24 +639,24 @@ function buildPueScatter() {
     svg.appendChild(el('line',{x1:PAD.left,y1:y,x2:PAD.left+CW,y2:y,
       stroke:'var(--border-light)','stroke-width':'1'}));
     svg.appendChild(txt(pue.toFixed(2),{x:PAD.left-6,y:y+4,'text-anchor':'end',
-      fill:'#94A3B8','font-family':'JetBrains Mono,monospace','font-size':'11'}));
+      fill:'#64748B','font-family':'JetBrains Mono,monospace','font-size':'11'}));
   });
   [0,25,50,75,100].forEach(function(util){
     var x=xPos(util);
     svg.appendChild(el('line',{x1:x,y1:PAD.top,x2:x,y2:PAD.top+CH,
       stroke:'var(--border-light)','stroke-width':'1'}));
     svg.appendChild(txt(util+'%',{x:x,y:PAD.top+CH+15,'text-anchor':'middle',
-      fill:'#94A3B8','font-family':'JetBrains Mono,monospace','font-size':'11'}));
+      fill:'#64748B','font-family':'JetBrains Mono,monospace','font-size':'11'}));
   });
 
   // Axis labels
   svg.appendChild(txt('← PUE (lower = better) →',{
     x:PAD.left-30, y:PAD.top+CH/2,'text-anchor':'middle',
-    fill:'#94A3B8','font-family':'JetBrains Mono,monospace','font-size':'10',
+    fill:'#64748B','font-family':'JetBrains Mono,monospace','font-size':'10',
     transform:'rotate(-90,'+(PAD.left-30)+','+(PAD.top+CH/2)+')'}));
   svg.appendChild(txt('← IT Server Utilisation (higher = better) →',{
     x:PAD.left+CW/2, y:H-8,'text-anchor':'middle',
-    fill:'#94A3B8','font-family':'JetBrains Mono,monospace','font-size':'10'}));
+    fill:'#64748B','font-family':'JetBrains Mono,monospace','font-size':'10'}));
 
   // Scenario dots — animate in
   var selectedScen = null;
@@ -714,9 +714,9 @@ var cloudWaste = [
     desc:'Development and staging environments left running evenings and weekends when nobody is using them. Time-to-live policies and auto-shutdown schedules reduce footprint 40–60% for these environments.' },
   { label:'Oversized instance types', impact:70, ease:60, col:'#F4A261',
     desc:'Provisioned for a peak that never materialised, or sized "safe" with no optimisation review. Rightsizing based on observed utilisation data — not intuition. Requires performance testing to confirm, so slightly slower to act on.' },
-  { label:'Inefficient data transfer', impact:50, ease:45, col:'#94A3B8',
+  { label:'Inefficient data transfer', impact:50, ease:45, col:'#64748B',
     desc:'Unnecessary cross-region synchronisation, chatty microservices, redundant API calls. Architecture-level decisions that compound at scale. Lower on the hierarchy because they require code changes, not just policy.' },
-  { label:'Sub-optimal region selection', impact:80, ease:30, col:'#94A3B8',
+  { label:'Sub-optimal region selection', impact:80, ease:30, col:'#64748B',
     desc:'Running in high-carbon-intensity regions when equivalent regions are available at similar latency. A structural decision that requires migration planning — high impact but slower to realise.' },
 ];
 
@@ -825,7 +825,7 @@ function drawArc(replaceYear) {
     svg.appendChild(el('line',{x1:xPos(yr),y1:PAD.top,x2:xPos(yr),y2:PAD.top+CH,
       stroke:'var(--border-light)','stroke-width':'1'}));
     svg.appendChild(txt('Y'+yr,{x:xPos(yr),y:PAD.top+CH+15,'text-anchor':'middle',
-      fill:'#94A3B8','font-family':'JetBrains Mono,monospace','font-size':'11'}));
+      fill:'#64748B','font-family':'JetBrains Mono,monospace','font-size':'11'}));
   }
 
   // Embodied line (horizontal at top)
@@ -839,10 +839,10 @@ function drawArc(replaceYear) {
 
   // Operational carbon line
   svg.appendChild(el('path',{d:pts2path(opPts),fill:'none',
-    stroke:'#94A3B8','stroke-width':'1.5','stroke-dasharray':'3,2'}));
+    stroke:'#64748B','stroke-width':'1.5','stroke-dasharray':'3,2'}));
   svg.appendChild(txt('Operational carbon (accrues over time)',{
     x:PAD.left+CW+6, y:PAD.top+CH-(opCarbon(YEARS)/180)*CH+4,
-    fill:'#94A3B8','font-family':'JetBrains Mono,monospace','font-size':'10'}));
+    fill:'#64748B','font-family':'JetBrains Mono,monospace','font-size':'10'}));
 
   // Total cumulative line
   svg.appendChild(el('path',{d:pts2path(totalPts),fill:'none',
@@ -863,7 +863,7 @@ function drawArc(replaceYear) {
   // Y axis label
   svg.appendChild(txt('Carbon (normalised)',{
     x:PAD.left-40,y:PAD.top+CH/2,'text-anchor':'middle',
-    fill:'#94A3B8','font-family':'JetBrains Mono,monospace','font-size':'10',
+    fill:'#64748B','font-family':'JetBrains Mono,monospace','font-size':'10',
     transform:'rotate(-90,'+(PAD.left-40)+','+(PAD.top+CH/2)+')'}));
 
   // Note
