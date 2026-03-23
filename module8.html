@@ -152,7 +152,7 @@
       document.querySelectorAll(`[data-dim="${dimId}"]`).forEach(b=>{
         const l=parseInt(b.dataset.level);
         if(l<=level){b.style.background='#00A896';b.style.color='#0F1F2E';b.style.borderColor='#00A896';}
-        else{b.style.background='rgba(255,255,255,0.05)';b.style.color='#64748B';b.style.borderColor='rgba(255,255,255,0.08)';}
+        else{b.style.background='var(--section-alt)';b.style.color='#64748B';b.style.borderColor='var(--border)';}
       });
       document.getElementById(`sc-${dimId}`).textContent=`L${level}`;
       document.getElementById(`sc-${dimId}`).style.color='#00A896';
@@ -185,10 +185,10 @@
         ctx.beginPath();
         angles.forEach((a,i)=>{const x=cx+r*Math.cos(a),y=cy+r*Math.sin(a);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);});
         ctx.closePath();
-        ctx.strokeStyle=lv===3?'rgba(255,255,255,0.1)':'rgba(255,255,255,0.05)';
+        ctx.strokeStyle=lv===3?'rgba(255,255,255,0.1)':'var(--border-light)';
         ctx.lineWidth=lv===3?1.5:1;
         ctx.stroke();
-        ctx.fillStyle='rgba(255,255,255,0.18)';
+        ctx.fillStyle='rgba(0,168,150,0.12)';
         ctx.font='8px monospace';
         ctx.textAlign='center';
         ctx.fillText(lv,cx+(r+2)*Math.cos(angles[0])+3,cy+(r+2)*Math.sin(angles[0])+3);
@@ -196,9 +196,9 @@
       // Spokes + labels
       angles.forEach((a,i)=>{
         ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+maxR*Math.cos(a),cy+maxR*Math.sin(a));
-        ctx.strokeStyle='rgba(255,255,255,0.07)';ctx.lineWidth=1;ctx.stroke();
+        ctx.strokeStyle='var(--border)';ctx.lineWidth=1;ctx.stroke();
         const lr=maxR+20,lx=cx+lr*Math.cos(a),ly=cy+lr*Math.sin(a);
-        ctx.fillStyle='#94A3B8';ctx.font='9px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+        ctx.fillStyle='#64748B';ctx.font='9px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
         const raw=dims[i].label.replace(/&amp;/g,'&');
         const parts=raw.split(' & ');
         if(parts.length>1){ctx.fillText(parts[0],lx,ly-5);ctx.fillText('& '+parts[1],lx,ly+5);}

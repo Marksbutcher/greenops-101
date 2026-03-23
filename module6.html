@@ -132,7 +132,7 @@
     document.getElementById('sci-i').value = val;
     sciRegionName = name;
     document.querySelectorAll('[id^="reg-"]').forEach(b => {
-      b.style.background='rgba(255,255,255,0.05)';b.style.borderColor='rgba(255,255,255,0.08)';b.style.color='#64748B';
+      b.style.background='var(--section-alt)';b.style.borderColor='var(--border)';b.style.color='#64748B';
     });
     var btn = document.getElementById('reg-' + name);
     if(btn){btn.style.background='rgba(244,162,97,0.1)';btn.style.borderColor='rgba(244,162,97,0.25)';btn.style.color='#F4A261';}

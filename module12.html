@@ -101,7 +101,7 @@
       document.querySelectorAll('[data-c="' + cId + '"]').forEach(function(b) {
         var l = parseInt(b.dataset.l);
         if(l<=level){b.style.background='#00A896';b.style.color='#0F1F2E';b.style.borderColor='#00A896';}
-        else{b.style.background='rgba(255,255,255,0.05)';b.style.color='#64748B';b.style.borderColor='rgba(255,255,255,0.08)';}
+        else{b.style.background='var(--section-alt)';b.style.color='#64748B';b.style.borderColor='var(--border)';}
       });
       document.getElementById('sc5-' + cId).textContent = ['','Very low','Low','Moderate','Strong','Exceptional'][level];
       document.getElementById('sc5-' + cId).style.color = '#00A896';

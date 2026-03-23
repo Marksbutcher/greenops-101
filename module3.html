@@ -310,63 +310,64 @@
     }
     
     async function loadLiveIntensity() {
+      // Fetch GB average and regional data independently
       try {
-        const resp = await fetch('https://api.carbonintensity.org.uk/regional');
-        if(!resp.ok) throw new Error('API error');
-        const data = await resp.json();
-        const regions = data.data[0].regions;
-        const ts = data.data[0].from;
-        
-        // Format timestamp
-        const dt = new Date(ts);
-        document.getElementById('li-timestamp').textContent = 
-          'Data from ' + dt.toLocaleTimeString('en-GB', {hour:'2-digit',minute:'2-digit'}) + 
-          ' · half-hourly reading · refreshes on page load';
-        
-        // Get GB national average
         const gbResp = await fetch('https://api.carbonintensity.org.uk/intensity');
         if(gbResp.ok) {
           const gbData = await gbResp.json();
           const gbVal = gbData.data[0].intensity.actual || gbData.data[0].intensity.forecast;
           document.getElementById('li-gb-val').textContent = gbVal || '—';
         }
-        
-        // Sort by intensity
-        const sorted = [...regions].filter(r => r.intensity.actual).sort((a,b) => a.intensity.actual - b.intensity.actual);
-        const maxVal = sorted[sorted.length-1].intensity.actual;
-        
-        // Render bars
+      } catch(e) { /* GB average failed silently */ }
+
+      try {
+        const resp = await fetch('https://api.carbonintensity.org.uk/regional');
+        if(!resp.ok) throw new Error('API error');
+        const data = await resp.json();
+        const regions = data.data[0].regions;
+        const ts = data.data[0].from;
+
+        const dt = new Date(ts);
+        document.getElementById('li-timestamp').textContent =
+          'Data from ' + dt.toLocaleTimeString('en-GB', {hour:'2-digit',minute:'2-digit'}) +
+          ' · half-hourly reading · refreshes on page load';
+
+        // Use actual or forecast value
+        const sorted = [...regions]
+          .map(r => ({...r, val: r.intensity.actual || r.intensity.forecast || 0}))
+          .filter(r => r.val > 0)
+          .sort((a,b) => a.val - b.val);
+
+        if(sorted.length === 0) throw new Error('No data');
+        const maxVal = sorted[sorted.length-1].val;
+
         const container = document.getElementById('li-regions');
         container.innerHTML = '';
-        
         sorted.forEach(r => {
-          const val = r.intensity.actual;
-          const pct = Math.round((val / Math.max(maxVal, 1)) * 100);
-          const col = intensityColor(val);
+          const pct = Math.round((r.val / Math.max(maxVal, 1)) * 100);
+          const col = intensityColor(r.val);
           const row = document.createElement('div');
-          row.style.cssText = 'display:flex;align-items:center;gap:0.65rem;';
-          row.innerHTML = 
-            '<div style="width:140px;flex-shrink:0;font-family:Calibri,sans-serif;font-size:0.62rem;color:var(--text-secondary);text-align:right;">' + r.shortname + '</div>' +
-            '<div style="flex:1;height:22px;background:var(--border-light);overflow:hidden;">' +
+          row.style.cssText = 'display:flex;align-items:center;gap:0.65rem;margin-bottom:4px;';
+          row.innerHTML =
+            '<div style="width:140px;flex-shrink:0;font-family:Calibri,sans-serif;font-size:0.62rem;color:var(--text-secondary);text-align:right;">' + (r.shortname || r.dnoregion || '') + '</div>' +
+            '<div style="flex:1;height:20px;background:var(--section-alt);overflow:hidden;">' +
               '<div style="height:100%;width:' + pct + '%;background:' + col + ';transition:width 0.8s cubic-bezier(.16,1,.3,1);"></div>' +
             '</div>' +
-            '<div style="width:48px;flex-shrink:0;font-family:Calibri,sans-serif;font-size:0.65rem;color:' + col + ';font-weight:500;">' + val + 'g</div>' +
+            '<div style="width:48px;flex-shrink:0;font-family:Calibri,sans-serif;font-size:0.65rem;color:' + col + ';font-weight:600;">' + r.val + 'g</div>' +
             '<div style="width:60px;flex-shrink:0;font-family:Calibri,sans-serif;font-size:0.55rem;color:#64748B;">' + (r.intensity.index || '') + '</div>';
           container.appendChild(row);
         });
-        
-        // Summary stats
-        if(sorted.length > 0) {
-          const cleanest = sorted[0];
-          const dirtiest = sorted[sorted.length-1];
-          const spread = dirtiest.intensity.actual - cleanest.intensity.actual;
-          const ratio = (dirtiest.intensity.actual / Math.max(cleanest.intensity.actual, 1)).toFixed(1);
-          document.getElementById('li-cleanest').textContent = cleanest.shortname + ' · ' + cleanest.intensity.actual + 'g';
-          document.getElementById('li-dirtiest').textContent = dirtiest.shortname + ' · ' + dirtiest.intensity.actual + 'g';
-          document.getElementById('li-spread').textContent = spread + 'g · ' + ratio + '× ratio';
-        }
-        
+
+        const cleanest = sorted[0];
+        const dirtiest = sorted[sorted.length-1];
+        const spread = dirtiest.val - cleanest.val;
+        const ratio = (dirtiest.val / Math.max(cleanest.val, 1)).toFixed(1);
+        document.getElementById('li-cleanest').textContent = (cleanest.shortname || cleanest.dnoregion || '') + ' · ' + cleanest.val + 'g';
+        document.getElementById('li-dirtiest').textContent = (dirtiest.shortname || dirtiest.dnoregion || '') + ' · ' + dirtiest.val + 'g';
+        document.getElementById('li-spread').textContent = spread + 'g · ' + ratio + '× ratio';
+
         document.getElementById('li-error').style.display = 'none';
+        document.getElementById('li-regions').style.display = 'block';
       } catch(e) {
         document.getElementById('li-regions').style.display = 'none';
         document.getElementById('li-error').style.display = 'block';
