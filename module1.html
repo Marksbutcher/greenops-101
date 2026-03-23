@@ -598,7 +598,6 @@
 
 
 <script>
-initProgress(1);
 
 // Waste tabs
 function showWaste(id) {
@@ -641,8 +640,7 @@ const barObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.waste-bars').forEach(el => barObserver.observe(el));
 
 // Auto-expand first level
-document.querySelector('.action-level').classList.add('expanded');
-</script>
+document.querySelector('.action-level').classList.add('expanded');</script>
 
 <!-- ═══════════════════════════════════════════════════════════
      M1 VISUALISATION SCRIPTS

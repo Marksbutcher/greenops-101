@@ -586,7 +586,6 @@
 
 
 <script>
-initProgress(5);
 function animateRebound() {
   document.querySelectorAll('.animate-line').forEach(l => l.classList.add('drawn'));
 }
@@ -613,8 +612,7 @@ function showTriDetail(key) {
   });
   const sel = document.querySelector('.tri-vertex[data-key="' + key + '"]');
   if (sel) sel.style.opacity = '1';
-}
-</script>
+}</script>
 <script>
 (function(){
 'use strict';
