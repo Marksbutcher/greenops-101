@@ -239,11 +239,11 @@
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border-light);border-top:1px solid var(--border-light);">
       <div style="background:var(--card-bg);border:1px solid var(--border);padding:1.25rem 1.5rem;border-left:3px solid #00A896;">
-        <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:#00A896;margin-bottom:0.6rem;">Unit metrics — the operational instrument</div>
+        <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:#007A6E;margin-bottom:0.6rem;">Unit metrics — the operational instrument</div>
         <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;">Carbon per transaction, per VM-hour, per API call. Can improve even as the business grows — and should. Shows whether the programme is delivering operational discipline, not just downturn-driven reduction.</p>
       </div>
       <div style="background:var(--card-bg);border:1px solid var(--border);padding:1.25rem 1.5rem;border-left:3px solid #E76F51;">
-        <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:#E76F51;margin-bottom:0.6rem;">Total emissions — the rear-view mirror</div>
+        <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:#B54D12;margin-bottom:0.6rem;">Total emissions — the rear-view mirror</div>
         <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;">What the physical world responds to. Required for CSRD, TCFD, and SBTi. Can rise even as efficiency improves if demand grows faster. Must be explained honestly — not hidden — when it rises alongside growing demand.</p>
       </div>
     </div>
@@ -318,15 +318,15 @@
         </div>
         <div id="sw-current-index" style="margin-top:0.75rem;padding:0.6rem 0.75rem;background:rgba(0,0,0,0.2);">
           <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);margin-bottom:0.2rem;">Current index</div>
-          <div id="sw-index-val" style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#F4A261;">—</div>
+          <div id="sw-index-val" style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#9B5E00;">—</div>
         </div>
       </div>
     </div>
     <div id="sw-error" style="display:none;padding:1rem 1.5rem;font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);">
-      Forecast unavailable. <a href="https://uk-carbon-intensity.netlify.app" target="_blank" style="color:#00A896;">View scheduling windows on the dedicated dashboard ↗</a>
+      Forecast unavailable. <a href="https://uk-carbon-intensity.netlify.app" target="_blank" style="color:#007A6E;">View scheduling windows on the dedicated dashboard ↗</a>
     </div>
     <div style="padding:0.75rem 1.5rem;border-top:1px solid var(--border-light);background:rgba(0,168,150,0.04);">
-      <p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.6;"><strong style="color:#00A896;">This is temporal shifting in practice.</strong> The forecast above shows which hours today have lower carbon intensity. A batch pipeline, an ML training run, or a data sync scheduled for the green window rather than the peak window delivers a measurably different carbon outcome — using exactly the same infrastructure, code, and compute.</p>
+      <p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.6;"><strong style="color:#007A6E;">This is temporal shifting in practice.</strong> The forecast above shows which hours today have lower carbon intensity. A batch pipeline, an ML training run, or a data sync scheduled for the green window rather than the peak window delivers a measurably different carbon outcome — using exactly the same infrastructure, code, and compute.</p>
     </div>
   </div>
   <script>
@@ -442,28 +442,28 @@
 
   <div class="tradeoff-container reveal">
     <div class="triangle-wrap">
-      <svg class="triangle-svg" viewBox="0 0 240 220">
-        <polygon points="120,10 10,200 230,200" fill="rgba(30,41,59,0.03)" stroke="rgba(30,41,59,0.08)" stroke-width="1.5"/>
-        <line x1="120" y1="10" x2="120" y2="200" stroke="rgba(30,41,59,0.06)" stroke-width="1" stroke-dasharray="4,4"/>
-        <line x1="10" y1="200" x2="175" y2="105" stroke="rgba(30,41,59,0.06)" stroke-width="1" stroke-dasharray="4,4"/>
-        <line x1="230" y1="200" x2="65" y2="105" stroke="rgba(30,41,59,0.06)" stroke-width="1" stroke-dasharray="4,4"/>
+      <svg class="triangle-svg" viewBox="-30 -30 300 280" style="overflow:visible;">
+        <polygon points="120,10 10,200 230,200" fill="rgba(30,41,59,0.04)" stroke="rgba(30,41,59,0.2)" stroke-width="1.5"/>
+        <line x1="120" y1="10" x2="120" y2="200" stroke="rgba(30,41,59,0.12)" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="10" y1="200" x2="175" y2="105" stroke="rgba(30,41,59,0.12)" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="230" y1="200" x2="65" y2="105" stroke="rgba(30,41,59,0.12)" stroke-width="1" stroke-dasharray="4,4"/>
         <!-- Cost vertex -->
-        <g class="tri-vertex" onclick="showTriDetail('cost')">
-          <circle cx="10" cy="200" r="22" fill="rgba(0,168,150,0.15)" stroke="var(--teal)" stroke-width="1.5"/>
-          <text x="10" y="197" text-anchor="middle" fill="var(--teal)" font-family=Georgia font-size="11">Cost</text>
-          <text x="10" y="209" text-anchor="middle" fill="rgba(0,168,150,0.6)" font-family="JetBrains Mono" font-size="11">£</text>
+        <g class="tri-vertex" onclick="showTriDetail('cost')" style="cursor:pointer;">
+          <circle cx="10" cy="200" r="26" fill="rgba(0,168,150,0.12)" stroke="#00A896" stroke-width="2"/>
+          <text x="10" y="196" text-anchor="middle" fill="#007A6E" font-family="Georgia,serif" font-size="12" font-weight="400">Cost</text>
+          <text x="10" y="210" text-anchor="middle" fill="#00A896" font-family="Calibri,sans-serif" font-size="12" font-weight="600">£</text>
         </g>
         <!-- Carbon vertex -->
-        <g class="tri-vertex" onclick="showTriDetail('carbon')">
-          <circle cx="120" cy="10" r="22" fill="rgba(231,111,81,0.15)" stroke="var(--orange)" stroke-width="1.5"/>
-          <text x="120" y="7" text-anchor="middle" fill="var(--orange)" font-family=Georgia font-size="11">Carbon</text>
-          <text x="120" y="19" text-anchor="middle" fill="rgba(231,111,81,0.6)" font-family="JetBrains Mono" font-size="11">CO₂</text>
+        <g class="tri-vertex" onclick="showTriDetail('carbon')" style="cursor:pointer;">
+          <circle cx="120" cy="10" r="26" fill="rgba(231,111,81,0.12)" stroke="#E76F51" stroke-width="2"/>
+          <text x="120" y="6" text-anchor="middle" fill="#C45B3A" font-family="Georgia,serif" font-size="12" font-weight="400">Carbon</text>
+          <text x="120" y="20" text-anchor="middle" fill="#E76F51" font-family="Calibri,sans-serif" font-size="12" font-weight="600">CO₂</text>
         </g>
         <!-- Performance vertex -->
-        <g class="tri-vertex" onclick="showTriDetail('perf')">
-          <circle cx="230" cy="200" r="22" fill="rgba(231,111,81,0.15)" stroke="var(--track3)" stroke-width="1.5"/>
-          <text x="230" y="197" text-anchor="middle" fill="var(--track3)" font-family=Georgia font-size="11">Perf.</text>
-          <text x="230" y="209" text-anchor="middle" fill="rgba(231,111,81,0.6)" font-family="JetBrains Mono" font-size="11">SLA</text>
+        <g class="tri-vertex" onclick="showTriDetail('perf')" style="cursor:pointer;">
+          <circle cx="230" cy="200" r="26" fill="rgba(231,111,81,0.12)" stroke="#E76F51" stroke-width="2"/>
+          <text x="230" y="196" text-anchor="middle" fill="#C45B3A" font-family="Georgia,serif" font-size="12" font-weight="400">Perf.</text>
+          <text x="230" y="210" text-anchor="middle" fill="#E76F51" font-family="Calibri,sans-serif" font-size="12" font-weight="600">SLA</text>
         </g>
       </svg>
     </div>

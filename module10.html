@@ -69,8 +69,8 @@
     <div style="padding:1.25rem 1.5rem 0.75rem;border-bottom:1px solid var(--border-light);">
       <div style="display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;">
         <label style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;">Organisation scale</label>
-        <input type="range" id="bc-scale" min="0.1" max="5" step="0.1" value="1" oninput="updateBC()" style="flex:1;min-width:120px;accent-color:#00A896;">
-        <span id="bc-scale-label" style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#00A896;white-space:nowrap;">1.0× (10,000 employees)</span>
+        <input type="range" id="bc-scale" min="0.1" max="5" step="0.1" value="1" oninput="updateBC()" style="flex:1;min-width:120px;accent-color:#007A6E;">
+        <span id="bc-scale-label" style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#007A6E;white-space:nowrap;">1.0× (10,000 employees)</span>
       </div>
     </div>
     <div style="padding:1rem 1.5rem;">
@@ -172,21 +172,21 @@
           <div style="font-family:Calibri,sans-serif;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:1rem;">Estate scale (number of cloud VMs)</div>
           <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;">
             <input type="range" id="vmSlider" min="100" max="10000" step="100" value="2000"
-              style="flex:1;accent-color:#E76F51;cursor:pointer;">
-            <span id="vmLabel" style="font-family:Calibri,sans-serif;font-size:0.88rem;color:#E76F51;font-weight:700;min-width:60px;">2,000</span>
+              style="flex:1;accent-color:#B54D12;cursor:pointer;">
+            <span id="vmLabel" style="font-family:Calibri,sans-serif;font-size:0.88rem;color:#B54D12;font-weight:700;min-width:60px;">2,000</span>
           </div>
           <div style="font-family:Calibri,sans-serif;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:0.5rem;">Idle percentage (estimate)</div>
           <div style="display:flex;align-items:center;gap:1rem;">
             <input type="range" id="idleSlider" min="5" max="50" step="5" value="30"
-              style="flex:1;accent-color:#E76F51;cursor:pointer;">
-            <span id="idleLabel" style="font-family:Calibri,sans-serif;font-size:0.88rem;color:#E76F51;font-weight:700;min-width:40px;">30%</span>
+              style="flex:1;accent-color:#B54D12;cursor:pointer;">
+            <span id="idleLabel" style="font-family:Calibri,sans-serif;font-size:0.88rem;color:#B54D12;font-weight:700;min-width:40px;">30%</span>
           </div>
         </div>
         <div style="background:var(--section-alt);padding:1.5rem;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
           <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:0.4rem;">Indicative annual saving</div>
-          <div id="wasteCalcResult" style="font-family:Georgia,serif;font-size:3rem;color:#E76F51;line-height:1;margin-bottom:0.35rem;">£3.6M</div>
+          <div id="wasteCalcResult" style="font-family:Georgia,serif;font-size:3rem;color:#B54D12;line-height:1;margin-bottom:0.35rem;">£3.6M</div>
           <div style="font-family:Calibri,sans-serif;font-size:0.72rem;color:var(--text-secondary);margin-bottom:1rem;">at £6k/VM/year average run cost</div>
-          <div id="wasteCalcCO2" style="font-family:Calibri,sans-serif;font-size:0.82rem;color:#00A896;"></div>
+          <div id="wasteCalcCO2" style="font-family:Calibri,sans-serif;font-size:0.82rem;color:#007A6E;"></div>
         </div>
       </div>
       <div style="font-family:Calibri,sans-serif;font-size:0.75rem;color:var(--text-secondary);padding:0.65rem 1rem;background:var(--page-bg);border-left:2px solid var(--border);line-height:1.6;" id="wasteCalcNote"></div>

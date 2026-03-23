@@ -52,12 +52,12 @@
 
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border-light);margin:1.75rem 0;" class="reveal">
     <div style="background:var(--card-bg);border:1px solid var(--border);padding:1.75rem;border-top:3px solid #E76F51;">
-      <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#E76F51;margin-bottom:0.75rem;">Footprint — the impact dimension</div>
+      <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#B54D12;margin-bottom:0.75rem;">Footprint — the impact dimension</div>
       <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;margin-bottom:0.75rem;">The environmental impact of running the IT estate. Energy, water, materials, and emissions from data centres, cloud, end-user devices, software, and supply chains.</p>
       <div style="font-family:Calibri,sans-serif;font-size:0.75rem;color:var(--text-secondary);padding:0.5rem 0.75rem;background:var(--section-alt);border-left:2px solid rgba(231,111,81,0.3);">Status: Maturing. Measurement frameworks, regulatory requirements, and operational practices are established. Most organisations are somewhere on this journey.</div>
     </div>
     <div style="background:var(--section-alt);padding:1.75rem;border-top:3px solid #00A896;">
-      <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#00A896;margin-bottom:0.75rem;">Handprint — the enablement dimension</div>
+      <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#007A6E;margin-bottom:0.75rem;">Handprint — the enablement dimension</div>
       <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;margin-bottom:0.75rem;">The positive sustainability outcomes that technology enables beyond its own boundary. Avoided emissions. Resource efficiency in other sectors. Social outcomes enabled by digital access and transparency.</p>
       <div style="font-family:Calibri,sans-serif;font-size:0.75rem;color:var(--text-secondary);padding:0.5rem 0.75rem;background:var(--section-alt);border-left:2px solid rgba(0,168,150,0.3);">Status: Emerging. Methodologies are less mature. Attribution is harder. But the scale of the opportunity exceeds the footprint dimension for most organisations.</div>
     </div>
@@ -103,7 +103,7 @@
     </div>
     <div style="padding:1.25rem 1.5rem;border-bottom:1px solid var(--border-light);">
       <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:0;">
-        <button onclick="loadScenario('fleet')" id="sc-fleet" style="padding:0.35rem 0.85rem;font-family:Calibri,sans-serif;font-size:0.92rem;background:rgba(0,168,150,0.1);border:1px solid rgba(0,168,150,0.25);color:#00A896;cursor:pointer;transition:all 0.12s;">Route optimisation (fleet)</button>
+        <button onclick="loadScenario('fleet')" id="sc-fleet" style="padding:0.35rem 0.85rem;font-family:Calibri,sans-serif;font-size:0.92rem;background:rgba(0,168,150,0.1);border:1px solid rgba(0,168,150,0.25);color:#007A6E;cursor:pointer;transition:all 0.12s;">Route optimisation (fleet)</button>
         <button onclick="loadScenario('video')" id="sc-video" style="padding:0.35rem 0.85rem;font-family:Calibri,sans-serif;font-size:0.92rem;background:var(--border-light);border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;transition:all 0.12s;">Teleconferencing (flights avoided)</button>
         <button onclick="loadScenario('custom')" id="sc-custom" style="padding:0.35rem 0.85rem;font-family:Calibri,sans-serif;font-size:0.92rem;background:var(--border-light);border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;transition:all 0.12s;">Custom inputs</button>
       </div>
@@ -122,8 +122,8 @@
         <div style="margin-bottom:1rem;">
           <label style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.4rem;">Step 2 — Reduction achieved (%)</label>
           <div style="display:flex;align-items:center;gap:0.75rem;">
-            <input type="range" id="s4-reduction" min="1" max="80" value="11" oninput="calcScope4()" style="flex:1;accent-color:#00A896;">
-            <span id="s4-reduction-val" style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#00A896;width:36px;">11%</span>
+            <input type="range" id="s4-reduction" min="1" max="80" value="11" oninput="calcScope4()" style="flex:1;accent-color:#007A6E;">
+            <span id="s4-reduction-val" style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#007A6E;width:36px;">11%</span>
           </div>
         </div>
         <div style="margin-bottom:1rem;">
@@ -136,8 +136,8 @@
         <div>
           <label style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.4rem;">Step 4 — Attribution confidence (%)</label>
           <div style="display:flex;align-items:center;gap:0.75rem;">
-            <input type="range" id="s4-confidence" min="50" max="100" value="85" oninput="calcScope4()" style="flex:1;accent-color:#F4A261;">
-            <span id="s4-confidence-val" style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#F4A261;width:42px;">85%</span>
+            <input type="range" id="s4-confidence" min="50" max="100" value="85" oninput="calcScope4()" style="flex:1;accent-color:#9B5E00;">
+            <span id="s4-confidence-val" style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#9B5E00;width:42px;">85%</span>
           </div>
           <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);margin-top:0.25rem;">Not all reduction is attributable to the technology. Discount for other factors (fuel price, regulation, driver behaviour).</div>
         </div>
@@ -149,8 +149,8 @@
             <div><div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);margin-bottom:0.2rem;">Gross avoided activity</div><div id="s4-gross-activity" style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);"></div></div>
             <div><div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);margin-bottom:0.2rem;">Gross avoided emissions</div><div id="s4-gross-emissions" style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);"></div></div>
             <div style="border-top:1px solid var(--border-light);padding-top:0.75rem;">
-              <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#00A896;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.3rem;">Reported Scope 4 avoided emissions</div>
-              <div id="s4-final" style="font-family:Georgia,serif;font-size:2.2rem;color:#00A896;line-height:1;"></div>
+              <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:#007A6E;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.3rem;">Reported Scope 4 avoided emissions</div>
+              <div id="s4-final" style="font-family:Georgia,serif;font-size:2.2rem;color:#007A6E;line-height:1;"></div>
               <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);margin-top:0.2rem;">tCO₂e / year</div>
             </div>
           </div>
@@ -158,7 +158,7 @@
         <div id="s4-disclosure" style="padding:0.85rem;background:var(--section-alt);border-left:3px solid #F4A261;font-size:0.92rem;color:var(--text-secondary);line-height:1.6;"></div>
         <div style="padding:0.75rem;background:var(--page-bg);border:1px solid var(--border);">
           <div style="font-family:Calibri,sans-serif;font-size:0.92rem;color:var(--text-secondary);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.35rem;">Confidence label</div>
-          <div id="s4-conf-label" style="font-size:0.92rem;color:#F4A261;font-weight:500;"></div>
+          <div id="s4-conf-label" style="font-size:0.92rem;color:#9B5E00;font-weight:500;"></div>
           <div id="s4-conf-note" style="font-size:0.92rem;color:var(--text-secondary);margin-top:0.2rem;line-height:1.5;"></div>
         </div>
       </div>
@@ -239,17 +239,17 @@
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border-light);">
       <div style="background:var(--card-bg);border:1px solid var(--border);padding:1.5rem;border-top:3px solid #00A896;">
-        <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#00A896;margin-bottom:0.65rem;">Internal innovation</div>
+        <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#007A6E;margin-bottom:0.65rem;">Internal innovation</div>
         <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;margin-bottom:0.65rem;">Structured hackathons focused on specific operational problems — with clear criteria and implementation support for winning ideas — surface solutions the central programme would never identify.</p>
         <p style="font-size:0.88rem;color:var(--text-secondary);font-style:italic;border-left:2px solid rgba(0,168,150,0.3);padding-left:0.75rem;line-height:1.6;">The insight from managing energy and Scope 3 at scale translates directly into platforms that other organisations need.</p>
       </div>
       <div style="background:var(--card-bg);border:1px solid var(--border);padding:1.5rem;border-top:3px solid #B2EDE7;">
-        <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#B2EDE7;margin-bottom:0.65rem;">CleanTech partnerships</div>
+        <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#007A6E;margin-bottom:0.65rem;">CleanTech partnerships</div>
         <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;margin-bottom:0.65rem;">Technology organisations that have built real GreenOps capability become credible partners for CleanTech ventures. The operational experience is the differentiator — not the aspiration.</p>
         <p style="font-size:0.88rem;color:var(--text-secondary);font-style:italic;border-left:2px solid rgba(178,237,231,0.3);padding-left:0.75rem;line-height:1.6;">Carbon accounting platforms, energy optimisation tools, circular economy tracking — all need technology partners with operational credibility.</p>
       </div>
       <div style="background:var(--card-bg);border:1px solid var(--border);padding:1.5rem;border-top:3px solid #F4A261;">
-        <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#F4A261;margin-bottom:0.65rem;">Customer differentiation</div>
+        <div style="font-family:Calibri,sans-serif;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#9B5E00;margin-bottom:0.65rem;">Customer differentiation</div>
         <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.7;margin-bottom:0.65rem;">Enterprise procurement increasingly includes sustainability criteria. Organisations with measurable, evidenced sustainability performance win contracts that others cannot. This is happening now — not in five years.</p>
         <p style="font-size:0.88rem;color:var(--text-secondary);font-style:italic;border-left:2px solid rgba(244,162,97,0.3);padding-left:0.75rem;line-height:1.6;">The same work that reduces cost and improves governance also satisfies supplier questionnaires and ESG screening requirements.</p>
       </div>
