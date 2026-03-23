@@ -66,9 +66,9 @@
       <p style="font-size:0.8rem;color:#64748B;margin-top:0.4rem;">Most organisations find measurement is furthest ahead, governance and operations lag behind it, and supplier management trails both.</p>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1.1fr;gap:0;align-items:start;">
-      <div style="padding:0.75rem 1.5rem 1.5rem;border-right:1px solid rgba(255,255,255,0.06);">
+      <div style="padding:0.75rem 1.5rem 1.5rem;border-right:1px solid var(--border-light);">
         <div id="dimControls8"></div>
-        <div style="margin-top:1rem;padding-top:0.85rem;border-top:1px solid rgba(255,255,255,0.06);">
+        <div style="margin-top:1rem;padding-top:0.85rem;border-top:1px solid var(--border-light);">
           <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.4rem;">
             <span style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#64748B;letter-spacing:0.1em;text-transform:uppercase;">Average level</span>
             <span id="overallLevel8" style="font-family:'DM Serif Display',serif;font-size:1.3rem;color:#007A6E;">—</span>
@@ -84,7 +84,7 @@
         </div>
       </div>
     </div>
-    <div id="dimDetail8" style="display:none;margin:0;padding:0.85rem 1.5rem;background:rgba(0,0,0,0.15);border-top:1px solid rgba(255,255,255,0.06);"></div>
+    <div id="dimDetail8" style="display:none;margin:0;padding:0.85rem 1.5rem;background:rgba(0,0,0,0.15);border-top:1px solid var(--border-light);"></div>
   </div>
   <script>
   (function(){
@@ -196,7 +196,7 @@
       // Spokes + labels
       angles.forEach((a,i)=>{
         ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+maxR*Math.cos(a),cy+maxR*Math.sin(a));
-        ctx.strokeStyle='var(--border)';ctx.lineWidth=1;ctx.stroke();
+        ctx.strokeStyle='#D1D9E0';ctx.lineWidth=1;ctx.stroke();
         const lr=maxR+20,lx=cx+lr*Math.cos(a),ly=cy+lr*Math.sin(a);
         ctx.fillStyle='#64748B';ctx.font='9px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
         const raw=dims[i].label.replace(/&amp;/g,'&');

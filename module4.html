@@ -339,7 +339,7 @@
       <div class="chart-dot" style="left:25%; bottom:60%; background:#ef4444;" title="">
         <div class="dot-tooltip">B: PUE 2.0, Util 20%<br>"Double failure"<br>Inefficient facility AND low utilisation</div>
       </div>
-      <div class="chart-dot" style="left:60%; bottom:35%; background: #fde047;" title="">
+      <div class="chart-dot" style="left:60%; bottom:35%; background: #D4A017;" title="">
         <div class="dot-tooltip">C: PUE 1.45, Util 65%<br>"Acceptable — improving"<br>Reasonable utilisation, scope to improve PUE</div>
       </div>
       <div class="chart-dot" style="left:75%; bottom:62%; background: var(--teal);" title="">
@@ -492,14 +492,39 @@ function initKnowledgeChecks(){
         if(block.classList.contains('answered'))return;
         block.classList.add('answered');
         const chosen=this.dataset.val;
+        const isCorrect=(chosen===correct);
+
         block.querySelectorAll('.kc-option').forEach(o=>{
           if(o.dataset.val===correct)o.classList.add('selected-correct');
-          else if(o.dataset.val===chosen&&chosen!==correct)o.classList.add('selected-wrong');
+          else if(o.dataset.val===chosen&&!isCorrect)o.classList.add('selected-wrong');
         });
-        const fb=block.querySelector(chosen===correct?'.kc-correct':'.kc-wrong');
-        if(fb)fb.style.display='block';
+
+        // Find the correct option text for feedback
+        const correctBtn=block.querySelector('.kc-option[data-val="'+correct+'"]');
+        const correctText=correctBtn?correctBtn.textContent.replace(/^[A-D]\s*/,'').trim():'';
+
+        // Build or find feedback label
+        let revealLabel=block.querySelector('.kc-reveal-label');
+        if(!revealLabel){
+          revealLabel=document.createElement('p');
+          revealLabel.className='kc-reveal-label';
+          const rv=block.querySelector('.kc-reveal');
+          if(rv)rv.insertBefore(revealLabel,rv.firstChild);
+        }
+
+        if(isCorrect){
+          revealLabel.style.color='var(--teal-dark)';
+          revealLabel.textContent='✓ Correct — Option '+correct;
+        } else {
+          revealLabel.style.color='#B54D12';
+          revealLabel.innerHTML='✗ Incorrect — the correct answer was <strong>Option '+correct+'</strong>: '+correctText;
+        }
+
         const rv=block.querySelector('.kc-reveal');
         if(rv)rv.style.display='block';
+
+        const hint=block.querySelector('.kc-hint');
+        if(hint)hint.style.display='none';
       });
     });
   });
@@ -520,12 +545,6 @@ function initProgress(current){
   if(isComplete('module'+current))document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
 }
 
-document.addEventListener('DOMContentLoaded',function(){
-  initKnowledgeChecks();
-  initScrollReveal();
-  initProgress(4);
-
-});
 </script>
 </body>
 </html>

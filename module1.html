@@ -476,22 +476,18 @@ function showWaste(id) {
 
 // Scope diagram toggle
 function toggleScope(num) {
-  const details = document.querySelectorAll('.scope-detail');
-  const clickedDetail = document.getElementById('scope-detail-' + num);
-  const isVisible = clickedDetail.classList.contains('visible');
-  details.forEach(d => d.classList.remove('visible'));
-  document.querySelectorAll('.scope-box').forEach(b => b.classList.remove('active'));
-  if (!isVisible) {
-    clickedDetail.classList.add('visible');
-    document.querySelectorAll('.scope-box')[num - 1].classList.add('active');
-  }
+  const boxes = document.querySelectorAll('.scope-box');
+  const clickedBox = boxes[num - 1];
+  const isOpen = clickedBox.classList.contains('open');
+  boxes.forEach(b => b.classList.remove('open'));
+  if (!isOpen) clickedBox.classList.add('open');
 }
 
 // Action model accordion
 function toggleLevel(el) {
-  const isExpanded = el.classList.contains('expanded');
-  document.querySelectorAll('.action-level').forEach(l => l.classList.remove('expanded'));
-  if (!isExpanded) el.classList.add('expanded');
+  const isOpen = el.classList.contains('open');
+  document.querySelectorAll('.action-level').forEach(l => l.classList.remove('open'));
+  if (!isOpen) el.classList.add('open');
 }
 
 // Animate waste bars on scroll

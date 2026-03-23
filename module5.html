@@ -79,13 +79,13 @@
       <div class="card-label">Level 2</div>
       <h4>Optimisation</h4>
       <p>Doing the same thing with less. Rightsizing, improving utilisation, extending device lifespans. Where most immediate wins are found — but it does not guarantee absolute reduction.</p>
-      <p style="margin-top:0.5rem; font-size:0.78rem; color:var(--slate-dark);">→ A business growing 20% while improving 10% is still growing its footprint.</p>
+      <p style="margin-top:0.5rem; font-size:0.78rem; color:var(--text-muted);">→ A business growing 20% while improving 10% is still growing its footprint.</p>
     </div>
     <div class="card card-accent-p">
       <div class="card-label">Level 3</div>
       <h4>Avoidance</h4>
       <p>Designing demand out before it exists. Consolidating duplicate platforms, retiring unused applications, designing for less compute. The highest-leverage decisions live here.</p>
-      <p style="margin-top:0.5rem; font-size:0.78rem; color:var(--track3);">→ Shift-left in practice. Requires earlier intervention than most governance allows.</p>
+      <p style="margin-top:0.5rem; font-size:0.78rem; color:#E76F51;">→ Shift-left in practice. Requires earlier intervention than most governance allows.</p>
     </div>
   </div>
 </div>
@@ -115,9 +115,9 @@
         <text x="260" y="30" class="rc-label" fill="var(--text-muted)" font-size="8">↑ Freed capacity silently reabsorbed by new demand</text>
       </svg>
       <div style="position:absolute; bottom:4px; left:48px; right:0; display:flex; justify-content:space-between;">
-        <span style="font-family:'JetBrains Mono',monospace; font-size:0.58rem; color:var(--slate-dark);">Optimisation starts</span>
-        <span style="font-family:'JetBrains Mono',monospace; font-size:0.58rem; color:var(--slate-dark);">→ Time</span>
-        <span style="font-family:'JetBrains Mono',monospace; font-size:0.58rem; color:var(--slate-dark);">12 months later</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:0.58rem; color:var(--text-muted);">Optimisation starts</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:0.58rem; color:var(--text-muted);">→ Time</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:0.58rem; color:var(--text-muted);">12 months later</span>
       </div>
     </div>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:0.5rem;">
@@ -176,7 +176,7 @@
         <p class="viz-title" style="margin-bottom:0.2rem;">Temporal shifting — live: best windows for flexible workloads in GB right now</p>
         <p style="font-family:'JetBrains Mono',monospace;font-size:0.57rem;color:#64748B;" id="sw-timestamp">Loading NESO forecast...</p>
       </div>
-      <a href="https://uk-carbon-intensity.netlify.app" target="_blank" rel="noopener" style="padding:0.35rem 0.85rem;background:var(--page-bg);border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:0.57rem;color:#64748B;text-decoration:none;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)'">
+      <a href="https://uk-carbon-intensity.netlify.app" target="_blank" rel="noopener" style="padding:0.35rem 0.85rem;background:var(--page-bg);border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:0.57rem;color:#64748B;text-decoration:none;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)'">
         Full scheduling dashboard ↗
       </a>
     </div>
@@ -185,7 +185,7 @@
         <div style="font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:#64748B;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem;">Next 24h forecast — GB national</div>
         <div id="sw-chart" style="position:relative;height:120px;background:rgba(0,0,0,0.2);overflow:hidden;">
           <svg id="sw-svg" width="100%" height="100%" preserveAspectRatio="none"></svg>
-          <div id="sw-now-line" style="display:none;position:absolute;top:0;bottom:0;width:1px;background:rgba(255,255,255,0.3);"></div>
+          <div id="sw-now-line" style="display:none;position:absolute;top:0;bottom:0;width:1px;background:var(--border);"></div>
           <div id="sw-loading" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#64748B;">Loading...</div>
         </div>
         <div style="display:flex;justify-content:space-between;margin-top:0.3rem;">
@@ -207,7 +207,7 @@
     <div id="sw-error" style="display:none;padding:1rem 1.5rem;font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#64748B;">
       Forecast unavailable. <a href="https://uk-carbon-intensity.netlify.app" target="_blank" style="color:#007A6E;">View scheduling windows on the dedicated dashboard ↗</a>
     </div>
-    <div style="padding:0.75rem 1.5rem;border-top:1px solid rgba(255,255,255,0.05);background:rgba(0,168,150,0.04);">
+    <div style="padding:0.75rem 1.5rem;border-top:1px solid var(--border-light);background:rgba(0,168,150,0.04);">
       <p style="font-size:0.78rem;color:var(--text-secondary);line-height:1.6;"><strong style="color:#007A6E;">This is temporal shifting in practice.</strong> The forecast above shows which hours today have lower carbon intensity. A batch pipeline, an ML training run, or a data sync scheduled for the green window rather than the peak window delivers a measurably different carbon outcome — using exactly the same infrastructure, code, and compute.</p>
     </div>
   </div>
@@ -215,7 +215,7 @@
   (function(){
     function intColor(val) {
       if(val<100) return '#00A896'; if(val<200) return '#4ade80';
-      if(val<300) return '#fde047'; if(val<400) return '#F4A261'; return '#E76F51';
+      if(val<300) return '#9B5E00'; if(val<400) return '#F4A261'; return '#E76F51';
     }
     
     async function loadScheduling() {
@@ -266,7 +266,7 @@
         // Find current period intensity
         const currentVal = vals[0];
         const currentIndex = periods[0].intensity.index || '—';
-        const idxColors = {very_low:'#00A896',low:'#4ade80',moderate:'#fde047',high:'#F4A261',very_high:'#E76F51'};
+        const idxColors = {very_low:'#00A896',low:'#4ade80',moderate:'#9B5E00',high:'#F4A261',very_high:'#E76F51'};
         document.getElementById('sw-index-val').textContent = currentIndex.replace('_',' ') + ' · ' + currentVal + ' gCO₂/kWh';
         document.getElementById('sw-index-val').style.color = idxColors[currentIndex] || '#F4A261';
         
@@ -342,8 +342,8 @@
         </g>
         <!-- Performance vertex -->
         <g class="tri-vertex" onclick="showTriDetail('perf')">
-          <circle cx="230" cy="200" r="22" fill="rgba(231,111,81,0.15)" stroke="var(--track3)" stroke-width="1.5"/>
-          <text x="230" y="197" text-anchor="middle" fill="var(--track3)" font-family="DM Serif Display" font-size="11">Perf.</text>
+          <circle cx="230" cy="200" r="22" fill="rgba(231,111,81,0.15)" stroke="#E76F51" stroke-width="1.5"/>
+          <text x="230" y="197" text-anchor="middle" fill="#E76F51" font-family="DM Serif Display" font-size="11">Perf.</text>
           <text x="230" y="209" text-anchor="middle" fill="rgba(231,111,81,0.6)" font-family=Calibri font-size="7">SLA</text>
         </g>
       </svg>
@@ -502,14 +502,39 @@ function initKnowledgeChecks(){
         if(block.classList.contains('answered'))return;
         block.classList.add('answered');
         const chosen=this.dataset.val;
+        const isCorrect=(chosen===correct);
+
         block.querySelectorAll('.kc-option').forEach(o=>{
           if(o.dataset.val===correct)o.classList.add('selected-correct');
-          else if(o.dataset.val===chosen&&chosen!==correct)o.classList.add('selected-wrong');
+          else if(o.dataset.val===chosen&&!isCorrect)o.classList.add('selected-wrong');
         });
-        const fb=block.querySelector(chosen===correct?'.kc-correct':'.kc-wrong');
-        if(fb)fb.style.display='block';
+
+        // Find the correct option text for feedback
+        const correctBtn=block.querySelector('.kc-option[data-val="'+correct+'"]');
+        const correctText=correctBtn?correctBtn.textContent.replace(/^[A-D]\s*/,'').trim():'';
+
+        // Build or find feedback label
+        let revealLabel=block.querySelector('.kc-reveal-label');
+        if(!revealLabel){
+          revealLabel=document.createElement('p');
+          revealLabel.className='kc-reveal-label';
+          const rv=block.querySelector('.kc-reveal');
+          if(rv)rv.insertBefore(revealLabel,rv.firstChild);
+        }
+
+        if(isCorrect){
+          revealLabel.style.color='var(--teal-dark)';
+          revealLabel.textContent='✓ Correct — Option '+correct;
+        } else {
+          revealLabel.style.color='#B54D12';
+          revealLabel.innerHTML='✗ Incorrect — the correct answer was <strong>Option '+correct+'</strong>: '+correctText;
+        }
+
         const rv=block.querySelector('.kc-reveal');
         if(rv)rv.style.display='block';
+
+        const hint=block.querySelector('.kc-hint');
+        if(hint)hint.style.display='none';
       });
     });
   });
@@ -530,12 +555,6 @@ function initProgress(current){
   if(isComplete('module'+current))document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
 }
 
-document.addEventListener('DOMContentLoaded',function(){
-  initKnowledgeChecks();
-  initScrollReveal();
-  initProgress(5);
-
-});
 </script>
 </body>
 </html>
