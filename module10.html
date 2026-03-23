@@ -1,23 +1,29 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>M10 — GreenOps 101</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
+
+
 <style>
-/* Inline brand vars — ensures dark theme even if shared.css path fails */
-:root {
-  --navy:#0F1F2E; --navy-mid:#162840; --navy-card:#1E293B; --navy-light:#1C3A55;
-  --teal:#00A896; --teal-dark:#007A6E; --teal-muted:#B2EDE7;
-  --orange:#E76F51; --orange-light:#F4A261;
-  --slate:#94A3B8; --slate-dark:#64748B;
-  --border:#D1D9E0; --border-light:#E8EDF2; --white:#FFFFFF;
-  --track1:#00A896; --track2:#F4A261; --track3:#E76F51;
-  --correct:#22c55e; --wrong:#ef4444;
-  /* Legacy aliases */
-  --grey-100:rgba(255,255,255,0.06); --grey-300:#94A3B8;
-  --grey-500:#64748B; --grey-700:#4A4840;
-}
-html,body{background:#0F1F2E;color:#FFFFFF;}
+/* ── INLINE SHARED CSS — full design system, makes module self-contained ── */
+:root{--navy:#0F1F2E;--navy-mid:#162840;--navy-card:#1E293B;--navy-raised:#1C3A55;--navy-border:rgba(255,255,255,0.07);--teal:#00A896;--teal-bright:#00C4AE;--teal-dark:#007A6E;--teal-muted:#B2EDE7;--teal-glow:rgba(0,168,150,0.15);--teal-subtle:rgba(0,168,150,0.06);--orange:#E76F51;--orange-light:#F4A261;--orange-glow:rgba(231,111,81,0.15);--orange-subtle:rgba(231,111,81,0.06);--slate:#94A3B8;--slate-mid:#94A3B8;--slate-dim:#6B7E96;--white:#FFFFFF;--track1:#00A896;--track2:#F4A261;--track3:#E76F51;--correct:#22c55e;--wrong:#ef4444;--space-1:0.25rem;--space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;--space-5:1.5rem;--space-6:2rem;--space-7:3rem;--space-8:4rem;--navy-light:#1C3A55;--grey-100:rgba(255,255,255,0.06);--grey-300:#94A3B8;--grey-500:#94A3B8;--grey-700:#4A4840;--teal-light:#B2EDE7;--border:rgba(255,255,255,0.08);--border-light:rgba(255,255,255,0.04);--bg-light:#F7F8FA;--white:#FFFFFF;}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;font-size:16px;}img,svg{display:block;max-width:100%;}body{background:var(--navy);color:var(--white);font-family:Calibri,'Trebuchet MS',system-ui,-apple-system,sans-serif;font-weight:400;font-size:1rem;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}.top-nav{position:sticky;top:0;z-index:100;background:rgba(11,25,41,0.96);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,168,150,0.12);padding:0 2.5rem;height:52px;display:flex;align-items:center;gap:1rem;}.top-nav::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#00A896 0%,#F4A261 60%,#E76F51 100%);}.nav-home{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--slate-mid);text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:color 0.15s;flex-shrink:0;}.nav-home:hover{color:var(--white);}.nav-sep{color:rgba(255,255,255,0.15);font-size:0.8rem;}.nav-module{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);font-weight:500;}.nav-track-pill{font-family:'JetBrains Mono',monospace;font-size:0.69rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.22rem 0.65rem;border-radius:2px;}.track1-pill{background:rgba(0,168,150,0.12);color:#00A896;border:1px solid rgba(0,168,150,0.25);}.track2-pill{background:rgba(244,162,97,0.12);color:#F4A261;border:1px solid rgba(244,162,97,0.25);}.track3-pill{background:rgba(231,111,81,0.12);color:#E76F51;border:1px solid rgba(231,111,81,0.25);}.nav-progress{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--slate-mid);letter-spacing:0.08em;}.nav-progress span{color:var(--teal);font-weight:600;}.nav-prog-bar{width:80px;height:2px;background:rgba(255,255,255,0.08);border-radius:1px;margin-left:0.5rem;overflow:hidden;}.nav-prog-fill{height:100%;background:var(--teal);border-radius:1px;transition:width 0.4s ease;}.module-hero{position:relative;overflow:hidden;padding:var(--space-8) var(--space-7) var(--space-7);background:var(--navy);min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;}.module-hero::before{content:'';position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(0,168,150,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(0,168,150,0.03) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,0.3) 30%,rgba(0,0,0,0.3) 75%,transparent 100%);}.module-hero::after{content:'';position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 70% 60% at 90% 40%,rgba(0,168,150,0.09) 0%,transparent 65%);}.track1 .module-hero{border-left:3px solid var(--teal);}.track2 .module-hero{border-left:3px solid var(--orange-light);}.track3 .module-hero{border-left:3px solid var(--orange);}.hero-num{font-family:Georgia,serif;font-size:clamp(8rem,16vw,15rem);line-height:0.82;letter-spacing:-0.04em;color:rgba(0,168,150,0.055);position:absolute;right:2rem;bottom:-0.5rem;user-select:none;pointer-events:none;z-index:0;}.module-hero > *{position:relative;z-index:1;}.module-eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.75rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal-muted);margin-bottom:0.85rem;}.module-title{font-family:Georgia,serif;font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.05;letter-spacing:-0.025em;color:var(--white);margin-bottom:1rem;max-width:800px;}.module-subtitle{font-size:1.1rem;color:var(--slate);line-height:1.65;max-width:620px;margin-bottom:2rem;font-weight:400;}.module-meta{display:flex;gap:2rem;align-items:center;flex-wrap:wrap;}.meta-item{display:flex;flex-direction:column;gap:0.1rem;}.meta-item .label{font-family:'JetBrains Mono',monospace;font-size:0.69rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--slate-mid);}.meta-item .value{font-size:0.88rem;color:var(--slate);font-weight:500;}.complete-btn{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.55rem 1.25rem;background:transparent;border:1px solid var(--teal);color:var(--teal);cursor:pointer;border-radius:2px;transition:background 0.15s,color 0.15s;}.complete-btn:hover{background:var(--teal);color:var(--navy);}.complete-btn.done{background:rgba(0,168,150,0.1);color:var(--teal);cursor:default;}.objectives-strip{background:var(--navy-mid);border-bottom:1px solid var(--navy-border);padding:2rem var(--space-7);}.objectives-label{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-bottom:1.25rem;}.objectives-list{display:flex;flex-direction:column;gap:0.65rem;}.obj-item{display:flex;gap:1rem;align-items:flex-start;}.obj-num{font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;color:var(--teal);background:var(--teal-subtle);border:1px solid rgba(0,168,150,0.2);padding:0.2rem 0.5rem;flex-shrink:0;margin-top:0.05rem;}.obj-text{font-size:0.95rem;color:var(--slate);line-height:1.55;}.module-content{max-width:1000px;padding:0 var(--space-7) var(--space-6);}.content-section{padding:var(--space-7) 0;border-bottom:1px solid var(--navy-border);}.content-section:last-of-type{border-bottom:none;}.section-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem;display:block;}.section-title{font-family:Georgia,serif;font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.15;letter-spacing:-0.02em;color:var(--white);margin-bottom:1.25rem;}.section-intro{font-size:1.12rem;font-weight:400;color:var(--slate);line-height:1.75;max-width:720px;margin-bottom:2.25rem;}.prose{font-size:1.05rem;color:var(--slate);line-height:1.82;max-width:700px;margin-bottom:1.5rem;}.stat-strip{display:grid;gap:1px;background:rgba(255,255,255,0.06);margin:2.25rem 0;border-radius:3px;overflow:hidden;}.stat-strip.cols-3{grid-template-columns:repeat(3,1fr);}.stat-strip.cols-4{grid-template-columns:repeat(4,1fr);}.stat-cell{background:var(--navy-card);padding:2rem 1.5rem;text-align:center;position:relative;overflow:hidden;transition:background 0.2s;}.stat-cell::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--cell-accent,var(--teal));}.stat-cell:hover{background:var(--navy-raised);}.stat-num{font-family:Georgia,serif;font-size:clamp(2.4rem,4.5vw,3.5rem);color:var(--cell-accent,var(--teal));line-height:1;margin-bottom:0.5rem;display:block;}.stat-label{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--slate-mid);line-height:1.5;}.viz-container{background:var(--navy-mid);border:1px solid rgba(0,168,150,0.18);border-top:2px solid rgba(0,168,150,0.5);margin:2.25rem 0;overflow:hidden;}.viz-header{padding:1rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:0.75rem;}.viz-header-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;}.viz-title{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);}.viz-body{padding:1.75rem;}.viz-footer{padding:0.85rem 1.5rem;border-top:1px solid rgba(255,255,255,0.05);background:rgba(0,168,150,0.03);font-size:0.82rem;color:var(--slate-mid);line-height:1.55;}.card-grid{display:grid;gap:1px;background:rgba(255,255,255,0.06);margin:2rem 0;}.card-grid-2{grid-template-columns:1fr 1fr;}.card-grid-3{grid-template-columns:repeat(3,1fr);}.card-grid-auto{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}.card{background:var(--navy-card);padding:1.75rem;border-top:3px solid transparent;transition:background 0.15s;}.card:hover{background:var(--navy-raised);}.card-accent-t{border-top-color:var(--teal);}.card-accent-p{border-top-color:var(--orange-light);}.card-accent-o{border-top-color:var(--orange);}.card-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--slate-mid);margin-bottom:0.5rem;}.card h4{font-weight:600;font-size:1.05rem;margin-bottom:0.6rem;line-height:1.3;color:var(--white);}.card p{font-size:0.95rem;color:var(--slate);line-height:1.7;}.card ul{list-style:none;padding:0;margin-top:0.75rem;display:flex;flex-direction:column;gap:0.4rem;}.card ul li{font-size:0.9rem;color:var(--slate);padding-left:1rem;position:relative;line-height:1.5;}.card ul li::before{content:'→';position:absolute;left:0;color:var(--teal);font-size:0.75rem;top:0.1rem;}.callout{padding:1.35rem 1.75rem;margin:1.75rem 0;border-radius:2px;}.callout-insight{background:rgba(0,168,150,0.07);border-left:4px solid var(--teal);}.callout-warning{background:rgba(231,111,81,0.07);border-left:4px solid var(--orange);}.callout-key{background:rgba(244,162,97,0.07);border-left:4px solid var(--orange-light);}.callout-title{font-family:'JetBrains Mono',monospace;font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:0.55rem;display:block;}.callout-insight .callout-title{color:var(--teal);}.callout-warning .callout-title{color:var(--orange);}.callout-key .callout-title{color:var(--orange-light);}.callout p{font-size:1rem;color:var(--slate);line-height:1.72;}.callout p + p{margin-top:0.65rem;}.callout strong{color:var(--white);font-weight:600;}.compare-table{width:100%;border-collapse:collapse;font-size:0.92rem;margin:1.5rem 0;}.compare-table th{padding:0.7rem 1.1rem;text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--slate-mid);border-bottom:1px solid rgba(255,255,255,0.1);background:var(--navy-raised);}.compare-table td{padding:0.85rem 1.1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--slate);line-height:1.55;vertical-align:top;font-size:0.97rem;}.compare-table tr:hover td{background:rgba(255,255,255,0.02);}.compare-table td:first-child{color:var(--white);font-weight:500;}.process-steps{display:flex;flex-direction:column;gap:0;margin:1.5rem 0;}.step-item{display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem 0;border-bottom:1px solid var(--navy-border);}.step-item:last-child{border-bottom:none;}.step-num{font-family:Georgia,serif;font-size:1.9rem;color:rgba(0,168,150,0.25);line-height:1;flex-shrink:0;width:2.5rem;text-align:right;padding-top:0.1rem;}.step-content{flex:1;}.step-title{font-weight:600;font-size:1rem;color:var(--white);margin-bottom:0.3rem;}.step-body p{font-size:0.95rem;color:var(--slate);line-height:1.68;}.kc-block{background:var(--navy-mid);border:1px solid rgba(255,255,255,0.07);border-left:3px solid var(--teal);padding:1.75rem 2rem;margin:2.5rem 0;}.kc-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-bottom:0.75rem;display:block;}.kc-q{font-size:1.05rem;font-weight:500;color:var(--white);line-height:1.55;margin-bottom:1.25rem;}.kc-options{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:0;}.kc-option{display:flex;align-items:flex-start;gap:0.85rem;padding:0.9rem 1.1rem;background:var(--navy-card);border:1px solid rgba(255,255,255,0.06);cursor:pointer;text-align:left;width:100%;font-family:inherit;font-size:0.97rem;color:var(--slate);line-height:1.55;transition:background 0.12s,border-color 0.12s;}.kc-option:hover{background:var(--navy-raised);border-color:rgba(0,168,150,0.25);}.kc-opt-key{font-family:'JetBrains Mono',monospace;font-size:0.75rem;font-weight:700;color:var(--slate-mid);flex-shrink:0;width:1.3rem;padding-top:0.08rem;}.kc-block.answered .kc-option{cursor:default;}.kc-block.answered .kc-option.correct{background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.3);color:#86efac;}.kc-block.answered .kc-option.wrong{opacity:0.35;}.kc-reveal{display:none;margin-top:1.25rem;padding:1.25rem 1.5rem;background:rgba(0,0,0,0.2);border-left:3px solid var(--teal);}.kc-reveal-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:0.6rem;display:block;}.kc-reveal p{font-size:0.97rem;color:var(--slate);line-height:1.75;margin-bottom:0.6rem;}.pause-reflect{background:var(--navy-mid);border:1px solid rgba(244,162,97,0.2);padding:2rem 2.25rem;margin:2.5rem 0;}.pause-label{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--orange-light);margin-bottom:0.9rem;display:block;}.pause-intro{font-size:1.02rem;color:var(--slate);line-height:1.7;margin-bottom:1rem;}.pause-q{display:flex;gap:0.9rem;margin-bottom:0.65rem;}.pause-q-num{font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--orange-light);flex-shrink:0;padding-top:0.15rem;font-weight:700;}.pause-q-text{font-size:0.97rem;color:var(--slate);line-height:1.65;}.takeaways{background:var(--navy-mid);border-top:3px solid var(--teal);padding:2.25rem var(--space-7);margin-top:0;}.takeaways-heading{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal);margin-bottom:1.5rem;}.takeaway-list{display:flex;flex-direction:column;gap:1rem;}.takeaway-item{display:flex;gap:1rem;align-items:flex-start;}.takeaway-icon{color:var(--teal);font-size:0.5rem;flex-shrink:0;padding-top:0.4rem;}.takeaway-body{flex:1;}.takeaway-body strong{font-size:1rem;color:var(--white);font-weight:600;display:block;margin-bottom:0.2rem;}.takeaway-body p{font-size:0.95rem;color:var(--slate);line-height:1.65;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem var(--space-7);border-top:1px solid var(--navy-border);gap:1rem;}.nav-btn{display:flex;align-items:center;gap:0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--slate);text-decoration:none;padding:0.65rem 1.1rem;border:1px solid rgba(255,255,255,0.08);transition:color 0.15s,border-color 0.15s,background 0.15s;}.nav-btn:hover{color:var(--white);border-color:var(--teal);background:var(--teal-subtle);}.nav-btn-label{font-size:0.69rem;display:block;color:var(--slate-mid);margin-bottom:0.1rem;}.nav-btn-title{font-size:0.82rem;color:var(--white);}.nav-btn.primary{background:var(--teal-subtle);border-color:rgba(0,168,150,0.35);color:var(--teal);}.nav-btn.primary:hover{background:var(--teal);color:var(--navy);}footer{padding:1.5rem var(--space-7);border-top:1px solid var(--navy-border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;}.footer-brand{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--slate-mid);letter-spacing:0.1em;}.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.5s ease,transform 0.5s ease;}.reveal.revealed{opacity:1;transform:translateY(0);}@media (max-width:860px){.module-hero{padding:3rem 1.5rem 2.5rem;min-height:220px;}.module-content,.objectives-strip,.takeaways,.module-nav,footer{padding-left:1.5rem;padding-right:1.5rem;}.content-section{padding:2.5rem 0;}.card-grid-3,.card-grid-2{grid-template-columns:1fr;}.stat-strip.cols-3,.stat-strip.cols-4{grid-template-columns:1fr 1fr;}.top-nav{padding:0 1.25rem;}.hero-num{display:none;}}@media (max-width:540px){.stat-strip.cols-3,.stat-strip.cols-4{grid-template-columns:1fr;}.module-title{font-size:1.8rem;}}.viz-container > p.viz-title{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);padding:1rem 1.5rem 0.85rem;border-bottom:1px solid rgba(255,255,255,0.06);margin:-1.65rem -1.65rem 1.5rem;display:block;background:rgba(0,168,150,0.03);}
 </style>
+<style>
+/* ── SHARED COMPONENT RULES (inline supplement) ── */
+.objectives-strip{background:var(--navy-mid);border-bottom:1px solid var(--navy-border);padding:2rem var(--space-7)}
+.objectives-heading{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal-muted);margin-bottom:1rem}
+.objectives-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:0.75rem}
+.objectives-list li{display:flex;align-items:baseline;gap:1rem;font-size:0.97rem;color:var(--slate);line-height:1.6}
+.obj-num{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--teal);letter-spacing:0.1em;flex-shrink:0}
+.pause-questions{background:var(--navy-mid);border-top:1px solid var(--navy-border);border-bottom:1px solid var(--navy-border);padding:2rem var(--space-7)}
+.pause-q{font-size:0.97rem;color:var(--slate);line-height:1.7;margin-bottom:0.5rem;padding-left:1.25rem;border-left:2px solid rgba(255,255,255,0.08)}
+.kc-hint{font-size:0.85rem;color:var(--slate);font-style:italic;margin-top:0.5rem;display:none}
+.kc-hint.visible{display:block}
+.next{display:inline-flex;align-items:center;gap:0.75rem;padding:0.85rem 1.75rem;background:rgba(0,168,150,0.1);border:1px solid rgba(0,168,150,0.25);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:0.82rem;letter-spacing:0.08em;text-decoration:none;transition:background 0.15s}
+.next:hover{background:rgba(0,168,150,0.18)}
+.module-footer{padding:3rem var(--space-7);border-top:1px solid var(--navy-border);display:flex;justify-content:space-between;align-items:center}
+</style>
+
 </head>
 <body class="track3">
 <nav class="top-nav"><a href="index.html" class="nav-home"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L1 6v7h4v-4h4v4h4V6L7 1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>GreenOps 101</a><span class="nav-sep">/</span><span class="nav-module">Module 10</span><span class="nav-track-pill track3-pill">Track 3 — Leadership and Strategy</span><div class="nav-progress">Progress: <span id="progress-count">0/14</span></div></nav>
@@ -50,28 +56,28 @@ html,body{background:#0F1F2E;color:#FFFFFF;}
   <div class="viz-container reveal" id="bcBuilder" style="padding:0;margin-top:1.75rem;">
     <div style="padding:1.5rem 1.5rem 1rem;border-bottom:1px solid rgba(255,255,255,0.06);">
       <p class="viz-title">Year-1 business case builder — scale by organisation size to illustrate the financial argument</p>
-      <p style="font-size:0.79rem;color:#64748B;margin-top:0.35rem;">Based on illustrative figures from the GreenOps 101 worked example (10,000-person enterprise). Adjust the scale multiplier for your context.</p>
+      <p style="font-size:0.92rem;color:#94A3B8;margin-top:0.35rem;">Based on illustrative figures from the GreenOps 101 worked example (10,000-person enterprise). Adjust the scale multiplier for your context.</p>
     </div>
     <div style="padding:1.25rem 1.5rem 0.75rem;border-bottom:1px solid rgba(255,255,255,0.05);">
       <div style="display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;">
-        <label style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;">Organisation scale</label>
+        <label style="font-family:'JetBrains Mono',monospace;font-size:0.92rem;color:#94A3B8;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;">Organisation scale</label>
         <input type="range" id="bc-scale" min="0.1" max="5" step="0.1" value="1" oninput="updateBC()" style="flex:1;min-width:120px;accent-color:#00A896;">
-        <span id="bc-scale-label" style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#00A896;white-space:nowrap;">1.0× (10,000 employees)</span>
+        <span id="bc-scale-label" style="font-family:'JetBrains Mono',monospace;font-size:0.92rem;color:#00A896;white-space:nowrap;">1.0× (10,000 employees)</span>
       </div>
     </div>
     <div style="padding:1rem 1.5rem;">
-      <table style="width:100%;border-collapse:collapse;font-size:0.82rem;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.92rem;">
         <thead>
           <tr>
-            <th style="text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#64748B;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.08);">Value / cost item</th>
-            <th style="text-align:right;font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#64748B;padding:0.5rem 0 0.5rem 1rem;border-bottom:1px solid rgba(255,255,255,0.08);">Year 1 estimate</th>
-            <th style="text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#64748B;padding:0.5rem 0 0.5rem 1rem;border-bottom:1px solid rgba(255,255,255,0.08);display:none;" class="bc-evidence-col">Evidence required</th>
+            <th style="text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.92rem;letter-spacing:0.1em;text-transform:uppercase;color:#94A3B8;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.08);">Value / cost item</th>
+            <th style="text-align:right;font-family:'JetBrains Mono',monospace;font-size:0.92rem;letter-spacing:0.1em;text-transform:uppercase;color:#94A3B8;padding:0.5rem 0 0.5rem 1rem;border-bottom:1px solid rgba(255,255,255,0.08);">Year 1 estimate</th>
+            <th style="text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.92rem;letter-spacing:0.1em;text-transform:uppercase;color:#94A3B8;padding:0.5rem 0 0.5rem 1rem;border-bottom:1px solid rgba(255,255,255,0.08);display:none;" class="bc-evidence-col">Evidence required</th>
           </tr>
         </thead>
         <tbody id="bc-rows"></tbody>
         <tfoot id="bc-foot"></tfoot>
       </table>
-      <div id="bc-summary" style="margin-top:1rem;padding:0.85rem 1rem;border-left:3px solid #00A896;background:rgba(0,168,150,0.05);font-size:0.82rem;color:#94A3B8;line-height:1.6;"></div>
+      <div id="bc-summary" style="margin-top:1rem;padding:0.85rem 1rem;border-left:3px solid #00A896;background:rgba(0,168,150,0.05);font-size:0.92rem;color:#94A3B8;line-height:1.6;"></div>
     </div>
   </div>
   <script>
@@ -127,103 +133,123 @@ html,body{background:#0F1F2E;color:#FFFFFF;}
   updateBC();
   </script>
 
-<div class="content-section reveal"><p class="section-label">Section 2</p>
-<h2 class="section-title">Leading with waste reduction.</h2>
-<p class="section-intro">The financial case for GreenOps is often strongest at the start — before the programme requires significant investment. Waste elimination produces immediate returns and funds what comes next.</p>
-<div class="stat-row reveal">
-<div class="stat-block"><div class="stat-num">£2–8k</div><div class="stat-label">per VM per year in cloud run cost — idle instances are the fastest-returning target</div></div>
-<div class="stat-block"><div class="stat-num">£40–120k</div><div class="stat-label">per application per year in run and licence cost — portfolio rationalisation is the highest-leverage action</div></div>
-<div class="stat-block"><div class="stat-num">10–20%</div><div class="stat-label">of app spend typically recoverable through portfolio rationalisation alone</div></div>
+<!-- ══ M10 S2: Waste reduction — the lead argument ══════════ -->
+
+
+  <!-- Year-one business case table -->
+  <div class="viz-container reveal" style="margin-top:1.75rem;">
+    <div class="viz-header">
+      <div class="viz-header-dot" style="background:#F4A261"></div>
+      <span class="viz-title">Illustrative year-one business case — 10,000-person enterprise, mixed cloud and on-premise</span>
+    </div>
+    <div style="padding:0;" id="bcTable"></div>
+    <div style="padding:0.85rem 1.75rem;border-top:1px solid rgba(255,255,255,0.05);">
+      <p style="font-size:0.82rem;color:#94A3B8;">Figures are illustrative ranges for a mid-to-large enterprise. Individual estates will vary significantly based on cloud ratio, current waste levels, and regulatory exposure. The structure and sequencing apply broadly. Every line requires stated evidence — the right column is as important as the left.</p>
+    </div>
+  </div>
+
+<div class="content-section reveal">
+  <p class="section-label">Section 2</p>
+  <h2 class="section-title">Lead with waste reduction.</h2>
+  <p class="section-intro">In many organisations the cost savings from an initial waste removal exercise are large enough to fund the programme itself. This is the most accessible financial argument — and it should lead the case, because it produces tangible outcomes within 90 days of starting.</p>
+
+  <div class="viz-container reveal" id="wasteCalcViz">
+    <div class="viz-header">
+      <div class="viz-header-dot" style="background:#E76F51"></div>
+      <span class="viz-title">Indicative waste value — adjust scale to estimate potential for your estate</span>
+    </div>
+    <div style="padding:1.75rem;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;">
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:#94A3B8;margin-bottom:1rem;">Estate scale (number of cloud VMs)</div>
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;">
+            <input type="range" id="vmSlider" min="100" max="10000" step="100" value="2000"
+              style="flex:1;accent-color:#E76F51;cursor:pointer;">
+            <span id="vmLabel" style="font-family:'JetBrains Mono',monospace;font-size:0.88rem;color:#E76F51;font-weight:700;min-width:60px;">2,000</span>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:#94A3B8;margin-bottom:0.5rem;">Idle percentage (estimate)</div>
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <input type="range" id="idleSlider" min="5" max="50" step="5" value="30"
+              style="flex:1;accent-color:#E76F51;cursor:pointer;">
+            <span id="idleLabel" style="font-family:'JetBrains Mono',monospace;font-size:0.88rem;color:#E76F51;font-weight:700;min-width:40px;">30%</span>
+          </div>
+        </div>
+        <div style="background:rgba(0,0,0,0.15);padding:1.5rem;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:#94A3B8;margin-bottom:0.4rem;">Indicative annual saving</div>
+          <div id="wasteCalcResult" style="font-family:Georgia,'Times New Roman',serif;font-size:3rem;color:#E76F51;line-height:1;margin-bottom:0.35rem;">£3.6M</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#94A3B8;margin-bottom:1rem;">at £6k/VM/year average run cost</div>
+          <div id="wasteCalcCO2" style="font-family:'JetBrains Mono',monospace;font-size:0.82rem;color:#00A896;"></div>
+        </div>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#94A3B8;padding:0.65rem 1rem;background:rgba(0,0,0,0.1);border-left:2px solid rgba(255,255,255,0.1);line-height:1.6;" id="wasteCalcNote"></div>
+    </div>
+    <div style="padding:0.85rem 1.75rem;border-top:1px solid rgba(255,255,255,0.05);">
+      <p style="font-size:0.82rem;color:#94A3B8;">Illustrative benchmarks based on published industry ranges (Gartner, IDC, FinOps Foundation). Assumes £6k per idle VM per year average cloud run cost (varies significantly by instance type and region) and 0.168kg CO₂/kWh UK average grid intensity. Your estate figures will differ — use as a conversation starter, not a committed projection.</p>
+    </div>
+  </div>
 </div>
-<div class="callout callout-insight reveal"><p class="callout-title">The self-funding programme</p><p>The financial return from Phase 1 waste elimination — idle compute, zombie apps, storage rationalisation — typically covers the cost of the measurement and governance infrastructure needed for subsequent phases. This is the argument that gets the first budget approved without requiring a leap of faith.</p></div></div>
 
-  <!-- NON-FINANCIAL 5 DIMENSIONS -->
-  
-  <div class="content-section reveal">
-    <p class="section-label">Section 3</p>
-    <h2 class="section-title">Translate the case differently for each audience.</h2>
-    <p class="section-intro">The content of the business case doesn't change. The emphasis and language must. A CFO who asks for financial returns is doing their job. Give them the numbers they need — not a reframing of why the question is wrong.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.06);margin:1.75rem 0;">
-      <div style="background:#1E293B;padding:1.35rem;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#E76F51;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.35rem;">Board and CEO</div>
-        <div style="font-size:0.78rem;color:#64748B;font-style:italic;margin-bottom:0.85rem;">Strategic and regulatory imperative</div>
-        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.4rem;margin-bottom:0.85rem;">
-          <li style="display:flex;gap:0.6rem;font-size:0.8rem;color:#94A3B8;line-height:1.5;"><span style="color:#E76F51;flex-shrink:0;">→</span>Regulatory risk exposure — compliance gap and what non-compliance costs</li>
-          <li style="display:flex;gap:0.6rem;font-size:0.8rem;color:#94A3B8;line-height:1.5;"><span style="color:#E76F51;flex-shrink:0;">→</span>ESG rating and investor implications — cost of capital impact</li>
-          <li style="display:flex;gap:0.6rem;font-size:0.8rem;color:#94A3B8;line-height:1.5;"><span style="color:#E76F51;flex-shrink:0;">→</span>Competitive dimension — are we winning or losing commercial opportunities?</li>
-        </ul>
-        <div style="padding:0.5rem 0.75rem;background:rgba(231,111,81,0.06);border-left:2px solid rgba(231,111,81,0.3);font-size:0.76rem;color:#64748B;font-style:italic;">Don't open with operational metrics — anchor to business strategy</div>
-      </div>
-      <div style="background:#1E293B;padding:1.35rem;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#F4A261;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.35rem;">CFO and Finance</div>
-        <div style="font-size:0.78rem;color:#64748B;font-style:italic;margin-bottom:0.85rem;">Cost management and risk quantification</div>
-        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.4rem;margin-bottom:0.85rem;">
-          <li style="display:flex;gap:0.6rem;font-size:0.8rem;color:#94A3B8;line-height:1.5;"><span style="color:#F4A261;flex-shrink:0;">→</span>Specific waste reduction savings — quantified and time-bounded</li>
-          <li style="display:flex;gap:0.6rem;font-size:0.8rem;color:#94A3B8;line-height:1.5;"><span style="color:#F4A261;flex-shrink:0;">→</span>Green financing access — interest rate differentials and bond market access</li>
-          <li style="display:flex;gap:0.6rem;font-size:0.8rem;color:#94A3B8;line-height:1.5;"><span style="color:#F4A261;flex-shrink:0;">→</span>Regulatory penalty exposure — CSRD compliance gap quantification</li>
-        </ul>
-        <div style="padding:0.5rem 0.75rem;background:rgba(244,162,97,0.06);border-left:2px solid rgba(244,162,97,0.3);font-size:0.76rem;color:#64748B;font-style:italic;">Lead with returns and risk-adjusted financial exposure — not the sustainability rationale</div>
-      </div>
-      <div style="background:#1E293B;padding:1.35rem;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#00A896;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.35rem;">Technology Leadership</div>
-        <div style="font-size:0.78rem;color:#64748B;font-style:italic;margin-bottom:0.85rem;">Operational excellence and performance discipline</div>
-        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.4rem;margin-bottom:0.85rem;">
-          <li style="display:flex;gap:0.6rem;font-size:0.8rem;color:#94A3B8;line-height:1.5;"><span style="color:#00A896;flex-shrink:0;">→</span>Utilisation, efficiency, and waste reduction as performance metrics</li>
-          <li style="display:flex;gap:0.6rem;font-size:0.8rem;color:#94A3B8;line-height:1.5;"><span style="color:#00A896;flex-shrink:0;">→</span>Estate simplification — the productivity premium of a cleaner portfolio</li>
-          <li style="display:flex;gap:0.6rem;font-size:0.8rem;color:#94A3B8;line-height:1.5;"><span style="color:#00A896;flex-shrink:0;">→</span>Architecture quality — efficiency as a signal of technical maturity</li>
-        </ul>
-        <div style="padding:0.5rem 0.75rem;background:rgba(0,168,150,0.06);border-left:2px solid rgba(0,168,150,0.3);font-size:0.76rem;color:#64748B;font-style:italic;">Frame as better operational practice — not compliance burden</div>
-      </div>
-      <div style="background:#1E293B;padding:1.35rem;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#B2EDE7;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.35rem;">Engineering Teams</div>
-        <div style="font-size:0.78rem;color:#64748B;font-style:italic;margin-bottom:0.85rem;">Operational problems they already recognise</div>
-        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.4rem;margin-bottom:0.85rem;">
-          <li style="display:flex;gap:0.6rem;font-size:0.8rem;color:#94A3B8;line-height:1.5;"><span style="color:#B2EDE7;flex-shrink:0;">→</span>Idle resources, bloated data, unnecessary compute are already pain points</li>
-          <li style="display:flex;gap:0.6rem;font-size:0.8rem;color:#94A3B8;line-height:1.5;"><span style="color:#B2EDE7;flex-shrink:0;">→</span>Carbon per transaction alongside latency and cost as a unit metric</li>
-          <li style="display:flex;gap:0.6rem;font-size:0.8rem;color:#94A3B8;line-height:1.5;"><span style="color:#B2EDE7;flex-shrink:0;">→</span>Engineering autonomy to make sustainable design decisions at service level</li>
-        </ul>
-        <div style="padding:0.5rem 0.75rem;background:rgba(178,237,231,0.06);border-left:2px solid rgba(178,237,231,0.3);font-size:0.76rem;color:#64748B;font-style:italic;">Start from the operational problem — not sustainability as a principle</div>
+<!-- ══ M10 S3: Audience framing ═════════════════════════════ -->
+
+<div class="content-section reveal">
+  <p class="section-label">Section 3</p>
+  <h2 class="section-title">Translate the case for each audience.</h2>
+  <p class="section-intro">The same programme needs to be explained differently to different audiences — without changing its substance. The leader who can do this fluently moves faster than the one who has only one version of the argument.</p>
+
+  <div class="viz-container reveal" id="audienceViz">
+    <div class="viz-header">
+      <div class="viz-header-dot"></div>
+      <span class="viz-title">Four audiences — click any to see what they care about and how to frame the case</span>
+    </div>
+    <div id="audienceGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.06);"></div>
+    <div id="audienceDetail" style="padding:1.25rem 1.5rem;border-top:1px solid rgba(255,255,255,0.06);background:rgba(0,0,0,0.1);min-height:80px;display:none;"></div>
+  </div>
+</div>
+
+<!-- ══ M10 S4: Non-financial value ══════════════════════════ -->
+
+
+<div class="content-section reveal">
+  <p class="section-label">Section 4</p>
+  <h2 class="section-title">Non-financial value — often the most compelling case.</h2>
+  <p class="section-intro">The financial case wins resource allocation. The non-financial case wins board commitment. Both are needed — and the most effective business cases present all three dimensions simultaneously rather than leading with only one.</p>
+
+  <div class="viz-container reveal" id="nonFinViz">
+    <div class="viz-header">
+      <div class="viz-header-dot" style="background:#B2EDE7"></div>
+      <span class="viz-title">Five non-financial value dimensions — click any to see how to frame it for a board conversation</span>
+    </div>
+    <div style="padding:1.75rem;">
+      <div id="nonFinGrid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(255,255,255,0.06);margin-bottom:1.25rem;"></div>
+      <div id="nonFinDetail" style="background:rgba(0,0,0,0.15);border-left:3px solid #B2EDE7;padding:1.25rem 1.5rem;min-height:70px;transition:border-color 0.2s;">
+        <p style="font-size:0.95rem;color:#94A3B8;font-style:italic;">Select a dimension to see how to frame it in a board conversation.</p>
       </div>
     </div>
   </div>
 
 
-  
-  <div class="content-section reveal">
-    <p class="section-label">Non-financial value</p>
-    <h2 class="section-title">Five non-financial value dimensions — often the most compelling to boards.</h2>
-    <p class="section-intro">Harder to quantify than waste reduction, but the impacts are real and the connections to strategic priorities are direct. Connect each dimension to something specific in your organisation.</p>
-    <div class="card-grid card-grid-auto reveal">
-      <div class="card card-accent-t">
-        <div class="card-label">Dimension 1</div>
-        <h4>Talent attraction and retention</h4>
-        <p>Sustainability performance is a real factor in technology professionals' decisions — particularly earlier in careers. Ask your talent acquisition team whether it has come up in candidate conversations. In most organisations, it has. A credible programme generates engagement. A communications exercise generates cynicism.</p>
-      </div>
-      <div class="card card-accent-p">
-        <div class="card-label">Dimension 2</div>
-        <h4>Employee engagement</h4>
-        <p>People who feel their organisation is taking meaningful action are more engaged. People who sense the programme is performative are actively disengaged. The signal that distinguishes the two is whether sustainability appears in operational decisions or only in communications.</p>
-      </div>
-      <div class="card card-accent-o">
-        <div class="card-label">Dimension 3</div>
-        <h4>Investor and ESG screening</h4>
-        <p>ESG factors are integrated into institutional investment analysis and asset allocation. For listed or institutionally funded organisations, connect this directly to your investor relations team — they will already be seeing the requests. Sustainability screens affect capital availability and cost of capital.</p>
-      </div>
-      <div class="card card-accent-t">
-        <div class="card-label">Dimension 4</div>
-        <h4>Customer and commercial requirements</h4>
-        <p>Enterprise procurement in public and private sectors increasingly requires sustainability evidence. Government contracts in the UK and EU mandate supplier sustainability criteria. Technology organisations that can produce evidence — not just commitments — are winning contracts that others are losing. This is a commercial argument.</p>
-      </div>
-      <div class="card card-accent-p">
-        <div class="card-label">Dimension 5</div>
-        <h4>Operational productivity premium</h4>
-        <p>Organisations with lower digital waste have cleaner, simpler, more manageable estates. Fewer unnecessary services, less bloated data, faster deployments, lower operational overhead. A well-governed estate is not only greener — it is faster to operate and easier to change. That is a leadership argument, not a sustainability one.</p>
+
+  <div class="viz-container reveal" id="valueViz">
+    <div class="viz-header">
+      <div class="viz-header-dot" style="background:#F4A261"></div>
+      <span class="viz-title">Three-dimension value case — click any dimension to explore what belongs in each</span>
+    </div>
+    <div style="padding:1.75rem;">
+      <div id="valueDims" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.06);margin-bottom:1.25rem;"></div>
+      <div id="valueDetail" style="background:rgba(0,0,0,0.15);border-left:3px solid #94A3B8;padding:1.25rem 1.5rem;min-height:80px;transition:border-color 0.2s;">
+        <p style="font-size:0.95rem;color:#94A3B8;font-style:italic;">Select a dimension to see what it includes and how to frame it for your audience.</p>
       </div>
     </div>
+    <div style="padding:0.85rem 1.75rem;border-top:1px solid rgba(255,255,255,0.05);">
+      <p style="font-size:0.82rem;color:#94A3B8;">The most resilient business cases survive budget cycles because they connect to multiple organisational priorities simultaneously. A case that rests only on the financial return is vulnerable to the first quarter where ROI is questioned. A case connected to risk, talent, and regulatory compliance is harder to de-prioritise.</p>
+    </div>
   </div>
+</div>
 
 
-  <div class="kc-block reveal" data-correct="C">
+</div><!-- /module-content -->
+
+<div class="kc-block reveal" data-correct="C">
   <p class="kc-label">Knowledge Check · Module 10 · Q2</p>
   <p class="kc-q">A technology leader wants to present the GreenOps programme to the board for the first time. Which opening framing is most likely to secure board-level support?</p>
   <div class="kc-options">
@@ -256,4 +282,482 @@ html,body{background:#0F1F2E;color:#FFFFFF;}
 <div class="pause-reflect reveal"><p class="pause-label">⏸ Pause &amp; Reflect</p><p class="pause-intro">Take 5–10 minutes. Specificity matters more than completeness.</p><div class="pause-questions"><div class="pause-q"><span class="pause-q-num">1</span>Of the three financial value dimensions — waste reduction, improved TCO, green financing, and revenue — which is most relevant to your organisation right now? Do you have the data to make that argument in a budget conversation?</div><div class="pause-q"><span class="pause-q-num">2</span>Think about the four risk dimensions: regulatory, reputational, supply chain, and physical climate. Which represents the most material unquantified exposure in your organisation today?</div><div class="pause-q"><span class="pause-q-num">3</span>Consider your most important non-financial value dimension. Is your current programme credible enough to support that claim? Or is there a gap between the claim and the evidence?</div></div></div><div class="takeaways reveal"><h3 class="takeaways-heading">Key Takeaways</h3><div class="takeaway-list"><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Build the full three-dimension case — financial, risk, and non-financial.</strong><p>Financial alone is insufficient. Risk alone sounds defensive. Non-financial alone lacks operational grounding. All three dimensions must be present for a case that survives scrutiny from finance, risk, and the board simultaneously.</p></div></div><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Lead with waste reduction — it often funds the programme.</strong><p>Idle compute, over-provisioned storage, unnecessary licences, premature refresh: these produce direct cost savings. Starting here creates early wins and builds credibility.</p></div></div><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Quantify risk exposure — especially regulatory and reputational.</strong><p>Boards respond to quantified risk. Frame regulatory exposure as a time-bounded compliance gap with a penalty dimension.</p></div></div><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Translate the case for each audience.</strong><p>Engineers: operational excellence. Finance: cost and risk discipline. Board: strategic and regulatory imperative. The substance doesn't change. The framing must.</p></div></div></div></div></div>
 <div class="module-nav"><a href="module9.html" class="nav-btn"><span><span class="nav-btn-label">← Previous</span><span class="nav-btn-title">M9: The Regulatory and Policy Landscape</span></span></a><button class="complete-btn" onclick="markComplete('module10')">Mark as complete</button><a href="module11.html" class="nav-btn next"><span><span class="nav-btn-label">Next →</span><span class="nav-btn-title">M11: Sustainable IT Strategy and Roadmapping</span></span></a></div>
 <footer><div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 10</div><div class="footer-brand">March 2026 · v2</div></footer>
-<script src="shared.js"></script><script>initProgress(10);</script></body></html>
+<script src="shared.js"></script><script>initProgress(10);</script><script>
+(function(){
+'use strict';
+
+// ── WASTE CALCULATOR ──────────────────────────────────────
+function updateWasteCalc() {
+  var vms = parseInt(document.getElementById('vmSlider').value);
+  var idle = parseInt(document.getElementById('idleSlider').value);
+  var idleVMs = Math.round(vms * idle / 100);
+  var saving = idleVMs * 6000;
+  var co2 = Math.round(idleVMs * 8760 * 0.4 * 0.168 / 1000); // ~0.4kW avg server, UK grid
+
+  document.getElementById('vmLabel').textContent = vms.toLocaleString();
+  document.getElementById('idleLabel').textContent = idle + '%';
+  document.getElementById('wasteCalcResult').textContent = '£' + (saving/1000000).toFixed(1) + 'M';
+  document.getElementById('wasteCalcCO2').textContent = '~' + co2.toLocaleString() + ' tCO₂e/year potentially avoided';
+  document.getElementById('wasteCalcNote').textContent =
+    idleVMs.toLocaleString() + ' idle VMs × £6k/year = £' + saving.toLocaleString() +
+    ' indicative saving. Recoverable within 30 days with basic tagging and auto-shutdown. ' +
+    'Carbon equivalent at UK average grid intensity: ~' + co2.toLocaleString() + ' tCO₂e/year.';
+}
+
+['vmSlider','idleSlider'].forEach(function(id){
+  var el = document.getElementById(id);
+  if (el) el.addEventListener('input', updateWasteCalc);
+});
+updateWasteCalc();
+
+
+// ── AUDIENCE FRAMING ──────────────────────────────────────
+var audiences = [
+  { label:'Board / CEO', col:'#E76F51',
+    frame:'Strategic and regulatory imperative',
+    what:'Boards respond to strategic risk and opportunity, not operational detail. Lead with regulatory exposure (CSRD, greenwashing liability), competitive differentiation (ESG screening, procurement criteria), and the talent and investor dimensions.',
+    language:['Regulatory compliance and legal risk exposure','Competitive and reputational positioning','Cost of capital and green financing access','Talent attraction and retention in a competitive market'],
+    avoid:'Technical detail, operational metrics, implementation complexity. Boards do not need to understand PUE — they need to understand the strategic consequence of not having a credible programme.' },
+  { label:'CFO / Finance', col:'#F4A261',
+    frame:'Cost, risk, and return',
+    what:'CFOs respond to financial evidence. Lead with the waste reduction case — quantified, with a payback period. Then add regulatory risk (penalties, legal exposure) and green financing access as a cost-of-capital argument.',
+    language:['Waste elimination: £X recoverable within 90 days','Regulatory risk: estimated cost of non-compliance','Green financing: indicative basis point reduction available','TCO improvement: refresh cycles, procurement, storage costs'],
+    avoid:'Vague sustainability language, carbon intensity metrics without financial translation, timelines without committed outputs. Every claim needs a number and a payback period.' },
+  { label:'CTO / Engineering', col:'#00A896',
+    frame:'Operational excellence and technical debt',
+    what:'Technology leaders respond to operational quality arguments. Position GreenOps as technical debt reduction, resource efficiency, and engineering discipline — because that is what it is. The sustainability dimension is a co-benefit of doing the technical job properly.',
+    language:['Utilisation discipline and resource efficiency','Technical debt in infrastructure and portfolio','Unit economics: carbon per transaction, cost per VM-hour','Carbon as a new metric in existing governance loops'],
+    avoid:'Making it sound like an external imposition or a compliance tick. Engineers respond to evidence and operational logic — give them the data and the operational argument.' },
+  { label:'Operations / Teams', col:'#B2EDE7',
+    frame:'Meaningful work and practical action',
+    what:'Teams respond to specific, actionable things they can do — and to the sense that their work matters beyond its immediate output. Connect sustainability to decisions they make daily: provisioning choices, data retention, procurement requests, AI usage.',
+    language:['These are the defaults that add up — and we can change them','Your provisioning decision is also a sustainability decision','Idle compute is waste: financially and physically','This is operational excellence — sustainability is what it looks like'],
+    avoid:'Abstract strategy language, global statistics without operational connection, anything that sounds like a poster campaign. Teams disengage from performative sustainability faster than any other group.' },
+];
+
+var selectedAudience = null;
+function buildAudience() {
+  var grid = document.getElementById('audienceGrid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  audiences.forEach(function(a, i) {
+    var isSelected = selectedAudience === i;
+    var cell = document.createElement('div');
+    cell.style.cssText = 'background:'+(isSelected?a.col:'#1E293B')+';padding:1.5rem 1.25rem;cursor:pointer;transition:background 0.2s;text-align:center;border-top:3px solid '+a.col+';';
+    cell.innerHTML =
+      '<div style="font-size:1.0rem;font-weight:600;color:'+(isSelected?'#0F1F2E':'#FFFFFF')+';margin-bottom:0.35rem;">'+a.label+'</div>'+
+      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;color:'+(isSelected?'rgba(11,25,41,0.65)':a.col)+';letter-spacing:0.05em;">'+a.frame+'</div>';
+    cell.addEventListener('click', function(){
+      selectedAudience = (selectedAudience===i)?null:i;
+      buildAudience();
+      var det = document.getElementById('audienceDetail');
+      if (!det) return;
+      if (selectedAudience !== null) {
+        var au = audiences[selectedAudience];
+        det.style.display = 'block';
+        det.style.borderTopColor = au.col;
+        var lang = au.language.map(function(l){ return '<li style="display:flex;gap:0.6rem;margin-bottom:0.35rem;font-size:0.92rem;color:#94A3B8;line-height:1.5;"><span style="color:'+au.col+';flex-shrink:0;">→</span>'+l+'</li>'; }).join('');
+        det.innerHTML =
+          '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.25rem;">'+
+            '<div>'+
+              '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:'+au.col+';margin-bottom:0.5rem;">How to frame it</div>'+
+              '<p style="font-size:0.92rem;color:#94A3B8;line-height:1.65;">'+au.what+'</p>'+
+            '</div>'+
+            '<div>'+
+              '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:#00A896;margin-bottom:0.5rem;">Language that lands</div>'+
+              '<ul style="list-style:none;padding:0;">'+lang+'</ul>'+
+            '</div>'+
+            '<div>'+
+              '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:#E76F51;margin-bottom:0.5rem;">What to avoid</div>'+
+              '<div style="padding:0.75rem 0.85rem;background:rgba(231,111,81,0.06);border-left:2px solid rgba(231,111,81,0.3);font-size:0.88rem;color:#94A3B8;line-height:1.65;font-style:italic;">'+au.avoid+'</div>'+
+            '</div>'+
+          '</div>';
+      } else {
+        det.style.display = 'none';
+      }
+    });
+    grid.appendChild(cell);
+  });
+}
+buildAudience();
+
+})();
+</script>
+
+
+<script>
+(function(){
+'use strict';
+
+// ── M10 THREE-DIMENSION VALUE CASE ────────────────────────
+var valueDimensions = [
+  { label:'Financial', col:'#00A896',
+    items:[
+      { title:'Waste reduction', desc:'Often funds the programme itself. Cloud idle resources, storage waste, and dark data elimination are almost always financially positive. Quantify and lead with this.' },
+      { title:'Total cost of ownership', desc:'Evidence-based refresh cycles, circular procurement, data minimisation, and application rationalisation all reduce TCO. Connect each to a financial figure.' },
+      { title:'Green financing', desc:'Green bonds and sustainability-linked loans offer preferential terms to organisations that meet sustainability criteria — including IT-related targets. The capital markets case is becoming more material.' },
+      { title:'Revenue and procurement', desc:'Sustainability criteria appear increasingly in enterprise and public sector procurement scoring. A credible programme with evidence is a commercial differentiator in competitive bids.' },
+    ]},
+  { label:'Risk', col:'#E76F51',
+    items:[
+      { title:'Regulatory risk', desc:'CSRD, EU Taxonomy, and equivalent frameworks carry compliance gaps with penalties and reputational exposure. Non-compliance is no longer cost-free. Quantify the exposure for your organisation.' },
+      { title:'Reputational risk', desc:'Greenwashing claims attract regulatory challenge under the Green Claims Directive and media scrutiny. The risk of claiming more than evidence supports is now a legal risk as much as a reputational one.' },
+      { title:'Supply chain risk', desc:'Geopolitical disruption, material scarcity in technology supply chains, and concentration risk are all sustainability-adjacent. The same evidence programme that supports GHG reporting builds supply chain resilience.' },
+      { title:'Physical climate risk', desc:'Data centres in exposed locations face operational disruption from extreme weather, heat stress, and water availability constraints. Infrastructure investment decisions need to account for this.' },
+    ]},
+  { label:'Strategic', col:'#B2EDE7',
+    items:[
+      { title:'Talent attraction and retention', desc:'Sustainability performance influences technology professionals\' career decisions — particularly earlier in careers and in competitive hiring markets. A credible programme is a retention and recruitment asset.' },
+      { title:'Employee engagement', desc:'Employees engaged with a sustainability programme they believe is real are more committed to the organisation. This matters most in cultures where meaningful work drives performance.' },
+      { title:'Innovation capability', desc:'Building operational sustainability capability creates the internal expertise that can be commercialised — sustainability analytics, supply chain traceability, energy management platforms.' },
+      { title:'Licence to operate', desc:'Investors, regulators, and key customers increasingly require credible sustainability governance. This is less about competitive advantage and more about baseline expectations that are rising.' },
+    ]},
+];
+
+var selectedValueDim = null;
+function buildValueDims() {
+  var grid = document.getElementById('valueDims');
+  if (!grid) return;
+  grid.innerHTML = '';
+  valueDimensions.forEach(function(dim, i) {
+    var isSelected = selectedValueDim === i;
+    var cell = document.createElement('div');
+    cell.style.cssText = 'background:'+(isSelected?dim.col:'#1E293B')+';padding:1.75rem 1.25rem;cursor:pointer;transition:background 0.2s;text-align:center;';
+    cell.innerHTML =
+      '<div style="font-family:Georgia,serif;font-size:1.6rem;color:'+(isSelected?'rgba(11,25,41,0.4)':dim.col)+';margin-bottom:0.5rem;">'+
+        (i===0?'£':i===1?'⚠':'◈')+'</div>'+
+      '<div style="font-size:1.05rem;font-weight:600;color:'+(isSelected?'#0F1F2E':'#FFFFFF')+';margin-bottom:0.3rem;">'+dim.label+'</div>'+
+      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;color:'+(isSelected?'rgba(11,25,41,0.55)':'#94A3B8')+';letter-spacing:0.06em;">'+dim.items.length+' value categories</div>';
+    cell.addEventListener('click', function(){
+      selectedValueDim = (selectedValueDim===i)?null:i;
+      buildValueDims(); updateValueDetail();
+    });
+    grid.appendChild(cell);
+  });
+}
+function updateValueDetail() {
+  var det = document.getElementById('valueDetail');
+  if (!det) return;
+  if (selectedValueDim===null) {
+    det.style.borderLeftColor='#94A3B8';
+    det.innerHTML='<p style="font-size:0.95rem;color:#94A3B8;font-style:italic;">Select a dimension to see what it includes and how to frame it for each audience.</p>';
+    return;
+  }
+  var dim = valueDimensions[selectedValueDim];
+  det.style.borderLeftColor = dim.col;
+  var items = dim.items.map(function(item){
+    return '<div style="margin-bottom:0.85rem;">'+
+      '<div style="font-size:0.95rem;font-weight:600;color:#FFFFFF;margin-bottom:0.25rem;">'+item.title+'</div>'+
+      '<p style="font-size:0.92rem;color:#94A3B8;line-height:1.65;">'+item.desc+'</p>'+
+      '</div>';
+  }).join('');
+  det.innerHTML = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">'+
+    '<div>'+items.split('</div>').slice(0,2).join('</div>')+'</div>'+
+    '<div>'+items.split('</div>').slice(2,4).join('</div>')+'</div>'+
+    '</div>';
+}
+buildValueDims(); updateValueDetail();
+
+
+// ── M11 OKR EXAMPLES ──────────────────────────────────────
+var okrs = [
+  { obj:'Reduce the carbon intensity of the technology estate by 30% within three years, aligned to the corporate SBTi pathway',
+    col:'#00A896',
+    krs:[
+      { kr:'KR1: Carbon intensity baseline documented by Q1 — with confidence levels per category', status:'foundation' },
+      { kr:'KR2: Top-10 service register with named owners and carbon intensity metrics established by Q2', status:'governance' },
+      { kr:'KR3: 10% unit intensity reduction achieved by year-end', status:'outcome' },
+    ],
+    cadence:'Monthly: KR1 owner reports measurement progress. Quarterly: top-10 register reviewed with owners present. Annual: intensity trajectory vs SBTi pathway presented to leadership.' },
+  { obj:'Achieve Level 4 measurement maturity on the GreenOps framework by end of next financial year',
+    col:'#F4A261',
+    krs:[
+      { kr:'KR1: Governance roles, decision forums, and KPI owners defined and active by Q1', status:'governance' },
+      { kr:'KR2: Vendor evidence register established with coverage ratings for top 10 suppliers by Q2', status:'foundation' },
+      { kr:'KR3: Role-based sustainability KPIs live in quarterly reviews for all four governance roles by Q3', status:'outcome' },
+    ],
+    cadence:'Q1 check: governance structure confirmed. Q2 check: vendor evidence register reviewed. Q3 check: KPI dashboards demonstrated. End of year: maturity assessment against Level 4 criteria.' },
+  { obj:'Demonstrate credible Scope 3 coverage for the top ten technology suppliers',
+    col:'#B2EDE7',
+    krs:[
+      { kr:'KR1: Evidence register complete for all ten suppliers — with tier ratings — by Q1', status:'foundation' },
+      { kr:'KR2: Data requests sent to all suppliers with gaps; responses tracked by Q2', status:'governance' },
+      { kr:'KR3: Confidence ratings improved (self-declared → reviewed or better) for at least 7/10 suppliers by year-end', status:'outcome' },
+    ],
+    cadence:'Q1: register reviewed. Q2: response tracking reviewed. Q3: supplier engagement status reviewed. Year-end: confidence ratings reassessed and improvement plan for remaining gaps presented.' },
+];
+
+var statusLabels = { foundation:'Foundation', governance:'Governance', outcome:'Outcome' };
+var statusCols = { foundation:'#94A3B8', governance:'#F4A261', outcome:'#00A896' };
+
+var expandedOkr = null;
+function buildOkrs() {
+  var container = document.getElementById('okrList');
+  if (!container) return;
+  container.innerHTML = '';
+  okrs.forEach(function(okr, i) {
+    var wrap = document.createElement('div');
+    wrap.style.cssText = 'border-bottom:1px solid rgba(255,255,255,0.04);';
+
+    var hdr = document.createElement('div');
+    hdr.style.cssText = 'padding:1.1rem 1.5rem;cursor:pointer;display:flex;align-items:flex-start;gap:0.85rem;transition:background 0.12s;';
+    hdr.innerHTML =
+      '<div style="width:20px;height:20px;border-radius:50%;border:2px solid '+okr.col+';background:'+(expandedOkr===i?okr.col:'transparent')+';flex-shrink:0;margin-top:0.15rem;transition:background 0.15s;"></div>'+
+      '<div style="flex:1;"><div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:'+okr.col+';margin-bottom:0.3rem;">Objective '+(i+1)+'</div>'+
+      '<div style="font-size:0.95rem;color:#FFFFFF;font-weight:500;line-height:1.5;">'+okr.obj+'</div></div>'+
+      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;color:'+okr.col+';flex-shrink:0;transition:transform 0.2s;">'+(expandedOkr===i?'▲':'▼')+'</div>';
+
+    var detail = document.createElement('div');
+    detail.style.cssText = 'display:'+(expandedOkr===i?'block':'none')+';padding:0 1.5rem 1.25rem 3.25rem;';
+    var krs = okr.krs.map(function(kr){
+      return '<div style="display:flex;gap:0.85rem;margin-bottom:0.65rem;align-items:flex-start;">'+
+        '<span style="display:inline-block;padding:0.15rem 0.45rem;background:rgba(0,0,0,0.2);border:1px solid '+statusCols[kr.status]+';font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;color:'+statusCols[kr.status]+';white-space:nowrap;flex-shrink:0;margin-top:0.1rem;">'+statusLabels[kr.status]+'</span>'+
+        '<span style="font-size:0.92rem;color:#94A3B8;line-height:1.55;">'+kr.kr+'</span>'+
+        '</div>';
+    }).join('');
+    detail.innerHTML = krs +
+      '<div style="margin-top:0.75rem;padding:0.65rem 0.85rem;background:rgba(0,168,150,0.05);border-left:2px solid rgba(0,168,150,0.3);font-size:0.85rem;color:#94A3B8;line-height:1.6;">'+
+      '<strong style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.1em;text-transform:uppercase;color:#00A896;display:block;margin-bottom:0.3rem;">Review cadence</strong>'+
+      okr.cadence+'</div>';
+
+    hdr.addEventListener('mouseenter', function(){ hdr.style.background='rgba(255,255,255,0.02)'; });
+    hdr.addEventListener('mouseleave', function(){ hdr.style.background=''; });
+    hdr.addEventListener('click', function(){
+      expandedOkr = (expandedOkr===i)?null:i;
+      buildOkrs();
+    });
+
+    wrap.appendChild(hdr); wrap.appendChild(detail);
+    container.appendChild(wrap);
+  });
+}
+buildOkrs();
+
+
+// ── M13 INNOVATION / CLEANTECH CARDS ─────────────────────
+var innItems = [
+  { label:'Sustainability hackathons', icon:'💡', col:'#00A896',
+    desc:'A well-structured hackathon focused on a specific operational or business problem — with clear judging criteria and implementation support — surfaces solutions that standard product development processes miss.',
+    why:'The person who knows a batch job is running unnecessarily every night is often not the person who attends the governance forum. Hackathons create channels for that knowledge to surface.',
+    examples:['Energy consumption optimisation challenge — best proposal to reduce data centre PUE by 10%','AI efficiency challenge — smallest model that maintains quality for specific use cases','Dark data challenge — largest reduction in storage cost and footprint within 30 days'],
+    condition:'Works when: there is visible sponsorship, clear judging criteria linked to operational metrics, and a credible implementation path for winning ideas.' },
+  { label:'Citizen-driven innovation', icon:'🔍', col:'#B2EDE7',
+    desc:'Platforms and processes that enable employees at any level to identify and surface improvements. The knowledge gap between governance forums and operational reality is one of the most consistently underexploited improvement opportunities in large technology estates.',
+    why:'Governance forums know what the strategy says. Operational staff know what is actually happening. Building channels to close that gap produces both operational improvements and cultural engagement.',
+    examples:['Operational improvement submissions with a sustainability category and named reviewer','Embedded sustainability criteria in change and release processes — "what is the carbon impact of this change?"','Sustainability-focused communities of practice with quarterly showcase of implemented improvements'],
+    condition:'Works when: there is a clear path from idea to action, and recognition for ideas that are implemented rather than just submitted.' },
+  { label:'CleanTech and SustainTech', icon:'⚡', col:'#F4A261',
+    desc:'Technology organisations with genuine operational sustainability capability are better positioned to develop commercial sustainability solutions. The insight from managing energy consumption, hardware lifecycle, and supply chain evidence at scale is the same insight needed to build products that help others do the same.',
+    why:'Internal capability and commercial opportunity reinforce each other. Running a credible GreenOps programme builds the domain expertise, the tooling, and the credibility to offer it commercially.',
+    examples:['Sustainability reporting platforms — built on internal carbon accounting capability','Smart building / energy management — built on data centre efficiency operational experience','Supply chain traceability — built on vendor evidence programme experience'],
+    condition:'Applies when the organisation has built genuine operational depth rather than a reporting function. Commercialising a spreadsheet is not a product strategy.' },
+];
+
+var selectedInn = null;
+function buildInnCards() {
+  var cells = document.getElementById('innCards');
+  if (!cells) return;
+  cells.innerHTML = '';
+  innItems.forEach(function(item, i) {
+    var isSelected = selectedInn === i;
+    var cell = document.createElement('div');
+    cell.style.cssText = 'background:'+(isSelected?item.col:'#1E293B')+';padding:1.75rem 1.25rem;cursor:pointer;transition:background 0.2s;border-top:3px solid '+item.col+';';
+    cell.innerHTML =
+      '<div style="font-size:1.75rem;margin-bottom:0.5rem;">'+item.icon+'</div>'+
+      '<div style="font-size:1.0rem;font-weight:600;color:'+(isSelected?'#0F1F2E':'#FFFFFF')+';margin-bottom:0.5rem;line-height:1.3;">'+item.label+'</div>'+
+      '<p style="font-size:0.88rem;color:'+(isSelected?'rgba(11,25,41,0.7)':'#94A3B8')+';line-height:1.6;">'+item.desc+'</p>';
+    cell.addEventListener('click', function(){
+      selectedInn = (selectedInn===i)?null:i;
+      buildInnCards();
+      var det = document.getElementById('innDetail');
+      var txt2 = document.getElementById('innDetailText');
+      if (!det) return;
+      if (selectedInn!==null) {
+        var it = innItems[selectedInn];
+        det.style.display='block';
+        var exs = it.examples.map(function(e){ return '<li style="display:flex;gap:0.6rem;margin-bottom:0.35rem;font-size:0.88rem;color:#94A3B8;line-height:1.5;"><span style="color:'+it.col+';flex-shrink:0;">→</span>'+e+'</li>'; }).join('');
+        txt2.innerHTML =
+          '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">'+
+            '<div>'+
+              '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:'+it.col+';margin-bottom:0.5rem;">Why it works</div>'+
+              '<p style="font-size:0.92rem;color:#94A3B8;line-height:1.65;margin-bottom:0.65rem;">'+it.why+'</p>'+
+              '<div style="padding:0.6rem 0.85rem;background:rgba(0,168,150,0.05);border-left:2px solid rgba(0,168,150,0.3);font-size:0.85rem;color:#94A3B8;font-style:italic;line-height:1.6;">'+it.condition+'</div>'+
+            '</div>'+
+            '<div>'+
+              '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:#00A896;margin-bottom:0.5rem;">Practical examples</div>'+
+              '<ul style="list-style:none;padding:0;">'+exs+'</ul>'+
+            '</div>'+
+          '</div>';
+      } else {
+        det.style.display='none';
+      }
+    });
+    cells.appendChild(cell);
+  });
+}
+buildInnCards();
+
+
+// ── M14 STARTING ARTEFACTS + OPERATING CONTEXT ───────────
+var startArts = [
+  { num:'01', label:'Top-ten service register', col:'#00A896',
+    first:'This week: list the ten applications or services that consume the most compute, storage, or network in your estate. For each: write down a name, a rough consumption figure (even if estimated), and who you think owns it. That is your starting register. It will be wrong and incomplete — that is expected and acceptable.',
+    improve:'Next 90 days: confirm owners, define one carbon intensity metric per service, establish the review cadence. The register becomes the anchor for quarterly operational governance.' },
+  { num:'02', label:'Vendor evidence register', col:'#B2EDE7',
+    first:'This week: for your three highest-spend suppliers (typically cloud, hardware, and one managed service), note what sustainability evidence you have seen, what you have not asked for, and what you would request at the next contract touchpoint. Three rows. That is enough to start.',
+    improve:'Next 90 days: extend to top 10 suppliers, apply tier ratings (self-declared / reviewed / assured), send first evidence requests where gaps exist. Review at procurement governance.' },
+  { num:'03', label:'Waste removal backlog', col:'#F4A261',
+    first:'This week: write down five things you already know are waste in your estate: idle cloud instances, orphaned storage, an application nobody uses, devices with no lifecycle policy. Name each one and put a rough cost or energy figure against it. Assign yourself or a named colleague as owner of each.',
+    improve:'Next 90 days: formalise in your operational tracking system (not a separate spreadsheet), assign target dates, review completion in the same forum as financial waste.' },
+];
+
+var expandedArt = null;
+function buildStartArts() {
+  var container = document.getElementById('startCards');
+  if (!container) return;
+  container.innerHTML = '';
+  startArts.forEach(function(art, i) {
+    var wrap = document.createElement('div');
+    wrap.style.cssText = 'border-bottom:1px solid rgba(255,255,255,0.04);';
+    var hdr = document.createElement('div');
+    hdr.style.cssText = 'padding:1.1rem 1.5rem;cursor:pointer;display:flex;gap:0.85rem;align-items:center;transition:background 0.12s;';
+    hdr.innerHTML =
+      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:'+art.col+';min-width:30px;">'+art.num+'</div>'+
+      '<div style="font-size:0.97rem;font-weight:600;color:#FFFFFF;flex:1;">'+art.label+'</div>'+
+      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.75rem;color:'+art.col+';transition:transform 0.2s;">'+(expandedArt===i?'▲':'▼')+'</div>';
+    var detail = document.createElement('div');
+    detail.style.cssText = 'display:'+(expandedArt===i?'grid':'none')+';grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.04);';
+    detail.innerHTML =
+      '<div style="padding:1rem 1.25rem;background:#1E293B;border-left:3px solid '+art.col+';">'+
+        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:'+art.col+';margin-bottom:0.5rem;">This week</div>'+
+        '<p style="font-size:0.92rem;color:#94A3B8;line-height:1.65;">'+art.first+'</p>'+
+      '</div>'+
+      '<div style="padding:1rem 1.25rem;background:#162840;border-left:3px solid rgba(0,168,150,0.3);">'+
+        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;letter-spacing:0.12em;text-transform:uppercase;color:#00A896;margin-bottom:0.5rem;">Next 90 days</div>'+
+        '<p style="font-size:0.92rem;color:#94A3B8;line-height:1.65;">'+art.improve+'</p>'+
+      '</div>';
+    hdr.addEventListener('mouseenter', function(){ hdr.style.background='rgba(255,255,255,0.02)'; });
+    hdr.addEventListener('mouseleave', function(){ hdr.style.background=''; });
+    hdr.addEventListener('click', function(){
+      expandedArt=(expandedArt===i)?null:i;
+      buildStartArts();
+    });
+    wrap.appendChild(hdr); wrap.appendChild(detail);
+    container.appendChild(wrap);
+  });
+}
+buildStartArts();
+
+// ── M14 OPERATING CONTEXT SHIFTS ────────────────────────
+var contextShifts = [
+  { label:'Power availability as a constraint', col:'#E76F51',
+    detail:'Grid capacity constraints are already limiting data centre expansion in London, Dublin, Singapore, and Amsterdam. Power availability — not just cost — is becoming a planning variable for infrastructure decisions. AI demand is accelerating this constraint. Organisations that plan infrastructure without understanding the local power envelope are making decisions that will be revisited.' },
+  { label:'Water stress entering planning decisions', col:'#F4A261',
+    detail:'Hyperscale data centres can consume millions of litres of water daily. Water availability is beginning to shape where data centres receive planning permission — not a future scenario but a present reality in several markets. Water stress belongs in infrastructure strategy alongside cost and connectivity.' },
+  { label:'AI changing the energy calculus', col:'#E76F51',
+    detail:'A frontier AI model query uses approximately 10× the energy of a standard web search. As AI embeds into products and workflows at scale, this is not an incremental increase in IT energy demand — it is a structural change. The organisations that govern AI consumption now are building an advantage over those that will need to retrofit governance when the bill arrives.' },
+  { label:'Regulatory obligation arriving in waves', col:'#F4A261',
+    detail:'CSRD applies to large EU entities for financial year 2024 onwards, with phased extension. The Green Claims Directive introduces legal liability for unsubstantiated sustainability claims. Supply chain due diligence requirements are extending. Organisations outside current scope are receiving obligations through customer and investor pressure that creates a commercial equivalent.' },
+  { label:'Digital sustainability as operational excellence', col:'#00A896',
+    detail:'The organisations that treat digital sustainability as an operational discipline — rather than a reporting function or a communications strategy — will be better positioned on cost, risk, talent, and regulatory compliance simultaneously. The tools are measurement maturity, governance artefacts, and distributed accountability. None of those requires a perfect programme to start.' },
+];
+
+function buildContextShifts() {
+  var container = document.getElementById('contextShifts');
+  if (!container) return;
+  container.innerHTML='';
+  var selectedCtx = null;
+
+  contextShifts.forEach(function(shift, i) {
+    var row = document.createElement('div');
+    row.style.cssText='display:flex;align-items:center;gap:0.85rem;padding:0.75rem 0;border-bottom:1px solid rgba(255,255,255,0.04);cursor:pointer;transition:background 0.12s;';
+    row.innerHTML=
+      '<div style="width:10px;height:10px;border-radius:50%;background:'+shift.col+';flex-shrink:0;box-shadow:0 0 6px '+shift.col+'55;"></div>'+
+      '<div style="font-size:0.95rem;color:#FFFFFF;font-weight:500;flex:1;">'+shift.label+'</div>'+
+      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.75rem;color:'+shift.col+';">▶</div>';
+    row.addEventListener('mouseenter', function(){ row.style.background='rgba(255,255,255,0.02)'; });
+    row.addEventListener('mouseleave', function(){ row.style.background=''; });
+    row.addEventListener('click', function(){
+      selectedCtx=(selectedCtx===i)?null:i;
+      var det=document.getElementById('contextDetail');
+      var txt2=document.getElementById('contextDetailText');
+      if (!det) return;
+      if (selectedCtx!==null) {
+        det.style.display='block';
+        txt2.innerHTML='<strong style="color:'+shift.col+';">'+shift.label+'</strong><br><br>'+contextShifts[selectedCtx].detail;
+      } else {
+        det.style.display='none';
+      }
+    });
+    container.appendChild(row);
+  });
+}
+buildContextShifts();
+
+})();
+</script>
+
+
+
+
+<script>
+(function(){
+'use strict';
+var nonFinDims = [
+  { label:'Risk', col:'#E76F51',
+    desc:'Regulatory risk: CSRD, EU Taxonomy — compliance gaps carry penalties and audit cost. Reputational risk: greenwashing claims attract legal challenge in multiple jurisdictions. Supply chain risk: hardware concentration and geopolitical disruption.',
+    framing:'For CFO and Risk: quantify where possible. CSRD penalty ranges. Legal counsel estimates of greenwashing exposure. These numbers change the conversation from abstract to material.' },
+  { label:'Talent', col:'#F4A261',
+    desc:'Sustainability performance influences technology professionals\'s decisions — particularly earlier in careers. In a tight market for skilled engineers and architects, it is a credible differentiator in recruitment and retention conversations.',
+    framing:'For CHRO and CEO: tie to specific open roles and attrition data. If you can show that sustainability commitment correlates with retention of engineers who have choices, that is a real number.' },
+  { label:'Commercial', col:'#B2EDE7',
+    desc:'Winning contracts others lose because evidence exists where competitors have only commitments. Enterprise and public sector procurement increasingly includes mandatory sustainability criteria. Organisations with evidence win; those with only pledges are disqualified.',
+    framing:'For CCO and CEO: can you name a contract won or lost because of sustainability evidence quality? That single example is more compelling than any projection.' },
+  { label:'Financing', col:'#00A896',
+    desc:'Green bonds, sustainability-linked loans, and ESG-aligned capital are growing rapidly. The interest rate differential on a sustainability-linked loan can be material at scale. Access requires credible programmes and credible data.',
+    framing:'For CFO and Treasurer: work with treasury to quantify the interest rate impact of SLL eligibility. Frame as balance sheet value, not sustainability spend.' },
+  { label:'Resilience', col:'#94A3B8',
+    desc:'Physical climate risk to data centres in exposed locations. Water stress affecting cooling. Supply chain disruption from rare earth constraints or climate events. Organisations that understand their exposure are better positioned to mitigate it.',
+    framing:'For CRO and Board: frame as enterprise risk quantification. What is the annualised expected loss from data centre exposure in heat-stressed or flood-exposed locations? TCFD methodology applies.' },
+];
+
+var selNF = null;
+function buildNonFin() {
+  var grid = document.getElementById('nonFinGrid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  nonFinDims.forEach(function(d, i) {
+    var isSel = selNF === i;
+    var cell = document.createElement('div');
+    cell.style.cssText = 'background:'+(isSel?d.col:'#1E293B')+';padding:1.25rem 0.85rem;cursor:pointer;transition:background 0.15s;text-align:center;border-top:3px solid '+d.col+';';
+    cell.innerHTML = '<div style="font-size:1.0rem;font-weight:600;color:'+(isSel?'#0F1F2E':'#FFFFFF')+';line-height:1.3;">'+d.label+'</div>';
+    cell.addEventListener('click', function(){
+      selNF = (selNF===i)?null:i;
+      buildNonFin(); updateNonFin();
+    });
+    grid.appendChild(cell);
+  });
+}
+function updateNonFin() {
+  var det = document.getElementById('nonFinDetail');
+  if (!det) return;
+  if (selNF === null) {
+    det.style.borderLeftColor = '#B2EDE7';
+    det.innerHTML = '<p style="font-size:0.95rem;color:#94A3B8;font-style:italic;">Select a dimension to see how to frame it in a board conversation.</p>';
+    return;
+  }
+  var d = nonFinDims[selNF];
+  det.style.borderLeftColor = d.col;
+  det.innerHTML =
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">'+
+      '<div><div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:'+d.col+';margin-bottom:0.5rem;">'+d.label+'</div>'+
+        '<p style="font-size:0.92rem;color:#94A3B8;line-height:1.65;">'+d.desc+'</p></div>'+
+      '<div><div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:#00A896;margin-bottom:0.5rem;">Board framing</div>'+
+        '<div style="padding:0.75rem 0.85rem;background:rgba(0,168,150,0.05);border-left:2px solid rgba(0,168,150,0.3);font-size:0.92rem;color:#94A3B8;line-height:1.65;">'+d.framing+'</div></div>'+
+    '</div>';
+}
+buildNonFin(); updateNonFin();
+})();
+</script>
+
+</body></html>

@@ -6,25 +6,28 @@
 <title>M4: Where Impact Lives Across the IT Estate — GreenOps 101</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
-<style>
-/* Inline brand vars — ensures dark theme even if shared.css path fails */
-:root {
-  --navy:#0F1F2E; --navy-mid:#162840; --navy-card:#1E293B; --navy-light:#1C3A55;
-  --teal:#00A896; --teal-dark:#007A6E; --teal-muted:#B2EDE7;
-  --orange:#E76F51; --orange-light:#F4A261;
-  --slate:#94A3B8; --slate-dark:#64748B;
-  --border:#D1D9E0; --border-light:#E8EDF2; --white:#FFFFFF;
-  --track1:#00A896; --track2:#F4A261; --track3:#E76F51;
-  --correct:#22c55e; --wrong:#ef4444;
-  /* Legacy aliases */
-  --grey-100:rgba(255,255,255,0.06); --grey-300:#94A3B8;
-  --grey-500:#64748B; --grey-700:#4A4840;
-}
-html,body{background:#0F1F2E;color:#FFFFFF;}
-</style>
 
+<style>
+/* ── INLINE SHARED CSS — full design system, makes module self-contained ── */
+:root{--navy:#0F1F2E;--navy-mid:#162840;--navy-card:#1E293B;--navy-raised:#1C3A55;--navy-border:rgba(255,255,255,0.07);--teal:#00A896;--teal-bright:#00C4AE;--teal-dark:#007A6E;--teal-muted:#B2EDE7;--teal-glow:rgba(0,168,150,0.15);--teal-subtle:rgba(0,168,150,0.06);--orange:#E76F51;--orange-light:#F4A261;--orange-glow:rgba(231,111,81,0.15);--orange-subtle:rgba(231,111,81,0.06);--slate:#94A3B8;--slate-mid:#94A3B8;--slate-dim:#6B7E96;--white:#FFFFFF;--track1:#00A896;--track2:#F4A261;--track3:#E76F51;--correct:#22c55e;--wrong:#ef4444;--space-1:0.25rem;--space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;--space-5:1.5rem;--space-6:2rem;--space-7:3rem;--space-8:4rem;--navy-light:#1C3A55;--grey-100:rgba(255,255,255,0.06);--grey-300:#94A3B8;--grey-500:#94A3B8;--grey-700:#4A4840;--teal-light:#B2EDE7;--border:rgba(255,255,255,0.08);--border-light:rgba(255,255,255,0.04);--bg-light:#F7F8FA;--white:#FFFFFF;}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;font-size:16px;}img,svg{display:block;max-width:100%;}body{background:var(--navy);color:var(--white);font-family:Calibri,'Trebuchet MS',system-ui,-apple-system,sans-serif;font-weight:400;font-size:1rem;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}.top-nav{position:sticky;top:0;z-index:100;background:rgba(11,25,41,0.96);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,168,150,0.12);padding:0 2.5rem;height:52px;display:flex;align-items:center;gap:1rem;}.top-nav::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#00A896 0%,#F4A261 60%,#E76F51 100%);}.nav-home{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--slate-mid);text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:color 0.15s;flex-shrink:0;}.nav-home:hover{color:var(--white);}.nav-sep{color:rgba(255,255,255,0.15);font-size:0.8rem;}.nav-module{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);font-weight:500;}.nav-track-pill{font-family:'JetBrains Mono',monospace;font-size:0.69rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.22rem 0.65rem;border-radius:2px;}.track1-pill{background:rgba(0,168,150,0.12);color:#00A896;border:1px solid rgba(0,168,150,0.25);}.track2-pill{background:rgba(244,162,97,0.12);color:#F4A261;border:1px solid rgba(244,162,97,0.25);}.track3-pill{background:rgba(231,111,81,0.12);color:#E76F51;border:1px solid rgba(231,111,81,0.25);}.nav-progress{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--slate-mid);letter-spacing:0.08em;}.nav-progress span{color:var(--teal);font-weight:600;}.nav-prog-bar{width:80px;height:2px;background:rgba(255,255,255,0.08);border-radius:1px;margin-left:0.5rem;overflow:hidden;}.nav-prog-fill{height:100%;background:var(--teal);border-radius:1px;transition:width 0.4s ease;}.module-hero{position:relative;overflow:hidden;padding:var(--space-8) var(--space-7) var(--space-7);background:var(--navy);min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;}.module-hero::before{content:'';position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(0,168,150,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(0,168,150,0.03) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,0.3) 30%,rgba(0,0,0,0.3) 75%,transparent 100%);}.module-hero::after{content:'';position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 70% 60% at 90% 40%,rgba(0,168,150,0.09) 0%,transparent 65%);}.track1 .module-hero{border-left:3px solid var(--teal);}.track2 .module-hero{border-left:3px solid var(--orange-light);}.track3 .module-hero{border-left:3px solid var(--orange);}.hero-num{font-family:Georgia,serif;font-size:clamp(8rem,16vw,15rem);line-height:0.82;letter-spacing:-0.04em;color:rgba(0,168,150,0.055);position:absolute;right:2rem;bottom:-0.5rem;user-select:none;pointer-events:none;z-index:0;}.module-hero > *{position:relative;z-index:1;}.module-eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.75rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal-muted);margin-bottom:0.85rem;}.module-title{font-family:Georgia,serif;font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.05;letter-spacing:-0.025em;color:var(--white);margin-bottom:1rem;max-width:800px;}.module-subtitle{font-size:1.1rem;color:var(--slate);line-height:1.65;max-width:620px;margin-bottom:2rem;font-weight:400;}.module-meta{display:flex;gap:2rem;align-items:center;flex-wrap:wrap;}.meta-item{display:flex;flex-direction:column;gap:0.1rem;}.meta-item .label{font-family:'JetBrains Mono',monospace;font-size:0.69rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--slate-mid);}.meta-item .value{font-size:0.88rem;color:var(--slate);font-weight:500;}.complete-btn{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.55rem 1.25rem;background:transparent;border:1px solid var(--teal);color:var(--teal);cursor:pointer;border-radius:2px;transition:background 0.15s,color 0.15s;}.complete-btn:hover{background:var(--teal);color:var(--navy);}.complete-btn.done{background:rgba(0,168,150,0.1);color:var(--teal);cursor:default;}.objectives-strip{background:var(--navy-mid);border-bottom:1px solid var(--navy-border);padding:2rem var(--space-7);}.objectives-label{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-bottom:1.25rem;}.objectives-list{display:flex;flex-direction:column;gap:0.65rem;}.obj-item{display:flex;gap:1rem;align-items:flex-start;}.obj-num{font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;color:var(--teal);background:var(--teal-subtle);border:1px solid rgba(0,168,150,0.2);padding:0.2rem 0.5rem;flex-shrink:0;margin-top:0.05rem;}.obj-text{font-size:0.95rem;color:var(--slate);line-height:1.55;}.module-content{max-width:1000px;padding:0 var(--space-7) var(--space-6);}.content-section{padding:var(--space-7) 0;border-bottom:1px solid var(--navy-border);}.content-section:last-of-type{border-bottom:none;}.section-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem;display:block;}.section-title{font-family:Georgia,serif;font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.15;letter-spacing:-0.02em;color:var(--white);margin-bottom:1.25rem;}.section-intro{font-size:1.12rem;font-weight:400;color:var(--slate);line-height:1.75;max-width:720px;margin-bottom:2.25rem;}.prose{font-size:1.05rem;color:var(--slate);line-height:1.82;max-width:700px;margin-bottom:1.5rem;}.stat-strip{display:grid;gap:1px;background:rgba(255,255,255,0.06);margin:2.25rem 0;border-radius:3px;overflow:hidden;}.stat-strip.cols-3{grid-template-columns:repeat(3,1fr);}.stat-strip.cols-4{grid-template-columns:repeat(4,1fr);}.stat-cell{background:var(--navy-card);padding:2rem 1.5rem;text-align:center;position:relative;overflow:hidden;transition:background 0.2s;}.stat-cell::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--cell-accent,var(--teal));}.stat-cell:hover{background:var(--navy-raised);}.stat-num{font-family:Georgia,serif;font-size:clamp(2.4rem,4.5vw,3.5rem);color:var(--cell-accent,var(--teal));line-height:1;margin-bottom:0.5rem;display:block;}.stat-label{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--slate-mid);line-height:1.5;}.viz-container{background:var(--navy-mid);border:1px solid rgba(0,168,150,0.18);border-top:2px solid rgba(0,168,150,0.5);margin:2.25rem 0;overflow:hidden;}.viz-header{padding:1rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:0.75rem;}.viz-header-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;}.viz-title{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);}.viz-body{padding:1.75rem;}.viz-footer{padding:0.85rem 1.5rem;border-top:1px solid rgba(255,255,255,0.05);background:rgba(0,168,150,0.03);font-size:0.82rem;color:var(--slate-mid);line-height:1.55;}.card-grid{display:grid;gap:1px;background:rgba(255,255,255,0.06);margin:2rem 0;}.card-grid-2{grid-template-columns:1fr 1fr;}.card-grid-3{grid-template-columns:repeat(3,1fr);}.card-grid-auto{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}.card{background:var(--navy-card);padding:1.75rem;border-top:3px solid transparent;transition:background 0.15s;}.card:hover{background:var(--navy-raised);}.card-accent-t{border-top-color:var(--teal);}.card-accent-p{border-top-color:var(--orange-light);}.card-accent-o{border-top-color:var(--orange);}.card-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--slate-mid);margin-bottom:0.5rem;}.card h4{font-weight:600;font-size:1.05rem;margin-bottom:0.6rem;line-height:1.3;color:var(--white);}.card p{font-size:0.95rem;color:var(--slate);line-height:1.7;}.card ul{list-style:none;padding:0;margin-top:0.75rem;display:flex;flex-direction:column;gap:0.4rem;}.card ul li{font-size:0.9rem;color:var(--slate);padding-left:1rem;position:relative;line-height:1.5;}.card ul li::before{content:'→';position:absolute;left:0;color:var(--teal);font-size:0.75rem;top:0.1rem;}.callout{padding:1.35rem 1.75rem;margin:1.75rem 0;border-radius:2px;}.callout-insight{background:rgba(0,168,150,0.07);border-left:4px solid var(--teal);}.callout-warning{background:rgba(231,111,81,0.07);border-left:4px solid var(--orange);}.callout-key{background:rgba(244,162,97,0.07);border-left:4px solid var(--orange-light);}.callout-title{font-family:'JetBrains Mono',monospace;font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:0.55rem;display:block;}.callout-insight .callout-title{color:var(--teal);}.callout-warning .callout-title{color:var(--orange);}.callout-key .callout-title{color:var(--orange-light);}.callout p{font-size:1rem;color:var(--slate);line-height:1.72;}.callout p + p{margin-top:0.65rem;}.callout strong{color:var(--white);font-weight:600;}.compare-table{width:100%;border-collapse:collapse;font-size:0.92rem;margin:1.5rem 0;}.compare-table th{padding:0.7rem 1.1rem;text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--slate-mid);border-bottom:1px solid rgba(255,255,255,0.1);background:var(--navy-raised);}.compare-table td{padding:0.85rem 1.1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--slate);line-height:1.55;vertical-align:top;font-size:0.97rem;}.compare-table tr:hover td{background:rgba(255,255,255,0.02);}.compare-table td:first-child{color:var(--white);font-weight:500;}.process-steps{display:flex;flex-direction:column;gap:0;margin:1.5rem 0;}.step-item{display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem 0;border-bottom:1px solid var(--navy-border);}.step-item:last-child{border-bottom:none;}.step-num{font-family:Georgia,serif;font-size:1.9rem;color:rgba(0,168,150,0.25);line-height:1;flex-shrink:0;width:2.5rem;text-align:right;padding-top:0.1rem;}.step-content{flex:1;}.step-title{font-weight:600;font-size:1rem;color:var(--white);margin-bottom:0.3rem;}.step-body p{font-size:0.95rem;color:var(--slate);line-height:1.68;}.kc-block{background:var(--navy-mid);border:1px solid rgba(255,255,255,0.07);border-left:3px solid var(--teal);padding:1.75rem 2rem;margin:2.5rem 0;}.kc-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-bottom:0.75rem;display:block;}.kc-q{font-size:1.05rem;font-weight:500;color:var(--white);line-height:1.55;margin-bottom:1.25rem;}.kc-options{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:0;}.kc-option{display:flex;align-items:flex-start;gap:0.85rem;padding:0.9rem 1.1rem;background:var(--navy-card);border:1px solid rgba(255,255,255,0.06);cursor:pointer;text-align:left;width:100%;font-family:inherit;font-size:0.97rem;color:var(--slate);line-height:1.55;transition:background 0.12s,border-color 0.12s;}.kc-option:hover{background:var(--navy-raised);border-color:rgba(0,168,150,0.25);}.kc-opt-key{font-family:'JetBrains Mono',monospace;font-size:0.75rem;font-weight:700;color:var(--slate-mid);flex-shrink:0;width:1.3rem;padding-top:0.08rem;}.kc-block.answered .kc-option{cursor:default;}.kc-block.answered .kc-option.correct{background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.3);color:#86efac;}.kc-block.answered .kc-option.wrong{opacity:0.35;}.kc-reveal{display:none;margin-top:1.25rem;padding:1.25rem 1.5rem;background:rgba(0,0,0,0.2);border-left:3px solid var(--teal);}.kc-reveal-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:0.6rem;display:block;}.kc-reveal p{font-size:0.97rem;color:var(--slate);line-height:1.75;margin-bottom:0.6rem;}.pause-reflect{background:var(--navy-mid);border:1px solid rgba(244,162,97,0.2);padding:2rem 2.25rem;margin:2.5rem 0;}.pause-label{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--orange-light);margin-bottom:0.9rem;display:block;}.pause-intro{font-size:1.02rem;color:var(--slate);line-height:1.7;margin-bottom:1rem;}.pause-q{display:flex;gap:0.9rem;margin-bottom:0.65rem;}.pause-q-num{font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--orange-light);flex-shrink:0;padding-top:0.15rem;font-weight:700;}.pause-q-text{font-size:0.97rem;color:var(--slate);line-height:1.65;}.takeaways{background:var(--navy-mid);border-top:3px solid var(--teal);padding:2.25rem var(--space-7);margin-top:0;}.takeaways-heading{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal);margin-bottom:1.5rem;}.takeaway-list{display:flex;flex-direction:column;gap:1rem;}.takeaway-item{display:flex;gap:1rem;align-items:flex-start;}.takeaway-icon{color:var(--teal);font-size:0.5rem;flex-shrink:0;padding-top:0.4rem;}.takeaway-body{flex:1;}.takeaway-body strong{font-size:1rem;color:var(--white);font-weight:600;display:block;margin-bottom:0.2rem;}.takeaway-body p{font-size:0.95rem;color:var(--slate);line-height:1.65;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem var(--space-7);border-top:1px solid var(--navy-border);gap:1rem;}.nav-btn{display:flex;align-items:center;gap:0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--slate);text-decoration:none;padding:0.65rem 1.1rem;border:1px solid rgba(255,255,255,0.08);transition:color 0.15s,border-color 0.15s,background 0.15s;}.nav-btn:hover{color:var(--white);border-color:var(--teal);background:var(--teal-subtle);}.nav-btn-label{font-size:0.69rem;display:block;color:var(--slate-mid);margin-bottom:0.1rem;}.nav-btn-title{font-size:0.82rem;color:var(--white);}.nav-btn.primary{background:var(--teal-subtle);border-color:rgba(0,168,150,0.35);color:var(--teal);}.nav-btn.primary:hover{background:var(--teal);color:var(--navy);}footer{padding:1.5rem var(--space-7);border-top:1px solid var(--navy-border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;}.footer-brand{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--slate-mid);letter-spacing:0.1em;}.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.5s ease,transform 0.5s ease;}.reveal.revealed{opacity:1;transform:translateY(0);}@media (max-width:860px){.module-hero{padding:3rem 1.5rem 2.5rem;min-height:220px;}.module-content,.objectives-strip,.takeaways,.module-nav,footer{padding-left:1.5rem;padding-right:1.5rem;}.content-section{padding:2.5rem 0;}.card-grid-3,.card-grid-2{grid-template-columns:1fr;}.stat-strip.cols-3,.stat-strip.cols-4{grid-template-columns:1fr 1fr;}.top-nav{padding:0 1.25rem;}.hero-num{display:none;}}@media (max-width:540px){.stat-strip.cols-3,.stat-strip.cols-4{grid-template-columns:1fr;}.module-title{font-size:1.8rem;}}.viz-container > p.viz-title{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);padding:1rem 1.5rem 0.85rem;border-bottom:1px solid rgba(255,255,255,0.06);margin:-1.65rem -1.65rem 1.5rem;display:block;background:rgba(0,168,150,0.03);}
+</style>
+<style>
+/* ── SHARED COMPONENT RULES (inline supplement) ── */
+.objectives-strip{background:var(--navy-mid);border-bottom:1px solid var(--navy-border);padding:2rem var(--space-7)}
+.objectives-heading{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal-muted);margin-bottom:1rem}
+.objectives-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:0.75rem}
+.objectives-list li{display:flex;align-items:baseline;gap:1rem;font-size:0.97rem;color:var(--slate);line-height:1.6}
+.obj-num{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--teal);letter-spacing:0.1em;flex-shrink:0}
+.pause-questions{background:var(--navy-mid);border-top:1px solid var(--navy-border);border-bottom:1px solid var(--navy-border);padding:2rem var(--space-7)}
+.pause-q{font-size:0.97rem;color:var(--slate);line-height:1.7;margin-bottom:0.5rem;padding-left:1.25rem;border-left:2px solid rgba(255,255,255,0.08)}
+.kc-hint{font-size:0.85rem;color:var(--slate);font-style:italic;margin-top:0.5rem;display:none}
+.kc-hint.visible{display:block}
+.next{display:inline-flex;align-items:center;gap:0.75rem;padding:0.85rem 1.75rem;background:rgba(0,168,150,0.1);border:1px solid rgba(0,168,150,0.25);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:0.82rem;letter-spacing:0.08em;text-decoration:none;transition:background 0.15s}
+.next:hover{background:rgba(0,168,150,0.18)}
+.module-footer{padding:3rem var(--space-7);border-top:1px solid var(--navy-border);display:flex;justify-content:space-between;align-items:center}
+</style>
 <style>
 /* Domain selector */
 .domain-selector {
@@ -49,12 +52,12 @@ html,body{background:#0F1F2E;color:#FFFFFF;}
 .domain-btn:hover { background: var(--navy-card); }
 .domain-btn.active { background: var(--navy-card); border-top: 3px solid var(--teal); }
 .domain-icon { font-size: 1.4rem; }
-.domain-label { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate-dark); line-height: 1.3; }
+.domain-label { font-family: 'JetBrains Mono', monospace; font-size:0.69rem; letter-spacing: 0.08em; text-transform: uppercase; color:#94A3B8; line-height: 1.3; }
 .domain-btn.active .domain-label { color: var(--teal); }
 .domain-driver {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.55rem;
-  color: var(--slate-dark);
+  font-size:0.69rem;
+  color:#94A3B8;
   line-height: 1.3;
 }
 
@@ -63,12 +66,12 @@ html,body{background:#0F1F2E;color:#FFFFFF;}
 .domain-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
 .domain-panel h4 { font-weight: 500; font-size: 0.95rem; margin-bottom: 0.6rem; }
 .domain-panel p { font-size: 0.84rem; color: var(--slate); line-height: 1.7; margin-bottom: 0.75rem; }
-.dp-good h5 { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.6rem; }
-.dp-warn h5 { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.6rem; }
+.dp-good h5 { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.6rem; }
+.dp-warn h5 { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.6rem; }
 .dp-list { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
 .dp-good .dp-list li { font-size: 0.8rem; color: var(--slate); padding-left: 1rem; position: relative; }
 .dp-good .dp-list li::before { content: '✓ '; color: var(--teal); position: absolute; left: 0; }
-.dp-warn .dp-list li { font-size: 0.8rem; color: var(--slate-dark); padding-left: 1.25rem; position: relative; }
+.dp-warn .dp-list li { font-size: 0.8rem; color:#94A3B8; padding-left: 1.25rem; position: relative; }
 .dp-warn .dp-list li::before { content: '⚠ '; position: absolute; left: 0; }
 
 /* PUE/Utilisation interactive chart */
@@ -103,15 +106,15 @@ html,body{background:#0F1F2E;color:#FFFFFF;}
 }
 .chart-y-label {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.55rem;
-  color: var(--slate-dark);
+  font-size:0.69rem;
+  color:#94A3B8;
 }
 .chart-x-label {
   position: absolute;
   bottom: 6px;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.55rem;
-  color: var(--slate-dark);
+  font-size:0.69rem;
+  color:#94A3B8;
 }
 .chart-x-label.left { left: 55px; }
 .chart-x-label.right { right: 8px; }
@@ -121,8 +124,8 @@ html,body{background:#0F1F2E;color:#FFFFFF;}
   left: 50%;
   transform: translateX(-50%);
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.55rem;
-  color: var(--slate-dark);
+  font-size:0.69rem;
+  color:#94A3B8;
 }
 /* Scatter dots */
 .chart-dot {
@@ -144,7 +147,7 @@ html,body{background:#0F1F2E;color:#FFFFFF;}
   background: var(--navy);
   border: 1px solid rgba(255,255,255,0.12);
   padding: 0.4rem 0.6rem;
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   white-space: nowrap;
   color: var(--white);
   z-index: 10;
@@ -152,8 +155,8 @@ html,body{background:#0F1F2E;color:#FFFFFF;}
 }
 .chart-dot:hover .dot-tooltip { display: block; }
 .zone-target { position: absolute; background: rgba(0,168,150,0.08); border: 1px dashed rgba(0,168,150,0.3); border-radius: 2px; }
-.zone-label { font-size: 0.65rem; color: var(--teal); position: absolute; }
-.zone-warning { font-size: 0.65rem; color: var(--orange); position: absolute; }
+.zone-label { font-size: 0.75rem; color: var(--teal); position: absolute; }
+.zone-warning { font-size: 0.75rem; color: var(--orange); position: absolute; }
 
 /* Stop/Start doing cards */
 .stop-start {
@@ -166,7 +169,7 @@ html,body{background:#0F1F2E;color:#FFFFFF;}
 .start-col { border-top: 3px solid var(--teal); background: var(--navy-mid); padding: 1.5rem; }
 .ss-heading {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -216,343 +219,176 @@ html,body{background:#0F1F2E;color:#FFFFFF;}
 </div>
 
 <div class="module-content">
-
-<!-- SECTION 1 — Domain fluency -->
+<!-- ═══════════════════════════════════════════════════
+     S1 — Seven domains + domain selector
+     ═══════════════════════════════════════════════════ -->
 <div class="content-section reveal">
   <p class="section-label">Section 1</p>
-  <h2 class="section-title">Domain fluency — why one narrative doesn't work.</h2>
+  <h2 class="section-title">Seven domains. Seven different stories.</h2>
   <p class="section-intro">The most common mistake is applying the same sustainability narrative everywhere. Each domain has different dominant drivers, different failure modes, and different levers. GreenOps requires domain fluency — not a universal story.</p>
 
-  <!-- Interactive domain explorer -->
-  <div class="viz-container reveal" style="padding: 0;">
-    <div class="domain-selector" id="domainSelector">
-      <button class="domain-btn active" onclick="showDomain('enduser', this)">
-        <span class="domain-icon">💻</span>
-        <span class="domain-label">End-User</span>
-        <span class="domain-driver">Embodied carbon</span>
-      </button>
-      <button class="domain-btn" onclick="showDomain('dc', this)">
-        <span class="domain-icon">🏢</span>
-        <span class="domain-label">Data Centres</span>
-        <span class="domain-driver">PUE & utilisation</span>
-      </button>
-      <button class="domain-btn" onclick="showDomain('cloud', this)">
-        <span class="domain-icon">☁️</span>
-        <span class="domain-label">Cloud</span>
-        <span class="domain-driver">Idle & over-prov.</span>
-      </button>
-      <button class="domain-btn" onclick="showDomain('software', this)">
-        <span class="domain-icon">⚙️</span>
-        <span class="domain-label">Software & Data</span>
-        <span class="domain-driver">Compute per task</span>
-      </button>
-      <button class="domain-btn" onclick="showDomain('hardware', this)">
-        <span class="domain-icon">🖥️</span>
-        <span class="domain-label">Hardware</span>
-        <span class="domain-driver">Embodied & EOL</span>
-      </button>
-      <button class="domain-btn" onclick="showDomain('ai', this)">
-        <span class="domain-icon">🤖</span>
-        <span class="domain-label">AI</span>
-        <span class="domain-driver">Inference at scale</span>
-      </button>
-      <button class="domain-btn" onclick="showDomain('networks', this)">
-        <span class="domain-icon">🌐</span>
-        <span class="domain-label">Networks</span>
-        <span class="domain-driver">Data movement</span>
-      </button>
+  <!-- Stat strip -->
+  <div class="stat-strip cols-3 reveal">
+    <div class="stat-cell" style="--cell-accent:#E76F51">
+      <span class="stat-num">~80%</span>
+      <span class="stat-label">of a laptop's footprint<br>before it's switched on</span>
     </div>
-    <div class="domain-panels">
+    <div class="stat-cell" style="--cell-accent:#F4A261">
+      <span class="stat-num">25–40%</span>
+      <span class="stat-label">of cloud resources<br>idle or over-provisioned</span>
+    </div>
+    <div class="stat-cell" style="--cell-accent:#00A896">
+      <span class="stat-num">10×</span>
+      <span class="stat-label">more energy per AI query<br>vs standard web search</span>
+    </div>
+  </div>
 
-      <!-- End-User -->
-      <div class="domain-panel active" id="domain-enduser">
-        <div>
-          <h4>End-User Services: the footprint is mostly before you switch it on</h4>
-          <p>~80% of a laptop's lifetime footprint is manufacturing — before it reaches your desk. The dominant lever in end-user services is lifecycle and procurement, not plug socket behaviour. Every additional year you keep a device in productive use represents a meaningful reduction in embodied carbon per year of service.</p>
-          <div class="dp-warn">
-            <h5>⚠ Common defaults that add up</h5>
-            <ul class="dp-list">
-              <li>Extra devices issued as standard regardless of role</li>
-              <li>Two monitors by default — whether the role needs them or not</li>
-              <li>Docking stations accumulating in storage rooms, never recovered</li>
-              <li>Laptops shipped by air because onboarding was left to the last minute</li>
-              <li>No recovery process — ordering new is easier than redeploying existing</li>
-            </ul>
-          </div>
-        </div>
-        <div>
-          <div class="dp-good">
-            <h5>✓ What good practice looks like</h5>
-            <ul class="dp-list">
-              <li>Role-based device standards — match specification to actual role requirements</li>
-              <li>Power management enforced centrally by policy, not individual choice</li>
-              <li>Recovery and redeploy process genuinely easier than ordering new</li>
-              <li>Accessory lifecycle management — cables and docks are assets, not consumables</li>
-              <li>Governed AI usage for routine tasks to prevent silent inference growth</li>
-            </ul>
-          </div>
-          <div class="callout callout-insight" style="margin-top:1rem;">
-            <p class="callout-title">The primary lever</p>
-            <p style="font-size:0.82rem;">Lifecycle extension. One additional year of use per device reduces embodied carbon per year of service by ~20% on a typical refresh cycle.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Data Centres -->
-      <div class="domain-panel" id="domain-dc">
-        <div>
-          <h4>Data Centres: where resource intensity is concentrated and measurable</h4>
-          <p>Data centres are where the numbers are easy to quote — and easy to misuse. PUE without utilisation data is dangerous. A lightly loaded site can have good PUE while still being wasteful in absolute terms.</p>
-          <div class="dp-warn">
-            <h5>⚠ Metric theatre to watch for</h5>
-            <ul class="dp-list">
-              <li>Design PUE presented as if it reflects operational reality</li>
-              <li>Annual average PUE hiding seasonal peaks (ask for seasonal breakdown)</li>
-              <li>Portfolio averages masking the worst-performing sites</li>
-              <li>"Renewable energy" claims without stated instruments or boundaries</li>
-            </ul>
-          </div>
-        </div>
-        <div>
-          <div class="dp-good">
-            <h5>✓ The metrics — what they measure and what they hide</h5>
-            <ul class="dp-list">
-              <li><strong>PUE</strong> — Total facility power ÷ IT equipment power. ~1.1 exceptional. Context matters.</li>
-              <li><strong>WUE</strong> — Litres of water ÷ kWh of IT energy. Track seasonality and water stress.</li>
-              <li><strong>CUE</strong> — CO₂ emissions ÷ IT equipment energy. Bridge between efficiency and impact.</li>
-              <li><strong>REF/ERF</strong> — Only as good as the evidence behind them. Push for granularity.</li>
-            </ul>
-          </div>
-          <div class="callout callout-warning" style="margin-top:1rem;">
-            <p class="callout-title">The follow-up question</p>
-            <p style="font-size:0.82rem;">For any PUE figure: what is IT server utilisation — and what is the plan to improve it through consolidation and decommissioning?</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Cloud -->
-      <div class="domain-panel" id="domain-cloud">
-        <div>
-          <h4>Cloud: the continuous control loop</h4>
-          <p>Cloud doesn't remove infrastructure responsibility — it changes where the levers sit. Rightsizing is not a project. It's a discipline that only sticks when owned jointly by platform engineering and FinOps, with application owners brought in on decisions that affect performance.</p>
-          <div class="dp-warn">
-            <h5>⚠ Where cloud waste actually hides</h5>
-            <ul class="dp-list">
-              <li>Zombie resources — running with no active workload</li>
-              <li>Non-production environments left on after business hours</li>
-              <li>Orphaned storage from decommissioned services</li>
-              <li>Oversized instances based on peak provisioning, never revisited</li>
-              <li>Untagged resources with no owner and no review trigger</li>
-            </ul>
-          </div>
-        </div>
-        <div>
-          <div class="dp-good">
-            <h5>✓ The 5-step remediation loop</h5>
-            <ul class="dp-list">
-              <li>Visibility and attribution — if you can't attribute, you can't govern</li>
-              <li>Baselining unit economics — carbon per VM-hour, idle percentage</li>
-              <li>Remediate with a hierarchy of levers — kill zombies first, then rightsize</li>
-              <li>Prevent recurrence with guardrails — policy-as-code, default sizing limits</li>
-              <li>Verify and institutionalise — bake into FinOps reviews, not heroic side missions</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Software & Data -->
-      <div class="domain-panel" id="domain-software">
-        <div>
-          <h4>Software and data: decisions that compound over a service's lifetime</h4>
-          <p>Software behaviour is one of the most underestimated sustainability levers. Inefficient code patterns, unchecked data growth, and ungoverned telemetry aggregate into material footprints at scale — and are rarely attributed to the engineering decisions that drove them.</p>
-          <div class="dp-warn">
-            <h5>⚠ Common patterns to watch for</h5>
-            <ul class="dp-list">
-              <li>Unnecessary computation on every request — cache-first thinking is absent</li>
-              <li>Data retained indefinitely — no lifecycle policy, no review trigger</li>
-              <li>Heavy dependencies for lightweight tasks</li>
-              <li>Telemetry collecting everything "just in case" with no retention policy</li>
-              <li>Applications that continue running because nobody decided to retire them</li>
-            </ul>
-          </div>
-        </div>
-        <div>
-          <div class="dp-good">
-            <h5>✓ What shifts the software footprint</h5>
-            <ul class="dp-list">
-              <li>Compute efficiency — measure carbon per transaction, not just total compute</li>
-              <li>Software Carbon Intensity (SCI) — intensity, not absolute, is the actionable metric</li>
-              <li>Architecture-level choices — right pattern for the workload, not the familiar one</li>
-              <li>Data minimisation — only collect, process, and retain what's justified</li>
-              <li>Portfolio rationalisation — the TIME model applied to carbon</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Hardware Lifecycle -->
-      <div class="domain-panel" id="domain-hardware">
-        <div>
-          <h4>Hardware lifecycle: starts at design, not disposal</h4>
-          <p>Embodied carbon is determined by procurement and use decisions made years before end-of-life. Evidence-based refresh cycles and circular economy criteria are the lever. The recycling bin is not.</p>
-          <div class="dp-warn">
-            <h5>⚠ Three lifecycle trade-off traps</h5>
-            <ul class="dp-list">
-              <li><strong>Trap 1</strong> — Extending asset life isn't always right: if older hardware is dramatically less energy-efficient, keeping it longer may increase operational energy per unit of useful compute</li>
-              <li><strong>Trap 2</strong> — Refresh early "in the name of efficiency": if you replace too frequently, embodied emissions and e-waste rise</li>
-              <li><strong>Trap 3</strong> — Comparing products without comparable functional units: a higher-footprint server may be more efficient per unit of delivered compute</li>
-            </ul>
-          </div>
-        </div>
-        <div>
-          <div class="dp-good">
-            <h5>✓ The lifecycle governance approach</h5>
-            <ul class="dp-list">
-              <li>Treat lifecycle decisions as a unit economics problem: energy per unit of useful work, balanced against embodied impact and lifespan</li>
-              <li>Include sustainability criteria in procurement — not just performance and cost</li>
-              <li>Design for repairability and component replacement, not whole-unit replacement</li>
-              <li>ITAD governance — certified disposal, data sanitisation, refurbishment pathways</li>
-              <li>Manufacturer take-back programmes for responsible end-of-life</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- AI -->
-      <div class="domain-panel" id="domain-ai">
-        <div>
-          <h4>AI: the cross-cutting consumption multiplier</h4>
-          <p>The main risk for most organisations is not the training runs that make headlines. It's inference demand scaling quietly across hundreds or thousands of users — embedded in products, integrated into workflows, and left ungoverned because it feels like productivity rather than infrastructure.</p>
-          <p style="color:var(--orange); font-size:0.82rem;">AI is the fastest-growing ungoverned consumption category in enterprise IT.</p>
-        </div>
-        <div>
-          <div style="display:flex; flex-direction:column; gap:0.75rem;">
-            <div class="callout callout-warning" style="margin:0;">
-              <p class="callout-title">The governance failure pattern</p>
-              <p style="font-size:0.82rem;">A large frontier model deployed as the default for all staff — including for writing short emails. Routine tasks using models 10–50× over-specified. Inference demand scales at the rate of adoption, not value.</p>
-            </div>
-            <div class="callout callout-insight" style="margin:0;">
-              <p class="callout-title">The fix: model tiering</p>
-              <p style="font-size:0.82rem;">Small models for routine tasks, mid-range where reasoning is needed, frontier only where it genuinely changes the outcome. Make the smallest reliable model the default. Require justification to escalate.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Networks -->
-      <div class="domain-panel" id="domain-networks">
-        <div>
-          <h4>Networks: the invisible footprint</h4>
-          <p>Networks are the invisible infrastructure of digital services. Their impact is frequently omitted from sustainability programmes because the data is hard to access. That doesn't make the impact smaller.</p>
-          <p>Egress costs and egress footprint move together. If cloud egress charges are significant, data is moving in patterns that were not intentionally designed. Cost and carbon align without additional justification.</p>
-        </div>
-        <div>
-          <div class="dp-good">
-            <h5>✓ Network efficiency levers</h5>
-            <ul class="dp-list">
-              <li>Minimise unnecessary data movement — every API call transferring excess data aggregates at scale</li>
-              <li>Reduce cross-region replication to what's justified — revisit defaults set under different constraints</li>
-              <li>Cache at the appropriate layer — repeated transfers of static content are avoidable</li>
-              <li>Review video conferencing defaults — high-resolution by default is a policy choice, not a technical requirement</li>
-              <li>Treat egress costs and footprint as the same signal — they are</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
+  <!-- Domain selector — 7 clickable domains, detail panel below -->
+  <div class="viz-container reveal" id="domainViz" style="padding:0">
+    <div class="viz-header">
+      <div class="viz-header-dot"></div>
+      <span class="viz-title">Seven impact domains — click any to explore drivers, failure modes, and levers</span>
+    </div>
+    <div id="domainBtns" style="display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:rgba(255,255,255,0.06);"></div>
+    <div id="domainDetail" style="min-height:220px;background:#162840;padding:1.75rem;border-top:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;">
+      <p style="font-size:0.95rem;color:#94A3B8;font-style:italic;text-align:center;">Select a domain above to explore its dominant drivers and key levers.</p>
     </div>
   </div>
 </div>
 
-<!-- SECTION 2 — PUE + Utilisation interactive -->
+<!-- ═══════════════════════════════════════════════════
+     S2 — PUE + utilisation real SVG scatter
+     ═══════════════════════════════════════════════════ -->
 <div class="content-section reveal">
   <p class="section-label">Section 2</p>
   <h2 class="section-title">PUE and utilisation — both dials matter.</h2>
-  <p class="section-intro">A good PUE on a lightly loaded site is not a success — it's a warning sign. The goal is high utilisation at improving efficiency. Hover over the dots to understand each scenario.</p>
+  <p class="section-intro">A good PUE on a lightly loaded site is not a success — it is a warning sign. The goal is high utilisation at improving efficiency. Click any scenario dot to understand what it reveals.</p>
 
-  <div class="viz-container reveal">
-    <p class="viz-title">Data centre performance — PUE vs IT utilisation (hover for detail)</p>
-    <div class="pue-util-chart" id="pueChart">
-      <!-- Zone: target -->
-      <div class="zone-target" style="right:5%; top:5%; width:30%; height:35%;"></div>
-      <div class="zone-label" style="right:6%; top:6%;">★ Target zone</div>
-
-      <!-- Y axis labels -->
-      <div class="chart-y-labels">
-        <span class="chart-y-label">1.1</span>
-        <span class="chart-y-label">1.3</span>
-        <span class="chart-y-label">1.5</span>
-        <span class="chart-y-label">1.7</span>
-        <span class="chart-y-label">2.0</span>
+  <div class="viz-container reveal" id="pueViz">
+    <div class="viz-header">
+      <div class="viz-header-dot" style="background:#F4A261"></div>
+      <span class="viz-title">Data centre performance matrix — PUE vs IT server utilisation. Click any scenario.</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;">
+      <div style="padding:1.75rem;background:rgba(0,0,0,0.08);">
+        <svg id="pueSvg" viewBox="0 0 320 280" style="width:100%;max-width:320px;height:auto;display:block;"></svg>
       </div>
-
-      <!-- X labels -->
-      <div class="chart-x-label left">Low utilisation</div>
-      <div class="chart-x-title">← IT Server Utilisation →</div>
-      <div class="chart-x-label right">High utilisation</div>
-
-      <!-- Scenario dots -->
-      <div class="chart-dot" style="left:15%; bottom:35%; background: var(--orange); width:12px; height:12px;" title="">
-        <div class="dot-tooltip">A: PUE 1.45, Util 15%<br>"Reporting win, operational failure"<br>Good facility, wasted compute</div>
-      </div>
-      <div class="chart-dot" style="left:25%; bottom:60%; background:#ef4444;" title="">
-        <div class="dot-tooltip">B: PUE 2.0, Util 20%<br>"Double failure"<br>Inefficient facility AND low utilisation</div>
-      </div>
-      <div class="chart-dot" style="left:60%; bottom:35%; background: #fde047;" title="">
-        <div class="dot-tooltip">C: PUE 1.45, Util 65%<br>"Acceptable — improving"<br>Reasonable utilisation, scope to improve PUE</div>
-      </div>
-      <div class="chart-dot" style="left:75%; bottom:62%; background: var(--teal);" title="">
-        <div class="dot-tooltip">D: PUE 1.2, Util 80%<br>"★ Target zone"<br>High utilisation, efficient facility</div>
-      </div>
-      <div class="chart-dot" style="left:85%; bottom:70%; background: var(--teal-muted); width:14px; height:14px;" title="">
-        <div class="dot-tooltip">E: PUE 1.1, Util 85%<br>"Exceptional"<br>Hyperscale-level performance on both metrics</div>
-      </div>
-      <div class="chart-dot" style="left:40%; bottom:20%; background:#a855f7;" title="">
-        <div class="dot-tooltip">F: PUE 1.8, Util 40%<br>"Common enterprise reality"<br>Legacy facility, moderate utilisation — needs investment</div>
+      <div id="pueDetail" style="padding:1.75rem;border-left:1px solid rgba(255,255,255,0.06);display:flex;flex-direction:column;justify-content:center;min-height:280px;">
+        <p style="font-size:0.95rem;color:#94A3B8;font-style:italic;line-height:1.7;">Click a scenario dot on the chart to understand what it reveals about data centre performance and where to focus first.</p>
       </div>
     </div>
-    <div class="callout callout-insight" style="margin-top:0.5rem;">
-      <p><strong>First lever: improve utilisation before spending capital on facility efficiency improvements.</strong> A rightsizing programme that takes utilisation from 20% to 60% on an existing facility delivers more absolute carbon reduction than a PUE improvement project on a lightly loaded site.</p>
+    <div style="padding:0.85rem 1.75rem;border-top:1px solid rgba(255,255,255,0.05);background:rgba(0,168,150,0.02);">
+      <p style="font-size:0.82rem;color:#94A3B8;">PUE = Total facility power ÷ IT equipment power. Lower is better (1.0 = perfect). WUE = litres of water per kWh of IT load. CUE = CO₂ ÷ IT equipment energy. All illustrative scenarios — real values vary by facility design, climate, and workload.</p>
     </div>
+  </div>
+
+  <!-- Metric theatre callout -->
+  <div class="callout callout-warning reveal">
+    <span class="callout-title">The metric theatre problem</span>
+    <p>Most organisations don't fail because they lack metrics. They fail because they use metrics as theatre. Design PUE presented as operational reality. Annual averages hiding summer peaks. Portfolio averages protecting the worst sites. Renewable claims without stated instruments. If the metric can't be traced to an operational lever — treat it as storytelling.</p>
   </div>
 </div>
 
-<!-- SECTION 3 — AI Stop/Start INTERACTIVE -->
+<!-- ═══════════════════════════════════════════════════
+     S3 — Cloud waste hierarchy
+     ═══════════════════════════════════════════════════ -->
 <div class="content-section reveal">
   <p class="section-label">Section 3</p>
-  <h2 class="section-title">AI consumption — what to stop and start doing.</h2>
-  <p class="section-intro">These are the defaults that silently burn compute for no proportionate value, and the disciplines that let AI scale without becoming a silent waste engine. Neither list is a restriction on using AI well.</p>
+  <h2 class="section-title">Where cloud waste actually hides.</h2>
+  <p class="section-intro">Organisations routinely over-focus on rightsizing individual instances while leaving larger, easier wins untouched. Work the hierarchy from top to bottom — quick wins first, structural levers second.</p>
 
-  <div class="stop-start reveal">
-    <div class="stop-col">
-      <div class="ss-heading">What to stop doing</div>
-      <ul class="ss-list">
-        <li>Using the biggest model by default when a smaller one is fit for purpose</li>
-        <li>Stuffing the context window with entire documents that aren't needed in full</li>
-        <li>Letting chat threads grow indefinitely — long threads carry silent context overhead</li>
-        <li>Asking vague questions and iterating five times — be specific from the start</li>
-        <li>Generating long outputs you won't use — enforce a length limit</li>
-        <li>Using AI where a search query, template, or rules-based workflow would do the job</li>
-        <li>Running non-urgent AI jobs in peak-carbon periods out of habit</li>
-        <li>Treating AI consumption as ungoverned — if you can't see usage, you can't manage it</li>
-      </ul>
+  <div class="viz-container reveal" id="cloudWasteViz">
+    <div class="viz-header">
+      <div class="viz-header-dot" style="background:#E76F51"></div>
+      <span class="viz-title">Cloud waste hierarchy — ranked by ease of elimination vs carbon impact. Click any row.</span>
     </div>
-    <div class="start-col">
-      <div class="ss-heading">What to start doing</div>
-      <ul class="ss-list">
-        <li>Right-size models by use case — smallest reliable model as the default</li>
-        <li>Measure AI consumption: calls per user, tokens per request, cost per call</li>
-        <li>Use templates and default to short outputs — design for efficient behaviour</li>
-        <li>Batch and cache wherever it makes sense — repeated queries shouldn't regenerate</li>
-        <li>Treat non-urgent AI as flexible load — schedule for lower-carbon windows</li>
-        <li>Make product owners accountable for AI unit economics — value per inference</li>
-        <li>Require governance sign-off before deploying frontier models as organisational defaults</li>
-      </ul>
+    <div style="padding:1.5rem 1.75rem 0.75rem;" id="cloudWasteRows"></div>
+    <div id="cloudWasteDetail" style="display:none;padding:1rem 1.75rem;border-top:1px solid rgba(255,255,255,0.06);background:rgba(0,0,0,0.1);">
+      <div id="cloudWasteDetailText" style="font-size:0.92rem;color:#94A3B8;line-height:1.7;"></div>
+    </div>
+    <div style="padding:0.85rem 1.75rem;border-top:1px solid rgba(255,255,255,0.06);">
+      <p style="font-size:0.82rem;color:#94A3B8;">Rightsizing is not a project — it is a discipline. It only sticks when owned jointly by platform engineering and FinOps, with guardrails (policy-as-code for tagging, default size limits, mandatory TTL for non-production) preventing recurrence.</p>
     </div>
   </div>
 </div>
 
-<!-- KC 1 -->
+<!-- ═══════════════════════════════════════════════════
+     S4 — Hardware lifecycle arc
+     ═══════════════════════════════════════════════════ -->
+<div class="content-section reveal">
+  <p class="section-label">Section 4</p>
+  <h2 class="section-title">Hardware lifecycle — the break-even decision.</h2>
+  <p class="section-intro">Embodied carbon is front-loaded at manufacture and largely fixed once a device exists. Use-phase carbon accumulates gradually. The decision to extend or replace depends on which side of the break-even point you are on — and that calculation changes with grid intensity and workload.</p>
+
+  <div class="viz-container reveal" id="lifecycleArc">
+    <div class="viz-header">
+      <div class="viz-header-dot" style="background:#B2EDE7"></div>
+      <span class="viz-title">Lifecycle carbon arc — embodied vs operational. Drag the slider to move the replacement point.</span>
+    </div>
+    <div style="padding:1.75rem 1.75rem 0.5rem;">
+      <svg id="arcSvg" viewBox="0 0 820 200" style="width:100%;height:auto;display:block;"></svg>
+      <div style="padding:0.75rem 0;display:flex;align-items:center;gap:1rem;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#94A3B8;white-space:nowrap;">Replace at year:</span>
+        <input type="range" id="arcSlider" min="1" max="8" value="3" step="1"
+          style="flex:1;accent-color:#00A896;cursor:pointer;">
+        <span id="arcSliderLabel" style="font-family:'JetBrains Mono',monospace;font-size:0.88rem;color:#00A896;font-weight:700;min-width:40px;">Year 3</span>
+      </div>
+      <div id="arcNote" style="padding:0.75rem 1rem;background:rgba(0,0,0,0.15);border-left:3px solid #00A896;font-size:0.88rem;color:#94A3B8;line-height:1.65;"></div>
+    </div>
+    <div style="padding:0.85rem 1.75rem;border-top:1px solid rgba(255,255,255,0.05);background:rgba(0,168,150,0.02);">
+      <p style="font-size:0.82rem;color:#94A3B8;">Illustrative model — actual break-even depends on device category, workload, grid intensity, and embodied carbon of replacement hardware. The principle holds: extending use reduces embodied carbon per year; the question is whether operational energy cost outweighs that saving at your grid intensity.</p>
+    </div>
+  </div>
+
+  <!-- Three trade-off traps -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.06);margin:1.75rem 0;" class="reveal">
+    <div style="background:#1E293B;padding:1.5rem;border-top:3px solid #E76F51;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#E76F51;margin-bottom:0.65rem;">Trap 1</div>
+      <div style="font-size:0.97rem;font-weight:600;color:#FFFFFF;margin-bottom:0.5rem;">"Extend always"</div>
+      <p style="font-size:0.92rem;color:#94A3B8;line-height:1.65;">Usually right — but if older hardware is dramatically less efficient for the workload, keeping it longer can increase operational energy per unit of output. Compare on a functional basis, not a headline figure.</p>
+    </div>
+    <div style="background:#1E293B;padding:1.5rem;border-top:3px solid #F4A261;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#F4A261;margin-bottom:0.65rem;">Trap 2</div>
+      <div style="font-size:0.97rem;font-weight:600;color:#FFFFFF;margin-bottom:0.5rem;">"Refresh for efficiency"</div>
+      <p style="font-size:0.92rem;color:#94A3B8;line-height:1.65;">Replacing too frequently raises embodied emissions and e-waste. Improved operational metrics can mask rising lifecycle impact. Embodied carbon doesn't appear in operational dashboards — but it is real and material.</p>
+    </div>
+    <div style="background:#1E293B;padding:1.5rem;border-top:3px solid #00A896;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#00A896;margin-bottom:0.65rem;">Trap 3</div>
+      <div style="font-size:0.97rem;font-weight:600;color:#FFFFFF;margin-bottom:0.5rem;">"Compare on specs"</div>
+      <p style="font-size:0.92rem;color:#94A3B8;line-height:1.65;">A higher-footprint server may still be more efficient per unit of delivered compute if it replaces multiple older machines. Compare on functional unit — compute per watt per unit of useful work — not headline product footprint.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     S5 — AI governance accordion
+     ═══════════════════════════════════════════════════ -->
+<div class="content-section reveal">
+  <p class="section-label">Section 5</p>
+  <h2 class="section-title">AI — the cross-cutting consumption multiplier.</h2>
+  <p class="section-intro">The main risk is not the training runs that make headlines. It is inference demand scaling quietly across hundreds or thousands of users — embedded in products, integrated into workflows, ungoverned because it feels like productivity.</p>
+
+  <div class="viz-container reveal" id="aiViz">
+    <div class="viz-header">
+      <div class="viz-header-dot" style="background:#E76F51"></div>
+      <span class="viz-title">AI consumption governance — stop doing / start doing. Click any item to expand.</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.06);">
+      <div style="background:#1E293B;">
+        <div style="padding:0.85rem 1.25rem;border-bottom:1px solid rgba(255,255,255,0.06);font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:#E76F51;">Stop doing</div>
+        <div id="aiStop"></div>
+      </div>
+      <div style="background:#162840;">
+        <div style="padding:0.85rem 1.25rem;border-bottom:1px solid rgba(255,255,255,0.06);font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:#00A896;">Start doing</div>
+        <div id="aiStart"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div><!-- /module-content -->
+
 <div class="kc-block reveal" data-correct="A">
   <p class="kc-label">Knowledge Check · Module 4 · Q1</p>
   <p class="kc-q">An IT manager presents data centre sustainability performance using the portfolio average PUE of 1.45 and states the estate is running on "renewable energy." What two follow-up questions should you ask?</p>
@@ -634,5 +470,473 @@ function showDomain(id, btn) {
   btn.classList.add('active');
 }
 </script>
+<script>
+(function(){
+'use strict';
+
+// ── DOMAIN SELECTOR ────────────────────────────────────────
+var domains = [
+  { id:'eus', icon:'💻', label:'End-User', driver:'Embodied carbon', col:'#B2EDE7',
+    title:'End-User Services',
+    stat:'~80% of a laptop\'s lifetime footprint is manufacturing — before it reaches your desk.',
+    drivers:['Embodied carbon from device manufacture','Premature refresh cycles','Peripheral sprawl — accessories treated as consumables','Air freight for last-minute onboarding','No recovery and redeploy process'],
+    good:['Role-based device standards matching actual need','Power management enforced centrally — not left to individuals','Recovery and redeploy genuinely easier than ordering new','Accessory lifecycle management as assets, not consumables','Governed AI usage for routine tasks — usage guidance enforced'],
+    lever:'Lifecycle and procurement — not plug socket behaviour. Every extra year of device life reduces embodied carbon per year of service.' },
+  { id:'dc', icon:'🏢', label:'Data Centres', driver:'PUE & utilisation', col:'#00A896',
+    title:'Data Centres',
+    stat:'A lightly loaded site with PUE 1.3 and 15% utilisation is failing — even if PUE looks respectable.',
+    drivers:['Low IT server utilisation on well-rated facilities','Design PUE reported instead of operational PUE','Portfolio averages masking worst-performing sites','Seasonal variation hidden by annual averages','Renewable claims without stated methodology or boundary'],
+    good:['Report PUE at site level — portfolio blends protect weak performers','Require server utilisation alongside every PUE figure','Track WUE — water impact is increasingly a planning constraint','Push for granularity on renewable claims: instrument, boundary, methodology'],
+    lever:'Utilisation first — improve how much useful work the IT equipment does before investing capital in facility efficiency.' },
+  { id:'cloud', icon:'☁️', label:'Cloud', driver:'Idle & over-prov.', col:'#F4A261',
+    title:'Cloud & Platform',
+    stat:'25–40% of cloud resources are idle or significantly over-provisioned in typical estates.',
+    drivers:['Zombie resources — never terminated test and dev environments','Untagged resources with no owner or environment label','No time-to-live policy for non-production','Oversized instance defaults — nobody right-sized after initial provisioning','Region selected for latency without considering carbon intensity'],
+    good:['Every resource tagged with owner, environment, and service identifier','Unit economics tracked: carbon per VM-hour, idle percentage','Remediation hierarchy: kill zombies → enforce TTL → rightsize → structural levers','Policy-as-code guardrails preventing waste from returning','Carbon intensity factored into region selection defaults'],
+    lever:'Visibility and attribution first — if you cannot attribute consumption you cannot govern it.' },
+  { id:'sw', icon:'⚙️', label:'Software & Data', driver:'Compute per task', col:'#94A3B8',
+    title:'Software & Data',
+    stat:'SCI = (Energy × Grid intensity) ÷ Functional unit. Reducing compute per transaction reduces carbon per transaction.',
+    drivers:['Telemetry and logging at maximum resolution regardless of need','Dark data — stored, protected, and never accessed','Background processes running at default frequency with no review','Unnecessary cross-region replication and redundant API calls','No data lifecycle policy — default is to keep everything'],
+    good:['Treat storage growth as a performance metric with an owner','Audit log retention and resolution — collect what you actively use','Review background job frequency against genuine operational need','Intentional data architecture: minimise unnecessary movement','Data lifecycle policies with explicit retention decisions'],
+    lever:'Design decisions — software behaviour compounds over a service\'s lifetime. Earlier intervention is cheaper and more effective than operational clean-up.' },
+  { id:'hw', icon:'🖥️', label:'Hardware', driver:'Embodied & EOL', col:'#B2EDE7',
+    title:'Hardware Lifecycle',
+    stat:'Good lifecycle governance runs from selection through deployment, use, redeploy, repair, refurbish, and end-of-life.',
+    drivers:['Fixed refresh cycles regardless of device condition or performance','No recovery and redeploy process — new is easier than redeploying existing','Comparison on headline product specs, not functional unit','No circularity criteria in procurement standards','Disposal treated as the end of the lifecycle conversation'],
+    good:['Evidence-based refresh: condition and performance data, not calendar cycles','Circularity criteria in procurement: repairability, spare parts availability, take-back','Recovery and redeploy processes that are genuinely easier than ordering new','Compare hardware on functional unit: compute per watt per unit of useful work','ITAD with data-verified reuse, refurbish, then recycle hierarchy'],
+    lever:'Procurement decisions — embodied carbon is determined by choices made years before end-of-life. The recycling bin is the last lever, not the first.' },
+  { id:'ai', icon:'🤖', label:'AI', driver:'Inference at scale', col:'#E76F51',
+    title:'AI Consumption',
+    stat:'The risk is not headline training jobs — it is routine inference at scale, embedded in products, ungoverned because it feels like productivity.',
+    drivers:['Biggest available model used by default for all tasks','No model tiering — same model for short emails and complex analysis','No caching — identical queries run the same compute repeatedly','Prompt inefficiency: verbose, over-specified prompts × thousands of users','No measurement: calls per user, tokens per request, cost per inference'],
+    good:['Model tiering: smallest reliable model is the default','Measure at minimum: calls per user, tokens per request, cost per inference','Template-based prompts — short outputs, relevant excerpts only','Batch and cache: repeated queries should not generate repeated inference','Make product owners accountable for AI unit economics: value per inference'],
+    lever:'Governance at the platform level — model selection defaults, usage measurement, and clear criteria for escalating to heavier models.' },
+  { id:'net', icon:'🌐', label:'Networks', driver:'Data movement', col:'#94A3B8',
+    title:'Networks',
+    stat:'Cloud egress charges and egress footprint move together — high egress costs signal unintentionally designed data movement patterns.',
+    drivers:['Default replication patterns set under different constraints and never revisited','Redundant cross-region synchronisation without operational justification','No caching for static or slowly-changing content','High-resolution video conferencing by default regardless of connection or context','APIs transferring more data than the consumer actually needs'],
+    good:['Require operational justification for cross-region replication — not assumption','Cache at the appropriate layer: cost and carbon align here without separate justification','Review video conferencing defaults: a policy choice, not a technical one','Audit API payloads: are consumers receiving what they actually need?','Treat egress charges as a proxy signal for data movement discipline'],
+    lever:'Architecture decisions — intentional data design reduces movement, which reduces both network energy and egress cost simultaneously.' },
+];
+
+var selectedDomain = null;
+
+function buildDomainBtns() {
+  var grid = document.getElementById('domainBtns');
+  if (!grid) return;
+  grid.innerHTML = '';
+  domains.forEach(function(d, i) {
+    var isSelected = selectedDomain === i;
+    var btn = document.createElement('div');
+    btn.style.cssText = 'background:'+(isSelected?d.col:'#1E293B')+';padding:1.25rem 0.75rem;cursor:pointer;text-align:center;transition:background 0.2s;';
+    btn.innerHTML =
+      '<div style="font-size:1.4rem;margin-bottom:0.35rem;">'+d.icon+'</div>'+
+      '<div style="font-size:0.88rem;font-weight:600;color:'+(isSelected?'#0F1F2E':'#FFFFFF')+';line-height:1.2;margin-bottom:0.25rem;">'+d.label+'</div>'+
+      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;color:'+(isSelected?'rgba(11,25,41,0.65)':d.col)+';letter-spacing:0.05em;line-height:1.3;">'+d.driver+'</div>';
+    btn.addEventListener('click', function(){
+      selectedDomain = (selectedDomain===i)?null:i;
+      buildDomainBtns();
+      updateDomainDetail();
+    });
+    grid.appendChild(btn);
+  });
+}
+
+function updateDomainDetail() {
+  var det = document.getElementById('domainDetail');
+  if (!det) return;
+  if (selectedDomain === null) {
+    det.style.display = 'flex';
+    det.style.alignItems = 'center';
+    det.style.justifyContent = 'center';
+    det.innerHTML = '<p style="font-size:0.95rem;color:#94A3B8;font-style:italic;text-align:center;">Select a domain above to explore its dominant drivers and key levers.</p>';
+    return;
+  }
+  var d = domains[selectedDomain];
+  det.style.display = 'block';
+  var driverItems = d.drivers.map(function(dr){
+    return '<li style="display:flex;gap:0.6rem;margin-bottom:0.35rem;font-size:0.92rem;color:#94A3B8;line-height:1.5;"><span style="color:#E76F51;flex-shrink:0;font-size:0.8rem;">⚠</span>'+dr+'</li>';
+  }).join('');
+  var goodItems = d.good.map(function(g){
+    return '<li style="display:flex;gap:0.6rem;margin-bottom:0.35rem;font-size:0.92rem;color:#94A3B8;line-height:1.5;"><span style="color:'+d.col+';flex-shrink:0;">✓</span>'+g+'</li>';
+  }).join('');
+  det.innerHTML =
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">' +
+      '<div>'+
+        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:#E76F51;margin-bottom:0.65rem;">Failure modes</div>'+
+        '<ul style="list-style:none;padding:0;">'+driverItems+'</ul>'+
+      '</div>'+
+      '<div>'+
+        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:'+d.col+';margin-bottom:0.65rem;">Good practice</div>'+
+        '<ul style="list-style:none;padding:0;">'+goodItems+'</ul>'+
+      '</div>'+
+    '</div>'+
+    '<div style="margin-top:1.25rem;padding:0.75rem 1rem;background:rgba(0,0,0,0.15);border-left:3px solid '+d.col+';font-size:0.88rem;color:#94A3B8;font-style:italic;line-height:1.65;">'+
+      '<strong style="color:'+d.col+';">Primary lever:</strong> '+d.lever+
+    '</div>';
+}
+buildDomainBtns();
+updateDomainDetail();
+
+
+// ── PUE / UTILISATION SVG SCATTER ─────────────────────────
+var scenarios = [
+  { pue:1.1,  util:82, label:'A', col:'#00A896',
+    title:'Scenario A — Target zone',
+    detail:'High utilisation (82%) at excellent PUE (1.1). This is earned through consolidation, continuous rightsizing, and ongoing governance. Cost, carbon, and credibility align. The benchmark to work toward.' },
+  { pue:1.45, util:15, label:'B', col:'#E76F51',
+    title:'Scenario B — The common trap',
+    detail:'Respectable PUE (1.45) but 15% utilisation. This is the most common failure mode — the facility metric looks acceptable while the IT equipment is consuming energy for very little useful output. PUE reported in isolation as a success story is misleading.' },
+  { pue:1.8,  util:75, label:'C', col:'#F4A261',
+    title:'Scenario C — High utilisation, inefficient facility',
+    detail:'Good utilisation (75%) but poor PUE (1.8) — typical of an aging, thermally challenged facility. The IT is working hard; the facility overhead is the problem. Capital investment in facility efficiency is justified here because the load is real.' },
+  { pue:1.6,  util:30, label:'D', col:'#E76F51',
+    title:'Scenario D — Consolidation opportunity',
+    detail:'Poor utilisation (30%) and mediocre PUE (1.6). The first lever is consolidation — improve utilisation before investing in facility efficiency. Improving PUE on a lightly loaded site only reduces the overhead on waste.' },
+  { pue:1.25, util:65, label:'E', col:'#4ade80',
+    title:'Scenario E — On track',
+    detail:'Good performance across both dimensions (PUE 1.25, utilisation 65%). A programme that\'s working. Maintain governance cadence, keep pressure on utilisation improvement, and investigate WUE if the facility is in a water-stressed area.' },
+];
+
+function buildPueScatter() {
+  var svg = document.getElementById('pueSvg');
+  if (!svg) return;
+  var W=320, H=280, PAD={top:30,right:20,bottom:50,left:45};
+  var CW=W-PAD.left-PAD.right, CH=H-PAD.top-PAD.bottom;
+
+  // PUE: 1.0–2.0 (y-axis, inverted — lower PUE is BETTER so at top)
+  // Utilisation: 0–100 (x-axis, higher is better = right)
+  function xPos(util) { return PAD.left + (util/100)*CW; }
+  function yPos(pue)  { return PAD.top  + ((pue-1.0)/1.0)*CH; }  // 1.0 at top, 2.0 at bottom
+
+  function el(tag,attrs){ var e=document.createElementNS('http://www.w3.org/2000/svg',tag); Object.keys(attrs).forEach(function(k){e.setAttribute(k,attrs[k]);}); return e; }
+  function txt(content,attrs){ var t=el('text',attrs); t.textContent=content; return t; }
+
+  svg.innerHTML='';
+
+  // Target zone (top-right: high utilisation, low PUE)
+  var tzX = xPos(60), tzY = PAD.top;
+  var tzW = CW - (60/100*CW), tzH = ((1.35-1.0)/1.0)*CH;
+  svg.appendChild(el('rect',{x:tzX,y:tzY,width:tzW,height:tzH,
+    fill:'rgba(0,168,150,0.08)',stroke:'rgba(0,168,150,0.2)','stroke-width':'1','stroke-dasharray':'4,3'}));
+  svg.appendChild(txt('★ Target zone',{x:tzX+tzW-4,y:tzY+12,'text-anchor':'end',
+    fill:'rgba(0,168,150,0.6)','font-family':'JetBrains Mono,monospace','font-size':'10'}));
+
+  // Grid lines
+  [1.0,1.25,1.5,1.75,2.0].forEach(function(pue){
+    var y=yPos(pue);
+    svg.appendChild(el('line',{x1:PAD.left,y1:y,x2:PAD.left+CW,y2:y,
+      stroke:'rgba(255,255,255,0.05)','stroke-width':'1'}));
+    svg.appendChild(txt(pue.toFixed(2),{x:PAD.left-6,y:y+4,'text-anchor':'end',
+      fill:'#94A3B8','font-family':'JetBrains Mono,monospace','font-size':'11'}));
+  });
+  [0,25,50,75,100].forEach(function(util){
+    var x=xPos(util);
+    svg.appendChild(el('line',{x1:x,y1:PAD.top,x2:x,y2:PAD.top+CH,
+      stroke:'rgba(255,255,255,0.05)','stroke-width':'1'}));
+    svg.appendChild(txt(util+'%',{x:x,y:PAD.top+CH+15,'text-anchor':'middle',
+      fill:'#94A3B8','font-family':'JetBrains Mono,monospace','font-size':'11'}));
+  });
+
+  // Axis labels
+  svg.appendChild(txt('← PUE (lower = better) →',{
+    x:PAD.left-30, y:PAD.top+CH/2,'text-anchor':'middle',
+    fill:'#94A3B8','font-family':'JetBrains Mono,monospace','font-size':'10',
+    transform:'rotate(-90,'+(PAD.left-30)+','+(PAD.top+CH/2)+')'}));
+  svg.appendChild(txt('← IT Server Utilisation (higher = better) →',{
+    x:PAD.left+CW/2, y:H-8,'text-anchor':'middle',
+    fill:'#94A3B8','font-family':'JetBrains Mono,monospace','font-size':'10'}));
+
+  // Scenario dots — animate in
+  var selectedScen = null;
+  scenarios.forEach(function(s,i) {
+    var cx=xPos(s.util), cy=yPos(s.pue);
+    var isSelected=selectedScen===i;
+
+    var circle = el('circle',{cx:cx,cy:cy,r:isSelected?'14':'10',
+      fill:s.col,opacity:isSelected?'1':'0.8',
+      stroke:isSelected?'#FFFFFF':'rgba(255,255,255,0.2)','stroke-width':isSelected?'2':'1',
+      style:'cursor:pointer;transition:all 0.2s;'});
+
+    var label = txt(s.label,{cx:cx,cy:cy+5,x:cx,y:cy+5,'text-anchor':'middle',
+      fill:isSelected?'#0F1F2E':'#FFFFFF','font-family':'Georgia,serif',
+      'font-size':'12','font-weight':'700',style:'pointer-events:none'});
+
+    function doClick(){
+      selectedScen=(selectedScen===i)?null:i;
+      // Rebuild to update sizes
+      buildPueScatter();
+      var det=document.getElementById('pueDetail');
+      if (!det) return;
+      if (selectedScen!==null) {
+        var sc=scenarios[selectedScen];
+        det.innerHTML=
+          '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:'+sc.col+';margin-bottom:0.75rem;">'+sc.title+'</div>'+
+          '<div style="display:flex;gap:1.25rem;margin-bottom:0.85rem;flex-wrap:wrap;">'+
+            '<div style="text-align:center;"><div style="font-family:Georgia,serif;font-size:2rem;color:'+sc.col+';line-height:1;">'+sc.pue.toFixed(2)+'</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;color:#94A3B8;letter-spacing:0.08em;text-transform:uppercase;">PUE</div></div>'+
+            '<div style="text-align:center;"><div style="font-family:Georgia,serif;font-size:2rem;color:'+sc.col+';line-height:1;">'+sc.util+'%</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;color:#94A3B8;letter-spacing:0.08em;text-transform:uppercase;">Utilisation</div></div>'+
+          '</div>'+
+          '<p style="font-size:0.92rem;color:#94A3B8;line-height:1.7;">'+sc.detail+'</p>';
+      } else {
+        det.innerHTML='<p style="font-size:0.95rem;color:#94A3B8;font-style:italic;line-height:1.7;">Click a scenario dot on the chart to understand what it reveals about data centre performance and where to focus first.</p>';
+      }
+    }
+
+    circle.addEventListener('click',doClick);
+    label.addEventListener('click',doClick);
+    svg.appendChild(circle);
+    svg.appendChild(label);
+  });
+}
+buildPueScatter();
+
+
+// ── CLOUD WASTE HIERARCHY ──────────────────────────────────
+var cloudWaste = [
+  { label:'Zombie resources', impact:95, ease:98, col:'#E76F51',
+    desc:'Test and dev environments never terminated, resources provisioned for projects that ended, instances nobody remembers creating. Often 15–25% of cloud footprint. Elimination is zero-risk and should be the first action.' },
+  { label:'Orphaned storage & snapshots', impact:75, ease:92, col:'#E76F51',
+    desc:'Unattached volumes, redundant snapshots, old backups never cleaned up. Accumulate silently because deletion feels risky. Audit with a 90-day no-access threshold — the data is almost certainly safe to remove.' },
+  { label:'Idle instances (> 5% CPU)', impact:85, ease:75, col:'#F4A261',
+    desc:'Instances running at near-zero utilisation. Right-sizing or shutdown with scheduling recovers significant cost and footprint — but requires owner engagement. Auto-shutdown policies for non-production are the structural fix.' },
+  { label:'Non-production uptime', impact:65, ease:85, col:'#F4A261',
+    desc:'Development and staging environments left running evenings and weekends when nobody is using them. Time-to-live policies and auto-shutdown schedules reduce footprint 40–60% for these environments.' },
+  { label:'Oversized instance types', impact:70, ease:60, col:'#F4A261',
+    desc:'Provisioned for a peak that never materialised, or sized "safe" with no optimisation review. Rightsizing based on observed utilisation data — not intuition. Requires performance testing to confirm, so slightly slower to act on.' },
+  { label:'Inefficient data transfer', impact:50, ease:45, col:'#94A3B8',
+    desc:'Unnecessary cross-region synchronisation, chatty microservices, redundant API calls. Architecture-level decisions that compound at scale. Lower on the hierarchy because they require code changes, not just policy.' },
+  { label:'Sub-optimal region selection', impact:80, ease:30, col:'#94A3B8',
+    desc:'Running in high-carbon-intensity regions when equivalent regions are available at similar latency. A structural decision that requires migration planning — high impact but slower to realise.' },
+];
+
+var selectedWasteRow = null;
+
+function buildCloudWaste() {
+  var container = document.getElementById('cloudWasteRows');
+  if (!container) return;
+  container.innerHTML = '';
+  var maxImpact = Math.max.apply(null, cloudWaste.map(function(w){ return w.impact; }));
+
+  cloudWaste.forEach(function(w, i) {
+    var row = document.createElement('div');
+    row.style.cssText = 'display:grid;grid-template-columns:180px 1fr 60px;gap:0.75rem;align-items:center;padding:0.55rem 0;border-bottom:1px solid rgba(255,255,255,0.04);cursor:pointer;';
+    row.innerHTML =
+      '<div style="font-size:0.92rem;color:#FFFFFF;font-weight:500;">'+w.label+'</div>'+
+      '<div style="position:relative;height:24px;background:rgba(255,255,255,0.05);border-radius:2px;overflow:hidden;">'+
+        '<div class="waste-bar" data-w="'+(w.impact/maxImpact*100).toFixed(0)+'" style="height:100%;width:0%;background:linear-gradient(90deg,'+w.col+','+w.col+'bb);border-radius:2px;transition:width 0.9s cubic-bezier(.16,1,.3,1);transition-delay:'+(i*0.07)+'s;"></div>'+
+      '</div>'+
+      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.78rem;color:'+w.col+';text-align:right;font-weight:600;">'+
+        (w.ease>=80?'Quick win':w.ease>=60?'Medium':'Longer')+'</div>';
+
+    row.addEventListener('click', function(){
+      selectedWasteRow=(selectedWasteRow===i)?null:i;
+      var det=document.getElementById('cloudWasteDetail');
+      var txt2=document.getElementById('cloudWasteDetailText');
+      if (selectedWasteRow!==null) {
+        det.style.display='block';
+        det.style.borderTopColor=w.col;
+        txt2.innerHTML='<strong style="color:'+w.col+';">'+w.label+'</strong> — '+w.desc;
+      } else {
+        det.style.display='none';
+      }
+    });
+    container.appendChild(row);
+  });
+
+  // Column header
+  var hdr = document.createElement('div');
+  hdr.style.cssText = 'display:grid;grid-template-columns:180px 1fr 60px;gap:0.75rem;padding:0 0 0.5rem;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:0.25rem;';
+  hdr.innerHTML =
+    '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;color:#94A3B8;letter-spacing:0.1em;text-transform:uppercase;">Waste type</div>'+
+    '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;color:#94A3B8;letter-spacing:0.1em;text-transform:uppercase;">← Carbon + cost impact</div>'+
+    '<div style="font-family:\'JetBrains Mono\',monospace;font-size:0.69rem;color:#94A3B8;letter-spacing:0.1em;text-transform:uppercase;text-align:right;">Speed</div>';
+  container.insertBefore(hdr, container.firstChild);
+
+  // Animate bars
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.querySelectorAll('.waste-bar').forEach(function(b){
+          b.style.width=b.dataset.w+'%';
+        });
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.2});
+  obs.observe(document.getElementById('cloudWasteViz'));
+}
+buildCloudWaste();
+
+
+// ── HARDWARE LIFECYCLE ARC ─────────────────────────────────
+function drawArc(replaceYear) {
+  var svg = document.getElementById('arcSvg');
+  if (!svg) return;
+  var W=820, H=200;
+  var PAD={top:25,right:120,bottom:45,left:60};
+  var CW=W-PAD.left-PAD.right, CH=H-PAD.top-PAD.bottom;
+  var YEARS=8;
+
+  function el(tag,attrs){ var e=document.createElementNS('http://www.w3.org/2000/svg',tag); Object.keys(attrs).forEach(function(k){e.setAttribute(k,attrs[k]);}); return e; }
+  function txt(content,attrs){ var t=el('text',attrs); t.textContent=content; return t; }
+  function xPos(yr) { return PAD.left + (yr/YEARS)*CW; }
+
+  svg.innerHTML='';
+
+  // Embodied carbon (horizontal line — fixed at manufacture)
+  var embodied = 100; // normalised
+
+  // Operational carbon (rising line from 0 to ~80 over 8 years)
+  function opCarbon(yr) { return (yr/YEARS)*80; }
+
+  // Total cumulative carbon = embodied + operational
+  function total(yr) { return embodied + opCarbon(yr); }
+
+  // Points for lines
+  var totalPts = [], opPts = [];
+  for (var y=0; y<=YEARS; y+=0.5) {
+    totalPts.push([xPos(y), PAD.top + CH - (total(y)/180)*CH]);
+    opPts.push([xPos(y), PAD.top + CH - (opCarbon(y)/180)*CH]);
+  }
+  function pts2path(pts){ return pts.map(function(p,i){ return (i===0?'M':'L')+p[0].toFixed(1)+','+p[1].toFixed(1); }).join(' '); }
+
+  // Shade area under total curve
+  var areaPath = pts2path(totalPts)+' L'+xPos(YEARS).toFixed(1)+','+(PAD.top+CH)+' L'+xPos(0).toFixed(1)+','+(PAD.top+CH)+' Z';
+  svg.appendChild(el('path',{d:areaPath,fill:'rgba(231,111,81,0.06)',stroke:'none'}));
+
+  // Grid
+  [0,40,80,120,160].forEach(function(v){
+    var y=PAD.top+CH-(v/180)*CH;
+    svg.appendChild(el('line',{x1:PAD.left,y1:y,x2:PAD.left+CW,y2:y,
+      stroke:'rgba(255,255,255,0.05)','stroke-width':'1'}));
+  });
+  for(var yr=0;yr<=YEARS;yr++){
+    svg.appendChild(el('line',{x1:xPos(yr),y1:PAD.top,x2:xPos(yr),y2:PAD.top+CH,
+      stroke:'rgba(255,255,255,0.05)','stroke-width':'1'}));
+    svg.appendChild(txt('Y'+yr,{x:xPos(yr),y:PAD.top+CH+15,'text-anchor':'middle',
+      fill:'#94A3B8','font-family':'JetBrains Mono,monospace','font-size':'11'}));
+  }
+
+  // Embodied line (horizontal at top)
+  svg.appendChild(el('line',{
+    x1:PAD.left, y1:PAD.top+CH-(embodied/180)*CH,
+    x2:PAD.left+CW, y2:PAD.top+CH-(embodied/180)*CH,
+    stroke:'#E76F51','stroke-width':'1.5','stroke-dasharray':'4,3'}));
+  svg.appendChild(txt('Embodied carbon (fixed at manufacture)',{
+    x:PAD.left+CW+6, y:PAD.top+CH-(embodied/180)*CH+4,
+    fill:'#E76F51','font-family':'JetBrains Mono,monospace','font-size':'10'}));
+
+  // Operational carbon line
+  svg.appendChild(el('path',{d:pts2path(opPts),fill:'none',
+    stroke:'#94A3B8','stroke-width':'1.5','stroke-dasharray':'3,2'}));
+  svg.appendChild(txt('Operational carbon (accrues over time)',{
+    x:PAD.left+CW+6, y:PAD.top+CH-(opCarbon(YEARS)/180)*CH+4,
+    fill:'#94A3B8','font-family':'JetBrains Mono,monospace','font-size':'10'}));
+
+  // Total cumulative line
+  svg.appendChild(el('path',{d:pts2path(totalPts),fill:'none',
+    stroke:'#F4A261','stroke-width':'2.5'}));
+  svg.appendChild(txt('Total lifecycle carbon',{
+    x:PAD.left+CW+6, y:PAD.top+CH-(total(YEARS)/180)*CH+4,
+    fill:'#F4A261','font-family':'JetBrains Mono,monospace','font-size':'10','font-weight':'700'}));
+
+  // Replacement marker
+  var rx = xPos(replaceYear);
+  svg.appendChild(el('line',{x1:rx,y1:PAD.top,x2:rx,y2:PAD.top+CH,
+    stroke:'#00A896','stroke-width':'2','stroke-dasharray':'5,3'}));
+  svg.appendChild(el('circle',{cx:rx,cy:totalPts[replaceYear*2][1],r:'6',
+    fill:'#00A896',stroke:'#0F1F2E','stroke-width':'2'}));
+  svg.appendChild(txt('Replace Y'+replaceYear,{x:rx+8,y:totalPts[replaceYear*2][1]-8,
+    fill:'#00A896','font-family':'JetBrains Mono,monospace','font-size':'11','font-weight':'700'}));
+
+  // Y axis label
+  svg.appendChild(txt('Carbon (normalised)',{
+    x:PAD.left-40,y:PAD.top+CH/2,'text-anchor':'middle',
+    fill:'#94A3B8','font-family':'JetBrains Mono,monospace','font-size':'10',
+    transform:'rotate(-90,'+(PAD.left-40)+','+(PAD.top+CH/2)+')'}));
+
+  // Note
+  var totalAtReplace = total(replaceYear).toFixed(0);
+  var totalAtY8 = total(8).toFixed(0);
+  var saving = (total(8) - total(replaceYear) + embodied).toFixed(0); // embodied cost of new device
+  var noteEl = document.getElementById('arcNote');
+  if (noteEl) {
+    if (replaceYear <= 3) {
+      noteEl.style.borderLeftColor='#E76F51';
+      noteEl.innerHTML='<strong style="color:#E76F51">Early replacement (Year '+replaceYear+'):</strong> Lifetime carbon at replacement point is ~'+totalAtReplace+' units. Replacing now means incurring another full embodied carbon hit (~100 units) for a new device. Unless the new device delivers dramatically lower operational carbon, this is unlikely to break even before Year '+(replaceYear+4)+'+ of the new device\'s life.';
+    } else if (replaceYear <= 5) {
+      noteEl.style.borderLeftColor='#F4A261';
+      noteEl.innerHTML='<strong style="color:#F4A261">Mid-life replacement (Year '+replaceYear+'):</strong> Device has delivered '+(replaceYear/YEARS*100).toFixed(0)+'% of its operational life. Embodied carbon is now spread over '+replaceYear+' years of service. Whether extending or replacing makes sense depends on efficiency of replacement hardware vs grid intensity of your estate.';
+    } else {
+      noteEl.style.borderLeftColor='#00A896';
+      noteEl.innerHTML='<strong style="color:#00A896">Extended life (Year '+replaceYear+'):</strong> Embodied carbon is now amortised over '+replaceYear+' years — a lower per-year embodied footprint than early replacement. Operational carbon continues to accrue, but the embodied carbon burden of replacement must be weighed against operational efficiency gains. Usually the right decision unless hardware is failing or dramatically inefficient.';
+    }
+  }
+}
+
+var arcSlider = document.getElementById('arcSlider');
+var arcLabel = document.getElementById('arcSliderLabel');
+if (arcSlider) {
+  drawArc(parseInt(arcSlider.value));
+  arcSlider.addEventListener('input', function(){
+    var yr = parseInt(this.value);
+    arcLabel.textContent = 'Year '+yr;
+    drawArc(yr);
+  });
+}
+
+
+// ── AI GOVERNANCE ACCORDION ────────────────────────────────
+var aiStop = [
+  { item:'Using the biggest model by default', why:'Frontier model inference is 10–100× more expensive (energy and cost) than a small model doing the same task. Default matters — it multiplies across every user, every day.' },
+  { item:'Stuffing context windows with entire documents', why:'Longer contexts require more compute per token. If you paste an entire document when only a section is relevant, every token in the irrelevant portion costs compute.' },
+  { item:'Letting chat threads grow indefinitely', why:'Long threads carry silent context overhead. Each message in the thread is re-processed in every subsequent call. Start fresh sessions for new tasks.' },
+  { item:'Using AI where search or templates would do', why:'A rules-based workflow, a search query, or a structured template often delivers the same outcome faster with a fraction of the compute. AI is not always the right tool.' },
+  { item:'Treating AI consumption as ungoverned', why:'If you can\'t see usage — calls per user, tokens per request, cost per inference — you cannot manage it. Ungoverned inference scales at the rate of adoption.' },
+];
+
+var aiStart = [
+  { item:'Right-size models by use case', why:'Small models for routine tasks, mid-range where reasoning is needed, frontier only where it changes the outcome. Make the smallest reliable model the default — require justification to escalate.' },
+  { item:'Measure consumption at minimum', why:'At minimum: calls per user, tokens per request, cost per inference. If AI is embedded in a service, track tokens per transaction so intensity drift is visible before it becomes a problem.' },
+  { item:'Design prompts for efficient behaviour', why:'Use templates. Default to short outputs. Make it easy to provide only the relevant excerpt. The prompt is the primary lever on inference compute — it\'s within the engineer\'s direct control.' },
+  { item:'Batch and cache wherever possible', why:'Repeated queries should not generate repeated inference. Batch back-end workloads where latency is not critical. Cache stable answers — classification, summarisation, standard outputs.' },
+  { item:'Make product owners accountable for AI unit economics', why:'If AI is a feature, the owner should be able to explain value per inference and cost per inference — not just say users like it. Unit economics thinking applies here as it does to cloud.' },
+];
+
+function buildAiList(containerId, items, col) {
+  var cont = document.getElementById(containerId);
+  if (!cont) return;
+  var expanded = null;
+  items.forEach(function(item, i) {
+    var wrap = document.createElement('div');
+    wrap.style.cssText = 'border-bottom:1px solid rgba(255,255,255,0.04);';
+    var hdr = document.createElement('div');
+    hdr.style.cssText = 'padding:0.85rem 1.25rem;cursor:pointer;display:flex;align-items:flex-start;gap:0.75rem;transition:background 0.12s;';
+    hdr.innerHTML =
+      '<span style="color:'+col+';font-size:0.78rem;flex-shrink:0;padding-top:0.18rem;">'+(col==='#E76F51'?'✕':'✓')+'</span>'+
+      '<span style="font-size:0.92rem;color:#FFFFFF;font-weight:500;line-height:1.45;">'+item.item+'</span>'+
+      '<span style="margin-left:auto;font-family:\'JetBrains Mono\',monospace;font-size:0.72rem;color:'+col+';flex-shrink:0;padding-top:0.12rem;transition:transform 0.2s;">▼</span>';
+    var detail = document.createElement('div');
+    detail.style.cssText = 'display:none;padding:0 1.25rem 0.85rem 2.25rem;font-size:0.88rem;color:#94A3B8;line-height:1.65;';
+    detail.textContent = item.why;
+    hdr.addEventListener('mouseenter', function(){ hdr.style.background='rgba(255,255,255,0.03)'; });
+    hdr.addEventListener('mouseleave', function(){ hdr.style.background=''; });
+    hdr.addEventListener('click', function(){
+      expanded = (expanded===i)?null:i;
+      detail.style.display = (expanded===i)?'block':'none';
+      hdr.querySelector('span:last-child').style.transform = (expanded===i)?'rotate(180deg)':'';
+    });
+    wrap.appendChild(hdr); wrap.appendChild(detail);
+    cont.appendChild(wrap);
+  });
+}
+buildAiList('aiStop', aiStop, '#E76F51');
+buildAiList('aiStart', aiStart, '#00A896');
+
+})();
+</script>
+
+
 </body>
 </html>

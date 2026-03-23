@@ -6,25 +6,29 @@
 <title>M1: Why Digital Sustainability Matters Now — GreenOps 101</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
-<style>
-/* Inline brand vars — ensures dark theme even if shared.css path fails */
-:root {
-  --navy:#0F1F2E; --navy-mid:#162840; --navy-card:#1E293B; --navy-light:#1C3A55;
-  --teal:#00A896; --teal-dark:#007A6E; --teal-muted:#B2EDE7;
-  --orange:#E76F51; --orange-light:#F4A261;
-  --slate:#94A3B8; --slate-dark:#64748B;
-  --border:#D1D9E0; --border-light:#E8EDF2; --white:#FFFFFF;
-  --track1:#00A896; --track2:#F4A261; --track3:#E76F51;
-  --correct:#22c55e; --wrong:#ef4444;
-  /* Legacy aliases */
-  --grey-100:rgba(255,255,255,0.06); --grey-300:#94A3B8;
-  --grey-500:#64748B; --grey-700:#4A4840;
-}
-html,body{background:#0F1F2E;color:#FFFFFF;}
-</style>
 
+
+<style>
+/* ── INLINE SHARED CSS — full design system, makes module self-contained ── */
+:root{--navy:#0F1F2E;--navy-mid:#162840;--navy-card:#1E293B;--navy-raised:#1C3A55;--navy-border:rgba(255,255,255,0.07);--teal:#00A896;--teal-bright:#00C4AE;--teal-dark:#007A6E;--teal-muted:#B2EDE7;--teal-glow:rgba(0,168,150,0.15);--teal-subtle:rgba(0,168,150,0.06);--orange:#E76F51;--orange-light:#F4A261;--orange-glow:rgba(231,111,81,0.15);--orange-subtle:rgba(231,111,81,0.06);--slate:#94A3B8;--slate-mid:#94A3B8;--slate-dim:#6B7E96;--white:#FFFFFF;--track1:#00A896;--track2:#F4A261;--track3:#E76F51;--correct:#22c55e;--wrong:#ef4444;--space-1:0.25rem;--space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;--space-5:1.5rem;--space-6:2rem;--space-7:3rem;--space-8:4rem;--navy-light:#1C3A55;--grey-100:rgba(255,255,255,0.06);--grey-300:#94A3B8;--grey-500:#94A3B8;--grey-700:#4A4840;--teal-light:#B2EDE7;--border:rgba(255,255,255,0.08);--border-light:rgba(255,255,255,0.04);--bg-light:#F7F8FA;--white:#FFFFFF;}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;font-size:16px;}img,svg{display:block;max-width:100%;}body{background:var(--navy);color:var(--white);font-family:Calibri,'Trebuchet MS',system-ui,-apple-system,sans-serif;font-weight:400;font-size:1rem;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}.top-nav{position:sticky;top:0;z-index:100;background:rgba(11,25,41,0.96);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,168,150,0.12);padding:0 2.5rem;height:52px;display:flex;align-items:center;gap:1rem;}.top-nav::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#00A896 0%,#F4A261 60%,#E76F51 100%);}.nav-home{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--slate-mid);text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:color 0.15s;flex-shrink:0;}.nav-home:hover{color:var(--white);}.nav-sep{color:rgba(255,255,255,0.15);font-size:0.8rem;}.nav-module{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);font-weight:500;}.nav-track-pill{font-family:'JetBrains Mono',monospace;font-size:0.69rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.22rem 0.65rem;border-radius:2px;}.track1-pill{background:rgba(0,168,150,0.12);color:#00A896;border:1px solid rgba(0,168,150,0.25);}.track2-pill{background:rgba(244,162,97,0.12);color:#F4A261;border:1px solid rgba(244,162,97,0.25);}.track3-pill{background:rgba(231,111,81,0.12);color:#E76F51;border:1px solid rgba(231,111,81,0.25);}.nav-progress{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--slate-mid);letter-spacing:0.08em;}.nav-progress span{color:var(--teal);font-weight:600;}.nav-prog-bar{width:80px;height:2px;background:rgba(255,255,255,0.08);border-radius:1px;margin-left:0.5rem;overflow:hidden;}.nav-prog-fill{height:100%;background:var(--teal);border-radius:1px;transition:width 0.4s ease;}.module-hero{position:relative;overflow:hidden;padding:var(--space-8) var(--space-7) var(--space-7);background:var(--navy);min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;}.module-hero::before{content:'';position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(0,168,150,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(0,168,150,0.03) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,0.3) 30%,rgba(0,0,0,0.3) 75%,transparent 100%);}.module-hero::after{content:'';position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 70% 60% at 90% 40%,rgba(0,168,150,0.09) 0%,transparent 65%);}.track1 .module-hero{border-left:3px solid var(--teal);}.track2 .module-hero{border-left:3px solid var(--orange-light);}.track3 .module-hero{border-left:3px solid var(--orange);}.hero-num{font-family:Georgia,serif;font-size:clamp(8rem,16vw,15rem);line-height:0.82;letter-spacing:-0.04em;color:rgba(0,168,150,0.055);position:absolute;right:2rem;bottom:-0.5rem;user-select:none;pointer-events:none;z-index:0;}.module-hero > *{position:relative;z-index:1;}.module-eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.75rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal-muted);margin-bottom:0.85rem;}.module-title{font-family:Georgia,serif;font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.05;letter-spacing:-0.025em;color:var(--white);margin-bottom:1rem;max-width:800px;}.module-subtitle{font-size:1.1rem;color:var(--slate);line-height:1.65;max-width:620px;margin-bottom:2rem;font-weight:400;}.module-meta{display:flex;gap:2rem;align-items:center;flex-wrap:wrap;}.meta-item{display:flex;flex-direction:column;gap:0.1rem;}.meta-item .label{font-family:'JetBrains Mono',monospace;font-size:0.69rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--slate-mid);}.meta-item .value{font-size:0.88rem;color:var(--slate);font-weight:500;}.complete-btn{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.55rem 1.25rem;background:transparent;border:1px solid var(--teal);color:var(--teal);cursor:pointer;border-radius:2px;transition:background 0.15s,color 0.15s;}.complete-btn:hover{background:var(--teal);color:var(--navy);}.complete-btn.done{background:rgba(0,168,150,0.1);color:var(--teal);cursor:default;}.objectives-strip{background:var(--navy-mid);border-bottom:1px solid var(--navy-border);padding:2rem var(--space-7);}.objectives-label{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-bottom:1.25rem;}.objectives-list{display:flex;flex-direction:column;gap:0.65rem;}.obj-item{display:flex;gap:1rem;align-items:flex-start;}.obj-num{font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;color:var(--teal);background:var(--teal-subtle);border:1px solid rgba(0,168,150,0.2);padding:0.2rem 0.5rem;flex-shrink:0;margin-top:0.05rem;}.obj-text{font-size:0.95rem;color:var(--slate);line-height:1.55;}.module-content{max-width:1000px;padding:0 var(--space-7) var(--space-6);}.content-section{padding:var(--space-7) 0;border-bottom:1px solid var(--navy-border);}.content-section:last-of-type{border-bottom:none;}.section-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem;display:block;}.section-title{font-family:Georgia,serif;font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.15;letter-spacing:-0.02em;color:var(--white);margin-bottom:1.25rem;}.section-intro{font-size:1.12rem;font-weight:400;color:var(--slate);line-height:1.75;max-width:720px;margin-bottom:2.25rem;}.prose{font-size:1.05rem;color:var(--slate);line-height:1.82;max-width:700px;margin-bottom:1.5rem;}.stat-strip{display:grid;gap:1px;background:rgba(255,255,255,0.06);margin:2.25rem 0;border-radius:3px;overflow:hidden;}.stat-strip.cols-3{grid-template-columns:repeat(3,1fr);}.stat-strip.cols-4{grid-template-columns:repeat(4,1fr);}.stat-cell{background:var(--navy-card);padding:2rem 1.5rem;text-align:center;position:relative;overflow:hidden;transition:background 0.2s;}.stat-cell::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--cell-accent,var(--teal));}.stat-cell:hover{background:var(--navy-raised);}.stat-num{font-family:Georgia,serif;font-size:clamp(2.4rem,4.5vw,3.5rem);color:var(--cell-accent,var(--teal));line-height:1;margin-bottom:0.5rem;display:block;}.stat-label{font-family:'JetBrains Mono',monospace;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--slate-mid);line-height:1.5;}.viz-container{background:var(--navy-mid);border:1px solid rgba(0,168,150,0.18);border-top:2px solid rgba(0,168,150,0.5);margin:2.25rem 0;overflow:hidden;}.viz-header{padding:1rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:0.75rem;}.viz-header-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;}.viz-title{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);}.viz-body{padding:1.75rem;}.viz-footer{padding:0.85rem 1.5rem;border-top:1px solid rgba(255,255,255,0.05);background:rgba(0,168,150,0.03);font-size:0.82rem;color:var(--slate-mid);line-height:1.55;}.card-grid{display:grid;gap:1px;background:rgba(255,255,255,0.06);margin:2rem 0;}.card-grid-2{grid-template-columns:1fr 1fr;}.card-grid-3{grid-template-columns:repeat(3,1fr);}.card-grid-auto{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}.card{background:var(--navy-card);padding:1.75rem;border-top:3px solid transparent;transition:background 0.15s;}.card:hover{background:var(--navy-raised);}.card-accent-t{border-top-color:var(--teal);}.card-accent-p{border-top-color:var(--orange-light);}.card-accent-o{border-top-color:var(--orange);}.card-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--slate-mid);margin-bottom:0.5rem;}.card h4{font-weight:600;font-size:1.05rem;margin-bottom:0.6rem;line-height:1.3;color:var(--white);}.card p{font-size:0.95rem;color:var(--slate);line-height:1.7;}.card ul{list-style:none;padding:0;margin-top:0.75rem;display:flex;flex-direction:column;gap:0.4rem;}.card ul li{font-size:0.9rem;color:var(--slate);padding-left:1rem;position:relative;line-height:1.5;}.card ul li::before{content:'→';position:absolute;left:0;color:var(--teal);font-size:0.75rem;top:0.1rem;}.callout{padding:1.35rem 1.75rem;margin:1.75rem 0;border-radius:2px;}.callout-insight{background:rgba(0,168,150,0.07);border-left:4px solid var(--teal);}.callout-warning{background:rgba(231,111,81,0.07);border-left:4px solid var(--orange);}.callout-key{background:rgba(244,162,97,0.07);border-left:4px solid var(--orange-light);}.callout-title{font-family:'JetBrains Mono',monospace;font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:0.55rem;display:block;}.callout-insight .callout-title{color:var(--teal);}.callout-warning .callout-title{color:var(--orange);}.callout-key .callout-title{color:var(--orange-light);}.callout p{font-size:1rem;color:var(--slate);line-height:1.72;}.callout p + p{margin-top:0.65rem;}.callout strong{color:var(--white);font-weight:600;}.compare-table{width:100%;border-collapse:collapse;font-size:0.92rem;margin:1.5rem 0;}.compare-table th{padding:0.7rem 1.1rem;text-align:left;font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--slate-mid);border-bottom:1px solid rgba(255,255,255,0.1);background:var(--navy-raised);}.compare-table td{padding:0.85rem 1.1rem;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--slate);line-height:1.55;vertical-align:top;font-size:0.97rem;}.compare-table tr:hover td{background:rgba(255,255,255,0.02);}.compare-table td:first-child{color:var(--white);font-weight:500;}.process-steps{display:flex;flex-direction:column;gap:0;margin:1.5rem 0;}.step-item{display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem 0;border-bottom:1px solid var(--navy-border);}.step-item:last-child{border-bottom:none;}.step-num{font-family:Georgia,serif;font-size:1.9rem;color:rgba(0,168,150,0.25);line-height:1;flex-shrink:0;width:2.5rem;text-align:right;padding-top:0.1rem;}.step-content{flex:1;}.step-title{font-weight:600;font-size:1rem;color:var(--white);margin-bottom:0.3rem;}.step-body p{font-size:0.95rem;color:var(--slate);line-height:1.68;}.kc-block{background:var(--navy-mid);border:1px solid rgba(255,255,255,0.07);border-left:3px solid var(--teal);padding:1.75rem 2rem;margin:2.5rem 0;}.kc-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-bottom:0.75rem;display:block;}.kc-q{font-size:1.05rem;font-weight:500;color:var(--white);line-height:1.55;margin-bottom:1.25rem;}.kc-options{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:0;}.kc-option{display:flex;align-items:flex-start;gap:0.85rem;padding:0.9rem 1.1rem;background:var(--navy-card);border:1px solid rgba(255,255,255,0.06);cursor:pointer;text-align:left;width:100%;font-family:inherit;font-size:0.97rem;color:var(--slate);line-height:1.55;transition:background 0.12s,border-color 0.12s;}.kc-option:hover{background:var(--navy-raised);border-color:rgba(0,168,150,0.25);}.kc-opt-key{font-family:'JetBrains Mono',monospace;font-size:0.75rem;font-weight:700;color:var(--slate-mid);flex-shrink:0;width:1.3rem;padding-top:0.08rem;}.kc-block.answered .kc-option{cursor:default;}.kc-block.answered .kc-option.correct{background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.3);color:#86efac;}.kc-block.answered .kc-option.wrong{opacity:0.35;}.kc-reveal{display:none;margin-top:1.25rem;padding:1.25rem 1.5rem;background:rgba(0,0,0,0.2);border-left:3px solid var(--teal);}.kc-reveal-label{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:0.6rem;display:block;}.kc-reveal p{font-size:0.97rem;color:var(--slate);line-height:1.75;margin-bottom:0.6rem;}.pause-reflect{background:var(--navy-mid);border:1px solid rgba(244,162,97,0.2);padding:2rem 2.25rem;margin:2.5rem 0;}.pause-label{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--orange-light);margin-bottom:0.9rem;display:block;}.pause-intro{font-size:1.02rem;color:var(--slate);line-height:1.7;margin-bottom:1rem;}.pause-q{display:flex;gap:0.9rem;margin-bottom:0.65rem;}.pause-q-num{font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--orange-light);flex-shrink:0;padding-top:0.15rem;font-weight:700;}.pause-q-text{font-size:0.97rem;color:var(--slate);line-height:1.65;}.takeaways{background:var(--navy-mid);border-top:3px solid var(--teal);padding:2.25rem var(--space-7);margin-top:0;}.takeaways-heading{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal);margin-bottom:1.5rem;}.takeaway-list{display:flex;flex-direction:column;gap:1rem;}.takeaway-item{display:flex;gap:1rem;align-items:flex-start;}.takeaway-icon{color:var(--teal);font-size:0.5rem;flex-shrink:0;padding-top:0.4rem;}.takeaway-body{flex:1;}.takeaway-body strong{font-size:1rem;color:var(--white);font-weight:600;display:block;margin-bottom:0.2rem;}.takeaway-body p{font-size:0.95rem;color:var(--slate);line-height:1.65;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem var(--space-7);border-top:1px solid var(--navy-border);gap:1rem;}.nav-btn{display:flex;align-items:center;gap:0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--slate);text-decoration:none;padding:0.65rem 1.1rem;border:1px solid rgba(255,255,255,0.08);transition:color 0.15s,border-color 0.15s,background 0.15s;}.nav-btn:hover{color:var(--white);border-color:var(--teal);background:var(--teal-subtle);}.nav-btn-label{font-size:0.69rem;display:block;color:var(--slate-mid);margin-bottom:0.1rem;}.nav-btn-title{font-size:0.82rem;color:var(--white);}.nav-btn.primary{background:var(--teal-subtle);border-color:rgba(0,168,150,0.35);color:var(--teal);}.nav-btn.primary:hover{background:var(--teal);color:var(--navy);}footer{padding:1.5rem var(--space-7);border-top:1px solid var(--navy-border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;}.footer-brand{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--slate-mid);letter-spacing:0.1em;}.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.5s ease,transform 0.5s ease;}.reveal.revealed{opacity:1;transform:translateY(0);}@media (max-width:860px){.module-hero{padding:3rem 1.5rem 2.5rem;min-height:220px;}.module-content,.objectives-strip,.takeaways,.module-nav,footer{padding-left:1.5rem;padding-right:1.5rem;}.content-section{padding:2.5rem 0;}.card-grid-3,.card-grid-2{grid-template-columns:1fr;}.stat-strip.cols-3,.stat-strip.cols-4{grid-template-columns:1fr 1fr;}.top-nav{padding:0 1.25rem;}.hero-num{display:none;}}@media (max-width:540px){.stat-strip.cols-3,.stat-strip.cols-4{grid-template-columns:1fr;}.module-title{font-size:1.8rem;}}.viz-container > p.viz-title{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);padding:1rem 1.5rem 0.85rem;border-bottom:1px solid rgba(255,255,255,0.06);margin:-1.65rem -1.65rem 1.5rem;display:block;background:rgba(0,168,150,0.03);}
+</style>
+<style>
+/* ── SHARED COMPONENT RULES (inline supplement) ── */
+.objectives-strip{background:var(--navy-mid);border-bottom:1px solid var(--navy-border);padding:2rem var(--space-7)}
+.objectives-heading{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal-muted);margin-bottom:1rem}
+.objectives-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:0.75rem}
+.objectives-list li{display:flex;align-items:baseline;gap:1rem;font-size:0.97rem;color:var(--slate);line-height:1.6}
+.obj-num{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--teal);letter-spacing:0.1em;flex-shrink:0}
+.pause-questions{background:var(--navy-mid);border-top:1px solid var(--navy-border);border-bottom:1px solid var(--navy-border);padding:2rem var(--space-7)}
+.pause-q{font-size:0.97rem;color:var(--slate);line-height:1.7;margin-bottom:0.5rem;padding-left:1.25rem;border-left:2px solid rgba(255,255,255,0.08)}
+.kc-hint{font-size:0.85rem;color:var(--slate);font-style:italic;margin-top:0.5rem;display:none}
+.kc-hint.visible{display:block}
+.next{display:inline-flex;align-items:center;gap:0.75rem;padding:0.85rem 1.75rem;background:rgba(0,168,150,0.1);border:1px solid rgba(0,168,150,0.25);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:0.82rem;letter-spacing:0.08em;text-decoration:none;transition:background 0.15s}
+.next:hover{background:rgba(0,168,150,0.18)}
+.module-footer{padding:3rem var(--space-7);border-top:1px solid var(--navy-border);display:flex;justify-content:space-between;align-items:center}
+</style>
 <style>
 /* ── MODULE 1 SPECIFIC ── */
 .waste-explorer {
@@ -40,10 +44,10 @@ html,body{background:#0F1F2E;color:#FFFFFF;}
 .waste-tab {
   padding: 0.75rem 1.25rem;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--slate-dark);
+  color:#94A3B8;
   cursor: pointer;
   border-bottom: 2px solid transparent;
   white-space: nowrap;
@@ -58,12 +62,12 @@ html,body{background:#0F1F2E;color:#FFFFFF;}
 .waste-panels { background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.07); border-top: none; }
 .waste-panel { display: none; padding: 2rem; }
 .waste-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-.waste-panel-stat .stat-num { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: var(--teal-muted); line-height: 1; margin-bottom: 0.25rem; }
-.waste-panel-stat .stat-label { font-size: 0.8rem; color: var(--slate-dark); line-height: 1.4; }
+.waste-panel-stat .stat-num { font-family: Georgia, 'Times New Roman', serif; font-size: 2.5rem; color: var(--teal-muted); line-height: 1; margin-bottom: 0.25rem; }
+.waste-panel-stat .stat-label { font-size: 0.8rem; color:#94A3B8; line-height: 1.4; }
 .waste-panel h4 { font-weight: 500; font-size: 0.95rem; margin-bottom: 0.6rem; }
-.waste-panel p { font-size: 0.83rem; color: var(--slate-dark); line-height: 1.65; margin-bottom: 0.5rem; }
+.waste-panel p { font-size: 0.83rem; color:#94A3B8; line-height: 1.65; margin-bottom: 0.5rem; }
 .waste-panel .examples { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.35rem; }
-.waste-panel .example { font-size: 0.78rem; color: var(--slate-dark); padding-left: 1rem; border-left: 2px solid rgba(255,255,255,0.08); }
+.waste-panel .example { font-size: 0.78rem; color:#94A3B8; padding-left: 1rem; border-left: 2px solid rgba(255,255,255,0.08); }
 .waste-panel .cost { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--orange); margin-top: 0.75rem; }
 
 /* GreenOps action model interactive */
@@ -90,7 +94,7 @@ html,body{background:#0F1F2E;color:#FFFFFF;}
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'DM Serif Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 2rem;
   color: rgba(255,255,255,0.08);
   flex-shrink: 0;
@@ -117,13 +121,13 @@ html,body{background:#0F1F2E;color:#FFFFFF;}
 .action-level.l3 .action-level-name { color: var(--track3); }
 .action-level-tagline {
   font-size: 0.82rem;
-  color: var(--slate-dark);
+  color:#94A3B8;
   flex: 1;
   font-style: italic;
 }
 .action-level-arrow {
   font-size: 0.7rem;
-  color: var(--slate-dark);
+  color:#94A3B8;
   transition: transform 0.2s;
   padding-right: 1rem;
 }
@@ -138,8 +142,8 @@ html,body{background:#0F1F2E;color:#FFFFFF;}
 .action-level-detail p { font-size: 0.85rem; color: var(--slate); line-height: 1.7; margin-bottom: 0.75rem; }
 .action-level-detail .caveat {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.68rem;
-  color: var(--slate-dark);
+  font-size: 0.75rem;
+  color:#94A3B8;
   padding: 0.5rem 0.75rem;
   background: rgba(255,255,255,0.02);
   border-left: 2px solid rgba(255,255,255,0.08);
@@ -161,7 +165,7 @@ html,body{background:#0F1F2E;color:#FFFFFF;}
 }
 .scope-box:hover, .scope-box.active { background: var(--navy-card); }
 .scope-num {
-  font-family: 'DM Serif Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 2rem;
   line-height: 1;
   margin-bottom: 0.5rem;
@@ -171,10 +175,10 @@ html,body{background:#0F1F2E;color:#FFFFFF;}
 .s3 .scope-num { color: var(--orange); }
 .s4 .scope-num { color: var(--track3); }
 .scope-name { font-size: 0.78rem; font-weight: 500; margin-bottom: 0.4rem; }
-.scope-short { font-size: 0.75rem; color: var(--slate-dark); line-height: 1.5; }
+.scope-short { font-size: 0.75rem; color:#94A3B8; line-height: 1.5; }
 .scope-size {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
   margin-top: 0.75rem;
   padding: 0.3rem 0.6rem;
@@ -196,7 +200,7 @@ html,body{background:#0F1F2E;color:#FFFFFF;}
 }
 .scope-tag {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   padding: 0.25rem 0.6rem;
   background: rgba(255,255,255,0.05);
   border-radius: 2px;
@@ -217,7 +221,7 @@ html,body{background:#0F1F2E;color:#FFFFFF;}
   text-align: center;
 }
 .gstat-num {
-  font-family: 'DM Serif Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 2.2rem;
   line-height: 1;
   color: var(--teal-muted);
@@ -225,7 +229,7 @@ html,body{background:#0F1F2E;color:#FFFFFF;}
 }
 .gstat-label {
   font-size: 0.78rem;
-  color: var(--slate-dark);
+  color:#94A3B8;
   line-height: 1.4;
 }
 
@@ -235,7 +239,7 @@ html,body{background:#0F1F2E;color:#FFFFFF;}
 .waste-bar-label { font-size: 0.78rem; color: var(--slate); width: 140px; flex-shrink: 0; }
 .waste-bar-track { flex: 1; height: 8px; background: rgba(255,255,255,0.06); border-radius: 1px; overflow: hidden; }
 .waste-bar-fill { height: 100%; border-radius: 1px; transition: width 1s cubic-bezier(.16,1,.3,1); width: 0; }
-.waste-bar-val { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--slate-dark); width: 60px; text-align: right; }
+.waste-bar-val { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color:#94A3B8; width: 60px; text-align: right; }
 </style>
 </head>
 <body class="track1">
@@ -277,315 +281,208 @@ html,body{background:#0F1F2E;color:#FFFFFF;}
 
 <div class="module-content">
 
-<!-- SECTION 1 -->
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 1 — Scale: Why this matters operationally
+     ═══════════════════════════════════════════════════════════ -->
 <div class="content-section reveal">
   <p class="section-label">Section 1</p>
   <h2 class="section-title">The era of digital abundance is ending.</h2>
-  <p class="section-intro">For two decades, IT strategy was built on unlimited storage, elastic compute, and energy abstracted away behind a data centre boundary. That assumption is changing.</p>
+  <p class="section-intro">For two decades IT strategy was built on the assumption that compute, storage, and energy were effectively unlimited. Power availability for data centres is already a bottleneck in London, Dublin, Amsterdam, and Singapore. That assumption is gone.</p>
 
-  <p class="prose">The global digital footprint is no longer small enough to ignore. ICT now accounts for 2–4% of global greenhouse gas emissions — comparable to aviation. The water and materials embedded in that infrastructure are orders of magnitude larger than most technology leaders appreciate. And the assumption that moving to cloud makes these someone else's problem is one of the most widely held and consequential misconceptions in enterprise IT.</p>
+  <!-- Three physical impacts — energy / water / materials -->
+  <div class="stat-strip cols-3 reveal">
+    <div class="stat-cell" style="--cell-accent:#00A896">
+      <span class="stat-num">2–4%</span>
+      <span class="stat-label">of global GHG emissions<br>from the ICT sector</span>
+      <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:0.75rem;color: var(--slate-mid);margin-top:0.5rem;">Comparable to aviation. IEA, ITU.</span>
+    </div>
+    <div class="stat-cell" style="--cell-accent:#F4A261">
+      <span class="stat-num">57M+</span>
+      <span class="stat-label">metric tonnes e-waste<br>generated every year</span>
+      <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:0.75rem;color: var(--slate-mid);margin-top:0.5rem;">Under 20% formally recycled. Global E-Waste Monitor.</span>
+    </div>
+    <div class="stat-cell" style="--cell-accent:#E76F51">
+      <span class="stat-num">10×</span>
+      <span class="stat-label">more energy per AI query<br>than a standard web search</span>
+      <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:0.75rem;color: var(--slate-mid);margin-top:0.5rem;">Before training costs. Published estimates.</span>
+    </div>
+  </div>
 
-  <!-- Interactive Global Stats -->
+  <!-- Old assumption vs new reality — direct from slides -->
   <div class="viz-container reveal">
-    <p class="viz-title">The global digital footprint — key figures</p>
-    <div class="global-stats">
-      <div class="gstat">
-        <div class="gstat-num">2–4%</div>
-        <div class="gstat-label">of global GHG emissions from ICT — comparable to aviation</div>
+    <div class="viz-header">
+      <div class="viz-header-dot" style="background:#E76F51"></div>
+      <span class="viz-title">The operating assumptions that are no longer true</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.06);">
+      <div style="background:#1E293B;padding:1.5rem;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.14em;text-transform:uppercase;color:#E76F51;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;"><span style="font-size:0.8rem;">✕</span> The old assumption</div>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <div style="font-size:0.95rem;color:var(--slate-mid);padding:0.6rem 0.85rem;background:rgba(231,111,81,0.04);border-left:2px solid rgba(231,111,81,0.2);">Scale later — compute is cheap</div>
+          <div style="font-size:0.95rem;color:var(--slate-mid);padding:0.6rem 0.85rem;background:rgba(231,111,81,0.04);border-left:2px solid rgba(231,111,81,0.2);">Cloud is inherently more efficient</div>
+          <div style="font-size:0.95rem;color:var(--slate-mid);padding:0.6rem 0.85rem;background:rgba(231,111,81,0.04);border-left:2px solid rgba(231,111,81,0.2);">Digital has no physical footprint worth measuring</div>
+          <div style="font-size:0.95rem;color:var(--slate-mid);padding:0.6rem 0.85rem;background:rgba(231,111,81,0.04);border-left:2px solid rgba(231,111,81,0.2);">Energy is a facilities problem, not an IT problem</div>
+          <div style="font-size:0.95rem;color:var(--slate-mid);padding:0.6rem 0.85rem;background:rgba(231,111,81,0.04);border-left:2px solid rgba(231,111,81,0.2);">Sustainability is a communications exercise</div>
+        </div>
       </div>
-      <div class="gstat">
-        <div class="gstat-num">~2%</div>
-        <div class="gstat-label">of global electricity consumed by data centres</div>
-      </div>
-      <div class="gstat">
-        <div class="gstat-num">50m+</div>
-        <div class="gstat-label">metric tonnes of e-waste generated globally each year</div>
-      </div>
-      <div class="gstat">
-        <div class="gstat-num">10×</div>
-        <div class="gstat-label">more energy for an AI query than a standard web search</div>
+      <div style="background:#162840;padding:1.5rem;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.14em;text-transform:uppercase;color:#00A896;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;"><span style="font-size:0.8rem;">→</span> The reality we're entering</div>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <div style="font-size:0.95rem;color:var(--slate);padding:0.6rem 0.85rem;background:rgba(0,168,150,0.05);border-left:2px solid rgba(0,168,150,0.3);">Power availability for data centres is a genuine bottleneck</div>
+          <div style="font-size:0.95rem;color:var(--slate);padding:0.6rem 0.85rem;background:rgba(0,168,150,0.05);border-left:2px solid rgba(0,168,150,0.3);">AI demand is multiplying compute consumption at scale</div>
+          <div style="font-size:0.95rem;color:var(--slate);padding:0.6rem 0.85rem;background:rgba(0,168,150,0.05);border-left:2px solid rgba(0,168,150,0.3);">Regulators are requiring auditable sustainability disclosure</div>
+          <div style="font-size:0.95rem;color:var(--slate);padding:0.6rem 0.85rem;background:rgba(0,168,150,0.05);border-left:2px solid rgba(0,168,150,0.3);">Supply chain pressure extends ESG obligations downstream</div>
+          <div style="font-size:0.95rem;color:var(--slate);padding:0.6rem 0.85rem;background:rgba(0,168,150,0.05);border-left:2px solid rgba(0,168,150,0.3);">Waste elimination is directly recoverable as cost reduction</div>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="callout callout-insight reveal">
-    <p class="callout-title">Why IT can't claim to be a minor contributor</p>
-    <p>The most common defence — "our IT estate is too small to matter" — fails at enterprise scale. A large bank, retailer, or government body running hundreds of thousands of devices, multiple data centres, and significant cloud estate has a material footprint. The claim doesn't survive scrutiny once someone builds the baseline.</p>
+    <span class="callout-title">The foundational premise</span>
+    <p>Digital sustainability is not about being green as a brand posture. It is about operational excellence under constraint. Every wasted VM, every orphaned terabyte, every oversized AI call is a cost and a footprint simultaneously. The financial case and the sustainability case are the same case.</p>
   </div>
 </div>
 
-<!-- SECTION 2 — Scopes Interactive -->
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 2 — Where IT emissions actually sit
+     ═══════════════════════════════════════════════════════════ -->
 <div class="content-section reveal">
   <p class="section-label">Section 2</p>
   <h2 class="section-title">Where IT emissions sit — and what cloud actually changes.</h2>
-  <p class="section-intro">Understanding Scope 1, 2, and 3 in an IT context is the minimum fluency needed to have a credible conversation about footprint. The Scope 3 point about cloud is where most programmes get it wrong.</p>
+  <p class="section-intro">Cloud moves most IT emissions from Scope 1 and 2 into Scope 3. It does not reduce them. For most modern technology estates, Scope 3 is 70–80% of total footprint and the hardest to measure.</p>
 
-  <!-- Interactive Scope Diagram -->
-  <div class="viz-container reveal">
-    <p class="viz-title">Tap each scope to explore — click to expand</p>
-    <div class="scope-diagram" id="scopeDiagram">
-      <div class="scope-box s1" onclick="toggleScope(1)">
-        <div class="scope-num">1</div>
-        <div class="scope-name">Scope 1</div>
-        <div class="scope-short">Direct emissions from owned operations</div>
-        <div class="scope-size">Usually smallest</div>
-      </div>
-      <div class="scope-box s2" onclick="toggleScope(2)">
-        <div class="scope-num">2</div>
-        <div class="scope-name">Scope 2</div>
-        <div class="scope-short">Electricity used by facilities and devices</div>
-        <div class="scope-size">Location vs market-based</div>
-      </div>
-      <div class="scope-box s3" onclick="toggleScope(3)">
-        <div class="scope-num">3</div>
-        <div class="scope-name">Scope 3</div>
-        <div class="scope-short">Cloud, SaaS, hardware, logistics, end-of-life</div>
-        <div class="scope-size">Often 70–80% of total footprint</div>
-      </div>
-      <div class="scope-box s4" onclick="toggleScope(4)">
-        <div class="scope-num">4</div>
-        <div class="scope-name">Scope 4</div>
-        <div class="scope-short">Positive impact enabled by technology elsewhere</div>
-        <div class="scope-size">The handprint story</div>
-      </div>
-
-      <div class="scope-detail" id="scope-detail-1">
-        <p><strong>Scope 1 — Direct emissions.</strong> Fuel used in backup generators, on-site combustion, and refrigerants in cooling systems. For most IT organisations operating in modern facilities, this is the narrowest category. If you operate your own data centres with diesel backup power and use refrigerant-based cooling, this is where those emissions land.</p>
-        <div class="examples-row">
-          <span class="scope-tag">Diesel generators</span>
-          <span class="scope-tag">On-site combustion</span>
-          <span class="scope-tag">Refrigerants (cooling)</span>
-          <span class="scope-tag">Emergency backup systems</span>
-        </div>
-      </div>
-      <div class="scope-detail" id="scope-detail-2">
-        <p><strong>Scope 2 — Indirect energy.</strong> Electricity used by data centres you operate, offices, network equipment, and end-user devices in active use. If you run your own data centres, this is significant. Scope 2 has two reporting methods — location-based (actual grid intensity) and market-based (contractual instruments like RECs). Both have legitimate uses, but they measure different things.</p>
-        <div class="examples-row">
-          <span class="scope-tag">Data centre electricity</span>
-          <span class="scope-tag">Office buildings</span>
-          <span class="scope-tag">Network equipment</span>
-          <span class="scope-tag">End-user devices in use</span>
-        </div>
-      </div>
-      <div class="scope-detail" id="scope-detail-3" style="border-left: 3px solid var(--orange);">
-        <p><strong>Scope 3 — Value chain emissions.</strong> Cloud services, SaaS, managed services, hardware manufacturing, end-of-life treatment, logistics, and packaging. For most modern technology estates, this is the dominant category — often 70–80% of total footprint. It is also the hardest to measure, requiring supplier data and lifecycle assessments rather than direct metering.</p>
-        <p style="margin-top: 0.75rem; color: var(--orange)"><strong>The cloud misconception:</strong> Moving to cloud does not eliminate IT's environmental footprint — it moves it. Cloud consumption shifts most IT emissions from Scope 1 and 2 into Scope 3. Under CSRD and SBTi, Scope 3 is required where material — and for IT it almost always is. A shared responsibility model applies: providers manage infrastructure; you manage how you use it.</p>
-        <div class="examples-row">
-          <span class="scope-tag">Cloud services</span>
-          <span class="scope-tag">SaaS platforms</span>
-          <span class="scope-tag">Hardware manufacturing</span>
-          <span class="scope-tag">End-of-life treatment</span>
-          <span class="scope-tag">Logistics and packaging</span>
-        </div>
-      </div>
-      <div class="scope-detail" id="scope-detail-4">
-        <p><strong>Scope 4 — Avoided emissions (handprint).</strong> How technology enables carbon reductions elsewhere — the positive side of the ledger. A logistics platform that eliminates unnecessary transport. A smart building system that reduces energy demand. Real value — but not a substitute for managing your own footprint first. The handprint story only lands credibly once footprint discipline is in place.</p>
-        <div class="examples-row">
-          <span class="scope-tag">Avoided transport (logistics platforms)</span>
-          <span class="scope-tag">Building energy reduction</span>
-          <span class="scope-tag">Remote work substitution</span>
-          <span class="scope-tag">Precision agriculture systems</span>
-        </div>
+  <!-- Scope proportion diagram — proportional SVG -->
+  <div class="viz-container reveal" id="scopeViz">
+    <div class="viz-header">
+      <div class="viz-header-dot"></div>
+      <span class="viz-title">IT emissions by scope — proportional view. Click any scope to explore.</span>
+    </div>
+    <div style="padding:1.75rem 1.75rem 1rem;">
+      <svg id="scopePropSvg" viewBox="0 0 800 180" style="width:100%;height:auto;display:block;"></svg>
+      <div id="scopePropDetail" style="display:none;margin-top:1.25rem;padding:1.1rem 1.5rem;background:rgba(0,0,0,0.2);border-left:3px solid #00A896;transition:border-color 0.2s;">
+        <div id="scopePropText" style="font-size:0.97rem;color:var(--slate);line-height:1.72;"></div>
       </div>
     </div>
+    <div style="padding:0.85rem 1.75rem;border-top:1px solid rgba(255,255,255,0.05);background:rgba(0,168,150,0.03);">
+      <p style="font-size:0.82rem;color:var(--slate-mid);line-height:1.55;">Sources: IEA, ITU, GHG Protocol Corporate Standard. Proportions are indicative ranges for modern enterprise IT estates. Individual organisations vary based on on-premise vs cloud ratio, hardware refresh rate, and supply chain engagement.</p>
+    </div>
+  </div>
+
+  <!-- Cloud misconception callout -->
+  <div class="callout callout-warning reveal">
+    <span class="callout-title">The most consequential misconception in enterprise IT sustainability</span>
+    <p>"We moved to cloud so our environmental impact is minimal. Data centres are someone else's problem now."</p>
+    <p style="margin-top:0.65rem;">Cloud moves emissions from Scope 1 and 2 into Scope 3 — still your footprint under CSRD and SBTi. Cloud providers run on energy with its own carbon intensity by region. A shared responsibility model applies: providers manage the infrastructure, you manage how you use it.</p>
   </div>
 </div>
 
-<!-- SECTION 3 — Policy -->
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 3 — Regulatory timeline
+     ═══════════════════════════════════════════════════════════ -->
 <div class="content-section reveal">
   <p class="section-label">Section 3</p>
   <h2 class="section-title">The policy landscape has changed.</h2>
-  <p class="section-intro">Sustainability is no longer voluntary. A series of interconnected regulatory frameworks now reshape what technology organisations must disclose, measure, and demonstrate.</p>
+  <p class="section-intro">Sustainability is no longer voluntary for most large organisations. A sequence of interconnected frameworks now requires IT to measure, disclose, and reduce — with auditable evidence, not aspirational statements.</p>
 
-  <div class="card-grid card-grid-2 reveal">
-    <div class="card card-accent-o">
-      <div class="card-label">Corporate</div>
-      <h4>Science-based targets now commonly cover Scope 3</h4>
-      <p>Cloud consumption and supply chain emissions are inside the SBTi boundary for most large enterprises. IT's footprint is material — and the corporate sustainability team knows it.</p>
+  <!-- Regulatory timeline -->
+  <div class="viz-container reveal" id="policyTimeline">
+    <div class="viz-header">
+      <div class="viz-header-dot" style="background:#F4A261"></div>
+      <span class="viz-title">Key regulatory milestones — click any event to see its IT implications</span>
     </div>
-    <div class="card card-accent-o">
-      <div class="card-label">Legal exposure</div>
-      <h4>Greenwashing claims face legal challenge</h4>
-      <p>Unsupported sustainability claims — including those made by IT teams — create legal liability in multiple jurisdictions. Non-compliance is not just reputational risk.</p>
+    <div style="padding:2rem 1.75rem 1rem;" id="timelineContainer">
+      <!-- Built by JS below -->
     </div>
-    <div class="card card-accent-t">
-      <div class="card-label">Disclosure</div>
-      <h4>CSRD, EU Taxonomy and TCFD obligations</h4>
-      <p>Mandatory disclosure frameworks are expanding. For entities in scope, IT measurement quality directly affects the credibility of corporate reporting. Weak IT data is a weak annual report.</p>
+    <div id="timelineDetail" style="display:none;padding:1.1rem 1.75rem 1.25rem;border-top:1px solid rgba(255,255,255,0.06);background:rgba(0,0,0,0.12);">
+      <div id="timelineDetailText" style="font-size:0.97rem;color:var(--slate);line-height:1.72;"></div>
     </div>
-    <div class="card card-accent-t">
-      <div class="card-label">Supply chain</div>
-      <h4>ESG obligations extend to technology vendors</h4>
-      <p>Supplier pressure is flowing down the chain. Your IT vendors are increasingly being asked for the same evidence you are asking them to provide. The ask will return to you.</p>
+  </div>
+
+  <!-- What this means in practice -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.06);margin:1.75rem 0;" class="reveal">
+    <div style="background:#1E293B;padding:1.5rem;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.14em;text-transform:uppercase;color:#E76F51;margin-bottom:0.85rem;">Compliance and reporting</div>
+      <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.5rem;">
+        <li style="display:flex;gap:0.75rem;font-size:0.92rem;color:var(--slate);line-height:1.55;"><span style="color:#E76F51;flex-shrink:0;font-weight:600;">→</span>CSRD requires IT footprint data in auditable format</li>
+        <li style="display:flex;gap:0.75rem;font-size:0.92rem;color:var(--slate);line-height:1.55;"><span style="color:#E76F51;flex-shrink:0;font-weight:600;">→</span>EU Taxonomy affects whether IT investment qualifies as sustainable</li>
+        <li style="display:flex;gap:0.75rem;font-size:0.92rem;color:var(--slate);line-height:1.55;"><span style="color:#E76F51;flex-shrink:0;font-weight:600;">→</span>TCFD requires climate risk disclosure to investors</li>
+        <li style="display:flex;gap:0.75rem;font-size:0.92rem;color:var(--slate);line-height:1.55;"><span style="color:#E76F51;flex-shrink:0;font-weight:600;">→</span>Science-based targets now routinely cover Scope 3 — including cloud and hardware</li>
+      </ul>
+    </div>
+    <div style="background:#162840;padding:1.5rem;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.14em;text-transform:uppercase;color:#00A896;margin-bottom:0.85rem;">Commercial and operational</div>
+      <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.5rem;">
+        <li style="display:flex;gap:0.75rem;font-size:0.92rem;color:var(--slate);line-height:1.55;"><span style="color:#00A896;flex-shrink:0;font-weight:600;">→</span>Enterprise procurement requires supplier sustainability evidence</li>
+        <li style="display:flex;gap:0.75rem;font-size:0.92rem;color:var(--slate);line-height:1.55;"><span style="color:#00A896;flex-shrink:0;font-weight:600;">→</span>Green financing available to organisations with credible programmes</li>
+        <li style="display:flex;gap:0.75rem;font-size:0.92rem;color:var(--slate);line-height:1.55;"><span style="color:#00A896;flex-shrink:0;font-weight:600;">→</span>ESG screening affects capital availability for listed organisations</li>
+        <li style="display:flex;gap:0.75rem;font-size:0.92rem;color:var(--slate);line-height:1.55;"><span style="color:#00A896;flex-shrink:0;font-weight:600;">→</span>Greenwashing claims face legal challenge — unsupported claims create liability</li>
+      </ul>
     </div>
   </div>
 </div>
 
-<!-- SECTION 4 — Five categories of waste INTERACTIVE -->
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 4 — Five categories of digital waste
+     ═══════════════════════════════════════════════════════════ -->
 <div class="content-section reveal">
   <p class="section-label">Section 4</p>
   <h2 class="section-title">Five categories of digital waste.</h2>
-  <p class="section-intro">If reporting is the wrong place to start — and it usually is — waste is the right one. It's where you build credibility fast, because outcomes are tangible. Every category below is simultaneously a cost problem and a sustainability problem.</p>
+  <p class="section-intro">If reporting is the wrong place to start — and it usually is — waste is the right one. The financial case and the sustainability case are the same case. Eliminating waste reduces cost and carbon simultaneously.</p>
 
-  <div class="waste-explorer reveal">
-    <div class="waste-tabs">
-      <button class="waste-tab active" onclick="showWaste('idle')">Idle Compute</button>
-      <button class="waste-tab" onclick="showWaste('storage')">Storage Waste</button>
-      <button class="waste-tab" onclick="showWaste('app')">Application Waste</button>
-      <button class="waste-tab" onclick="showWaste('enduser')">End-User Waste</button>
-      <button class="waste-tab" onclick="showWaste('ai')">AI Consumption</button>
+  <!-- Waste category radial infographic -->
+  <div class="viz-container reveal" id="wasteViz">
+    <div class="viz-header">
+      <div class="viz-header-dot" style="background:#E76F51"></div>
+      <span class="viz-title">Five categories of digital waste — click any category for benchmarks and actions</span>
     </div>
-    <div class="waste-panels">
-      <div class="waste-panel active" id="waste-idle">
-        <div>
-          <h4>Idle Compute</h4>
-          <p>Instances left running with no meaningful workload. VMs spun up for testing and never terminated. Dev environments left on overnight. Systems running at 5–10% CPU utilisation with nobody noticing — or nobody accountable.</p>
-          <div class="examples">
-            <div class="example">VMs provisioned for a project that completed — still running</div>
-            <div class="example">Dev and staging environments with no auto-shutdown policy</div>
-            <div class="example">Systems at 5–10% utilisation that would righsize to a fraction of the cost</div>
-            <div class="example">Untagged cloud resources with no owner and no termination date</div>
-          </div>
-          <div class="cost">£2–8k / VM / year in cloud run cost &nbsp;·&nbsp; 25–40% of VMs at &lt;5% CPU in a typical estate</div>
-        </div>
-        <div>
-          <div class="waste-panel-stat"><div class="stat-num">25–40%</div><div class="stat-label">of VMs in a typical enterprise estate running at less than 5% CPU utilisation</div></div>
-          <div class="waste-panel-stat" style="margin-top:1.5rem"><div class="stat-num">30 days</div><div class="stat-label">rightsizing and auto-shutdown typically recoverable within 30 days</div></div>
-        </div>
+    <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:0;align-items:stretch;">
+      <div style="padding:1.75rem;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.1);">
+        <svg id="wasteRadial" viewBox="0 0 300 300" style="width:100%;max-width:300px;height:auto;display:block;"></svg>
       </div>
-      <div class="waste-panel" id="waste-storage">
-        <div>
-          <h4>Storage Waste</h4>
-          <p>Data retained indefinitely "just in case." Logs held for years with no access. Multiple uncompressed copies. Triple redundancy on non-critical assets. Dark data — stored but never used — is the fastest-growing category in most enterprise estates.</p>
-          <div class="examples">
-            <div class="example">Log data retained for years beyond any compliance requirement</div>
-            <div class="example">Multiple full copies of the same dataset in different systems</div>
-            <div class="example">Production databases replicated to dev environments and never cleaned</div>
-            <div class="example">S3 buckets from deprecated services still paying monthly storage fees</div>
-          </div>
-          <div class="cost">£18–35 / TB / month cloud object storage &nbsp;·&nbsp; Dark data is one of the fastest-remediable waste categories</div>
-        </div>
-        <div>
-          <div class="waste-panel-stat"><div class="stat-num">60–70%</div><div class="stat-label">of stored enterprise data never accessed after initial creation</div></div>
-          <div class="waste-panel-stat" style="margin-top:1.5rem"><div class="stat-num">ROT</div><div class="stat-label">Redundant, Obsolete, Trivial — the standard classification for storage rationalisation</div></div>
-        </div>
-      </div>
-      <div class="waste-panel" id="waste-app">
-        <div>
-          <h4>Application Waste</h4>
-          <p>Duplicate platforms. Zombie applications nobody uses but IT still pays to run. Portfolio sprawl built up over years because rationalisation is politically difficult. Every unused application has a support cost, a licence cost, a security exposure, and an energy draw.</p>
-          <div class="examples">
-            <div class="example">Legacy CRM system running in parallel with the new platform — "just in case"</div>
-            <div class="example">Applications with zero active users for 6+ months still being patched and maintained</div>
-            <div class="example">Three different project management tools that nobody chose to consolidate</div>
-            <div class="example">Custom-built tools whose original developer left three years ago</div>
-          </div>
-          <div class="cost">£40–120k / app / year in run and licence cost &nbsp;·&nbsp; Portfolio rationalisation recovers 10–20% of app spend</div>
-        </div>
-        <div>
-          <div class="waste-panel-stat"><div class="stat-num">15–30%</div><div class="stat-label">of the average enterprise application portfolio is marginal or effectively unused</div></div>
-          <div class="waste-panel-stat" style="margin-top:1.5rem"><div class="stat-num">TIME</div><div class="stat-label">Tolerate, Invest, Migrate, Eliminate — the portfolio rationalisation model covered in Module 6</div></div>
-        </div>
-      </div>
-      <div class="waste-panel" id="waste-enduser">
-        <div>
-          <h4>End-User Waste</h4>
-          <p>Devices replaced on fixed procurement cycles regardless of condition. Peripheral sprawl — two monitors by default, docking stations issued as standard, cables and chargers treated as consumables. Laptops shipped by air because onboarding was planned at the last minute.</p>
-          <div class="examples">
-            <div class="example">3-year mandatory refresh cycle applied regardless of device condition</div>
-            <div class="example">Two monitors issued by default — whether the role requires them or not</div>
-            <div class="example">Docking stations accumulating in storage rooms, never recovered</div>
-            <div class="example">Laptops air-freighted due to poor onboarding lead-time planning</div>
-          </div>
-          <div class="cost">~80% of a laptop's lifetime carbon footprint is manufacturing — extending useful life is the primary lever</div>
-        </div>
-        <div>
-          <div class="waste-panel-stat"><div class="stat-num">~80%</div><div class="stat-label">of a laptop's lifetime environmental footprint occurs before it reaches your desk</div></div>
-          <div class="waste-panel-stat" style="margin-top:1.5rem"><div class="stat-num">+1 year</div><div class="stat-label">extending average device lifespan by one year reduces end-user embodied carbon by ~20%</div></div>
-        </div>
-      </div>
-      <div class="waste-panel" id="waste-ai">
-        <div>
-          <h4>AI Consumption</h4>
-          <p>Heavyweight model calls for queries that don't need them. No caching strategy. No tiered inference. Prompt inefficiency at scale — verbose prompts sent thousands of times daily by users who never think about the compute behind the response. AI is the fastest-growing ungoverned consumption category in enterprise IT.</p>
-          <div class="examples">
-            <div class="example">Frontier model used as default for writing short emails — 10–50× over-specified</div>
-            <div class="example">Long context windows sent with entire documents when only a paragraph was needed</div>
-            <div class="example">No caching for repeated queries that return identical answers</div>
-            <div class="example">AI consumption ungoverned — no visibility of tokens per user, cost per call</div>
-          </div>
-          <div class="cost">10× more energy per AI query than a standard web search &nbsp;·&nbsp; Governance, not restriction, is the fix</div>
-        </div>
-        <div>
-          <div class="waste-panel-stat"><div class="stat-num">10×</div><div class="stat-label">approximate energy differential between a frontier AI query and a standard web search</div></div>
-          <div class="waste-panel-stat" style="margin-top:1.5rem"><div class="stat-num">Ungoverned</div><div class="stat-label">most enterprise AI inference is currently ungoverned — no usage tracking, no model tiering, no demand management</div></div>
-        </div>
+      <div id="wasteDetail" style="padding:1.75rem;border-left:1px solid rgba(255,255,255,0.06);min-height:300px;display:flex;flex-direction:column;justify-content:center;">
+        <p style="font-size:0.95rem;color:var(--slate-mid);line-height:1.7;font-style:italic;">Select a category to see scale, cost benchmarks, and the key action.</p>
       </div>
     </div>
-  </div>
-
-  <div class="callout callout-warning reveal">
-    <p class="callout-title">The operational case for GreenOps</p>
-    <p><strong>"If you're consuming compute, storage, or network that creates no value, you're paying for it twice: once on the invoice, and once in the carbon account."</strong></p>
-    <p style="margin-top: 0.5rem;">GreenOps is a discipline that engineers, finance, procurement, and leadership should all care about equally.</p>
+    <div style="padding:0.85rem 1.75rem;border-top:1px solid rgba(255,255,255,0.05);background:rgba(0,0,0,0.1);">
+      <p style="font-size:0.82rem;color:var(--slate-mid);line-height:1.55;">Benchmarks: illustrative ranges compiled from Gartner, IDC, FinOps Foundation, and TBM Council research. Individual estate figures will vary. Financial figures in GBP.</p>
+    </div>
   </div>
 </div>
 
-<!-- SECTION 5 — GreenOps Action Model Interactive -->
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 5 — The GreenOps action model
+     ═══════════════════════════════════════════════════════════ -->
 <div class="content-section reveal">
   <p class="section-label">Section 5</p>
   <h2 class="section-title">The GreenOps action model.</h2>
-  <p class="section-intro">Most organisations that describe themselves as having a sustainability programme are, on closer inspection, running a reporting function. That is a starting point. It is not a destination.</p>
+  <p class="section-intro">Most organisations that describe themselves as having a sustainability programme are running a reporting function. That is a starting point. The goal is to shift left — from visibility to action to prevention.</p>
 
-  <div class="action-model reveal">
-    <div class="action-level l1" onclick="toggleLevel(this)">
-      <div class="action-level-num">1</div>
-      <div class="action-level-header">
-        <span class="action-level-name">Reporting</span>
-        <span class="action-level-tagline">Tells you what happened. The rear-view mirror.</span>
-        <span class="action-level-arrow">▼</span>
-      </div>
-      <div class="action-level-detail">
-        <p>Necessary for disclosure, compliance, and setting baselines. Not sufficient for operational improvement. Most organisations are at this level — and don't always know it.</p>
-        <p>If this is all you have, you have a communications function, not a sustainability programme. The output is data about the past. The question it cannot answer is: what are we doing about it?</p>
-        <div class="caveat">Symptom: metrics exist, dashboards exist, annual reports published — but operational decisions are unchanged</div>
+  <!-- Action model — animated pipeline diagram -->
+  <div class="viz-container reveal" id="actionModelViz">
+    <div class="viz-header">
+      <div class="viz-header-dot"></div>
+      <span class="viz-title">Three levels of action — click each level to explore what it means operationally</span>
+    </div>
+    <div style="padding:1.75rem;">
+      <!-- Pipeline SVG -->
+      <svg id="actionPipeline" viewBox="0 0 820 140" style="width:100%;height:auto;display:block;margin-bottom:1.25rem;"></svg>
+      <!-- Detail panel -->
+      <div id="actionDetail" style="background:rgba(0,0,0,0.15);border-left:3px solid #00A896;padding:1.25rem 1.5rem;min-height:110px;transition:border-color 0.2s;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.14em;text-transform:uppercase;color:#00A896;margin-bottom:0.6rem;transition:color 0.2s;" id="actionDetailLabel">Select a level above</div>
+        <div id="actionDetailText" style="font-size:0.97rem;color:var(--slate);line-height:1.72;">Click Reporting, Optimisation, or Avoidance to see what each level looks like in practice — and what separates organisations that do it well from those that are still stuck at the starting line.</div>
       </div>
     </div>
-    <div class="action-level l2" onclick="toggleLevel(this)">
-      <div class="action-level-num">2</div>
-      <div class="action-level-header">
-        <span class="action-level-name">Optimisation</span>
-        <span class="action-level-tagline">Doing the same thing with less.</span>
-        <span class="action-level-arrow">▼</span>
-      </div>
-      <div class="action-level-detail">
-        <p>Rightsizing, improving utilisation, reducing facility overhead, extending device lifespans. This is where most operational GreenOps effort sits — and where the most immediate wins are found.</p>
-        <p>Critical caveat: optimisation does not guarantee absolute reduction. A business growing at 20% per year while improving efficiency at 10% is still growing its footprint. This is where the rebound effect lives (covered in Module 5).</p>
-        <div class="caveat">Symptom: efficiency metrics improve, but total emissions stay flat or rise as demand grows alongside</div>
-      </div>
+    <div style="padding:0.85rem 1.75rem;border-top:1px solid rgba(255,255,255,0.05);background:rgba(0,168,150,0.03);">
+      <p style="font-size:0.88rem;color:var(--slate-mid);line-height:1.55;"><strong style="color:var(--teal);">The goal: shift left.</strong> Most organisations are at Reporting. Every step left in the model produces higher operational and financial return than the step to its right.</p>
     </div>
-    <div class="action-level l3" onclick="toggleLevel(this)">
-      <div class="action-level-num">3</div>
-      <div class="action-level-header">
-        <span class="action-level-name">Avoidance</span>
-        <span class="action-level-tagline">Designing demand out before it exists.</span>
-        <span class="action-level-arrow">▼</span>
-      </div>
-      <div class="action-level-detail">
-        <p>Consolidating duplicate platforms. Retiring unused applications. Designing services that require less compute. The highest-leverage decisions live here — because you are preventing waste, not managing it after the fact.</p>
-        <p>This is shift-left in practice. It requires earlier intervention than most governance models currently allow. Portfolio decisions, architecture choices, and data minimisation policies are all avoidance mechanisms.</p>
-        <div class="caveat">Most organisations are at Level 1. The goal is to know your position honestly, and identify what is blocking the next step.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="callout callout-key reveal">
-    <p class="callout-title">Where is your organisation right now?</p>
-    <p>Honest self-placement is more valuable than optimistic placement. Most organisations sit at Level 1 or between 1 and 2. That is normal. The question is: what is blocking the next step?</p>
   </div>
 </div>
 
-<!-- KNOWLEDGE CHECK 1 -->
+
+
+</div><!-- /module-content -->
+
 <div class="kc-block reveal" data-correct="C">
   <p class="kc-label">Knowledge Check · Module 1 · Q1</p>
   <p class="kc-q">Which of the following best describes the Scope 3 emissions challenge for enterprise IT?</p>
@@ -763,5 +660,528 @@ document.querySelectorAll('.waste-bars').forEach(el => barObserver.observe(el));
 // Auto-expand first level
 document.querySelector('.action-level').classList.add('expanded');
 </script>
+
+<!-- ═══════════════════════════════════════════════════════════
+     M1 VISUALISATION SCRIPTS
+     ═══════════════════════════════════════════════════════════ -->
+<script>
+(function() {
+'use strict';
+
+// ─── SCOPE PROPORTION DIAGRAM ───────────────────────────────
+var scopeData = [
+  { id: 's1', label: 'Scope 1', sub: 'Direct emissions', pct: 5, col: '#B2EDE7',
+    bullets: [
+      'On-site fuel combustion — backup generators, heating plant',
+      'Refrigerants leaking from cooling systems',
+      'Company vehicle fleet (where IT-owned)'
+    ],
+    note: 'The smallest category for most IT organisations — typically under 5% of total footprint. Measurable with reasonable accuracy from fuel and refrigerant procurement records.'
+  },
+  { id: 's2', label: 'Scope 2', sub: 'Purchased electricity', pct: 20, col: '#00A896',
+    bullets: [
+      'Electricity consumed by data centres you operate or lease',
+      'Office electricity for IT equipment and end-user devices',
+      'Network infrastructure energy consumption'
+    ],
+    note: 'Reported two ways: location-based (the actual carbon intensity of the grid) and market-based (adjusted for certificates or PPAs). GreenOps requires you understand both — market-based numbers can mask the physical grid reality.'
+  },
+  { id: 's3', label: 'Scope 3', sub: 'Value chain — 70–80% of total', pct: 75, col: '#E76F51',
+    bullets: [
+      'Cloud provider infrastructure and operations (often the largest single item)',
+      'Hardware manufacturing: servers, laptops, network equipment',
+      'Managed services, SaaS platforms, and software supply chain',
+      'Employee devices and end-of-life treatment'
+    ],
+    note: 'For most modern enterprise IT estates, Scope 3 is 70–80% of total footprint — and the hardest to measure. It requires supplier data and lifecycle assessments rather than direct metering. Under SBTi and CSRD, Scope 3 engagement is required where material. For IT, it almost always is.'
+  }
+];
+
+function buildScopeDiagram() {
+  var svg = document.getElementById('scopePropSvg');
+  if (!svg) return;
+  var W = 800, H = 180;
+  var barH = 52, barY = 35, gap = 4;
+
+  function el(tag, attrs) {
+    var e = document.createElementNS('http://www.w3.org/2000/svg', tag);
+    Object.keys(attrs).forEach(function(k){ e.setAttribute(k, attrs[k]); });
+    return e;
+  }
+  function txt(content, attrs) { var t = el('text', attrs); t.textContent = content; return t; }
+
+  svg.innerHTML = '';
+
+  // Calculate x positions based on percentage widths
+  var totalW = W - 20;
+  var x = 10;
+  scopeData.forEach(function(s, i) {
+    var w = Math.round((s.pct / 100) * totalW);
+    if (i < scopeData.length - 1) w -= gap;
+
+    // Main bar
+    var rect = el('rect', {x:x, y:barY, width:w, height:barH, fill:s.col,
+      opacity:'0.85', rx:'2', style:'cursor:pointer;transition:opacity 0.15s;'});
+    rect.addEventListener('mouseenter', function(){ rect.setAttribute('opacity','1'); });
+    rect.addEventListener('mouseleave', function(){ rect.setAttribute('opacity','0.85'); });
+    rect.addEventListener('click', function(){ selectScope(s, rect); });
+    svg.appendChild(rect);
+
+    // Percentage inside bar
+    if (s.pct >= 15) {
+      var pctTxt = txt(s.pct + '%', {
+        x: x + w/2, y: barY + barH/2 + 7,
+        'text-anchor':'middle', fill:'rgba(255,255,255,0.95)',
+        'font-family':'Georgia,serif', 'font-size': s.pct > 30 ? '26' : '18',
+        style:'pointer-events:none'
+      });
+      svg.appendChild(pctTxt);
+    }
+
+    // Label above
+    var labelY = barY - 10;
+    svg.appendChild(txt(s.label, {
+      x: x + w/2, y: labelY,
+      'text-anchor':'middle', fill: s.col,
+      'font-family':'Georgia,serif', 'font-size':'14', 'font-weight':'600',
+      style:'pointer-events:none'
+    }));
+
+    // Sub-label below
+    svg.appendChild(txt(s.sub.toUpperCase(), {
+      x: x + w/2, y: barY + barH + 18,
+      'text-anchor':'middle', fill:'rgba(200,214,229,0.6)',
+      'font-family':'JetBrains Mono,monospace', 'font-size':'11', 'letter-spacing':'1',
+      style:'pointer-events:none'
+    }));
+
+    // Clickable overlay
+    var hit = el('rect', {x:x, y:0, width:w, height:H, fill:'transparent', style:'cursor:pointer;'});
+    hit.addEventListener('click', function(){ selectScope(s, rect); });
+    svg.appendChild(hit);
+
+    x += w + gap;
+  });
+
+  // Arrow pointing to S3 label
+  var arrowX = 10 + (25/100 * totalW) + 30;
+  svg.appendChild(el('line', {x1:arrowX, y1:H-5, x2:arrowX, y2:barY+barH+24,
+    stroke:'rgba(231,111,81,0.4)', 'stroke-width':'1', 'stroke-dasharray':'3,2'}));
+}
+
+var selectedScopeId = null;
+function selectScope(s, rect) {
+  selectedScopeId = selectedScopeId === s.id ? null : s.id;
+  var det = document.getElementById('scopePropDetail');
+  var txt2 = document.getElementById('scopePropText');
+  if (selectedScopeId) {
+    det.style.display = 'block';
+    det.style.borderLeftColor = s.col;
+    var bulletsHtml = s.bullets.map(function(b){
+      return '<li style="display:flex;gap:0.6rem;margin-bottom:0.4rem;"><span style="color:'+s.col+';flex-shrink:0;font-size:0.7rem;padding-top:0.2rem;">▸</span><span>'+b+'</span></li>';
+    }).join('');
+    txt2.innerHTML =
+      '<strong style="color:'+s.col+';font-size:1rem;display:block;margin-bottom:0.6rem;">'+s.label+' — '+s.sub+'</strong>' +
+      '<ul style="list-style:none;padding:0;font-size:0.95rem;color:var(--slate);line-height:1.6;margin-bottom:0.75rem;">'+bulletsHtml+'</ul>' +
+      '<p style="font-size:0.92rem;color:var(--slate-mid);font-style:italic;line-height:1.65;border-left:2px solid rgba(255,255,255,0.1);padding-left:0.85rem;">'+s.note+'</p>';
+  } else {
+    det.style.display = 'none';
+  }
+}
+
+buildScopeDiagram();
+
+
+// ─── REGULATORY TIMELINE ────────────────────────────────────
+var events = [
+  { year: '2015', label: 'Paris Agreement', col: '#00A896',
+    detail: '<strong style="color:#00A896">Paris Agreement</strong> sets the 1.5°C warming limit and creates the science-based target framework that corporate sustainability is anchored to. For IT: organisations committing to SBTi targets must include Scope 3 value chain emissions where material — and IT Scope 3 almost always is material.' },
+  { year: '2018', label: 'TCFD Mainstream', col: '#B2EDE7',
+    detail: '<strong style="color:#B2EDE7">TCFD</strong> (Task Force on Climate-related Financial Disclosures) becomes standard for investor reporting on climate risk. For IT: data centres in flood zones, heat-stressed locations, or water-scarce regions are physical climate risks that must now be disclosed. Technology infrastructure is in scope.' },
+  { year: '2020', label: 'EU Taxonomy', col: '#F4A261',
+    detail: '<strong style="color:#F4A261">EU Taxonomy</strong> defines which economic activities qualify as environmentally sustainable, directly affecting capital allocation. For IT: data centre investments must meet PUE thresholds and renewable sourcing criteria to qualify as taxonomy-aligned. This affects how IT capital expenditure is classified by investors and lenders.' },
+  { year: '2023', label: 'CSRD in Force', col: '#E76F51',
+    detail: '<strong style="color:#E76F51">CSRD</strong> (Corporate Sustainability Reporting Directive) requires large EU entities to disclose sustainability data with third-party assurance. For IT: energy consumption, GHG emissions, water use, and e-waste must be disclosed in auditable format. Scope 3 from cloud and hardware supply chain is required where material. Spend proxies will not meet the assurance standard.' },
+  { year: 'Now', label: 'SBTi & ESG Screening', col: '#94A3B8',
+    detail: '<strong style="color:#94A3B8">The current state</strong>: science-based targets are mainstream across large enterprises; ESG screening affects cost of capital; supply chain pressure extends obligations downstream to technology vendors. Non-compliance is a legal exposure, not just a reputational one. Greenwashing claims face regulatory challenge in multiple jurisdictions.' },
+];
+
+function buildTimeline() {
+  var container = document.getElementById('timelineContainer');
+  if (!container) return;
+
+  container.innerHTML = '';
+  var outer = document.createElement('div');
+  outer.style.cssText = 'position:relative;padding:1rem 0 2rem;';
+
+  // Connecting line
+  var line = document.createElement('div');
+  line.style.cssText = 'position:absolute;top:28px;left:0;right:0;height:2px;background:linear-gradient(90deg,#00A896,#F4A261,#E76F51);opacity:0.4;';
+  outer.appendChild(line);
+
+  var points = document.createElement('div');
+  points.style.cssText = 'display:grid;grid-template-columns:repeat(5,1fr);gap:0.5rem;position:relative;';
+
+  events.forEach(function(ev, i) {
+    var col = document.createElement('div');
+    col.style.cssText = 'display:flex;flex-direction:column;align-items:center;cursor:pointer;';
+
+    var dot = document.createElement('div');
+    dot.style.cssText = 'width:16px;height:16px;border-radius:50%;background:'+ev.col+';border:2px solid #0F1F2E;margin-bottom:0.65rem;flex-shrink:0;transition:transform 0.15s;box-shadow:0 0 8px '+ev.col+'55;';
+
+    var year = document.createElement('div');
+    year.style.cssText = 'font-family:JetBrains Mono,monospace;font-size:0.75rem;font-weight:700;color:'+ev.col+';letter-spacing:0.1em;margin-bottom:0.3rem;text-align:center;';
+    year.textContent = ev.year;
+
+    var label = document.createElement('div');
+    label.style.cssText = 'font-size:0.88rem;color:#94A3B8;text-align:center;line-height:1.35;font-weight:500;';
+    label.textContent = ev.label;
+
+    col.appendChild(dot);
+    col.appendChild(year);
+    col.appendChild(label);
+
+    col.addEventListener('mouseenter', function(){ dot.style.transform='scale(1.25)'; });
+    col.addEventListener('mouseleave', function(){ dot.style.transform='scale(1)'; });
+    col.addEventListener('click', function(){
+      var det = document.getElementById('timelineDetail');
+      var txt = document.getElementById('timelineDetailText');
+      det.style.display = 'block';
+      txt.innerHTML = ev.detail;
+    });
+
+    points.appendChild(col);
+  });
+
+  outer.appendChild(points);
+  container.appendChild(outer);
+}
+
+buildTimeline();
+
+
+// ─── WASTE CATEGORY RADIAL DIAGRAM ──────────────────────────
+var wasteCategories = [
+  { label: 'Idle\nCompute', shortLabel: 'Idle Compute', col: '#E76F51', angle: -90, r: 110,
+    stat: '25–40%', statLabel: 'of VMs below 5% CPU utilisation',
+    cost: '£2–8k per idle VM per year in cloud run cost',
+    action: 'Rightsizing and auto-shutdown. Recoverable within 30 days with basic tagging and scheduling.',
+    detail: 'Instances left running with no meaningful workload: VMs spun up for tests and never terminated, dev environments left on overnight, systems provisioned for peak load that never arrived. The financial and carbon case for elimination is identical.' },
+  { label: 'Storage\nWaste', shortLabel: 'Storage Waste', col: '#F4A261', angle: -18, r: 110,
+    stat: '60–70%', statLabel: 'of stored data never accessed',
+    cost: '£18–35 per TB per month (cloud object storage)',
+    action: 'Dark data audit and automated lifecycle management. Retention policy review for top services.',
+    detail: 'Data retained indefinitely "just in case". Logs held for years at full resolution. Multiple uncompressed copies. Triple redundancy on non-critical assets. Every byte stored is also backed up, replicated, and protected — the actual cost is 3–5× the headline storage line.' },
+  { label: 'App\nWaste', shortLabel: 'Application Waste', col: '#B2EDE7', angle: 54, r: 110,
+    stat: '15–30%', statLabel: 'of app portfolio marginal or unused',
+    cost: '£40–120k per zombie application per year in run and licence costs',
+    action: 'Portfolio rationalisation using TIME model. Elimination recovers 10–20% of app spend.',
+    detail: 'Duplicate platforms doing the same job. Applications nobody uses but IT still pays to run. Portfolio sprawl that built up over years because rationalisation is politically difficult. The carbon you do not generate by not running an application outweighs any efficiency improvement you could apply to it.' },
+  { label: 'End-User\nWaste', shortLabel: 'End-User Waste', col: '#94A3B8', angle: 126, r: 110,
+    stat: '3–5 yr', statLabel: 'typical refresh cycle vs 5–6yr evidence-based',
+    cost: '£180–250 additional cost and carbon per device refreshed prematurely',
+    action: 'Evidence-based refresh: condition and performance metrics, not fixed calendar cycles.',
+    detail: 'Devices replaced on fixed procurement cycles regardless of condition or performance. Peripheral sprawl: docking stations in drawers, duplicate monitors, cables accumulating. Laptops shipped by air because onboarding was left to the last minute. 60–80% of a device\'s lifetime carbon is front-loaded at manufacture.' },
+  { label: 'AI\nConsumption', shortLabel: 'AI Consumption', col: '#00A896', angle: 198, r: 110,
+    stat: '10×', statLabel: 'more energy per AI query than a web search',
+    cost: '£0.004–0.05 per query × thousands of daily requests',
+    action: 'Model tiering: small models for routine tasks. Caching repeated queries. Prompt governance.',
+    detail: 'Heavyweight model calls for queries that do not require them. No caching strategy, so identical queries run the same compute repeatedly at scale. Prompt inefficiency multiplied across thousands of users daily. Training costs are substantial and one-off — but inference at scale is the operational governance challenge.' }
+];
+
+var selectedWaste = null;
+
+function buildWasteRadial() {
+  var svg = document.getElementById('wasteRadial');
+  if (!svg) return;
+
+  var CX = 150, CY = 150, R = 100, dotR = 38;
+
+  function el(tag, attrs) {
+    var e = document.createElementNS('http://www.w3.org/2000/svg', tag);
+    Object.keys(attrs).forEach(function(k){ e.setAttribute(k, attrs[k]); });
+    return e;
+  }
+
+  svg.innerHTML = '';
+
+  // Centre circle
+  svg.appendChild(el('circle', {cx:CX, cy:CY, r:'38', fill:'rgba(0,168,150,0.06)',
+    stroke:'rgba(0,168,150,0.2)', 'stroke-width':'1'}));
+
+  // Centre text
+  var ct = document.createElementNS('http://www.w3.org/2000/svg','text');
+  ct.setAttribute('x', CX); ct.setAttribute('y', CY-4);
+  ct.setAttribute('text-anchor','middle');
+  ct.setAttribute('fill','rgba(200,214,229,0.5)');
+  ct.setAttribute('font-family','JetBrains Mono,monospace');
+  ct.setAttribute('font-size','11');
+  ct.setAttribute('letter-spacing','1');
+  ct.textContent = 'DIGITAL';
+  svg.appendChild(ct);
+  var ct2 = document.createElementNS('http://www.w3.org/2000/svg','text');
+  ct2.setAttribute('x', CX); ct2.setAttribute('y', CY+9);
+  ct2.setAttribute('text-anchor','middle');
+  ct2.setAttribute('fill','rgba(200,214,229,0.5)');
+  ct2.setAttribute('font-family','JetBrains Mono,monospace');
+  ct2.setAttribute('font-size','11');
+  ct2.setAttribute('letter-spacing','1');
+  ct2.textContent = 'WASTE';
+  svg.appendChild(ct2);
+
+  // Connection lines
+  wasteCategories.forEach(function(cat) {
+    var rad = (cat.angle - 90) * Math.PI / 180;
+    var x1 = CX + 38 * Math.cos(rad);
+    var y1 = CY + 38 * Math.sin(rad);
+    var x2 = CX + (R-dotR-4) * Math.cos(rad);
+    var y2 = CY + (R-dotR-4) * Math.sin(rad);
+    svg.appendChild(el('line', {x1:x1,y1:y1,x2:x2,y2:y2,
+      stroke:cat.col, 'stroke-width':'1', 'stroke-opacity':'0.3',
+      'stroke-dasharray':'3,2'}));
+  });
+
+  // Category nodes
+  wasteCategories.forEach(function(cat, i) {
+    var rad = (cat.angle - 90) * Math.PI / 180;
+    var cx = CX + R * Math.cos(rad);
+    var cy = CY + R * Math.sin(rad);
+    var isSelected = selectedWaste === i;
+
+    var g = document.createElementNS('http://www.w3.org/2000/svg','g');
+    g.style.cursor = 'pointer';
+
+    var circ = el('circle', {cx:cx, cy:cy, r:isSelected?'36':'32',
+      fill: isSelected ? cat.col : 'rgba(23,45,69,0.95)',
+      stroke: cat.col, 'stroke-width': isSelected ? '2.5' : '1.5',
+      style:'transition:all 0.2s;'});
+    g.appendChild(circ);
+
+    // Label - handle newlines
+    var lines = cat.label.split('\n');
+    lines.forEach(function(line, li) {
+      var t = document.createElementNS('http://www.w3.org/2000/svg','text');
+      t.setAttribute('x', cx);
+      t.setAttribute('y', cy + (li - (lines.length-1)/2) * 13 + 4);
+      t.setAttribute('text-anchor','middle');
+      t.setAttribute('fill', isSelected ? '#0F1F2E' : cat.col);
+      t.setAttribute('font-family','JetBrains Mono,monospace');
+      t.setAttribute('font-size','11');
+      t.setAttribute('font-weight','600');
+      t.setAttribute('letter-spacing','0.5');
+      t.style.pointerEvents = 'none';
+      t.textContent = line;
+      g.appendChild(t);
+    });
+
+    g.addEventListener('click', function(){
+      selectedWaste = (selectedWaste === i) ? null : i;
+      buildWasteRadial();
+      updateWasteDetail();
+    });
+
+    g.addEventListener('mouseenter', function(){
+      if (selectedWaste !== i) {
+        circ.setAttribute('r', '34');
+        circ.setAttribute('fill', 'rgba('+hexToRgb(cat.col)+',0.12)');
+      }
+    });
+    g.addEventListener('mouseleave', function(){
+      if (selectedWaste !== i) {
+        circ.setAttribute('r', '32');
+        circ.setAttribute('fill', 'rgba(23,45,69,0.95)');
+      }
+    });
+
+    svg.appendChild(g);
+  });
+}
+
+function hexToRgb(hex) {
+  var r = parseInt(hex.slice(1,3),16);
+  var g = parseInt(hex.slice(3,5),16);
+  var b = parseInt(hex.slice(5,7),16);
+  return r+','+g+','+b;
+}
+
+function updateWasteDetail() {
+  var det = document.getElementById('wasteDetail');
+  if (!det) return;
+  if (selectedWaste === null) {
+    det.innerHTML = '<p style="font-size:0.95rem;color:var(--slate-mid);line-height:1.7;font-style:italic;">Select a category to see scale, cost benchmarks, and the key action.</p>';
+    return;
+  }
+  var cat = wasteCategories[selectedWaste];
+  det.innerHTML =
+    '<div style="font-family:JetBrains Mono,monospace;font-size:0.75rem;letter-spacing:0.14em;text-transform:uppercase;color:'+cat.col+';margin-bottom:0.75rem;">'+cat.shortLabel+'</div>'+
+    '<div style="display:flex;align-items:baseline;gap:0.75rem;margin-bottom:0.85rem;">'+
+      '<span style="font-family:Georgia,serif;font-size:2.6rem;color:'+cat.col+';line-height:1;">'+cat.stat+'</span>'+
+      '<span style="font-size:0.88rem;color:var(--slate-mid);line-height:1.35;max-width:180px;">'+cat.statLabel+'</span>'+
+    '</div>'+
+    '<p style="font-size:0.92rem;color:var(--slate);line-height:1.65;margin-bottom:0.75rem;">'+cat.detail+'</p>'+
+    '<div style="padding:0.65rem 0.85rem;background:rgba(0,0,0,0.2);border-left:2px solid '+cat.col+';font-family:JetBrains Mono,monospace;font-size:0.75rem;color:var(--slate-mid);margin-bottom:0.5rem;letter-spacing:0.05em;">'+cat.cost+'</div>'+
+    '<div style="padding:0.65rem 0.85rem;background:rgba(0,168,150,0.06);border-left:2px solid rgba(0,168,150,0.3);font-size:0.92rem;color:var(--slate);">'+
+      '<span style="font-family:JetBrains Mono,monospace;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:#00A896;display:block;margin-bottom:0.3rem;">Key action</span>'+
+      cat.action+
+    '</div>';
+}
+
+buildWasteRadial();
+updateWasteDetail();
+
+
+// ─── ACTION MODEL PIPELINE ───────────────────────────────────
+var actionLevels = [
+  { num: '1', label: 'Reporting', sub: 'Make it visible', col: '#94A3B8',
+    title: 'Level 1 — Reporting: make it visible',
+    body: 'Establish a baseline. Measure energy, carbon, water, and hardware waste across the estate. Without data, nothing else is credible. Most organisations are at this level and do not always know it.',
+    caveat: 'Symptom: metrics exist, dashboards exist, annual reports are published — but operational decisions are unchanged. If this is all you have, you have a communications function, not a sustainability programme.',
+    pct: 'Most organisations are here'
+  },
+  { num: '2', label: 'Optimisation', sub: 'Reduce what you run', col: '#F4A261',
+    title: 'Level 2 — Optimisation: reduce what you run',
+    body: 'Actively eliminate waste in existing services. Rightsizing, improving utilisation, reducing facility overhead, extending device lifespans. This is where the most immediate wins sit — idle compute elimination and storage rationalisation are often self-funding within 90 days.',
+    caveat: 'Critical caveat: optimisation without demand governance triggers the rebound effect. Freed capacity reabsorbed by new workloads produces no net reduction. Avoidance is the complement, not a nice-to-have.',
+    pct: 'Fewer organisations reach here consistently'
+  },
+  { num: '3', label: 'Avoidance', sub: 'Prevent demand at source', col: '#00A896',
+    title: 'Level 3 — Avoidance: prevent demand at source',
+    body: 'Design systems so unnecessary consumption never materialises. Portfolio rationalisation. Shift-left architecture decisions. Data minimisation. Choosing not to run heavyweight AI where it is not needed. This is the highest-leverage level — eliminating demand is always more effective than optimising it after the fact.',
+    caveat: 'This is where GreenOps earns its credibility. Organisations operating at Level 3 have embedded sustainability into procurement decisions, architecture reviews, and product design — not just quarterly reports.',
+    pct: 'The goal'
+  }
+];
+
+var selectedAction = null;
+
+function buildActionPipeline() {
+  var svg = document.getElementById('actionPipeline');
+  if (!svg) return;
+
+  var W = 820, H = 140;
+  svg.innerHTML = '';
+
+  function el(tag, attrs) {
+    var e = document.createElementNS('http://www.w3.org/2000/svg', tag);
+    Object.keys(attrs).forEach(function(k){ e.setAttribute(k, attrs[k]); });
+    return e;
+  }
+
+  var blockW = 220, blockH = 80, gap = 40;
+  var totalW = blockW * 3 + gap * 2;
+  var startX = (W - totalW) / 2;
+  var blockY = (H - blockH) / 2;
+
+  // "← Most orgs here" arrow
+  var arrowX = startX + blockW/2;
+  svg.appendChild(el('text', {
+    x:arrowX, y:H-5, 'text-anchor':'middle',
+    fill:'rgba(148,163,184,0.85)', 'font-family':'JetBrains Mono,monospace',
+    'font-size':'11', 'letter-spacing':'1'
+  })).textContent = '← MOST ORGANISATIONS START HERE';
+
+  // "Goal →" text
+  var goalX = startX + blockW*3 + gap*2 - blockW/2;
+  svg.appendChild(el('text', {
+    x:goalX, y:H-5, 'text-anchor':'middle',
+    fill:'rgba(0,168,150,0.6)', 'font-family':'JetBrains Mono,monospace',
+    'font-size':'11', 'letter-spacing':'1'
+  })).textContent = 'THE GOAL →';
+
+  actionLevels.forEach(function(lv, i) {
+    var x = startX + i * (blockW + gap);
+    var isSelected = selectedAction === i;
+
+    // Arrow between blocks
+    if (i > 0) {
+      var ax = x - gap + 2;
+      svg.appendChild(el('polygon', {
+        points: (ax)+','+(blockY+blockH/2-8)+' '+(ax+gap-4)+','+(blockY+blockH/2)+' '+(ax)+','+(blockY+blockH/2+8),
+        fill: lv.col, opacity:'0.5'
+      }));
+    }
+
+    // Block background
+    var rect = el('rect', {
+      x:x, y:blockY, width:blockW, height:blockH, rx:'3',
+      fill: isSelected ? lv.col : 'rgba(23,45,69,0.9)',
+      stroke: lv.col, 'stroke-width': isSelected ? '2' : '1',
+      style:'cursor:pointer;transition:all 0.2s;'
+    });
+    svg.appendChild(rect);
+
+    // Level number
+    var numT = document.createElementNS('http://www.w3.org/2000/svg','text');
+    numT.setAttribute('x', x+18); numT.setAttribute('y', blockY+38);
+    numT.setAttribute('fill', isSelected ? 'rgba(11,25,41,0.6)' : 'rgba('+lv.col.slice(1).match(/../g).map(function(h){return parseInt(h,16)}).join(',')+',.25)');
+    numT.setAttribute('font-family','Georgia,serif');
+    numT.setAttribute('font-size','42'); numT.style.pointerEvents = 'none';
+    numT.textContent = lv.num;
+    svg.appendChild(numT);
+
+    // Label
+    var labelT = document.createElementNS('http://www.w3.org/2000/svg','text');
+    labelT.setAttribute('x', x+blockW/2); labelT.setAttribute('y', blockY+28);
+    labelT.setAttribute('text-anchor','middle');
+    labelT.setAttribute('fill', isSelected ? '#0F1F2E' : lv.col);
+    labelT.setAttribute('font-family','Georgia,serif');
+    labelT.setAttribute('font-size','17'); labelT.setAttribute('font-weight','600');
+    labelT.style.pointerEvents = 'none';
+    labelT.textContent = lv.label;
+    svg.appendChild(labelT);
+
+    // Sub-label
+    var subT = document.createElementNS('http://www.w3.org/2000/svg','text');
+    subT.setAttribute('x', x+blockW/2); subT.setAttribute('y', blockY+48);
+    subT.setAttribute('text-anchor','middle');
+    subT.setAttribute('fill', isSelected ? 'rgba(11,25,41,0.7)' : 'rgba(200,214,229,0.55)');
+    subT.setAttribute('font-family','JetBrains Mono,monospace');
+    subT.setAttribute('font-size','12'); subT.setAttribute('letter-spacing','0.5');
+    subT.style.pointerEvents = 'none';
+    subT.textContent = lv.sub.toUpperCase();
+    svg.appendChild(subT);
+
+    // Hit area
+    var hit = el('rect', {x:x, y:blockY, width:blockW, height:blockH,
+      fill:'transparent', style:'cursor:pointer;'});
+    hit.addEventListener('click', function(){
+      selectedAction = (selectedAction === i) ? null : i;
+      buildActionPipeline();
+      updateActionDetail();
+    });
+    svg.appendChild(hit);
+  });
+}
+
+function updateActionDetail() {
+  var label = document.getElementById('actionDetailLabel');
+  var text = document.getElementById('actionDetailText');
+  var det = document.getElementById('actionDetail');
+  if (!label || !text || !det) return;
+
+  if (selectedAction === null) {
+    label.textContent = 'Select a level above';
+    label.style.color = '#00A896';
+    det.style.borderLeftColor = '#00A896';
+    text.innerHTML = 'Click Reporting, Optimisation, or Avoidance to see what each level looks like in practice — and what separates organisations that do it well from those stuck at the starting line.';
+    return;
+  }
+
+  var lv = actionLevels[selectedAction];
+  det.style.borderLeftColor = lv.col;
+  label.style.color = lv.col;
+  label.textContent = lv.title;
+  text.innerHTML =
+    '<p style="margin-bottom:0.65rem;">'+lv.body+'</p>'+
+    '<div style="padding:0.6rem 0.85rem;background:rgba(0,0,0,0.15);border-left:2px solid rgba(255,255,255,0.1);font-family:JetBrains Mono,monospace;font-size:0.78rem;color:var(--slate-mid);line-height:1.6;">'+lv.caveat+'</div>';
+}
+
+buildActionPipeline();
+updateActionDetail();
+
+})();
+</script>
+
+
 </body>
 </html>
