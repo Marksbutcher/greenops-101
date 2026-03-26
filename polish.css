@@ -928,12 +928,22 @@ input[type="range"]::-moz-range-thumb {
   color: #3D5E5E !important;
 }
 
-/* Generic .label and .value classes used across modules */
-.label {
+/* Generic .label and .value classes — scoped to content area only.
+   These classes are ALSO used inside .module-hero where they need to stay light. */
+.module-content .label,
+.objectives-strip .label {
   color: #4A6B6B !important;             /* darkened muted */
 }
-.value {
+.module-content .value,
+.objectives-strip .value {
   color: #0F3030 !important;
+}
+/* Ensure hero labels stay light on dark background */
+.module-hero .label {
+  color: rgba(255,255,255,0.6) !important;
+}
+.module-hero .value {
+  color: #FFFFFF !important;
 }
 
 /* Knowledge check hints */
@@ -946,8 +956,15 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* Section labels in M10-M14 style modules */
-.section-label-text, .module-intro {
+.section-label-text {
   color: #3D5E5E !important;
+}
+/* .module-intro — only darken in content area, leave light in hero */
+.module-content .module-intro {
+  color: #3D5E5E !important;
+}
+.module-hero .module-intro {
+  color: rgba(255,255,255,0.85) !important;
 }
 
 /* Teal accent text — darken for readability on white/light */
