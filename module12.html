@@ -1,174 +1,472 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>M12 — GreenOps 101</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M12: Courageous Leadership — GreenOps 101</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-:root{--page-bg:#F7F8FA;--card-bg:#FFFFFF;--section-alt:#E8EDF2;--text-primary:#1E293B;--text-secondary:#4A5568;--text-muted:#64748B;--navy:#0F1F2E;--navy-mid:#162840;--navy-card:#1E293B;--navy-light:#1C3A55;--teal:#00A896;--teal-dark:#007A6E;--teal-muted:#B2EDE7;--teal-bg:rgba(0,168,150,0.07);--teal-border:rgba(0,168,150,0.25);--orange:#E76F51;--orange-light:#F4A261;--orange-bg:#FFF3E8;--orange-border:rgba(231,111,81,0.25);--border:#D1D9E0;--border-light:#E8EDF2;--track1:#00A896;--track2:#F4A261;--track3:#E76F51;--correct:#16a34a;--wrong:#dc2626;--white:#FFFFFF;--slate:#4A5568;--slate-mid:#64748B;--slate-dim:#94A3B8;--teal-light:#B2EDE7;--teal-glow:rgba(0,168,150,0.15);--teal-subtle:rgba(0,168,150,0.07);--grey-100:#F7F8FA;--grey-300:#D1D9E0;--grey-500:#4A5568;--navy-raised:#1C3A55;--navy-border:rgba(255,255,255,0.07);--navy-mid-alt:#162840;}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;font-size:16px;}img,svg{display:block;max-width:100%;}body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Trebuchet MS",system-ui,-apple-system,sans-serif;font-weight:400;font-size:1rem;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}.top-nav{position:sticky;top:0;z-index:100;background:#0F1F2E;border-bottom:1px solid rgba(0,168,150,0.2);padding:0 3rem;height:52px;display:flex;align-items:center;gap:1rem;}.top-nav::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00A896 0%,#F4A261 60%,#E76F51 100%);}.nav-home{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .15s;flex-shrink:0;}.nav-home:hover{color:#fff;}.nav-sep{color:rgba(255,255,255,0.25);}.nav-module{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;font-weight:500;}.nav-track-pill{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .65rem;border-radius:2px;}.track1-pill{background:rgba(0,168,150,.2);color:#B2EDE7;}.track2-pill{background:rgba(244,162,97,.2);color:#F4D0B0;}.track3-pill{background:rgba(231,111,81,.2);color:#F4C4B9;}.nav-progress{margin-left:auto;font-family:Calibri,monospace;font-size:.72rem;color:rgba(255,255,255,0.5);}.module-hero{position:relative;overflow:hidden;padding:4rem 3rem 3rem;background:#0F1F2E;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;}.module-hero::after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 70% 50%,rgba(0,168,150,.08) 0%,transparent 65%);pointer-events:none;}.hero-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(5rem,12vw,10rem);color:rgba(255,255,255,.06);line-height:1;position:absolute;right:3rem;bottom:0;font-weight:400;user-select:none;}.module-eyebrow{font-family:Calibri,monospace;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:#B2EDE7;margin-bottom:.75rem;}.module-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.12;letter-spacing:-.02em;font-weight:700;color:#fff;margin-bottom:1.25rem;}.module-subtitle{font-size:1.1rem;color:rgba(255,255,255,.72);line-height:1.65;max-width:620px;margin-bottom:2rem;}.module-meta{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}.meta-item{display:flex;flex-direction:column;gap:.15rem;}.meta-item .label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);}.meta-item .value{font-size:.92rem;color:rgba(255,255,255,.85);font-weight:500;}.complete-btn{font-family:Calibri,monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:.65rem 1.4rem;background:#00A896;border:2px solid #00A896;color:#FFFFFF;cursor:pointer;transition:all .15s;font-weight:700;}.complete-btn:hover{background:var(--teal-dark);border-color:var(--teal-dark);}.complete-btn.done{background:transparent;border:2px solid rgba(255,255,255,.4);color:rgba(255,255,255,.7);cursor:default;}.objectives-strip{background:#0F1F2E;padding:2.5rem 3rem;}.objectives-heading{font-family:Calibri,monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#B2EDE7;margin-bottom:1.5rem;font-weight:700;}.objectives-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:.85rem;max-width:1160px;}.objectives-list li{display:flex;align-items:flex-start;gap:1rem;font-size:1rem;color:rgba(255,255,255,.88);line-height:1.55;padding:.85rem 1rem;background:#162840;border-left:2px solid rgba(0,168,150,.5);}.obj-num{font-family:Calibri,monospace;font-size:.72rem;color:#00A896;font-weight:700;letter-spacing:.1em;flex-shrink:0;padding-top:.12rem;}.module-content{max-width:1200px;margin:0 auto;padding:0 3rem 2rem;}.content-section{padding:3rem 0;border-bottom:1px solid var(--border-light);}.content-section:last-child{border-bottom:none;}.section-label{font-family:Calibri,monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:.65rem;display:block;font-weight:700;}.section-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.15;letter-spacing:-.02em;font-weight:700;color:var(--text-primary);margin-bottom:1.25rem;}.section-intro{font-size:1.12rem;color:var(--text-secondary);line-height:1.75;max-width:780px;margin-bottom:2rem;}.card-grid{display:grid;gap:1px;background:var(--border);}.card-grid-2{grid-template-columns:1fr 1fr;}.card-grid-3{grid-template-columns:repeat(3,1fr);}.card-grid-4{grid-template-columns:repeat(4,1fr);}.card-grid-auto{display:grid;gap:1px;background:var(--border);grid-template-columns:repeat(auto-fill,minmax(min(220px,100%),1fr));}.card{background:var(--card-bg);padding:1.75rem;position:relative;}.card-title{font-family:Georgia,"Times New Roman",serif;font-size:1.1rem;font-weight:400;color:var(--text-primary);margin-bottom:.65rem;}.card-body{font-size:.97rem;color:var(--text-secondary);line-height:1.7;}.card-label{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:.5rem;display:block;}.card h4{font-weight:600;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;color:var(--text-primary);margin-bottom:.5rem;line-height:1.35;}.card p{font-size:.97rem;color:var(--text-secondary);line-height:1.65;}.card-accent-p{border-top:3px solid var(--teal);}.card-accent-o{border-top:3px solid var(--orange-light);}.card-accent-t{border-top:3px solid var(--orange);}.stat-strip{display:grid;gap:1px;background:var(--border);margin:2.25rem 0;border-radius:3px;overflow:hidden;}.stat-strip.cols-3{grid-template-columns:repeat(3,1fr);}.stat-strip.cols-4{grid-template-columns:repeat(4,1fr);}.stat-cell{background:var(--card-bg);padding:2rem 1.5rem;text-align:center;border-top:3px solid var(--cell-accent,var(--teal));}.stat-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.4rem,4.5vw,3.5rem);color:var(--cell-accent,var(--teal-dark));line-height:1;margin-bottom:.5rem;display:block;}.stat-label{font-family:Calibri,monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);line-height:1.5;display:block;}.viz-container{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);margin:2rem 0;box-shadow:0 2px 8px rgba(0,0,0,.07);}.viz-header{padding:1rem 1.5rem;border-bottom:2px solid var(--border-light);display:flex;align-items:center;gap:.75rem;background:var(--section-alt);}.viz-header-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;}.viz-title{font-family:Calibri,monospace;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;}.viz-body{padding:1.25rem 1.5rem 1rem;}.callout{padding:1.35rem 1.75rem;margin:1.75rem 0;border-left:4px solid var(--teal);background:var(--teal-bg);}.callout-warning{border-left-color:var(--orange);background:var(--orange-bg);}.callout-key{border-left-color:var(--teal-dark);background:var(--teal-bg);}.callout-title{font-family:Calibri,monospace;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:#007A6E;font-weight:700;display:block;margin-bottom:.6rem;}.callout-warning .callout-title{color:#B54D12;}.callout p{font-size:1rem;color:var(--text-primary);line-height:1.72;}.pause-reflect{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 3rem;}.pause-label{font-family:Calibri,monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:.5rem;display:block;}.pause-intro{font-size:.97rem;color:var(--text-muted);margin-bottom:1.25rem;font-style:italic;}.pause-q{display:flex;align-items:flex-start;gap:.85rem;font-size:1rem;color:var(--text-primary);line-height:1.65;padding:.85rem 1.1rem;background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--teal-dark);margin-bottom:.5rem;}.pause-q-num{font-family:Calibri,monospace;font-size:.72rem;color:var(--teal-dark);font-weight:700;flex-shrink:0;padding-top:.2rem;min-width:1.4rem;}.kc-block{background:var(--card-bg);border:1px solid var(--border);padding:2.25rem;margin:.5rem 0;}.kc-label{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:1rem;}.kc-q{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:1.15rem;color:var(--text-primary);line-height:1.6;margin-bottom:1.5rem;}.kc-options{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem;}.kc-option{display:flex;align-items:flex-start;gap:.85rem;padding:.9rem 1.1rem;background:var(--page-bg);border:1px solid var(--border);cursor:pointer;text-align:left;width:100%;font-family:Calibri,"Trebuchet MS",system-ui,sans-serif;font-size:1rem;color:var(--text-primary);line-height:1.55;transition:all .15s;}.kc-option:hover{border-color:var(--teal);background:var(--teal-bg);}.kc-option.selected-correct{background:rgba(22,163,74,.08);border-color:var(--correct);}.kc-option.selected-wrong{background:rgba(220,38,38,.07);border-color:var(--wrong);}.kc-opt-key{font-family:Calibri,monospace;font-size:.78rem;font-weight:700;color:var(--text-muted);flex-shrink:0;width:1.2rem;padding-top:.1rem;}.kc-feedback{padding:1rem 1.25rem;margin-top:.5rem;font-size:1rem;line-height:1.7;border-left:3px solid;display:none;}.kc-correct{background:rgba(22,163,74,.07);border-left-color:var(--correct);color:var(--text-primary);}.kc-wrong{background:rgba(220,38,38,.06);border-left-color:var(--wrong);color:var(--text-primary);}.kc-reveal{display:none;padding:1rem 1.25rem;margin-top:.5rem;background:var(--teal-bg);border-left:3px solid var(--teal-dark);font-size:1rem;color:var(--text-primary);line-height:1.72;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;flex-wrap:wrap;}.nav-btn{display:inline-flex;flex-direction:column;padding:.75rem 1.25rem;border:1px solid var(--border);background:var(--page-bg);text-decoration:none;transition:all .15s;color:inherit;}.nav-btn:hover{border-color:var(--teal-dark);background:var(--teal-bg);}.nav-btn.next{text-align:right;}.nav-btn-label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);display:block;}.nav-btn-title{font-size:.97rem;color:var(--text-primary);font-weight:500;display:block;margin-top:.15rem;}.nav-btn.next .nav-btn-label,.nav-btn.next .nav-btn-title{color:var(--teal-dark);}.takeaways{background:#0F1F2E;padding:2.5rem 3rem;}.takeaways-heading{font-family:Calibri,monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#B2EDE7;font-weight:700;margin-bottom:1.5rem;}.takeaway-list{display:grid;gap:1px;background:rgba(255,255,255,.08);width:100%;}.takeaway-item{display:flex;gap:1rem;padding:1.5rem;background:#162840;border-top:2px solid rgba(0,168,150,.4);transition:background .15s;}.takeaway-item:hover{background:#1C3A55;}.takeaway-icon{color:#00A896;font-size:.65rem;flex-shrink:0;padding-top:.4rem;}.takeaway-body strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;font-weight:700;color:#FFFFFF;margin-bottom:.4rem;line-height:1.35;}.takeaway-body p{font-size:.95rem;color:rgba(255,255,255,.75);line-height:1.65;}.reveal{opacity:1;transition:opacity .4s ease,transform .4s ease;}.reveal.animate{opacity:0;transform:translateY(12px);}.reveal.animate.visible{opacity:1;transform:none;}.tri-detail{padding:1.5rem;background:var(--card-bg);border:1px solid var(--border);}.tri-detail-name{font-weight:700;font-size:1.1rem;color:var(--teal-dark);margin-bottom:.75rem;}.tradeoff-container{display:grid;grid-template-columns:1fr 1.2fr;gap:2rem;align-items:start;}.triangle-wrap{display:flex;align-items:center;justify-content:center;}.triangle-svg{width:100%;max-width:320px;height:auto;}.example{font-style:italic;color:var(--text-secondary);font-size:.97rem;border-left:3px solid var(--border);padding-left:1rem;margin-top:.75rem;}.reg-tab{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:.6rem 1.1rem;cursor:pointer;border:1px solid var(--border);background:var(--card-bg);color:var(--text-muted);font-weight:600;transition:all .15s;}.reg-tab:hover{border-color:var(--teal-dark);color:var(--teal-dark);}.active-reg{background:var(--teal)!important;border-color:var(--teal)!important;color:#0F1F2E!important;font-weight:700!important;}.courage-card{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);padding:1.5rem;}.footer-brand{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);}.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:1px;background:var(--border);margin:2rem 0;}.stat-block{background:var(--card-bg);padding:1.75rem 1.5rem;border-top:3px solid var(--teal);}@media(max-width:860px){.module-content,.objectives-strip,.top-nav,.pause-reflect,.module-nav,.takeaways{padding-left:1.5rem;padding-right:1.5rem;}.module-hero{padding:2.5rem 1.5rem 2rem;}.card-grid-3{grid-template-columns:1fr 1fr;}.card-grid-4{grid-template-columns:1fr 1fr;}.takeaway-list{grid-template-columns:1fr!important;}}@media(max-width:540px){.card-grid-2,.card-grid-3,.card-grid-4{grid-template-columns:1fr;}.stat-strip.cols-3,.stat-strip.cols-4{grid-template-columns:1fr;}.module-title{font-size:1.75rem;}.tradeoff-container{grid-template-columns:1fr;}}.takeaway-body{flex:1;}.takeaway-body strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;font-weight:700;color:#FFFFFF;margin-bottom:.4rem;line-height:1.35;}.takeaway-body p{font-size:.95rem;color:rgba(255,255,255,.75);line-height:1.65;}.compare-table{width:100%;border-collapse:collapse;font-size:.95rem;margin:1.5rem 0;}.compare-table th{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:.75rem 1rem;text-align:left;background:var(--section-alt);border-bottom:2px solid var(--border);color:var(--text-primary);}.compare-table td{padding:.85rem 1rem;border-bottom:1px solid var(--border-light);vertical-align:top;line-height:1.6;color:var(--text-secondary);}.compare-table tr:last-child td{border-bottom:none;}.compare-table td:first-child{font-weight:600;color:var(--text-primary);}.compare-table tr:hover td{background:var(--section-alt);}.process-steps{display:flex;flex-direction:column;gap:0;margin:1.5rem 0;}.process-step{display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem 1.5rem;background:var(--card-bg);border:1px solid var(--border);border-top:none;}.process-step:first-child{border-top:1px solid var(--border);}.step-icon{font-family:Calibri,monospace;font-size:.75rem;font-weight:700;width:2rem;height:2rem;flex-shrink:0;background:var(--teal);color:#0F1F2E;display:flex;align-items:center;justify-content:center;border-radius:2px;margin-top:.1rem;}.step-body{flex:1;}.step-body strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:.35rem;}.step-body p{font-size:.97rem;color:var(--text-secondary);line-height:1.65;margin:0;}.callout-insight{padding:1.35rem 1.75rem;margin:1.75rem 0;border-left:4px solid var(--teal);background:var(--teal-bg);}.callout-insight .callout-title{font-family:Calibri,monospace;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:#007A6E;font-weight:700;display:block;margin-bottom:.6rem;}.callout-insight p{font-size:1rem;color:var(--text-primary);line-height:1.72;}.pause-questions{display:flex;flex-direction:column;gap:.75rem;}.pause-note{font-size:.92rem;color:var(--text-muted);font-style:italic;margin-bottom:.5rem;}.kc-reveal-label{font-family:Calibri,monospace;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);display:block;margin-bottom:.5rem;}.examples-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;}.examples-row span{padding:.4rem .85rem;background:var(--section-alt);font-size:.88rem;color:var(--text-secondary);border-left:2px solid var(--teal-dark);}.accred-strip{background:var(--section-alt);border-top:3px solid var(--teal);padding:2rem;display:flex;gap:1.5rem;align-items:flex-start;margin:2rem 0;}.accred-icon{font-size:2rem;flex-shrink:0;}.accred-body h3{font-family:Georgia,serif;font-size:1.15rem;font-weight:700;color:var(--text-primary);margin-bottom:.5rem;}.accred-body p{font-size:.97rem;color:var(--text-secondary);line-height:1.65;}.accred-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:var(--teal-bg);border:1px solid var(--teal-border);font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);margin-top:1rem;}.all-tracks{display:grid;gap:1px;background:var(--border);}.all-track-col{background:var(--card-bg);padding:1.5rem;}.all-track-header{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:.75rem;font-weight:700;display:flex;align-items:center;gap:.5rem;}.at-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);display:inline-block;}.at-module-link{display:block;padding:.65rem 1rem;background:var(--section-alt);border-left:2px solid var(--teal-dark);font-size:.9rem;color:var(--text-secondary);text-decoration:none;margin-bottom:4px;}.at-module-link:hover{background:var(--teal-bg);color:var(--teal-dark);}.at-num{font-family:Calibri,monospace;font-size:.65rem;color:var(--text-muted);margin-right:.5rem;}.at-title{font-weight:600;color:var(--text-primary);}.at-label,.at-name{font-size:.9rem;color:var(--text-muted);}.global-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:1px;background:var(--border);margin:1rem 0;}.gstat{background:var(--card-bg);padding:1.5rem 1.25rem;}.gstat-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--teal-dark);line-height:1;margin-bottom:.4rem;}.gstat-label{font-size:.88rem;color:var(--text-secondary);line-height:1.55;}.scope-diagram{display:flex;flex-direction:column;gap:1px;background:var(--border);margin:1.5rem 0;}.scope-box{background:var(--card-bg);cursor:pointer;border-left:4px solid var(--border);transition:background .15s;}.scope-box.s1{border-left-color:#007A6E;}.scope-box.s2{border-left-color:#9B5E00;}.scope-box.s3{border-left-color:#B54D12;}.scope-box.s4{border-left-color:#4A5568;}.scope-box:hover,.scope-box.open{background:var(--section-alt);}.scope-header{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.5rem;}.scope-num{font-family:Calibri,monospace;font-size:.75rem;font-weight:700;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;border-radius:2px;flex-shrink:0;color:#fff;}.scope-box.s1 .scope-num{background:#007A6E;}.scope-box.s2 .scope-num{background:#9B5E00;}.scope-box.s3 .scope-num{background:#B54D12;}.scope-box.s4 .scope-num{background:#4A5568;}.scope-name{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;font-weight:700;color:var(--text-primary);flex:1;}.scope-short{font-size:.88rem;color:var(--text-muted);}.scope-size{font-family:Calibri,monospace;font-size:.72rem;color:var(--text-muted);}.scope-detail{display:none;padding:0 1.5rem 1.25rem 4.5rem;}.scope-box.open .scope-detail{display:block;}.scope-detail p{font-size:.97rem;color:var(--text-secondary);line-height:1.7;margin-bottom:.75rem;}.scope-examples{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem;}.scope-example{padding:.35rem .75rem;background:var(--section-alt);font-size:.82rem;color:var(--text-secondary);}.scope-tag{display:inline-block;padding:.2rem .6rem;font-family:Calibri,monospace;font-size:.65rem;background:var(--section-alt);color:var(--text-muted);margin:.15rem;}.waste-explorer{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);}.waste-tabs{display:flex;gap:1px;background:var(--border);}.waste-tab{flex:1;padding:.85rem 1rem;background:var(--section-alt);border:none;cursor:pointer;font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);font-weight:700;transition:background .15s;}.waste-tab.active{background:var(--card-bg);color:var(--teal-dark);}.waste-panels{padding:0;}.waste-panel{display:none;padding:1.75rem;}.waste-panel.active{display:block;}.waste-panel-stat{font-family:Georgia,serif;font-size:2rem;font-weight:700;color:var(--teal-dark);}.action-model{display:flex;flex-direction:column;gap:1px;background:var(--border);margin:1.5rem 0;}.action-level{background:var(--card-bg);cursor:pointer;}.action-level:hover,.action-level.open{background:var(--section-alt);}.action-level-header{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.5rem;}.action-level-num{font-family:Calibri,monospace;font-size:.72rem;font-weight:700;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0;}.l1 .action-level-num{background:#B54D12;}.l2 .action-level-num{background:#9B5E00;}.l3 .action-level-num{background:#007A6E;}.l4 .action-level-num{background:#4A5568;}.action-level-name{font-family:Georgia,serif;font-size:1rem;font-weight:700;color:var(--text-primary);flex:1;}.action-level-tagline{font-size:.88rem;color:var(--text-muted);}.action-level-arrow{font-size:.85rem;color:var(--text-muted);transition:transform .2s;margin-left:auto;}.action-level.open .action-level-arrow{transform:rotate(180deg);}.action-level-detail{display:none;padding:0 1.5rem 1.25rem 4.5rem;font-size:.95rem;color:var(--text-secondary);line-height:1.7;}.action-level.open .action-level-detail{display:block;}.dim-explorer{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);}.dim-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);}.dim-tab{padding:1rem 1.25rem;background:var(--section-alt);border:none;cursor:pointer;text-align:left;transition:background .15s;font-family:Calibri,"Trebuchet MS",system-ui,sans-serif;}.dim-tab:hover{background:var(--teal-bg);}.dim-tab.active{background:var(--card-bg);border-top:2px solid var(--teal);}.dim-tab-label{font-family:Calibri,monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);display:block;margin-bottom:.25rem;}.dim-tab-name{font-family:Georgia,serif;font-size:.95rem;font-weight:700;color:var(--text-primary);display:block;line-height:1.2;}.dim-tab-sub{font-size:.82rem;color:var(--text-muted);display:block;margin-top:.2rem;}.dim-panels{padding:0;}.dim-panel{display:none;padding:2rem;gap:2rem;}.dim-panel.active{display:grid;grid-template-columns:1fr 1fr;}.dim-panel h4{font-family:Georgia,serif;font-size:1.1rem;font-weight:700;color:var(--text-primary);margin-bottom:.75rem;line-height:1.3;}.dim-panel p{font-size:.97rem;color:var(--text-secondary);line-height:1.7;margin-bottom:.75rem;}.dim-examples{display:flex;flex-direction:column;gap:.4rem;margin-top:1rem;}.dim-example{padding:.6rem .85rem;background:var(--section-alt);font-size:.9rem;color:var(--text-primary);border-left:2px solid var(--teal-dark);}.dim-status{padding:1.25rem;font-size:.92rem;line-height:1.6;}.status-established{background:rgba(0,168,150,.08);border-left:3px solid var(--teal-dark);color:var(--text-primary);}.status-emerging{background:rgba(244,162,97,.08);border-left:3px solid #9B5E00;color:var(--text-primary);}.status-nascent{background:rgba(100,116,139,.08);border-left:3px solid var(--text-muted);color:var(--text-primary);}.dim-status strong{color:var(--text-primary);}.sequence-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin:1.5rem 0;}.seq-step{background:var(--card-bg);padding:1.75rem 1.5rem;border-top:3px solid var(--border);}.seq-step.s1{border-top-color:#B54D12;}.seq-step.s2{border-top-color:#007A6E;}.seq-step.s3{border-top-color:#9B5E00;}.seq-step.s4{border-top-color:#4A5568;}.seq-num{font-family:Calibri,monospace;font-size:2rem;font-weight:700;color:var(--border);line-height:1;margin-bottom:.5rem;}.seq-step.s1 .seq-num{color:#B54D12;}.seq-step.s2 .seq-num{color:#007A6E;}.seq-step.s3 .seq-num{color:#9B5E00;}.seq-step.s4 .seq-num{color:#4A5568;}.seq-label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.4rem;}.seq-title{font-family:Georgia,serif;font-size:1.1rem;font-weight:700;color:var(--text-primary);margin-bottom:.2rem;}.seq-sub{font-size:.88rem;color:var(--text-muted);margin-bottom:.75rem;}.seq-note{font-size:.9rem;color:var(--text-secondary);line-height:1.65;}.isnt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(220px,100%),1fr));gap:1px;background:var(--border);margin:1.5rem 0;}.isnt-card{background:var(--card-bg);padding:1.5rem;border-top:3px solid var(--border-light);}.isnt-card.isnt{border-top-color:#B54D12;}.isnt-marker{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:#B54D12;display:block;margin-bottom:.6rem;}.isnt-card h4{font-family:Georgia,serif;font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:.5rem;}.isnt-card p{font-size:.92rem;color:var(--text-secondary);line-height:1.65;}.method-compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin:1.5rem 0;}.method-col{background:var(--card-bg);padding:1.75rem;}.method-col.activity{border-top:3px solid #007A6E;}.method-col.spend{border-top:3px solid #9B5E00;}.method-name{font-family:Georgia,serif;font-size:1.1rem;font-weight:700;color:var(--text-primary);margin-bottom:.65rem;}.method-desc{font-size:.97rem;color:var(--text-secondary);line-height:1.7;margin-bottom:1rem;}.method-pros,.method-cons{margin-bottom:1rem;}.method-pros-label,.method-cons-label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.5rem;display:block;color:var(--text-muted);}.method-col.activity .method-pros-label{color:#007A6E;}.method-col.spend .method-pros-label{color:#9B5E00;}.method-list{padding-left:1rem;margin:0;}.method-list li{font-size:.92rem;color:var(--text-secondary);line-height:1.65;margin-bottom:.3rem;}.role-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:1px;background:var(--border);margin:1.5rem 0;}.role-metric-card{background:var(--card-bg);padding:1.25rem;}.role-name{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:.5rem;display:block;}.metric-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem;}.metric-chip{padding:.3rem .7rem;background:var(--section-alt);font-family:Calibri,monospace;font-size:.72rem;color:var(--text-secondary);}.baseline-steps{display:flex;flex-direction:column;gap:1px;background:var(--border);margin:1.5rem 0;}.baseline-step{display:flex;gap:1rem;align-items:flex-start;padding:1.25rem 1.5rem;background:var(--card-bg);}.bs-num{font-family:Calibri,monospace;font-size:.75rem;font-weight:700;width:2rem;height:2rem;flex-shrink:0;background:var(--teal);color:#0F1F2E;display:flex;align-items:center;justify-content:center;}.bs-body strong{display:block;font-family:Georgia,serif;font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:.3rem;}.bs-body p{font-size:.92rem;color:var(--text-secondary);line-height:1.65;margin:0;}.domain-selector{display:flex;flex-wrap:wrap;gap:1px;background:var(--border);}.domain-btn{display:flex;flex-direction:column;align-items:center;gap:.35rem;padding:.85rem 1rem;background:var(--section-alt);border:1px solid var(--border);cursor:pointer;font-family:inherit;transition:all .15s;min-width:100px;}.domain-btn:hover{border-color:var(--teal-dark);background:var(--teal-bg);}.domain-btn.active{background:var(--card-bg);border-color:var(--teal);border-top:2px solid var(--teal);}.domain-icon{font-size:1.25rem;}.domain-label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);font-weight:700;}.domain-btn.active .domain-label{color:var(--teal-dark);}.domain-driver{font-size:.78rem;color:var(--text-muted);text-align:center;line-height:1.3;}.domain-panels{margin-top:0;}.domain-panel{display:none;background:var(--card-bg);padding:1.75rem;border:1px solid var(--border);}.domain-panel.active{display:block;}.dp-list{list-style:none;display:flex;flex-direction:column;gap:.4rem;margin-top:.75rem;}.dp-list li,.dp-good,.dp-warn{padding:.6rem .85rem;font-size:.92rem;color:var(--text-secondary);background:var(--section-alt);border-left:2px solid var(--border);}.dp-good{border-left-color:#007A6E;}.dp-warn{border-left-color:#B54D12;}.chart-y-labels{display:flex;flex-direction:column;justify-content:space-between;padding:0 .5rem;text-align:right;}.chart-y-label,.chart-x-label{font-family:Calibri,monospace;font-size:.65rem;color:var(--text-muted);}.chart-x-labels{display:flex;justify-content:space-between;padding-top:.25rem;}.chart-x-title{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);}.chart-dot{border-radius:50%;cursor:pointer;transition:transform .15s;}.chart-dot:hover{transform:scale(1.2);}.dot-tooltip{position:absolute;background:var(--card-bg);border:1px solid var(--border);padding:.5rem .75rem;font-size:.82rem;color:var(--text-primary);pointer-events:none;white-space:nowrap;z-index:10;}.measurement-split{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin:1.5rem 0;}.meas-col{background:var(--card-bg);padding:1.75rem;}.meas-col-label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);font-weight:700;margin-bottom:.75rem;display:block;}.meas-col h4{font-family:Georgia,serif;font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:.5rem;}.shifting-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:1rem;margin:1.5rem 0;}.shift-card{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);padding:1.5rem;}.shift-num{font-family:Calibri,monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:.5rem;display:block;}.shift-name{font-family:Georgia,serif;font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:.5rem;line-height:1.3;}.shift-desc{font-size:.92rem;color:var(--text-secondary);line-height:1.65;}.shift-example{font-size:.85rem;color:var(--text-muted);font-style:italic;margin-top:.5rem;}.shift-caveat{font-size:.82rem;color:#B54D12;margin-top:.5rem;}.rebound-chart{display:flex;flex-direction:column;gap:1px;background:var(--border);margin:1.5rem 0;}.rc-svg{width:100%;display:block;}.rc-label{font-family:Calibri,monospace;font-size:.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;}.animate-line{transition:stroke-dashoffset 1s ease;}.tri-detail-cost,.tri-detail-carbon,.tri-detail-perf{color:var(--teal-dark);}.bc-evidence-col{background:var(--card-bg);border:1px solid var(--border);padding:1.25rem;}.bc-evidence-col h4{font-family:Georgia,serif;font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:.75rem;}.audience-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:1rem;margin:1.5rem 0;}.audience-card,.aud-entry{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);padding:1.25rem;}.aud-icon{font-size:1.5rem;margin-bottom:.5rem;}.aud-role{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:.35rem;display:block;}.accred-body h3{font-family:Georgia,serif;font-size:1.15rem;font-weight:700;color:var(--text-primary);margin-bottom:.5rem;}.accred-body p{font-size:.97rem;color:var(--text-secondary);line-height:1.65;}.lifecycle-bar{display:grid;grid-template-columns:70fr 25fr 10fr;gap:1px;background:var(--border);border-radius:2px;overflow:hidden;margin:1.5rem 0;}.lc-phase{padding:1.5rem 1.25rem;cursor:pointer;transition:filter .15s;}.lc-phase.manufacture{background:#B54D12;color:#fff;}.lc-phase.operate{background:#007A6E;color:#fff;}.lc-phase.eol{background:#4A5568;color:#fff;}.lc-phase:hover{filter:brightness(1.1);}.lc-pct{font-family:Calibri,monospace;font-size:1.1rem;font-weight:700;margin-bottom:.35rem;}.lc-label{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.85;}.lifecycle-detail{padding:1.25rem 1.5rem;background:var(--section-alt);border-left:3px solid var(--teal);font-size:.97rem;color:var(--text-primary);line-height:1.7;}.bs-body{flex:1;}.bs-body strong{display:block;font-family:Georgia,serif;font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:.3rem;}.bs-body p{font-size:.92rem;color:var(--text-secondary);line-height:1.65;margin:0;}.stop-start{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin:1.5rem 0;}.stop-col,.start-col{background:var(--card-bg);padding:1.5rem;}.stop-col{border-top:3px solid #B54D12;}.start-col{border-top:3px solid #007A6E;}.ss-heading{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:.75rem;display:block;}.stop-col .ss-heading{color:#B54D12;}.start-col .ss-heading{color:#007A6E;}.ss-list{list-style:none;display:flex;flex-direction:column;gap:.4rem;}.ss-list li{padding:.5rem .75rem;font-size:.92rem;color:var(--text-secondary);background:var(--section-alt);}.pue-util-chart{position:relative;background:var(--section-alt);border:1px solid var(--border);}.tri-vertex{cursor:pointer;}.tri-vertex:hover circle{opacity:.8;}
+:root{--page-bg:#F7F8FA;--card-bg:#FFFFFF;--section-alt:#E8EDF2;--text-primary:#1E293B;--text-secondary:#4A5568;--text-muted:#64748B;--navy:#0F1F2E;--navy-mid:#162840;--navy-card:#1E293B;--navy-light:#1C3A55;--teal:#00A896;--teal-dark:#007A6E;--teal-muted:#B2EDE7;--teal-bg:rgba(0,168,150,0.07);--teal-border:rgba(0,168,150,0.25);--orange:#E76F51;--orange-light:#F4A261;--orange-bg:#FFF3E8;--orange-border:rgba(231,111,81,0.25);--border:#D1D9E0;--border-light:#E8EDF2;--track1:#00A896;--track2:#F4A261;--track3:#E76F51;--correct:#16a34a;--wrong:#dc2626;--white:#FFFFFF;--slate:#4A5568;--slate-mid:#64748B;--slate-dim:#94A3B8;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Trebuchet MS",system-ui,-apple-system,sans-serif;font-weight:400;font-size:1rem;line-height:1.7;overflow-x:hidden;}
+.top-nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid rgba(0,168,150,0.2);padding:0 3rem;height:52px;display:flex;align-items:center;gap:1rem;color:#FFF;}
+.nav-home{color:var(--text-primary);text-decoration:none;font-weight:500;display:flex;align-items:center;gap:0.5rem;}
+.nav-sep{color:#CCCAC7;}
+.nav-module{color:var(--text-primary);}
+.nav-track-pill{background:rgba(0,168,150,0.15);padding:0.25rem 0.75rem;border-radius:20px;font-size:0.85rem;color:var(--teal);}
+.nav-progress{margin-left:auto;font-size:0.85rem;color:#3D5E5E;}
+.module-hero{background:linear-gradient(135deg, #0F3030 0%, #162840 100%);color:#FFF;padding:4rem 3rem;text-align:center;}
+.hero-num{font-size:5rem;font-family:Georgia, serif;font-weight:700;opacity:0.15;margin-bottom:1rem;}
+.module-eyebrow{font-size:0.85rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;}
+.module-title{font-family:Georgia, serif;font-size:2.5rem;font-weight:700;margin-bottom:1rem;line-height:1.2;}
+.module-subtitle{font-size:1.2rem;opacity:0.9;margin-bottom:2rem;max-width:700px;margin-left:auto;margin-right:auto;}
+.module-meta{display:flex;gap:2rem;justify-content:center;align-items:center;flex-wrap:wrap;font-size:0.95rem;}
+.meta-item{display:flex;align-items:center;gap:0.5rem;}
+.label{opacity:0.7;}
+.value{font-weight:500;}
+.complete-btn{background:rgba(255,255,255,0.2);color:#FFF;border:1px solid rgba(255,255,255,0.3);padding:0.5rem 1rem;border-radius:4px;cursor:pointer;font-size:0.9rem;transition:all 0.2s;}
+.complete-btn:hover{background:rgba(255,255,255,0.3);}
+.complete-btn.done{background:var(--teal);border-color:var(--teal);}
+.objectives-strip{background:#FFF;border-left:4px solid var(--teal);padding:2rem;margin:3rem 3rem;border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,0.05);}
+.objectives-heading{font-family:Georgia, serif;font-size:1.1rem;font-weight:700;margin-bottom:1.5rem;}
+.objectives-list{list-style:none;}
+.objectives-list li{display:flex;gap:1.5rem;margin-bottom:1rem;}
+.obj-num{background:var(--teal);color:#FFF;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:600;font-size:0.85rem;}
+.module-content{max-width:900px;margin:0 auto;padding:0 3rem;}
+.content-section{margin-bottom:3rem;}
+.section-label{font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;}
+.section-title{font-family:Georgia, serif;font-size:2rem;font-weight:700;margin-bottom:1rem;color:var(--text-primary);}
+.section-intro{font-size:1.1rem;color:var(--text-secondary);margin-bottom:2rem;line-height:1.8;}
+.prose{margin-bottom:1.5rem;line-height:1.8;}
+.viz-container{background:#FFF;border:1px solid var(--border-light);border-radius:6px;padding:2rem;margin:2rem 0;}
+.viz-title{font-family:Georgia, serif;font-size:1.1rem;font-weight:600;margin-bottom:1.5rem;color:var(--text-primary);}
+.callout{padding:1.5rem;border-radius:6px;margin:2rem 0;border-left:4px solid;}
+.callout-title{font-weight:600;margin-bottom:0.5rem;font-size:1rem;}
+.callout-insight{background:rgba(0,168,150,0.08);border-color:var(--teal);}
+.callout-warning{background:rgba(231,111,81,0.08);border-color:var(--orange);}
+.callout-key{background:rgba(0,168,150,0.08);border-color:var(--teal);}
+.reveal{opacity:0;animation:fadeIn 0.6s ease-out forwards;}
+.reveal.visible{opacity:1;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.slider-container{margin:2rem 0;padding:1.5rem;background:#FFF;border:1px solid var(--border-light);border-radius:6px;}
+.dimension{margin-bottom:2.5rem;}
+.dimension-label{font-weight:600;color:var(--text-primary);margin-bottom:0.75rem;display:flex;justify-content:space-between;}
+.slider-value{color:var(--teal);font-weight:700;}
+input[type="range"]{width:100%;height:6px;border-radius:3px;background:var(--border-light);outline:none;-webkit-appearance:none;}
+input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:var(--teal);cursor:pointer;}
+input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--teal);cursor:pointer;border:none;}
+.result-chart{margin-top:2rem;text-align:center;}
+.chart-bar{background:#FFF;border:1px solid var(--border-light);border-radius:6px;padding:1.5rem;margin-bottom:1rem;}
+.bar-label{font-weight:600;text-align:left;margin-bottom:0.5rem;color:var(--text-primary);}
+.bar-fill{height:20px;border-radius:3px;background:var(--teal);transition:width 0.3s ease;width:0;}
+.recommendation{margin-top:1.5rem;padding:1rem;background:rgba(0,168,150,0.08);border-radius:4px;border-left:3px solid var(--teal);font-size:0.95rem;}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin:2rem 0;}
+.card{background:#FFF;border:1px solid var(--border-light);border-radius:6px;padding:1.5rem;cursor:pointer;transition:all 0.2s;}
+.card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.08);}
+.card-accent{border-top:4px solid;}
+.card-accent-t{border-top-color:var(--teal);}
+.card-accent-o{border-top-color:var(--orange);}
+.card-header{font-weight:600;margin-bottom:0.75rem;color:var(--teal);}
+.card h4{font-family:Georgia, serif;font-size:1.1rem;margin-bottom:0.75rem;color:var(--text-primary);}
+.card p{font-size:0.95rem;color:var(--text-secondary);line-height:1.6;}
+.card-expanded{display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border-light);}
+.card.open .card-expanded{display:block;}
+.card-subpoint{margin-bottom:0.75rem;line-height:1.6;}
+.comparison-viz{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:2rem 0;}
+.comparison-box{background:#FFF;border:1px solid var(--border-light);border-radius:6px;padding:1.5rem;text-align:center;}
+.comparison-box h4{font-family:Georgia, serif;margin-bottom:1rem;color:var(--text-primary);}
+.comparison-items{text-align:left;margin-top:1rem;}
+.comparison-item{margin-bottom:0.75rem;padding:0.75rem;background:var(--section-alt);border-radius:4px;font-size:0.95rem;}
+.kc-block{background:#FFF;border:1px solid var(--border-light);border-radius:6px;padding:2rem;margin:2rem 0;border-left:4px solid var(--teal);}
+.kc-label{font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;}
+.kc-q{font-weight:600;font-size:1.1rem;margin-bottom:1.5rem;color:var(--text-primary);}
+.kc-options{display:grid;gap:1rem;margin-bottom:1rem;}
+.kc-option{background:#FFF;border:1px solid var(--border);padding:1rem;border-radius:4px;cursor:pointer;text-align:left;transition:all 0.2s;font-size:0.95rem;}
+.kc-option:hover{background:var(--section-alt);}
+.kc-option.selected-correct{background:rgba(22,163,74,0.1);border-color:var(--correct);}
+.kc-option.selected-wrong{background:rgba(220,38,38,0.1);border-color:var(--wrong);}
+.kc-opt-key{background:var(--slate);color:#FFF;padding:0.25rem 0.5rem;border-radius:3px;margin-right:0.5rem;font-weight:600;font-family:'JetBrains Mono',monospace;}
+.kc-hint{color:var(--text-muted);font-size:0.9rem;margin-bottom:1rem;}
+.kc-reveal{display:none;}
+.kc-reveal-label{font-weight:600;margin-bottom:0.75rem;}
+.takeaways{background:#FFF;border:1px solid var(--border-light);border-radius:6px;padding:2rem;margin:3rem 0;border-left:4px solid var(--teal);}
+.takeaways-heading{font-family:Georgia, serif;font-size:1.3rem;font-weight:700;margin-bottom:1.5rem;color:var(--text-primary);}
+.takeaway-list{list-style:none;}
+.takeaway-item{display:flex;gap:1rem;margin-bottom:1.5rem;}
+.takeaway-icon{color:var(--teal);font-size:1.5rem;flex-shrink:0;}
+.takeaway-body{flex:1;}
+.takeaway-body strong{color:var(--text-primary);}
+.takeaway-body p{margin-top:0.25rem;font-size:0.95rem;color:var(--text-secondary);}
+.module-nav{display:flex;gap:1rem;justify-content:space-between;align-items:center;padding:3rem;margin-top:4rem;border-top:1px solid var(--border-light);}
+.nav-btn{display:flex;align-items:center;gap:0.5rem;padding:0.75rem 1.5rem;background:var(--section-alt);color:var(--text-primary);text-decoration:none;border-radius:4px;transition:all 0.2s;}
+.nav-btn:hover{background:var(--border-light);}
+.nav-btn.next{margin-left:auto;}
+.nav-btn-label{font-size:0.85rem;opacity:0.7;}
+.nav-btn-title{font-weight:600;}
+footer{text-align:center;padding:2rem;color:var(--text-muted);font-size:0.9rem;border-top:1px solid var(--border-light);margin-top:3rem;}
+.footer-brand{margin:0.25rem 0;}
+@media (max-width:700px){.comparison-viz{grid-template-columns:1fr;}body{padding:1rem;}.module-content{padding:0 1rem;}.module-nav{flex-direction:column;}.nav-btn.next{margin-left:0;}}
 </style>
+<link rel="stylesheet" href="polish.css">
 </head>
-<body class="track3">
-<nav class="top-nav"><a href="index.html" class="nav-home"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L1 6v7h4v-4h4v4h4V6L7 1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>GreenOps 101</a><span class="nav-sep">/</span><span class="nav-module">Module 12</span><span class="nav-track-pill track3-pill">Track 3 — Leadership and Strategy</span><div class="nav-progress">Progress: <span id="progress-count">0/14</span></div></nav>
-<section class="module-hero"><div class="hero-num">12</div><p class="module-eyebrow">Module 12 &nbsp;·&nbsp; Track 3 — Leadership and Strategy</p><h1 class="module-title">Courageous Leadership<br>in Practice</h1><p class="module-subtitle">You can have the right strategy, the right metrics, the right governance framework — and still fail to build a programme that changes behaviour at scale. The reason is almost always the same: not enough attention to the human dimension.</p>
-<div class="module-meta"><div class="meta-item"><span class="label">Duration</span><span class="value">22–26 minutes</span></div><div class="meta-item"><span class="label">Track</span><span class="value">Leadership and Strategy</span></div><button class="complete-btn" onclick="markComplete('module12')">Mark as complete</button></div></section>
-<div class="objectives-strip reveal"><p class="objectives-heading">What you will take from this module</p><ul class="objectives-list">
-<li><span class="obj-num">01</span>Understand the 5Cs of sustainable technology leadership — and what each looks like in practice</li>
-<li><span class="obj-num">02</span>Know how to engage sceptical audiences from their own perspective — not yours</li>
-<li><span class="obj-num">03</span>Understand energy as a strategic resource — and what it means for infrastructure decision-making</li>
-<li><span class="obj-num">04</span>Know the difference between a project and a discipline — and what makes programmes survive leadership change</li>
-<li><span class="obj-num">05</span>Understand what courageous decisions look like in a sustainability programme</li>
-</ul></div>
-<div class="module-content">
-<div class="content-section reveal"><p class="section-label">Section 1</p>
-<h2 class="section-title">The 5Cs of sustainable technology leadership.</h2>
-<p class="section-intro">Five qualities that are all necessary, and none of which is sufficient on its own. The hardest is often Courage.</p>
-<div class="card-grid card-grid-auto reveal">
-<div class="card card-accent-t"><div class="card-label">Clarity</div><h4>People can't move in a direction they can't see.</h4><p>As a leader, you need to be able to articulate what digital sustainability means for your organisation in plain, concrete terms. Not a vision statement — an answer to the question: what will be different in eighteen months, and how will we know?</p><p style="margin-top:0.75rem;font-size:0.78rem;color:var(--text-muted)"><em>Test: Your team can explain the programme's objectives without referring to a slide deck.</em></p></div>
-<div class="card card-accent-t"><div class="card-label">Conviction</div><h4>Sustainability programmes face scepticism at every level.</h4><p>Your own belief in the importance of the programme — expressed consistently and specifically rather than only in all-hands addresses — determines whether others invest their credibility in it. If people sense you would trade the programme for a budget saving, it won't get the commitment it needs.</p><p style="margin-top:0.75rem;font-size:0.78rem;color:var(--text-muted)"><em>Test: When did you last mention the programme in a conversation that wasn't a sustainability meeting?</em></p></div>
-<div class="card card-accent-o"><div class="card-label">Courage</div><h4>Some decisions in a sustainability programme are genuinely difficult.</h4><p>Stopping a project that has consumed investment but has no sustainable justification. Telling a business unit that their demand growth requires mitigation. Requiring a supplier to produce evidence they have never had to produce before. These require a clear position held under pressure.</p><p style="margin-top:0.75rem;font-size:0.78rem;color:var(--text-muted)"><em>Test: What is the most difficult decision your programme requires that has not yet been made? What is preventing it?</em></p></div>
-<div class="card card-accent-p"><div class="card-label">Communication</div><h4>The sustainability story needs to be told differently to different audiences.</h4><p>Engineers: operational excellence. Finance: cost and risk discipline. Board: strategic and regulatory imperative. Employees: meaningful work. A leader who can translate the same programme into each framing, without losing the thread between them, is significantly more effective.</p><p style="margin-top:0.75rem;font-size:0.78rem;color:var(--text-muted)"><em>Test: Can you describe the programme in the language of each of your key audiences without changing the substance?</em></p></div>
-<div class="card"><div class="card-label">Commitment</div><h4>Sustainability programmes that depend on a single champion rarely survive leadership changes.</h4><p>The most durable programmes are built with distributed ownership from the start. Commitment means building the people, processes, and governance structures that will continue without you.</p><p style="margin-top:0.75rem;font-size:0.78rem;color:var(--text-muted)"><em>Test: If you left tomorrow, would the programme continue? If not, what capability is missing?</em></p></div>
-</div></div>
+<body class="track1">
 
-  <!-- 5Cs SELF-ASSESSMENT -->
-  <div class="viz-container reveal" id="fivecs" style="padding:0;margin-top:1.75rem;">
-    <div style="padding:1.5rem 1.5rem 1rem;border-bottom:1px solid var(--border-light);">
-      <p class="viz-title">5Cs leadership self-assessment — rate yourself on each dimension, then identify your development priority</p>
-      <p style="font-size:0.79rem;color:#64748B;margin-top:0.35rem;">Be honest. Optimistic self-placement is the most common bias here.</p>
+<nav class="top-nav">
+  <a href="index.html" class="nav-home">GreenOps 101</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-module">Module 12</span>
+  <span class="nav-track-pill track1-pill">Track 2 — Leadership</span>
+  <div class="nav-progress">Progress: <span id="progress-count">0/14</span></div>
+</nav>
+
+<section class="module-hero">
+  <div class="hero-num">12</div>
+  <p class="module-eyebrow">Module 12 · Track 2 — Leadership</p>
+  <h1 class="module-title">Courageous Leadership in Practice</h1>
+  <p class="module-subtitle">The human dimension of change. Building coalitions. Managing scepticism. Making the programme last.</p>
+  <div class="module-meta">
+    <div class="meta-item"><span class="label">Duration</span><span class="value">18–22 minutes</span></div>
+    <div class="meta-item"><span class="label">Track</span><span class="value">Leadership</span></div>
+    <button class="complete-btn" onclick="markComplete('module12')">Mark as complete</button>
+  </div>
+</section>
+
+<div class="objectives-strip reveal">
+  <p class="objectives-heading">What you will take from this module</p>
+  <ul class="objectives-list">
+    <li><span class="obj-num">01</span>Understand the five dimensions of courageous leadership for sustainability transformation</li>
+    <li><span class="obj-num">02</span>Assess your own leadership positioning across the 5Cs and identify development priorities</li>
+    <li><span class="obj-num">03</span>Recognise sceptical audience personas and apply targeted engagement strategies</li>
+    <li><span class="obj-num">04</span>Reframe energy from cost overhead to strategic resource</li>
+    <li><span class="obj-num">05</span>Build coalitions that survive leadership transitions and budget cycles</li>
+  </ul>
+</div>
+
+<div class="module-content">
+
+<!-- SECTION 1: The 5Cs -->
+<div class="content-section reveal">
+  <p class="section-label">Section 1</p>
+  <h2 class="section-title">The Five Dimensions of Sustainable Technology Leadership</h2>
+  <p class="section-intro">You can have perfect strategy, perfect metrics, and perfect governance — and still fail. The reason is almost always human. This framework describes five qualities that are all necessary, and none sufficient alone.</p>
+
+  <div class="viz-container reveal">
+    <p class="viz-title">5Cs Leadership Self-Assessment</p>
+    <p style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:1.5rem;">Rate yourself on each dimension (1=needs development, 5=strength). This is for reflection, not scoring.</p>
+
+    <div class="slider-container">
+      <div class="dimension">
+        <div class="dimension-label">
+          <span>Clarity: Can you articulate what digital sustainability means for your organisation in concrete terms? (18-month vision)</span>
+          <span class="slider-value" id="val-clarity">3</span>
+        </div>
+        <input type="range" id="slider-clarity" min="1" max="5" value="3" oninput="updateSlider('clarity')">
+      </div>
+
+      <div class="dimension">
+        <div class="dimension-label">
+          <span>Credibility: Do your actions match your words? Do people believe you'd trade budget allocation for the programme?</span>
+          <span class="slider-value" id="val-credibility">3</span>
+        </div>
+        <input type="range" id="slider-credibility" min="1" max="5" value="3" oninput="updateSlider('credibility')">
+      </div>
+
+      <div class="dimension">
+        <div class="dimension-label">
+          <span>Communication: Can you translate the same programme into different languages for engineers, finance, board, and employees?</span>
+          <span class="slider-value" id="val-communication">3</span>
+        </div>
+        <input type="range" id="slider-communication" min="1" max="5" value="3" oninput="updateSlider('communication')">
+      </div>
+
+      <div class="dimension">
+        <div class="dimension-label">
+          <span>Collaboration: Are you building distributed ownership, or running this yourself?</span>
+          <span class="slider-value" id="val-collaboration">3</span>
+        </div>
+        <input type="range" id="slider-collaboration" min="1" max="5" value="3" oninput="updateSlider('collaboration')">
+      </div>
+
+      <div class="dimension">
+        <div class="dimension-label">
+          <span>Courage: Can you make and hold unpopular decisions under pressure?</span>
+          <span class="slider-value" id="val-courage">3</span>
+        </div>
+        <input type="range" id="slider-courage" min="1" max="5" value="3" oninput="updateSlider('courage')">
+      </div>
     </div>
-    <div id="fivecs-controls" style="padding:0.75rem 1.5rem;"></div>
-    <div id="fivecs-output" style="display:none;padding:1.25rem 1.5rem;border-top:1px solid var(--border-light);background:var(--section-alt);">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#64748B;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem;">Your assessment</div>
-      <div id="fivecs-bars" style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.25rem;"></div>
-      <div id="fivecs-priority" style="padding:1rem;background:rgba(231,111,81,0.06);border-left:3px solid #E76F51;font-size:0.83rem;color:var(--text-secondary);line-height:1.65;"></div>
+
+    <div class="result-chart" id="resultsChart">
+      <div class="chart-bar">
+        <div class="bar-label">Clarity</div>
+        <div class="bar-fill" style="width:60%;"></div>
+      </div>
+      <div class="chart-bar">
+        <div class="bar-label">Credibility</div>
+        <div class="bar-fill" style="width:60%;"></div>
+      </div>
+      <div class="chart-bar">
+        <div class="bar-label">Communication</div>
+        <div class="bar-fill" style="width:60%;"></div>
+      </div>
+      <div class="chart-bar">
+        <div class="bar-label">Collaboration</div>
+        <div class="bar-fill" style="width:60%;"></div>
+      </div>
+      <div class="chart-bar">
+        <div class="bar-label">Courage</div>
+        <div class="bar-fill" style="width:60%;"></div>
+      </div>
+    </div>
+
+    <div class="recommendation" id="recommendation">
+      <strong>Development focus:</strong> When you update the sliders, the dimension with the lowest rating appears here as your primary development area.
     </div>
   </div>
-  <script>
-  (function(){
-    var cs = [
-      {id:'clarity', label:'Clarity', icon:'🔭',
-       q:'Your team can explain the programme's objectives without referring to a slide deck.',
-       high:'You articulate what will be different in 18 months and how you will know. Plain, concrete terms.',
-       low:'The programme's objectives shift depending on the audience. No common answer across the team.',
-       action:'Write a two-sentence programme definition your team can use independently. Test it in the next team meeting.'},
-      {id:'conviction', label:'Conviction', icon:'🧭',
-       q:'When did you last mention the programme in a conversation that wasn't a sustainability meeting?',
-       high:'You express belief in the programme consistently and specifically, not only in all-hands addresses.',
-       low:'People sense you would trade the programme for a budget saving. Commitment is conditional.',
-       action:'Mention the programme in one non-sustainability context this week — an operations review, a 1:1, a budget discussion.'},
-      {id:'courage', label:'Courage', icon:'⚡',
-       q:'What is the most difficult decision your programme requires that has not yet been made?',
-       high:'You make decisions that nobody has forced — stopping unjustified projects, requiring evidence, holding the line.',
-       low:'The programme exists alongside business as usual. No difficult decisions have been required of it.',
-       action:'Name the hardest decision your programme requires. Write down what is preventing it. Address that barrier specifically.'},
-      {id:'communication', label:'Communication', icon:'📡',
-       q:'Can you describe the programme in the language of each of your key audiences without changing the substance?',
-       high:'Engineers hear operational excellence. Finance hears cost and risk. Board hears strategy. Same programme, different frames.',
-       low:'You have one version of the story, usually the sustainability version, and it lands differently with different audiences.',
-       action:'Write a one-paragraph description of the programme for each of three audiences: engineering lead, CFO, and board chair.'},
-      {id:'commitment', label:'Commitment', icon:'🏗️',
-       q:'If you left tomorrow, would the programme continue?',
-       high:'The programme has distributed ownership, embedded governance, and structural capability — not dependency on one champion.',
-       low:'The programme depends on your personal energy and relationships to remain on the agenda.',
-       action:'Identify the single biggest dependency on you personally. Build a plan to distribute that capability to a named colleague.'},
-    ];
-    var scores = {};
-    var ctrl = document.getElementById('fivecs-controls');
-    cs.forEach(function(c) {
-      var row = document.createElement('div');
-      row.style.cssText = 'padding:0.85rem 0;border-bottom:1px solid var(--border-light);';
-      row.innerHTML = '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.6rem;">' +
-        '<div style="display:flex;gap:0.6rem;align-items:center;"><span style="font-size:1.1rem;">' + c.icon + '</span>' +
-        '<span style="font-weight:500;font-size:0.88rem;">' + c.label + '</span></div>' +
-        '<span id="sc5-' + c.id + '" style="font-family:Calibri,sans-serif;font-size:0.62rem;color:#64748B;">—</span></div>' +
-        '<div style="font-size:0.78rem;color:#64748B;font-style:italic;margin-bottom:0.55rem;">' + c.q + '</div>' +
-        '<div style="display:flex;gap:4px;" id="bt5-' + c.id + '">' +
-        [1,2,3,4,5].map(function(l){
-          var labels=['Very low','Low','Moderate','Strong','Exceptional'];
-          return '<button data-c="' + c.id + '" data-l="' + l + '" title="' + labels[l-1] + '" style="flex:1;padding:0.35rem 0;font-family:Calibri,sans-serif;font-size:0.6rem;background:var(--border-light);border:1px solid var(--border);cursor:pointer;color:#64748B;transition:all 0.12s;">' + l + '</button>';
-        }).join('') + '</div>';
-      ctrl.appendChild(row);
-    });
-    
-    ctrl.addEventListener('click', function(e) {
-      var btn = e.target.closest('[data-c]');
-      if(!btn) return;
-      var cId = btn.dataset.c, level = parseInt(btn.dataset.l);
-      scores[cId] = level;
-      // Update buttons
-      document.querySelectorAll('[data-c="' + cId + '"]').forEach(function(b) {
-        var l = parseInt(b.dataset.l);
-        if(l<=level){b.style.background='#00A896';b.style.color='#0F1F2E';b.style.borderColor='#00A896';}
-        else{b.style.background='var(--section-alt)';b.style.color='#64748B';b.style.borderColor='var(--border)';}
-      });
-      document.getElementById('sc5-' + cId).textContent = ['','Very low','Low','Moderate','Strong','Exceptional'][level];
-      document.getElementById('sc5-' + cId).style.color = '#00A896';
-      
-      if(Object.keys(scores).length >= 1) renderOutput();
-    });
-    
-    function renderOutput() {
-      var out = document.getElementById('fivecs-output');
-      out.style.display = 'block';
-      var barsDiv = document.getElementById('fivecs-bars');
-      barsDiv.innerHTML = '';
-      var lowestScore = 5, lowestC = null;
-      cs.forEach(function(c) {
-        var v = scores[c.id] || 0;
-        if(v > 0 && v < lowestScore) { lowestScore = v; lowestC = c; }
-        var pct = (v/5)*100;
-        var col = v>=4?'#00A896':v>=3?'#F4A261':'#E76F51';
-        var bar = '<div style="display:flex;align-items:center;gap:0.75rem;">' +
-          '<div style="width:88px;flex-shrink:0;font-size:0.78rem;color:var(--text-secondary);">' + c.label + '</div>' +
-          '<div style="flex:1;height:16px;background:var(--border-light);overflow:hidden;">' +
-          '<div style="height:100%;width:' + pct + '%;background:' + col + ';transition:width 0.4s;"></div></div>' +
-          '<div style="font-family:Calibri,sans-serif;font-size:0.65rem;color:' + col + ';width:22px;text-align:right;">' + (v||'—') + '</div></div>';
-        barsDiv.innerHTML += bar;
-      });
-      
-      var priority = document.getElementById('fivecs-priority');
-      if(lowestC) {
-        priority.innerHTML = '<strong style="color:#B54D12;">Development priority: ' + lowestC.label + '</strong><br>' +
-          'Current profile: ' + (lowestScore<=2?lowestC.low:lowestC.high) + '<br><br>' +
-          '<strong style="color:var(--text-primary);">Suggested action: </strong>' + lowestC.action;
-      } else {
-        priority.textContent = 'Complete all five dimensions to identify your development priority.';
-      }
-    }
-  })();
-  </script>
 
+  <div class="prose reveal">
+    <p><strong>Clarity</strong> means people can explain what you're building without referring to a slide deck. Not a vision statement. An answer to: what will be different in eighteen months?</p>
+    <p style="margin-top:0.75rem;"><strong>Credibility</strong> means your team believes you'd trade programme continuation for a real budget saving. Scepticism is everywhere. Your consistency determines whether others invest credibility in it.</p>
+    <p style="margin-top:0.75rem;"><strong>Communication</strong> means translating the same programme into different framings: operational excellence for engineers, cost and risk management for finance, strategic imperative for the board, meaningful work for employees.</p>
+    <p style="margin-top:0.75rem;"><strong>Collaboration</strong> means building distributed ownership from the start. Programmes that depend on a single champion rarely survive leadership changes or budget cycles.</p>
+    <p style="margin-top:0.75rem;"><strong>Courage</strong> is the willingness to make difficult decisions and hold them under pressure: stopping projects that can't be justified, requiring suppliers to provide evidence they've never provided before, prioritising resilience over lowest cost.</p>
+  </div>
+</div>
 
-<div class="content-section reveal"><p class="section-label">Section 2</p>
-<h2 class="section-title">Engaging sceptical audiences.</h2>
-<p class="section-intro">Starting from your sustainability framing and working backwards to their concern rarely works. Start from their concern and work towards the sustainability implication.</p>
-<table class="compare-table reveal">
-<tr><th>Audience</th><th>Their actual concern</th><th>The sustainability connection that lands</th></tr>
-<tr><td>Engineers</td><td>Technical excellence, system performance, reducing toil</td><td>Efficient code reduces infrastructure overhead. Waste is technical debt with a carbon dimension. GreenOps is engineering quality by another name.</td></tr>
-<tr><td>Finance</td><td>Cost, risk, and capital efficiency</td><td>Idle compute is cash waste. Regulatory exposure is quantifiable risk. Green financing improves lending terms. The numbers are the same conversation.</td></tr>
-<tr><td>Business unit leaders</td><td>Service performance and competitive position</td><td>Their demand growth is already driving footprint. Their ungoverned AI usage is already a cost they carry. They own the demand side of the problem.</td></tr>
-<tr><td>Board</td><td>Strategy, risk, and long-term resilience</td><td>SBTi trajectory, reputational exposure, investor and customer requirements. Energy as a strategic resource constraint in real markets.</td></tr>
-</table></div>
-<div class="content-section reveal"><p class="section-label">Section 3</p>
-<h2 class="section-title">Energy as a strategic resource.</h2>
-<p class="section-intro">Power availability for data centres is becoming a genuine bottleneck in some markets. Leaders who understand energy as a strategic variable make better infrastructure decisions.</p>
-<div class="callout callout-warning reveal"><p class="callout-title">The constraint is becoming structural</p><p>In some markets, power availability is already constraining where data centres can be built, when they can expand, and what planning consent looks like. Leaders who treat energy as an abundant utility are making decisions with an outdated model. Renewable procurement at a physical level requires PPAs, not just certificates. End-user energy is material at scale. These are now infrastructure governance questions, not sustainability team questions.</p></div></div><div class="pause-reflect reveal"><p class="pause-label">⏸ Pause &amp; Reflect</p><p class="pause-intro">Take 5–10 minutes. Specificity matters more than completeness.</p><div class="pause-questions"><div class="pause-q"><span class="pause-q-num">1</span>Of the 5Cs — Clarity, Conviction, Courage, Communication, Commitment — which is the most underdeveloped in your own leadership of this programme right now? What would changing that look like in the next 30 days?</div><div class="pause-q"><span class="pause-q-num">2</span>For each of your three most important sceptical audiences: what would it take to shift them from sceptic to ally? What do they need to see that they haven't seen yet?</div><div class="pause-q"><span class="pause-q-num">3</span>Is your sustainable IT programme currently functioning as a project or a discipline? What is the single most important governance integration that would move it from one to the other?</div></div></div><div class="takeaways reveal"><h3 class="takeaways-heading">Key Takeaways</h3><div class="takeaway-list"><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>The 5Cs frame what effective sustainable IT leadership looks like.</strong><p>Clarity, Conviction, Courage, Communication, and Commitment — all five are necessary. The hardest is often Courage: making difficult decisions that the programme requires but that nobody has forced yet.</p></div></div><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Engage sceptical audiences from their own perspective, not yours.</strong><p>Engineers from operational problems. Finance from numbers. Business unit leaders from the footprint and demand growth that is already their problem.</p></div></div><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Energy is a strategic resource — treat it as one.</strong><p>Power availability is a constraint in real markets. Renewable procurement at a physical level requires PPAs, not just certificates. Leaders who understand energy as a strategic variable make better infrastructure decisions.</p></div></div><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Build for durability, not dependency.</strong><p>The most resilient programmes have distributed ownership. If the programme depends entirely on one champion, it is one leadership change away from collapse.</p></div></div></div></div></div>
-<div class="module-nav"><a href="module11.html" class="nav-btn"><span><span class="nav-btn-label">← Previous</span><span class="nav-btn-title">M11: Sustainable IT Strategy and Roadmapping</span></span></a><button class="complete-btn" onclick="markComplete('module12')">Mark as complete</button><a href="module13.html" class="nav-btn next"><span><span class="nav-btn-label">Next →</span><span class="nav-btn-title">M13: Sustainability by IT: Enabling Positive Impact Beyond the Estate</span></span></a></div>
-<footer><div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 12</div><div class="footer-brand">March 2026 · v2</div></footer>
-<script></script>
+<!-- SECTION 2: Sceptical Audiences -->
+<div class="content-section reveal">
+  <p class="section-label">Section 2</p>
+  <h2 class="section-title">Engaging Sceptical Audiences</h2>
+  <p class="section-intro">Scepticism is not the problem to solve. It's the entry point. Different audiences are sceptical for different reasons. Engagement strategies differ accordingly.</p>
+
+  <div class="card-grid reveal">
+    <div class="card card-accent card-accent-t" onclick="toggleCard(this)">
+      <div class="card-header">Persona 1</div>
+      <h4>The Cost Arguer</h4>
+      <p>Finance leaders and procurement teams focused on baseline costs. See sustainability as a cost centre.</p>
+      <div class="card-expanded">
+        <div class="card-subpoint"><strong>Why they're sceptical:</strong> "Show me the operational cost avoidance. Show me the risk reduction. Show me the financing or insurance benefit."</div>
+        <div class="card-subpoint"><strong>How to engage:</strong> Lead with numbers. Not aspirational numbers. Quantify the waste removal programme savings specifically. Cost avoidance from extending device cycles. Non-compliance costs. Impact on financing terms. Finance responds to data, not principle.</div>
+        <div class="card-subpoint"><strong>Message framing:</strong> "Sustainability performance is now a material factor in your financing cost. Measurement and credibility create value."</div>
+      </div>
+    </div>
+
+    <div class="card card-accent card-accent-t" onclick="toggleCard(this)">
+      <div class="card-header">Persona 2</div>
+      <h4>The Not-My-Problem</h4>
+      <p>Business unit leaders focused on their own KPIs. Don't see sustainability as their operational concern.</p>
+      <div class="card-expanded">
+        <div class="card-subpoint"><strong>Why they're sceptical:</strong> "My job is to deliver revenue/services. That's where I should focus."</div>
+        <div class="card-subpoint"><strong>How to engage:</strong> Frame this as their performance. If their services drive disproportionate footprint, that's operational inefficiency. If their demand is growing without efficiency discipline, that's a cost problem. Connect sustainability to their scorecard.</div>
+        <div class="card-subpoint"><strong>Message framing:</strong> "This isn't about IT. This is about how your business runs. Waste removal is an operational excellence opportunity for your team."</div>
+      </div>
+    </div>
+
+    <div class="card card-accent card-accent-o" onclick="toggleCard(this)">
+      <div class="card-header">Persona 3</div>
+      <h4>The Greenwashing Cynic</h4>
+      <p>Engineers who've seen many corporate initiatives. Suspicious of compliance theatre. Value operational substance.</p>
+      <div class="card-expanded">
+        <div class="card-subpoint"><strong>Why they're sceptical:</strong> "This is corporate communications. I work on real problems. Give me something that matters operationally."</div>
+        <div class="card-subpoint"><strong>How to engage:</strong> Start from operational problems they recognise: idle resources, bloat, unnecessary compute, resource inefficiency. The principle follows from solving real problems. Reverse the usual framing.</div>
+        <div class="card-subpoint"><strong>Message framing:</strong> "Three hundred idle VMs. Forty thousand pounds. Fifteen minutes of rightsizing. This is operational excellence. Call it what you like."</div>
+      </div>
+    </div>
+
+    <div class="card card-accent card-accent-o" onclick="toggleCard(this)">
+      <div class="card-header">Persona 4</div>
+      <h4>The Overwhelmed</h4>
+      <p>Teams dealing with urgent operational issues. Sustainability feels like another priority when they're already under pressure.</p>
+      <div class="card-expanded">
+        <div class="card-subpoint"><strong>Why they're sceptical:</strong> "I'm drowning. Can't take on another thing. It's not my responsibility."</div>
+        <div class="card-subpoint"><strong>How to engage:</strong> Make it easy. Remove complexity. Offer templates, tools, pre-built solutions. Connect sustainability to their immediate operational wins. Build capability, not bureaucracy.</div>
+        <div class="card-subpoint"><strong>Message framing:</strong> "Here's what you already run. Here's what we measured. Here's what can change without new work. Let's find quick wins that matter."</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3: Energy as Strategy -->
+<div class="content-section reveal">
+  <p class="section-label">Section 3</p>
+  <h2 class="section-title">Energy as a Strategic Resource</h2>
+  <p class="section-intro">Energy is usually treated as a facilities overhead. Strategic leaders see it differently: as a constraint, a cost, and a risk factor shaping infrastructure decisions.</p>
+
+  <div class="comparison-viz reveal">
+    <div class="comparison-box">
+      <h4>Energy as Cost Overhead</h4>
+      <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:1rem;"><em>Default framing — hands off to facilities</em></p>
+      <div class="comparison-items">
+        <div class="comparison-item">• Power management treated as someone else's concern</div>
+        <div class="comparison-item">• End-user energy consumption ignored as "insignificant"</div>
+        <div class="comparison-item">• Renewable energy via certificate purchase (compliance narrative)</div>
+        <div class="comparison-item">• No geographic constraints on deployment</div>
+        <div class="comparison-item">• Result: hidden costs, missed optimisation, reputational risk</div>
+      </div>
+    </div>
+
+    <div class="comparison-box">
+      <h4>Energy as Strategic Resource</h4>
+      <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:1rem;"><em>Leadership framing — actively managed</em></p>
+      <div class="comparison-items">
+        <div class="comparison-item">• Power availability treated as infrastructure constraint</div>
+        <div class="comparison-item">• End-user device power managed as operational parameter</div>
+        <div class="comparison-item">• Renewable procurement via PPAs (physically meaningful)</div>
+        <div class="comparison-item">• Deployment decisions shaped by energy availability and climate</div>
+        <div class="comparison-item">• Result: cost savings, resilience, credibility, market advantage</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-insight reveal">
+    <p class="callout-title">Why energy is a strategic concern</p>
+    <p>Data centre power capacity in London, Dublin, Amsterdam, and major US markets has been constrained. This affects where and how organisations can expand infrastructure. Technology leaders who understand energy as a strategic resource make better infrastructure investment decisions with longer planning horizons. End-user energy consumption is also material: the energy consumed by laptops, monitors, docking stations, and AV equipment across thousands of users, over time, is material. Power management policies and smart device management can reduce this without impact on user productivity.</p>
+  </div>
+</div>
+
+<!-- KNOWLEDGE CHECK 1 -->
+<div class="kc-block reveal" data-correct="C">
+  <p class="kc-label">Knowledge Check · Module 12 · Q1</p>
+  <p class="kc-q">Of the 5Cs of sustainable technology leadership, which dimension is most critical to programme survival across leadership transitions?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>Clarity — a well-articulated vision ensures continuity regardless of who leads</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>Courage — the ability to make unpopular decisions makes the programme stick</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>Collaboration — distributed ownership and capability building mean the programme doesn't depend on a single champion</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>Communication — translating across different audiences ensures everyone stays engaged</button>
+  </div>
+  <p class="kc-hint">Select an answer to reveal the explanation.</p>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">✓ Correct: Option C</p>
+    <p>Programmes that depend on a single champion rarely survive leadership changes, budget cycles, or competing priorities. Collaboration — building distributed ownership from the start — is what makes a programme durable. Investing in capability across the organisation, building governance structures, and developing people ensures the programme continues without you. The other dimensions matter, but collaboration is the structural guarantee of longevity.</p>
+  </div>
+</div>
+
+<!-- KNOWLEDGE CHECK 2 -->
+<div class="kc-block reveal" data-correct="B">
+  <p class="kc-label">Knowledge Check · Module 12 · Q2</p>
+  <p class="kc-q">When engaging a sceptical finance leader on a sustainability programme, what is the most effective opening?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>Explain the climate science and why the organisation has a moral obligation to act</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>Quantify specific waste removal savings, cost avoidance, and risk reduction in operational terms</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>Show the regulatory obligations and compliance risks of non-action</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>Demonstrate what competitors are doing in sustainability</button>
+  </div>
+  <p class="kc-hint">Select an answer to reveal the explanation.</p>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">✓ Correct: Option B</p>
+    <p>Finance leaders respond to numbers. Not aspirational numbers — operational numbers. What does the waste removal programme save, specifically? What's the cost avoidance from extending device refresh cycles? What would non-compliance cost? Finance is a partner in the programme because it sees real financial benefit, not because of climate philosophy or regulatory mandate. Lead with the numbers.</p>
+  </div>
+</div>
+
+<!-- TAKEAWAYS -->
+<div class="takeaways reveal">
+  <h3 class="takeaways-heading">Module 12 — Key Takeaways</h3>
+  <div class="takeaway-list">
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Leadership matters more than process.</strong><p>Perfect strategy with weak leadership fails. Imperfect strategy with courageous, credible leadership succeeds.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Different audiences need different framings.</strong><p>Engineers need operational problems. Finance needs numbers. Leadership needs strategy. Employees need meaning. Use the same programme. Translate the message.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Scepticism is data, not resistance.</strong><p>Understand why each audience is sceptical. The Cost Arguer wants numbers. The Not-My-Problem wants relevance to their KPI. The Cynic wants substance. Address the actual concern.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Build coalitions, not a single-champion programme.</strong><p>Distributed ownership across engineering, finance, procurement, and leadership is what makes programmes survive transitions.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Energy is a strategic resource, not just a cost.</strong><p>Power availability shapes infrastructure decisions. Managing energy consumption across your estate reduces cost, risk, and improves resilience.</p></div></div>
+  </div>
+</div>
+
+</div><!-- end module-content -->
+
+<div class="module-nav">
+  <a href="index.html" class="nav-btn">
+    <span>
+      <span class="nav-btn-label">← Back to</span>
+      <span class="nav-btn-title">Course Hub</span>
+    </span>
+  </a>
+  <button class="complete-btn" onclick="markComplete('module12')">Mark as complete</button>
+  <a href="module13.html" class="nav-btn next">
+    <span>
+      <span class="nav-btn-label">Next →</span>
+      <span class="nav-btn-title">M13: Sustainability BY IT</span>
+    </span>
+  </a>
+</div>
+
+<footer>
+  <div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 12</div>
+  <div class="footer-brand">March 2026 · v2</div>
+</footer>
+
 <script>
+function updateSlider(dimension) {
+  const slider = document.getElementById('slider-' + dimension);
+  const value = slider.value;
+  document.getElementById('val-' + dimension).textContent = value;
+  updateChart();
+  updateRecommendation();
+}
+
+function updateChart() {
+  const values = {
+    clarity: parseInt(document.getElementById('slider-clarity').value),
+    credibility: parseInt(document.getElementById('slider-credibility').value),
+    communication: parseInt(document.getElementById('slider-communication').value),
+    collaboration: parseInt(document.getElementById('slider-collaboration').value),
+    courage: parseInt(document.getElementById('slider-courage').value)
+  };
+
+  const chart = document.getElementById('resultsChart');
+  const bars = chart.querySelectorAll('.bar-fill');
+  const dimensions = ['clarity', 'credibility', 'communication', 'collaboration', 'courage'];
+
+  dimensions.forEach((dim, idx) => {
+    bars[idx].style.width = (values[dim] * 20) + '%';
+  });
+}
+
+function updateRecommendation() {
+  const values = {
+    clarity: parseInt(document.getElementById('slider-clarity').value),
+    credibility: parseInt(document.getElementById('slider-credibility').value),
+    communication: parseInt(document.getElementById('slider-communication').value),
+    collaboration: parseInt(document.getElementById('slider-collaboration').value),
+    courage: parseInt(document.getElementById('slider-courage').value)
+  };
+
+  let lowest = 'clarity';
+  let lowestScore = values.clarity;
+
+  for (const [dim, score] of Object.entries(values)) {
+    if (score < lowestScore) {
+      lowestScore = score;
+      lowest = dim;
+    }
+  }
+
+  const messages = {
+    clarity: "Clarity needs work. Spend time articulating what 18-month success looks like in concrete terms. Can your team explain it without a slide deck?",
+    credibility: "Credibility is your development focus. Build it through consistency: match words with actions. Show you'd hold hard decisions even under budget pressure.",
+    communication: "Communication is where to invest. Practise translating your programme for different audiences. What's the engineer story? The finance story? The board story?",
+    collaboration: "Collaboration is your priority. Identify allies at each level. Don't run this alone. Build capability across the organisation, not just in yourself.",
+    courage: "Courage is the focus. Identify one unpopular decision you need to make and hold. Start small. Build the reputation for holding the line."
+  };
+
+  document.getElementById('recommendation').innerHTML = `<strong>Development focus (${lowest}):</strong> ${messages[lowest]}`;
+}
+
+function toggleCard(card) {
+  card.classList.toggle('open');
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   if (typeof initKnowledgeChecks === 'function') initKnowledgeChecks();
   if (typeof initScrollReveal === 'function') initScrollReveal();
   if (typeof initProgress === 'function') initProgress(12);
-  if (typeof renderOutput === 'function') renderOutput();
 });
 </script>
-<script>
-// GreenOps 101 — Shared utilities v4 light theme
 
+<script>
+// GreenOps 101 — Shared utilities
 const STORAGE_KEY = 'greenops101_progress';
 function getProgress(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');}catch{return {};}}
 function markComplete(moduleKey){
@@ -186,17 +484,12 @@ function initKnowledgeChecks(){
         block.classList.add('answered');
         const chosen=this.dataset.val;
         const isCorrect=(chosen===correct);
-
         block.querySelectorAll('.kc-option').forEach(o=>{
           if(o.dataset.val===correct)o.classList.add('selected-correct');
           else if(o.dataset.val===chosen&&!isCorrect)o.classList.add('selected-wrong');
         });
-
-        // Find the correct option text for feedback
         const correctBtn=block.querySelector('.kc-option[data-val="'+correct+'"]');
         const correctText=correctBtn?correctBtn.textContent.replace(/^[A-D]\s*/,'').trim():'';
-
-        // Build or find feedback label
         let revealLabel=block.querySelector('.kc-reveal-label');
         if(!revealLabel){
           revealLabel=document.createElement('p');
@@ -204,7 +497,6 @@ function initKnowledgeChecks(){
           const rv=block.querySelector('.kc-reveal');
           if(rv)rv.insertBefore(revealLabel,rv.firstChild);
         }
-
         if(isCorrect){
           revealLabel.style.color='var(--teal-dark)';
           revealLabel.textContent='✓ Correct — Option '+correct;
@@ -212,10 +504,8 @@ function initKnowledgeChecks(){
           revealLabel.style.color='#B54D12';
           revealLabel.innerHTML='✗ Incorrect — the correct answer was <strong>Option '+correct+'</strong>: '+correctText;
         }
-
         const rv=block.querySelector('.kc-reveal');
         if(rv)rv.style.display='block';
-
         const hint=block.querySelector('.kc-hint');
         if(hint)hint.style.display='none';
       });
@@ -233,10 +523,8 @@ function initProgress(current){
   const done=Object.keys(p).filter(k=>k.startsWith('module')).length;
   const el=document.getElementById('progress-count');
   if(el)el.textContent=done+'/'+total;
-  const fill=document.getElementById('prog-fill');
-  if(fill)fill.style.width=((done/total)*100)+'%';
   if(isComplete('module'+current))document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
 }
-
 </script>
-</body></html>
+</body>
+</html>

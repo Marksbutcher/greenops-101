@@ -1,153 +1,962 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>M7: Procurement, Supply Chains, and Vendor Evidence — GreenOps 101</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-
-
-
+<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-:root{--page-bg:#F7F8FA;--card-bg:#FFFFFF;--section-alt:#E8EDF2;--text-primary:#1E293B;--text-secondary:#4A5568;--text-muted:#64748B;--navy:#0F1F2E;--navy-mid:#162840;--navy-card:#1E293B;--navy-light:#1C3A55;--teal:#00A896;--teal-dark:#007A6E;--teal-muted:#B2EDE7;--teal-bg:rgba(0,168,150,0.07);--teal-border:rgba(0,168,150,0.25);--orange:#E76F51;--orange-light:#F4A261;--orange-bg:#FFF3E8;--orange-border:rgba(231,111,81,0.25);--border:#D1D9E0;--border-light:#E8EDF2;--track1:#00A896;--track2:#F4A261;--track3:#E76F51;--correct:#16a34a;--wrong:#dc2626;--white:#FFFFFF;--slate:#4A5568;--slate-mid:#64748B;--slate-dim:#94A3B8;--teal-light:#B2EDE7;--teal-glow:rgba(0,168,150,0.15);--teal-subtle:rgba(0,168,150,0.07);--grey-100:#F7F8FA;--grey-300:#D1D9E0;--grey-500:#4A5568;--navy-raised:#1C3A55;--navy-border:rgba(255,255,255,0.07);--navy-mid-alt:#162840;}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;font-size:16px;}img,svg{display:block;max-width:100%;}body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Trebuchet MS",system-ui,-apple-system,sans-serif;font-weight:400;font-size:1rem;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}.top-nav{position:sticky;top:0;z-index:100;background:#0F1F2E;border-bottom:1px solid rgba(0,168,150,0.2);padding:0 3rem;height:52px;display:flex;align-items:center;gap:1rem;}.top-nav::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00A896 0%,#F4A261 60%,#E76F51 100%);}.nav-home{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .15s;flex-shrink:0;}.nav-home:hover{color:#fff;}.nav-sep{color:rgba(255,255,255,0.25);}.nav-module{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;font-weight:500;}.nav-track-pill{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .65rem;border-radius:2px;}.track1-pill{background:rgba(0,168,150,.2);color:#B2EDE7;}.track2-pill{background:rgba(244,162,97,.2);color:#F4D0B0;}.track3-pill{background:rgba(231,111,81,.2);color:#F4C4B9;}.nav-progress{margin-left:auto;font-family:Calibri,monospace;font-size:.72rem;color:rgba(255,255,255,0.5);}.module-hero{position:relative;overflow:hidden;padding:4rem 3rem 3rem;background:#0F1F2E;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;}.module-hero::after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 70% 50%,rgba(0,168,150,.08) 0%,transparent 65%);pointer-events:none;}.hero-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(5rem,12vw,10rem);color:rgba(255,255,255,.06);line-height:1;position:absolute;right:3rem;bottom:0;font-weight:400;user-select:none;}.module-eyebrow{font-family:Calibri,monospace;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:#B2EDE7;margin-bottom:.75rem;}.module-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.12;letter-spacing:-.02em;font-weight:700;color:#fff;margin-bottom:1.25rem;}.module-subtitle{font-size:1.1rem;color:rgba(255,255,255,.72);line-height:1.65;max-width:620px;margin-bottom:2rem;}.module-meta{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}.meta-item{display:flex;flex-direction:column;gap:.15rem;}.meta-item .label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);}.meta-item .value{font-size:.92rem;color:rgba(255,255,255,.85);font-weight:500;}.complete-btn{font-family:Calibri,monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:.65rem 1.4rem;background:#00A896;border:2px solid #00A896;color:#FFFFFF;cursor:pointer;transition:all .15s;font-weight:700;}.complete-btn:hover{background:var(--teal-dark);border-color:var(--teal-dark);}.complete-btn.done{background:transparent;border:2px solid rgba(255,255,255,.4);color:rgba(255,255,255,.7);cursor:default;}.objectives-strip{background:#0F1F2E;padding:2.5rem 3rem;}.objectives-heading{font-family:Calibri,monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#B2EDE7;margin-bottom:1.5rem;font-weight:700;}.objectives-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:.85rem;max-width:1160px;}.objectives-list li{display:flex;align-items:flex-start;gap:1rem;font-size:1rem;color:rgba(255,255,255,.88);line-height:1.55;padding:.85rem 1rem;background:#162840;border-left:2px solid rgba(0,168,150,.5);}.obj-num{font-family:Calibri,monospace;font-size:.72rem;color:#00A896;font-weight:700;letter-spacing:.1em;flex-shrink:0;padding-top:.12rem;}.module-content{max-width:1200px;margin:0 auto;padding:0 3rem 2rem;}.content-section{padding:3rem 0;border-bottom:1px solid var(--border-light);}.content-section:last-child{border-bottom:none;}.section-label{font-family:Calibri,monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:.65rem;display:block;font-weight:700;}.section-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.15;letter-spacing:-.02em;font-weight:700;color:var(--text-primary);margin-bottom:1.25rem;}.section-intro{font-size:1.12rem;color:var(--text-secondary);line-height:1.75;max-width:780px;margin-bottom:2rem;}.card-grid{display:grid;gap:1px;background:var(--border);}.card-grid-2{grid-template-columns:1fr 1fr;}.card-grid-3{grid-template-columns:repeat(3,1fr);}.card-grid-4{grid-template-columns:repeat(4,1fr);}.card-grid-auto{display:grid;gap:1px;background:var(--border);grid-template-columns:repeat(auto-fill,minmax(min(220px,100%),1fr));}.card{background:var(--card-bg);padding:1.75rem;position:relative;}.card-title{font-family:Georgia,"Times New Roman",serif;font-size:1.1rem;font-weight:400;color:var(--text-primary);margin-bottom:.65rem;}.card-body{font-size:.97rem;color:var(--text-secondary);line-height:1.7;}.card-label{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:.5rem;display:block;}.card h4{font-weight:600;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;color:var(--text-primary);margin-bottom:.5rem;line-height:1.35;}.card p{font-size:.97rem;color:var(--text-secondary);line-height:1.65;}.card-accent-p{border-top:3px solid var(--teal);}.card-accent-o{border-top:3px solid var(--orange-light);}.card-accent-t{border-top:3px solid var(--orange);}.stat-strip{display:grid;gap:1px;background:var(--border);margin:2.25rem 0;border-radius:3px;overflow:hidden;}.stat-strip.cols-3{grid-template-columns:repeat(3,1fr);}.stat-strip.cols-4{grid-template-columns:repeat(4,1fr);}.stat-cell{background:var(--card-bg);padding:2rem 1.5rem;text-align:center;border-top:3px solid var(--cell-accent,var(--teal));}.stat-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.4rem,4.5vw,3.5rem);color:var(--cell-accent,var(--teal-dark));line-height:1;margin-bottom:.5rem;display:block;}.stat-label{font-family:Calibri,monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);line-height:1.5;display:block;}.viz-container{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);margin:2rem 0;box-shadow:0 2px 8px rgba(0,0,0,.07);}.viz-header{padding:1rem 1.5rem;border-bottom:2px solid var(--border-light);display:flex;align-items:center;gap:.75rem;background:var(--section-alt);}.viz-header-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;}.viz-title{font-family:Calibri,monospace;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;}.viz-body{padding:1.25rem 1.5rem 1rem;}.callout{padding:1.35rem 1.75rem;margin:1.75rem 0;border-left:4px solid var(--teal);background:var(--teal-bg);}.callout-warning{border-left-color:var(--orange);background:var(--orange-bg);}.callout-key{border-left-color:var(--teal-dark);background:var(--teal-bg);}.callout-title{font-family:Calibri,monospace;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:#007A6E;font-weight:700;display:block;margin-bottom:.6rem;}.callout-warning .callout-title{color:#B54D12;}.callout p{font-size:1rem;color:var(--text-primary);line-height:1.72;}.pause-reflect{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 3rem;}.pause-label{font-family:Calibri,monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:.5rem;display:block;}.pause-intro{font-size:.97rem;color:var(--text-muted);margin-bottom:1.25rem;font-style:italic;}.pause-q{display:flex;align-items:flex-start;gap:.85rem;font-size:1rem;color:var(--text-primary);line-height:1.65;padding:.85rem 1.1rem;background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--teal-dark);margin-bottom:.5rem;}.pause-q-num{font-family:Calibri,monospace;font-size:.72rem;color:var(--teal-dark);font-weight:700;flex-shrink:0;padding-top:.2rem;min-width:1.4rem;}.kc-block{background:var(--card-bg);border:1px solid var(--border);padding:2.25rem;margin:.5rem 0;}.kc-label{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:1rem;}.kc-q{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:1.15rem;color:var(--text-primary);line-height:1.6;margin-bottom:1.5rem;}.kc-options{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem;}.kc-option{display:flex;align-items:flex-start;gap:.85rem;padding:.9rem 1.1rem;background:var(--page-bg);border:1px solid var(--border);cursor:pointer;text-align:left;width:100%;font-family:Calibri,"Trebuchet MS",system-ui,sans-serif;font-size:1rem;color:var(--text-primary);line-height:1.55;transition:all .15s;}.kc-option:hover{border-color:var(--teal);background:var(--teal-bg);}.kc-option.selected-correct{background:rgba(22,163,74,.08);border-color:var(--correct);}.kc-option.selected-wrong{background:rgba(220,38,38,.07);border-color:var(--wrong);}.kc-opt-key{font-family:Calibri,monospace;font-size:.78rem;font-weight:700;color:var(--text-muted);flex-shrink:0;width:1.2rem;padding-top:.1rem;}.kc-feedback{padding:1rem 1.25rem;margin-top:.5rem;font-size:1rem;line-height:1.7;border-left:3px solid;display:none;}.kc-correct{background:rgba(22,163,74,.07);border-left-color:var(--correct);color:var(--text-primary);}.kc-wrong{background:rgba(220,38,38,.06);border-left-color:var(--wrong);color:var(--text-primary);}.kc-reveal{display:none;padding:1rem 1.25rem;margin-top:.5rem;background:var(--teal-bg);border-left:3px solid var(--teal-dark);font-size:1rem;color:var(--text-primary);line-height:1.72;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;flex-wrap:wrap;}.nav-btn{display:inline-flex;flex-direction:column;padding:.75rem 1.25rem;border:1px solid var(--border);background:var(--page-bg);text-decoration:none;transition:all .15s;color:inherit;}.nav-btn:hover{border-color:var(--teal-dark);background:var(--teal-bg);}.nav-btn.next{text-align:right;}.nav-btn-label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);display:block;}.nav-btn-title{font-size:.97rem;color:var(--text-primary);font-weight:500;display:block;margin-top:.15rem;}.nav-btn.next .nav-btn-label,.nav-btn.next .nav-btn-title{color:var(--teal-dark);}.takeaways{background:#0F1F2E;padding:2.5rem 3rem;}.takeaways-heading{font-family:Calibri,monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#B2EDE7;font-weight:700;margin-bottom:1.5rem;}.takeaway-list{display:grid;gap:1px;background:rgba(255,255,255,.08);width:100%;}.takeaway-item{display:flex;gap:1rem;padding:1.5rem;background:#162840;border-top:2px solid rgba(0,168,150,.4);transition:background .15s;}.takeaway-item:hover{background:#1C3A55;}.takeaway-icon{color:#00A896;font-size:.65rem;flex-shrink:0;padding-top:.4rem;}.takeaway-body strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;font-weight:700;color:#FFFFFF;margin-bottom:.4rem;line-height:1.35;}.takeaway-body p{font-size:.95rem;color:rgba(255,255,255,.75);line-height:1.65;}.reveal{opacity:1;transition:opacity .4s ease,transform .4s ease;}.reveal.animate{opacity:0;transform:translateY(12px);}.reveal.animate.visible{opacity:1;transform:none;}.tri-detail{padding:1.5rem;background:var(--card-bg);border:1px solid var(--border);}.tri-detail-name{font-weight:700;font-size:1.1rem;color:var(--teal-dark);margin-bottom:.75rem;}.tradeoff-container{display:grid;grid-template-columns:1fr 1.2fr;gap:2rem;align-items:start;}.triangle-wrap{display:flex;align-items:center;justify-content:center;}.triangle-svg{width:100%;max-width:320px;height:auto;}.example{font-style:italic;color:var(--text-secondary);font-size:.97rem;border-left:3px solid var(--border);padding-left:1rem;margin-top:.75rem;}.reg-tab{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:.6rem 1.1rem;cursor:pointer;border:1px solid var(--border);background:var(--card-bg);color:var(--text-muted);font-weight:600;transition:all .15s;}.reg-tab:hover{border-color:var(--teal-dark);color:var(--teal-dark);}.active-reg{background:var(--teal)!important;border-color:var(--teal)!important;color:#0F1F2E!important;font-weight:700!important;}.courage-card{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);padding:1.5rem;}.footer-brand{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);}.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:1px;background:var(--border);margin:2rem 0;}.stat-block{background:var(--card-bg);padding:1.75rem 1.5rem;border-top:3px solid var(--teal);}@media(max-width:860px){.module-content,.objectives-strip,.top-nav,.pause-reflect,.module-nav,.takeaways{padding-left:1.5rem;padding-right:1.5rem;}.module-hero{padding:2.5rem 1.5rem 2rem;}.card-grid-3{grid-template-columns:1fr 1fr;}.card-grid-4{grid-template-columns:1fr 1fr;}.takeaway-list{grid-template-columns:1fr!important;}}@media(max-width:540px){.card-grid-2,.card-grid-3,.card-grid-4{grid-template-columns:1fr;}.stat-strip.cols-3,.stat-strip.cols-4{grid-template-columns:1fr;}.module-title{font-size:1.75rem;}.tradeoff-container{grid-template-columns:1fr;}}.takeaway-body{flex:1;}.takeaway-body strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;font-weight:700;color:#FFFFFF;margin-bottom:.4rem;line-height:1.35;}.takeaway-body p{font-size:.95rem;color:rgba(255,255,255,.75);line-height:1.65;}.compare-table{width:100%;border-collapse:collapse;font-size:.95rem;margin:1.5rem 0;}.compare-table th{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:.75rem 1rem;text-align:left;background:var(--section-alt);border-bottom:2px solid var(--border);color:var(--text-primary);}.compare-table td{padding:.85rem 1rem;border-bottom:1px solid var(--border-light);vertical-align:top;line-height:1.6;color:var(--text-secondary);}.compare-table tr:last-child td{border-bottom:none;}.compare-table td:first-child{font-weight:600;color:var(--text-primary);}.compare-table tr:hover td{background:var(--section-alt);}.process-steps{display:flex;flex-direction:column;gap:0;margin:1.5rem 0;}.process-step{display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem 1.5rem;background:var(--card-bg);border:1px solid var(--border);border-top:none;}.process-step:first-child{border-top:1px solid var(--border);}.step-icon{font-family:Calibri,monospace;font-size:.75rem;font-weight:700;width:2rem;height:2rem;flex-shrink:0;background:var(--teal);color:#0F1F2E;display:flex;align-items:center;justify-content:center;border-radius:2px;margin-top:.1rem;}.step-body{flex:1;}.step-body strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:.35rem;}.step-body p{font-size:.97rem;color:var(--text-secondary);line-height:1.65;margin:0;}.callout-insight{padding:1.35rem 1.75rem;margin:1.75rem 0;border-left:4px solid var(--teal);background:var(--teal-bg);}.callout-insight .callout-title{font-family:Calibri,monospace;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:#007A6E;font-weight:700;display:block;margin-bottom:.6rem;}.callout-insight p{font-size:1rem;color:var(--text-primary);line-height:1.72;}.pause-questions{display:flex;flex-direction:column;gap:.75rem;}.pause-note{font-size:.92rem;color:var(--text-muted);font-style:italic;margin-bottom:.5rem;}.kc-reveal-label{font-family:Calibri,monospace;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);display:block;margin-bottom:.5rem;}.examples-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;}.examples-row span{padding:.4rem .85rem;background:var(--section-alt);font-size:.88rem;color:var(--text-secondary);border-left:2px solid var(--teal-dark);}.accred-strip{background:var(--section-alt);border-top:3px solid var(--teal);padding:2rem;display:flex;gap:1.5rem;align-items:flex-start;margin:2rem 0;}.accred-icon{font-size:2rem;flex-shrink:0;}.accred-body h3{font-family:Georgia,serif;font-size:1.15rem;font-weight:700;color:var(--text-primary);margin-bottom:.5rem;}.accred-body p{font-size:.97rem;color:var(--text-secondary);line-height:1.65;}.accred-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:var(--teal-bg);border:1px solid var(--teal-border);font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);margin-top:1rem;}.all-tracks{display:grid;gap:1px;background:var(--border);}.all-track-col{background:var(--card-bg);padding:1.5rem;}.all-track-header{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:.75rem;font-weight:700;display:flex;align-items:center;gap:.5rem;}.at-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);display:inline-block;}.at-module-link{display:block;padding:.65rem 1rem;background:var(--section-alt);border-left:2px solid var(--teal-dark);font-size:.9rem;color:var(--text-secondary);text-decoration:none;margin-bottom:4px;}.at-module-link:hover{background:var(--teal-bg);color:var(--teal-dark);}.at-num{font-family:Calibri,monospace;font-size:.65rem;color:var(--text-muted);margin-right:.5rem;}.at-title{font-weight:600;color:var(--text-primary);}.at-label,.at-name{font-size:.9rem;color:var(--text-muted);}.global-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:1px;background:var(--border);margin:1rem 0;}.gstat{background:var(--card-bg);padding:1.5rem 1.25rem;}.gstat-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--teal-dark);line-height:1;margin-bottom:.4rem;}.gstat-label{font-size:.88rem;color:var(--text-secondary);line-height:1.55;}.scope-diagram{display:flex;flex-direction:column;gap:1px;background:var(--border);margin:1.5rem 0;}.scope-box{background:var(--card-bg);cursor:pointer;border-left:4px solid var(--border);transition:background .15s;}.scope-box.s1{border-left-color:#007A6E;}.scope-box.s2{border-left-color:#9B5E00;}.scope-box.s3{border-left-color:#B54D12;}.scope-box.s4{border-left-color:#4A5568;}.scope-box:hover,.scope-box.open{background:var(--section-alt);}.scope-header{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.5rem;}.scope-num{font-family:Calibri,monospace;font-size:.75rem;font-weight:700;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;border-radius:2px;flex-shrink:0;color:#fff;}.scope-box.s1 .scope-num{background:#007A6E;}.scope-box.s2 .scope-num{background:#9B5E00;}.scope-box.s3 .scope-num{background:#B54D12;}.scope-box.s4 .scope-num{background:#4A5568;}.scope-name{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;font-weight:700;color:var(--text-primary);flex:1;}.scope-short{font-size:.88rem;color:var(--text-muted);}.scope-size{font-family:Calibri,monospace;font-size:.72rem;color:var(--text-muted);}.scope-detail{display:none;padding:0 1.5rem 1.25rem 4.5rem;}.scope-box.open .scope-detail{display:block;}.scope-detail p{font-size:.97rem;color:var(--text-secondary);line-height:1.7;margin-bottom:.75rem;}.scope-examples{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem;}.scope-example{padding:.35rem .75rem;background:var(--section-alt);font-size:.82rem;color:var(--text-secondary);}.scope-tag{display:inline-block;padding:.2rem .6rem;font-family:Calibri,monospace;font-size:.65rem;background:var(--section-alt);color:var(--text-muted);margin:.15rem;}.waste-explorer{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);}.waste-tabs{display:flex;gap:1px;background:var(--border);}.waste-tab{flex:1;padding:.85rem 1rem;background:var(--section-alt);border:none;cursor:pointer;font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);font-weight:700;transition:background .15s;}.waste-tab.active{background:var(--card-bg);color:var(--teal-dark);}.waste-panels{padding:0;}.waste-panel{display:none;padding:1.75rem;}.waste-panel.active{display:block;}.waste-panel-stat{font-family:Georgia,serif;font-size:2rem;font-weight:700;color:var(--teal-dark);}.action-model{display:flex;flex-direction:column;gap:1px;background:var(--border);margin:1.5rem 0;}.action-level{background:var(--card-bg);cursor:pointer;}.action-level:hover,.action-level.open{background:var(--section-alt);}.action-level-header{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.5rem;}.action-level-num{font-family:Calibri,monospace;font-size:.72rem;font-weight:700;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0;}.l1 .action-level-num{background:#B54D12;}.l2 .action-level-num{background:#9B5E00;}.l3 .action-level-num{background:#007A6E;}.l4 .action-level-num{background:#4A5568;}.action-level-name{font-family:Georgia,serif;font-size:1rem;font-weight:700;color:var(--text-primary);flex:1;}.action-level-tagline{font-size:.88rem;color:var(--text-muted);}.action-level-arrow{font-size:.85rem;color:var(--text-muted);transition:transform .2s;margin-left:auto;}.action-level.open .action-level-arrow{transform:rotate(180deg);}.action-level-detail{display:none;padding:0 1.5rem 1.25rem 4.5rem;font-size:.95rem;color:var(--text-secondary);line-height:1.7;}.action-level.open .action-level-detail{display:block;}.dim-explorer{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);}.dim-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);}.dim-tab{padding:1rem 1.25rem;background:var(--section-alt);border:none;cursor:pointer;text-align:left;transition:background .15s;font-family:Calibri,"Trebuchet MS",system-ui,sans-serif;}.dim-tab:hover{background:var(--teal-bg);}.dim-tab.active{background:var(--card-bg);border-top:2px solid var(--teal);}.dim-tab-label{font-family:Calibri,monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);display:block;margin-bottom:.25rem;}.dim-tab-name{font-family:Georgia,serif;font-size:.95rem;font-weight:700;color:var(--text-primary);display:block;line-height:1.2;}.dim-tab-sub{font-size:.82rem;color:var(--text-muted);display:block;margin-top:.2rem;}.dim-panels{padding:0;}.dim-panel{display:none;padding:2rem;gap:2rem;}.dim-panel.active{display:grid;grid-template-columns:1fr 1fr;}.dim-panel h4{font-family:Georgia,serif;font-size:1.1rem;font-weight:700;color:var(--text-primary);margin-bottom:.75rem;line-height:1.3;}.dim-panel p{font-size:.97rem;color:var(--text-secondary);line-height:1.7;margin-bottom:.75rem;}.dim-examples{display:flex;flex-direction:column;gap:.4rem;margin-top:1rem;}.dim-example{padding:.6rem .85rem;background:var(--section-alt);font-size:.9rem;color:var(--text-primary);border-left:2px solid var(--teal-dark);}.dim-status{padding:1.25rem;font-size:.92rem;line-height:1.6;}.status-established{background:rgba(0,168,150,.08);border-left:3px solid var(--teal-dark);color:var(--text-primary);}.status-emerging{background:rgba(244,162,97,.08);border-left:3px solid #9B5E00;color:var(--text-primary);}.status-nascent{background:rgba(100,116,139,.08);border-left:3px solid var(--text-muted);color:var(--text-primary);}.dim-status strong{color:var(--text-primary);}.sequence-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin:1.5rem 0;}.seq-step{background:var(--card-bg);padding:1.75rem 1.5rem;border-top:3px solid var(--border);}.seq-step.s1{border-top-color:#B54D12;}.seq-step.s2{border-top-color:#007A6E;}.seq-step.s3{border-top-color:#9B5E00;}.seq-step.s4{border-top-color:#4A5568;}.seq-num{font-family:Calibri,monospace;font-size:2rem;font-weight:700;color:var(--border);line-height:1;margin-bottom:.5rem;}.seq-step.s1 .seq-num{color:#B54D12;}.seq-step.s2 .seq-num{color:#007A6E;}.seq-step.s3 .seq-num{color:#9B5E00;}.seq-step.s4 .seq-num{color:#4A5568;}.seq-label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.4rem;}.seq-title{font-family:Georgia,serif;font-size:1.1rem;font-weight:700;color:var(--text-primary);margin-bottom:.2rem;}.seq-sub{font-size:.88rem;color:var(--text-muted);margin-bottom:.75rem;}.seq-note{font-size:.9rem;color:var(--text-secondary);line-height:1.65;}.isnt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(220px,100%),1fr));gap:1px;background:var(--border);margin:1.5rem 0;}.isnt-card{background:var(--card-bg);padding:1.5rem;border-top:3px solid var(--border-light);}.isnt-card.isnt{border-top-color:#B54D12;}.isnt-marker{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:#B54D12;display:block;margin-bottom:.6rem;}.isnt-card h4{font-family:Georgia,serif;font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:.5rem;}.isnt-card p{font-size:.92rem;color:var(--text-secondary);line-height:1.65;}.method-compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin:1.5rem 0;}.method-col{background:var(--card-bg);padding:1.75rem;}.method-col.activity{border-top:3px solid #007A6E;}.method-col.spend{border-top:3px solid #9B5E00;}.method-name{font-family:Georgia,serif;font-size:1.1rem;font-weight:700;color:var(--text-primary);margin-bottom:.65rem;}.method-desc{font-size:.97rem;color:var(--text-secondary);line-height:1.7;margin-bottom:1rem;}.method-pros,.method-cons{margin-bottom:1rem;}.method-pros-label,.method-cons-label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.5rem;display:block;color:var(--text-muted);}.method-col.activity .method-pros-label{color:#007A6E;}.method-col.spend .method-pros-label{color:#9B5E00;}.method-list{padding-left:1rem;margin:0;}.method-list li{font-size:.92rem;color:var(--text-secondary);line-height:1.65;margin-bottom:.3rem;}.role-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:1px;background:var(--border);margin:1.5rem 0;}.role-metric-card{background:var(--card-bg);padding:1.25rem;}.role-name{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:.5rem;display:block;}.metric-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem;}.metric-chip{padding:.3rem .7rem;background:var(--section-alt);font-family:Calibri,monospace;font-size:.72rem;color:var(--text-secondary);}.baseline-steps{display:flex;flex-direction:column;gap:1px;background:var(--border);margin:1.5rem 0;}.baseline-step{display:flex;gap:1rem;align-items:flex-start;padding:1.25rem 1.5rem;background:var(--card-bg);}.bs-num{font-family:Calibri,monospace;font-size:.75rem;font-weight:700;width:2rem;height:2rem;flex-shrink:0;background:var(--teal);color:#0F1F2E;display:flex;align-items:center;justify-content:center;}.bs-body strong{display:block;font-family:Georgia,serif;font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:.3rem;}.bs-body p{font-size:.92rem;color:var(--text-secondary);line-height:1.65;margin:0;}.domain-selector{display:flex;flex-wrap:wrap;gap:1px;background:var(--border);}.domain-btn{display:flex;flex-direction:column;align-items:center;gap:.35rem;padding:.85rem 1rem;background:var(--section-alt);border:1px solid var(--border);cursor:pointer;font-family:inherit;transition:all .15s;min-width:100px;}.domain-btn:hover{border-color:var(--teal-dark);background:var(--teal-bg);}.domain-btn.active{background:var(--card-bg);border-color:var(--teal);border-top:2px solid var(--teal);}.domain-icon{font-size:1.25rem;}.domain-label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);font-weight:700;}.domain-btn.active .domain-label{color:var(--teal-dark);}.domain-driver{font-size:.78rem;color:var(--text-muted);text-align:center;line-height:1.3;}.domain-panels{margin-top:0;}.domain-panel{display:none;background:var(--card-bg);padding:1.75rem;border:1px solid var(--border);}.domain-panel.active{display:block;}.dp-list{list-style:none;display:flex;flex-direction:column;gap:.4rem;margin-top:.75rem;}.dp-list li,.dp-good,.dp-warn{padding:.6rem .85rem;font-size:.92rem;color:var(--text-secondary);background:var(--section-alt);border-left:2px solid var(--border);}.dp-good{border-left-color:#007A6E;}.dp-warn{border-left-color:#B54D12;}.chart-y-labels{display:flex;flex-direction:column;justify-content:space-between;padding:0 .5rem;text-align:right;}.chart-y-label,.chart-x-label{font-family:Calibri,monospace;font-size:.65rem;color:var(--text-muted);}.chart-x-labels{display:flex;justify-content:space-between;padding-top:.25rem;}.chart-x-title{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);}.chart-dot{border-radius:50%;cursor:pointer;transition:transform .15s;}.chart-dot:hover{transform:scale(1.2);}.dot-tooltip{position:absolute;background:var(--card-bg);border:1px solid var(--border);padding:.5rem .75rem;font-size:.82rem;color:var(--text-primary);pointer-events:none;white-space:nowrap;z-index:10;}.measurement-split{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin:1.5rem 0;}.meas-col{background:var(--card-bg);padding:1.75rem;}.meas-col-label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);font-weight:700;margin-bottom:.75rem;display:block;}.meas-col h4{font-family:Georgia,serif;font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:.5rem;}.shifting-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:1rem;margin:1.5rem 0;}.shift-card{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);padding:1.5rem;}.shift-num{font-family:Calibri,monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:.5rem;display:block;}.shift-name{font-family:Georgia,serif;font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:.5rem;line-height:1.3;}.shift-desc{font-size:.92rem;color:var(--text-secondary);line-height:1.65;}.shift-example{font-size:.85rem;color:var(--text-muted);font-style:italic;margin-top:.5rem;}.shift-caveat{font-size:.82rem;color:#B54D12;margin-top:.5rem;}.rebound-chart{display:flex;flex-direction:column;gap:1px;background:var(--border);margin:1.5rem 0;}.rc-svg{width:100%;display:block;}.rc-label{font-family:Calibri,monospace;font-size:.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;}.animate-line{transition:stroke-dashoffset 1s ease;}.tri-detail-cost,.tri-detail-carbon,.tri-detail-perf{color:var(--teal-dark);}.bc-evidence-col{background:var(--card-bg);border:1px solid var(--border);padding:1.25rem;}.bc-evidence-col h4{font-family:Georgia,serif;font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:.75rem;}.audience-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:1rem;margin:1.5rem 0;}.audience-card,.aud-entry{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);padding:1.25rem;}.aud-icon{font-size:1.5rem;margin-bottom:.5rem;}.aud-role{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:.35rem;display:block;}.accred-body h3{font-family:Georgia,serif;font-size:1.15rem;font-weight:700;color:var(--text-primary);margin-bottom:.5rem;}.accred-body p{font-size:.97rem;color:var(--text-secondary);line-height:1.65;}.lifecycle-bar{display:grid;grid-template-columns:70fr 25fr 10fr;gap:1px;background:var(--border);border-radius:2px;overflow:hidden;margin:1.5rem 0;}.lc-phase{padding:1.5rem 1.25rem;cursor:pointer;transition:filter .15s;}.lc-phase.manufacture{background:#B54D12;color:#fff;}.lc-phase.operate{background:#007A6E;color:#fff;}.lc-phase.eol{background:#4A5568;color:#fff;}.lc-phase:hover{filter:brightness(1.1);}.lc-pct{font-family:Calibri,monospace;font-size:1.1rem;font-weight:700;margin-bottom:.35rem;}.lc-label{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.85;}.lifecycle-detail{padding:1.25rem 1.5rem;background:var(--section-alt);border-left:3px solid var(--teal);font-size:.97rem;color:var(--text-primary);line-height:1.7;}.bs-body{flex:1;}.bs-body strong{display:block;font-family:Georgia,serif;font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:.3rem;}.bs-body p{font-size:.92rem;color:var(--text-secondary);line-height:1.65;margin:0;}.stop-start{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin:1.5rem 0;}.stop-col,.start-col{background:var(--card-bg);padding:1.5rem;}.stop-col{border-top:3px solid #B54D12;}.start-col{border-top:3px solid #007A6E;}.ss-heading{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:.75rem;display:block;}.stop-col .ss-heading{color:#B54D12;}.start-col .ss-heading{color:#007A6E;}.ss-list{list-style:none;display:flex;flex-direction:column;gap:.4rem;}.ss-list li{padding:.5rem .75rem;font-size:.92rem;color:var(--text-secondary);background:var(--section-alt);}.pue-util-chart{position:relative;background:var(--section-alt);border:1px solid var(--border);}.tri-vertex{cursor:pointer;}.tri-vertex:hover circle{opacity:.8;}
-</style>
-</head>
-<body class="track2">
-<nav class="top-nav">
-  <a href="index.html" class="nav-home"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L1 6v7h4v-4h4v4h4V6L7 1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>GreenOps 101</a>
-  <span class="nav-sep">/</span><span class="nav-module">Module 7</span>
-  <span class="nav-track-pill track2-pill">Track 2 — Operational Practice</span>
-  <div class="nav-progress">Progress: <span id="progress-count">0/14</span></div>
-</nav>
-<section class="module-hero">
-  <div class="hero-num">7</div>
-  <p class="module-eyebrow">Module 7 &nbsp;·&nbsp; Track 2 — Operational Practice</p>
-  <h1 class="module-title">Procurement, Supply Chains,<br>and Vendor Evidence</h1>
-  <p class="module-subtitle">Every purchasing decision is a signal. When you buy without asking for evidence, you signal that evidence is not required. Over time, those signals shape what the market supplies.</p>
-  <div class="module-meta">
-    <div class="meta-item"><span class="label">Duration</span><span class="value">24–28 minutes</span></div>
-    <div class="meta-item"><span class="label">Track</span><span class="value">Operational Practice</span></div>
-    <button class="complete-btn" onclick="markComplete('module7')">Mark as complete</button>
-  </div>
-</section>
+:root{--page-bg:#F7F8FA;--card-bg:#FFFFFF;--section-alt:#E8EDF2;--text-primary:#1E293B;--text-secondary:#4A5568;--text-muted:#64748B;--navy:#0F1F2E;--navy-mid:#162840;--navy-card:#1E293B;--navy-light:#1C3A55;--teal:#00A896;--teal-dark:#007A6E;--teal-muted:#B2EDE7;--teal-bg:rgba(0,168,150,0.07);--teal-border:rgba(0,168,150,0.25);--orange:#E76F51;--orange-light:#F4A261;--orange-bg:#FFF3E8;--orange-border:rgba(231,111,81,0.25);--border:#D1D9E0;--border-light:#E8EDF2;--track1:#00A896;--track2:#F4A261;--track3:#E76F51;--correct:#16a34a;--wrong:#dc2626;--white:#FFFFFF;--slate:#4A5568;--slate-mid:#64748B;--slate-dim:#94A3B8;--teal-light:#B2EDE7;--teal-glow:rgba(0,168,150,0.15);--teal-subtle:rgba(0,168,150,0.07);--grey-100:#F7F8FA;--grey-300:#D1D9E0;--grey-500:#4A5568;--navy-raised:#1C3A55;--navy-border:rgba(255,255,255,0.07);--navy-mid-alt:#162840;}
 
-<div class="objectives-strip reveal"><p class="objectives-heading">What you will take from this module</p><ul class="objectives-list">
-  <li><span class="obj-num">01</span>Understand the difference between a supplier's corporate ESG commitments and product-level evidence</li>
-  <li><span class="obj-num">02</span>Know the seven questions to ask when evaluating a lifecycle assessment or product carbon footprint</li>
-  <li><span class="obj-num">03</span>Understand the three meaningful tiers of assurance — and why they are not interchangeable</li>
-  <li><span class="obj-num">04</span>Know what good procurement evidence looks like across hardware, data centres, cloud, and SaaS</li>
-  <li><span class="obj-num">05</span>Understand circular procurement, hardware social responsibility, and the vendor management lifecycle</li>
-</ul></div>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+html{scroll-behavior:smooth;font-size:16px;}
+
+img,svg{display:block;max-width:100%;}
+
+body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Trebuchet MS",system-ui,-apple-system,sans-serif;font-weight:400;font-size:1rem;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+
+.top-nav{position:sticky;top:0;z-index:100;background:#FFFFFF;border-bottom:1px solid rgba(0,168,150,0.2);padding:0 3rem;height:52px;display:flex;align-items:center;gap:1rem;}
+
+.top-nav::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(90deg, #0F3030 0%, rgba(15,48,48,0.95) 100%);pointer-events:none;}
+
+.top-nav-content{position:relative;z-index:10;display:flex;align-items:center;gap:1rem;width:100%;}
+
+.nav-breadcrumb{color:#4A6B6B;font-size:0.85rem;font-family:"JetBrains Mono";}
+
+.nav-breadcrumb strong{color:#00A896;}
+
+.nav-progress{margin-left:auto;display:flex;align-items:center;gap:0.5rem;color:rgba(15,48,48,0.7);font-size:0.75rem;}
+
+.prog-bar{width:80px;height:3px;background:rgba(0,168,150,0.2);border-radius:2px;overflow:hidden;}
+
+#prog-fill{height:100%;background:var(--teal);transition:width 0.3s ease;}
+
+.module-header{background:var(--navy);color:white;padding:2.5rem 3rem;border-bottom:3px solid var(--teal);}
+
+.module-title{font-family:Georgia,serif;font-size:2.4rem;font-weight:700;margin-bottom:0.5rem;}
+
+.module-intro{font-size:1.1rem;line-height:1.6;color:var(--text-secondary);max-width:900px;}
+
+.module-content{max-width:1000px;margin:0 auto;padding:2rem 2rem;}
+
+.content-section{margin:3rem 0;padding:2rem;background:var(--card-bg);border-radius:8px;border-left:4px solid var(--teal);}
+
+.section-label{font-family:"JetBrains Mono";font-size:0.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--teal);font-weight:600;margin-bottom:0.5rem;}
+
+.section-title{font-family:Georgia,serif;font-size:1.8rem;font-weight:700;color:var(--navy);margin-bottom:1rem;}
+
+.section-intro{font-size:1rem;color:var(--text-secondary);line-height:1.8;margin-bottom:1.5rem;}
+
+/* Tabs and interactive elements */
+.vendor-tabs{display:flex;gap:0.5rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+
+.vendor-tab{background:var(--section-alt);color:var(--text-primary);border:1px solid var(--border);padding:0.75rem 1.25rem;border-radius:6px;cursor:pointer;transition:all 0.3s ease;font-weight:500;font-size:0.95rem;}
+
+.vendor-tab:hover{background:var(--border);border-color:var(--teal);}
+
+.vendor-tab.active{background:var(--teal);color:white;border-color:var(--teal);}
+
+.vendor-panels{display:grid;gap:1.5rem;}
+
+.vendor-panel{display:none;animation:fadeIn 0.3s ease;}
+
+.vendor-panel.active{display:block;}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+.vendor-checklist{display:grid;gap:1rem;}
+
+.checklist-item{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;padding:1rem;background:var(--teal-bg);border:1px solid var(--teal-border);border-radius:6px;transition:all 0.2s ease;}
+
+.checklist-item:hover{background:rgba(0,168,150,0.12);}
+
+.checklist-toggle{width:20px;height:20px;border:2px solid var(--teal);border-radius:3px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s ease;margin-top:2px;font-weight:700;color:var(--teal);}
+
+.checklist-toggle.checked{background:var(--teal);color:white;font-size:12px;}
+
+.checklist-content h4{font-family:Georgia,serif;font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.25rem;}
+
+.checklist-content p{font-size:0.9rem;color:var(--text-secondary);line-height:1.5;}
+
+/* Assurance comparison */
+.assurance-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin:1.5rem 0;}
+
+.assurance-tier{background:var(--card-bg);border:1px solid var(--border);border-radius:8px;overflow:hidden;cursor:pointer;transition:all 0.3s ease;}
+
+.assurance-tier:hover{border-color:var(--teal);box-shadow:0 4px 12px rgba(0,168,150,0.15);}
+
+.assurance-header{padding:1.5rem;background:linear-gradient(135deg, #ff6b6b 0%, #ff8e72 100%);color:white;}
+
+.assurance-header.tier2{background:linear-gradient(135deg, #ffa500 0%, #ffb84d 100%);}
+
+.assurance-header.tier3{background:linear-gradient(135deg, #00a896 0%, #00c9a7 100%);}
+
+.assurance-tier-name{font-family:Georgia,serif;font-size:1.2rem;font-weight:700;margin-bottom:0.25rem;}
+
+.assurance-tier-desc{font-size:0.9rem;opacity:0.9;}
+
+.assurance-content{padding:1.5rem;display:none;max-height:0;overflow:hidden;transition:all 0.3s ease;}
+
+.assurance-tier.open .assurance-content{display:block;max-height:500px;}
+
+.assurance-content h5{font-family:Georgia,serif;font-size:0.9rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;}
+
+.assurance-content ul{list-style:none;padding:0;}
+
+.assurance-content li{padding:0.4rem 0;padding-left:1.5rem;position:relative;font-size:0.9rem;color:var(--text-secondary);}
+
+.assurance-content li:before{content:"▪";position:absolute;left:0;color:var(--teal);}
+
+/* Lifecycle process diagram */
+.lifecycle-wrapper{background:var(--teal-bg);border:1px solid var(--teal-border);border-radius:8px;padding:2rem;margin:2rem 0;overflow-x:auto;}
+
+.lifecycle-steps{display:flex;gap:0.5rem;align-items:stretch;min-width:max-content;position:relative;}
+
+.lifecycle-steps::before{content:"";position:absolute;top:50%;left:0;right:0;height:2px;background:var(--teal);transform:translateY(-50%);z-index:1;}
+
+.lifecycle-step{flex:1;min-width:120px;position:relative;z-index:2;}
+
+.lifecycle-step-circle{width:60px;height:60px;background:var(--card-bg);border:3px solid var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--teal);font-size:1.2rem;margin:0 auto 1rem;cursor:pointer;transition:all 0.3s ease;}
+
+.lifecycle-step:hover .lifecycle-step-circle{background:var(--teal);color:white;box-shadow:0 4px 12px rgba(0,168,150,0.25);}
+
+.lifecycle-step-label{text-align:center;font-family:Georgia,serif;font-weight:700;color:var(--navy);margin-bottom:0.5rem;font-size:0.95rem;}
+
+.lifecycle-step-detail{background:var(--card-bg);border:1px solid var(--border);border-radius:6px;padding:1rem;margin-top:1rem;font-size:0.9rem;color:var(--text-secondary);line-height:1.6;display:none;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
+
+.lifecycle-step-detail.open{display:block;}
+
+/* Allocation pitfalls diagram */
+.allocation-diagram{background:var(--orange-bg);border:1px solid var(--orange-border);border-radius:8px;padding:2rem;margin:2rem 0;}
+
+.pitfall-visual{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin:2rem 0;}
+
+.pitfall-entity{background:white;border:2px solid var(--orange);border-radius:8px;padding:1.5rem;text-align:center;position:relative;}
+
+.pitfall-entity h4{font-family:Georgia,serif;font-weight:700;color:var(--navy);margin-bottom:0.5rem;}
+
+.pitfall-entity p{font-size:0.9rem;color:var(--text-secondary);margin-bottom:0.5rem;}
+
+.pitfall-emission{display:inline-block;background:var(--orange);color:white;padding:0.4rem 0.8rem;border-radius:4px;font-family:"JetBrains Mono";font-size:0.85rem;font-weight:600;}
+
+/* Knowledge checks */
+.kc-block{background:var(--section-alt);border-left:4px solid var(--teal);border-radius:6px;padding:1.5rem;margin:2rem 0;}
+
+.kc-label{font-family:"JetBrains Mono";font-size:0.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--teal);font-weight:600;margin-bottom:0.5rem;display:block;}
+
+.kc-q{font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:1rem;}
+
+.kc-options{display:grid;gap:0.75rem;margin-bottom:1rem;}
+
+.kc-option{background:white;border:1px solid var(--border);border-radius:6px;padding:1rem;text-align:left;cursor:pointer;transition:all 0.2s ease;font-size:0.95rem;color:var(--text-primary);position:relative;}
+
+.kc-option:hover{border-color:var(--teal);background:var(--teal-bg);}
+
+.kc-option.answered{cursor:default;}
+
+.kc-option.selected-correct{background:rgba(22,163,74,0.1);border-color:#16a34a;}
+
+.kc-option.selected-wrong{background:rgba(220,38,38,0.1);border-color:#dc2626;}
+
+.kc-opt-key{display:inline-block;background:var(--teal);color:white;width:24px;height:24px;border-radius:3px;text-align:center;line-height:24px;margin-right:0.75rem;font-weight:700;font-size:0.85rem;}
+
+.kc-hint{font-size:0.85rem;color:var(--text-muted);font-style:italic;}
+
+.kc-reveal{display:none;margin-top:1rem;padding:1rem;background:rgba(0,168,150,0.07);border-radius:6px;border-left:3px solid var(--teal);}
+
+.kc-reveal-label{font-weight:700;margin-bottom:0.5rem;color:var(--teal-dark);}
+
+.kc-reveal p{margin:0.5rem 0;font-size:0.95rem;color:var(--text-primary);}
+
+.kc-reveal p:first-child{margin-top:0;}
+
+/* Pause and reflect */
+.pause-reflect{background:linear-gradient(135deg, rgba(0,168,150,0.08) 0%, rgba(0,168,150,0.04) 100%);border:1px solid var(--teal-border);border-radius:8px;padding:2rem;margin:2rem 0;}
+
+.pause-label{font-family:"JetBrains Mono";font-size:0.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--teal);font-weight:600;margin-bottom:0.5rem;}
+
+.pause-intro{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem;}
+
+.pause-questions{display:grid;gap:1rem;margin:1.5rem 0;}
+
+.pause-q{background:white;border-left:3px solid var(--teal);padding:1rem 1.5rem;border-radius:4px;display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;}
+
+.pause-q-num{background:var(--teal);color:white;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;}
+
+.pause-q{font-size:0.95rem;color:var(--text-primary);line-height:1.6;}
+
+.pause-note{margin-top:1.5rem;padding:1rem;background:white;border-radius:6px;border-left:3px solid var(--orange);font-size:0.95rem;color:var(--text-secondary);font-style:italic;}
+
+/* Takeaways */
+.takeaways{background:var(--navy);color:white;padding:2rem;border-radius:8px;margin:3rem 0;}
+
+.takeaways-heading{font-family:Georgia,serif;font-size:1.4rem;font-weight:700;margin-bottom:1.5rem;}
+
+.takeaway-list{display:grid;gap:1rem;}
+
+.takeaway-item{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;}
+
+.takeaway-icon{color:var(--teal);font-size:1.2rem;margin-top:0.25rem;}
+
+.takeaway-body strong{color:white;}
+
+.takeaway-body p{font-size:0.95rem;color:rgba(255,255,255,0.85);line-height:1.6;margin:0.25rem 0;}
+
+/* Module nav */
+.module-nav{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;max-width:1000px;margin:3rem auto 0;padding:2rem;align-items:center;}
+
+.nav-btn{display:flex;align-items:center;justify-content:center;background:var(--navy);color:white;padding:1rem 1.5rem;border-radius:6px;text-decoration:none;transition:all 0.3s ease;border:1px solid var(--navy);font-weight:500;}
+
+.nav-btn:hover{background:var(--navy-light);border-color:var(--teal);}
+
+.nav-btn span{display:grid;gap:0.25rem;}
+
+.nav-btn-label{font-size:0.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);}
+
+.nav-btn-title{font-family:Georgia,serif;font-size:0.95rem;font-weight:700;}
+
+.nav-btn.next{grid-column:3;}
+
+.complete-btn{background:var(--teal);color:white;border:none;padding:0.75rem 1.5rem;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.95rem;transition:all 0.3s ease;}
+
+.complete-btn:hover{background:var(--teal-dark);}
+
+.complete-btn.done{opacity:0.7;cursor:default;}
+
+/* Footer */
+footer{background:var(--navy);color:#3D5E5E;padding:2rem;text-align:center;font-size:0.85rem;margin-top:3rem;}
+
+.footer-brand{margin:0.5rem 0;}
+
+/* Callout boxes */
+.callout{border-radius:8px;padding:1.5rem;margin:2rem 0;}
+
+.callout-title{font-weight:700;margin-bottom:0.5rem;font-size:0.95rem;}
+
+.callout-warning{background:var(--orange-bg);border-left:4px solid var(--orange);}
+
+.callout-key{background:var(--teal-bg);border-left:4px solid var(--teal);}
+
+.callout p{margin:0.5rem 0;font-size:0.95rem;}
+
+.callout strong{color:var(--navy);}
+
+/* Reveal animation */
+.reveal{opacity:0;transform:translateY(30px);transition:all 0.6s cubic-bezier(0.34,1.56,0.64,1);}
+
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* Responsive */
+@media(max-width:768px){
+  .module-header{padding:1.5rem;}
+  .module-title{font-size:1.8rem;}
+  .module-content{padding:1rem;}
+  .section-title{font-size:1.4rem;}
+  .vendor-tabs{gap:0.25rem;}
+  .vendor-tab{padding:0.6rem 1rem;font-size:0.85rem;}
+  .pitfall-visual{grid-template-columns:1fr;}
+  .assurance-grid{grid-template-columns:1fr;}
+  .module-nav{grid-template-columns:1fr;}
+  .nav-btn.next{grid-column:1;}
+  .lifecycle-steps{gap:0;}
+  .lifecycle-step-label{font-size:0.8rem;}
+}
+
+</style>
+
+<link rel="stylesheet" href="polish.css">
+
+</head>
+<body>
+
+<div class="top-nav">
+  <div class="top-nav-content">
+    <div class="nav-breadcrumb">GreenOps 101 · <strong>M7</strong></div>
+    <div class="nav-progress">
+      <span id="progress-count">0/14</span> complete
+      <div class="prog-bar"><div id="prog-fill"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="module-header">
+  <div class="module-title">M7: Procurement, Supply Chains, and Vendor Evidence</div>
+  <p class="module-intro">Procurement is the bridge between your sustainability commitments and your actual Scope 3 footprint. Every purchasing decision is a vote. When you buy hardware without asking for a product carbon footprint, you signal that evidence is not required. When you renew a cloud contract without requesting carbon disclosures, you signal that measurement does not drive decisions.</p>
+</div>
+
 <div class="module-content">
 
+<!-- SECTION 1 — Module objectives -->
+<div class="content-section reveal">
+  <p class="section-label">Welcome</p>
+  <h2 class="section-title">What you will learn</h2>
+  <div style="display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
+    <div style="background:var(--teal-bg);border:1px solid var(--teal-border);padding:1.5rem;border-radius:6px;">
+      <p style="font-weight:700;color:var(--navy);margin-bottom:0.5rem;">Why procurement is strategic</p>
+      <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.6;">The difference between corporate ESG commitments and product-level evidence, and why both matter.</p>
+    </div>
+    <div style="background:var(--teal-bg);border:1px solid var(--teal-border);padding:1.5rem;border-radius:6px;">
+      <p style="font-weight:700;color:var(--navy);margin-bottom:0.5rem;">How to request vendor evidence</p>
+      <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.6;">Seven critical questions to ask about lifecycle assessments, and domain-specific evidence checklists.</p>
+    </div>
+    <div style="background:var(--teal-bg);border:1px solid var(--teal-border);padding:1.5rem;border-radius:6px;">
+      <p style="font-weight:700;color:var(--navy);margin-bottom:0.5rem;">Allocation pitfalls</p>
+      <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.6;">Double-counting, misleading denominators, and why boundary documentation matters.</p>
+    </div>
+    <div style="background:var(--teal-bg);border:1px solid var(--teal-border);padding:1.5rem;border-radius:6px;">
+      <p style="font-weight:700;color:var(--navy);margin-bottom:0.5rem;">Circular and social responsibility</p>
+      <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.6;">Reparability, take-back programmes, and labour standards in hardware supply chains.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2 — Why procurement is strategic -->
 <div class="content-section reveal">
   <p class="section-label">Section 1</p>
-  <h2 class="section-title">Corporate commitment vs product evidence.</h2>
-  <p class="section-intro">These are entirely different things. Conflating them is one of the most common ways that Scope 3 data quality erodes — and it almost always goes unnoticed until someone asks a pointed question during assurance.</p>
-  <table class="compare-table reveal">
-    <tr><th>Corporate ESG commitment</th><th>Product-level evidence</th></tr>
-    <tr><td>Describes the supplier's own journey and ambition</td><td>Describes the specific product or service you are buying</td></tr>
-    <tr><td>Net-zero targets and timelines</td><td>Product carbon footprint for this model and configuration</td></tr>
-    <tr><td>Annual sustainability report</td><td>Lifecycle stage breakdown</td></tr>
-    <tr><td>Renewable energy commitments</td><td>Data centre PUE at site level</td></tr>
-    <tr><td>CDP or SBTi participation</td><td>Per-tenant SaaS intensity metrics</td></tr>
-    <tr><td style="color:var(--grey-500); font-style:italic">Tells you about their trajectory, not this transaction</td><td style="color:var(--teal); font-style:italic">Tells you about this purchase — what Scope 3 reporting requires</td></tr>
-  </table>
+  <h2 class="section-title">Why procurement is a strategic lever</h2>
+  <p class="section-intro">The first thing to understand is the difference between a supplier's corporate ESG commitments and product-level evidence. Neither substitutes for the other.</p>
+
+  <p>A supplier's annual sustainability report may state ambitious net-zero targets, renewable energy commitments, and industry certifications. None of that tells you the footprint of the specific product you are buying, the specific service you are consuming, or the specific manufacturing supply chain behind it.</p>
+
+  <p style="margin-top:1rem;">Corporate sustainability commitments describe the supplier's own journey. Product sustainability evidence is about the specific transaction between you and them. Both matter. When a supplier says it is committed to net zero by 2040, that is information about their trajectory. When you ask for a product carbon footprint for the specific server model you are procuring, you are asking for information about this purchase.</p>
+
+  <p style="margin-top:1rem;"><strong>Conflating the two is one of the most common ways that Scope 3 data quality erodes.</strong></p>
+
+  <div class="callout callout-warning reveal">
+    <p class="callout-title">What good procurement evidence looks like</p>
+    <p>When you receive a lifecycle assessment or product carbon footprint, ask seven questions:</p>
+    <ul style="margin:1rem 0 0 1.5rem;color:var(--text-secondary);">
+      <li><strong>Methodology:</strong> ISO 14040, ISO 14044, or another recognised standard?</li>
+      <li><strong>Lifecycle stages:</strong> Cradle to gate, cradle to grave, or cradle to cradle?</li>
+      <li><strong>Emission factors:</strong> Which ones, and for which geographies?</li>
+      <li><strong>Use-phase assumptions:</strong> What energy estimates underpin the calculations?</li>
+      <li><strong>Data sources:</strong> How complete is upstream supply chain data?</li>
+      <li><strong>Functional unit:</strong> What is the reference flow?</li>
+      <li><strong>Assurance status:</strong> Self-declared, reviewed, or independently assured?</li>
+    </ul>
+  </div>
+
+  <div class="callout callout-key reveal">
+    <p class="callout-title">Coverage statements matter</p>
+    <p>A coverage statement is a short, explicit description of what a vendor's footprint figure includes and excludes. Without it, a footprint number is almost meaningless for comparison purposes.</p>
+    <p>A defensible coverage statement should include: what emission sources are covered and which are excluded (with materiality rationale), what lifecycle stages are in scope, what geographic scope applies, what data sources were used and with what confidence, and what the refresh cadence of the figure is.</p>
+  </div>
 </div>
 
+<!-- SECTION 3 — Assurance Tiers -->
 <div class="content-section reveal">
   <p class="section-label">Section 2</p>
-  <h2 class="section-title">Seven questions for any lifecycle assessment.</h2>
-  <p class="section-intro">Receiving a product carbon footprint is not the same as having usable evidence. The quality depends entirely on what went into the number — and vendors rarely volunteer that information unprompted.</p>
-  <div class="process-steps reveal">
-    <div class="process-step"><div class="step-icon">1</div><div class="step-body"><strong>What methodology was used?</strong><p>ISO 14040, ISO 14044, or another recognised standard? Self-developed methodologies are a yellow flag without independent scrutiny.</p></div></div>
-    <div class="process-step"><div class="step-icon">2</div><div class="step-body"><strong>Which lifecycle stages are included?</strong><p>Cradle to gate, cradle to grave, or cradle to cradle? Cradle to gate alone omits use-phase and end-of-life — often the largest contributors for hardware.</p></div></div>
-    <div class="process-step"><div class="step-icon">3</div><div class="step-body"><strong>What emission factors were used, and for which geographies?</strong><p>A server manufactured in Asia and sold in Europe passes through multiple grid emission factors. Check that regional specificity is present, not just global averages.</p></div></div>
-    <div class="process-step"><div class="step-icon">4</div><div class="step-body"><strong>What assumptions underpin the use-phase energy estimates?</strong><p>Typical use assumptions can be optimistic. Ask for idle, typical, and peak energy figures and whether the use-phase assumes specific regional grid intensity.</p></div></div>
-    <div class="process-step"><div class="step-icon">5</div><div class="step-body"><strong>What data sources were used for upstream supply chain emissions?</strong><p>Primary data from tier-1 suppliers? Industry averages? Economic input-output models? The answer tells you how much signal is in the number.</p></div></div>
-    <div class="process-step"><div class="step-icon">6</div><div class="step-body"><strong>What is the functional unit and the reference flow?</strong><p>Without a clearly defined functional unit, comparisons between products are not valid.</p></div></div>
-    <div class="process-step"><div class="step-icon">7</div><div class="step-body"><strong>What is the assurance status?</strong><p>Three tiers: self-declared, reviewed, or independently assured. These are meaningfully different. Treating them as equivalent is a significant data quality error.</p></div></div>
+  <h2 class="section-title">Assurance tiers comparison</h2>
+  <p class="section-intro">Vendors frequently use the word "verified" loosely. There are three meaningful tiers. Treating these as equivalent is a significant quality error.</p>
+
+  <div class="assurance-grid">
+    <div class="assurance-tier" onclick="toggleAssurance(this)">
+      <div class="assurance-header">
+        <div class="assurance-tier-name">Self-Declared</div>
+        <div class="assurance-tier-desc">Vendor-produced, no review</div>
+      </div>
+      <div class="assurance-content">
+        <h5>What it means</h5>
+        <p>The vendor produced the number themselves with no external review. Speed to deliver, but minimal scrutiny.</p>
+        <h5 style="margin-top:1rem;">Typical trust level</h5>
+        <ul>
+          <li>No independent verification</li>
+          <li>Vendor controls methodology</li>
+          <li>Lowest assurance standard</li>
+          <li>May not follow ISO standards</li>
+        </ul>
+        <h5 style="margin-top:1rem;">When to use</h5>
+        <p>Early-stage engagement with vendors. Useful as a starting point, but label it explicitly as low confidence.</p>
+      </div>
+    </div>
+
+    <div class="assurance-tier" onclick="toggleAssurance(this)">
+      <div class="assurance-header tier2">
+        <div class="assurance-tier-name">Peer-Reviewed</div>
+        <div class="assurance-tier-desc">Methodology reviewed, not data</div>
+      </div>
+      <div class="assurance-content">
+        <h5>What it means</h5>
+        <p>An independent party looked at the methodology and checked the calculations, but did not audit the underlying data. Better than self-declared, but not complete assurance.</p>
+        <h5 style="margin-top:1rem;">Typical trust level</h5>
+        <ul>
+          <li>Methodology verified</li>
+          <li>Calculations spot-checked</li>
+          <li>Source data not audited</li>
+          <li>Medium assurance standard</li>
+        </ul>
+        <h5 style="margin-top:1rem;">When to use</h5>
+        <p>For significant suppliers where you need more confidence. Provides meaningful verification without the full cost of third-party audit.</p>
+      </div>
+    </div>
+
+    <div class="assurance-tier" onclick="toggleAssurance(this)">
+      <div class="assurance-header tier3">
+        <div class="assurance-tier-name">Independently Assured</div>
+        <div class="assurance-tier-desc">Full third-party verification</div>
+      </div>
+      <div class="assurance-content">
+        <h5>What it means</h5>
+        <p>A third party verified the underlying data, the methodology, and the calculations to a stated assurance standard. Full verification, strongest assurance.</p>
+        <h5 style="margin-top:1rem;">Typical trust level</h5>
+        <ul>
+          <li>Data verified to source</li>
+          <li>Methodology audited</li>
+          <li>Standards compliance verified</li>
+          <li>Highest assurance standard</li>
+        </ul>
+        <h5 style="margin-top:1rem;">When to use</h5>
+        <p>For strategic suppliers or where data will feed into mandatory corporate reporting. Highest confidence and audit trail.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-key reveal">
+    <p class="callout-title">The cost-confidence trade-off</p>
+    <p><strong>Not all vendor data needs to be independently assured.</strong> The assurance tier you request should match the materiality of the spend and the weight of the data in your reporting. Requiring third-party assurance on 0.1% of Scope 3 footprint is over-engineering. Treating self-declared data as assured when it represents 20% of your footprint is a material error.</p>
   </div>
 </div>
 
+<!-- SECTION 4 — Vendor Evidence Checklist -->
 <div class="content-section reveal">
   <p class="section-label">Section 3</p>
-  <h2 class="section-title">The three assurance tiers.</h2>
-  <p class="section-intro">Vendors use the word "verified" loosely. What it actually means depends on what kind of verification was applied. These three tiers are not equivalent.</p>
-  <div class="card-grid card-grid-3 reveal">
-    <div class="card" style="border-top:3px solid var(--grey-500);"><div class="card-label" style="color:var(--grey-500)">Tier 1 · Low confidence</div><h4>Self-declared</h4><p>The vendor produced the figure using their own methodology. No external party reviewed it. The number may be perfectly calculated — but there is no independent mechanism to know.</p><p style="margin-top:0.5rem; font-size:0.75rem; color:var(--text-muted)">Use for directional comparison only. Flag explicitly in your vendor evidence register.</p></div>
-    <div class="card" style="border-top:3px solid #9B5E00;"><div class="card-label" style="color:#9B5E00">Tier 2 · Medium confidence</div><h4>Reviewed</h4><p>An independent party examined the methodology and checked calculations were correctly applied. But they did not audit the underlying data — they took it as given. Better than self-declared. Not equivalent to assured.</p><p style="margin-top:0.5rem; font-size:0.75rem; color:var(--text-muted)">Note the reviewer, scope of review, and date.</p></div>
-    <div class="card card-accent-t"><div class="card-label">Tier 3 · High confidence</div><h4>Independently assured</h4><p>A third party verified the underlying data, methodology, and calculations against a stated assurance standard. The highest confidence tier. Should be the baseline requirement for highest-spend, highest-impact categories.</p><p style="margin-top:0.5rem; font-size:0.75rem; color:var(--text-muted)">Retain the assurance statement and note the assurance body and standard applied.</p></div>
+  <h2 class="section-title">Vendor evidence checklist explorer</h2>
+  <p class="section-intro">The evidence you request varies by what you are buying. Click a domain tab to see the specific checklist for that category.</p>
+
+  <div class="vendor-tabs">
+    <button class="vendor-tab active" onclick="showVendor('hardware', this)">Hardware</button>
+    <button class="vendor-tab" onclick="showVendor('datacentre', this)">Data Centre</button>
+    <button class="vendor-tab" onclick="showVendor('cloud', this)">Cloud</button>
+    <button class="vendor-tab" onclick="showVendor('saas', this)">SaaS & Managed</button>
+  </div>
+
+  <div class="vendor-panels">
+    <!-- Hardware -->
+    <div class="vendor-panel active" id="vendor-hardware">
+      <div class="vendor-checklist">
+        <div class="checklist-item" onclick="toggleChecklist(this)">
+          <div class="checklist-toggle"></div>
+          <div class="checklist-content">
+            <h4>Product carbon footprint with lifecycle breakdowns</h4>
+            <p>Request the PCF for the specific model and configuration you are procuring. Must show manufacturing, transport, use phase, and end-of-life stages separately.</p>
+          </div>
+        </div>
+        <div class="checklist-item" onclick="toggleChecklist(this)">
+          <div class="checklist-toggle"></div>
+          <div class="checklist-content">
+            <h4>Energy consumption figures (idle, typical, peak)</h4>
+            <p>Required for use-phase modelling. Demand specific model data, not category averages. Include sleep and standby modes.</p>
+          </div>
+        </div>
+        <div class="checklist-item" onclick="toggleChecklist(this)">
+          <div class="checklist-toggle"></div>
+          <div class="checklist-content">
+            <h4>Repairability, spare parts, and take-back programme</h4>
+            <p>Reparability score, battery replacement options, spare parts availability, warranty period, and evidence of actual reuse or responsible recycling outcomes.</p>
+          </div>
+        </div>
+        <div class="checklist-item" onclick="toggleChecklist(this)">
+          <div class="checklist-toggle"></div>
+          <div class="checklist-content">
+            <h4>Conflict minerals declaration</h4>
+            <p>Transparency on sourcing of minerals from conflict-affected regions. Conformance to RBA standards or equivalent.</p>
+          </div>
+        </div>
+        <div class="checklist-item" onclick="toggleChecklist(this)">
+          <div class="checklist-toggle"></div>
+          <div class="checklist-content">
+            <h4>Comparable functional units</h4>
+            <p>If comparing models, ensure functional units are equivalent. Comparing a 4-core CPU with an 8-core CPU using the same PCF is misleading.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Centre -->
+    <div class="vendor-panel" id="vendor-datacentre">
+      <div class="vendor-checklist">
+        <div class="checklist-item" onclick="toggleChecklist(this)">
+          <div class="checklist-toggle"></div>
+          <div class="checklist-content">
+            <h4>PUE and WUE with metering coverage</h4>
+            <p>Operational Power Usage Effectiveness and Water Usage Effectiveness. State metering coverage and calculation method. Site-level data, not portfolio averages.</p>
+          </div>
+        </div>
+        <div class="checklist-item" onclick="toggleChecklist(this)">
+          <div class="checklist-toggle"></div>
+          <div class="checklist-content">
+            <h4>Carbon intensity of energy supply</h4>
+            <p>Distinguish between location-based and market-based figures. Ask what instruments support renewable claims — certificates, power purchase agreements, or on-site generation?</p>
+          </div>
+        </div>
+        <div class="checklist-item" onclick="toggleChecklist(this)">
+          <div class="checklist-toggle"></div>
+          <div class="checklist-content">
+            <h4>Utilisation figures and decommissioning commitments</h4>
+            <p>How is spare capacity accounted for? What is the commitment to responsible end-of-life handling of equipment?</p>
+          </div>
+        </div>
+        <div class="checklist-item" onclick="toggleChecklist(this)">
+          <div class="checklist-toggle"></div>
+          <div class="checklist-content">
+            <h4>Water sourcing and seasonality (if applicable)</h4>
+            <p>For water-stressed locations, request water sourcing, WUE seasonality, and recycled water use. Critical for supply chain resilience.</p>
+          </div>
+        </div>
+        <div class="checklist-item" onclick="toggleChecklist(this)">
+          <div class="checklist-toggle"></div>
+          <div class="checklist-content">
+            <h4>Third-party certifications</h4>
+            <p>ISO 50001 (energy management), LEED, BREEAM, or equivalent. Verify currency and scope of certifications.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cloud -->
+    <div class="vendor-panel" id="vendor-cloud">
+      <div class="vendor-checklist">
+        <div class="checklist-item" onclick="toggleChecklist(this)">
+          <div class="checklist-toggle"></div>
+          <div class="checklist-content">
+            <h4>Region-level carbon disclosures with methodology</h4>
+            <p>Request region-level carbon intensity and the methodology used for allocating emissions to your consumption. Not global portfolio averages.</p>
+          </div>
+        </div>
+        <div class="checklist-item" onclick="toggleChecklist(this)">
+          <div class="checklist-toggle"></div>
+          <div class="checklist-content">
+            <h4>Location-based and market-based figures</h4>
+            <p>Ask whether figures are location-based or market-based. Request both if available. Understand the implications for your Scope 2 allocation.</p>
+          </div>
+        </div>
+        <div class="checklist-item" onclick="toggleChecklist(this)">
+          <div class="checklist-toggle"></div>
+          <div class="checklist-content">
+            <h4>Allocation methodology and basis</h4>
+            <p>Is allocation by server-hours, vCPU-hours, revenue, or proprietary method? Does it reflect physical consumption or is it divorced from actual resource use?</p>
+          </div>
+        </div>
+        <div class="checklist-item" onclick="toggleChecklist(this)">
+          <div class="checklist-toggle"></div>
+          <div class="checklist-content">
+            <h4>Real-time carbon intensity data</h4>
+            <p>Can the provider supply real-time or near-real-time carbon intensity by region? Critical for workload scheduling and demand-response decisions.</p>
+          </div>
+        </div>
+        <div class="checklist-item" onclick="toggleChecklist(this)">
+          <div class="checklist-toggle"></div>
+          <div class="checklist-content">
+            <h4>Renewable energy commitments and evidence</h4>
+            <p>What instruments support renewable claims? Power purchase agreements, certificates, or on-site generation? What is the scope and commitment timeline?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SaaS -->
+    <div class="vendor-panel" id="vendor-saas">
+      <div class="vendor-checklist">
+        <div class="checklist-item" onclick="toggleChecklist(this)">
+          <div class="checklist-toggle"></div>
+          <div class="checklist-content">
+            <h4>Hosting location transparency and energy sourcing</h4>
+            <p>Where are the data centres located? What is the energy sourcing at those facilities? Which cloud providers are used upstream?</p>
+          </div>
+        </div>
+        <div class="checklist-item" onclick="toggleChecklist(this)">
+          <div class="checklist-toggle"></div>
+          <div class="checklist-content">
+            <h4>Service-level footprint figures</h4>
+            <p>Request service-level footprint if available. Ask about the methodology for allocating shared infrastructure emissions to your tenancy.</p>
+          </div>
+        </div>
+        <div class="checklist-item" onclick="toggleChecklist(this)">
+          <div class="checklist-toggle"></div>
+          <div class="checklist-content">
+            <h4>Per-tenant intensity metrics</h4>
+            <p>Are per-tenant intensity metrics published? Can they be provided on request? Essential for comparing efficiency across users.</p>
+          </div>
+        </div>
+        <div class="checklist-item" onclick="toggleChecklist(this)">
+          <div class="checklist-toggle"></div>
+          <div class="checklist-content">
+            <h4>Data centre certifications and standards</h4>
+            <p>ISO 50001 (energy management), LEED, BREEAM, or equivalent. Verify currency and scope. Certifications reduce audit burden.</p>
+          </div>
+        </div>
+        <div class="checklist-item" onclick="toggleChecklist(this)">
+          <div class="checklist-toggle"></div>
+          <div class="checklist-content">
+            <h4>Regional hosting commitments (contractual)</h4>
+            <p>Can the provider commit to hosting in regions that meet your carbon intensity requirements? Are those commitments contractually enforceable?</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
+<!-- SECTION 5 — Allocation Pitfalls -->
 <div class="content-section reveal">
   <p class="section-label">Section 4</p>
-  <h2 class="section-title">Evidence requirements by category.</h2>
-  <p class="section-intro">Generic sustainability questionnaires applied uniformly produce uniform noise. The evidence you request varies by what you are buying.</p>
-  <div class="card-grid card-grid-2 reveal">
-    <div class="card card-accent-o"><div class="card-label">Hardware &amp; Devices</div><h4>What to ask for</h4><ul><li>Product carbon footprint for this specific model and configuration, with lifecycle stage breakdown</li><li>Energy figures — idle, typical, peak — for this model</li><li>Repairability score, spare parts availability, and warranty period</li><li>Take-back programme with evidence of actual outcomes</li><li>Conflict minerals declaration and RBA Code of Conduct alignment</li></ul></div>
-    <div class="card card-accent-t"><div class="card-label">Data Centre &amp; Colocation</div><h4>What to ask for</h4><ul><li>Operational PUE and WUE with metering coverage stated</li><li>Site-level data — not portfolio averages</li><li>Carbon intensity of energy supply: location-based and market-based, instrument types stated</li><li>Water sourcing and WUE seasonality for water-stressed locations</li></ul></div>
-    <div class="card"><div class="card-label">Cloud Services</div><h4>What to ask for</h4><ul><li>Region-level carbon disclosures with allocation methodology stated</li><li>Location-based and market-based Scope 2 — both, if you report both</li><li>Allocation basis: server-hours, vCPU-hours, revenue, or proprietary</li><li>Real-time or near-real-time carbon intensity data for workload scheduling</li></ul></div>
-    <div class="card"><div class="card-label">SaaS &amp; Managed Services</div><h4>What to ask for</h4><ul><li>Hosting location transparency — provider, regions, facilities</li><li>Service-level footprint figure with allocation methodology</li><li>Per-tenant intensity metrics if available, or a roadmap commitment</li><li>Data centre certifications: ISO 50001, LEED, BREEAM, or equivalent</li></ul></div>
+  <h2 class="section-title">Allocation pitfalls: double counting and misleading denominators</h2>
+  <p class="section-intro">Once you have product and service evidence, the next challenge is allocation: how a supplier attributes shared emissions to your specific consumption. Two things regularly go wrong.</p>
+
+  <div class="allocation-diagram">
+    <h3 style="margin-bottom:1.5rem;color:var(--navy);">How the same emissions can be counted in multiple places</h3>
+
+    <div class="pitfall-visual">
+      <div class="pitfall-entity">
+        <h4>Your Organisation</h4>
+        <p style="margin-bottom:1rem;">Counting cloud footprint</p>
+        <div class="pitfall-emission">25 tCO₂e</div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;">
+        <svg width="40" height="3" style="margin:0 0.5rem;"><line x1="0" y1="1.5" x2="40" y2="1.5" stroke="#E76F51" stroke-width="2"/></svg>
+      </div>
+      <div class="pitfall-entity">
+        <h4>Cloud Provider</h4>
+        <p style="margin-bottom:1rem;">Counting facility emissions</p>
+        <div class="pitfall-emission">Same 25 tCO₂e</div>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin:1.5rem 0;color:var(--text-secondary);font-weight:600;">↓</p>
+
+    <div style="background:white;border:2px dashed var(--orange);border-radius:8px;padding:1.5rem;text-align:center;">
+      <p style="color:var(--navy);font-weight:700;margin-bottom:0.5rem;">Result: The same emissions appear twice in the inventory</p>
+      <p style="color:var(--text-secondary);">Your numbers look more complete while becoming less accurate.</p>
+    </div>
+
+    <hr style="margin:2rem 0;border:none;border-top:1px solid var(--border);">
+
+    <h3 style="margin-bottom:1.5rem;color:var(--navy);">The remedy: boundary documentation and single-count principle</h3>
+
+    <p style="color:var(--text-secondary);margin-bottom:1rem;"><strong>Count each source once, in the most specific and accurate place you can.</strong></p>
+
+    <ul style="color:var(--text-secondary);margin-left:1.5rem;line-height:2;">
+      <li><strong>Data centre emissions:</strong> Count facility emissions at the data centre owner level, not at the cloud provider level.</li>
+      <li><strong>Cloud workloads:</strong> Count cloud provider efficiency and operational emissions, but reference to the data centre's underlying carbon intensity.</li>
+      <li><strong>Hardware embodied emissions:</strong> Count at the device level, not again inside a broader supply chain category.</li>
+      <li><strong>Clear boundaries:</strong> Document which entity is responsible for each source. Make allocation assumptions explicit.</li>
+    </ul>
+
+    <hr style="margin:2rem 0;border:none;border-top:1px solid var(--border);">
+
+    <h3 style="margin-bottom:1.5rem;color:var(--navy);">Misleading allocation denominators</h3>
+
+    <p style="color:var(--text-secondary);margin-bottom:1.5rem;">Suppliers can allocate shared emissions using different bases: server hours, VM-hours, vCPU-hours, energy consumption, revenue, or proprietary methods. Those choices can materially change the output.</p>
+
+    <div style="display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));">
+      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:6px;padding:1rem;">
+        <p style="font-weight:700;color:var(--navy);margin-bottom:0.5rem;">✓ Allocation by consumption</p>
+        <p style="font-size:0.9rem;color:var(--text-secondary);">Server-hours, vCPU-hours, energy use. Reflects actual resource consumption. Rewards efficiency.</p>
+      </div>
+      <div style="background:var(--orange-bg);border:1px solid var(--orange-border);border-radius:6px;padding:1rem;">
+        <p style="font-weight:700;color:var(--navy);margin-bottom:0.5rem;">✗ Allocation by revenue</p>
+        <p style="font-size:0.9rem;color:var(--text-secondary);">Detached from physical consumption. Will not reward efficient use. Can obscure operational levers.</p>
+      </div>
+      <div style="background:var(--orange-bg);border:1px solid var(--orange-border);border-radius:6px;padding:1rem;">
+        <p style="font-weight:700;color:var(--navy);margin-bottom:0.5rem;">✗ Allocation by contracted capacity</p>
+        <p style="font-size:0.9rem;color:var(--text-secondary);">Penalises efficient tenants. Rewards wasteful ones. Creates perverse incentives.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:2rem;color:var(--text-secondary);"><strong>The question to ask any supplier is simple:</strong> What is the allocation basis, and does it reflect physical consumption? Your goal is not perfection — it is avoiding false precision and ensuring the numbers can actually influence decisions.</p>
   </div>
 </div>
 
-<div class="kc-block reveal" data-correct="B">
+<!-- SECTION 6 — Circular and Social -->
+<div class="content-section reveal">
+  <p class="section-label">Section 5</p>
+  <h2 class="section-title">Circular procurement and hardware social responsibility</h2>
+  <p class="section-intro">Sustainable hardware procurement goes beyond energy efficiency and carbon footprints. It includes circular economy criteria and social responsibility throughout the supply chain.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:2rem 0;">
+    <div style="background:var(--teal-bg);border:1px solid var(--teal-border);border-radius:8px;padding:1.5rem;">
+      <h4 style="font-family:Georgia,serif;font-weight:700;color:var(--navy);margin-bottom:1rem;">Circular Economy Criteria</h4>
+      <ul style="list-style:none;padding:0;color:var(--text-secondary);">
+        <li style="padding:0.5rem 0;padding-left:1.5rem;position:relative;"><span style="position:absolute;left:0;color:var(--teal);">▪</span>How repairable is this product?</li>
+        <li style="padding:0.5rem 0;padding-left:1.5rem;position:relative;"><span style="position:absolute;left:0;color:var(--teal);">▪</span>Are spare parts available and supported?</li>
+        <li style="padding:0.5rem 0;padding-left:1.5rem;position:relative;"><span style="position:absolute;left:0;color:var(--teal);">▪</span>Does the manufacturer offer a take-back programme?</li>
+        <li style="padding:0.5rem 0;padding-left:1.5rem;position:relative;"><span style="position:absolute;left:0;color:var(--teal);">▪</span>Is there an upgrade path to avoid full device replacement?</li>
+        <li style="padding:0.5rem 0;padding-left:1.5rem;position:relative;"><span style="position:absolute;left:0;color:var(--teal);">▪</span>Can you access the device's repair manual?</li>
+      </ul>
+    </div>
+
+    <div style="background:var(--orange-bg);border:1px solid var(--orange-border);border-radius:8px;padding:1.5rem;">
+      <h4 style="font-family:Georgia,serif;font-weight:700;color:var(--navy);margin-bottom:1rem;">Social Responsibility Criteria</h4>
+      <ul style="list-style:none;padding:0;color:var(--text-secondary);">
+        <li style="padding:0.5rem 0;padding-left:1.5rem;position:relative;"><span style="position:absolute;left:0;color:var(--orange);">▪</span>Labour standards in manufacturing supply chains</li>
+        <li style="padding:0.5rem 0;padding-left:1.5rem;position:relative;"><span style="position:absolute;left:0;color:var(--orange);">▪</span>Conflict mineral declarations and sourcing transparency</li>
+        <li style="padding:0.5rem 0;padding-left:1.5rem;position:relative;"><span style="position:absolute;left:0;color:var(--orange);">▪</span>Supply chain transparency and visibility</li>
+        <li style="padding:0.5rem 0;padding-left:1.5rem;position:relative;"><span style="position:absolute;left:0;color:var(--orange);">▪</span>Alignment with RBA Code of Conduct or equivalent</li>
+        <li style="padding:0.5rem 0;padding-left:1.5rem;position:relative;"><span style="position:absolute;left:0;color:var(--orange);">▪</span>Health and safety standards verification</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="margin:2rem 0;">IT hardware contains rare earth minerals and materials sourced from supply chains with serious social and environmental risks. The Responsible Business Alliance Code of Conduct sets out expected standards for labour, health and safety, environmental practice, and ethics in global electronics supply chains. Requiring suppliers to demonstrate alignment is increasingly a standard procurement requirement.</p>
+
+  <div class="callout callout-key reveal">
+    <p class="callout-title">The vendor sustainability scorecard approach</p>
+    <p>Apply a consistent scorecard across categories with four dimensions:</p>
+    <ul style="margin:1rem 0 0 1.5rem;color:var(--text-secondary);">
+      <li><strong>Corporate commitments:</strong> Net-zero targets, renewable energy pledges, industry certifications</li>
+      <li><strong>Product-level evidence:</strong> PCF, energy consumption, lifecycle data, assurance level</li>
+      <li><strong>Circular economy criteria:</strong> Repairability, spare parts, take-back programmes, upgrade paths</li>
+      <li><strong>Social responsibility:</strong> Labour standards, supply chain transparency, RBA alignment</li>
+    </ul>
+    <p style="margin-top:1rem;"><strong>None of these should substitute for the others, and none should be treated as sufficient on its own.</strong></p>
+  </div>
+</div>
+
+<!-- SECTION 7 — Four-Step Vendor Lifecycle -->
+<div class="content-section reveal">
+  <p class="section-label">Section 6</p>
+  <h2 class="section-title">Four-step vendor management lifecycle</h2>
+  <p class="section-intro">Sustainable procurement works best as an ongoing programme rather than a one-off assessment at contract award.</p>
+
+  <div class="lifecycle-wrapper">
+    <div class="lifecycle-steps">
+      <div class="lifecycle-step" onclick="toggleLifecycle(this)">
+        <div class="lifecycle-step-circle">1</div>
+        <div class="lifecycle-step-label">Qualify</div>
+        <div class="lifecycle-step-detail">
+          <p><strong>Establish and maintain the programme.</strong></p>
+          <p>Define your sustainability requirements by category. Set minimum evidence thresholds by assurance tier. Build the vendor sustainability scorecard. Create a supplier engagement process that distinguishes between strategic partners (where you invest in collaborative improvement) and transactional suppliers (where you apply standard requirements and enforce consistently).</p>
+        </div>
+      </div>
+
+      <div class="lifecycle-step" onclick="toggleLifecycle(this)">
+        <div class="lifecycle-step-circle">2</div>
+        <div class="lifecycle-step-label">Embed</div>
+        <div class="lifecycle-step-detail">
+          <p><strong>Onboarding and divestment decisions.</strong></p>
+          <p>New suppliers should be assessed against sustainability criteria as part of standard onboarding. Existing suppliers who cannot meet evidence thresholds should be given a defined improvement timeline. If improvement does not follow, that information should carry weight in renewal decisions. Procurement teams need the authority and support of technology leadership to act on this.</p>
+        </div>
+      </div>
+
+      <div class="lifecycle-step" onclick="toggleLifecycle(this)">
+        <div class="lifecycle-step-circle">3</div>
+        <div class="lifecycle-step-label">Monitor</div>
+        <div class="lifecycle-step-detail">
+          <p><strong>Sustainable IT value realisation.</strong></p>
+          <p>Work with key suppliers to improve evidence quality over time. Use your buying power actively. Collective purchasing frameworks and industry coalitions can amplify the signal, particularly for smaller organisations whose individual volume does not create sufficient leverage. Schedule regular reviews and evidence updates.</p>
+        </div>
+      </div>
+
+      <div class="lifecycle-step" onclick="toggleLifecycle(this)">
+        <div class="lifecycle-step-circle">4</div>
+        <div class="lifecycle-step-label">Escalate</div>
+        <div class="lifecycle-step-detail">
+          <p><strong>Vendor lifecycle management and renewal decisions.</strong></p>
+          <p>Sustainability performance should be a component of every contract renewal evaluation. Not the only component, but a genuine one, with the ability to affect commercial outcomes. If sustainability criteria are included in selection but carry no weight in renewal, suppliers will learn to treat them as box-ticking exercises.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-warning reveal">
+    <p class="callout-title">Bridging the ambition-reality gap</p>
+    <p>At scale, technology organisations have real buying power. That power can be used to drive supplier behaviour, create market demand for better evidence, and make sustainability a factor in every commercial relationship — not just a criterion in a sustainability questionnaire filed once at contract award.</p>
+    <p>The difference between a procurement team with authority and without is the difference between a policy and an outcome.</p>
+  </div>
+</div>
+
+<!-- PAUSE AND REFLECT -->
+<div class="pause-reflect reveal">
+  <p class="pause-label">⏸ Pause &amp; Reflect</p>
+  <p class="pause-intro">Take 10–15 minutes. Write answers down. Specificity matters more than completeness.</p>
+
+  <div class="pause-questions">
+    <div class="pause-q">
+      <div class="pause-q-num">1</div>
+      <div>What is the largest category of technology spend in your organisation? What assurance tier does your evidence currently sit at for that category?</div>
+    </div>
+    <div class="pause-q">
+      <div class="pause-q-num">2</div>
+      <div>Pick one vendor of strategic importance. What evidence could you request from them tomorrow? What would it take to move from self-declared to reviewed or independently assured?</div>
+    </div>
+    <div class="pause-q">
+      <div class="pause-q-num">3</div>
+      <div>Look at your last major technology contract. Was sustainability included in the initial RFP? In the renewal decision? What would it take to make it a genuine factor in both?</div>
+    </div>
+    <div class="pause-q">
+      <div class="pause-q-num">4</div>
+      <div>Can you identify a double-counting risk in your current Scope 3 footprint? What boundary documentation would you need to resolve it?</div>
+    </div>
+  </div>
+
+  <p class="pause-note"><strong>Discussion question:</strong> Where is procurement currently showing up in your organisation's sustainability programme — and where should it show up?</p>
+</div>
+
+<!-- KNOWLEDGE CHECK 1 -->
+<div class="kc-block reveal" data-correct="C">
   <p class="kc-label">Knowledge Check · Module 7 · Q1</p>
-  <p class="kc-q">A hardware vendor's proposal includes a product carbon footprint figure supported by a "third-party reviewed" verification statement. Before accepting this as high-confidence Scope 3 data, what is the most important clarification to seek?</p>
+  <p class="kc-q">What is the key difference between corporate ESG commitments and product-level evidence?</p>
   <div class="kc-options">
-    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>Whether the vendor is a member of the Responsible Business Alliance</button>
-    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>Whether "reviewed" means independent review of the methodology and calculations, or full independent assurance of the underlying data — because these represent meaningfully different confidence levels</button>
-    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>Whether the vendor's net-zero target covers Scope 3 emissions</button>
-    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>Whether the figure was published in the vendor's most recent annual report</button>
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>Corporate ESG commitments are more important and should be the primary focus of procurement decisions</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>Product-level evidence is always self-declared and less rigorous than corporate commitments</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>Corporate commitments describe the supplier's trajectory; product evidence describes the specific transaction between you and them. Both matter, neither substitutes for the other.</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>They are the same thing and can be used interchangeably</button>
+  </div>
+  <p class="kc-hint">Select an answer to reveal the explanation.</p>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">✓ Correct: Option C</p>
+    <p>A supplier may have ambitious net-zero targets and industry certifications, but none of that tells you the footprint of the specific product you are buying. Conversely, a single product footprint doesn't tell you whether the supplier is on a genuine sustainability journey or just window-dressing on an otherwise extractive business model. You need both types of evidence, and conflating them is one of the most common ways Scope 3 data quality erodes.</p>
+  </div>
+</div>
+
+<!-- KNOWLEDGE CHECK 2 -->
+<div class="kc-block reveal" data-correct="B">
+  <p class="kc-label">Knowledge Check · Module 7 · Q2</p>
+  <p class="kc-q">A cloud provider tells you their Scope 2 emissions are allocated to customers by revenue. What should be your primary concern about this allocation basis?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>Revenue-based allocation is the most accurate and should be preferred</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>Revenue allocation is detached from physical consumption — it won't reward efficient use and can obscure operational levers for reduction</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>It treats all customers the same, which is fair and transparent</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>Revenue allocation is standard practice and no concern is warranted</button>
   </div>
   <p class="kc-hint">Select an answer to reveal the explanation.</p>
   <div class="kc-reveal">
     <p class="kc-reveal-label">✓ Correct: Option B</p>
-    <p>"Reviewed" and "independently assured" are not equivalent — and the difference matters significantly for how you use the data. A reviewed figure means an independent party checked that the methodology was correctly applied — but they did not audit the underlying data. An assured figure means the data, methodology, and calculations were all independently verified against a stated standard.</p>
-    <p>Before recording this as high-confidence Scope 3 data, you need to know: what did the reviewing party actually examine, what standard were they working to, and does their scope cover the specific model and configuration you are procuring?</p>
+    <p>The best allocation basis reflects actual resource consumption (server-hours, vCPU-hours, energy use). Revenue-based allocation is divorced from physical demand, which means it creates perverse incentives — an efficient, well-optimised tenant pays the same per unit revenue as a wasteful one. This obscures the operational levers where you could actually drive reduction. When you ask a supplier for their allocation basis, the question to ask is: does it reflect physical consumption?</p>
   </div>
 </div>
 
-<div class="pause-reflect reveal">
-  <p class="pause-label">⏸ Pause &amp; Reflect</p>
-  <p class="pause-intro">Take 5–10 minutes. Specificity matters more than completeness.</p>
-  <div class="pause-questions">
-    <div class="pause-q"><span class="pause-q-num">1</span>Think about your three largest hardware or software spend categories. For each one: do you hold product-level evidence, or corporate commitment? What is the assurance tier of anything you do hold?</div>
-    <div class="pause-q"><span class="pause-q-num">2</span>Does your procurement process distinguish between strategic partners and transactional suppliers when it comes to sustainability requirements? If not, what would it take to introduce that distinction?</div>
-    <div class="pause-q"><span class="pause-q-num">3</span>When was sustainability last a genuine factor in a contract renewal decision — not just in the initial selection?</div>
+<!-- KNOWLEDGE CHECK 3 -->
+<div class="kc-block reveal" data-correct="C">
+  <p class="kc-label">Knowledge Check · Module 7 · Q3</p>
+  <p class="kc-q">In the four-step vendor management lifecycle, at which step should sustainability performance be weighted in a contract renewal decision?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>Step 1 (Qualify) — at the point of setting programme requirements</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>Step 2 (Embed) — at the onboarding stage only</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>Step 4 (Escalate) — sustainability should be a material factor in renewal decisions, not just the initial selection</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>All steps equally — it should never be weighted above other factors</button>
+  </div>
+  <p class="kc-hint">Select an answer to reveal the explanation.</p>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">✓ Correct: Option C</p>
+    <p>If sustainability criteria are included in the initial RFP but carry no weight in the renewal decision, suppliers will quickly learn to treat them as box-ticking exercises. The renewal decision is where procurement has the greatest leverage. Making sustainability a genuine factor — not the only one, but a real one that affects commercial outcomes — is what separates policy from practice.</p>
   </div>
 </div>
 
+<!-- KEY TAKEAWAYS -->
 <div class="takeaways reveal">
   <h3 class="takeaways-heading">Module 7 — Key Takeaways</h3>
   <div class="takeaway-list">
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Corporate commitments and product evidence are different things.</strong><p>A net-zero commitment tells you about the supplier's trajectory. A product carbon footprint tells you about this transaction. Both matter; neither substitutes for the other.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>When you receive a lifecycle assessment, ask seven questions.</strong><p>Methodology, lifecycle stages, emission factors, use-phase assumptions, upstream data sources, functional unit, and assurance status. Without these, a number is not evidence.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Self-declared, reviewed, and independently assured are not equivalent.</strong><p>Treating them as the same is a significant data quality error. Your vendor evidence register should record which tier applies to each figure you hold.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Every purchasing decision is a signal.</strong><p>When you buy without asking for evidence, you signal that evidence is not required. Over time, those signals shape what the market supplies.</p></div></div>
+    <div class="takeaway-item">
+      <span class="takeaway-icon">◆</span>
+      <div class="takeaway-body">
+        <strong>Procurement is a strategic lever.</strong>
+        <p>At scale, technology organisations have real buying power. That power can drive supplier behaviour, create market demand for evidence, and embed sustainability in every commercial relationship.</p>
+      </div>
+    </div>
+    <div class="takeaway-item">
+      <span class="takeaway-icon">◆</span>
+      <div class="takeaway-body">
+        <strong>Corporate ESG commitments and product evidence are not interchangeable.</strong>
+        <p>A supplier's net-zero target tells you about their journey. A product carbon footprint with assurance tells you about this transaction. You need both, and conflating them erodes data quality.</p>
+      </div>
+    </div>
+    <div class="takeaway-item">
+      <span class="takeaway-icon">◆</span>
+      <div class="takeaway-body">
+        <strong>Assurance tiers matter — treat them as meaningfully different.</strong>
+        <p>Self-declared, peer-reviewed, and independently assured are not equivalent. The assurance tier you request should match the materiality of the spend and the weight of the data in your reporting.</p>
+      </div>
+    </div>
+    <div class="takeaway-item">
+      <span class="takeaway-icon">◆</span>
+      <div class="takeaway-body">
+        <strong>Allocation basis can make or break the utility of the data.</strong>
+        <p>Allocation that reflects physical consumption (server-hours, vCPU-hours, energy) drives decisions. Revenue or capacity-based allocation obscures operational levers and can create perverse incentives.</p>
+      </div>
+    </div>
+    <div class="takeaway-item">
+      <span class="takeaway-icon">◆</span>
+      <div class="takeaway-body">
+        <strong>Procurement is where ambition meets reality.</strong>
+        <p>The difference between a procurement team with authority and without is the difference between a policy and an outcome. Sustainability must carry weight in renewal decisions, not just initial selection.</p>
+      </div>
+    </div>
   </div>
 </div>
+
+</div><!-- end module-content -->
+
+<div class="module-nav">
+  <a href="module6.html" class="nav-btn">
+    <span>
+      <span class="nav-btn-label">← Previous</span>
+      <span class="nav-btn-title">M6: Software Engineering and Application Sustainability</span>
+    </span>
+  </a>
+  <button class="complete-btn" onclick="markComplete('module7')">Mark as complete</button>
+  <a href="module8.html" class="nav-btn next">
+    <span>
+      <span class="nav-btn-label">Next →</span>
+      <span class="nav-btn-title">M8: Governance, KPIs, and Avoiding Greenwashing</span>
+    </span>
+  </a>
 </div>
-<div class="module-nav"><a href="module6.html" class="nav-btn"><span><span class="nav-btn-label">← Previous</span><span class="nav-btn-title">M6: Software Engineering and Application Sustainability</span></span></a><button class="complete-btn" onclick="markComplete('module7')">Mark as complete</button><a href="module8.html" class="nav-btn next"><span><span class="nav-btn-label">Next →</span><span class="nav-btn-title">M8: Governance, Maturity and Making It Stick</span></span></a></div>
-<footer><div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 7</div><div class="footer-brand">March 2026 · v2</div></footer>
-<script></script>
+
+<footer>
+  <div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 7</div>
+  <div class="footer-brand">March 2026 · v2</div>
+</footer>
 
 <script>
+// Vendor checklist tabs
+function showVendor(id, button) {
+  document.querySelectorAll('.vendor-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.vendor-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('vendor-' + id).classList.add('active');
+  button.classList.add('active');
+}
+
+// Checklist item toggle
+function toggleChecklist(el) {
+  const toggle = el.querySelector('.checklist-toggle');
+  toggle.classList.toggle('checked');
+  if (toggle.classList.contains('checked')) {
+    toggle.textContent = '✓';
+  } else {
+    toggle.textContent = '';
+  }
+}
+
+// Assurance tier expansion
+function toggleAssurance(el) {
+  const isOpen = el.classList.contains('open');
+  document.querySelectorAll('.assurance-tier').forEach(t => t.classList.remove('open'));
+  if (!isOpen) el.classList.add('open');
+}
+
+// Lifecycle step expansion
+function toggleLifecycle(el) {
+  const detail = el.querySelector('.lifecycle-step-detail');
+  const isOpen = detail.classList.contains('open');
+  document.querySelectorAll('.lifecycle-step-detail').forEach(d => d.classList.remove('open'));
+  if (!isOpen) detail.classList.add('open');
+}
+
+// Shared utilities initialization
 document.addEventListener('DOMContentLoaded', function() {
   if (typeof initKnowledgeChecks === 'function') initKnowledgeChecks();
   if (typeof initScrollReveal === 'function') initScrollReveal();
   if (typeof initProgress === 'function') initProgress(7);
-  
 });
 </script>
+
 <script>
 // GreenOps 101 — Shared utilities v4 light theme
-
 const STORAGE_KEY = 'greenops101_progress';
 function getProgress(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');}catch{return {};}}
 function markComplete(moduleKey){
@@ -171,11 +980,9 @@ function initKnowledgeChecks(){
           else if(o.dataset.val===chosen&&!isCorrect)o.classList.add('selected-wrong');
         });
 
-        // Find the correct option text for feedback
         const correctBtn=block.querySelector('.kc-option[data-val="'+correct+'"]');
         const correctText=correctBtn?correctBtn.textContent.replace(/^[A-D]\s*/,'').trim():'';
 
-        // Build or find feedback label
         let revealLabel=block.querySelector('.kc-reveal-label');
         if(!revealLabel){
           revealLabel=document.createElement('p');
@@ -216,6 +1023,7 @@ function initProgress(current){
   if(fill)fill.style.width=((done/total)*100)+'%';
   if(isComplete('module'+current))document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
 }
-
 </script>
-</body></html>
+
+</body>
+</html>

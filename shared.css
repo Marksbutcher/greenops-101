@@ -403,3 +403,81 @@ body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Tr
 /* ── M5: tri-vertex ── */
 .tri-vertex{cursor:pointer;}
 .tri-vertex:hover circle{opacity:.8;}
+
+/* ── PROSE PARAGRAPHS ── */
+.prose { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.78; margin-bottom: 1.25rem; max-width: 780px; }
+.prose + .prose { margin-top: 0; }
+
+/* ── INTERACTIVE TAB PANELS ── */
+.tab-bar { display: flex; gap: 1px; background: var(--border); margin-bottom: 0; }
+.tab-btn { flex: 1; padding: .85rem 1rem; background: var(--section-alt); border: none; cursor: pointer; font-family: "JetBrains Mono", monospace; font-size: .69rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); font-weight: 700; transition: background .15s, color .15s; }
+.tab-btn:hover { background: var(--teal-bg); color: var(--teal-dark); }
+.tab-btn.active { background: var(--card-bg); color: var(--teal-dark); border-top: 2px solid var(--teal); }
+.tab-panels { background: var(--card-bg); border: 1px solid var(--border); border-top: none; }
+.tab-panel { display: none; padding: 1.75rem; }
+.tab-panel.active { display: block; }
+
+/* ── INTERACTIVE SCOPE/DOMAIN EXPLORER ── */
+.explorer-item { background: var(--card-bg); cursor: pointer; border-left: 4px solid var(--border); transition: background .15s; border-bottom: 1px solid var(--border-light); }
+.explorer-item:hover, .explorer-item.open { background: var(--section-alt); }
+.explorer-header { display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.5rem; }
+.explorer-icon { font-size: 1.25rem; flex-shrink: 0; }
+.explorer-title { font-family: Georgia, serif; font-size: 1.05rem; font-weight: 700; color: var(--text-primary); flex: 1; }
+.explorer-subtitle { font-size: .88rem; color: var(--text-muted); }
+.explorer-arrow { font-size: .85rem; color: var(--text-muted); transition: transform .2s; margin-left: auto; }
+.explorer-item.open .explorer-arrow { transform: rotate(180deg); }
+.explorer-detail { display: none; padding: .5rem 1.5rem 1.25rem 4rem; }
+.explorer-item.open .explorer-detail { display: block; }
+.explorer-detail p { font-size: .97rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: .75rem; }
+
+/* ── DOMAIN TAG CHIPS ── */
+.domain-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .75rem; }
+.domain-tag { padding: .35rem .75rem; background: var(--section-alt); font-size: .82rem; color: var(--text-secondary); border-left: 2px solid var(--teal-dark); }
+.domain-tag.scope1 { border-left-color: #007A6E; }
+.domain-tag.scope2 { border-left-color: #9B5E00; }
+.domain-tag.scope3 { border-left-color: #B54D12; }
+
+/* ── SVG CHART CONTAINERS ── */
+.svg-chart-wrap { position: relative; width: 100%; overflow: hidden; background: var(--card-bg); border: 1px solid var(--border); border-top: 3px solid var(--teal); }
+.svg-chart-wrap svg { width: 100%; height: auto; display: block; }
+.chart-legend { display: flex; gap: 1.5rem; padding: .75rem 1.5rem; background: var(--section-alt); border-top: 1px solid var(--border-light); flex-wrap: wrap; }
+.legend-item { display: flex; align-items: center; gap: .5rem; font-size: .82rem; color: var(--text-muted); }
+.legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+/* ── RANGE SLIDER STYLING ── */
+.range-group { margin-bottom: 1.25rem; }
+.range-label { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: .5rem; }
+.range-name { font-family: "JetBrains Mono", monospace; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); font-weight: 700; }
+.range-value { font-family: "JetBrains Mono", monospace; font-size: .88rem; color: var(--teal-dark); font-weight: 700; }
+input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; background: var(--border); border-radius: 3px; outline: none; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--teal); cursor: pointer; border: 2px solid var(--card-bg); box-shadow: 0 1px 3px rgba(0,0,0,.15); }
+input[type=range]::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--teal); cursor: pointer; border: 2px solid var(--card-bg); box-shadow: 0 1px 3px rgba(0,0,0,.15); }
+
+/* ── RESULT/OUTPUT DISPLAY ── */
+.result-display { background: var(--navy); padding: 1.5rem; margin-top: 1rem; }
+.result-label { font-family: "JetBrains Mono", monospace; font-size: .69rem; letter-spacing: .12em; text-transform: uppercase; color: var(--teal-muted); margin-bottom: .35rem; }
+.result-value { font-family: Georgia, serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: #fff; line-height: 1; }
+.result-unit { font-family: "JetBrains Mono", monospace; font-size: .78rem; color: rgba(255,255,255,.6); margin-top: .35rem; }
+
+/* ── MATURITY RADAR / SELF-ASSESSMENT ── */
+.radar-wrap { display: flex; justify-content: center; padding: 1.5rem; }
+.radar-wrap svg { max-width: 400px; }
+.assessment-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); margin: 1.5rem 0; }
+.assess-item { background: var(--card-bg); padding: 1.25rem; }
+.assess-dim { font-family: "JetBrains Mono", monospace; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--teal-dark); font-weight: 700; margin-bottom: .5rem; }
+.assess-bar-track { width: 100%; height: 8px; background: var(--section-alt); border-radius: 4px; margin-top: .5rem; }
+.assess-bar-fill { height: 100%; border-radius: 4px; background: var(--teal); transition: width .6s ease; }
+
+/* ── ROADMAP / TIMELINE ── */
+.roadmap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); margin: 1.5rem 0; }
+.roadmap-phase { background: var(--card-bg); padding: 1.5rem; }
+.roadmap-phase.h1 { border-top: 3px solid var(--teal); }
+.roadmap-phase.h2 { border-top: 3px solid var(--orange-light); }
+.roadmap-phase.h3 { border-top: 3px solid var(--orange); }
+.phase-label { font-family: "JetBrains Mono", monospace; font-size: .69rem; letter-spacing: .12em; text-transform: uppercase; color: var(--teal-dark); font-weight: 700; margin-bottom: .35rem; }
+.phase-title { font-family: Georgia, serif; font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: .5rem; }
+.phase-desc { font-size: .92rem; color: var(--text-secondary); line-height: 1.65; }
+
+/* ── MODULE FOOTER ── */
+.module-footer { border-top: 1px solid var(--border); padding: 1.5rem 3rem; display: flex; justify-content: space-between; align-items: center; }
+.module-footer .footer-brand { font-family: "JetBrains Mono", monospace; font-size: .6rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); }

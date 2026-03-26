@@ -3,557 +3,629 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>M4: Where Impact Lives Across the IT Estate — GreenOps 101</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-
-
-
-
-
+<title>M4: Impact Domains — GreenOps 101</title>
 <style>
-:root{--page-bg:#F7F8FA;--card-bg:#FFFFFF;--section-alt:#E8EDF2;--text-primary:#1E293B;--text-secondary:#4A5568;--text-muted:#64748B;--navy:#0F1F2E;--navy-mid:#162840;--navy-card:#1E293B;--navy-light:#1C3A55;--teal:#00A896;--teal-dark:#007A6E;--teal-muted:#B2EDE7;--teal-bg:rgba(0,168,150,0.07);--teal-border:rgba(0,168,150,0.25);--orange:#E76F51;--orange-light:#F4A261;--orange-bg:#FFF3E8;--orange-border:rgba(231,111,81,0.25);--border:#D1D9E0;--border-light:#E8EDF2;--track1:#00A896;--track2:#F4A261;--track3:#E76F51;--correct:#16a34a;--wrong:#dc2626;--white:#FFFFFF;--slate:#4A5568;--slate-mid:#64748B;--slate-dim:#94A3B8;--teal-light:#B2EDE7;--teal-glow:rgba(0,168,150,0.15);--teal-subtle:rgba(0,168,150,0.07);--grey-100:#F7F8FA;--grey-300:#D1D9E0;--grey-500:#4A5568;--navy-raised:#1C3A55;--navy-border:rgba(255,255,255,0.07);--navy-mid-alt:#162840;}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;font-size:16px;}img,svg{display:block;max-width:100%;}body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Trebuchet MS",system-ui,-apple-system,sans-serif;font-weight:400;font-size:1rem;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}.top-nav{position:sticky;top:0;z-index:100;background:#0F1F2E;border-bottom:1px solid rgba(0,168,150,0.2);padding:0 3rem;height:52px;display:flex;align-items:center;gap:1rem;}.top-nav::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00A896 0%,#F4A261 60%,#E76F51 100%);}.nav-home{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .15s;flex-shrink:0;}.nav-home:hover{color:#fff;}.nav-sep{color:rgba(255,255,255,0.25);}.nav-module{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;font-weight:500;}.nav-track-pill{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .65rem;border-radius:2px;}.track1-pill{background:rgba(0,168,150,.2);color:#B2EDE7;}.track2-pill{background:rgba(244,162,97,.2);color:#F4D0B0;}.track3-pill{background:rgba(231,111,81,.2);color:#F4C4B9;}.nav-progress{margin-left:auto;font-family:Calibri,monospace;font-size:.72rem;color:rgba(255,255,255,0.5);}.module-hero{position:relative;overflow:hidden;padding:4rem 3rem 3rem;background:#0F1F2E;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;}.module-hero::after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 70% 50%,rgba(0,168,150,.08) 0%,transparent 65%);pointer-events:none;}.hero-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(5rem,12vw,10rem);color:rgba(255,255,255,.06);line-height:1;position:absolute;right:3rem;bottom:0;font-weight:400;user-select:none;}.module-eyebrow{font-family:Calibri,monospace;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:#B2EDE7;margin-bottom:.75rem;}.module-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.12;letter-spacing:-.02em;font-weight:700;color:#fff;margin-bottom:1.25rem;}.module-subtitle{font-size:1.1rem;color:rgba(255,255,255,.72);line-height:1.65;max-width:620px;margin-bottom:2rem;}.module-meta{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}.meta-item{display:flex;flex-direction:column;gap:.15rem;}.meta-item .label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);}.meta-item .value{font-size:.92rem;color:rgba(255,255,255,.85);font-weight:500;}.complete-btn{font-family:Calibri,monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:.65rem 1.4rem;background:#00A896;border:2px solid #00A896;color:#FFFFFF;cursor:pointer;transition:all .15s;font-weight:700;}.complete-btn:hover{background:var(--teal-dark);border-color:var(--teal-dark);}.complete-btn.done{background:transparent;border:2px solid rgba(255,255,255,.4);color:rgba(255,255,255,.7);cursor:default;}.objectives-strip{background:#0F1F2E;padding:2.5rem 3rem;}.objectives-heading{font-family:Calibri,monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#B2EDE7;margin-bottom:1.5rem;font-weight:700;}.objectives-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:.85rem;max-width:1160px;}.objectives-list li{display:flex;align-items:flex-start;gap:1rem;font-size:1rem;color:rgba(255,255,255,.88);line-height:1.55;padding:.85rem 1rem;background:#162840;border-left:2px solid rgba(0,168,150,.5);}.obj-num{font-family:Calibri,monospace;font-size:.72rem;color:#00A896;font-weight:700;letter-spacing:.1em;flex-shrink:0;padding-top:.12rem;}.module-content{max-width:1200px;margin:0 auto;padding:0 3rem 2rem;}.content-section{padding:3rem 0;border-bottom:1px solid var(--border-light);}.content-section:last-child{border-bottom:none;}.section-label{font-family:Calibri,monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:.65rem;display:block;font-weight:700;}.section-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.15;letter-spacing:-.02em;font-weight:700;color:var(--text-primary);margin-bottom:1.25rem;}.section-intro{font-size:1.12rem;color:var(--text-secondary);line-height:1.75;max-width:780px;margin-bottom:2rem;}.card-grid{display:grid;gap:1px;background:var(--border);}.card-grid-2{grid-template-columns:1fr 1fr;}.card-grid-3{grid-template-columns:repeat(3,1fr);}.card-grid-4{grid-template-columns:repeat(4,1fr);}.card-grid-auto{display:grid;gap:1px;background:var(--border);grid-template-columns:repeat(auto-fill,minmax(min(220px,100%),1fr));}.card{background:var(--card-bg);padding:1.75rem;position:relative;}.card-title{font-family:Georgia,"Times New Roman",serif;font-size:1.1rem;font-weight:400;color:var(--text-primary);margin-bottom:.65rem;}.card-body{font-size:.97rem;color:var(--text-secondary);line-height:1.7;}.card-label{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:.5rem;display:block;}.card h4{font-weight:600;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;color:var(--text-primary);margin-bottom:.5rem;line-height:1.35;}.card p{font-size:.97rem;color:var(--text-secondary);line-height:1.65;}.card-accent-p{border-top:3px solid var(--teal);}.card-accent-o{border-top:3px solid var(--orange-light);}.card-accent-t{border-top:3px solid var(--orange);}.stat-strip{display:grid;gap:1px;background:var(--border);margin:2.25rem 0;border-radius:3px;overflow:hidden;}.stat-strip.cols-3{grid-template-columns:repeat(3,1fr);}.stat-strip.cols-4{grid-template-columns:repeat(4,1fr);}.stat-cell{background:var(--card-bg);padding:2rem 1.5rem;text-align:center;border-top:3px solid var(--cell-accent,var(--teal));}.stat-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.4rem,4.5vw,3.5rem);color:var(--cell-accent,var(--teal-dark));line-height:1;margin-bottom:.5rem;display:block;}.stat-label{font-family:Calibri,monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);line-height:1.5;display:block;}.viz-container{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);margin:2rem 0;box-shadow:0 2px 8px rgba(0,0,0,.07);}.viz-header{padding:1rem 1.5rem;border-bottom:2px solid var(--border-light);display:flex;align-items:center;gap:.75rem;background:var(--section-alt);}.viz-header-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;}.viz-title{font-family:Calibri,monospace;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;}.viz-body{padding:1.25rem 1.5rem 1rem;}.callout{padding:1.35rem 1.75rem;margin:1.75rem 0;border-left:4px solid var(--teal);background:var(--teal-bg);}.callout-warning{border-left-color:var(--orange);background:var(--orange-bg);}.callout-key{border-left-color:var(--teal-dark);background:var(--teal-bg);}.callout-title{font-family:Calibri,monospace;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:#007A6E;font-weight:700;display:block;margin-bottom:.6rem;}.callout-warning .callout-title{color:#B54D12;}.callout p{font-size:1rem;color:var(--text-primary);line-height:1.72;}.pause-reflect{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 3rem;}.pause-label{font-family:Calibri,monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:.5rem;display:block;}.pause-intro{font-size:.97rem;color:var(--text-muted);margin-bottom:1.25rem;font-style:italic;}.pause-q{display:flex;align-items:flex-start;gap:.85rem;font-size:1rem;color:var(--text-primary);line-height:1.65;padding:.85rem 1.1rem;background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--teal-dark);margin-bottom:.5rem;}.pause-q-num{font-family:Calibri,monospace;font-size:.72rem;color:var(--teal-dark);font-weight:700;flex-shrink:0;padding-top:.2rem;min-width:1.4rem;}.kc-block{background:var(--card-bg);border:1px solid var(--border);padding:2.25rem;margin:.5rem 0;}.kc-label{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:1rem;}.kc-q{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:1.15rem;color:var(--text-primary);line-height:1.6;margin-bottom:1.5rem;}.kc-options{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem;}.kc-option{display:flex;align-items:flex-start;gap:.85rem;padding:.9rem 1.1rem;background:var(--page-bg);border:1px solid var(--border);cursor:pointer;text-align:left;width:100%;font-family:Calibri,"Trebuchet MS",system-ui,sans-serif;font-size:1rem;color:var(--text-primary);line-height:1.55;transition:all .15s;}.kc-option:hover{border-color:var(--teal);background:var(--teal-bg);}.kc-option.selected-correct{background:rgba(22,163,74,.08);border-color:var(--correct);}.kc-option.selected-wrong{background:rgba(220,38,38,.07);border-color:var(--wrong);}.kc-opt-key{font-family:Calibri,monospace;font-size:.78rem;font-weight:700;color:var(--text-muted);flex-shrink:0;width:1.2rem;padding-top:.1rem;}.kc-feedback{padding:1rem 1.25rem;margin-top:.5rem;font-size:1rem;line-height:1.7;border-left:3px solid;display:none;}.kc-correct{background:rgba(22,163,74,.07);border-left-color:var(--correct);color:var(--text-primary);}.kc-wrong{background:rgba(220,38,38,.06);border-left-color:var(--wrong);color:var(--text-primary);}.kc-reveal{display:none;padding:1rem 1.25rem;margin-top:.5rem;background:var(--teal-bg);border-left:3px solid var(--teal-dark);font-size:1rem;color:var(--text-primary);line-height:1.72;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;flex-wrap:wrap;}.nav-btn{display:inline-flex;flex-direction:column;padding:.75rem 1.25rem;border:1px solid var(--border);background:var(--page-bg);text-decoration:none;transition:all .15s;color:inherit;}.nav-btn:hover{border-color:var(--teal-dark);background:var(--teal-bg);}.nav-btn.next{text-align:right;}.nav-btn-label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);display:block;}.nav-btn-title{font-size:.97rem;color:var(--text-primary);font-weight:500;display:block;margin-top:.15rem;}.nav-btn.next .nav-btn-label,.nav-btn.next .nav-btn-title{color:var(--teal-dark);}.takeaways{background:#0F1F2E;padding:2.5rem 3rem;}.takeaways-heading{font-family:Calibri,monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#B2EDE7;font-weight:700;margin-bottom:1.5rem;}.takeaway-list{display:grid;gap:1px;background:rgba(255,255,255,.08);width:100%;}.takeaway-item{display:flex;gap:1rem;padding:1.5rem;background:#162840;border-top:2px solid rgba(0,168,150,.4);transition:background .15s;}.takeaway-item:hover{background:#1C3A55;}.takeaway-icon{color:#00A896;font-size:.65rem;flex-shrink:0;padding-top:.4rem;}.takeaway-body strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;font-weight:700;color:#FFFFFF;margin-bottom:.4rem;line-height:1.35;}.takeaway-body p{font-size:.95rem;color:rgba(255,255,255,.75);line-height:1.65;}.reveal{opacity:1;transition:opacity .4s ease,transform .4s ease;}.reveal.animate{opacity:0;transform:translateY(12px);}.reveal.animate.visible{opacity:1;transform:none;}.tri-detail{padding:1.5rem;background:var(--card-bg);border:1px solid var(--border);}.tri-detail-name{font-weight:700;font-size:1.1rem;color:var(--teal-dark);margin-bottom:.75rem;}.tradeoff-container{display:grid;grid-template-columns:1fr 1.2fr;gap:2rem;align-items:start;}.triangle-wrap{display:flex;align-items:center;justify-content:center;}.triangle-svg{width:100%;max-width:320px;height:auto;}.example{font-style:italic;color:var(--text-secondary);font-size:.97rem;border-left:3px solid var(--border);padding-left:1rem;margin-top:.75rem;}.reg-tab{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:.6rem 1.1rem;cursor:pointer;border:1px solid var(--border);background:var(--card-bg);color:var(--text-muted);font-weight:600;transition:all .15s;}.reg-tab:hover{border-color:var(--teal-dark);color:var(--teal-dark);}.active-reg{background:var(--teal)!important;border-color:var(--teal)!important;color:#0F1F2E!important;font-weight:700!important;}.courage-card{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);padding:1.5rem;}.footer-brand{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);}.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:1px;background:var(--border);margin:2rem 0;}.stat-block{background:var(--card-bg);padding:1.75rem 1.5rem;border-top:3px solid var(--teal);}@media(max-width:860px){.module-content,.objectives-strip,.top-nav,.pause-reflect,.module-nav,.takeaways{padding-left:1.5rem;padding-right:1.5rem;}.module-hero{padding:2.5rem 1.5rem 2rem;}.card-grid-3{grid-template-columns:1fr 1fr;}.card-grid-4{grid-template-columns:1fr 1fr;}.takeaway-list{grid-template-columns:1fr!important;}}@media(max-width:540px){.card-grid-2,.card-grid-3,.card-grid-4{grid-template-columns:1fr;}.stat-strip.cols-3,.stat-strip.cols-4{grid-template-columns:1fr;}.module-title{font-size:1.75rem;}.tradeoff-container{grid-template-columns:1fr;}}.takeaway-body{flex:1;}.takeaway-body strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;font-weight:700;color:#FFFFFF;margin-bottom:.4rem;line-height:1.35;}.takeaway-body p{font-size:.95rem;color:rgba(255,255,255,.75);line-height:1.65;}.compare-table{width:100%;border-collapse:collapse;font-size:.95rem;margin:1.5rem 0;}.compare-table th{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:.75rem 1rem;text-align:left;background:var(--section-alt);border-bottom:2px solid var(--border);color:var(--text-primary);}.compare-table td{padding:.85rem 1rem;border-bottom:1px solid var(--border-light);vertical-align:top;line-height:1.6;color:var(--text-secondary);}.compare-table tr:last-child td{border-bottom:none;}.compare-table td:first-child{font-weight:600;color:var(--text-primary);}.compare-table tr:hover td{background:var(--section-alt);}.process-steps{display:flex;flex-direction:column;gap:0;margin:1.5rem 0;}.process-step{display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem 1.5rem;background:var(--card-bg);border:1px solid var(--border);border-top:none;}.process-step:first-child{border-top:1px solid var(--border);}.step-icon{font-family:Calibri,monospace;font-size:.75rem;font-weight:700;width:2rem;height:2rem;flex-shrink:0;background:var(--teal);color:#0F1F2E;display:flex;align-items:center;justify-content:center;border-radius:2px;margin-top:.1rem;}.step-body{flex:1;}.step-body strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:.35rem;}.step-body p{font-size:.97rem;color:var(--text-secondary);line-height:1.65;margin:0;}.callout-insight{padding:1.35rem 1.75rem;margin:1.75rem 0;border-left:4px solid var(--teal);background:var(--teal-bg);}.callout-insight .callout-title{font-family:Calibri,monospace;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:#007A6E;font-weight:700;display:block;margin-bottom:.6rem;}.callout-insight p{font-size:1rem;color:var(--text-primary);line-height:1.72;}.pause-questions{display:flex;flex-direction:column;gap:.75rem;}.pause-note{font-size:.92rem;color:var(--text-muted);font-style:italic;margin-bottom:.5rem;}.kc-reveal-label{font-family:Calibri,monospace;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);display:block;margin-bottom:.5rem;}.examples-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;}.examples-row span{padding:.4rem .85rem;background:var(--section-alt);font-size:.88rem;color:var(--text-secondary);border-left:2px solid var(--teal-dark);}.accred-strip{background:var(--section-alt);border-top:3px solid var(--teal);padding:2rem;display:flex;gap:1.5rem;align-items:flex-start;margin:2rem 0;}.accred-icon{font-size:2rem;flex-shrink:0;}.accred-body h3{font-family:Georgia,serif;font-size:1.15rem;font-weight:700;color:var(--text-primary);margin-bottom:.5rem;}.accred-body p{font-size:.97rem;color:var(--text-secondary);line-height:1.65;}.accred-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:var(--teal-bg);border:1px solid var(--teal-border);font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);margin-top:1rem;}.all-tracks{display:grid;gap:1px;background:var(--border);}.all-track-col{background:var(--card-bg);padding:1.5rem;}.all-track-header{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:.75rem;font-weight:700;display:flex;align-items:center;gap:.5rem;}.at-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);display:inline-block;}.at-module-link{display:block;padding:.65rem 1rem;background:var(--section-alt);border-left:2px solid var(--teal-dark);font-size:.9rem;color:var(--text-secondary);text-decoration:none;margin-bottom:4px;}.at-module-link:hover{background:var(--teal-bg);color:var(--teal-dark);}.at-num{font-family:Calibri,monospace;font-size:.65rem;color:var(--text-muted);margin-right:.5rem;}.at-title{font-weight:600;color:var(--text-primary);}.at-label,.at-name{font-size:.9rem;color:var(--text-muted);}.global-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:1px;background:var(--border);margin:1rem 0;}.gstat{background:var(--card-bg);padding:1.5rem 1.25rem;}.gstat-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--teal-dark);line-height:1;margin-bottom:.4rem;}.gstat-label{font-size:.88rem;color:var(--text-secondary);line-height:1.55;}.scope-diagram{display:flex;flex-direction:column;gap:1px;background:var(--border);margin:1.5rem 0;}.scope-box{background:var(--card-bg);cursor:pointer;border-left:4px solid var(--border);transition:background .15s;}.scope-box.s1{border-left-color:#007A6E;}.scope-box.s2{border-left-color:#9B5E00;}.scope-box.s3{border-left-color:#B54D12;}.scope-box.s4{border-left-color:#4A5568;}.scope-box:hover,.scope-box.open{background:var(--section-alt);}.scope-header{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.5rem;}.scope-num{font-family:Calibri,monospace;font-size:.75rem;font-weight:700;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;border-radius:2px;flex-shrink:0;color:#fff;}.scope-box.s1 .scope-num{background:#007A6E;}.scope-box.s2 .scope-num{background:#9B5E00;}.scope-box.s3 .scope-num{background:#B54D12;}.scope-box.s4 .scope-num{background:#4A5568;}.scope-name{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;font-weight:700;color:var(--text-primary);flex:1;}.scope-short{font-size:.88rem;color:var(--text-muted);}.scope-size{font-family:Calibri,monospace;font-size:.72rem;color:var(--text-muted);}.scope-detail{display:none;padding:0 1.5rem 1.25rem 4.5rem;}.scope-box.open .scope-detail{display:block;}.scope-detail p{font-size:.97rem;color:var(--text-secondary);line-height:1.7;margin-bottom:.75rem;}.scope-examples{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem;}.scope-example{padding:.35rem .75rem;background:var(--section-alt);font-size:.82rem;color:var(--text-secondary);}.scope-tag{display:inline-block;padding:.2rem .6rem;font-family:Calibri,monospace;font-size:.65rem;background:var(--section-alt);color:var(--text-muted);margin:.15rem;}.waste-explorer{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);}.waste-tabs{display:flex;gap:1px;background:var(--border);}.waste-tab{flex:1;padding:.85rem 1rem;background:var(--section-alt);border:none;cursor:pointer;font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);font-weight:700;transition:background .15s;}.waste-tab.active{background:var(--card-bg);color:var(--teal-dark);}.waste-panels{padding:0;}.waste-panel{display:none;padding:1.75rem;}.waste-panel.active{display:block;}.waste-panel-stat{font-family:Georgia,serif;font-size:2rem;font-weight:700;color:var(--teal-dark);}.action-model{display:flex;flex-direction:column;gap:1px;background:var(--border);margin:1.5rem 0;}.action-level{background:var(--card-bg);cursor:pointer;}.action-level:hover,.action-level.open{background:var(--section-alt);}.action-level-header{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.5rem;}.action-level-num{font-family:Calibri,monospace;font-size:.72rem;font-weight:700;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0;}.l1 .action-level-num{background:#B54D12;}.l2 .action-level-num{background:#9B5E00;}.l3 .action-level-num{background:#007A6E;}.l4 .action-level-num{background:#4A5568;}.action-level-name{font-family:Georgia,serif;font-size:1rem;font-weight:700;color:var(--text-primary);flex:1;}.action-level-tagline{font-size:.88rem;color:var(--text-muted);}.action-level-arrow{font-size:.85rem;color:var(--text-muted);transition:transform .2s;margin-left:auto;}.action-level.open .action-level-arrow{transform:rotate(180deg);}.action-level-detail{display:none;padding:0 1.5rem 1.25rem 4.5rem;font-size:.95rem;color:var(--text-secondary);line-height:1.7;}.action-level.open .action-level-detail{display:block;}.dim-explorer{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);}.dim-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);}.dim-tab{padding:1rem 1.25rem;background:var(--section-alt);border:none;cursor:pointer;text-align:left;transition:background .15s;font-family:Calibri,"Trebuchet MS",system-ui,sans-serif;}.dim-tab:hover{background:var(--teal-bg);}.dim-tab.active{background:var(--card-bg);border-top:2px solid var(--teal);}.dim-tab-label{font-family:Calibri,monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);display:block;margin-bottom:.25rem;}.dim-tab-name{font-family:Georgia,serif;font-size:.95rem;font-weight:700;color:var(--text-primary);display:block;line-height:1.2;}.dim-tab-sub{font-size:.82rem;color:var(--text-muted);display:block;margin-top:.2rem;}.dim-panels{padding:0;}.dim-panel{display:none;padding:2rem;gap:2rem;}.dim-panel.active{display:grid;grid-template-columns:1fr 1fr;}.dim-panel h4{font-family:Georgia,serif;font-size:1.1rem;font-weight:700;color:var(--text-primary);margin-bottom:.75rem;line-height:1.3;}.dim-panel p{font-size:.97rem;color:var(--text-secondary);line-height:1.7;margin-bottom:.75rem;}.dim-examples{display:flex;flex-direction:column;gap:.4rem;margin-top:1rem;}.dim-example{padding:.6rem .85rem;background:var(--section-alt);font-size:.9rem;color:var(--text-primary);border-left:2px solid var(--teal-dark);}.dim-status{padding:1.25rem;font-size:.92rem;line-height:1.6;}.status-established{background:rgba(0,168,150,.08);border-left:3px solid var(--teal-dark);color:var(--text-primary);}.status-emerging{background:rgba(244,162,97,.08);border-left:3px solid #9B5E00;color:var(--text-primary);}.status-nascent{background:rgba(100,116,139,.08);border-left:3px solid var(--text-muted);color:var(--text-primary);}.dim-status strong{color:var(--text-primary);}.sequence-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin:1.5rem 0;}.seq-step{background:var(--card-bg);padding:1.75rem 1.5rem;border-top:3px solid var(--border);}.seq-step.s1{border-top-color:#B54D12;}.seq-step.s2{border-top-color:#007A6E;}.seq-step.s3{border-top-color:#9B5E00;}.seq-step.s4{border-top-color:#4A5568;}.seq-num{font-family:Calibri,monospace;font-size:2rem;font-weight:700;color:var(--border);line-height:1;margin-bottom:.5rem;}.seq-step.s1 .seq-num{color:#B54D12;}.seq-step.s2 .seq-num{color:#007A6E;}.seq-step.s3 .seq-num{color:#9B5E00;}.seq-step.s4 .seq-num{color:#4A5568;}.seq-label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.4rem;}.seq-title{font-family:Georgia,serif;font-size:1.1rem;font-weight:700;color:var(--text-primary);margin-bottom:.2rem;}.seq-sub{font-size:.88rem;color:var(--text-muted);margin-bottom:.75rem;}.seq-note{font-size:.9rem;color:var(--text-secondary);line-height:1.65;}.isnt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(220px,100%),1fr));gap:1px;background:var(--border);margin:1.5rem 0;}.isnt-card{background:var(--card-bg);padding:1.5rem;border-top:3px solid var(--border-light);}.isnt-card.isnt{border-top-color:#B54D12;}.isnt-marker{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:#B54D12;display:block;margin-bottom:.6rem;}.isnt-card h4{font-family:Georgia,serif;font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:.5rem;}.isnt-card p{font-size:.92rem;color:var(--text-secondary);line-height:1.65;}.method-compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin:1.5rem 0;}.method-col{background:var(--card-bg);padding:1.75rem;}.method-col.activity{border-top:3px solid #007A6E;}.method-col.spend{border-top:3px solid #9B5E00;}.method-name{font-family:Georgia,serif;font-size:1.1rem;font-weight:700;color:var(--text-primary);margin-bottom:.65rem;}.method-desc{font-size:.97rem;color:var(--text-secondary);line-height:1.7;margin-bottom:1rem;}.method-pros,.method-cons{margin-bottom:1rem;}.method-pros-label,.method-cons-label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.5rem;display:block;color:var(--text-muted);}.method-col.activity .method-pros-label{color:#007A6E;}.method-col.spend .method-pros-label{color:#9B5E00;}.method-list{padding-left:1rem;margin:0;}.method-list li{font-size:.92rem;color:var(--text-secondary);line-height:1.65;margin-bottom:.3rem;}.role-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:1px;background:var(--border);margin:1.5rem 0;}.role-metric-card{background:var(--card-bg);padding:1.25rem;}.role-name{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:.5rem;display:block;}.metric-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem;}.metric-chip{padding:.3rem .7rem;background:var(--section-alt);font-family:Calibri,monospace;font-size:.72rem;color:var(--text-secondary);}.baseline-steps{display:flex;flex-direction:column;gap:1px;background:var(--border);margin:1.5rem 0;}.baseline-step{display:flex;gap:1rem;align-items:flex-start;padding:1.25rem 1.5rem;background:var(--card-bg);}.bs-num{font-family:Calibri,monospace;font-size:.75rem;font-weight:700;width:2rem;height:2rem;flex-shrink:0;background:var(--teal);color:#0F1F2E;display:flex;align-items:center;justify-content:center;}.bs-body strong{display:block;font-family:Georgia,serif;font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:.3rem;}.bs-body p{font-size:.92rem;color:var(--text-secondary);line-height:1.65;margin:0;}.domain-selector{display:flex;flex-wrap:wrap;gap:1px;background:var(--border);}.domain-btn{display:flex;flex-direction:column;align-items:center;gap:.35rem;padding:.85rem 1rem;background:var(--section-alt);border:1px solid var(--border);cursor:pointer;font-family:inherit;transition:all .15s;min-width:100px;}.domain-btn:hover{border-color:var(--teal-dark);background:var(--teal-bg);}.domain-btn.active{background:var(--card-bg);border-color:var(--teal);border-top:2px solid var(--teal);}.domain-icon{font-size:1.25rem;}.domain-label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);font-weight:700;}.domain-btn.active .domain-label{color:var(--teal-dark);}.domain-driver{font-size:.78rem;color:var(--text-muted);text-align:center;line-height:1.3;}.domain-panels{margin-top:0;}.domain-panel{display:none;background:var(--card-bg);padding:1.75rem;border:1px solid var(--border);}.domain-panel.active{display:block;}.dp-list{list-style:none;display:flex;flex-direction:column;gap:.4rem;margin-top:.75rem;}.dp-list li,.dp-good,.dp-warn{padding:.6rem .85rem;font-size:.92rem;color:var(--text-secondary);background:var(--section-alt);border-left:2px solid var(--border);}.dp-good{border-left-color:#007A6E;}.dp-warn{border-left-color:#B54D12;}.chart-y-labels{position:absolute;right:-2.5rem;top:0;bottom:0;display:flex;flex-direction:column;justify-content:space-between;padding:0 .5rem;text-align:right;}.chart-y-label,.chart-x-label{font-family:Calibri,monospace;font-size:.65rem;color:var(--text-muted);}.chart-x-labels{display:flex;justify-content:space-between;width:100%;}.chart-x-title{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);}.chart-dot{position:absolute;border-radius:50%;width:16px;height:16px;cursor:pointer;transition:transform .15s;transform:translate(-50%,50%);}.chart-dot:hover{transform:scale(1.2);}.dot-tooltip{display:none;position:absolute;background:var(--card-bg);border:1px solid var(--border);padding:.5rem .75rem;font-size:.82rem;color:var(--text-primary);pointer-events:none;white-space:nowrap;z-index:10;top:120%;left:50%;transform:translateX(-50%);}.chart-dot:hover .dot-tooltip{display:none;position:absolute;background:var(--card-bg);border:1px solid var(--border);padding:.5rem .75rem;font-size:.82rem;color:var(--text-primary);pointer-events:none;white-space:nowrap;z-index:10;top:120%;left:50%;transform:translateX(-50%);}.measurement-split{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin:1.5rem 0;}.meas-col{background:var(--card-bg);padding:1.75rem;}.meas-col-label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);font-weight:700;margin-bottom:.75rem;display:block;}.meas-col h4{font-family:Georgia,serif;font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:.5rem;}.shifting-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:1rem;margin:1.5rem 0;}.shift-card{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);padding:1.5rem;}.shift-num{font-family:Calibri,monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:.5rem;display:block;}.shift-name{font-family:Georgia,serif;font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:.5rem;line-height:1.3;}.shift-desc{font-size:.92rem;color:var(--text-secondary);line-height:1.65;}.shift-example{font-size:.85rem;color:var(--text-muted);font-style:italic;margin-top:.5rem;}.shift-caveat{font-size:.82rem;color:#B54D12;margin-top:.5rem;}.rebound-chart{display:flex;flex-direction:column;gap:1px;background:var(--border);margin:1.5rem 0;}.rc-svg{width:100%;display:block;}.rc-label{font-family:Calibri,monospace;font-size:.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;}.animate-line{transition:stroke-dashoffset 1s ease;}.tri-detail-cost,.tri-detail-carbon,.tri-detail-perf{color:var(--teal-dark);}.bc-evidence-col{background:var(--card-bg);border:1px solid var(--border);padding:1.25rem;}.bc-evidence-col h4{font-family:Georgia,serif;font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:.75rem;}.audience-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:1rem;margin:1.5rem 0;}.audience-card,.aud-entry{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);padding:1.25rem;}.aud-icon{font-size:1.5rem;margin-bottom:.5rem;}.aud-role{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:.35rem;display:block;}.accred-body h3{font-family:Georgia,serif;font-size:1.15rem;font-weight:700;color:var(--text-primary);margin-bottom:.5rem;}.accred-body p{font-size:.97rem;color:var(--text-secondary);line-height:1.65;}.lifecycle-bar{display:grid;grid-template-columns:70fr 25fr 10fr;gap:1px;background:var(--border);border-radius:2px;overflow:hidden;margin:1.5rem 0;}.lc-phase{padding:1.5rem 1.25rem;cursor:pointer;transition:filter .15s;}.lc-phase.manufacture{background:#B54D12;color:#fff;}.lc-phase.operate{background:#007A6E;color:#fff;}.lc-phase.eol{background:#4A5568;color:#fff;}.lc-phase:hover{filter:brightness(1.1);}.lc-pct{font-family:Calibri,monospace;font-size:1.1rem;font-weight:700;margin-bottom:.35rem;}.lc-label{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.85;}.lifecycle-detail{padding:1.25rem 1.5rem;background:var(--section-alt);border-left:3px solid var(--teal);font-size:.97rem;color:var(--text-primary);line-height:1.7;}.bs-body{flex:1;}.bs-body strong{display:block;font-family:Georgia,serif;font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:.3rem;}.bs-body p{font-size:.92rem;color:var(--text-secondary);line-height:1.65;margin:0;}.stop-start{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin:1.5rem 0;}.stop-col,.start-col{background:var(--card-bg);padding:1.5rem;}.stop-col{border-top:3px solid #B54D12;}.start-col{border-top:3px solid #007A6E;}.ss-heading{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:.75rem;display:block;}.stop-col .ss-heading{color:#B54D12;}.start-col .ss-heading{color:#007A6E;}.ss-list{list-style:none;display:flex;flex-direction:column;gap:.4rem;}.ss-list li{padding:.5rem .75rem;font-size:.92rem;color:var(--text-secondary);background:var(--section-alt);}.pue-util-chart{position:relative;background:var(--section-alt);border:1px solid var(--border);height:280px;overflow:visible;margin-right:3rem;}.tri-vertex{cursor:pointer;}.tri-vertex:hover circle{opacity:.8;}
-
-.zone-label{position:absolute;font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;}
-.zone-target{position:absolute;background:rgba(0,168,150,0.08);border:1px dashed rgba(0,168,150,0.3);border-radius:2px;}
+:root{--page-bg:#F7F8FA;--card-bg:#FFFFFF;--section-alt:#E8EDF2;--text-primary:#1E293B;--text-secondary:#4A5568;--text-muted:#64748B;--navy:#0F1F2E;--navy-mid:#162840;--navy-card:#1E293B;--navy-light:#1C3A55;--teal:#00A896;--teal-dark:#007A6E;--teal-muted:#B2EDE7;--teal-bg:rgba(0,168,150,0.07);--teal-border:rgba(0,168,150,0.25);--orange:#E76F51;--orange-light:#F4A261;--orange-bg:#FFF3E8;--orange-border:rgba(231,111,81,0.25);--border:#D1D9E0;--border-light:#E8EDF2;--track1:#00A896;--track2:#F4A261;--track3:#E76F51;--correct:#16a34a;--wrong:#dc2626;--white:#FFFFFF;--slate:#4A5568;--slate-mid:#64748B;--slate-dim:#94A3B8;--teal-light:#B2EDE7;--teal-glow:rgba(0,168,150,0.15);--teal-subtle:rgba(0,168,150,0.07);--grey-100:#F7F8FA;--grey-300:#D1D9E0;--grey-500:#4A5568;--navy-raised:#1C3A55;--navy-border:rgba(255,255,255,0.07);--navy-mid-alt:#162840;}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;font-size:16px;}img,svg{display:block;max-width:100%;}body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Trebuchet MS",system-ui,-apple-system,sans-serif;font-weight:400;font-size:1rem;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}.top-nav{position:sticky;top:0;z-index:100;background:#FFFFFF;border-bottom:1px solid rgba(0,168,150,0.2);padding:0 3rem;height:52px;display:flex;align-items:center;gap:1rem;}.top-nav::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(90deg,#0F1F2E 0%,rgba(0,168,150,0.05) 100%);pointer-events:none;z-index:-1;}.top-nav-left{display:flex;align-items:center;gap:1.5rem;font-size:0.85rem;color:#0F3030;}.top-nav-left strong{color:var(--teal);font-weight:600;}.module-hero{background:linear-gradient(135deg,#0F1F2E 0%,#162840 100%);color:white;padding:6rem 3rem;text-align:left;position:relative;overflow:hidden;}.module-hero::before{content:"";position:absolute;top:-50%;right:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(0,168,150,0.1) 0%,rgba(0,168,150,0) 70%);border-radius:50%;z-index:0;}.module-hero::after{content:"";position:absolute;bottom:-20%;left:5%;width:300px;height:300px;background:radial-gradient(circle,rgba(231,111,81,0.08) 0%,rgba(231,111,81,0) 70%);border-radius:50%;z-index:0;}.module-hero>*{position:relative;z-index:1;}.module-hero-label{display:inline-block;background:rgba(0,168,150,0.25);border:1px solid rgba(0,168,150,0.4);color:var(--teal);padding:0.5rem 1rem;border-radius:20px;font-size:0.75rem;font-weight:600;text-transform:uppercase;margin-bottom:1rem;letter-spacing:1px;}.module-hero h1{font-family:Georgia,serif;font-size:3.5rem;font-weight:700;line-height:1.2;margin-bottom:1rem;letter-spacing:-1px;}.module-hero-intro{font-size:1.1rem;max-width:48rem;color:#B2EDE7;line-height:1.6;}.objectives-strip{background:var(--card-bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 3rem;margin:3rem 0;}.objectives-strip h3{font-family:Georgia,serif;font-size:1.3rem;color:var(--navy);margin-bottom:1.5rem;}.objectives-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;}.objectives-list li{list-style:none;padding-left:1.75rem;position:relative;color:var(--text-secondary);line-height:1.6;}.objectives-list li::before{content:"✓";position:absolute;left:0;color:var(--teal);font-weight:bold;font-size:1.2rem;}.content-section{padding:2.5rem 3rem;max-width:900px;margin:0 auto;}.content-section.reveal{opacity:0;transform:translateY(20px);}.section-label{display:inline-block;background:var(--teal-bg);color:var(--teal);padding:0.4rem 0.9rem;border-radius:12px;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.8rem;}.section-title{font-family:Georgia,serif;font-size:2.2rem;color:var(--navy);margin-bottom:1rem;line-height:1.2;}.section-intro{font-size:1.1rem;color:var(--text-secondary);line-height:1.7;margin-bottom:2rem;}.domain-explorer{width:100%;}.domain-tabs{display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:2rem;border-bottom:2px solid var(--border-light);padding-bottom:1rem;}.domain-tab{padding:0.75rem 1.25rem;background:none;border:none;font-size:0.95rem;color:var(--text-secondary);cursor:pointer;font-weight:500;border-bottom:3px solid transparent;transition:all 0.3s ease;font-family:Calibri,"Trebuchet MS",system-ui;}.domain-tab:hover{color:var(--teal);}.domain-tab.active{color:var(--teal);border-bottom-color:var(--teal);}.domain-panels{position:relative;min-height:400px;}.domain-panel{display:none;opacity:0;transition:opacity 0.3s ease;animation:fadeIn 0.3s ease;}.domain-panel.active{display:block;opacity:1;}.domain-panel h3{font-family:Georgia,serif;font-size:1.5rem;color:var(--navy);margin-bottom:1rem;}.domain-panel h4{font-family:Georgia,serif;font-size:1.15rem;color:var(--navy);margin:1.5rem 0 0.75rem;}.domain-panel p{color:var(--text-secondary);line-height:1.7;margin-bottom:1rem;}.domain-levers{background:var(--teal-bg);border-left:4px solid var(--teal);padding:1.5rem;border-radius:4px;margin:1.5rem 0;}.domain-levers h5{color:var(--teal-dark);font-weight:600;font-size:0.95rem;margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.5px;}.domain-levers ul{margin:0;padding-left:1.5rem;}.domain-levers li{color:var(--text-secondary);margin-bottom:0.5rem;}.pue-matrix{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:2rem 0;}.pue-scenario{padding:1.5rem;border-radius:6px;border:1px solid var(--border);background:var(--card-bg);}.pue-scenario.good{border-left:4px solid var(--teal);background:rgba(0,168,150,0.05);}.pue-scenario.poor{border-left:4px solid var(--orange);background:rgba(231,111,81,0.05);}.pue-scenario-title{font-weight:600;color:var(--navy);margin-bottom:0.5rem;font-size:0.95rem;}.pue-scenario-desc{color:var(--text-secondary);font-size:0.9rem;line-height:1.6;}.control-loop{position:relative;margin:2rem 0;}.control-loop-step{padding:1.5rem;margin:1rem 0;background:var(--card-bg);border:2px solid var(--border-light);border-radius:6px;cursor:pointer;transition:all 0.3s ease;}.control-loop-step:hover{border-color:var(--teal);background:var(--teal-bg);}.control-loop-step.active{border-color:var(--teal);background:var(--teal-bg);}.control-loop-step h4{color:var(--navy);margin-bottom:0.75rem;font-size:1rem;}.control-loop-step .step-num{display:inline-block;background:var(--teal);color:white;width:28px;height:28px;border-radius:50%;text-align:center;line-height:28px;font-weight:bold;font-size:0.9rem;margin-right:0.75rem;}.control-loop-detail{display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);color:var(--text-secondary);line-height:1.6;font-size:0.95rem;}.control-loop-detail.active{display:block;}.ai-lists{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:2rem 0;}@media(max-width:768px){.ai-lists{grid-template-columns:1fr;}}.ai-list-col h4{font-family:Georgia,serif;font-size:1.2rem;margin-bottom:1rem;padding-bottom:0.75rem;border-bottom:2px solid var(--border);}.ai-list-col.stop-list h4{color:var(--orange);}.ai-list-col.start-list h4{color:var(--teal);}.ai-item{padding:1rem;margin-bottom:0.75rem;background:var(--card-bg);border-left:4px solid var(--border);border-radius:3px;cursor:pointer;transition:all 0.3s ease;}.ai-list-col.stop-list .ai-item{border-left-color:var(--orange);}.ai-list-col.start-list .ai-item{border-left-color:var(--teal);}.ai-item:hover{background:var(--section-alt);}.ai-item-title{font-weight:600;color:var(--navy);font-size:0.95rem;margin-bottom:0.5rem;}.ai-item-detail{display:none;color:var(--text-secondary);font-size:0.85rem;line-height:1.6;}.ai-item-detail.active{display:block;}.hardware-lifecycle{margin:2rem 0;}.lifecycle-chain{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;margin:2rem 0;}.lifecycle-stage{flex:1;min-width:140px;padding:1.5rem 1rem;background:var(--card-bg);border:2px solid var(--border);border-radius:6px;text-align:center;cursor:pointer;transition:all 0.3s ease;}.lifecycle-stage:hover{border-color:var(--teal);background:var(--teal-bg);}.lifecycle-stage-label{font-weight:600;color:var(--navy);font-size:0.9rem;}.lifecycle-arrow{color:var(--teal);font-size:1.5rem;text-align:center;width:auto;margin:0 0.5rem;}.lifecycle-detail{display:none;margin-top:1.5rem;padding:1.5rem;background:var(--teal-bg);border-left:4px solid var(--teal);border-radius:4px;}.lifecycle-detail.active{display:block;}.lifecycle-detail h5{color:var(--teal-dark);font-weight:600;margin-bottom:0.75rem;}.lifecycle-detail p{color:var(--text-secondary);font-size:0.9rem;line-height:1.6;}.kc-container{background:var(--card-bg);border:2px solid var(--border-light);border-radius:8px;padding:2rem;margin:2rem 0;}.kc-question{font-family:Georgia,serif;font-size:1.1rem;color:var(--navy);margin-bottom:1.5rem;font-weight:600;}.kc-options{display:grid;gap:0.75rem;}.kc-option{padding:1rem;background:var(--page-bg);border:2px solid var(--border);border-radius:6px;cursor:pointer;transition:all 0.2s ease;font-size:0.95rem;color:var(--text-secondary);}.kc-option:hover{border-color:var(--teal);background:var(--teal-bg);}.kc-option.selected{border-color:var(--teal);background:var(--teal-bg);}.kc-option.correct{border-color:var(--correct);background:rgba(22,163,58,0.1);color:var(--correct);}.kc-option.wrong{border-color:var(--wrong);background:rgba(220,38,38,0.1);color:var(--wrong);}.kc-feedback{margin-top:1.5rem;padding:1rem;background:rgba(0,168,150,0.1);border-left:4px solid var(--teal);border-radius:4px;color:var(--text-secondary);display:none;font-size:0.95rem;line-height:1.6;}.kc-feedback.show{display:block;}.pause-reflect{background:var(--navy);color:white;padding:3rem;border-radius:8px;margin:3rem 0;text-align:center;}.pause-reflect h2{font-family:Georgia,serif;font-size:1.8rem;margin-bottom:1rem;color:var(--teal);}.pause-reflect p{font-size:1.05rem;line-height:1.7;color:#B2EDE7;max-width:600px;margin:0 auto;}.takeaways-section{padding:2.5rem 3rem;max-width:900px;margin:0 auto;}.takeaways-section h2{font-family:Georgia,serif;font-size:2rem;color:var(--navy);margin-bottom:2rem;}.takeaways-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;}.takeaway-card{padding:1.5rem;background:linear-gradient(135deg,var(--card-bg),var(--section-alt));border-left:4px solid var(--teal);border-radius:4px;}.takeaway-card h4{font-family:Georgia,serif;color:var(--navy);margin-bottom:0.75rem;font-size:0.95rem;}.takeaway-card p{color:var(--text-secondary);font-size:0.9rem;line-height:1.6;}.module-nav{background:var(--card-bg);border-top:1px solid var(--border);padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;gap:2rem;margin-top:3rem;}.nav-link{display:flex;flex-direction:column;gap:0.5rem;text-decoration:none;color:var(--text-secondary);transition:color 0.3s ease;}.nav-link:hover{color:var(--teal);}.nav-link-label{font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;font-weight:600;letter-spacing:0.5px;}.nav-link-title{font-family:Georgia,serif;font-size:1.1rem;color:var(--navy);font-weight:600;}.nav-link.disabled{opacity:0.5;pointer-events:none;}.footer{background:var(--navy);color:#B2EDE7;padding:2rem 3rem;text-align:center;font-size:0.85rem;border-top:1px solid var(--navy-border);}.footer p{margin:0.5rem 0;}.footer strong{color:white;}.footer a{color:var(--teal);text-decoration:none;transition:color 0.2s;}.footer a:hover{color:white;}.viz-container{margin:2rem 0;}.viz-title{font-size:0.9rem;color:var(--text-muted);font-style:italic;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;}.example-list{margin:1.5rem 0;}.example-item{padding:1rem;margin-bottom:0.75rem;background:var(--page-bg);border-left:3px solid var(--teal);border-radius:4px;color:var(--text-secondary);font-size:0.95rem;line-height:1.6;}.example-item strong{color:var(--navy);}.metric-note{background:var(--orange-bg);border-left:4px solid var(--orange);padding:1.5rem;border-radius:4px;margin:1.5rem 0;color:var(--text-secondary);font-size:0.95rem;line-height:1.6;}.metric-note strong{color:var(--orange-dark,#d96e35);}.highlight{color:var(--teal);font-weight:600;}@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}@keyframes slideInLeft{from{opacity:0;transform:translateX(-20px);}to{opacity:1;transform:translateX(0);}}
 </style>
+<link rel="stylesheet" href="polish.css">
 </head>
-<body class="track1">
+<body>
 
 <nav class="top-nav">
-  <a href="index.html" class="nav-home">
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L1 6v7h4v-4h4v4h4V6L7 1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
-    GreenOps 101
-  </a>
-  <span class="nav-sep">/</span>
-  <span class="nav-module">Module 4</span>
-  <span class="nav-track-pill track1-pill">Track 1 — Technical Foundation</span>
-  <div class="nav-progress">Progress: <span id="progress-count">0/14</span></div>
+<div class="top-nav-left">
+<strong>GreenOps 101</strong>
+<span>Module 4: Impact Domains</span>
+</div>
 </nav>
 
-<section class="module-hero">
-  <div class="hero-num">4</div>
-  <p class="module-eyebrow">Module 4 &nbsp;·&nbsp; Track 1 — Technical Foundation</p>
-  <h1 class="module-title">Where Impact Lives Across<br>the IT Estate.</h1>
-  <p class="module-subtitle">Seven domains. Seven distinct sets of levers. What actually drives footprint in each — and what to do about it.</p>
-  <div class="module-meta">
-    <div class="meta-item"><span class="label">Duration</span><span class="value">28–34 minutes</span></div>
-    <div class="meta-item"><span class="label">Track</span><span class="value">Technical Foundation</span></div>
-    <button class="complete-btn" onclick="markComplete('module4')">Mark as complete</button>
-  </div>
-</section>
-
-<div class="objectives-strip reveal">
-  <p class="objectives-heading">What you will take from this module</p>
-  <ul class="objectives-list">
-    <li><span class="obj-num">01</span>Understand the dominant footprint drivers in each of the seven IT domains</li>
-    <li><span class="obj-num">02</span>Know the most common failure modes in end-user services, data centres, and cloud operations</li>
-    <li><span class="obj-num">03</span>Understand why software and data decisions create long-lived sustainability consequences</li>
-    <li><span class="obj-num">04</span>Know what good hardware lifecycle governance looks like, and what the trade-off traps are</li>
-    <li><span class="obj-num">05</span>Understand AI as a cross-cutting consumption multiplier — with a practical stop/start list</li>
-  </ul>
+<div class="module-hero">
+<span class="module-hero-label">Module 4 of 6</span>
+<h1>Impact Domains: Where the Levers Actually Sit</h1>
+<p class="module-hero-intro">Different domains have different dominant drivers. GreenOps requires domain fluency. We cover seven distinct operating environments — end-user services, data centres, cloud and platforms, software and data, hardware lifecycle, AI, and networks. Each has its own levers, failure modes, and decisions worth getting right.</p>
 </div>
 
-<div class="module-content">
+<div class="objectives-strip">
+<h3>What you'll understand after this module</h3>
+<ul class="objectives-list">
+<li>Why embodied impact dominates end-user device footprint</li>
+<li>The PUE-utilisation relationship and why metrics matter</li>
+<li>The five-part cloud control loop and how to operationalise it</li>
+<li>How software design compounds footprint over time</li>
+<li>The full hardware lifecycle and circular economy principles</li>
+<li>AI as a cross-cutting multiplier and governance approaches</li>
+<li>Network sustainability levers and egress as a signal</li>
+</ul>
+</div>
 
-<!-- SECTION 1 — Domain fluency -->
+<!-- DOMAIN EXPLORER -->
 <div class="content-section reveal">
-  <p class="section-label">Section 1</p>
-  <h2 class="section-title">Domain fluency — why one narrative doesn't work.</h2>
-  <p class="section-intro">The most common mistake is applying the same sustainability narrative everywhere. Each domain has different dominant drivers, different failure modes, and different levers. GreenOps requires domain fluency — not a universal story.</p>
+<p class="section-label">Interactive Explorer</p>
+<h2 class="section-title">The seven domains of operational impact.</h2>
+<p class="section-intro">Click each domain to explore the levers, waste patterns, and metrics that matter. Different domains require different governance approaches.</p>
 
-  <!-- Interactive domain explorer -->
-  <div class="viz-container reveal" style="padding: 0;">
-    <div class="domain-selector" id="domainSelector">
-      <button class="domain-btn active" onclick="showDomain('enduser', this)">
-        <span class="domain-icon">💻</span>
-        <span class="domain-label">End-User</span>
-        <span class="domain-driver">Embodied carbon</span>
-      </button>
-      <button class="domain-btn" onclick="showDomain('dc', this)">
-        <span class="domain-icon">🏢</span>
-        <span class="domain-label">Data Centres</span>
-        <span class="domain-driver">PUE & utilisation</span>
-      </button>
-      <button class="domain-btn" onclick="showDomain('cloud', this)">
-        <span class="domain-icon">☁️</span>
-        <span class="domain-label">Cloud</span>
-        <span class="domain-driver">Idle & over-prov.</span>
-      </button>
-      <button class="domain-btn" onclick="showDomain('software', this)">
-        <span class="domain-icon">⚙️</span>
-        <span class="domain-label">Software & Data</span>
-        <span class="domain-driver">Compute per task</span>
-      </button>
-      <button class="domain-btn" onclick="showDomain('hardware', this)">
-        <span class="domain-icon">🖥️</span>
-        <span class="domain-label">Hardware</span>
-        <span class="domain-driver">Embodied & EOL</span>
-      </button>
-      <button class="domain-btn" onclick="showDomain('ai', this)">
-        <span class="domain-icon">🤖</span>
-        <span class="domain-label">AI</span>
-        <span class="domain-driver">Inference at scale</span>
-      </button>
-      <button class="domain-btn" onclick="showDomain('networks', this)">
-        <span class="domain-icon">🌐</span>
-        <span class="domain-label">Networks</span>
-        <span class="domain-driver">Data movement</span>
-      </button>
-    </div>
-    <div class="domain-panels">
-
-      <!-- End-User -->
-      <div class="domain-panel active" id="domain-enduser">
-        <div>
-          <h4>End-User Services: the footprint is mostly before you switch it on</h4>
-          <p>~80% of a laptop's lifetime footprint is manufacturing — before it reaches your desk. The dominant lever in end-user services is lifecycle and procurement, not plug socket behaviour. Every additional year you keep a device in productive use represents a meaningful reduction in embodied carbon per year of service.</p>
-          <div class="dp-warn">
-            <h5>⚠ Common defaults that add up</h5>
-            <ul class="dp-list">
-              <li>Extra devices issued as standard regardless of role</li>
-              <li>Two monitors by default — whether the role needs them or not</li>
-              <li>Docking stations accumulating in storage rooms, never recovered</li>
-              <li>Laptops shipped by air because onboarding was left to the last minute</li>
-              <li>No recovery process — ordering new is easier than redeploying existing</li>
-            </ul>
-          </div>
-        </div>
-        <div>
-          <div class="dp-good">
-            <h5>✓ What good practice looks like</h5>
-            <ul class="dp-list">
-              <li>Role-based device standards — match specification to actual role requirements</li>
-              <li>Power management enforced centrally by policy, not individual choice</li>
-              <li>Recovery and redeploy process genuinely easier than ordering new</li>
-              <li>Accessory lifecycle management — cables and docks are assets, not consumables</li>
-              <li>Governed AI usage for routine tasks to prevent silent inference growth</li>
-            </ul>
-          </div>
-          <div class="callout callout-insight" style="margin-top:1rem;">
-            <p class="callout-title">The primary lever</p>
-            <p style="font-size:0.82rem;">Lifecycle extension. One additional year of use per device reduces embodied carbon per year of service by ~20% on a typical refresh cycle.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Data Centres -->
-      <div class="domain-panel" id="domain-dc">
-        <div>
-          <h4>Data Centres: where resource intensity is concentrated and measurable</h4>
-          <p>Data centres are where the numbers are easy to quote — and easy to misuse. PUE without utilisation data is dangerous. A lightly loaded site can have good PUE while still being wasteful in absolute terms.</p>
-          <div class="dp-warn">
-            <h5>⚠ Metric theatre to watch for</h5>
-            <ul class="dp-list">
-              <li>Design PUE presented as if it reflects operational reality</li>
-              <li>Annual average PUE hiding seasonal peaks (ask for seasonal breakdown)</li>
-              <li>Portfolio averages masking the worst-performing sites</li>
-              <li>"Renewable energy" claims without stated instruments or boundaries</li>
-            </ul>
-          </div>
-        </div>
-        <div>
-          <div class="dp-good">
-            <h5>✓ The metrics — what they measure and what they hide</h5>
-            <ul class="dp-list">
-              <li><strong>PUE</strong> — Total facility power ÷ IT equipment power. ~1.1 exceptional. Context matters.</li>
-              <li><strong>WUE</strong> — Litres of water ÷ kWh of IT energy. Track seasonality and water stress.</li>
-              <li><strong>CUE</strong> — CO₂ emissions ÷ IT equipment energy. Bridge between efficiency and impact.</li>
-              <li><strong>REF/ERF</strong> — Only as good as the evidence behind them. Push for granularity.</li>
-            </ul>
-          </div>
-          <div class="callout callout-warning" style="margin-top:1rem;">
-            <p class="callout-title">The follow-up question</p>
-            <p style="font-size:0.82rem;">For any PUE figure: what is IT server utilisation — and what is the plan to improve it through consolidation and decommissioning?</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Cloud -->
-      <div class="domain-panel" id="domain-cloud">
-        <div>
-          <h4>Cloud: the continuous control loop</h4>
-          <p>Cloud doesn't remove infrastructure responsibility — it changes where the levers sit. Rightsizing is not a project. It's a discipline that only sticks when owned jointly by platform engineering and FinOps, with application owners brought in on decisions that affect performance.</p>
-          <div class="dp-warn">
-            <h5>⚠ Where cloud waste actually hides</h5>
-            <ul class="dp-list">
-              <li>Zombie resources — running with no active workload</li>
-              <li>Non-production environments left on after business hours</li>
-              <li>Orphaned storage from decommissioned services</li>
-              <li>Oversized instances based on peak provisioning, never revisited</li>
-              <li>Untagged resources with no owner and no review trigger</li>
-            </ul>
-          </div>
-        </div>
-        <div>
-          <div class="dp-good">
-            <h5>✓ The 5-step remediation loop</h5>
-            <ul class="dp-list">
-              <li>Visibility and attribution — if you can't attribute, you can't govern</li>
-              <li>Baselining unit economics — carbon per VM-hour, idle percentage</li>
-              <li>Remediate with a hierarchy of levers — kill zombies first, then rightsize</li>
-              <li>Prevent recurrence with guardrails — policy-as-code, default sizing limits</li>
-              <li>Verify and institutionalise — bake into FinOps reviews, not heroic side missions</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Software & Data -->
-      <div class="domain-panel" id="domain-software">
-        <div>
-          <h4>Software and data: decisions that compound over a service's lifetime</h4>
-          <p>Software behaviour is one of the most underestimated sustainability levers. Inefficient code patterns, unchecked data growth, and ungoverned telemetry aggregate into material footprints at scale — and are rarely attributed to the engineering decisions that drove them.</p>
-          <div class="dp-warn">
-            <h5>⚠ Common patterns to watch for</h5>
-            <ul class="dp-list">
-              <li>Unnecessary computation on every request — cache-first thinking is absent</li>
-              <li>Data retained indefinitely — no lifecycle policy, no review trigger</li>
-              <li>Heavy dependencies for lightweight tasks</li>
-              <li>Telemetry collecting everything "just in case" with no retention policy</li>
-              <li>Applications that continue running because nobody decided to retire them</li>
-            </ul>
-          </div>
-        </div>
-        <div>
-          <div class="dp-good">
-            <h5>✓ What shifts the software footprint</h5>
-            <ul class="dp-list">
-              <li>Compute efficiency — measure carbon per transaction, not just total compute</li>
-              <li>Software Carbon Intensity (SCI) — intensity, not absolute, is the actionable metric</li>
-              <li>Architecture-level choices — right pattern for the workload, not the familiar one</li>
-              <li>Data minimisation — only collect, process, and retain what's justified</li>
-              <li>Portfolio rationalisation — the TIME model applied to carbon</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Hardware Lifecycle -->
-      <div class="domain-panel" id="domain-hardware">
-        <div>
-          <h4>Hardware lifecycle: starts at design, not disposal</h4>
-          <p>Embodied carbon is determined by procurement and use decisions made years before end-of-life. Evidence-based refresh cycles and circular economy criteria are the lever. The recycling bin is not.</p>
-          <div class="dp-warn">
-            <h5>⚠ Three lifecycle trade-off traps</h5>
-            <ul class="dp-list">
-              <li><strong>Trap 1</strong> — Extending asset life isn't always right: if older hardware is dramatically less energy-efficient, keeping it longer may increase operational energy per unit of useful compute</li>
-              <li><strong>Trap 2</strong> — Refresh early "in the name of efficiency": if you replace too frequently, embodied emissions and e-waste rise</li>
-              <li><strong>Trap 3</strong> — Comparing products without comparable functional units: a higher-footprint server may be more efficient per unit of delivered compute</li>
-            </ul>
-          </div>
-        </div>
-        <div>
-          <div class="dp-good">
-            <h5>✓ The lifecycle governance approach</h5>
-            <ul class="dp-list">
-              <li>Treat lifecycle decisions as a unit economics problem: energy per unit of useful work, balanced against embodied impact and lifespan</li>
-              <li>Include sustainability criteria in procurement — not just performance and cost</li>
-              <li>Design for repairability and component replacement, not whole-unit replacement</li>
-              <li>ITAD governance — certified disposal, data sanitisation, refurbishment pathways</li>
-              <li>Manufacturer take-back programmes for responsible end-of-life</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- AI -->
-      <div class="domain-panel" id="domain-ai">
-        <div>
-          <h4>AI: the cross-cutting consumption multiplier</h4>
-          <p>The main risk for most organisations is not the training runs that make headlines. It's inference demand scaling quietly across hundreds or thousands of users — embedded in products, integrated into workflows, and left ungoverned because it feels like productivity rather than infrastructure.</p>
-          <p style="color:var(--orange); font-size:0.82rem;">AI is the fastest-growing ungoverned consumption category in enterprise IT.</p>
-        </div>
-        <div>
-          <div style="display:flex; flex-direction:column; gap:0.75rem;">
-            <div class="callout callout-warning" style="margin:0;">
-              <p class="callout-title">The governance failure pattern</p>
-              <p style="font-size:0.82rem;">A large frontier model deployed as the default for all staff — including for writing short emails. Routine tasks using models 10–50× over-specified. Inference demand scales at the rate of adoption, not value.</p>
-            </div>
-            <div class="callout callout-insight" style="margin:0;">
-              <p class="callout-title">The fix: model tiering</p>
-              <p style="font-size:0.82rem;">Small models for routine tasks, mid-range where reasoning is needed, frontier only where it genuinely changes the outcome. Make the smallest reliable model the default. Require justification to escalate.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Networks -->
-      <div class="domain-panel" id="domain-networks">
-        <div>
-          <h4>Networks: the invisible footprint</h4>
-          <p>Networks are the invisible infrastructure of digital services. Their impact is frequently omitted from sustainability programmes because the data is hard to access. That doesn't make the impact smaller.</p>
-          <p>Egress costs and egress footprint move together. If cloud egress charges are significant, data is moving in patterns that were not intentionally designed. Cost and carbon align without additional justification.</p>
-        </div>
-        <div>
-          <div class="dp-good">
-            <h5>✓ Network efficiency levers</h5>
-            <ul class="dp-list">
-              <li>Minimise unnecessary data movement — every API call transferring excess data aggregates at scale</li>
-              <li>Reduce cross-region replication to what's justified — revisit defaults set under different constraints</li>
-              <li>Cache at the appropriate layer — repeated transfers of static content are avoidable</li>
-              <li>Review video conferencing defaults — high-resolution by default is a policy choice, not a technical requirement</li>
-              <li>Treat egress costs and footprint as the same signal — they are</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
+<div class="domain-explorer">
+<div class="domain-tabs">
+<button class="domain-tab active" onclick="showDomain('enduser', this)">End-User Services</button>
+<button class="domain-tab" onclick="showDomain('datacentre', this)">Data Centres</button>
+<button class="domain-tab" onclick="showDomain('cloud', this)">Cloud & Platforms</button>
+<button class="domain-tab" onclick="showDomain('software', this)">Software & Data</button>
+<button class="domain-tab" onclick="showDomain('hardware', this)">Hardware Lifecycle</button>
+<button class="domain-tab" onclick="showDomain('ai', this)">AI & Multipliers</button>
+<button class="domain-tab" onclick="showDomain('networks', this)">Networks</button>
 </div>
 
-<!-- SECTION 2 — PUE + Utilisation interactive -->
+<div class="domain-panels">
+
+<!-- END-USER SERVICES -->
+<div class="domain-panel active" id="domain-enduser">
+<h3>End-User Services</h3>
+<p>The footprint of end-user services is dominated by embodied impact. A laptop's manufacturing footprint — energy, materials, mining, fabrication, logistics — can outweigh its operational electricity across the entire working life. The biggest levers are lifecycle and procurement decisions, not monitor-switching campaigns.</p>
+
+<h4>Key waste patterns</h4>
+<p>Death by a thousand defaults. Extra devices issued by course. Peripheral sprawl: two monitors regardless of need. Docking stations accumulating in storage rooms. Laptops air-freighted because onboarding was planned at the last minute. Each decision is small. Across an estate, they add up to material footprint.</p>
+
+<div class="domain-levers">
+<h5>Operational Levers</h5>
+<ul>
+<li>Device standards by role — accounting for power draw, repairability, and expected lifespan, not just performance</li>
+<li>Power management defaults enforced centrally rather than left to individuals</li>
+<li>Recovery and redeploy processes that are genuinely easier than ordering replacement devices</li>
+<li>Accessory management treating cables, chargers, and docking stations as assets with lifecycle, not consumables</li>
+<li>Device count governance — how many people have both laptop and desktop when one would do?</li>
+<li>Virtual desktop infrastructure for role-based workloads — shifting to well-utilised shared servers</li>
+<li>Explicit AI usage governance with model selection and inference controls</li>
+</ul>
+</div>
+
+<div class="example-list">
+<div class="example-item"><strong>The device refresh trap:</strong> Three-year mandatory cycle applied uniformly. Evidence-led approach replaces this with role-based and security-justified timing.</div>
+<div class="example-item"><strong>Virtualisation shift:</strong> Browser-and-document-based roles move to thin clients on shared infrastructure. Device becomes lightweight terminal; embodied impact shifts to shared, longer-lived infrastructure.</div>
+<div class="example-item"><strong>Recovery friction:</strong> If returning kit is harder than ordering new, replacement will always win. Frictionless recovery process is the only governance that sticks.</div>
+</div>
+</div>
+
+<!-- DATA CENTRES -->
+<div class="domain-panel" id="domain-datacentre">
+<h3>Data Centres</h3>
+<p>Data centre footprint is concentrated and measurable. This is also where poor measurement creates credibility failures. PUE matters — but PUE alone is dangerous. A lightly loaded data centre can show respectable PUE and still be wasteful in absolute terms.</p>
+
+<h4>Core metrics and their meaning</h4>
+<div class="pue-matrix">
+<div class="pue-scenario good">
+<div class="pue-scenario-title">Good PUE + High Utilisation</div>
+<div class="pue-scenario-desc">Efficient facility. IT equipment doing useful work. This is the target state.</div>
+</div>
+<div class="pue-scenario poor">
+<div class="pue-scenario-title">Good PUE + Low Utilisation</div>
+<div class="pue-scenario-desc">Cooling efficiently — but the IT equipment being cooled is not producing much work. Hidden waste.</div>
+</div>
+<div class="pue-scenario poor">
+<div class="pue-scenario-title">Poor PUE + High Utilisation</div>
+<div class="pue-scenario-desc">Infrastructure improvement needed. Equipment is productive; facility overhead is high. Targeted cooling improvements.</div>
+</div>
+<div class="pue-scenario poor">
+<div class="pue-scenario-title">Poor PUE + Low Utilisation</div>
+<div class="pue-scenario-desc">Urgent action required. Both the facility and the equipment are inefficient.</div>
+</div>
+</div>
+
+<h4>Metrics beyond PUE</h4>
+<div class="domain-levers">
+<h5>The measurement maturity chain</h5>
+<ul>
+<li><strong>PUE:</strong> Total facility power ÷ IT equipment power. Context: ~1.1 is exceptional; most enterprise facilities materially higher.</li>
+<li><strong>Utilisation:</strong> Actual server load as percentage of capacity. Follow-up question to any PUE claim: what is IT utilisation and the consolidation plan?</li>
+<li><strong>WUE (Water Usage Effectiveness):</strong> In water-stressed regions, non-negotiable. Links cooling approach to water dependency and resilience risk.</li>
+<li><strong>CUE (Carbon Usage Effectiveness):</strong> Operational energy to carbon. Bridge metric. Moves with facility change, energy sourcing, or grid intensity.</li>
+<li><strong>REF & ERF:</strong> Renewable Energy Factor and Energy Reuse Factor. Only credible with stated definitions, metering coverage, and evidence.</li>
+</ul>
+</div>
+
+<div class="metric-note">
+<strong>The metric theatre problem:</strong> Most organisations fail not from lacking metrics, but from using them as theatre. Design PUE presented as operational reality. Annual averages hiding seasonal collapse. Portfolio averages masking worst sites. No hall-level visibility. Renewable claims without boundary definitions. Test every metric with: can this team explain the calculation, boundary, and instruments used?
+</div>
+</div>
+
+<!-- CLOUD & PLATFORMS -->
+<div class="domain-panel" id="domain-cloud">
+<h3>Cloud and Platform Operations</h3>
+<p>Cloud is not inherently more sustainable. Hyperscalers achieve better utilisation than most enterprise data centres, but cloud sustainability is not automatic. The decisions you make about how you use cloud determine whether efficiency benefits are realised or whether waste scales faster.</p>
+
+<h4>The biggest waste category</h4>
+<p>Idle or over-provisioned compute. Instances running continuously with low utilisation. Resources provisioned generously and never right-sized. Non-production environments left running. Storage accumulating without retention policy. Resilience provisioned at most expensive defaults because defaults were never challenged.</p>
+
+<h4>The continuous control loop: Five-part discipline</h4>
+<div class="control-loop">
+<div class="control-loop-step" onclick="toggleControlLoop(0)">
+<span class="step-num">1</span>
+<h4>Visibility and Attribution</h4>
+<div class="control-loop-detail">
+If you cannot attribute consumption, you cannot govern it. Every material resource needs an owner, environment label, and service identifier. Tagging is not housekeeping — it is accountability. Untagged resources are non-compliant by definition. Nobody is responsible; nothing gets optimised.
+</div>
+</div>
+<div class="control-loop-step" onclick="toggleControlLoop(1)">
+<span class="step-num">2</span>
+<h4>Baselining Unit Economics</h4>
+<div class="control-loop-detail">
+Total cost and consumption figures suit annual reporting. Operations need unit measures: carbon per VM-hour, idle percentage, utilisation distributions, storage growth by service. For top services, carbon per transaction or API call. That is where the conversation becomes actionable.
+</div>
+</div>
+<div class="control-loop-step" onclick="toggleControlLoop(2)">
+<span class="step-num">3</span>
+<h4>Remediation Hierarchy</h4>
+<div class="control-loop-detail">
+Start low-risk: enforce time-to-live on non-production, kill zombie resources, delete orphaned storage, rightsize based on observed utilisation. Move to structural levers: consolidate platforms, revisit availability patterns to match actual requirements, get serious about Kubernetes resource requests, limits, bin packing, and node lifecycle.
+</div>
+</div>
+<div class="control-loop-step" onclick="toggleControlLoop(3)">
+<span class="step-num">4</span>
+<h4>Guardrails for Prevention</h4>
+<div class="control-loop-detail">
+If you fix waste once and it returns next month, you have done clean-up, not improvement. Guardrails prevent recurrence: policy-as-code for tagging and ownership, default sizing limits with clear exception routes, mandatory termination for non-production, conservative retention defaults unless justified, platform templates encoding efficient defaults.
+</div>
+</div>
+<div class="control-loop-step" onclick="toggleControlLoop(4)">
+<span class="step-num">5</span>
+<h4>Verification and Institutionalisation</h4>
+<div class="control-loop-detail">
+Verify savings not only in cost but in consumption drivers: is idle percentage falling? Is carbon per VM-hour improving? For key services, is carbon per transaction moving right? Bake the loop into governance: FinOps reviews, platform reliability reviews, architecture review boards. GreenOps becomes normal operating governance.
+</div>
+</div>
+</div>
+
+<h4>Region selection as a lever</h4>
+<p>Cloud providers operate in regions with substantially different grid carbon intensity. Equivalent workloads in renewable-powered regions versus fossil-heavy grids can mean a tenfold difference. For flexible workloads — no strict data residency, no sub-second latency constraint — region selection is a real, practical GreenOps lever.</p>
+</div>
+
+<!-- SOFTWARE & DATA -->
+<div class="domain-panel" id="domain-software">
+<h3>Software and Data</h3>
+<p>Software behaviour is one of the most underestimated sustainability levers. How software is designed determines computational work, data generation, retention, and unnecessary movement. These decisions compound over a service's lifetime.</p>
+
+<h4>The Software Carbon Intensity model</h4>
+<p>Carbon is driven by energy, which is driven by computational work, multiplied by grid carbon intensity. Reduce compute per transaction; reduce energy per transaction; reduce carbon per transaction. The SCI formula prevents the efficiency-growth trap: a service can emit more in total while improving in intensity. Governance requires understanding which direction is moving.</p>
+
+<h4>Impactful software sustainability decisions</h4>
+<div class="domain-levers">
+<h5>Key considerations</h5>
+<ul>
+<li>Computation required to perform the task (optimise algorithms; avoid unnecessary processing)</li>
+<li>Data generation, retention, and replication (dark data is one of the fastest-remediable waste categories)</li>
+<li>Background process frequency (is it genuinely needed at that cadence?)</li>
+<li>Data movement between services and regions (intentional or unconsidered architecture?)</li>
+<li>Telemetry and logging intensity (most organisations collect more than they actively use)</li>
+</ul>
+</div>
+
+<h4>Dark data and data minimisation</h4>
+<p>Dark data — stored, protected, backed up, replicated, but never accessed — is common and easily remediable. It accumulates because default retention is permissive, because storage was historically cheap, and because no process questions whether data still serves a purpose. Start with data minimisation: collect only what you have clear use for, define retention at creation, treat storage growth as a performance metric.</p>
+
+<div class="example-list">
+<div class="example-item"><strong>Telemetry excess:</strong> Logs retained at maximum resolution for maximum retention period regardless of operational need. Metrics streamed continuously when periodic sampling would serve the purpose. At enterprise scale, material storage and processing with no business value.</div>
+<div class="example-item"><strong>Retention by default:</strong> Databases replicated to dev with production data; never cleaned. S3 buckets from deprecated services still paying monthly fees. Simple process change — retention rules and automated cleanup — recovers material waste.</div>
+</div>
+</div>
+
+<!-- HARDWARE LIFECYCLE -->
+<div class="domain-panel" id="domain-hardware">
+<h3>Hardware Lifecycle and Circular Economy</h3>
+<p>Embodied carbon in hardware is substantial. For laptops, it typically represents the majority of lifetime footprint. For servers, the balance depends on utilisation and grid intensity, but embodied impact is always material. Procurement and end-of-life decisions matter as much as operational efficiency.</p>
+
+<h4>The full lifecycle chain</h4>
+<div class="hardware-lifecycle">
+<div class="lifecycle-chain">
+<div class="lifecycle-stage" onclick="toggleLifecycle('selection')">
+<div class="lifecycle-stage-label">Selection</div>
+</div>
+<div class="lifecycle-arrow">→</div>
+<div class="lifecycle-stage" onclick="toggleLifecycle('deployment')">
+<div class="lifecycle-stage-label">Deployment</div>
+</div>
+<div class="lifecycle-arrow">→</div>
+<div class="lifecycle-stage" onclick="toggleLifecycle('use')">
+<div class="lifecycle-stage-label">Use</div>
+</div>
+<div class="lifecycle-arrow">→</div>
+<div class="lifecycle-stage" onclick="toggleLifecycle('redeploy')">
+<div class="lifecycle-stage-label">Redeploy</div>
+</div>
+<div class="lifecycle-arrow">→</div>
+<div class="lifecycle-stage" onclick="toggleLifecycle('repair')">
+<div class="lifecycle-stage-label">Repair</div>
+</div>
+<div class="lifecycle-arrow">→</div>
+<div class="lifecycle-stage" onclick="toggleLifecycle('refurbish')">
+<div class="lifecycle-stage-label">Refurbish</div>
+</div>
+<div class="lifecycle-arrow">→</div>
+<div class="lifecycle-stage" onclick="toggleLifecycle('eol')">
+<div class="lifecycle-stage-label">End-of-Life</div>
+</div>
+</div>
+
+<div class="lifecycle-detail" id="lifecycle-selection">
+<h5>Selection</h5>
+<p>Procurement driven by performance and price with sustainability as afterthought. Wrong approach. Include: full lifecycle footprint, repairability score, spare parts availability and support for expected lifespan, manufacturer take-back programme and evidence of actual refurbishment. Supply chain risk: rare earth minerals, conflict minerals, labour standards (Responsible Business Alliance Code of Conduct).</p>
+</div>
+<div class="lifecycle-detail" id="lifecycle-deployment">
+<h5>Deployment</h5>
+<p>When and how devices reach users. Air-freighted because onboarding was left to the last minute amplifies embodied impact. Logistics planning is a sustainability decision.</p>
+</div>
+<div class="lifecycle-detail" id="lifecycle-use">
+<h5>Use</h5>
+<p>Operational energy draw and utilisation. For laptops, typically smaller than embodied impact. For servers, balance depends on grid intensity and usage patterns.</p>
+</div>
+<div class="lifecycle-detail" id="lifecycle-redeploy">
+<h5>Redeploy</h5>
+<p>If device is viable, move to lower-demand user tier before retirement. Requires real asset tracking and a process genuinely easier than ordering new — otherwise intention will not survive reality.</p>
+</div>
+<div class="lifecycle-detail" id="lifecycle-repair">
+<h5>Repair</h5>
+<p>Treat repairability as procurement requirement, not aspiration. Spare parts, repair SLAs, battery replacement, upgrade paths. If device cannot be repaired economically, refresh cycle is forced regardless of policy position.</p>
+</div>
+<div class="lifecycle-detail" id="lifecycle-refurbish">
+<h5>Refurbish</h5>
+<p>Extend life through certified refurbishment. Only credible with evidence and standards compliance.</p>
+</div>
+<div class="lifecycle-detail" id="lifecycle-eol">
+<h5>End-of-Life</h5>
+<p>ITAD is an evidence-generating process, not a disposal contract. Chain-of-custody documentation, verified treatment routes, data sanitisation certificates to recognised standards, reporting supporting audit and ESG disclosure. If you cannot trace what happened, you cannot credibly claim sustainability.</p>
+</div>
+</div>
+
+<h4>Avoiding trade-off traps</h4>
+<div class="domain-levers">
+<h5>Common mistakes to avoid</h5>
+<ul>
+<li><strong>The extension trap:</strong> Extending asset life is often right. But if older hardware is dramatically less energy-efficient for the workload, keeping it longer increases operational energy. Decision depends on workload, utilisation, and grid intensity.</li>
+<li><strong>The premature refresh trap:</strong> Refreshing early in the name of efficiency without accounting for embodied impact increases e-waste and lifecycle carbon.</li>
+<li><strong>The comparison trap:</strong> A server with higher product footprint might be more efficient per unit of delivered compute if it does the same work with fewer machines. Compare on functional basis relevant to workload, not headline numbers.</li>
+</ul>
+</div>
+</div>
+
+<!-- AI -->
+<div class="domain-panel" id="domain-ai">
+<h3>AI as a Cross-Cutting Multiplier</h3>
+<p>AI is not a separate sustainability topic — it is a multiplier across everything else. The main risk for most organisations is not headline-grabbing training runs. It is inference demand scaling silently across hundreds or thousands of users, embedded in products, left ungoverned because it feels like productivity.</p>
+
+<h4>The multiplier disciplines</h4>
+<div class="domain-levers">
+<h5>Key governance areas</h5>
+<ul>
+<li><strong>Model selection:</strong> Substantial energy difference between small, fine-tuned model and general-purpose frontier model. Right-size the model to the task. Use the smallest model that reliably achieves the outcome.</li>
+<li><strong>Prompt and interaction design:</strong> Every token sent and received drives compute. Longer prompts, longer outputs, extended context windows increase inference load. Intentional use, not habitual.</li>
+<li><strong>Caching and architecture:</strong> If same queries are made repeatedly, cache responses. If AI is embedded in a product, minimise unnecessary model calls — pre-screen whether query genuinely requires inference.</li>
+<li><strong>Unit economics accountability:</strong> Product owners accountable for AI unit economics: value per inference, cost per inference, guardrails preventing unnecessary model calls.</li>
+</ul>
+</div>
+
+<h4>Stop-doing and start-doing lists</h4>
+<div class="ai-lists">
+<div class="ai-list-col stop-list">
+<h4>Stop Doing (Waste Prevention)</h4>
+<div class="ai-item" onclick="toggleAIItem(this)">
+<div class="ai-item-title">Stop using biggest model by default</div>
+<div class="ai-item-detail">If smaller model is fit for purpose, use it. Make that the default, not the exception. Most routine tasks do not require frontier-class inference.</div>
+</div>
+<div class="ai-item" onclick="toggleAIItem(this)">
+<div class="ai-item-title">Stop stuffing context with full documents</div>
+<div class="ai-item-detail">Extract relevant excerpt. If you cannot explain why full document is needed, it probably is not. Context window overhead is real compute cost.</div>
+</div>
+<div class="ai-item" onclick="toggleAIItem(this)">
+<div class="ai-item-title">Stop letting chat threads grow indefinitely</div>
+<div class="ai-item-detail">Long-running threads carry significant context overhead. Start fresh when context is no longer relevant. Reset discipline saves compute and clarifies thinking.</div>
+</div>
+<div class="ai-item" onclick="toggleAIItem(this)">
+<div class="ai-item-title">Stop vague questions, then iterate five times</div>
+<div class="ai-item-detail">Be specific. Constrain output. Tell model what good looks like from start. Iterative refinement is expensive; clear framing is efficient.</div>
+</div>
+<div class="ai-item" onclick="toggleAIItem(this)">
+<div class="ai-item-title">Stop generating outputs you will not use</div>
+<div class="ai-item-detail">Want bullet summary? Ask for bullet summary. Want short answer? Enforce length limit. Long outputs are compute waste if they are discarded.</div>
+</div>
+<div class="ai-item" onclick="toggleAIItem(this)">
+<div class="ai-item-title">Stop using AI where search or templates work</div>
+<div class="ai-item-detail">AI is a tool for specific use cases, not default replacement for thinking. Search queries and rules-based workflows are cheaper and faster.</div>
+</div>
+<div class="ai-item" onclick="toggleAIItem(this)">
+<div class="ai-item-title">Stop running non-urgent jobs in peak carbon periods</div>
+<div class="ai-item-detail">If it can run later, schedule it later. Batching AI workloads into lower-carbon periods reduces absolute footprint without reducing capability.</div>
+</div>
+<div class="ai-item" onclick="toggleAIItem(this)">
+<div class="ai-item-title">Stop treating AI consumption as ungoverned</div>
+<div class="ai-item-detail">If you cannot see usage, you cannot manage it. Track calls, tokens, and cost by team and use case. Visibility is the foundation of governance.</div>
+</div>
+</div>
+
+<div class="ai-list-col start-list">
+<h4>Start Doing (Governance)</h4>
+<div class="ai-item" onclick="toggleAIItem(this)">
+<div class="ai-item-title">Start right-sizing models by use case</div>
+<div class="ai-item-detail">Simple tiering: small for routine tasks, mid-range for reasoning, frontier-class only where it changes outcome. Default to smallest model that works reliably.</div>
+</div>
+<div class="ai-item" onclick="toggleAIItem(this)">
+<div class="ai-item-title">Start measuring AI consumption properly</div>
+<div class="ai-item-detail">At minimum: calls per user, tokens per request, cost per call. If embedded in service, track tokens per transaction so you see whether intensity is drifting.</div>
+</div>
+<div class="ai-item" onclick="toggleAIItem(this)">
+<div class="ai-item-title">Start designing prompts that enable efficient behaviour</div>
+<div class="ai-item-detail">Use templates. Default to short outputs. Make it easy to provide only relevant excerpt rather than paste whole documents. Efficient defaults win over education.</div>
+</div>
+<div class="ai-item" onclick="toggleAIItem(this)">
+<div class="ai-item-title">Start batching and caching wherever sensible</div>
+<div class="ai-item-detail">Repeatedly asked questions should not trigger repeated inference every time. Cache stable answers and standard outputs. Batch back-office workloads where latency is not critical.</div>
+</div>
+<div class="ai-item" onclick="toggleAIItem(this)">
+<div class="ai-item-title">Start treating non-urgent workloads as flexible load</div>
+<div class="ai-item-detail">Embeddings, classification, summarisation pipelines, evaluation, reporting — schedule for lower-carbon periods. Flexibility reduces absolute footprint.</div>
+</div>
+<div class="ai-item" onclick="toggleAIItem(this)">
+<div class="ai-item-title">Start putting lightweight user training in place</div>
+<div class="ai-item-detail">Not a lecture. Short guide: be specific, set constraints, avoid context stuffing, avoid long outputs, restart threads when context no longer relevant. Reinforce through interface.</div>
+</div>
+<div class="ai-item" onclick="toggleAIItem(this)">
+<div class="ai-item-title">Start making product owners accountable for unit economics</div>
+<div class="ai-item-detail">If AI is a feature, owner should explain value per unit and cost per unit, not just say users like it. Accountability drives rightsizing discipline.</div>
+</div>
+<div class="ai-item" onclick="toggleAIItem(this)">
+<div class="ai-item-title">Start building guardrails early, while controllable</div>
+<div class="ai-item-detail">Once behaviour is entrenched, much harder to unwind. Policy-as-code, usage limits, cost alerts, and model defaults prevent silent scale.</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- NETWORKS -->
+<div class="domain-panel" id="domain-networks">
+<h3>Networks</h3>
+<p>Networks are invisible infrastructure with frequently omitted sustainability impact. Data is hard to access; control points are indirect. That does not make them unimportant — it makes them easy to avoid. The practical answer is that egress cost and egress footprint move together.</p>
+
+<h4>The data movement footprint</h4>
+<p>Every API call transferring data unnecessarily. Every cross-region synchronisation serving no operational purpose. Every video stream at resolution higher than the connection will display. Every chatty microservice architecture generating constant internal traffic. These aggregate into real network energy consumption at scale.</p>
+
+<h4>Practical levers for network sustainability</h4>
+<div class="domain-levers">
+<h5>Key interventions</h5>
+<ul>
+<li>Design systems that minimise unnecessary data movement (architecture discipline)</li>
+<li>Reduce cross-region replication to what is operationally justified, not default paranoia</li>
+<li>Cache at appropriate layer to avoid repeated data transfers for static or slowly changing content</li>
+<li>Compress payloads where bandwidth is the constraint</li>
+<li>Review video conferencing policies where high-resolution streaming is default regardless of context</li>
+<li>Monitor egress costs as signal of unintentional data movement patterns</li>
+</ul>
+</div>
+
+<div class="metric-note">
+<strong>Egress as a sustainability signal:</strong> If cloud egress charges are significant, data is moving in patterns that were not intentionally designed. Egress cost and egress footprint move together — one of the areas where cost and carbon genuinely align without requiring additional justification.
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- KNOWLEDGE CHECK 1 -->
 <div class="content-section reveal">
-  <p class="section-label">Section 2</p>
-  <h2 class="section-title">PUE and utilisation — both dials matter.</h2>
-  <p class="section-intro">A good PUE on a lightly loaded site is not a success — it's a warning sign. The goal is high utilisation at improving efficiency. Hover over the dots to understand each scenario.</p>
-
-  <div class="viz-container reveal">
-    <p class="viz-title">Data centre performance — PUE vs IT utilisation (hover for detail)</p>
-    <div class="pue-util-chart" id="pueChart">
-      <!-- Zone: target -->
-      <div class="zone-target" style="right:5%; top:5%; width:30%; height:35%;"></div>
-      <div class="zone-label" style="right:6%; top:6%;">★ Target zone</div>
-
-      <!-- Y axis labels -->
-      <div class="chart-y-labels">
-        <span class="chart-y-label">1.1</span>
-        <span class="chart-y-label">1.3</span>
-        <span class="chart-y-label">1.5</span>
-        <span class="chart-y-label">1.7</span>
-        <span class="chart-y-label">2.0</span>
-      </div>
-
-      <!-- X labels -->
-      <div class="chart-x-label left">Low utilisation</div>
-      <div class="chart-x-title">← IT Server Utilisation →</div>
-      <div class="chart-x-label right">High utilisation</div>
-
-      <!-- Scenario dots -->
-      <div class="chart-dot" style="left:15%; bottom:35%; background: var(--orange); width:12px; height:12px;" title="">
-        <div class="dot-tooltip">A: PUE 1.45, Util 15%<br>"Reporting win, operational failure"<br>Good facility, wasted compute</div>
-      </div>
-      <div class="chart-dot" style="left:25%; bottom:60%; background:#ef4444;" title="">
-        <div class="dot-tooltip">B: PUE 2.0, Util 20%<br>"Double failure"<br>Inefficient facility AND low utilisation</div>
-      </div>
-      <div class="chart-dot" style="left:60%; bottom:35%; background: #D4A017;" title="">
-        <div class="dot-tooltip">C: PUE 1.45, Util 65%<br>"Acceptable — improving"<br>Reasonable utilisation, scope to improve PUE</div>
-      </div>
-      <div class="chart-dot" style="left:75%; bottom:62%; background: var(--teal);" title="">
-        <div class="dot-tooltip">D: PUE 1.2, Util 80%<br>"★ Target zone"<br>High utilisation, efficient facility</div>
-      </div>
-      <div class="chart-dot" style="left:85%; bottom:70%; background: var(--teal-muted); width:14px; height:14px;" title="">
-        <div class="dot-tooltip">E: PUE 1.1, Util 85%<br>"Exceptional"<br>Hyperscale-level performance on both metrics</div>
-      </div>
-      <div class="chart-dot" style="left:40%; bottom:20%; background:#a855f7;" title="">
-        <div class="dot-tooltip">F: PUE 1.8, Util 40%<br>"Common enterprise reality"<br>Legacy facility, moderate utilisation — needs investment</div>
-      </div>
-    </div>
-    <div class="callout callout-insight" style="margin-top:0.5rem;">
-      <p><strong>First lever: improve utilisation before spending capital on facility efficiency improvements.</strong> A rightsizing programme that takes utilisation from 20% to 60% on an existing facility delivers more absolute carbon reduction than a PUE improvement project on a lightly loaded site.</p>
-    </div>
-  </div>
+<p class="section-label">Knowledge Check 1</p>
+<h2 class="section-title">End-user device footprint</h2>
+<div class="kc-container">
+<div class="kc-question">What typically represents the majority of a laptop's lifetime environmental footprint?</div>
+<div class="kc-options">
+<div class="kc-option" onclick="selectKC(this, 0)">A) Operational electricity consumption during the device's 5-year lifespan</div>
+<div class="kc-option" onclick="selectKC(this, 1)">B) Manufacturing, mining, fabrication, and logistics — the embodied carbon before it reaches the user's desk</div>
+<div class="kc-option" onclick="selectKC(this, 2)">C) End-of-life recycling and disposal processes</div>
+<div class="kc-option" onclick="selectKC(this, 3)">D) Network and cloud infrastructure used to provision device software</div>
+</div>
+<div class="kc-feedback"></div>
+</div>
 </div>
 
-<!-- SECTION 3 — AI Stop/Start INTERACTIVE -->
+<!-- KNOWLEDGE CHECK 2 -->
 <div class="content-section reveal">
-  <p class="section-label">Section 3</p>
-  <h2 class="section-title">AI consumption — what to stop and start doing.</h2>
-  <p class="section-intro">These are the defaults that silently burn compute for no proportionate value, and the disciplines that let AI scale without becoming a silent waste engine. Neither list is a restriction on using AI well.</p>
-
-  <div class="stop-start reveal">
-    <div class="stop-col">
-      <div class="ss-heading">What to stop doing</div>
-      <ul class="ss-list">
-        <li>Using the biggest model by default when a smaller one is fit for purpose</li>
-        <li>Stuffing the context window with entire documents that aren't needed in full</li>
-        <li>Letting chat threads grow indefinitely — long threads carry silent context overhead</li>
-        <li>Asking vague questions and iterating five times — be specific from the start</li>
-        <li>Generating long outputs you won't use — enforce a length limit</li>
-        <li>Using AI where a search query, template, or rules-based workflow would do the job</li>
-        <li>Running non-urgent AI jobs in peak-carbon periods out of habit</li>
-        <li>Treating AI consumption as ungoverned — if you can't see usage, you can't manage it</li>
-      </ul>
-    </div>
-    <div class="start-col">
-      <div class="ss-heading">What to start doing</div>
-      <ul class="ss-list">
-        <li>Right-size models by use case — smallest reliable model as the default</li>
-        <li>Measure AI consumption: calls per user, tokens per request, cost per call</li>
-        <li>Use templates and default to short outputs — design for efficient behaviour</li>
-        <li>Batch and cache wherever it makes sense — repeated queries shouldn't regenerate</li>
-        <li>Treat non-urgent AI as flexible load — schedule for lower-carbon windows</li>
-        <li>Make product owners accountable for AI unit economics — value per inference</li>
-        <li>Require governance sign-off before deploying frontier models as organisational defaults</li>
-      </ul>
-    </div>
-  </div>
+<p class="section-label">Knowledge Check 2</p>
+<h2 class="section-title">PUE and utilisation</h2>
+<div class="kc-container">
+<div class="kc-question">A data centre reports a PUE of 1.15 (which is good). Server utilisation is 8%. What does this tell you?</div>
+<div class="kc-options">
+<div class="kc-option" onclick="selectKC(this, 0)">A) The data centre is highly efficient and requires no improvement</div>
+<div class="kc-option" onclick="selectKC(this, 1)">B) The facility is cooling efficiently, but the IT equipment being cooled is not producing much useful work — hidden waste pattern</div>
+<div class="kc-option" onclick="selectKC(this, 2)">C) The utilisation is irrelevant; PUE is the only metric that matters</div>
+<div class="kc-option" onclick="selectKC(this, 3)">D) Server consolidation and decommissioning should be the immediate priority</div>
+</div>
+<div class="kc-feedback"></div>
+</div>
 </div>
 
-<!-- KC 1 -->
-<div class="kc-block reveal" data-correct="A">
-  <p class="kc-label">Knowledge Check · Module 4 · Q1</p>
-  <p class="kc-q">An IT manager presents data centre sustainability performance using the portfolio average PUE of 1.45 and states the estate is running on "renewable energy." What two follow-up questions should you ask?</p>
-  <div class="kc-options">
-    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>What is the IT server utilisation across the estate? And what instruments support the renewable energy claim — certificates, PPAs, or on-site generation?</button>
-    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>What is the design PUE for the newest facility? And what is the annual water consumption?</button>
-    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>What percentage of devices are energy-rated? And what is the average age of the server estate?</button>
-    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>Is the estate LEED certified? And what is the annual power bill?</button>
-  </div>
-  <p class="kc-hint">Select an answer to reveal the explanation.</p>
-  <div class="kc-reveal">
-    <p class="kc-reveal-label">✓ Correct: Option A</p>
-    <p>Portfolio average PUE is one of the most commonly misused metrics in IT sustainability. It blends best and worst sites, hides seasonal variation, and — crucially — tells you nothing about whether the IT equipment being powered is actually doing useful work. A lightly loaded estate can show a respectable PUE while consuming significant energy for very little computational output. The first follow-up is always: what is server utilisation, and what's the plan to improve it?</p>
-    <p>The renewable energy question matters equally. "Renewable energy" can mean very different things: location-based grid renewables, purchased certificates with varying quality, power purchase agreements for dedicated capacity, or on-site generation. Without knowing which instruments are in use and what their boundary is, the claim is narrative rather than evidence.</p>
-  </div>
+<!-- KNOWLEDGE CHECK 3 -->
+<div class="content-section reveal">
+<p class="section-label">Knowledge Check 3</p>
+<h2 class="section-title">Cloud control loop</h2>
+<div class="kc-container">
+<div class="kc-question">Your cloud platform team discovers idle instances and right-sizes them, reducing consumption. One month later, idle instances reappear. What is the missing step in the control loop?</div>
+<div class="kc-options">
+<div class="kc-option" onclick="selectKC(this, 0)">A) More aggressive right-sizing recommendations</div>
+<div class="kc-option" onclick="selectKC(this, 1)">B) Guardrails — policy-as-code for default sizing limits, mandatory termination for non-production, platform templates encoding efficient defaults</div>
+<div class="kc-option" onclick="selectKC(this, 2)">C) Switching to a different cloud provider with lower costs</div>
+<div class="kc-option" onclick="selectKC(this, 3)">D) Increasing the frequency of manual clean-up reviews</div>
+</div>
+<div class="kc-feedback"></div>
+</div>
 </div>
 
-<!-- KC 2 -->
-<div class="kc-block reveal" data-correct="C">
-  <p class="kc-label">Knowledge Check · Module 4 · Q2</p>
-  <p class="kc-q">A product team is deploying a large frontier AI model as the default assistant for all staff, including for writing short emails and basic search tasks. What is the most accurate GreenOps assessment of this decision?</p>
-  <div class="kc-options">
-    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>Acceptable — staff productivity gains offset any additional inference cost</button>
-    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>Correct approach — using the most capable model maximises quality across all tasks</button>
-    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>A governance failure — AI model selection should match the task requirement. Routine tasks should use smaller, fit-for-purpose models as the default to avoid unnecessary inference consumption</button>
-    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>Only a concern if the model is running on non-renewable infrastructure</button>
-  </div>
-  <p class="kc-hint">Select an answer to reveal the explanation.</p>
-  <div class="kc-reveal">
-    <p class="kc-reveal-label">✓ Correct: Option C</p>
-    <p>The inference demand from a large frontier model is materially higher than from a smaller, fine-tuned model performing an equivalent task. When that model is deployed as the default for everything — including tasks that could be handled by something far lighter — inference consumption scales at the rate of adoption, not at the rate of genuine value delivered.</p>
-    <p>This is a governance failure, not a technical one. The fix is model tiering: a framework that assigns model types to task categories, makes the smallest fit-for-purpose model the default, and requires a clear justification to escalate to a heavier model.</p>
-  </div>
+<!-- KNOWLEDGE CHECK 4 -->
+<div class="content-section reveal">
+<p class="section-label">Knowledge Check 4</p>
+<h2 class="section-title">AI model selection</h2>
+<div class="kc-container">
+<div class="kc-question">An organisation is using frontier-class AI models for routine email composition, short summaries, and routine document formatting. The best GreenOps intervention is:</div>
+<div class="kc-options">
+<div class="kc-option" onclick="selectKC(this, 0)">A) Restrict AI use entirely for cost reasons</div>
+<div class="kc-option" onclick="selectKC(this, 1)">B) Right-size the model tier by use case — small models for routine tasks, mid-range for reasoning, frontier-class only where it changes the outcome</div>
+<div class="kc-option" onclick="selectKC(this, 2)">C) Increase the context window to allow more information in a single query</div>
+<div class="kc-option" onclick="selectKC(this, 3)">D) Monitor token usage but allow current model selection to continue</div>
+</div>
+<div class="kc-feedback"></div>
+</div>
 </div>
 
-<!-- PAUSE AND REFLECT -->
+<!-- PAUSE & REFLECT -->
 <div class="pause-reflect reveal">
-  <p class="pause-label">⏸ Pause &amp; Reflect</p>
-  <p class="pause-intro">Take 5–10 minutes. Write answers down. Specificity matters more than completeness.</p>
-  <div class="pause-questions">
-    <div class="pause-q"><span class="pause-q-num">1</span>Which of the seven domains has the largest footprint in your organisation right now — and do you have measurement to confirm that, or is it an assumption?</div>
-    <div class="pause-q"><span class="pause-q-num">2</span>Where in your estate is waste most likely to be hiding? Pick one domain and one specific waste pattern you suspect is present. What would it take to confirm it and put a number on it?</div>
-    <div class="pause-q"><span class="pause-q-num">3</span>Is AI consumption in your organisation currently governed, measured, or ungoverned? If ungoverned — who would need to be involved to change that, and what's the first step?</div>
-  </div>
+<h2>Before you move ahead: Pause and reflect</h2>
+<p>Which domain in your estate has the most obvious governance gap? Where could your organisation pull a single lever that would move multiple metrics at once? That is where GreenOps begins.</p>
 </div>
 
-<!-- KEY TAKEAWAYS -->
-<div class="takeaways reveal">
-  <h3 class="takeaways-heading">Module 4 — Key Takeaways</h3>
-  <div class="takeaway-list">
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Different domains need different lenses.</strong><p>The biggest lever in end-user services is lifecycle. In cloud, it's utilisation discipline. In software, it's compute per transaction. Applying one narrative everywhere produces poor decisions.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>PUE without utilisation is dangerous.</strong><p>A lightly loaded data centre can show a respectable PUE and still be wasteful in absolute terms. Always ask about server utilisation alongside facility efficiency metrics.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Software decisions compound over a service's lifetime.</strong><p>Inefficient code patterns, unchecked data growth, and ungoverned telemetry aggregate into material footprints at scale — and are rarely attributed to the engineering decisions that drove them.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Hardware lifecycle governance starts at design, not disposal.</strong><p>Embodied carbon is determined by procurement and use decisions made years before end-of-life. Evidence-based refresh cycles and circular economy criteria are the lever — not the recycling bin.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>AI inference is the fastest-growing ungoverned consumption category.</strong><p>The risk is not headline training jobs. It's routine inference at scale, embedded in workflows, consuming compute for no proportionate value because nobody has made governance the default.</p></div></div>
-  </div>
+<!-- TAKEAWAYS -->
+<div class="takeaways-section reveal">
+<h2>Key takeaways from Module 4</h2>
+<div class="takeaways-grid">
+<div class="takeaway-card">
+<h4>Embodied impact dominates end-user devices</h4>
+<p>Procurement and lifecycle decisions matter more than switch-off campaigns. Recovery and redeploy processes must be easier than ordering new.</p>
+</div>
+<div class="takeaway-card">
+<h4>PUE without utilisation is incomplete</h4>
+<p>Good facility efficiency with low server utilisation is hidden waste. Follow PUE with the utilisation question and consolidation plans.</p>
+</div>
+<div class="takeaway-card">
+<h4>Cloud requires continuous control</h4>
+<p>Visibility, baselining, remediation, guardrails, and verification. Fix waste once; prevent recurrence with policy. One-off projects do not stick.</p>
+</div>
+<div class="takeaway-card">
+<h4>Software decisions compound over time</h4>
+<p>Compute per transaction, data retention, and network movement aggregate into material footprints. Data minimisation and telemetry discipline pay off at scale.</p>
+</div>
+<div class="takeaway-card">
+<h4>Hardware lifecycle is seven stages, not one decision</h4>
+<p>Selection, deployment, use, redeploy, repair, refurbish, end-of-life. Circular economy requires governance across all seven.</p>
+</div>
+<div class="takeaway-card">
+<h4>AI governance must happen early</h4>
+<p>Model right-sizing, caching, prompt design, and usage accountability prevent inference from scaling into silent waste. Behaviour is hard to unwind once entrenched.</p>
+</div>
+<div class="takeaway-card">
+<h4>Networks are invisible but material</h4>
+<p>Unnecessary data movement compounds. Egress cost and egress footprint move together — cost is your sustainability signal.</p>
+</div>
+<div class="takeaway-card">
+<h4>Domain fluency requires different levers per domain</h4>
+<p>One metric or one approach does not work everywhere. Understand what drives footprint in each domain and what levers actually move it.</p>
+</div>
+</div>
 </div>
 
+<!-- MODULE NAVIGATION -->
+<div class="module-nav reveal">
+<a href="module3.html" class="nav-link">
+<span class="nav-link-label">← Previous module</span>
+<span class="nav-link-title">M3: Measurement</span>
+</a>
+<a href="module5.html" class="nav-link">
+<span class="nav-link-label">Next module →</span>
+<span class="nav-link-title">M5: Reduction and Governance</span>
+</a>
 </div>
 
-<div class="module-nav">
-  <a href="module3.html" class="nav-btn"><span><span class="nav-btn-label">← Previous</span><span class="nav-btn-title">M3: How Digital Sustainability Is Measured</span></span></a>
-  <button class="complete-btn" onclick="markComplete('module4')">Mark as complete</button>
-  <a href="module5.html" class="nav-btn next"><span><span class="nav-btn-label">Next →</span><span class="nav-btn-title">M5: From Reporting to Operational Excellence</span></span></a>
-</div>
-
-<footer>
-  <div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 4</div>
-  <div class="footer-brand">March 2026 · v2</div>
+<footer class="footer">
+<p><strong>GreenOps 101</strong> — Digital sustainability for enterprise IT</p>
+<p>Module 4: Impact Domains | Part of Track 1: Foundations</p>
+<p>© 2024 Anthropic. All rights reserved.</p>
 </footer>
 
-
-<script>function showDomain(id, btn) {
-  document.querySelectorAll('.domain-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.domain-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('domain-' + id).classList.add('active');
-  btn.classList.add('active');
-}
-</script>
-
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  if (typeof initKnowledgeChecks === 'function') initKnowledgeChecks();
-  if (typeof initScrollReveal === 'function') initScrollReveal();
-  if (typeof initProgress === 'function') initProgress(4);
-  
-});
-</script>
-<script>
-// GreenOps 101 — Shared utilities v4 light theme
+// Domain Explorer functionality
+function showDomain(domain, button) {
+  const panels = document.querySelectorAll('.domain-panel');
+  const tabs = document.querySelectorAll('.domain-tab');
 
-const STORAGE_KEY = 'greenops101_progress';
-function getProgress(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');}catch{return {};}}
-function markComplete(moduleKey){
-  const p=getProgress();p[moduleKey]={completedAt:new Date().toISOString()};
-  localStorage.setItem(STORAGE_KEY,JSON.stringify(p));
-  document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
+  panels.forEach(panel => panel.classList.remove('active'));
+  tabs.forEach(tab => tab.classList.remove('active'));
+
+  document.getElementById('domain-' + domain).classList.add('active');
+  button.classList.add('active');
 }
-function isComplete(k){return !!getProgress()[k];}
-function initKnowledgeChecks(){
-  document.querySelectorAll('.kc-block').forEach(block=>{
-    const correct=block.dataset.correct;
-    block.querySelectorAll('.kc-option').forEach(opt=>{
-      opt.addEventListener('click',function(){
-        if(block.classList.contains('answered'))return;
-        block.classList.add('answered');
-        const chosen=this.dataset.val;
-        const isCorrect=(chosen===correct);
 
-        block.querySelectorAll('.kc-option').forEach(o=>{
-          if(o.dataset.val===correct)o.classList.add('selected-correct');
-          else if(o.dataset.val===chosen&&!isCorrect)o.classList.add('selected-wrong');
-        });
+// Control loop toggle
+function toggleControlLoop(index) {
+  const steps = document.querySelectorAll('.control-loop-step');
+  const details = document.querySelectorAll('.control-loop-detail');
 
-        // Find the correct option text for feedback
-        const correctBtn=block.querySelector('.kc-option[data-val="'+correct+'"]');
-        const correctText=correctBtn?correctBtn.textContent.replace(/^[A-D]\s*/,'').trim():'';
+  details.forEach(d => d.classList.remove('active'));
+  steps.forEach(s => s.classList.remove('active'));
 
-        // Build or find feedback label
-        let revealLabel=block.querySelector('.kc-reveal-label');
-        if(!revealLabel){
-          revealLabel=document.createElement('p');
-          revealLabel.className='kc-reveal-label';
-          const rv=block.querySelector('.kc-reveal');
-          if(rv)rv.insertBefore(revealLabel,rv.firstChild);
-        }
+  steps[index].classList.add('active');
+  details[index].classList.add('active');
+}
 
-        if(isCorrect){
-          revealLabel.style.color='var(--teal-dark)';
-          revealLabel.textContent='✓ Correct — Option '+correct;
+// Hardware lifecycle toggle
+function toggleLifecycle(stage) {
+  const details = document.querySelectorAll('.lifecycle-detail');
+  details.forEach(d => d.classList.remove('active'));
+  document.getElementById('lifecycle-' + stage).classList.add('active');
+}
+
+// AI item toggle
+function toggleAIItem(element) {
+  const detail = element.querySelector('.ai-item-detail');
+  detail.classList.toggle('active');
+}
+
+// Knowledge Check functionality
+function selectKC(element, answerIndex) {
+  const options = element.parentElement.querySelectorAll('.kc-option');
+  const feedback = element.parentElement.parentElement.querySelector('.kc-feedback');
+
+  const answers = [
+    { correct: false, index: 0 },
+    { correct: true, index: 1 },
+    { correct: false, index: 2 },
+    { correct: false, index: 3 }
+  ];
+
+  options.forEach((opt, idx) => {
+    opt.classList.remove('selected', 'correct', 'wrong');
+    if (idx === answerIndex) {
+      opt.classList.add('selected');
+      if (answers[answerIndex].correct) {
+        opt.classList.add('correct');
+        feedback.classList.add('show');
+        feedback.innerHTML = '<strong>Correct.</strong> Embodied carbon is the dominant component of device lifecycle footprint. This shifts the focus from operational switching-off campaigns to procurement, lifecycle management, and redeploy discipline.';
+      } else {
+        opt.classList.add('wrong');
+        feedback.classList.add('show');
+        if (answerIndex === 0) {
+          feedback.innerHTML = '<strong>Not quite.</strong> For most laptops, embodied impact from manufacturing, mining, and logistics outweighs operational electricity across the device\'s entire working life. The biggest levers are lifecycle and procurement decisions.';
+        } else if (answerIndex === 2) {
+          feedback.innerHTML = '<strong>Not quite.</strong> End-of-life processes are important for circular economy, but embodied impact happens earlier — in manufacturing and logistics. The biggest lever is extending device lifespan and redeploy discipline.';
         } else {
-          revealLabel.style.color='#B54D12';
-          revealLabel.innerHTML='✗ Incorrect — the correct answer was <strong>Option '+correct+'</strong>: '+correctText;
+          feedback.innerHTML = '<strong>Not quite.</strong> Network and cloud infrastructure impacts are real, but manufacturing footprint dominates the device lifecycle. Focus on procurement and lifespan extension.';
         }
-
-        const rv=block.querySelector('.kc-reveal');
-        if(rv)rv.style.display='block';
-
-        const hint=block.querySelector('.kc-hint');
-        if(hint)hint.style.display='none';
-      });
-    });
+      }
+    }
   });
 }
-function initScrollReveal(){
-  const obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
-  },{threshold:0.06,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-}
-function initProgress(current){
-  const p=getProgress(),total=14;
-  const done=Object.keys(p).filter(k=>k.startsWith('module')).length;
-  const el=document.getElementById('progress-count');
-  if(el)el.textContent=done+'/'+total;
-  const fill=document.getElementById('prog-fill');
-  if(fill)fill.style.width=((done/total)*100)+'%';
-  if(isComplete('module'+current))document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
-}
 
+// Scroll reveal animation
+const reveals = document.querySelectorAll('.reveal');
+const revealOnScroll = () => {
+  reveals.forEach(reveal => {
+    const windowHeight = window.innerHeight;
+    const elementTop = reveal.getBoundingClientRect().top;
+    if (elementTop < windowHeight - 100) {
+      reveal.style.opacity = '1';
+      reveal.style.transform = 'translateY(0)';
+    }
+  });
+};
+
+revealOnScroll();
+window.addEventListener('scroll', revealOnScroll);
+
+// Set initial control loop detail
+toggleControlLoop(0);
+toggleLifecycle('selection');
 </script>
+
 </body>
 </html>

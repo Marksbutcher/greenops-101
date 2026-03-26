@@ -1,70 +1,494 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>M9 — GreenOps 101</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M9: The Regulatory and Policy Landscape — GreenOps 101</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-
-
-
 <style>
-:root{--page-bg:#F7F8FA;--card-bg:#FFFFFF;--section-alt:#E8EDF2;--text-primary:#1E293B;--text-secondary:#4A5568;--text-muted:#64748B;--navy:#0F1F2E;--navy-mid:#162840;--navy-card:#1E293B;--navy-light:#1C3A55;--teal:#00A896;--teal-dark:#007A6E;--teal-muted:#B2EDE7;--teal-bg:rgba(0,168,150,0.07);--teal-border:rgba(0,168,150,0.25);--orange:#E76F51;--orange-light:#F4A261;--orange-bg:#FFF3E8;--orange-border:rgba(231,111,81,0.25);--border:#D1D9E0;--border-light:#E8EDF2;--track1:#00A896;--track2:#F4A261;--track3:#E76F51;--correct:#16a34a;--wrong:#dc2626;--white:#FFFFFF;--slate:#4A5568;--slate-mid:#64748B;--slate-dim:#94A3B8;--teal-light:#B2EDE7;--teal-glow:rgba(0,168,150,0.15);--teal-subtle:rgba(0,168,150,0.07);--grey-100:#F7F8FA;--grey-300:#D1D9E0;--grey-500:#4A5568;--navy-raised:#1C3A55;--navy-border:rgba(255,255,255,0.07);--navy-mid-alt:#162840;}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;font-size:16px;}img,svg{display:block;max-width:100%;}body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Trebuchet MS",system-ui,-apple-system,sans-serif;font-weight:400;font-size:1rem;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}.top-nav{position:sticky;top:0;z-index:100;background:#0F1F2E;border-bottom:1px solid rgba(0,168,150,0.2);padding:0 3rem;height:52px;display:flex;align-items:center;gap:1rem;}.top-nav::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00A896 0%,#F4A261 60%,#E76F51 100%);}.nav-home{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .15s;flex-shrink:0;}.nav-home:hover{color:#fff;}.nav-sep{color:rgba(255,255,255,0.25);}.nav-module{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;font-weight:500;}.nav-track-pill{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .65rem;border-radius:2px;}.track1-pill{background:rgba(0,168,150,.2);color:#B2EDE7;}.track2-pill{background:rgba(244,162,97,.2);color:#F4D0B0;}.track3-pill{background:rgba(231,111,81,.2);color:#F4C4B9;}.nav-progress{margin-left:auto;font-family:Calibri,monospace;font-size:.72rem;color:rgba(255,255,255,0.5);}.module-hero{position:relative;overflow:hidden;padding:4rem 3rem 3rem;background:#0F1F2E;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;}.module-hero::after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 70% 50%,rgba(0,168,150,.08) 0%,transparent 65%);pointer-events:none;}.hero-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(5rem,12vw,10rem);color:rgba(255,255,255,.06);line-height:1;position:absolute;right:3rem;bottom:0;font-weight:400;user-select:none;}.module-eyebrow{font-family:Calibri,monospace;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:#B2EDE7;margin-bottom:.75rem;}.module-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.12;letter-spacing:-.02em;font-weight:700;color:#fff;margin-bottom:1.25rem;}.module-subtitle{font-size:1.1rem;color:rgba(255,255,255,.72);line-height:1.65;max-width:620px;margin-bottom:2rem;}.module-meta{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}.meta-item{display:flex;flex-direction:column;gap:.15rem;}.meta-item .label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);}.meta-item .value{font-size:.92rem;color:rgba(255,255,255,.85);font-weight:500;}.complete-btn{font-family:Calibri,monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:.65rem 1.4rem;background:#00A896;border:2px solid #00A896;color:#FFFFFF;cursor:pointer;transition:all .15s;font-weight:700;}.complete-btn:hover{background:var(--teal-dark);border-color:var(--teal-dark);}.complete-btn.done{background:transparent;border:2px solid rgba(255,255,255,.4);color:rgba(255,255,255,.7);cursor:default;}.objectives-strip{background:#0F1F2E;padding:2.5rem 3rem;}.objectives-heading{font-family:Calibri,monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#B2EDE7;margin-bottom:1.5rem;font-weight:700;}.objectives-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:.85rem;max-width:1160px;}.objectives-list li{display:flex;align-items:flex-start;gap:1rem;font-size:1rem;color:rgba(255,255,255,.88);line-height:1.55;padding:.85rem 1rem;background:#162840;border-left:2px solid rgba(0,168,150,.5);}.obj-num{font-family:Calibri,monospace;font-size:.72rem;color:#00A896;font-weight:700;letter-spacing:.1em;flex-shrink:0;padding-top:.12rem;}.module-content{max-width:1200px;margin:0 auto;padding:0 3rem 2rem;}.content-section{padding:3rem 0;border-bottom:1px solid var(--border-light);}.content-section:last-child{border-bottom:none;}.section-label{font-family:Calibri,monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:.65rem;display:block;font-weight:700;}.section-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.15;letter-spacing:-.02em;font-weight:700;color:var(--text-primary);margin-bottom:1.25rem;}.section-intro{font-size:1.12rem;color:var(--text-secondary);line-height:1.75;max-width:780px;margin-bottom:2rem;}.card-grid{display:grid;gap:1px;background:var(--border);}.card-grid-2{grid-template-columns:1fr 1fr;}.card-grid-3{grid-template-columns:repeat(3,1fr);}.card-grid-4{grid-template-columns:repeat(4,1fr);}.card-grid-auto{display:grid;gap:1px;background:var(--border);grid-template-columns:repeat(auto-fill,minmax(min(220px,100%),1fr));}.card{background:var(--card-bg);padding:1.75rem;position:relative;}.card-title{font-family:Georgia,"Times New Roman",serif;font-size:1.1rem;font-weight:400;color:var(--text-primary);margin-bottom:.65rem;}.card-body{font-size:.97rem;color:var(--text-secondary);line-height:1.7;}.card-label{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:.5rem;display:block;}.card h4{font-weight:600;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;color:var(--text-primary);margin-bottom:.5rem;line-height:1.35;}.card p{font-size:.97rem;color:var(--text-secondary);line-height:1.65;}.card-accent-p{border-top:3px solid var(--teal);}.card-accent-o{border-top:3px solid var(--orange-light);}.card-accent-t{border-top:3px solid var(--orange);}.stat-strip{display:grid;gap:1px;background:var(--border);margin:2.25rem 0;border-radius:3px;overflow:hidden;}.stat-strip.cols-3{grid-template-columns:repeat(3,1fr);}.stat-strip.cols-4{grid-template-columns:repeat(4,1fr);}.stat-cell{background:var(--card-bg);padding:2rem 1.5rem;text-align:center;border-top:3px solid var(--cell-accent,var(--teal));}.stat-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.4rem,4.5vw,3.5rem);color:var(--cell-accent,var(--teal-dark));line-height:1;margin-bottom:.5rem;display:block;}.stat-label{font-family:Calibri,monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);line-height:1.5;display:block;}.viz-container{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);margin:2rem 0;box-shadow:0 2px 8px rgba(0,0,0,.07);}.viz-header{padding:1rem 1.5rem;border-bottom:2px solid var(--border-light);display:flex;align-items:center;gap:.75rem;background:var(--section-alt);}.viz-header-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;}.viz-title{font-family:Calibri,monospace;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;}.viz-body{padding:1.25rem 1.5rem 1rem;}.callout{padding:1.35rem 1.75rem;margin:1.75rem 0;border-left:4px solid var(--teal);background:var(--teal-bg);}.callout-warning{border-left-color:var(--orange);background:var(--orange-bg);}.callout-key{border-left-color:var(--teal-dark);background:var(--teal-bg);}.callout-title{font-family:Calibri,monospace;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:#007A6E;font-weight:700;display:block;margin-bottom:.6rem;}.callout-warning .callout-title{color:#B54D12;}.callout p{font-size:1rem;color:var(--text-primary);line-height:1.72;}.pause-reflect{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 3rem;}.pause-label{font-family:Calibri,monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:.5rem;display:block;}.pause-intro{font-size:.97rem;color:var(--text-muted);margin-bottom:1.25rem;font-style:italic;}.pause-q{display:flex;align-items:flex-start;gap:.85rem;font-size:1rem;color:var(--text-primary);line-height:1.65;padding:.85rem 1.1rem;background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--teal-dark);margin-bottom:.5rem;}.pause-q-num{font-family:Calibri,monospace;font-size:.72rem;color:var(--teal-dark);font-weight:700;flex-shrink:0;padding-top:.2rem;min-width:1.4rem;}.kc-block{background:var(--card-bg);border:1px solid var(--border);padding:2.25rem;margin:.5rem 0;}.kc-label{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:1rem;}.kc-q{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:1.15rem;color:var(--text-primary);line-height:1.6;margin-bottom:1.5rem;}.kc-options{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem;}.kc-option{display:flex;align-items:flex-start;gap:.85rem;padding:.9rem 1.1rem;background:var(--page-bg);border:1px solid var(--border);cursor:pointer;text-align:left;width:100%;font-family:Calibri,"Trebuchet MS",system-ui,sans-serif;font-size:1rem;color:var(--text-primary);line-height:1.55;transition:all .15s;}.kc-option:hover{border-color:var(--teal);background:var(--teal-bg);}.kc-option.selected-correct{background:rgba(22,163,74,.08);border-color:var(--correct);}.kc-option.selected-wrong{background:rgba(220,38,38,.07);border-color:var(--wrong);}.kc-opt-key{font-family:Calibri,monospace;font-size:.78rem;font-weight:700;color:var(--text-muted);flex-shrink:0;width:1.2rem;padding-top:.1rem;}.kc-feedback{padding:1rem 1.25rem;margin-top:.5rem;font-size:1rem;line-height:1.7;border-left:3px solid;display:none;}.kc-correct{background:rgba(22,163,74,.07);border-left-color:var(--correct);color:var(--text-primary);}.kc-wrong{background:rgba(220,38,38,.06);border-left-color:var(--wrong);color:var(--text-primary);}.kc-reveal{display:none;padding:1rem 1.25rem;margin-top:.5rem;background:var(--teal-bg);border-left:3px solid var(--teal-dark);font-size:1rem;color:var(--text-primary);line-height:1.72;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;flex-wrap:wrap;}.nav-btn{display:inline-flex;flex-direction:column;padding:.75rem 1.25rem;border:1px solid var(--border);background:var(--page-bg);text-decoration:none;transition:all .15s;color:inherit;}.nav-btn:hover{border-color:var(--teal-dark);background:var(--teal-bg);}.nav-btn.next{text-align:right;}.nav-btn-label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);display:block;}.nav-btn-title{font-size:.97rem;color:var(--text-primary);font-weight:500;display:block;margin-top:.15rem;}.nav-btn.next .nav-btn-label,.nav-btn.next .nav-btn-title{color:var(--teal-dark);}.takeaways{background:#0F1F2E;padding:2.5rem 3rem;}.takeaways-heading{font-family:Calibri,monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#B2EDE7;font-weight:700;margin-bottom:1.5rem;}.takeaway-list{display:grid;gap:1px;background:rgba(255,255,255,.08);width:100%;}.takeaway-item{display:flex;gap:1rem;padding:1.5rem;background:#162840;border-top:2px solid rgba(0,168,150,.4);transition:background .15s;}.takeaway-item:hover{background:#1C3A55;}.takeaway-icon{color:#00A896;font-size:.65rem;flex-shrink:0;padding-top:.4rem;}.takeaway-body strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;font-weight:700;color:#FFFFFF;margin-bottom:.4rem;line-height:1.35;}.takeaway-body p{font-size:.95rem;color:rgba(255,255,255,.75);line-height:1.65;}.reveal{opacity:1;transition:opacity .4s ease,transform .4s ease;}.reveal.animate{opacity:0;transform:translateY(12px);}.reveal.animate.visible{opacity:1;transform:none;}.tri-detail{padding:1.5rem;background:var(--card-bg);border:1px solid var(--border);}.tri-detail-name{font-weight:700;font-size:1.1rem;color:var(--teal-dark);margin-bottom:.75rem;}.tradeoff-container{display:grid;grid-template-columns:1fr 1.2fr;gap:2rem;align-items:start;}.triangle-wrap{display:flex;align-items:center;justify-content:center;}.triangle-svg{width:100%;max-width:320px;height:auto;}.example{font-style:italic;color:var(--text-secondary);font-size:.97rem;border-left:3px solid var(--border);padding-left:1rem;margin-top:.75rem;}.reg-tab{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:.6rem 1.1rem;cursor:pointer;border:1px solid var(--border);background:var(--card-bg);color:var(--text-muted);font-weight:600;transition:all .15s;}.reg-tab:hover{border-color:var(--teal-dark);color:var(--teal-dark);}.active-reg{background:var(--teal)!important;border-color:var(--teal)!important;color:#0F1F2E!important;font-weight:700!important;}.courage-card{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);padding:1.5rem;}.footer-brand{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);}.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:1px;background:var(--border);margin:2rem 0;}.stat-block{background:var(--card-bg);padding:1.75rem 1.5rem;border-top:3px solid var(--teal);}@media(max-width:860px){.module-content,.objectives-strip,.top-nav,.pause-reflect,.module-nav,.takeaways{padding-left:1.5rem;padding-right:1.5rem;}.module-hero{padding:2.5rem 1.5rem 2rem;}.card-grid-3{grid-template-columns:1fr 1fr;}.card-grid-4{grid-template-columns:1fr 1fr;}.takeaway-list{grid-template-columns:1fr!important;}}@media(max-width:540px){.card-grid-2,.card-grid-3,.card-grid-4{grid-template-columns:1fr;}.stat-strip.cols-3,.stat-strip.cols-4{grid-template-columns:1fr;}.module-title{font-size:1.75rem;}.tradeoff-container{grid-template-columns:1fr;}}.takeaway-body{flex:1;}.takeaway-body strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;font-weight:700;color:#FFFFFF;margin-bottom:.4rem;line-height:1.35;}.takeaway-body p{font-size:.95rem;color:rgba(255,255,255,.75);line-height:1.65;}.compare-table{width:100%;border-collapse:collapse;font-size:.95rem;margin:1.5rem 0;}.compare-table th{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:.75rem 1rem;text-align:left;background:var(--section-alt);border-bottom:2px solid var(--border);color:var(--text-primary);}.compare-table td{padding:.85rem 1rem;border-bottom:1px solid var(--border-light);vertical-align:top;line-height:1.6;color:var(--text-secondary);}.compare-table tr:last-child td{border-bottom:none;}.compare-table td:first-child{font-weight:600;color:var(--text-primary);}.compare-table tr:hover td{background:var(--section-alt);}.process-steps{display:flex;flex-direction:column;gap:0;margin:1.5rem 0;}.process-step{display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem 1.5rem;background:var(--card-bg);border:1px solid var(--border);border-top:none;}.process-step:first-child{border-top:1px solid var(--border);}.step-icon{font-family:Calibri,monospace;font-size:.75rem;font-weight:700;width:2rem;height:2rem;flex-shrink:0;background:var(--teal);color:#0F1F2E;display:flex;align-items:center;justify-content:center;border-radius:2px;margin-top:.1rem;}.step-body{flex:1;}.step-body strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:.35rem;}.step-body p{font-size:.97rem;color:var(--text-secondary);line-height:1.65;margin:0;}.callout-insight{padding:1.35rem 1.75rem;margin:1.75rem 0;border-left:4px solid var(--teal);background:var(--teal-bg);}.callout-insight .callout-title{font-family:Calibri,monospace;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:#007A6E;font-weight:700;display:block;margin-bottom:.6rem;}.callout-insight p{font-size:1rem;color:var(--text-primary);line-height:1.72;}.pause-questions{display:flex;flex-direction:column;gap:.75rem;}.pause-note{font-size:.92rem;color:var(--text-muted);font-style:italic;margin-bottom:.5rem;}.kc-reveal-label{font-family:Calibri,monospace;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);display:block;margin-bottom:.5rem;}.examples-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;}.examples-row span{padding:.4rem .85rem;background:var(--section-alt);font-size:.88rem;color:var(--text-secondary);border-left:2px solid var(--teal-dark);}.accred-strip{background:var(--section-alt);border-top:3px solid var(--teal);padding:2rem;display:flex;gap:1.5rem;align-items:flex-start;margin:2rem 0;}.accred-icon{font-size:2rem;flex-shrink:0;}.accred-body h3{font-family:Georgia,serif;font-size:1.15rem;font-weight:700;color:var(--text-primary);margin-bottom:.5rem;}.accred-body p{font-size:.97rem;color:var(--text-secondary);line-height:1.65;}.accred-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:var(--teal-bg);border:1px solid var(--teal-border);font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);margin-top:1rem;}.all-tracks{display:grid;gap:1px;background:var(--border);}.all-track-col{background:var(--card-bg);padding:1.5rem;}.all-track-header{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:.75rem;font-weight:700;display:flex;align-items:center;gap:.5rem;}.at-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);display:inline-block;}.at-module-link{display:block;padding:.65rem 1rem;background:var(--section-alt);border-left:2px solid var(--teal-dark);font-size:.9rem;color:var(--text-secondary);text-decoration:none;margin-bottom:4px;}.at-module-link:hover{background:var(--teal-bg);color:var(--teal-dark);}.at-num{font-family:Calibri,monospace;font-size:.65rem;color:var(--text-muted);margin-right:.5rem;}.at-title{font-weight:600;color:var(--text-primary);}.at-label,.at-name{font-size:.9rem;color:var(--text-muted);}.global-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:1px;background:var(--border);margin:1rem 0;}.gstat{background:var(--card-bg);padding:1.5rem 1.25rem;}.gstat-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--teal-dark);line-height:1;margin-bottom:.4rem;}.gstat-label{font-size:.88rem;color:var(--text-secondary);line-height:1.55;}.scope-diagram{display:flex;flex-direction:column;gap:1px;background:var(--border);margin:1.5rem 0;}.scope-box{background:var(--card-bg);cursor:pointer;border-left:4px solid var(--border);transition:background .15s;}.scope-box.s1{border-left-color:#007A6E;}.scope-box.s2{border-left-color:#9B5E00;}.scope-box.s3{border-left-color:#B54D12;}.scope-box.s4{border-left-color:#4A5568;}.scope-box:hover,.scope-box.open{background:var(--section-alt);}.scope-header{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.5rem;}.scope-num{font-family:Calibri,monospace;font-size:.75rem;font-weight:700;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;border-radius:2px;flex-shrink:0;color:#fff;}.scope-box.s1 .scope-num{background:#007A6E;}.scope-box.s2 .scope-num{background:#9B5E00;}.scope-box.s3 .scope-num{background:#B54D12;}.scope-box.s4 .scope-num{background:#4A5568;}.scope-name{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;font-weight:700;color:var(--text-primary);flex:1;}.scope-short{font-size:.88rem;color:var(--text-muted);}.scope-size{font-family:Calibri,monospace;font-size:.72rem;color:var(--text-muted);}.scope-detail{display:none;padding:0 1.5rem 1.25rem 4.5rem;}.scope-box.open .scope-detail{display:block;}.scope-detail p{font-size:.97rem;color:var(--text-secondary);line-height:1.7;margin-bottom:.75rem;}.scope-examples{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem;}.scope-example{padding:.35rem .75rem;background:var(--section-alt);font-size:.82rem;color:var(--text-secondary);}.scope-tag{display:inline-block;padding:.2rem .6rem;font-family:Calibri,monospace;font-size:.65rem;background:var(--section-alt);color:var(--text-muted);margin:.15rem;}.waste-explorer{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);}.waste-tabs{display:flex;gap:1px;background:var(--border);}.waste-tab{flex:1;padding:.85rem 1rem;background:var(--section-alt);border:none;cursor:pointer;font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);font-weight:700;transition:background .15s;}.waste-tab.active{background:var(--card-bg);color:var(--teal-dark);}.waste-panels{padding:0;}.waste-panel{display:none;padding:1.75rem;}.waste-panel.active{display:block;}.waste-panel-stat{font-family:Georgia,serif;font-size:2rem;font-weight:700;color:var(--teal-dark);}.action-model{display:flex;flex-direction:column;gap:1px;background:var(--border);margin:1.5rem 0;}.action-level{background:var(--card-bg);cursor:pointer;}.action-level:hover,.action-level.open{background:var(--section-alt);}.action-level-header{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.5rem;}.action-level-num{font-family:Calibri,monospace;font-size:.72rem;font-weight:700;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0;}.l1 .action-level-num{background:#B54D12;}.l2 .action-level-num{background:#9B5E00;}.l3 .action-level-num{background:#007A6E;}.l4 .action-level-num{background:#4A5568;}.action-level-name{font-family:Georgia,serif;font-size:1rem;font-weight:700;color:var(--text-primary);flex:1;}.action-level-tagline{font-size:.88rem;color:var(--text-muted);}.action-level-arrow{font-size:.85rem;color:var(--text-muted);transition:transform .2s;margin-left:auto;}.action-level.open .action-level-arrow{transform:rotate(180deg);}.action-level-detail{display:none;padding:0 1.5rem 1.25rem 4.5rem;font-size:.95rem;color:var(--text-secondary);line-height:1.7;}.action-level.open .action-level-detail{display:block;}.dim-explorer{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);}.dim-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);}.dim-tab{padding:1rem 1.25rem;background:var(--section-alt);border:none;cursor:pointer;text-align:left;transition:background .15s;font-family:Calibri,"Trebuchet MS",system-ui,sans-serif;}.dim-tab:hover{background:var(--teal-bg);}.dim-tab.active{background:var(--card-bg);border-top:2px solid var(--teal);}.dim-tab-label{font-family:Calibri,monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);display:block;margin-bottom:.25rem;}.dim-tab-name{font-family:Georgia,serif;font-size:.95rem;font-weight:700;color:var(--text-primary);display:block;line-height:1.2;}.dim-tab-sub{font-size:.82rem;color:var(--text-muted);display:block;margin-top:.2rem;}.dim-panels{padding:0;}.dim-panel{display:none;padding:2rem;gap:2rem;}.dim-panel.active{display:grid;grid-template-columns:1fr 1fr;}.dim-panel h4{font-family:Georgia,serif;font-size:1.1rem;font-weight:700;color:var(--text-primary);margin-bottom:.75rem;line-height:1.3;}.dim-panel p{font-size:.97rem;color:var(--text-secondary);line-height:1.7;margin-bottom:.75rem;}.dim-examples{display:flex;flex-direction:column;gap:.4rem;margin-top:1rem;}.dim-example{padding:.6rem .85rem;background:var(--section-alt);font-size:.9rem;color:var(--text-primary);border-left:2px solid var(--teal-dark);}.dim-status{padding:1.25rem;font-size:.92rem;line-height:1.6;}.status-established{background:rgba(0,168,150,.08);border-left:3px solid var(--teal-dark);color:var(--text-primary);}.status-emerging{background:rgba(244,162,97,.08);border-left:3px solid #9B5E00;color:var(--text-primary);}.status-nascent{background:rgba(100,116,139,.08);border-left:3px solid var(--text-muted);color:var(--text-primary);}.dim-status strong{color:var(--text-primary);}.sequence-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin:1.5rem 0;}.seq-step{background:var(--card-bg);padding:1.75rem 1.5rem;border-top:3px solid var(--border);}.seq-step.s1{border-top-color:#B54D12;}.seq-step.s2{border-top-color:#007A6E;}.seq-step.s3{border-top-color:#9B5E00;}.seq-step.s4{border-top-color:#4A5568;}.seq-num{font-family:Calibri,monospace;font-size:2rem;font-weight:700;color:var(--border);line-height:1;margin-bottom:.5rem;}.seq-step.s1 .seq-num{color:#B54D12;}.seq-step.s2 .seq-num{color:#007A6E;}.seq-step.s3 .seq-num{color:#9B5E00;}.seq-step.s4 .seq-num{color:#4A5568;}.seq-label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.4rem;}.seq-title{font-family:Georgia,serif;font-size:1.1rem;font-weight:700;color:var(--text-primary);margin-bottom:.2rem;}.seq-sub{font-size:.88rem;color:var(--text-muted);margin-bottom:.75rem;}.seq-note{font-size:.9rem;color:var(--text-secondary);line-height:1.65;}.isnt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(220px,100%),1fr));gap:1px;background:var(--border);margin:1.5rem 0;}.isnt-card{background:var(--card-bg);padding:1.5rem;border-top:3px solid var(--border-light);}.isnt-card.isnt{border-top-color:#B54D12;}.isnt-marker{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:#B54D12;display:block;margin-bottom:.6rem;}.isnt-card h4{font-family:Georgia,serif;font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:.5rem;}.isnt-card p{font-size:.92rem;color:var(--text-secondary);line-height:1.65;}.method-compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin:1.5rem 0;}.method-col{background:var(--card-bg);padding:1.75rem;}.method-col.activity{border-top:3px solid #007A6E;}.method-col.spend{border-top:3px solid #9B5E00;}.method-name{font-family:Georgia,serif;font-size:1.1rem;font-weight:700;color:var(--text-primary);margin-bottom:.65rem;}.method-desc{font-size:.97rem;color:var(--text-secondary);line-height:1.7;margin-bottom:1rem;}.method-pros,.method-cons{margin-bottom:1rem;}.method-pros-label,.method-cons-label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.5rem;display:block;color:var(--text-muted);}.method-col.activity .method-pros-label{color:#007A6E;}.method-col.spend .method-pros-label{color:#9B5E00;}.method-list{padding-left:1rem;margin:0;}.method-list li{font-size:.92rem;color:var(--text-secondary);line-height:1.65;margin-bottom:.3rem;}.role-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:1px;background:var(--border);margin:1.5rem 0;}.role-metric-card{background:var(--card-bg);padding:1.25rem;}.role-name{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:.5rem;display:block;}.metric-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem;}.metric-chip{padding:.3rem .7rem;background:var(--section-alt);font-family:Calibri,monospace;font-size:.72rem;color:var(--text-secondary);}.baseline-steps{display:flex;flex-direction:column;gap:1px;background:var(--border);margin:1.5rem 0;}.baseline-step{display:flex;gap:1rem;align-items:flex-start;padding:1.25rem 1.5rem;background:var(--card-bg);}.bs-num{font-family:Calibri,monospace;font-size:.75rem;font-weight:700;width:2rem;height:2rem;flex-shrink:0;background:var(--teal);color:#0F1F2E;display:flex;align-items:center;justify-content:center;}.bs-body strong{display:block;font-family:Georgia,serif;font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:.3rem;}.bs-body p{font-size:.92rem;color:var(--text-secondary);line-height:1.65;margin:0;}.domain-selector{display:flex;flex-wrap:wrap;gap:1px;background:var(--border);}.domain-btn{display:flex;flex-direction:column;align-items:center;gap:.35rem;padding:.85rem 1rem;background:var(--section-alt);border:1px solid var(--border);cursor:pointer;font-family:inherit;transition:all .15s;min-width:100px;}.domain-btn:hover{border-color:var(--teal-dark);background:var(--teal-bg);}.domain-btn.active{background:var(--card-bg);border-color:var(--teal);border-top:2px solid var(--teal);}.domain-icon{font-size:1.25rem;}.domain-label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);font-weight:700;}.domain-btn.active .domain-label{color:var(--teal-dark);}.domain-driver{font-size:.78rem;color:var(--text-muted);text-align:center;line-height:1.3;}.domain-panels{margin-top:0;}.domain-panel{display:none;background:var(--card-bg);padding:1.75rem;border:1px solid var(--border);}.domain-panel.active{display:block;}.dp-list{list-style:none;display:flex;flex-direction:column;gap:.4rem;margin-top:.75rem;}.dp-list li,.dp-good,.dp-warn{padding:.6rem .85rem;font-size:.92rem;color:var(--text-secondary);background:var(--section-alt);border-left:2px solid var(--border);}.dp-good{border-left-color:#007A6E;}.dp-warn{border-left-color:#B54D12;}.chart-y-labels{display:flex;flex-direction:column;justify-content:space-between;padding:0 .5rem;text-align:right;}.chart-y-label,.chart-x-label{font-family:Calibri,monospace;font-size:.65rem;color:var(--text-muted);}.chart-x-labels{display:flex;justify-content:space-between;padding-top:.25rem;}.chart-x-title{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);}.chart-dot{border-radius:50%;cursor:pointer;transition:transform .15s;}.chart-dot:hover{transform:scale(1.2);}.dot-tooltip{position:absolute;background:var(--card-bg);border:1px solid var(--border);padding:.5rem .75rem;font-size:.82rem;color:var(--text-primary);pointer-events:none;white-space:nowrap;z-index:10;}.measurement-split{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin:1.5rem 0;}.meas-col{background:var(--card-bg);padding:1.75rem;}.meas-col-label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);font-weight:700;margin-bottom:.75rem;display:block;}.meas-col h4{font-family:Georgia,serif;font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:.5rem;}.shifting-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:1rem;margin:1.5rem 0;}.shift-card{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);padding:1.5rem;}.shift-num{font-family:Calibri,monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:.5rem;display:block;}.shift-name{font-family:Georgia,serif;font-size:1.05rem;font-weight:700;color:var(--text-primary);margin-bottom:.5rem;line-height:1.3;}.shift-desc{font-size:.92rem;color:var(--text-secondary);line-height:1.65;}.shift-example{font-size:.85rem;color:var(--text-muted);font-style:italic;margin-top:.5rem;}.shift-caveat{font-size:.82rem;color:#B54D12;margin-top:.5rem;}.rebound-chart{display:flex;flex-direction:column;gap:1px;background:var(--border);margin:1.5rem 0;}.rc-svg{width:100%;display:block;}.rc-label{font-family:Calibri,monospace;font-size:.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;}.animate-line{transition:stroke-dashoffset 1s ease;}.tri-detail-cost,.tri-detail-carbon,.tri-detail-perf{color:var(--teal-dark);}.bc-evidence-col{background:var(--card-bg);border:1px solid var(--border);padding:1.25rem;}.bc-evidence-col h4{font-family:Georgia,serif;font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:.75rem;}.audience-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:1rem;margin:1.5rem 0;}.audience-card,.aud-entry{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);padding:1.25rem;}.aud-icon{font-size:1.5rem;margin-bottom:.5rem;}.aud-role{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:.35rem;display:block;}.accred-body h3{font-family:Georgia,serif;font-size:1.15rem;font-weight:700;color:var(--text-primary);margin-bottom:.5rem;}.accred-body p{font-size:.97rem;color:var(--text-secondary);line-height:1.65;}.lifecycle-bar{display:grid;grid-template-columns:70fr 25fr 10fr;gap:1px;background:var(--border);border-radius:2px;overflow:hidden;margin:1.5rem 0;}.lc-phase{padding:1.5rem 1.25rem;cursor:pointer;transition:filter .15s;}.lc-phase.manufacture{background:#B54D12;color:#fff;}.lc-phase.operate{background:#007A6E;color:#fff;}.lc-phase.eol{background:#4A5568;color:#fff;}.lc-phase:hover{filter:brightness(1.1);}.lc-pct{font-family:Calibri,monospace;font-size:1.1rem;font-weight:700;margin-bottom:.35rem;}.lc-label{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.85;}.lifecycle-detail{padding:1.25rem 1.5rem;background:var(--section-alt);border-left:3px solid var(--teal);font-size:.97rem;color:var(--text-primary);line-height:1.7;}.bs-body{flex:1;}.bs-body strong{display:block;font-family:Georgia,serif;font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:.3rem;}.bs-body p{font-size:.92rem;color:var(--text-secondary);line-height:1.65;margin:0;}.stop-start{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin:1.5rem 0;}.stop-col,.start-col{background:var(--card-bg);padding:1.5rem;}.stop-col{border-top:3px solid #B54D12;}.start-col{border-top:3px solid #007A6E;}.ss-heading{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:.75rem;display:block;}.stop-col .ss-heading{color:#B54D12;}.start-col .ss-heading{color:#007A6E;}.ss-list{list-style:none;display:flex;flex-direction:column;gap:.4rem;}.ss-list li{padding:.5rem .75rem;font-size:.92rem;color:var(--text-secondary);background:var(--section-alt);}.pue-util-chart{position:relative;background:var(--section-alt);border:1px solid var(--border);}.tri-vertex{cursor:pointer;}.tri-vertex:hover circle{opacity:.8;}
+:root{--page-bg:#F7F8FA;--card-bg:#FFFFFF;--section-alt:#E8EDF2;--text-primary:#1E293B;--text-secondary:#4A5568;--text-muted:#64748B;--navy:#0F1F2E;--navy-mid:#162840;--navy-card:#1E293B;--navy-light:#1C3A55;--teal:#00A896;--teal-dark:#007A6E;--teal-muted:#B2EDE7;--teal-bg:rgba(0,168,150,0.07);--teal-border:rgba(0,168,150,0.25);--orange:#E76F51;--orange-light:#F4A261;--orange-bg:#FFF3E8;--orange-border:rgba(231,111,81,0.25);--border:#D1D9E0;--border-light:#E8EDF2;--track1:#00A896;--track2:#F4A261;--track3:#E76F51;--correct:#16a34a;--wrong:#dc2626;--white:#FFFFFF;--slate:#4A5568;--slate-mid:#64748B;--slate-dim:#94A3B8;--teal-light:#B2EDE7;--teal-glow:rgba(0,168,150,0.15);--teal-subtle:rgba(0,168,150,0.07);--grey-100:#F7F8FA;--grey-300:#D1D9E0;--grey-500:#4A5568;--navy-raised:#1C3A55;--navy-border:rgba(255,255,255,0.07);--navy-mid-alt:#162840;}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;font-size:16px;}img,svg{display:block;max-width:100%;}body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Trebuchet MS",system-ui,-apple-system,sans-serif;font-weight:400;font-size:1rem;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}.top-nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid rgba(0,168,150,0.2);padding:0 3rem;height:52px;display:flex;align-items:center;gap:1rem;}.top-nav::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00A896 0%,#F4A261 60%,#E76F51 100%);}.nav-home{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-primary);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .15s;flex-shrink:0;}.nav-home:hover{color:var(--text-primary);}.nav-sep{color:var(--text-secondary);}.nav-module{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-primary);font-weight:500;}.nav-track-pill{font-family:Calibri,monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;padding:.35rem .65rem;background:rgba(0,168,150,0.15);color:#00A896;border-radius:999px;font-weight:600;flex-shrink:0;}.nav-progress{display:flex;align-items:center;gap:.5rem;margin-left:auto;font-family:Calibri,monospace;font-size:.8rem;color:#3D5E5E;}.nav-progress-bar{width:100px;height:3px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden;}.nav-progress-fill{height:100%;background:#00A896;width:0%;}.module-hero{background:var(--navy);color:#fff;padding:3rem;position:relative;overflow:hidden;border-bottom:1px solid rgba(0,168,150,0.15)}.module-hero::before{content:"";position:absolute;top:-50%;right:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(0,168,150,0.08) 0%,transparent 70%);pointer-events:none;}.module-hero h1{font-size:2.5rem;font-family:Georgia,serif;font-weight:700;margin-bottom:1.5rem;position:relative;z-index:2;}.module-hero p{font-size:1.1rem;color:rgba(255,255,255,0.85);max-width:700px;position:relative;z-index:2;line-height:1.6;}.hero-num{position:absolute;top:2rem;right:3rem;font-size:6rem;font-weight:900;opacity:0.08;font-family:Georgia,serif;}.objectives{background:#fff;border:1px solid var(--border);border-radius:0;margin:2rem 3rem;padding:2rem;}.objectives h3{font-size:1rem;font-family:Georgia,serif;font-weight:700;margin-bottom:1rem;color:var(--navy);}.objectives ol{list-style:none;counter-reset:item;}.objectives li{counter-increment:item;display:flex;gap:1.5rem;margin-bottom:1.2rem;font-size:1rem;}.objectives li::before{content:counter(item);display:flex;width:28px;height:28px;align-items:center;justify-content:center;background:var(--teal-bg);color:var(--teal-dark);font-weight:600;border-radius:50%;flex-shrink:0;}.section-label{display:inline-block;font-family:Calibri,monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);font-weight:600;margin-bottom:.5rem;}.section-title{font-family:Georgia,serif;font-size:1.8rem;font-weight:700;color:var(--navy);margin-bottom:1rem;line-height:1.3;}.section-intro{font-size:1rem;color:var(--text-secondary);line-height:1.7;margin-bottom:2rem;}.content-section{background:#fff;border:1px solid var(--border);padding:2rem;margin:2rem 3rem;}.content-section h3{font-family:Georgia,serif;font-size:1.4rem;font-weight:700;color:var(--navy);margin:1.5rem 0 1rem 0;}.content-section h4{font-family:Georgia,serif;font-size:1.1rem;font-weight:600;color:var(--navy-mid);margin:1.5rem 0 0.75rem 0;}.content-section p{color:var(--text-secondary);line-height:1.7;margin-bottom:1rem;}.content-section ul{list-style:disc;margin-left:2rem;margin-bottom:1.5rem;}.content-section li{margin-bottom:0.5rem;color:var(--text-secondary);}.content-section table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.95rem;}.content-section th{background:var(--section-alt);color:var(--navy);padding:1rem;text-align:left;font-weight:600;border:1px solid var(--border);}.content-section td{padding:1rem;border:1px solid var(--border);color:var(--text-secondary);}.reg-framework-tabs{display:flex;gap:0.5rem;margin-bottom:2rem;flex-wrap:wrap;}.reg-framework-tabs button{font-family:Calibri,system-ui;font-size:0.95rem;padding:0.75rem 1.25rem;border:2px solid var(--border);background:#fff;color:var(--text-primary);cursor:pointer;border-radius:4px;transition:all 0.2s;font-weight:500;}.reg-framework-tabs button.active{background:var(--teal);color:#fff;border-color:var(--teal);}.reg-framework-tabs button:hover{border-color:var(--teal);color:var(--teal);}.reg-framework-panels{margin-top:2rem;}.reg-framework-panel{display:none;padding:1.5rem;background:var(--section-alt);border-left:4px solid var(--teal);border-radius:4px;}.reg-framework-panel.active{display:block;}.reg-framework-panel h4{font-family:Georgia,serif;color:var(--navy);margin-bottom:1rem;font-size:1.2rem;}.reg-framework-item{margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border-light);}.reg-framework-item:last-child{border-bottom:none;}.reg-framework-item strong{color:var(--navy);display:block;margin-bottom:0.5rem;font-size:0.95rem;}.reg-framework-item p{color:var(--text-secondary);font-size:0.95rem;margin-bottom:0.5rem;}.timeline-container{margin:2rem 0;overflow-x:auto;padding:1.5rem 0;}.timeline-svg{min-width:100%;height:180px;}.timeline-dot{cursor:pointer;transition:r 0.2s;}.timeline-dot:hover{opacity:0.8;}.timeline-label{font-size:12px;font-family:Calibri,system-ui;}.materiality-matrix{position:relative;margin:2rem 0;padding:2rem;background:var(--section-alt);border-radius:4px;}.materiality-container{position:relative;width:100%;height:500px;border:2px solid var(--teal);background:#fff;border-radius:4px;margin-bottom:1.5rem;}.materiality-axes{position:absolute;width:100%;height:100%;}.axis-label{position:absolute;font-family:Georgia,serif;font-weight:600;color:var(--navy);font-size:0.95rem;}.axis-x{bottom:5px;right:20px;}.axis-y{left:-80px;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;transform:translateY(-50%) rotate(180deg);}.materiality-dot{position:absolute;width:12px;height:12px;border-radius:50%;cursor:pointer;transition:all 0.2s;border:2px solid #fff;}.materiality-dot:hover{width:16px;height:16px;box-shadow:0 2px 8px rgba(0,0,0,0.15);}.dot-dc{background:#E76F51;}.dot-cloud{background:#F4A261;}.dot-eud{background:#00A896;}.dot-software{background:#007A6E;}.materiality-legend{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);}.legend-item{display:flex;align-items:center;gap:0.75rem;font-size:0.95rem;}.legend-dot{width:12px;height:12px;border-radius:50%;}.scope2-comparison{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:2rem 0;}.scope2-card{background:var(--section-alt);padding:1.5rem;border-radius:4px;border-left:4px solid var(--teal);}.scope2-card h4{font-family:Georgia,serif;color:var(--navy);margin-bottom:1rem;font-size:1.1rem;}.scope2-method{font-family:Calibri,monospace;font-size:0.85rem;color:var(--teal-dark);font-weight:600;margin-bottom:0.5rem;}.scope2-example{background:#fff;padding:1rem;border-radius:4px;margin:1rem 0;border:1px solid var(--border);font-size:0.95rem;}.scope2-example strong{color:var(--navy);display:block;margin-bottom:0.5rem;}.scope2-number{font-size:1.8rem;font-weight:700;color:var(--teal);font-family:Calibri,monospace;}.scope2-label{font-size:0.85rem;color:var(--text-muted);margin-top:0.5rem;}.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin:2rem 0;}.stat-block{background:#fff;border:1px solid var(--border);padding:2rem;text-align:center;border-radius:4px;}.stat-num{font-size:2rem;font-weight:700;color:var(--teal);font-family:Calibri,monospace;margin-bottom:0.75rem;}.stat-label{font-size:0.95rem;color:var(--text-secondary);line-height:1.5;}.kc-block{margin:2rem 3rem;padding:1.5rem;background:#fff;border:1px solid var(--border);border-left:4px solid var(--teal);border-radius:4px;}.kc-block.answered{border-left-color:var(--teal-dark);}.kc-label{font-family:Calibri,monospace;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-dark);font-weight:600;display:block;margin-bottom:0.75rem;}.kc-q{font-size:1.05rem;color:var(--navy);font-weight:600;margin-bottom:1.5rem;line-height:1.5;}.kc-options{display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1.5rem;}.kc-option{text-align:left;padding:1rem 1.25rem;background:var(--section-alt);border:2px solid transparent;border-radius:4px;cursor:pointer;transition:all 0.2s;font-family:Calibri,system-ui;font-size:0.98rem;color:var(--text-primary);}.kc-option:hover{border-color:var(--teal);background:#fff;}.kc-option.selected-correct{background:#D1FAE5;border-color:var(--teal-dark);color:var(--navy);font-weight:600;}.kc-option.selected-wrong{background:#FEE2E2;border-color:#DC2626;color:var(--navy);font-weight:600;}.kc-opt-key{display:inline-block;min-width:30px;font-weight:700;color:var(--teal);font-family:Calibri,monospace;margin-right:0.75rem;}.kc-hint{font-size:0.9rem;color:var(--text-muted);font-style:italic;margin-top:1rem;}.kc-reveal{display:none;margin-top:1.5rem;padding:1.5rem;background:var(--teal-subtle);border-radius:4px;border-left:4px solid var(--teal);}.kc-reveal-label{font-weight:600;color:var(--teal-dark);margin-bottom:0.75rem;display:block;}.kc-reveal p{color:var(--text-secondary);line-height:1.7;margin-bottom:0.75rem;font-size:0.95rem;}.pause-reflect{background:var(--orange-bg);border:1px solid var(--orange-border);border-left:4px solid var(--orange);padding:1.5rem;margin:2rem 3rem;border-radius:4px;}.pause-label{display:block;font-family:Calibri,monospace;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);font-weight:600;margin-bottom:0.75rem;}.pause-intro{font-size:0.95rem;color:var(--text-secondary);margin-bottom:1.5rem;font-style:italic;}.pause-questions{display:flex;flex-direction:column;gap:1.5rem;}.pause-q{display:flex;gap:1.5rem;font-size:0.98rem;color:var(--text-secondary);line-height:1.6;}.pause-q-num{display:flex;align-items:flex-start;width:28px;height:28px;min-width:28px;background:var(--orange);color:#fff;border-radius:50%;justify-content:center;font-weight:600;font-size:1rem;margin-top:2px;}.takeaways{background:#fff;border:1px solid var(--border);padding:2rem;margin:2rem 3rem;border-top:4px solid var(--teal);border-radius:4px;}.takeaways-heading{font-family:Georgia,serif;font-size:1.4rem;font-weight:700;color:var(--navy);margin-bottom:1.5rem;}.takeaway-list{display:grid;grid-template-columns:1fr;gap:1.5rem;}.takeaway-item{display:flex;gap:1.25rem;}.takeaway-icon{color:var(--teal);font-size:1.2rem;flex-shrink:0;margin-top:0.2rem;}.takeaway-body strong{color:var(--navy);font-size:0.95rem;display:block;margin-bottom:0.5rem;}.takeaway-body p{color:var(--text-secondary);font-size:0.95rem;line-height:1.6;}.module-nav{display:flex;gap:1.5rem;justify-content:space-between;align-items:center;padding:2rem 3rem;margin-top:3rem;border-top:1px solid var(--border);}.nav-btn{display:flex;align-items:center;flex:1;gap:1rem;padding:1rem;text-decoration:none;background:#fff;border:1px solid var(--border);color:var(--navy);border-radius:4px;transition:all 0.2s;}.nav-btn:hover{background:var(--section-alt);border-color:var(--teal);}.nav-btn.next{justify-content:flex-end;flex-direction:row-reverse;}.nav-btn span{display:flex;flex-direction:column;}.nav-btn-label{font-family:Calibri,monospace;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);font-weight:600;}.nav-btn-title{font-size:0.95rem;font-weight:600;color:var(--navy);}.complete-btn{padding:0.75rem 1.5rem;background:var(--section-alt);border:2px solid var(--border);color:var(--navy);font-weight:600;border-radius:4px;cursor:pointer;transition:all 0.2s;font-family:Calibri,system-ui;font-size:0.95rem;}.complete-btn:hover{border-color:var(--teal);color:var(--teal);}.complete-btn.done{background:var(--teal);color:#fff;border-color:var(--teal);}.complete-btn.done:hover{opacity:0.9;}.reveal{opacity:0;transform:translateY(10px);transition:opacity 0.5s ease,transform 0.5s ease;}.reveal.visible{opacity:1;transform:translateY(0);}.footer{padding:2rem 3rem;border-top:1px solid var(--border);background:var(--section-alt);text-align:center;font-size:0.85rem;color:var(--text-muted);}.footer-brand{color:var(--text-secondary);font-weight:500;letter-spacing:0.05em;display:block;margin-bottom:0.5rem;}
 </style>
+<link rel="stylesheet" href="polish.css">
 </head>
-<body class="track3">
-<nav class="top-nav"><a href="index.html" class="nav-home"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L1 6v7h4v-4h4v4h4V6L7 1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>GreenOps 101</a>
-<span class="nav-sep">/</span><span class="nav-module">Module 9</span>
-<span class="nav-track-pill track3-pill">Track 3 — Leadership and Strategy</span>
-<div class="nav-progress">Progress: <span id="progress-count">0/14</span></div></nav>
-<section class="module-hero"><div class="hero-num">9</div>
-<p class="module-eyebrow">Module 9 &nbsp;·&nbsp; Track 3 — Leadership and Strategy</p>
-<h1 class="module-title">The Regulatory and<br>Policy Landscape</h1><p class="module-subtitle">Sustainability is no longer a voluntary area for enterprise technology organisations. The regulatory picture has shifted materially — and it will continue to shift.</p>
-<div class="module-meta">
-<div class="meta-item"><span class="label">Duration</span><span class="value">22–26 minutes</span></div>
-<div class="meta-item"><span class="label">Track</span><span class="value">Leadership and Strategy</span></div>
-<button class="complete-btn" onclick="markComplete('module9')">Mark as complete</button>
-</div></section>
-<div class="objectives-strip reveal"><p class="objectives-heading">What you will take from this module</p><ul class="objectives-list"><li><span class="obj-num">01</span>Understand the Paris Agreement's relevance to enterprise IT — and why technology estates are material contributors to corporate SBTs</li><li><span class="obj-num">02</span>Know what the EU Taxonomy is, why it matters for capital allocation, and what it means for data centre and ICT investments</li><li><span class="obj-num">03</span>Understand CSRD's double materiality requirement and the specific obligations it creates for IT measurement and Scope 3</li><li><span class="obj-num">04</span>Know how TCFD connects to technology infrastructure through physical and transition climate risk</li><li><span class="obj-num">05</span>Understand the GHG Protocol framework, the Scope 2 dual-method requirement, and sustainable finance instruments</li></ul></div><div class="module-content">
-<div class="content-section reveal"><p class="section-label">Section 1</p>
-<h2 class="section-title">The regulatory landscape has shifted — and it will keep shifting.</h2>
-<p class="section-intro">Sustainability is no longer voluntary for enterprise technology organisations. A series of interconnected frameworks now reshape what IT must disclose, measure, and demonstrate.</p>
-<div class="card-grid card-grid-2 reveal">
-<div class="card card-accent-o"><div class="card-label">Paris Agreement &amp; SBTi</div><h4>IT estates are inside the target boundary</h4><p>Corporate sustainability commitments are increasingly anchored to the Paris Agreement through science-based targets. For most large enterprises, the technology estate is material enough to sit inside that SBTi boundary. Technology leaders are directly on the hook for delivery — not adjacent to it.</p></div>
-<div class="card card-accent-t"><div class="card-label">EU Taxonomy</div><h4>Determines access to sustainable capital</div><p>For EU-based or EU-funded organisations, Taxonomy alignment affects green financing access and lending terms. Data centre and ICT investments must meet specific technical screening criteria. Non-aligned investments face increasing cost-of-capital disadvantage.</p></div>
-<div class="card card-accent-p"><div class="card-label">CSRD — Double Materiality</div><h4>IT data must be assurable</h4><p>CSRD requires both financial risk and environmental impact to be reported. Digital footprint data must be capable of audit. Scope 3 must be included where material. For technology estates, it almost always is. Spend-based proxies are insufficient at assurance grade. Silence is not a safe position.</p></div>
-<div class="card"><div class="card-label">TCFD</div><h4>Physical and transition climate risk</h4><p>Physical risk: data centres in exposed locations face operational disruption from extreme weather, heat, and water stress. Transition risk: stranded assets, regulatory shifts, changing capital allocation. Both require technology leaders to understand their infrastructure's climate risk profile.</p></div>
-</div></div>
-<div class="content-section reveal"><p class="section-label">Section 2</p>
-<h2 class="section-title">CSRD double materiality — what it means for IT.</h2>
-<p class="section-intro">Double materiality is the requirement to report from both directions: how sustainability issues affect the organisation financially, and what impact the organisation has on the environment and society.</p>
-<div class="callout callout-warning reveal"><p class="callout-title">The IT data quality implication</p><p>CSRD requires data that is assurable. Spend-based Scope 3 proxies, portfolio-average PUE figures, and self-declared supplier claims will not meet the evidentiary standard required for assurance-grade disclosure. The data quality investment is not optional — it is the compliance requirement.</p></div>
-<table class="compare-table reveal">
-<tr><th>CSRD Obligation</th><th>What it requires from IT</th><th>Gap in most organisations</th></tr>
-<tr><td>Scope 3 measurement where material</td><td>Activity-based data for cloud, hardware, SaaS, and managed services</td><td>Most Scope 3 is spend-based — insufficient for assurance</td></tr>
-<tr><td>Double materiality assessment</td><td>Understanding both financial exposure from sustainability issues and IT's environmental impact</td><td>Few IT functions have completed a formal double materiality assessment</td></tr>
-<tr><td>Assurable disclosures</td><td>Data that can be independently reviewed or assured</td><td>Most IT sustainability data lacks the documentation trail for assurance</td></tr>
-<tr><td>Supply chain coverage</td><td>Supplier engagement and product-level evidence</td><td>Vendor evidence quality is typically low; self-declared data dominates</td></tr>
-</table></div>
-<div class="content-section reveal"><p class="section-label">Section 3</p>
-<h2 class="section-title">Sustainable finance as a practical lever.</h2>
-<p class="section-intro">Green bonds, sustainability-linked loans, and ESG-screened capital are becoming practical instruments — not just aspirational tools. Technology investment increasingly intersects with these mechanisms.</p>
-<div class="stat-row reveal">
-<div class="stat-block"><div class="stat-num">$1T+</div><div class="stat-label">annual green bond issuance globally — growing rapidly with technology infrastructure as a qualifying use of proceeds</div></div>
-<div class="stat-block"><div class="stat-num">SLL</div><div class="stat-label">Sustainability-linked loans tie interest rates to sustainability KPI performance — including IT efficiency metrics</div></div>
-<div class="stat-block"><div class="stat-num">ESG screens</div><div class="stat-label">Institutional capital increasingly requires sustainability performance data — affecting cost of capital for non-aligned organisations</div></div>
-</div></div><div class="kc-block reveal" data-correct="B"><p class="kc-label">Knowledge Check · Module 9 · Q1</p><p class="kc-q">An organisation's sustainability report states that its data centre operations are powered by 100% renewable electricity, citing Renewable Energy Certificates. Under CSRD and the GHG Protocol, what is the most precise statement about what this claim represents?</p><div class="kc-options"><button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>It means the data centres physically run on renewable energy — the claim is fully substantiated</button><button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>It is a valid market-based Scope 2 claim, but it does not mean the physical grid supplying the facility has changed — the location-based figure, reflecting actual grid carbon intensity, must also be reported</button><button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>The claim is invalid — RECs cannot be used for Scope 2 reporting under CSRD</button><button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>The claim is sufficient for both location-based and market-based Scope 2 reporting</button></div><p class="kc-hint">Select an answer to reveal the explanation.</p><div class="kc-reveal"><p class="kc-reveal-label">✓ Correct: Option B</p><p>Under the GHG Protocol, organisations report Scope 2 using both the location-based method (reflecting actual grid carbon intensity) and the market-based method (reflecting contractual instruments like RECs). The REC claim is valid for market-based reporting — but it does not change the physical grid that powers the facility.</p><p>CSRD requires both methods to be disclosed. An organisation reporting only the market-based figure, without also disclosing the location-based intensity, is providing an incomplete picture. The location-based figure is the physically honest number — the one GreenOps operational decisions should be based on.</p></div></div><div class="kc-block reveal" data-correct="B"><p class="kc-label">Knowledge Check · Module 9 · Q2</p><p class="kc-q">A technology director says: "CSRD is a European regulation so it doesn't apply to us — we're headquartered outside the EU." Under what circumstances might CSRD still be relevant to this organisation?</p><div class="kc-options"><button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>CSRD applies globally by default to all companies over 250 employees, regardless of headquarters location</button><button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>CSRD may still be relevant if the organisation operates in the EU, sells to large EU-based enterprises that are themselves under CSRD obligations, or accesses EU capital markets — since those entities will require supply chain sustainability data</button><button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>CSRD only applies if the organisation has EU-listed debt or equity</button><button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>CSRD is not relevant to non-EU headquartered companies under any circumstances</button></div><p class="kc-hint">Select an answer to reveal the explanation.</p><div class="kc-reveal"><p class="kc-reveal-label">✓ Correct: Option B</p><p>CSRD directly applies to EU-headquartered organisations and to non-EU companies with significant EU revenue above specified thresholds. But the indirect reach extends further: any organisation that is a material supplier to a CSRD-obligated entity will face sustainability data requests — because those entities are required to cover material Scope 3 emissions, including supply chain.</p><p>This supply chain pull effect means the regulatory boundary is effectively wider than the direct applicability of the regulation. Organisations that sell to EU-based enterprises, access EU capital markets, or have significant EU operations should treat CSRD as material to their governance planning.</p></div></div><div class="pause-reflect reveal"><p class="pause-label">⏸ Pause &amp; Reflect</p><p class="pause-intro">Take 5–10 minutes. Specificity matters more than completeness.</p><div class="pause-questions"><div class="pause-q"><span class="pause-q-num">1</span>Does your organisation's technology estate currently sit within the boundary of its SBTi commitment or corporate net-zero target? If you're not certain, what would it take to find out — and whose responsibility is it to know?</div><div class="pause-q"><span class="pause-q-num">2</span>Under CSRD double materiality, which sustainability topics are most material for your technology estate? Where do you have both a financial risk exposure and a significant environmental impact?</div><div class="pause-q"><span class="pause-q-num">3</span>Think about your top three or four technology suppliers. Are any of them themselves CSRD-obligated? What sustainability data requests have you already received, and are you equipped to respond?</div></div></div><div class="takeaways reveal"><h3 class="takeaways-heading">Key Takeaways</h3><div class="takeaway-list"><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Paris Agreement and SBTi put IT estates inside corporate target boundaries.</strong><p>For most large enterprises, technology consumption is material enough to sit within the SBTi boundary. Technology leaders are directly on the hook for delivery — not just adjacent to it.</p></div></div><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>EU Taxonomy determines access to sustainable capital — and creates evidence requirements.</strong><p>For EU-based or EU-funded organisations, Taxonomy alignment affects green financing access and lending terms.</p></div></div><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>CSRD requires assurable IT data — spend-based proxies are insufficient.</strong><p>Double materiality means both financial risk and impact must be reported. Digital footprint data must be capable of audit. Scope 3 must be included where material.</p></div></div><div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Sustainable finance instruments are becoming practical levers for technology investment.</strong><p>Green bonds, sustainability-linked loans, and ESG-screened capital are connecting sustainability performance directly to cost of capital.</p></div></div></div></div></div>
-<div class="module-nav"><a href="module8.html" class="nav-btn"><span><span class="nav-btn-label">← Previous</span><span class="nav-btn-title">M8: Governance, Maturity and Making It Stick</span></span></a><button class="complete-btn" onclick="markComplete('module9')">Mark as complete</button><a href="module10.html" class="nav-btn next"><span><span class="nav-btn-label">Next →</span><span class="nav-btn-title">M10: The Business Case: Value, Risk and Strategic Opportunity</span></span></a></div>
-<footer><div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 9</div><div class="footer-brand">March 2026 · v2</div></footer>
-<script></script>
+<body>
+<div class="top-nav">
+  <a href="index.html" class="nav-home"><span style="font-size:1rem">●</span> GreenOps</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-module">Module 9</span>
+  <span class="nav-track-pill">REGULATORY</span>
+  <div class="nav-progress">
+    <span id="progress-count">0/14</span>
+    <div class="nav-progress-bar"><div class="nav-progress-fill" id="prog-fill"></div></div>
+  </div>
+</div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  if (typeof initKnowledgeChecks === 'function') initKnowledgeChecks();
-  if (typeof initScrollReveal === 'function') initScrollReveal();
-  if (typeof initProgress === 'function') initProgress(9);
-  
-});
-</script>
+<section class="module-hero">
+  <div class="hero-num">9</div>
+  <h1>The Regulatory and Policy Landscape</h1>
+  <p>Sustainability is no longer a voluntary area for enterprise technology organisations. The regulatory picture has shifted materially in the last three years, and it will continue to shift. Understanding what's coming, and what's already here, is not optional for technology leaders who want to avoid being caught unprepared.</p>
+</section>
+
+<div class="objectives">
+  <h3>What you'll learn in this module</h3>
+  <ol>
+    <li>How the Paris Agreement and SBTi create binding obligations for enterprise IT</li>
+    <li>The EU Taxonomy, CSRD, and TCFD frameworks and what they require</li>
+    <li>The GHG Protocol measurement methods and their practical implications</li>
+    <li>The difference between location-based and market-based Scope 2 reporting</li>
+    <li>How sustainable finance instruments are reshaping IT investment decisions</li>
+  </ol>
+</div>
+
+<!-- SECTION 1: PARIS, SBTI, AND ENTERPRISE IT -->
+<div class="content-section reveal">
+  <p class="section-label">Section 1</p>
+  <h2 class="section-title">Paris Agreement and SBTi — putting IT estates inside corporate targets.</h2>
+  <p class="section-intro">The Paris Agreement created the global policy framework. SBTi turned that framework into measurable corporate obligations that pull IT into the target boundary.</p>
+
+  <h3>The Paris Agreement and what it means for enterprise IT</h3>
+  <p>The Paris Agreement, adopted in 2015, sets the framework for global climate action. The central commitment is to limit global temperature rise to well below two degrees Celsius above pre-industrial levels, and to pursue efforts to limit the increase to 1.5 degrees. The mechanism is nationally determined contributions: commitments from individual countries to reduce emissions, which in turn create the policy and regulatory frameworks that companies operate within.</p>
+
+  <p>Why does this matter directly for enterprise IT? Because corporate sustainability commitments are increasingly being anchored to the Paris Agreement through science-based targets. A science-based target is an emissions reduction goal calculated to be consistent with the level of decarbonisation required to keep warming within agreed limits. The Science-Based Targets initiative, SBTi, is the primary framework for validating these commitments.</p>
+
+  <p><strong>The critical point for technology leaders:</strong> If your organisation has set or is planning to set science-based targets, the technology estate is not peripheral. For most large enterprises, technology consumption — including Scope 3 from cloud, hardware, and managed services — is material enough to sit inside the target boundary. That puts technology leaders directly on the hook for delivering against it.</p>
+
+  <h4>SBTi emissions scenarios and IT implications</h4>
+  <p>Science-based targets under the SBTi framework are calculated against specific emissions scenarios. The most demanding is a 1.5 degree pathway, which requires more rapid and deeper reductions than a 2 degree pathway. For organisations that have set SBTi-validated targets, both Scope 1 and 2 reductions and Scope 3 engagement with major supply chain partners are typically required. Technology supply chains — particularly cloud providers, hardware manufacturers, and large managed service providers — are often material enough to require active engagement rather than just reporting.</p>
+</div>
+
+<!-- SECTION 2: REGULATORY FRAMEWORKS EXPLORER -->
+<div class="content-section reveal">
+  <p class="section-label">Section 2</p>
+  <h2 class="section-title">The regulatory framework landscape.</h2>
+  <p class="section-intro">Four interconnected frameworks now shape what technology organisations must disclose, measure, and demonstrate. Understanding each one and how they interact is essential for regulatory compliance and credibility.</p>
+
+  <div class="reg-framework-tabs">
+    <button class="active" onclick="showRegFramework(event, 'taxonomy')">EU Taxonomy</button>
+    <button onclick="showRegFramework(event, 'csrd')">CSRD</button>
+    <button onclick="showRegFramework(event, 'tcfd')">TCFD</button>
+    <button onclick="showRegFramework(event, 'ghg')">GHG Protocol</button>
+  </div>
+
+  <div class="reg-framework-panels">
+    <div id="taxonomy" class="reg-framework-panel active">
+      <h4>EU Taxonomy for Sustainable Activities</h4>
+      <div class="reg-framework-item">
+        <strong>What it is</strong>
+        <p>A classification system that defines which economic activities can be considered environmentally sustainable. It determines access to green capital, lending terms, and investor classification.</p>
+      </div>
+      <div class="reg-framework-item">
+        <strong>Why it matters for IT</strong>
+        <p>The EU Taxonomy is relevant in two directions. First, it determines whether your organisation's activities can be labelled as sustainable in financial reporting, which affects access to green financing, investor classification, and lending terms. Second, it creates requirements for data centre and ICT investments to demonstrate alignment with specific technical screening criteria, including energy efficiency thresholds and renewable energy sourcing.</p>
+      </div>
+      <div class="reg-framework-item">
+        <strong>Scope and applicability</strong>
+        <p>If your organisation operates in the EU, is funded by EU capital markets, or sells to businesses that are, the EU Taxonomy is already relevant to your sustainability reporting obligations. If you're outside the EU, the Taxonomy is still setting the direction of travel that other regulatory frameworks will follow.</p>
+      </div>
+      <div class="reg-framework-item">
+        <strong>Key IT implications</strong>
+        <p>Data centre energy efficiency standards, renewable energy sourcing requirements, and demonstrable lifecycle emissions reduction are now capital allocation drivers. IT infrastructure investment increasingly needs to be defensible against these criteria.</p>
+      </div>
+    </div>
+
+    <div id="csrd" class="reg-framework-panel">
+      <h4>Corporate Sustainability Reporting Directive (CSRD)</h4>
+      <div class="reg-framework-item">
+        <strong>What it is</strong>
+        <p>The EU's primary sustainability disclosure framework, significantly expanding mandatory reporting scope beyond the previous Non-Financial Reporting Directive.</p>
+      </div>
+      <div class="reg-framework-item">
+        <strong>Scope thresholds</strong>
+        <p>Large companies meeting two of three thresholds are progressively entering scope: more than 250 employees, over 40 million euros turnover, or over 20 million euros in assets. The largest organisations report first. Note: the precise implementation timeline and scope are subject to ongoing EU review; organisations should verify current obligations with legal and compliance teams.</p>
+      </div>
+      <div class="reg-framework-item">
+        <strong>Double materiality requirement</strong>
+        <p>Organisations must disclose two dimensions: the financial risks and opportunities that sustainability presents to the organisation, and the impact that the organisation's activities have on the environment and society. Both dimensions must be reported.</p>
+      </div>
+      <div class="reg-framework-item">
+        <strong>What CSRD requires from IT</strong>
+        <p>Digital footprint data — covering energy consumption, emissions, water use, and e-waste — must be reported in a format that's capable of being assured. The data must be auditable. It must include Scope 3 where material. It must be based on defensible measurement methodology, not spend-based proxies presented as physical data. This is why measurement quality and coverage statements are compliance concerns, not just operational ones.</p>
+      </div>
+      <div class="reg-framework-item">
+        <strong>Supply chain reach</strong>
+        <p>CSRD directly applies to EU-headquartered organisations and non-EU companies with significant EU revenue above specified thresholds. But the indirect reach is wider: any organisation that is a material supplier to a CSRD-obligated entity will face sustainability data requests. Organisations that sell to EU-based enterprises, access EU capital markets, or have significant EU operations should treat CSRD as material to governance planning.</p>
+      </div>
+    </div>
+
+    <div id="tcfd" class="reg-framework-panel">
+      <h4>Task Force on Climate-related Financial Disclosures (TCFD)</h4>
+      <div class="reg-framework-item">
+        <strong>What it is</strong>
+        <p>The dominant framework for disclosing climate-related financial risks and opportunities. Organisations describe their governance of climate risks, strategy for managing them, risk management processes, and metrics and targets used.</p>
+      </div>
+      <div class="reg-framework-item">
+        <strong>Why it matters for technology leaders</strong>
+        <p>Digital infrastructure creates climate risk exposure in both directions. Physical risk: data centres in climate-exposed locations face increasing risk from extreme weather, flooding, heat, and water stress. Transition risk: as carbon pricing, regulation, and market expectations shift, assets and business models dependent on high-carbon infrastructure face increasing cost and stranding risk.</p>
+      </div>
+      <div class="reg-framework-item">
+        <strong>What's required from IT</strong>
+        <p>Technology leaders should be able to articulate their organisation's climate risk exposure through the technology estate. They should ensure that the technology sustainability programme is connected to the TCFD disclosure process rather than running in parallel to it.</p>
+      </div>
+      <div class="reg-framework-item">
+        <strong>Governance integration</strong>
+        <p>TCFD governance requirements mean climate risk assessment and response should be visible in IT leadership accountability, capital allocation decisions, and board-level reporting.</p>
+      </div>
+    </div>
+
+    <div id="ghg" class="reg-framework-panel">
+      <h4>The GHG Protocol Corporate Standard</h4>
+      <div class="reg-framework-item">
+        <strong>What it is</strong>
+        <p>The most widely used framework for measuring and reporting greenhouse gas emissions. It defines the rules of the game for corporate sustainability reporting.</p>
+      </div>
+      <div class="reg-framework-item">
+        <strong>Boundary-setting: operational control vs. equity share</strong>
+        <p>The GHG Protocol distinguishes between two boundary-setting approaches. The operational control approach includes emissions from operations the organisation controls. The equity share approach includes emissions proportional to ownership. Most large organisations use the operational control approach. For IT specifically, this means data centres and facilities you control fall clearly within your reporting boundary, while outsourced and cloud services fall in Scope 3.</p>
+      </div>
+      <div class="reg-framework-item">
+        <strong>Scope 2 methods: location-based vs. market-based</strong>
+        <p>The GHG Protocol distinguishes between two Scope 2 methods: location-based (reflecting actual grid carbon intensity) and market-based (reflecting contractual instruments like RECs). At the strategic level, the important point is that your corporate reporting obligations may specify which method you must use, or require both. Understanding which method your organisation is using, and being explicit about that choice in reporting, prevents credibility problems when numbers are compared across years or organisations.</p>
+      </div>
+      <div class="reg-framework-item">
+        <strong>Why this matters for IT</strong>
+        <p>The IT estate's footprint sits across all three emission scopes. Understanding where your infrastructure sits in each scope — and which measurement methods apply — is foundational to defensible reporting.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REGULATORY TIMELINE -->
+<div class="content-section reveal">
+  <h3>Key regulatory milestones and timeline</h3>
+  <p>This horizontal timeline shows the major regulatory moments that shape technology sustainability obligations. Hover over each milestone to see its significance.</p>
+
+  <div class="timeline-container">
+    <svg class="timeline-svg" viewBox="0 0 1200 150" preserveAspectRatio="xMidYMid meet">
+      <!-- Main timeline line -->
+      <line x1="50" y1="75" x2="1150" y2="75" stroke="var(--border)" stroke-width="2"/>
+
+      <!-- Paris Agreement 2015 -->
+      <circle cx="100" cy="75" r="6" fill="var(--navy)" class="timeline-dot" onclick="showTimelineTooltip(event, 'Paris 2015')"/>
+      <text x="100" y="110" text-anchor="middle" class="timeline-label" fill="var(--navy)">2015: Paris</text>
+
+      <!-- TCFD 2017 -->
+      <circle cx="280" cy="75" r="6" fill="var(--teal)" class="timeline-dot" onclick="showTimelineTooltip(event, 'TCFD 2017')"/>
+      <text x="280" y="110" text-anchor="middle" class="timeline-label" fill="var(--text-secondary)">2017: TCFD</text>
+
+      <!-- EU Taxonomy 2020 -->
+      <circle cx="460" cy="75" r="6" fill="var(--orange)" class="timeline-dot" onclick="showTimelineTooltip(event, 'Taxonomy 2020')"/>
+      <text x="460" y="110" text-anchor="middle" class="timeline-label" fill="var(--text-secondary)">2020: Taxonomy</text>
+
+      <!-- CSRD 2024+ -->
+      <circle cx="800" cy="75" r="6" fill="var(--orange-light)" class="timeline-dot" onclick="showTimelineTooltip(event, 'CSRD 2024+')"/>
+      <text x="800" y="110" text-anchor="middle" class="timeline-label" fill="var(--text-secondary)">2024: CSRD Roll-out</text>
+
+      <!-- SBTi Scope 3 -->
+      <circle cx="1000" cy="75" r="6" fill="var(--teal-dark)" class="timeline-dot" onclick="showTimelineTooltip(event, 'SBTi Scope 3')"/>
+      <text x="1000" y="110" text-anchor="middle" class="timeline-label" fill="var(--text-secondary)">2024: SBTi v2</text>
+
+      <!-- Future -->
+      <circle cx="1100" cy="75" r="6" fill="var(--slate)" class="timeline-dot" onclick="showTimelineTooltip(event, 'Emerging')"/>
+      <text x="1100" y="110" text-anchor="middle" class="timeline-label" fill="var(--text-muted)">2026+: Emerging</text>
+    </svg>
+  </div>
+
+  <div style="margin-top: 1.5rem; padding: 1rem; background: var(--section-alt); border-radius: 4px; font-size: 0.95rem; color: var(--text-secondary);">
+    <strong>Key insight:</strong> This timeline shows the acceleration of regulatory requirements. From voluntary reporting frameworks (TCFD) to binding disclosure (CSRD) to capital allocation criteria (Taxonomy). The trajectory is clear: sustainability is becoming a core feature of financial governance, and IT is central to execution.
+  </div>
+</div>
+
+<!-- SECTION 3: DOUBLE MATERIALITY MATRIX -->
+<div class="content-section reveal">
+  <h3>Double Materiality Matrix — Financial Risk vs. Environmental Impact</h3>
+  <p>CSRD requires organisations to assess and report two dimensions: how sustainability issues affect the organisation financially, and what impact the organisation has on the environment and society. This 2x2 matrix shows how different IT domains sit on both axes.</p>
+
+  <div class="materiality-matrix">
+    <div class="materiality-container">
+      <div class="materiality-axes">
+        <div class="axis-label axis-x">Financial Risk Exposure →</div>
+        <div class="axis-label axis-y">← Environmental Impact</div>
+      </div>
+
+      <!-- Quadrant lines for visual separation -->
+      <svg style="position:absolute;width:100%;height:100%;">
+        <line x1="50%" y1="0%" x2="50%" y2="100%" stroke="rgba(0,0,0,0.05)" stroke-width="1" stroke-dasharray="5,5"/>
+        <line x1="0%" y1="50%" x2="100%" y2="50%" stroke="rgba(0,0,0,0.05)" stroke-width="1" stroke-dasharray="5,5"/>
+      </svg>
+
+      <!-- Materiality dots representing IT domains -->
+      <div class="materiality-dot dot-dc" style="bottom:65%;left:60%;" title="Data Centres" onclick="showDomainDetail('dc')"></div>
+      <div class="materiality-dot dot-cloud" style="bottom:58%;left:72%;" title="Cloud Computing" onclick="showDomainDetail('cloud')"></div>
+      <div class="materiality-dot dot-eud" style="bottom:45%;left:42%;" title="End-User Devices" onclick="showDomainDetail('eud')"></div>
+      <div class="materiality-dot dot-software" style="bottom:52%;left:35%;" title="Software & SaaS" onclick="showDomainDetail('software')"></div>
+    </div>
+
+    <div class="materiality-legend">
+      <div class="legend-item">
+        <div class="legend-dot dot-dc"></div>
+        <span><strong>Data Centres:</strong> High financial risk (uptime, compliance) + high environmental impact (energy, cooling)</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot dot-cloud"></div>
+        <span><strong>Cloud Computing:</strong> Moderate financial risk (vendor lock-in, cost) + moderate-high environmental impact (Scope 3)</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot dot-eud"></div>
+        <span><strong>End-User Devices:</strong> Moderate financial risk (refresh cycles) + moderate environmental impact (manufacturing, e-waste)</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot dot-software"></div>
+        <span><strong>Software & SaaS:</strong> Low direct environmental impact + moderate financial risk (licensing, vendor relationships)</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 2rem; padding: 1.5rem; background: var(--orange-bg); border-left: 4px solid var(--orange); border-radius: 4px;">
+    <strong style="color: var(--navy); display: block; margin-bottom: 0.5rem;">Why this matters for IT strategy:</strong>
+    <p style="font-size: 0.95rem; color: var(--text-secondary);">Not all IT domains carry the same materiality weight. Data centres and cloud sit in the high-risk, high-impact quadrant — meaning they're both financially material to the organisation and environmentally significant. This is where investment and governance attention should be concentrated. But the full portfolio must be assessed: end-user device programmes, software lifecycle, supply chain engagement — all contribute to the double materiality picture.</p>
+  </div>
+</div>
+
+<!-- SECTION 4: SCOPE 2 COMPARISON -->
+<div class="content-section reveal">
+  <p class="section-label">Section 3</p>
+  <h2 class="section-title">Scope 2 measurement methods — location-based vs. market-based.</h2>
+  <p class="section-intro">Two different ways to measure Scope 2 electricity emissions. Both are valid, but they measure different things — and organisations must report both under CSRD.</p>
+
+  <div class="scope2-comparison">
+    <div class="scope2-card">
+      <h4>Location-Based</h4>
+      <p class="scope2-method">Average grid carbon intensity in the location where electricity is consumed</p>
+
+      <div class="scope2-example">
+        <strong>Example: UK data centre, 5 MW annual consumption</strong>
+        <p>2024 UK grid carbon intensity: ~180 gCO₂/kWh</p>
+        <p>5,000 kW × 8,760 hours × 180 gCO₂/kWh = <span class="scope2-number">7,884 tonnes CO₂e</span></p>
+        <p class="scope2-label">This is the physically honest number. It reflects the actual carbon intensity of the grid supplying the facility.</p>
+      </div>
+
+      <div style="margin-top: 1.5rem; padding: 1rem; background: #fff; border-radius: 4px; border-left: 4px solid var(--teal); font-size: 0.9rem;">
+        <strong style="color: var(--navy); display: block; margin-bottom: 0.5rem;">When to use:</strong>
+        <p style="color: var(--text-secondary);">Assessing operational decarbonisation progress, understanding actual grid exposure, informing infrastructure siting decisions. This is the operationally relevant number.</p>
+      </div>
+    </div>
+
+    <div class="scope2-card">
+      <h4>Market-Based</h4>
+      <p class="scope2-method">Carbon intensity based on contractual instruments (RECs, PPAs) the organisation has purchased</p>
+
+      <div class="scope2-example">
+        <strong>Example: Same data centre with 100% renewable PPA</strong>
+        <p>5,000 kW × 8,760 hours × 0 gCO₂/kWh (renewable) = <span class="scope2-number">0 tonnes CO₂e</span></p>
+        <p class="scope2-label">This reflects the contractual renewable claim, but does NOT change the physical grid. Both numbers are correct — they measure different things.</p>
+      </div>
+
+      <div style="margin-top: 1.5rem; padding: 1rem; background: #fff; border-radius: 4px; border-left: 4px solid var(--orange); font-size: 0.9rem;">
+        <strong style="color: var(--navy); display: block; margin-bottom: 0.5rem;">When to use:</strong>
+        <p style="color: var(--text-secondary);">Reporting achieved sustainability commitments, demonstrating alignment with renewable procurement targets. But CSRD requires BOTH numbers to be disclosed for transparency.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 2rem; padding: 1.5rem; background: var(--teal-subtle); border-left: 4px solid var(--teal); border-radius: 4px;">
+    <strong style="color: var(--navy); display: block; margin-bottom: 0.75rem;">Critical point:</strong>
+    <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 0.75rem;"><strong>Market-based claims do NOT eliminate location-based exposure.</strong> An organisation can claim 100% renewable energy via RECs, but the physical grid supplying the facility remains unchanged. Under GHG Protocol and CSRD, both figures must be reported. The location-based number is operationally decisive: it's the basis for understanding actual decarbonisation progress and informing infrastructure decisions.</p>
+    <p style="font-size: 0.95rem; color: var(--text-secondary);"><strong>For IT leadership:</strong> Understand which method your corporate sustainability commitments and targets are based on. If you're reporting Scope 2 to a SBTi-validated target, you need to know whether you're measuring against location-based, market-based, or both.</p>
+  </div>
+</div>
+
+<!-- SECTION 5: SUSTAINABLE FINANCE -->
+<div class="content-section reveal">
+  <h3>Sustainable Finance as a Practical Lever</h3>
+  <p>Sustainable finance instruments are worth understanding because they're becoming practical tools for funding technology investment. Green bonds, sustainability-linked loans, and ESG-screened capital are moving from aspirational to operational in technology capital allocation.</p>
+
+  <div class="stat-row reveal">
+    <div class="stat-block">
+      <div class="stat-num">$1T+</div>
+      <div class="stat-label">annual green bond issuance globally, with technology infrastructure as a qualifying use of proceeds. Data centres and cloud infrastructure decarbonisation projects are increasingly funded through green debt.</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">SLL</div>
+      <div class="stat-label">Sustainability-linked loans tie interest rates to sustainability KPI performance — including IT efficiency metrics such as data centre PUE, renewable energy percentage, and Scope 2 intensity reduction targets.</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">ESG</div>
+      <div class="stat-label">Institutional capital increasingly requires sustainability performance data. Non-aligned technology organisations face higher cost of capital. ESG screens directly affect borrowing terms and investor access.</div>
+    </div>
+  </div>
+
+  <h4>What this means for IT investment decisions</h4>
+  <ul>
+    <li><strong>Green bonds:</strong> Debt instruments where proceeds are designated for specific environmental projects, including data centre efficiency improvements and renewable energy procurement. If your organisation is issuing green debt, IT infrastructure projects may qualify for lower-cost capital.</li>
+    <li><strong>Sustainability-linked loans:</strong> Borrowing terms, including interest rates, are tied to the organisation achieving sustainability performance targets. This directly connects IT operational performance (e.g., PUE improvement, renewable energy sourcing) to cost of capital.</li>
+    <li><strong>ESG investment screening:</strong> For listed organisations, investor capital increasingly requires sustainability performance data. Technology organisations that can't demonstrate measurement credibility and improvement trajectory face capital efficiency penalties.</li>
+  </ul>
+
+  <div style="margin-top: 1.5rem; padding: 1.5rem; background: var(--section-alt); border-radius: 4px; border-left: 4px solid var(--orange-light);">
+    <strong style="color: var(--navy); display: block; margin-bottom: 0.75rem;">Technology leaders should know:</strong>
+    <p style="font-size: 0.95rem; color: var(--text-secondary);">Sustainability performance is increasingly a lever in capital allocation conversations. If your organisation is accessing green capital, or is under SLL terms, IT is not peripheral to that financing. Your ability to demonstrate energy efficiency, renewable energy sourcing, and Scope 3 control directly affects borrowing costs and capital availability. This is a financial, not just environmental, argument.</p>
+  </div>
+</div>
+
+<!-- KNOWLEDGE CHECK 1 -->
+<div class="kc-block reveal" data-correct="B">
+  <p class="kc-label">Knowledge Check · Module 9 · Q1</p>
+  <p class="kc-q">An organisation's sustainability report states that its data centre operations are powered by 100% renewable electricity, citing Renewable Energy Certificates. Under CSRD and the GHG Protocol, what is the most precise statement about what this claim represents?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>It means the data centres physically run on renewable energy — the claim is fully substantiated</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>It is a valid market-based Scope 2 claim, but it does not mean the physical grid supplying the facility has changed — the location-based figure, reflecting actual grid carbon intensity, must also be reported</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>The claim is invalid — RECs cannot be used for Scope 2 reporting under CSRD</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>The claim is sufficient for both location-based and market-based Scope 2 reporting</button>
+  </div>
+  <p class="kc-hint">Select an answer to reveal the explanation.</p>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">✓ Correct: Option B</p>
+    <p>Under the GHG Protocol, organisations report Scope 2 using both the location-based method (reflecting actual grid carbon intensity) and the market-based method (reflecting contractual instruments like RECs). The REC claim is valid for market-based reporting — but it does not change the physical grid that powers the facility.</p>
+    <p>CSRD requires both methods to be disclosed. An organisation reporting only the market-based figure, without also disclosing the location-based intensity, is providing an incomplete picture. The location-based figure is the physically honest number — the one GreenOps operational decisions should be based on.</p>
+  </div>
+</div>
+
+<!-- KNOWLEDGE CHECK 2 -->
+<div class="kc-block reveal" data-correct="B">
+  <p class="kc-label">Knowledge Check · Module 9 · Q2</p>
+  <p class="kc-q">A technology director says: "CSRD is a European regulation so it doesn't apply to us — we're headquartered outside the EU." Under what circumstances might CSRD still be relevant to this organisation?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>CSRD applies globally by default to all companies over 250 employees, regardless of headquarters location</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>CSRD may still be relevant if the organisation operates in the EU, sells to large EU-based enterprises that are themselves under CSRD obligations, or accesses EU capital markets — since those entities will require supply chain sustainability data</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>CSRD only applies if the organisation has EU-listed debt or equity</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>CSRD is not relevant to non-EU headquartered companies under any circumstances</button>
+  </div>
+  <p class="kc-hint">Select an answer to reveal the explanation.</p>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">✓ Correct: Option B</p>
+    <p>CSRD directly applies to EU-headquartered organisations and to non-EU companies with significant EU revenue above specified thresholds. But the indirect reach extends further: any organisation that is a material supplier to a CSRD-obligated entity will face sustainability data requests — because those entities are required to cover material Scope 3 emissions, including supply chain.</p>
+    <p>This supply chain pull effect means the regulatory boundary is effectively wider than the direct applicability of the regulation. Organisations that sell to EU-based enterprises, access EU capital markets, or have significant EU operations should treat CSRD as material to their governance planning.</p>
+  </div>
+</div>
+
+<!-- KNOWLEDGE CHECK 3 -->
+<div class="kc-block reveal" data-correct="C">
+  <p class="kc-label">Knowledge Check · Module 9 · Q3</p>
+  <p class="kc-q">Which of the following best describes why the GHG Protocol's boundary-setting approach matters for enterprise IT reporting?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>It determines whether an organisation must report Scope 1 emissions, which is the largest source of IT-related emissions</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>It affects whether cloud services are reported in Scope 2 or are excluded from the reporting boundary entirely</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>It defines whether infrastructure the organisation controls (data centres) is reported in Scope 1/2 or whether outsourced services (cloud, managed services) are reported in Scope 3 — which determines both measurement responsibility and strategic lever points</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>It determines the carbon intensity factors used to convert energy consumption into emissions</button>
+  </div>
+  <p class="kc-hint">Select an answer to reveal the explanation.</p>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">✓ Correct: Option C</p>
+    <p>The GHG Protocol's operational control boundary-setting approach is critical for IT because it defines which parts of the technology estate fall under organisational control (Scope 1/2) and which sit in the supply chain (Scope 3). For IT specifically, this means owned data centres fall clearly inside the reporting boundary under Scope 1 and 2, while cloud services and managed services fall in Scope 3.</p>
+    <p>This boundary distinction shapes where measurement responsibility lies, where operational levers can be applied, and how much direct control the organisation has. It's foundational to understanding whether IT is a Scope 1/2 optimisation challenge, a Scope 3 supply chain engagement challenge, or both.</p>
+  </div>
+</div>
+
+<!-- PAUSE & REFLECT -->
+<div class="pause-reflect reveal">
+  <p class="pause-label">⏸ Pause &amp; Reflect</p>
+  <p class="pause-intro">Take 5–10 minutes to think through these questions. There are no right answers — these are prompts for strategic thinking in your context.</p>
+  <div class="pause-questions">
+    <div class="pause-q">
+      <span class="pause-q-num">1</span>
+      <div>
+        <strong>SBTi and your IT estate:</strong> Does your organisation's technology estate currently sit within the boundary of its SBTi commitment or corporate net-zero target? If you're not certain, what would it take to find out — and whose responsibility is it to know?
+      </div>
+    </div>
+    <div class="pause-q">
+      <span class="pause-q-num">2</span>
+      <div>
+        <strong>Double materiality:</strong> Under CSRD double materiality, which sustainability topics are most material for your technology estate? Where do you have both a financial risk exposure and a significant environmental impact?
+      </div>
+    </div>
+    <div class="pause-q">
+      <span class="pause-q-num">3</span>
+      <div>
+        <strong>Supply chain readiness:</strong> Think about your top three or four technology suppliers. Are any of them themselves CSRD-obligated? What sustainability data requests have you already received, and are you equipped to respond?
+      </div>
+    </div>
+    <div class="pause-q">
+      <span class="pause-q-num">4</span>
+      <div>
+        <strong>Measurement credibility:</strong> Can your current sustainability programme produce IT data that would meet CSRD reporting standards? What would need to change in measurement methodology or governance to meet that bar?
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- KEY TAKEAWAYS -->
+<div class="takeaways reveal">
+  <h3 class="takeaways-heading">Key Takeaways</h3>
+  <div class="takeaway-list">
+    <div class="takeaway-item">
+      <span class="takeaway-icon">◆</span>
+      <div class="takeaway-body">
+        <strong>Paris Agreement and SBTi put IT estates inside corporate target boundaries.</strong>
+        <p>For most large enterprises, technology consumption is material enough to sit within the SBTi boundary. Technology leaders are directly on the hook for delivery — not just adjacent to it.</p>
+      </div>
+    </div>
+    <div class="takeaway-item">
+      <span class="takeaway-icon">◆</span>
+      <div class="takeaway-body">
+        <strong>EU Taxonomy determines access to sustainable capital — and creates evidence requirements.</strong>
+        <p>For EU-based or EU-funded organisations, Taxonomy alignment affects green financing access, lending terms, and investor classification. For non-EU organisations, it's setting the direction of travel for other regulatory frameworks.</p>
+      </div>
+    </div>
+    <div class="takeaway-item">
+      <span class="takeaway-icon">◆</span>
+      <div class="takeaway-body">
+        <strong>CSRD requires assurable IT data — spend-based proxies are insufficient.</strong>
+        <p>Double materiality means both financial risk and environmental impact must be reported. Digital footprint data must be capable of independent audit. Scope 3 must be included where material. Measurement quality is now a compliance concern.</p>
+      </div>
+    </div>
+    <div class="takeaway-item">
+      <span class="takeaway-icon">◆</span>
+      <div class="takeaway-body">
+        <strong>TCFD connects climate risk directly to financial governance.</strong>
+        <p>Technology infrastructure exposes the organisation to both physical climate risk (location-based) and transition risk (carbon pricing, regulation, stranding). TCFD requires organisations to articulate this exposure and integrate it into board-level governance.</p>
+      </div>
+    </div>
+    <div class="takeaway-item">
+      <span class="takeaway-icon">◆</span>
+      <div class="takeaway-body">
+        <strong>Scope 2 location-based and market-based methods measure different things — both must be reported under CSRD.</strong>
+        <p>Market-based claims (RECs, PPAs) are valid but don't change physical grid exposure. Location-based reporting is operationally decisive. Understanding which method your corporate targets use is critical.</p>
+      </div>
+    </div>
+    <div class="takeaway-item">
+      <span class="takeaway-icon">◆</span>
+      <div class="takeaway-body">
+        <strong>Sustainable finance instruments are reshaping IT investment decisions.</strong>
+        <p>Green bonds, sustainability-linked loans, and ESG-screened capital are connecting sustainability performance directly to cost of capital. IT operational performance is now material to borrowing terms and investor access.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE NAVIGATION -->
+<div class="module-nav">
+  <a href="module8.html" class="nav-btn">
+    <span>
+      <span class="nav-btn-label">← Previous</span>
+      <span class="nav-btn-title">M8: Governance, Maturity and Making It Stick</span>
+    </span>
+  </a>
+  <button class="complete-btn" onclick="markComplete('module9')">Mark as complete</button>
+  <a href="module10.html" class="nav-btn next">
+    <span>
+      <span class="nav-btn-label">Next →</span>
+      <span class="nav-btn-title">M10: The Business Case: Value, Risk and Strategic Opportunity</span>
+    </span>
+  </a>
+</div>
+
+<footer>
+  <div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 9</div>
+  <div class="footer-brand">March 2026 · v2</div>
+</footer>
+
 <script>
 // GreenOps 101 — Shared utilities v4 light theme
 
@@ -91,11 +515,9 @@ function initKnowledgeChecks(){
           else if(o.dataset.val===chosen&&!isCorrect)o.classList.add('selected-wrong');
         });
 
-        // Find the correct option text for feedback
         const correctBtn=block.querySelector('.kc-option[data-val="'+correct+'"]');
         const correctText=correctBtn?correctBtn.textContent.replace(/^[A-D]\s*/,'').trim():'';
 
-        // Build or find feedback label
         let revealLabel=block.querySelector('.kc-reveal-label');
         if(!revealLabel){
           revealLabel=document.createElement('p');
@@ -137,5 +559,68 @@ function initProgress(current){
   if(isComplete('module'+current))document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
 }
 
+// Module 9 specific functions
+function showRegFramework(event, frameworkId) {
+  event.preventDefault();
+
+  // Hide all panels
+  document.querySelectorAll('.reg-framework-panel').forEach(p => p.classList.remove('active'));
+
+  // Remove active class from all buttons
+  document.querySelectorAll('.reg-framework-tabs button').forEach(b => b.classList.remove('active'));
+
+  // Show selected panel and mark button as active
+  document.getElementById(frameworkId).classList.add('active');
+  (event.currentTarget || event.target).classList.add('active');
+}
+
+function showTimelineTooltip(event, label) {
+  var tooltips = {
+    'Paris 2015': 'Paris Agreement sets 1.5\u00B0C/2\u00B0C target. Corporate climate commitments increasingly anchored to it via SBTi.',
+    'TCFD 2017': 'Task Force on Climate-related Financial Disclosures framework becomes dominant for climate risk reporting.',
+    'Taxonomy 2020': 'EU Taxonomy classification system determines what counts as sustainable investment. Shapes capital allocation.',
+    'CSRD 2024+': 'Corporate Sustainability Reporting Directive: large EU companies enter mandatory disclosure scope. Double materiality required.',
+    'SBTi Scope 3': 'SBTi version 2 strengthens Scope 3 engagement requirements. Supply chain now explicit in corporate targets.',
+    'Emerging': 'Regulatory momentum continues. Expect expansion of mandatory sustainability reporting requirements globally.'
+  };
+  showTooltip9(event, '<strong>' + label + '</strong><br>' + (tooltips[label] || 'Key regulatory moment'));
+}
+
+function showDomainDetail(domain) {
+  var details = {
+    'dc': '<strong>Data Centres</strong><br>Highest material impact. Combined high financial risk (uptime, compliance, capex) and high environmental footprint (energy, cooling, water). Primary focus for CSRD disclosure and TCFD climate risk assessment.',
+    'cloud': '<strong>Cloud Computing</strong><br>Moderate-high environmental impact (Scope 3), moderate financial risk (vendor lock-in, cost). Supply chain engagement critical. Difficult to measure but material.',
+    'eud': '<strong>End-User Devices</strong><br>Moderate environmental impact (manufacturing, lifecycle, e-waste). Lower financial risk per unit but high aggregate cost. Portfolio approach needed.',
+    'software': '<strong>Software &amp; SaaS</strong><br>Low direct environmental impact, moderate financial risk (licensing, vendor relationships). Material in aggregate but often overlooked in sustainability planning.'
+  };
+  showTooltip9(event, details[domain] || 'Domain detail');
+}
+
+function showTooltip9(event, html) {
+  var existing = document.getElementById('tooltip9');
+  if (existing) existing.remove();
+  var tip = document.createElement('div');
+  tip.id = 'tooltip9';
+  tip.innerHTML = html;
+  tip.style.cssText = 'position:fixed;z-index:1000;background:#0F3030;color:#fff;padding:1rem 1.25rem;border-radius:8px;font-size:0.88rem;line-height:1.6;max-width:340px;box-shadow:0 8px 32px rgba(0,0,0,0.25);pointer-events:none;animation:scopeReveal 0.25s ease-out;';
+  document.body.appendChild(tip);
+  var rect = (event.target || event.currentTarget).getBoundingClientRect();
+  var x = Math.min(rect.left, window.innerWidth - 360);
+  var y = rect.bottom + 12;
+  if (y + 200 > window.innerHeight) y = rect.top - tip.offsetHeight - 12;
+  tip.style.left = Math.max(8, x) + 'px';
+  tip.style.top = y + 'px';
+  setTimeout(function() { if (tip.parentNode) tip.remove(); }, 4000);
+  document.addEventListener('click', function handler() { if (tip.parentNode) tip.remove(); document.removeEventListener('click', handler); }, { once: true });
+}
 </script>
-</body></html>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof initKnowledgeChecks === 'function') initKnowledgeChecks();
+  if (typeof initScrollReveal === 'function') initScrollReveal();
+  if (typeof initProgress === 'function') initProgress(9);
+});
+</script>
+</body>
+</html>
