@@ -75,54 +75,71 @@
   <p class="section-intro">The starting framework for emissions accounting is the GHG Protocol Corporate Standard, which divides emissions into three categories — Scopes 1, 2, and 3. There is also a fourth category worth knowing. Understanding where IT emissions sit across these scopes is the minimum fluency needed before any measurement programme makes sense.</p>
 
   <div class="viz-container reveal">
-    <p class="viz-title">Tap each scope to explore its IT-specific sources</p>
-    <div class="scope-diagram" id="scopeDiagram3">
-
-      <div class="scope-box s1" onclick="toggleScope3(1)">
-        <div class="scope-header">
-          <div class="scope-num">1</div>
-          <div class="scope-name">Scope 1 — Direct emissions</div>
-          <div class="scope-short">Usually the narrowest category for IT</div>
+    <p class="viz-title">Select a scope to explore its IT-specific sources</p>
+    <div class="scope-explorer" id="scopeDiagram3" style="display:grid; grid-template-columns:280px 1fr; border:1px solid #EDEBE9; border-radius:8px; overflow:hidden; box-shadow:0 2px 12px rgba(15,48,48,0.05);">
+      <!-- Left: scope selector list -->
+      <div style="background:#F7F6F5; border-right:1px solid #EDEBE9;">
+        <div class="scope-box s1 open" onclick="toggleScope3(1)" style="display:flex; align-items:center; gap:0.75rem; padding:1rem 1.25rem; cursor:pointer; border-left:4px solid #3D9B8F; border-bottom:1px solid #EDEBE9; background:#FFFFFF; transition:all 0.2s;">
+          <div class="scope-num" style="width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;border-radius:6px;font-weight:700;font-size:0.82rem;color:#fff;background:linear-gradient(135deg,#3D9B8F,#2D7A70);flex-shrink:0;">1</div>
+          <div style="flex:1;min-width:0;">
+            <div style="font-family:Georgia,serif;font-size:0.95rem;font-weight:700;color:#0F3030;">Scope 1</div>
+            <div style="font-size:0.78rem;color:#3D5E5E;line-height:1.35;margin-top:0.15rem;">Direct emissions</div>
+          </div>
         </div>
-        <div class="scope-detail" id="scope3-detail-1">
-          <p>Scope 1 covers emissions from sources your organisation owns or controls directly. In IT terms, this is relatively narrow: fuel used in backup generators, on-site combustion, and refrigerants in cooling systems. For most organisations operating in modern facilities, Scope 1 is not where the bulk of the IT footprint sits.</p>
-          <div class="examples-row">
+        <div class="scope-box s2" onclick="toggleScope3(2)" style="display:flex; align-items:center; gap:0.75rem; padding:1rem 1.25rem; cursor:pointer; border-left:4px solid transparent; border-bottom:1px solid #EDEBE9; background:#F7F6F5; transition:all 0.2s;">
+          <div class="scope-num" style="width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;border-radius:6px;font-weight:700;font-size:0.82rem;color:#fff;background:linear-gradient(135deg,#E07A3A,#CC612F);flex-shrink:0;">2</div>
+          <div style="flex:1;min-width:0;">
+            <div style="font-family:Georgia,serif;font-size:0.95rem;font-weight:700;color:#0F3030;">Scope 2</div>
+            <div style="font-size:0.78rem;color:#3D5E5E;line-height:1.35;margin-top:0.15rem;">Purchased energy</div>
+          </div>
+        </div>
+        <div class="scope-box s3" onclick="toggleScope3(3)" style="display:flex; align-items:center; gap:0.75rem; padding:1rem 1.25rem; cursor:pointer; border-left:4px solid transparent; border-bottom:1px solid #EDEBE9; background:#F7F6F5; transition:all 0.2s;">
+          <div class="scope-num" style="width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;border-radius:6px;font-weight:700;font-size:0.82rem;color:#fff;background:linear-gradient(135deg,#CC612F,#A84D22);flex-shrink:0;">3</div>
+          <div style="flex:1;min-width:0;">
+            <div style="font-family:Georgia,serif;font-size:0.95rem;font-weight:700;color:#0F3030;">Scope 3</div>
+            <div style="font-size:0.78rem;color:#3D5E5E;line-height:1.35;margin-top:0.15rem;">Value chain</div>
+          </div>
+          <div style="font-family:Calibri,monospace;font-size:0.65rem;color:#CC612F;white-space:nowrap;font-weight:700;">70–80%</div>
+        </div>
+        <div class="scope-box s4" onclick="toggleScope3(4)" style="display:flex; align-items:center; gap:0.75rem; padding:1rem 1.25rem; cursor:pointer; border-left:4px solid transparent; background:#F7F6F5; transition:all 0.2s;">
+          <div class="scope-num" style="width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;border-radius:6px;font-weight:700;font-size:0.82rem;color:#fff;background:linear-gradient(135deg,#6B8A8A,#4A6B6B);flex-shrink:0;">4</div>
+          <div style="flex:1;min-width:0;">
+            <div style="font-family:Georgia,serif;font-size:0.95rem;font-weight:700;color:#0F3030;">Scope 4</div>
+            <div style="font-size:0.78rem;color:#3D5E5E;line-height:1.35;margin-top:0.15rem;">Avoided emissions</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: detail panel -->
+      <div style="padding:1.75rem; background:#FFFFFF; min-height:260px;">
+        <div class="scope-detail" id="scope3-detail-1" style="display:block;">
+          <h4 style="font-family:Georgia,serif;font-size:1.15rem;font-weight:700;color:#0F3030;margin-bottom:0.75rem;">Scope 1 — Direct emissions</h4>
+          <p style="font-size:0.95rem;color:#3D5E5E;line-height:1.75;margin-bottom:1rem;">Scope 1 covers emissions from sources your organisation owns or controls directly. In IT terms, this is relatively narrow: fuel used in backup generators, on-site combustion, and refrigerants in cooling systems. For most organisations operating in modern facilities, Scope 1 is not where the bulk of the IT footprint sits.</p>
+          <div class="examples-row" style="display:flex;flex-wrap:wrap;gap:0.4rem;">
             <span class="scope-tag">Diesel generators</span>
             <span class="scope-tag">On-site combustion</span>
             <span class="scope-tag">Refrigerants (cooling)</span>
             <span class="scope-tag">Emergency backup systems</span>
           </div>
         </div>
-      </div>
-
-      <div class="scope-box s2" onclick="toggleScope3(2)">
-        <div class="scope-header">
-          <div class="scope-num">2</div>
-          <div class="scope-name">Scope 2 — Purchased energy</div>
-          <div class="scope-short">Location-based vs market-based reporting</div>
-        </div>
-        <div class="scope-detail" id="scope3-detail-2">
-          <p>Scope 2 covers electricity used by data centres you operate, offices where IT equipment runs, network equipment, and end-user devices in use. If you run your own data centres, Scope 2 is a major component. Even if you don't, workplace IT and network operations still contribute.</p>
-          <p>Scope 2 has two reporting methods: <strong>location-based</strong> (the average carbon intensity of the grid where you consume power) and <strong>market-based</strong> (contractual instruments like renewable energy certificates). Both have legitimate uses. We cover this distinction later in this module.</p>
-          <div class="examples-row">
+        <div class="scope-detail" id="scope3-detail-2" style="display:none;">
+          <h4 style="font-family:Georgia,serif;font-size:1.15rem;font-weight:700;color:#0F3030;margin-bottom:0.75rem;">Scope 2 — Purchased energy</h4>
+          <p style="font-size:0.95rem;color:#3D5E5E;line-height:1.75;margin-bottom:0.75rem;">Scope 2 covers electricity used by data centres you operate, offices where IT equipment runs, network equipment, and end-user devices in use. If you run your own data centres, Scope 2 is a major component.</p>
+          <p style="font-size:0.95rem;color:#3D5E5E;line-height:1.75;margin-bottom:1rem;">Scope 2 has two reporting methods: <strong style="color:#0F3030;">location-based</strong> (the average carbon intensity of the grid where you consume power) and <strong style="color:#0F3030;">market-based</strong> (contractual instruments like renewable energy certificates). Both have legitimate uses. We cover this distinction later in this module.</p>
+          <div class="examples-row" style="display:flex;flex-wrap:wrap;gap:0.4rem;">
             <span class="scope-tag">Data centre electricity</span>
             <span class="scope-tag">Office buildings</span>
             <span class="scope-tag">Network equipment</span>
             <span class="scope-tag">End-user devices in use</span>
           </div>
         </div>
-      </div>
-
-      <div class="scope-box s3" onclick="toggleScope3(3)">
-        <div class="scope-header">
-          <div class="scope-num">3</div>
-          <div class="scope-name">Scope 3 — Value chain emissions</div>
-          <div class="scope-short">Often 70–80% of total IT footprint</div>
-        </div>
-        <div class="scope-detail" id="scope3-detail-3" style="border-left: 3px solid var(--orange);">
-          <p>Scope 3 is often the dominant category in modern technology estates. It includes cloud services, SaaS, managed services, outsourced development and operations, device and hardware manufacturing, and end-of-life treatment. It includes upstream logistics and packaging.</p>
-          <p style="color: var(--orange);"><strong>The central GreenOps point:</strong> consumption of third-party services and procurement of hardware drive large Scope 3 exposure — and most organisations have very limited visibility into it. Moving to cloud does not eliminate IT emissions; it moves them from Scope 2 into Scope 3.</p>
-          <div class="examples-row">
+        <div class="scope-detail" id="scope3-detail-3" style="display:none;">
+          <h4 style="font-family:Georgia,serif;font-size:1.15rem;font-weight:700;color:#0F3030;margin-bottom:0.75rem;">Scope 3 — Value chain emissions</h4>
+          <p style="font-size:0.95rem;color:#3D5E5E;line-height:1.75;margin-bottom:0.75rem;">Scope 3 is often the dominant category in modern technology estates. It includes cloud services, SaaS, managed services, outsourced development and operations, device and hardware manufacturing, and end-of-life treatment. It includes upstream logistics and packaging.</p>
+          <div style="padding:0.85rem 1rem;background:#FEF5EF;border-left:3px solid #CC612F;border-radius:0 4px 4px 0;margin-bottom:1rem;">
+            <p style="font-size:0.9rem;color:#0F3030;line-height:1.65;margin:0;"><strong style="color:#CC612F;">The central GreenOps point:</strong> consumption of third-party services and procurement of hardware drive large Scope 3 exposure — and most organisations have very limited visibility into it. Moving to cloud does not eliminate IT emissions; it moves them from Scope 2 into Scope 3.</p>
+          </div>
+          <div class="examples-row" style="display:flex;flex-wrap:wrap;gap:0.4rem;">
             <span class="scope-tag">Cloud services</span>
             <span class="scope-tag">SaaS platforms</span>
             <span class="scope-tag">Hardware manufacturing</span>
@@ -131,17 +148,10 @@
             <span class="scope-tag">Managed services</span>
           </div>
         </div>
-      </div>
-
-      <div class="scope-box s4" onclick="toggleScope3(4)">
-        <div class="scope-header">
-          <div class="scope-num">4</div>
-          <div class="scope-name">Scope 4 — Avoided emissions</div>
-          <div class="scope-short">The handprint story</div>
-        </div>
-        <div class="scope-detail" id="scope3-detail-4">
-          <p>Sometimes called avoided emissions, this is how technology enables carbon reductions elsewhere. A digital logistics platform that reduces unnecessary transport. A smart building system that reduces heating and cooling demand. Those avoided emissions can be quantified. They are not a substitute for managing your own footprint, but they are a real part of the value technology creates.</p>
-          <div class="examples-row">
+        <div class="scope-detail" id="scope3-detail-4" style="display:none;">
+          <h4 style="font-family:Georgia,serif;font-size:1.15rem;font-weight:700;color:#0F3030;margin-bottom:0.75rem;">Scope 4 — Avoided emissions (handprint)</h4>
+          <p style="font-size:0.95rem;color:#3D5E5E;line-height:1.75;margin-bottom:1rem;">Sometimes called avoided emissions, this is how technology enables carbon reductions elsewhere. A digital logistics platform that reduces unnecessary transport. A smart building system that reduces heating and cooling demand. Those avoided emissions can be quantified. They are not a substitute for managing your own footprint, but they are a real part of the value technology creates.</p>
+          <div class="examples-row" style="display:flex;flex-wrap:wrap;gap:0.4rem;">
             <span class="scope-tag">Avoided transport</span>
             <span class="scope-tag">Building energy reduction</span>
             <span class="scope-tag">Remote work substitution</span>
@@ -149,7 +159,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 
@@ -658,13 +667,24 @@
 
 
 <script>
-// ── SCOPE DIAGRAM TOGGLE (M3) ───────────────────────────────
+// ── SCOPE DIAGRAM TOGGLE (M3) — two-column layout ──────────
 function toggleScope3(num) {
   var boxes = document.querySelectorAll('#scopeDiagram3 .scope-box');
-  var clicked = boxes[num - 1];
-  var wasOpen = clicked.classList.contains('open');
-  boxes.forEach(function(b) { b.classList.remove('open'); });
-  if (!wasOpen) clicked.classList.add('open');
+  var details = document.querySelectorAll('#scopeDiagram3 .scope-detail');
+  var borderColors = ['#3D9B8F','#E07A3A','#CC612F','#6B8A8A'];
+  // Deactivate all
+  boxes.forEach(function(b) {
+    b.classList.remove('open');
+    b.style.background = '#F7F6F5';
+    b.style.borderLeftColor = 'transparent';
+  });
+  details.forEach(function(d) { d.style.display = 'none'; });
+  // Activate selected
+  var box = boxes[num - 1];
+  box.classList.add('open');
+  box.style.background = '#FFFFFF';
+  box.style.borderLeftColor = borderColors[num - 1];
+  if (details[num - 1]) details[num - 1].style.display = 'block';
 }
 </script>
 <script>
