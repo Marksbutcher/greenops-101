@@ -205,77 +205,53 @@
   <p class="section-label">Section 4</p>
   <h2 class="section-title">The data iceberg: Active data above the line, dark data below.</h2>
   <p class="section-intro">Dark data is the fraction of stored, protected, and replicated data that is never accessed or used. It drives storage cost, energy consumption, and replication overhead with zero business return. Understanding the scale is the first step to intervention.</p>
-  <div class="viz-container reveal">
-    <p class="viz-title">Data classification model — where most organisational data actually lives</p>
-    <div style="position:relative; height:460px; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg, #E3F0F7 0%, #B8CCD4 35%, #7A9CAA 65%, #4A7080 100%); border:1px solid var(--border); border-radius:8px; margin:2rem 0; overflow:hidden;">
-      <svg viewBox="0 0 600 460" preserveAspectRatio="xMidYMid meet" style="width:100%; height:100%;">
-        <defs>
-          <!-- Gradient for above-waterline iceberg (light teal to darker teal) -->
-          <linearGradient id="icebergAbove" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" style="stop-color:#A8D9D3;stop-opacity:0.95" />
-            <stop offset="50%" style="stop-color:#7DC4B8;stop-opacity:0.92" />
-            <stop offset="100%" style="stop-color:#5AB5AD;stop-opacity:0.88" />
-          </linearGradient>
-
-          <!-- Gradient for below-waterline iceberg (darker teal to deep navy) -->
-          <linearGradient id="icebergBelow" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" style="stop-color:#3D8A82;stop-opacity:0.9" />
-            <stop offset="40%" style="stop-color:#2D6B63;stop-opacity:0.92" />
-            <stop offset="100%" style="stop-color:#1a3d38;stop-opacity:0.95" />
-          </linearGradient>
-
-          <!-- Subtle texture/highlight for ice -->
-          <filter id="iceShadow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="1.5"/>
-          </filter>
-        </defs>
-
-        <!-- Wave animation pattern (subtle) -->
-        <path d="M 0,190 Q 75,185 150,190 T 300,190 T 450,190 T 600,190 L 600,200 Q 525,205 450,200 T 300,200 T 150,200 T 0,200 Z" fill="#ffffff" opacity="0.08"/>
-
-        <!-- Above-waterline iceberg: smaller, tapered top with smooth curves -->
-        <path d="M 160,50 Q 180,60 200,80 L 220,120 Q 210,140 200,150 L 220,180 Q 140,185 180,190 L 150,190 Q 170,185 160,180 L 140,150 Q 130,140 120,120 L 140,80 Q 160,60 160,50 Z"
-              fill="url(#icebergAbove)" stroke="#5AB5AD" stroke-width="1.5" opacity="0.98"/>
-
-        <!-- Below-waterline iceberg: larger, wider base with smooth curves -->
-        <path d="M 180,190 Q 140,195 120,220 Q 100,260 110,310 Q 130,370 150,410 L 450,410 Q 470,370 490,310 Q 500,260 480,220 Q 460,195 420,190 Z"
-              fill="url(#icebergBelow)" stroke="#2D6B63" stroke-width="1.5" opacity="0.98"/>
-
-        <!-- Highlight/shine effect on iceberg for 3D look -->
-        <ellipse cx="200" cy="100" rx="25" ry="35" fill="#ffffff" opacity="0.15" filter="url(#iceShadow)"/>
-        <path d="M 200,200 Q 210,250 220,300" stroke="#ffffff" stroke-width="2" opacity="0.1" fill="none"/>
-
-        <!-- Waterline: clean subtle line -->
-        <line x1="100" y1="190" x2="500" y2="190" stroke="#ffffff" stroke-width="2" opacity="0.4"/>
-        <line x1="100" y1="191" x2="500" y2="191" stroke="#4A7080" stroke-width="1" opacity="0.3"/>
-
-        <!-- Waterline label with connecting line -->
-        <line x1="520" y1="190" x2="545" y2="190" stroke="#ffffff" stroke-width="1.5" opacity="0.6"/>
-        <text x="550" y="195" font-family="Calibri, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" fill="#ffffff" font-weight="500" opacity="0.85">Waterline</text>
-
-        <!-- ACTIVE DATA SECTION (Above waterline) -->
-        <!-- Checkmark icon -->
-        <circle cx="100" cy="90" r="16" fill="none" stroke="#3D9B8F" stroke-width="2" opacity="0.7"/>
-        <path d="M 95,90 L 100,95 L 107,82" stroke="#3D9B8F" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
-
-        <!-- Active Data label and text -->
-        <text x="300" y="80" font-family="Calibri, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="700" fill="#0F3030">Active Data</text>
-        <text x="300" y="103" font-family="Calibri, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" fill="#2D7A70" opacity="0.9">Accessed regularly</text>
-        <text x="300" y="120" font-family="Calibri, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" fill="#3D5E5E" opacity="0.75">~30-40% of stored data</text>
-
-        <!-- DARK DATA SECTION (Below waterline) -->
-        <!-- Warning triangle icon -->
-        <path d="M 100,280 L 110,310 L 90,310 Z" fill="none" stroke="#FF6B6B" stroke-width="2" opacity="0.8"/>
-        <circle cx="100" cy="300" r="1.5" fill="#FF6B6B" opacity="0.9"/>
-
-        <!-- Dark Data label and text -->
-        <text x="300" y="270" font-family="Calibri, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="700" fill="#ffffff">Dark Data</text>
-        <text x="300" y="293" font-family="Calibri, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" fill="#E8F0F0" opacity="0.95">Never accessed after creation</text>
-        <text x="300" y="310" font-family="Calibri, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" fill="#C8D8DC" opacity="0.85">~60-70% of stored data</text>
-      </svg>
+  <!-- Data iceberg — clean HTML/CSS proportional visualisation -->
+  <div style="margin:2rem 0;">
+    <p class="viz-title" style="margin-bottom:1.25rem;">Data classification model — where most organisational data actually lives</p>
+    <div style="display:grid; grid-template-columns:200px 1fr; border:1px solid #EDEBE9; border-radius:8px; overflow:hidden;">
+      <!-- Left: proportional bar -->
+      <div style="display:flex; flex-direction:column; position:relative;">
+        <!-- Active data — 35% height -->
+        <div style="flex:35; background:linear-gradient(180deg,#E8F5F3,#C8EBE6); display:flex; align-items:center; justify-content:center; flex-direction:column; padding:1.5rem 1rem; border-bottom:3px dashed #3D9B8F;">
+          <div style="font-family:Georgia,serif; font-size:2rem; font-weight:700; color:#2D7A70;">30–40%</div>
+          <div style="font-family:Calibri,sans-serif; font-size:0.78rem; color:#2D7A70; text-transform:uppercase; letter-spacing:0.08em; margin-top:0.25rem;">Active</div>
+        </div>
+        <!-- Waterline label -->
+        <div style="position:absolute; left:50%; top:35%; transform:translate(-50%,0); background:#fff; padding:0.15rem 0.6rem; border-radius:3px; font-family:Calibri,monospace; font-size:0.65rem; color:#4A6B6B; letter-spacing:0.06em; border:1px solid #EDEBE9; z-index:1; white-space:nowrap;">WATERLINE</div>
+        <!-- Dark data — 65% height -->
+        <div style="flex:65; background:linear-gradient(180deg,#1A4A44,#0F3030); display:flex; align-items:center; justify-content:center; flex-direction:column; padding:1.5rem 1rem;">
+          <div style="font-family:Georgia,serif; font-size:2rem; font-weight:700; color:#fff;">60–70%</div>
+          <div style="font-family:Calibri,sans-serif; font-size:0.78rem; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:0.08em; margin-top:0.25rem;">Dark Data</div>
+        </div>
+      </div>
+      <!-- Right: descriptions -->
+      <div style="display:flex; flex-direction:column;">
+        <!-- Active data description -->
+        <div style="flex:35; padding:1.5rem 2rem; display:flex; flex-direction:column; justify-content:center; border-bottom:1px solid #EDEBE9;">
+          <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+            <span style="display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px; border-radius:50%; background:#E8F5F3; color:#2D7A70; font-size:0.85rem;">✓</span>
+            <span style="font-family:Georgia,serif; font-size:1.1rem; font-weight:700; color:#0F3030;">Active Data</span>
+          </div>
+          <p style="font-size:0.88rem; color:#3D5E5E; line-height:1.65; margin:0;">Accessed regularly. Serves current business operations. Justified storage, backup, and replication cost.</p>
+        </div>
+        <!-- Dark data description -->
+        <div style="flex:65; padding:1.5rem 2rem; background:#FAFAF8; display:flex; flex-direction:column; justify-content:center;">
+          <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+            <span style="display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px; border-radius:50%; background:#FFF0EB; color:#CC612F; font-size:0.85rem;">⚠</span>
+            <span style="font-family:Georgia,serif; font-size:1.1rem; font-weight:700; color:#0F3030;">Dark Data</span>
+          </div>
+          <p style="font-size:0.88rem; color:#3D5E5E; line-height:1.65; margin:0 0 0.75rem;">Never accessed after creation. Stored, protected, backed up, and replicated — with zero business return. The single largest category of remediable storage waste.</p>
+          <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+            <span style="font-size:0.78rem; padding:0.25rem 0.65rem; background:#FFF0EB; color:#CC612F; border-radius:3px;">Logs retained beyond need</span>
+            <span style="font-size:0.78rem; padding:0.25rem 0.65rem; background:#FFF0EB; color:#CC612F; border-radius:3px;">Orphaned S3 buckets</span>
+            <span style="font-size:0.78rem; padding:0.25rem 0.65rem; background:#FFF0EB; color:#CC612F; border-radius:3px;">Duplicated datasets</span>
+            <span style="font-size:0.78rem; padding:0.25rem 0.65rem; background:#FFF0EB; color:#CC612F; border-radius:3px;">Dev copies of production</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div style="background:var(--section-alt); padding:1.5rem; border-left:3px solid var(--teal); margin-top:1.5rem; border-radius:2px;">
-      <p style="font-size:0.88rem; line-height:1.8; margin:0;">Dark data accumulates because default retention is permissive, because storage costs appear marginal per gigabyte, and because there is rarely a process asking whether retained data serves a purpose. Once data is in the system, inertia keeps it there — deletion requires more deliberate action than retention.</p>
+    <div style="background:#F7F6F5; padding:1.25rem 1.5rem; border-left:3px solid #3D9B8F; margin-top:1.25rem; border-radius:3px;">
+      <p style="font-size:0.88rem; line-height:1.8; margin:0; color:#3D5E5E;">Dark data accumulates because default retention is permissive, because storage costs appear marginal per gigabyte, and because there is rarely a process asking whether retained data serves a purpose. Once data is in the system, inertia keeps it there — deletion requires more deliberate action than retention.</p>
     </div>
   </div>
   <div class="card-grid card-grid-2 reveal">
