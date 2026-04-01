@@ -344,35 +344,70 @@
 
   <div class="tradeoff-container reveal">
     <div class="triangle-wrap">
-      <svg class="triangle-svg" viewBox="-12 -12 264 244">
-        <polygon points="120,10 10,200 230,200" fill="var(--section-alt)" stroke="var(--border)" stroke-width="1.5"/>
-        <line x1="120" y1="10" x2="120" y2="200" stroke="var(--border)" stroke-width="1" stroke-dasharray="4,4"/>
-        <line x1="10" y1="200" x2="175" y2="105" stroke="var(--border)" stroke-width="1" stroke-dasharray="4,4"/>
-        <line x1="230" y1="200" x2="65" y2="105" stroke="var(--border)" stroke-width="1" stroke-dasharray="4,4"/>
-        <!-- Cost vertex -->
-        <g class="tri-vertex" onclick="showTriDetail('cost')">
-          <circle cx="10" cy="200" r="22" fill="rgba(61,154,143,0.15)" stroke="#2D7A70" stroke-width="2"/>
-          <text x="10" y="197" text-anchor="middle" fill="#2D7A70" font-family="Georgia" font-size="11">Cost</text>
-          <text x="10" y="209" text-anchor="middle" fill="rgba(61,154,143,0.7)" font-family="Calibri" font-size="7">£</text>
+      <svg class="triangle-svg" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Gradient for triangle fill -->
+          <radialGradient id="triGradient" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color:#F5F5F3;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#EDEBE9;stop-opacity:0.6" />
+          </radialGradient>
+
+          <!-- Vertex gradients -->
+          <linearGradient id="costGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#3D9B8F;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#2D7A70;stop-opacity:1" />
+          </linearGradient>
+          <linearGradient id="carbonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#CC612F;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#A04A24;stop-opacity:1" />
+          </linearGradient>
+          <linearGradient id="perfGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#3D9B8F;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#1E5A52;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+
+        <!-- Triangle base with subtle gradient -->
+        <polygon points="160,30 50,270 270,270" fill="url(#triGradient)" stroke="#3D9B8F" stroke-width="2.5" stroke-linejoin="round"/>
+
+        <!-- Center point and label -->
+        <g class="tri-center">
+          <circle cx="160" cy="156" r="20" fill="none" stroke="#3D9B8F" stroke-width="1" opacity="0.3"/>
+          <circle cx="160" cy="156" r="3" fill="#3D9B8F" class="pulse-dot"/>
+          <text x="160" y="161" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#3D5E5E" font-weight="500">GreenOps</text>
         </g>
-        <!-- Carbon vertex -->
-        <g class="tri-vertex" onclick="showTriDetail('carbon')">
-          <circle cx="120" cy="10" r="22" fill="rgba(204,97,47,0.15)" stroke="#CC612F" stroke-width="2"/>
-          <text x="120" y="7" text-anchor="middle" fill="#CC612F" font-family="Georgia" font-size="11">Carbon</text>
-          <text x="120" y="19" text-anchor="middle" fill="rgba(204,97,47,0.7)" font-family="Calibri" font-size="7">CO₂</text>
+
+        <!-- Cost vertex (bottom-left) -->
+        <g class="tri-vertex tri-vertex-cost" onclick="showTriDetail('cost')" role="button" tabindex="0">
+          <circle cx="50" cy="270" r="32" fill="url(#costGrad)" stroke="#2D7A70" stroke-width="2.5" class="vertex-circle"/>
+          <text x="50" y="275" text-anchor="middle" font-size="28" class="vertex-emoji">💰</text>
+          <text x="50" y="305" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#0F3030" font-weight="600" class="vertex-label">Cost</text>
         </g>
-        <!-- Performance vertex -->
-        <g class="tri-vertex" onclick="showTriDetail('perf')">
-          <circle cx="230" cy="200" r="22" fill="rgba(204,97,47,0.15)" stroke="#CC612F" stroke-width="2"/>
-          <text x="230" y="197" text-anchor="middle" fill="#CC612F" font-family="Georgia" font-size="11">Perf.</text>
-          <text x="230" y="209" text-anchor="middle" fill="rgba(204,97,47,0.7)" font-family="Calibri" font-size="7">SLA</text>
+
+        <!-- Carbon vertex (top) -->
+        <g class="tri-vertex tri-vertex-carbon" onclick="showTriDetail('carbon')" role="button" tabindex="0">
+          <circle cx="160" cy="30" r="32" fill="url(#carbonGrad)" stroke="#A04A24" stroke-width="2.5" class="vertex-circle"/>
+          <text x="160" y="38" text-anchor="middle" font-size="28" class="vertex-emoji">🌍</text>
+          <text x="160" y="75" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#0F3030" font-weight="600" class="vertex-label">Carbon</text>
+        </g>
+
+        <!-- Performance vertex (bottom-right) -->
+        <g class="tri-vertex tri-vertex-perf" onclick="showTriDetail('perf')" role="button" tabindex="0">
+          <circle cx="270" cy="270" r="32" fill="url(#perfGrad)" stroke="#1E5A52" stroke-width="2.5" class="vertex-circle"/>
+          <text x="270" y="275" text-anchor="middle" font-size="28" class="vertex-emoji">⚡</text>
+          <text x="270" y="305" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#0F3030" font-weight="600" class="vertex-label">Performance</text>
         </g>
       </svg>
     </div>
-    <div class="tri-detail tri-detail-cost" id="triDetail">
-      <div class="tri-detail-name">Click a vertex to explore each dimension</div>
+
+    <div class="tri-detail tri-detail-default" id="triDetail">
+      <div class="tri-detail-header">
+        <div class="tri-detail-name">The Trade-Off Triangle</div>
+      </div>
       <p>The goal is not to always win on carbon — it is to make the trade-off with cost and performance visible and deliberate. Invisible trade-offs produce accidental outcomes.</p>
-      <p class="example">A worked example: selecting a cloud region for a new overnight batch analytics workload. Europe West (London) is the instinctive default. Europe North has materially lower carbon intensity. Cost difference: ~5–10%. Carbon difference: three to five times that. The case is clear — but only if the carbon variable is visible alongside cost and latency.</p>
+      <blockquote class="tri-detail-example">
+        <p><strong>A worked example:</strong> selecting a cloud region for a new overnight batch analytics workload. Europe West (London) is the instinctive default. Europe North has materially lower carbon intensity. Cost difference: ~5–10%. Carbon difference: three to five times that. The case is clear — but only if the carbon variable is visible alongside cost and latency.</p>
+      </blockquote>
     </div>
   </div>
 </div>
@@ -494,14 +529,44 @@ function initReboundOnScroll() {
   obs.observe(chart);
 }
 const triContent = {
-  cost: { cls: 'tri-detail-cost', name: 'Cost', text: 'What you spend on compute, storage, and infrastructure. Reducing waste is almost always cost-positive. But the lowest-carbon option does not always cost less. Be honest about this — a programme that claims cost and carbon always align will encounter a case where they do not.', example: 'A workload scheduled for a low-carbon window may require slightly longer runtime or modest latency trade-offs. Name the cost honestly. The decision should still often be made on carbon grounds.' },
-  carbon: { cls: 'tri-detail-carbon', name: 'Carbon', text: 'Now a named decision variable, not a consequence to discover later. Must be visible alongside cost and latency for every material platform decision. If it isn\'t visible, the decision will default to convention — which usually means defaulting to the highest-carbon option by accident.', example: 'Region selection for a new workload: the carbon dimension is invisible unless someone has surfaced it. If nobody has, the decision defaults to proximity or familiarity.' },
-  perf: { cls: 'tri-detail-perf', name: 'Performance', text: 'Latency, availability, and service quality. These constrain which workloads can move in time or space. Not a negotiating position — a real constraint that must be named and respected in every carbon-aware conversation.', example: 'A user-facing API serving real-time requests cannot be temporally shifted. A nightly batch analytics pipeline almost certainly can. The performance constraint is binary in one case and largely absent in the other.' }
+  cost: {
+    cls: 'tri-detail-cost',
+    name: 'Cost',
+    text: 'What does it cost — in £, in energy, in operational overhead? Cost visibility is the minimum requirement. GreenOps adds the carbon column.',
+    example: 'A workload scheduled for a low-carbon window may require slightly longer runtime or modest latency trade-offs. Name the cost honestly. The decision should still often be made on carbon grounds.'
+  },
+  carbon: {
+    cls: 'tri-detail-carbon',
+    name: 'Carbon',
+    text: 'What is the environmental impact — CO₂, water, materials, e-waste? Making this variable visible alongside cost and performance changes decisions.',
+    example: 'Region selection for a new workload: the carbon dimension is invisible unless someone has surfaced it. If nobody has, the decision defaults to proximity or familiarity.'
+  },
+  perf: {
+    cls: 'tri-detail-perf',
+    name: 'Performance',
+    text: 'What is the service-level commitment — latency, availability, throughput? Performance is not negotiable. But the level required is often assumed rather than measured.',
+    example: 'A user-facing API serving real-time requests cannot be temporally shifted. A nightly batch analytics pipeline almost certainly can. The performance constraint is binary in one case and largely absent in the other.'
+  }
 };
+
 function showTriDetail(key) {
   const d = triContent[key];
-  document.getElementById('triDetail').className = 'tri-detail ' + d.cls;
-  document.getElementById('triDetail').innerHTML = `<div class="tri-detail-name">${d.name}</div><p>${d.text}</p><p class="example">${d.example}</p>`;
+  const detailEl = document.getElementById('triDetail');
+  detailEl.className = 'tri-detail ' + d.cls;
+
+  // Highlight active vertex
+  document.querySelectorAll('.tri-vertex').forEach(v => v.classList.remove('active'));
+  document.querySelector('.tri-vertex-' + key)?.classList.add('active');
+
+  detailEl.innerHTML = `
+    <div class="tri-detail-header">
+      <div class="tri-detail-name">${d.name}</div>
+    </div>
+    <p>${d.text}</p>
+    <blockquote class="tri-detail-example">
+      <p>${d.example}</p>
+    </blockquote>
+  `;
 }
 </script>
 
