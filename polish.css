@@ -106,8 +106,13 @@ html {
 }
 .top-nav::before {
   height: 3px !important;
+  bottom: auto !important;
   background: linear-gradient(90deg, #3D9B8F 0%, #6BB5AA 30%, #E07A3A 65%, #CC612F 100%) !important;
+  pointer-events: none !important;
 }
+/* Ensure all nav children sit above the ::before bar */
+.top-nav > * { position: relative; z-index: 2; }
+.top-nav a { position: relative; z-index: 3; cursor: pointer; }
 .nav-home {
   color: #4A6B6B !important;
   transition: color 0.2s, letter-spacing 0.2s;
@@ -138,6 +143,10 @@ html {
   background: linear-gradient(175deg, #0F3030 0%, #163E3E 60%, #1A4A4A 100%) !important;
   border-bottom: 3px solid #CC612F !important;
   position: relative;
+  overflow: hidden !important;
+  color: #FFFFFF !important;
+  padding: 5rem 3rem 4rem !important;
+  text-align: left !important;
 }
 .module-hero::before {
   content: '' !important;
