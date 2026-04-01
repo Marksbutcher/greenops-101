@@ -705,8 +705,12 @@ html {
 }
 .kc-option.selected-wrong .kc-opt-key { background: #C53030 !important; color: #FFFFFF !important; }
 .kc-reveal {
+  display: none !important;
   padding: 1rem 1.5rem !important;
   background: #F7F6F5 !important; border-top: 1px solid #EDEBE9 !important;
+}
+.kc-block.answered .kc-reveal {
+  display: block !important;
   animation: revealSlide 0.4s;
 }
 .kc-reveal p { font-size: 0.9rem !important; color: #3D5E5E !important; }
