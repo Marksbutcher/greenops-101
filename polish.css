@@ -482,7 +482,10 @@ html {
 
 .waste-panel, .domain-panel {
   padding: 1.5rem !important;
-  animation: panelFadeIn 0.3s ease-out;
+  animation: panelFadeIn 0.3s ease-out forwards;
+}
+.waste-panel.active, .domain-panel.active {
+  opacity: 1 !important;
 }
 
 @keyframes panelFadeIn {

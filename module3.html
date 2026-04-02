@@ -253,10 +253,28 @@
   <h2 class="section-title">Carbon intensity is not constant.</h2>
   <p class="section-intro">The same workload in two different places — or at two different times of day — can have a dramatically different physical footprint. Region selection is one of the most underestimated levers in enterprise GreenOps.</p>
 
-<!-- REPLACE existing carbon intensity viz in M3 with this -->
   <div class="viz-container reveal" id="intensityViz">
-    <p class="viz-title">Grid carbon intensity by region — click any bar to compare. Figures illustrative, based on historical averages.</p>
-    <div id="ciChart"></div>
+    <p class="viz-title" style="margin-bottom:0.25rem;">Live GB Grid Carbon Intensity</p>
+    <p id="li-timestamp" style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--text-muted);margin-bottom:1.25rem;">Loading live data…</p>
+
+    <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:1.5rem;">
+      <div style="font-family:Georgia,serif;font-size:2.4rem;font-weight:700;color:var(--teal-dark);"><span id="li-gb-val">—</span><span style="font-size:1rem;font-weight:400;color:var(--text-muted);margin-left:0.25rem;">gCO₂/kWh</span></div>
+      <div style="font-size:0.85rem;color:var(--text-muted);">current GB average</div>
+    </div>
+
+    <div id="li-regions" style="display:none;"></div>
+
+    <div id="li-error" style="display:none;padding:1.25rem;background:var(--orange-bg);border-left:3px solid var(--orange);margin-top:1rem;">
+      <p style="font-size:0.92rem;color:var(--text-secondary);">Live carbon intensity data is currently unavailable. The API may be temporarily down. The static chart below shows historical regional averages.</p>
+    </div>
+
+    <div style="display:flex;gap:2rem;margin-top:1.5rem;flex-wrap:wrap;">
+      <div><span style="font-family:Calibri,monospace;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal-dark);font-weight:600;">Cleanest</span><br><span id="li-cleanest" style="font-size:0.92rem;color:var(--text-secondary);">—</span></div>
+      <div><span style="font-family:Calibri,monospace;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--orange);font-weight:600;">Dirtiest</span><br><span id="li-dirtiest" style="font-size:0.92rem;color:var(--text-secondary);">—</span></div>
+      <div><span style="font-family:Calibri,monospace;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);font-weight:600;">Spread</span><br><span id="li-spread" style="font-size:0.92rem;color:var(--text-secondary);">—</span></div>
+    </div>
+
+    <div id="ciChart" style="margin-top:1.5rem;"></div>
     <div id="ciDetail" style="margin-top:1.25rem; min-height:60px; padding:1rem 1.25rem; background:var(--section-alt); border-left:3px solid var(--teal); display:none;">
       <div id="ciDetailText"></div>
     </div>
@@ -266,7 +284,7 @@
       <div style="display:flex; align-items:center; gap:0.5rem;"><div style="width:12px;height:12px;background:#CC612F;"></div><span style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:var(--text-muted)">High (200–500g)</span></div>
       <div style="display:flex; align-items:center; gap:0.5rem;"><div style="width:12px;height:12px;background:#CC612F;"></div><span style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:var(--text-muted)">Very high (&gt;500g)</span></div>
     </div>
-    <p style="margin-top:0.75rem;font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:var(--text-muted)">Source: historical grid average data. Real-time data: National Grid ESO Carbon Intensity API and equivalent services. Generation mixes evolve year on year.</p>
+    <p style="margin-top:0.75rem;font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:var(--text-muted)">Source: National Grid ESO Carbon Intensity API (live) and historical grid average data. Generation mixes evolve year on year.</p>
   </div>
 
 <script>
