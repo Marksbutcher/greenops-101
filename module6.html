@@ -182,6 +182,73 @@
   </div>
 </div>
 </div>
+
+<div class="kc-block reveal" data-correct="B">
+  <p class="kc-label">Knowledge Check · Module 6 · Q1</p>
+  <p class="kc-q">A product team wants to track the sustainability of their service. Their application serves 2 million transactions per day and is growing at 40% annually. Which metric should they prioritise for engineering accountability?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>Total annual CO₂ emissions from the service</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>Software Carbon Intensity — carbon per transaction — so engineering decisions can be directly linked to sustainability outcomes, independent of business volume growth</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>Total server count used by the service</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>Average carbon intensity of the programming language used</button>
+  </div>
+  <p class="kc-hint">Select an answer to reveal the explanation.</p>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">✓ Correct: Option B</p>
+    <p>A service growing at 40% annually will almost certainly emit more in total each year — even if the team is doing excellent sustainability work. If the metric is total emissions, the engineering team can never show improvement against business growth. Their incentive becomes constraining growth, which is not the right goal.</p>
+    <p>Software Carbon Intensity — carbon per transaction — decouples sustainability performance from business scale. If the service processes 40% more transactions but emits the same or less carbon per transaction, the engineering team has genuinely improved. That is the accountability signal worth tracking.</p>
+  </div>
+</div>
+
+<div class="kc-block reveal" data-correct="B">
+  <p class="kc-label">Knowledge Check · Module 6 · Q2</p>
+  <p class="kc-q">A SaaS vendor states in their annual sustainability report that they are "committed to net zero by 2040 across all operations." What additional information should you request before including this in your Scope 3 reporting?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>No additional information is needed — the vendor's public commitment is sufficient for disclosure purposes</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>The hosting location, energy sourcing at the data centres used, the methodology for allocating shared infrastructure emissions to your tenancy, and whether per-tenant intensity metrics are available</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>The year the commitment was made and whether it covers Scope 1 and 2 only</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>The vendor's CDP disclosure rating</button>
+  </div>
+  <p class="kc-hint">Select an answer to reveal the explanation.</p>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">✓ Correct: Option B</p>
+    <p>A corporate net-zero commitment tells you about the supplier's trajectory and ambition. It tells you almost nothing about the specific emissions associated with your tenancy of their service. Scope 3 reporting requires product-level evidence — not corporate commitments.</p>
+    <p>The questions you need answered are: where is the service hosted, how is the infrastructure powered, how are shared infrastructure emissions allocated to individual tenants, and how confident are you in those allocation figures? The absence of that data does not mean the absence of impact — it means you have an unquantified Scope 3 exposure.</p>
+  </div>
+</div>
+
+<div class="pause-reflect reveal">
+  <p class="pause-label">⏸ Pause &amp; Reflect</p>
+  <p class="pause-intro">Take 5–10 minutes. Specificity matters more than completeness.</p>
+  <div class="pause-questions">
+    <div class="pause-q"><span class="pause-q-num">1</span>Think about the application portfolio you work with. If you had to classify every application using the TIME model today, what proportion would honestly be in the Eliminate category? What is stopping those decisions being made?</div>
+    <div class="pause-q"><span class="pause-q-num">2</span>Pick one service you own or know well. What is its carbon per transaction today? If you don't know, what would it take to find out — and who would need to be involved?</div>
+    <div class="pause-q"><span class="pause-q-num">3</span>How permissive is the data retention policy for the services you work with? When was it last reviewed? Who owns it?</div>
+  </div>
+</div>
+
+<div class="takeaways reveal">
+  <h3 class="takeaways-heading">Module 6 — Key Takeaways</h3>
+  <div class="takeaway-list">
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Enterprise architecture is a sustainability governance mechanism.</strong><p>Every application that runs without a deliberate decision to keep it running is consuming resources for no return. Retiring applications is often the single highest-leverage action in a portfolio review.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Software Carbon Intensity is the metric engineering teams can directly influence.</strong><p>Intensity — carbon per transaction, per call, per session — moves with engineering decisions. Total emissions move with business volume. Both matter; they serve different purposes.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Energy efficiency and software quality point in the same direction.</strong><p>Efficient algorithms, event-driven patterns, streaming over bulk loading, filter-at-source queries — these are engineering quality practices that also reduce energy per unit of useful work.</p></div></div>
+  </div>
+</div>
+</div>
+
+<div class="module-nav">
+  <a href="module5.html" class="nav-btn"><span><span class="nav-btn-label">← Previous</span><span class="nav-btn-title">M5: From Reporting to Operational Excellence</span></span></a>
+  <button class="complete-btn" onclick="markComplete('module6')">Mark as complete</button>
+  <a href="module7.html" class="nav-btn next"><span><span class="nav-btn-label">Next →</span><span class="nav-btn-title">M7: Procurement, Supply Chains, and Vendor Evidence</span></span></a>
+</div>
+<footer>
+  <div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 6</div>
+  <div class="footer-brand">March 2026 · v2</div>
+</footer>
+
+<script></script>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   if (typeof initKnowledgeChecks === 'function') initKnowledgeChecks();

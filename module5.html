@@ -364,6 +364,111 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<!-- KC 1 -->
+<div class="kc-block reveal" data-correct="C">
+  <p class="kc-label">Knowledge Check · Module 5 · Q1</p>
+  <p class="kc-q">An organisation completes a cloud rightsizing exercise, reducing idle compute by 35%. Six months later, total emissions are unchanged. What is the most likely explanation?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>The rightsizing calculations were incorrect — 35% savings cannot occur without measurable total reduction</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>The measurement methodology changed between periods, making comparison unreliable</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>The rebound effect — freed capacity was absorbed by new demand without deliberate governance, offsetting the efficiency gains in absolute terms</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>Cloud provider emission factors increased over the same period, masking the efficiency improvement</button>
+  </div>
+  <p class="kc-hint">Select an answer to reveal the explanation.</p>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">✓ Correct: Option C</p>
+    <p>The rightsizing exercise was technically successful — the efficiency gains were real. But efficiency without demand management does not guarantee absolute reduction. Freed capacity is almost always reabsorbed unless there is an explicit governance step that treats it as a deliberate decision rather than automatic resource to be reused.</p>
+    <p>This is the rebound effect: the failure mode that explains why organisations can improve all their unit metrics while total emissions stay flat or rise. The fix is not better rightsizing — it is treating freed capacity as requiring an explicit decision before reallocation.</p>
+  </div>
+</div>
+
+<!-- KC 2 -->
+<div class="kc-block reveal" data-correct="B">
+  <p class="kc-label">Knowledge Check · Module 5 · Q2</p>
+  <p class="kc-q">A cloud engineer wants to use carbon-aware scheduling to reduce the footprint of a machine learning training pipeline. What should they verify first?</p>
+  <div class="kc-options">
+    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>That the pipeline is approved for carbon-aware scheduling by the sustainability committee</button>
+    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>That the workload is genuinely flexible — no hard latency requirement, no production dependency, and able to complete within the available clean-energy window</button>
+    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>That the cloud provider offers a dedicated carbon-aware scheduling API for the target region</button>
+    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>That the carbon savings will exceed any additional scheduling overhead costs before proceeding</button>
+  </div>
+  <p class="kc-hint">Select an answer to reveal the explanation.</p>
+  <div class="kc-reveal">
+    <p class="kc-reveal-label">✓ Correct: Option B</p>
+    <p>The precondition for temporal or spatial carbon-aware scheduling is genuine workload flexibility. A training pipeline is often a strong candidate — it typically runs in the background with no user-facing latency requirement. But some pipelines have dependencies: they feed downstream services, trigger deployment workflows, or have regulatory time constraints.</p>
+    <p>Option A misunderstands how this works — it requires workload assessment, not committee approval. Option C is not a prerequisite; scheduling can be done through open-source tools including the Carbon Aware SDK.</p>
+  </div>
+</div>
+
+<!-- PAUSE AND REFLECT -->
+<div class="pause-reflect reveal">
+  <p class="pause-label">⏸ Pause &amp; Reflect</p>
+  <p class="pause-intro">Take 5–10 minutes. Specificity matters more than completeness.</p>
+  <div class="pause-questions">
+    <div class="pause-q"><span class="pause-q-num">1</span>Which level of action describes your current programme — reporting, optimisation, or avoidance? Be honest. What would it take to move to the next level?</div>
+    <div class="pause-q"><span class="pause-q-num">2</span>Have you ever seen the rebound effect in your organisation? Was it recognised at the time, or did it simply look like demand growing normally?</div>
+    <div class="pause-q"><span class="pause-q-num">3</span>Is GreenOps integrated with your FinOps or cost governance practice, or running in parallel? What is one thing you could change this quarter to bring them closer together?</div>
+  </div>
+</div>
+
+<!-- KEY TAKEAWAYS -->
+<div class="takeaways reveal">
+  <h3 class="takeaways-heading">Module 5 — Key Takeaways</h3>
+  <div class="takeaway-list">
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Reporting is the starting point, not the destination.</strong><p>Optimisation and avoidance are where operational value lives — and they require different governance to activate.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>The rebound effect is a governance failure, not a technical one.</strong><p>Freed capacity must be subject to an explicit decision before reallocation. Without active demand management, efficiency gains are absorbed rather than accumulated.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Carbon-aware computing works — for genuinely flexible workloads.</strong><p>Quantify your flexible load first. It is almost always smaller than hoped and larger than zero.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Carbon is a named variable in every material operational decision.</strong><p>The goal is not to always win on carbon — it is to make the trade-off with cost and performance visible and deliberate.</p></div></div>
+    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>GreenOps integrates with FinOps — it does not compete with it.</strong><p>The most efficient model shares the same tooling, attribution model, and governance cadence.</p></div></div>
+  </div>
+</div>
+
+</div>
+
+<div class="module-nav">
+  <a href="module4.html" class="nav-btn"><span><span class="nav-btn-label">← Previous</span><span class="nav-btn-title">M4: Where Impact Lives Across the IT Estate</span></span></a>
+  <button class="complete-btn" onclick="markComplete('module5')">Mark as complete</button>
+  <a href="module6.html" class="nav-btn next"><span><span class="nav-btn-label">Next →</span><span class="nav-btn-title">M6: Software Engineering and Application Sustainability</span></span></a>
+</div>
+
+<footer>
+  <div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 5</div>
+  <div class="footer-brand">March 2026 · v2</div>
+</footer>
+
+
+<script>function animateRebound() {
+  document.querySelectorAll('.animate-line').forEach(l => l.classList.add('drawn'));
+}
+function initReboundOnScroll() {
+  const chart = document.getElementById('reboundChart');
+  if(!chart) return;
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ animateRebound(); obs.unobserve(e.target); }});
+  }, {threshold:0.3});
+  obs.observe(chart);
+}
+const triContent = {
+  cost: { cls: 'tri-detail-cost', name: 'Cost', text: 'What you spend on compute, storage, and infrastructure. Reducing waste is almost always cost-positive. But the lowest-carbon option does not always cost less. Be honest about this — a programme that claims cost and carbon always align will encounter a case where they do not.', example: 'A workload scheduled for a low-carbon window may require slightly longer runtime or modest latency trade-offs. Name the cost honestly. The decision should still often be made on carbon grounds.' },
+  carbon: { cls: 'tri-detail-carbon', name: 'Carbon', text: 'Now a named decision variable, not a consequence to discover later. Must be visible alongside cost and latency for every material platform decision. If it isn\'t visible, the decision will default to convention — which usually means defaulting to the highest-carbon option by accident.', example: 'Region selection for a new workload: the carbon dimension is invisible unless someone has surfaced it. If nobody has, the decision defaults to proximity or familiarity.' },
+  perf: { cls: 'tri-detail-perf', name: 'Performance', text: 'Latency, availability, and service quality. These constrain which workloads can move in time or space. Not a negotiating position — a real constraint that must be named and respected in every carbon-aware conversation.', example: 'A user-facing API serving real-time requests cannot be temporally shifted. A nightly batch analytics pipeline almost certainly can. The performance constraint is binary in one case and largely absent in the other.' }
+};
+function showTriDetail(key) {
+  const d = triContent[key];
+  document.getElementById('triDetail').className = 'tri-detail ' + d.cls;
+  document.getElementById('triDetail').innerHTML = `<div class="tri-detail-name">${d.name}</div><p>${d.text}</p><p class="example">${d.example}</p>`;
+}
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof initKnowledgeChecks === 'function') initKnowledgeChecks();
+  if (typeof initScrollReveal === 'function') initScrollReveal();
+  if (typeof initProgress === 'function') initProgress(5);
+  if (typeof initReboundOnScroll === 'function') initReboundOnScroll(); if (typeof loadScheduling === 'function') loadScheduling();
+});
+</script>
+
 </div>
 </div>
   <script src="shared.js?v=20260402"></script>
