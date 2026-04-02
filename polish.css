@@ -151,7 +151,8 @@ html {
   pointer-events: none;
   z-index: 0;
 }
-.module-hero > * { position: relative; z-index: 1; }
+.module-hero > *:not(.hero-num) { position: relative; z-index: 1; }
+.hero-num { position: absolute !important; z-index: 0; }
 
 /* Hero text must be WHITE on the dark teal hero */
 .module-eyebrow {

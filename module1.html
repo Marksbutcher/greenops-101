@@ -231,11 +231,11 @@
 
   <div class="waste-explorer reveal">
     <div class="waste-tabs">
-      💤 Idle Compute
-      💾 Storage Waste
-      📱 Application Waste
+      <button class="waste-tab active" onclick="showWaste('idle', this)">💤 Idle Compute</button>
+      <button class="waste-tab" onclick="showWaste('storage', this)">💾 Storage Waste</button>
+      <button class="waste-tab" onclick="showWaste('app', this)">📱 Application Waste</button>
       <button class="waste-tab" onclick="showWaste('enduser', this)">🖥️ End-User Waste</button>
-      🤖 AI Consumption
+      <button class="waste-tab" onclick="showWaste('ai', this)">🤖 AI Consumption</button>
     </div>
     <div class="waste-panels">
       <div class="waste-panel active" id="waste-idle">
