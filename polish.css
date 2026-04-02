@@ -226,11 +226,12 @@ html {
   background: #FFFFFF !important;
   color: #0F3030 !important;
 }
+/* Content-section scroll reveal — only for modules that use .visible pattern
+   (modules 9-14). Modules 1-8 use .animate sub-pattern and start visible. */
 .content-section {
-  opacity: 0; transform: translateY(20px);
   transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.content-section.visible, .content-section.revealed { opacity: 1; transform: translateY(0); }
+.content-section.visible, .content-section.revealed { opacity: 1 !important; transform: translateY(0) !important; }
 
 .section-label {
   position: relative;
@@ -944,13 +945,18 @@ input[type="range"]::-moz-range-thumb {
 
 /* ═══════════════════════════════════════════════════════════════════════
    SCROLL REVEALS
+   Two patterns coexist:
+   - Modules 1-8 (Group A): .reveal starts visible, .reveal.animate hides,
+     .reveal.animate.visible shows. Base .reveal must NOT be hidden.
+   - Modules 9-14 (Group C): .reveal starts hidden, .reveal.visible shows.
+   The transition is safe for both; only the initial opacity/transform
+   must not be forced here — let each module's inline CSS control it.
    ═══════════════════════════════════════════════════════════════════════ */
 .reveal {
-  opacity: 0; transform: translateY(20px);
   transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.reveal.visible, .reveal.revealed { opacity: 1; transform: translateY(0); }
+.reveal.visible, .reveal.revealed { opacity: 1 !important; transform: translateY(0) !important; }
 
 
 /* ═══════════════════════════════════════════════════════════════════════
