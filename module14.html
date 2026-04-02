@@ -4,10 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>M14: Wrap-Up & Next Steps — GreenOps 101</title>
+<meta name="description" content="Module 14: Wrap-up and next steps — action planning, completion tracking, and your first 30 days as a GreenOps practitioner.">
+<meta property="og:title" content="M14: Wrap-Up & Next Steps — GreenOps 101">
+<meta property="og:description" content="Module 14: Wrap-up and next steps — action planning, completion tracking, and your first 30 days as a GreenOps practitioner.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230F3030'/><text x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='700' fill='%233D9B8F'>G</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="greenops.css">
 <style>
 :root{--page-bg:#F5F5F3;--card-bg:#FFFFFF;--section-alt:#F5F5F3;--text-primary:#0F3030;--text-secondary:#3D5E5E;--text-muted:#4A6B6B;--navy:#0F3030;--navy-mid:#1E4D4A;--navy-card:#0F3030;--navy-light:#2D7A70;--teal:#3D9B8F;--teal-dark:#2D7A70;--teal-muted:#B2EDE7;--teal-bg:rgba(61,155,143,0.07);--teal-border:rgba(61,155,143,0.25);--orange:#CC612F;--orange-light:#CC612F;--orange-bg:rgba(204,97,47,0.08);--orange-border:rgba(204,97,47,0.25);--border:#E0DCDA;--border-light:#EDEBE9;--track1:#3D9B8F;--track2:#CC612F;--track3:#CC612F;--correct:#16a34a;--wrong:#dc2626;--white:#FFFFFF;--slate:#3D5E5E;--slate-mid:#4A6B6B;--slate-dim:#7A8D8B;--teal-light:#B2EDE7;--teal-glow:rgba(61,155,143,0.15);--teal-subtle:rgba(61,155,143,0.07);--grey-100:#F5F5F3;--grey-300:#EDEBE9;--grey-500:#3D5E5E;--navy-raised:#2D7A70;--navy-border:rgba(255,255,255,0.07);--navy-mid-alt:#1E4D4A;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -71,11 +76,11 @@ body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Tr
 .completion-map{background:#FFF;border:1px solid var(--border-light);border-radius:6px;padding:2rem;margin:1.5rem 0;}
 .track-section{margin-bottom:2rem;}
 .track-name{font-weight:600;color:var(--navy);margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem;}
-.track-indicator{width:16px;height:16px;border-radius:50%;background:var(--section-alt);}
-.modules-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:0.75rem;}
-.module-badge{background:#FFF;border:1px solid var(--border-light);border-radius:4px;padding:0.75rem;text-align:center;font-size:0.85rem;cursor:pointer;transition:all 0.2s;}
+.track-indicator{width:16px;height:16px;border-radius:50%;background:var(--section-alt);display:inline-block;margin-right:0.75rem;}
+.modules-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}@media(max-width:768px){.modules-grid{grid-template-columns:repeat(2,1fr);}}
+.module-badge{background:#FFF;border:2px dashed var(--border-light);border-radius:4px;padding:0.75rem;text-align:center;font-size:0.85rem;cursor:pointer;transition:all 0.2s;position:relative;overflow:hidden;}.module-badge::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:transparent;transition:background 0.2s;}
 .module-badge:hover{transform:translateY(-2px);box-shadow:0 2px 6px rgba(0,0,0,0.08);}
-.module-badge.completed{background:rgba(61,155,143,0.1);border-color:var(--teal);>color:#3D9B8F;font-weight:600;/g}
+.module-badge.completed{background:rgba(61,155,143,0.1);border-color:var(--teal);border-style:solid;color:#3D9B8F;font-weight:600;position:relative;}.module-badge.completed::before{background:#3D9B8F;}.module-badge.completed::after{content:"✓";position:absolute;top:50%;right:0.5rem;transform:translateY(-50%);color:#3D9B8F;font-weight:700;}
 .module-badge.completed::before{content:'✓ ';margin-right:0.25rem;}
 .kc-block{background:#FFF;border:1px solid var(--border-light);border-radius:6px;padding:2rem;margin:2rem 0;border-left:4px solid var(--teal);}
 .kc-label{font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;}
@@ -106,10 +111,10 @@ body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Tr
 footer{text-align:center;padding:2rem;color:var(--text-muted);font-size:0.9rem;border-top:1px solid var(--border-light);margin-top:3rem;}
 .footer-brand{margin:0.25rem 0;}
 @media (max-width:700px){.model-principles{grid-template-columns:1fr;}.modules-grid{grid-template-columns:repeat(3,1fr);}.module-content{padding:0 1rem;}.module-nav{flex-direction:column;}.nav-btn.next{margin-left:0;}}
-</style>
-<link rel="stylesheet" href="polish.css">
+.progress-indicator{margin:2rem 0;}.progress-label{font-family:Georgia,serif;font-size:1.1rem;font-weight:600;color:var(--text-primary);margin-bottom:1rem;}.progress-bar{width:100%;height:8px;background:var(--border-light);border-radius:4px;overflow:hidden;}.progress-fill{height:100%;background:#3D9B8F;transition:width 0.4s ease;}.modules-grid .module-badge{border-left:4px solid transparent;}.track-section:nth-child(1) .module-badge{border-left-color:#3D9B8F;}.track-section:nth-child(2) .module-badge{border-left-color:#CC612F;}.track-section:nth-child(3) .module-badge{border-left-color:#CC612F;}</style>
 </head>
 <body class="track1">
+<a href="#main-content" class="skip-link">Skip to content</a>
 
 <nav class="top-nav">
   <a href="index.html" class="nav-home">GreenOps 101</a>
@@ -142,7 +147,7 @@ footer{text-align:center;padding:2rem;color:var(--text-muted);font-size:0.9rem;b
   </ul>
 </div>
 
-<div class="module-content">
+<div class="module-content" id="main-content">
 
 <!-- SECTION 1: The Core Mental Model -->
 <div class="content-section reveal">
@@ -293,6 +298,12 @@ footer{text-align:center;padding:2rem;color:var(--text-muted);font-size:0.9rem;b
   <h2 class="section-title">Your Progress Through the Course</h2>
   <p class="section-intro">You've now worked through 14 modules across three tracks. Here's how they fit together, and where to go deeper if a domain sits in your direct responsibility.</p>
 
+  <div class="progress-indicator">
+    <p style="font-family:Georgia,serif;font-size:1.2rem;font-weight:600;color:var(--text-primary);margin-bottom:1.5rem;" id="progress-label">0 of 14 modules complete</p>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress-fill" style="width:0%;"></div>
+    </div>
+  </div>
   <div class="completion-map reveal">
     <div class="track-section">
       <div class="track-name">
@@ -434,6 +445,19 @@ function toggleModule(moduleKey) {
   if (badge) badge.classList.toggle('completed');
 }
 
+function updateProgressBar() {
+  const badges = document.querySelectorAll('.module-badge.completed');
+  const total = document.querySelectorAll('.module-badge').length;
+  const completed = badges.length;
+  const percentage = (completed / total) * 100;
+
+  const label = document.getElementById('progress-label');
+  const fill = document.getElementById('progress-fill');
+
+  if (label) label.textContent = completed + ' of ' + total + ' modules complete';
+  if (fill) fill.style.width = percentage + '%';
+}
+
 // Load completed modules from localStorage on page load
 document.addEventListener('DOMContentLoaded', function() {
   if (typeof initKnowledgeChecks === 'function') initKnowledgeChecks();
@@ -449,69 +473,11 @@ document.addEventListener('DOMContentLoaded', function() {
       if (badge) badge.classList.add('completed');
     }
   }
+
+  updateProgressBar();
 });
 </script>
 
-<script>
-// GreenOps 101 — Shared utilities
-const STORAGE_KEY = 'greenops101_progress';
-function getProgress(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');}catch{return {};}}
-function markComplete(moduleKey){
-  const p=getProgress();p[moduleKey]={completedAt:new Date().toISOString()};
-  localStorage.setItem(STORAGE_KEY,JSON.stringify(p));
-  document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
-}
-function isComplete(k){return !!getProgress()[k];}
-function initKnowledgeChecks(){
-  document.querySelectorAll('.kc-block').forEach(block=>{
-    const correct=block.dataset.correct;
-    block.querySelectorAll('.kc-option').forEach(opt=>{
-      opt.addEventListener('click',function(){
-        if(block.classList.contains('answered'))return;
-        block.classList.add('answered');
-        const chosen=this.dataset.val;
-        const isCorrect=(chosen===correct);
-        block.querySelectorAll('.kc-option').forEach(o=>{
-          if(o.dataset.val===correct)o.classList.add('selected-correct');
-          else if(o.dataset.val===chosen&&!isCorrect)o.classList.add('selected-wrong');
-        });
-        const correctBtn=block.querySelector('.kc-option[data-val="'+correct+'"]');
-        const correctText=correctBtn?correctBtn.textContent.replace(/^[A-D]\s*/,'').trim():'';
-        let revealLabel=block.querySelector('.kc-reveal-label');
-        if(!revealLabel){
-          revealLabel=document.createElement('p');
-          revealLabel.className='kc-reveal-label';
-          const rv=block.querySelector('.kc-reveal');
-          if(rv)rv.insertBefore(revealLabel,rv.firstChild);
-        }
-        if(isCorrect){
-          revealLabel.style.color='var(--teal-dark)';
-          revealLabel.textContent='✓ Correct — Option '+correct;
-        } else {
-          revealLabel.style.color='#B54D12';
-          revealLabel.innerHTML='✗ Incorrect — the correct answer was <strong>Option '+correct+'</strong>: '+correctText;
-        }
-        const rv=block.querySelector('.kc-reveal');
-        if(rv)rv.style.display='block';
-        const hint=block.querySelector('.kc-hint');
-        if(hint)hint.style.display='none';
-      });
-    });
-  });
-}
-function initScrollReveal(){
-  const obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
-  },{threshold:0.06,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-}
-function initProgress(current){
-  const p=getProgress(),total=14;
-  const done=Object.keys(p).filter(k=>k.startsWith('module')).length;
-  const el=document.getElementById('progress-count');
-  if(el)el.textContent=done+'/'+total;
-  if(isComplete('module'+current))document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
-}
-</script>
+<script src="shared.js"></script>
 </body>
 </html>

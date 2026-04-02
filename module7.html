@@ -4,10 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>M7: Procurement, Supply Chains, and Vendor Evidence — GreenOps 101</title>
+<meta name="description" content="Module 7: Procurement, supply chains, and vendor evidence — buying power, sustainability assurance, and the evidence gap in IT procurement.">
+<meta property="og:title" content="M7: Procurement, Supply Chains, and Vendor Evidence — GreenOps 101">
+<meta property="og:description" content="Module 7: Procurement, supply chains, and vendor evidence — buying power, sustainability assurance, and the evidence gap in IT procurement.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230F3030'/><text x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='700' fill='%233D9B8F'>G</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="greenops.css">
 <style>
 :root{--page-bg:#F7F8FA;--card-bg:#FFFFFF;--section-alt:#E8EDF2;--text-primary:#1E293B;--text-secondary:#4A5568;--text-muted:#64748B;--navy:#0F3030;--navy-mid:#162840;--navy-card:#1E293B;--navy-light:#1C3A55;--teal:#3D9B8F;--teal-dark:#2D7A70;--teal-muted:#B2EDE7;--teal-bg:rgba(61,155,143,0.07);--teal-border:rgba(61,155,143,0.25);--orange:#CC612F;--orange-light:#E8985A;--orange-bg:#FFF3E8;--orange-border:rgba(204,97,47,0.25);--border:#D1D9E0;--border-light:#E8EDF2;--track1:#3D9B8F;--track2:#E8985A;--track3:#CC612F;--correct:#16a34a;--wrong:#dc2626;--white:#FFFFFF;--slate:#4A5568;--slate-mid:#64748B;--slate-dim:#94A3B8;--teal-light:#B2EDE7;--teal-glow:rgba(61,155,143,0.15);--teal-subtle:rgba(61,155,143,0.07);--grey-100:#F7F8FA;--grey-300:#D1D9E0;--grey-500:#4A5568;--navy-raised:#1C3A55;--navy-border:rgba(255,255,255,0.07);--navy-mid-alt:#162840;}
 
@@ -35,17 +40,11 @@ body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Tr
 
 #prog-fill{height:100%;background:var(--teal);transition:width 0.3s ease;}
 
-.module-hero{background:linear-gradient(135deg,#0F3030 0%,#162840 100%);color:white;padding:5rem 3rem 4rem;position:relative;overflow:hidden;border-bottom:3px solid var(--teal);}
-.module-hero::before{content:"";position:absolute;top:-50%;right:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(61,155,143,0.1) 0%,rgba(61,155,143,0) 70%);border-radius:50%;z-index:0;pointer-events:none;}
-.module-hero>*{position:relative;z-index:1;}
-.hero-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(5rem,12vw,10rem);color:rgba(255,255,255,.06);line-height:1;position:absolute;right:3rem;bottom:0;font-weight:400;user-select:none;pointer-events:none;}
-.module-eyebrow{font-family:Calibri,monospace;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:#B2EDE7;margin-bottom:.75rem;}
-.module-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.12;letter-spacing:-.02em;font-weight:700;color:#fff;margin-bottom:1.25rem;}
-.module-subtitle{font-size:1.1rem;color:rgba(255,255,255,.72);line-height:1.65;max-width:620px;margin-bottom:2rem;}
-.module-meta{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}
-.meta-item{display:flex;flex-direction:column;gap:.15rem;}
-.meta-item .label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);}
-.meta-item .value{font-size:.92rem;color:#FFFFFF;font-weight:500;}
+.module-header{background:var(--navy);color:white;padding:2.5rem 3rem;border-bottom:3px solid var(--teal);}
+
+.module-title{font-family:Georgia,serif;font-size:2.4rem;font-weight:700;margin-bottom:0.5rem;}
+
+.module-intro{font-size:1.1rem;line-height:1.6;color:rgba(255,255,255,0.85);max-width:900px;}
 
 .module-content{max-width:1000px;margin:0 auto;padding:2rem 2rem;}
 
@@ -286,35 +285,26 @@ footer{background:var(--navy);color:#3D5E5E;padding:2rem;text-align:center;font-
 
 </style>
 
-<link rel="stylesheet" href="polish.css">
-
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to content</a>
 
 <div class="top-nav">
-  <a href="index.html" class="nav-home" style="color:#C5E5E0;text-decoration:none;font-size:0.85rem;font-weight:500;position:relative;z-index:10;">GreenOps 101</a>
-  <span style="color:rgba(255,255,255,0.3);position:relative;z-index:10;">·</span>
-  <span style="color:#3D9B8F;font-size:0.85rem;font-weight:600;position:relative;z-index:10;">Module 7</span>
-  <span class="nav-track-pill" style="position:relative;z-index:10;">Track 2 · Operational Practice</span>
-  <div style="flex:1;"></div>
-  <div class="nav-progress" style="position:relative;z-index:10;">
-    <span id="progress-count">0/14</span> complete
+  <div class="top-nav-content">
+    <div class="nav-breadcrumb">GreenOps 101 · <strong>M7</strong></div>
+    <div class="nav-progress">
+      <span id="progress-count">0/14</span> complete
+      <div class="prog-bar"><div id="prog-fill"></div></div>
+    </div>
   </div>
 </div>
 
-<section class="module-hero">
-  <div class="hero-num">7</div>
-  <p class="module-eyebrow">Module 7 &nbsp;·&nbsp; Track 2 — Operational Practice</p>
-  <h1 class="module-title">Procurement, Supply Chains,<br>and Vendor Evidence</h1>
-  <p class="module-subtitle">Every purchasing decision is a vote. When you buy without asking for evidence, you signal that measurement does not drive decisions.</p>
-  <div class="module-meta">
-    <div class="meta-item"><span class="label">Duration</span><span class="value">22–26 minutes</span></div>
-    <div class="meta-item"><span class="label">Track</span><span class="value">Operational Practice</span></div>
-    <button class="complete-btn" onclick="markComplete('module7')">Mark as complete</button>
-  </div>
-</section>
+<div class="module-header">
+  <div class="module-title">M7: Procurement, Supply Chains, and Vendor Evidence</div>
+  <p class="module-intro">Procurement is the bridge between your sustainability commitments and your actual Scope 3 footprint. Every purchasing decision is a vote. When you buy hardware without asking for a product carbon footprint, you signal that evidence is not required. When you renew a cloud contract without requesting carbon disclosures, you signal that measurement does not drive decisions.</p>
+</div>
 
-<div class="module-content">
+<div class="module-content" id="main-content">
 
 <!-- SECTION 1 — Module objectives -->
 <div class="content-section reveal">
@@ -961,75 +951,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<script>
-// GreenOps 101 — Shared utilities v4 light theme
-const STORAGE_KEY = 'greenops101_progress';
-function getProgress(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');}catch{return {};}}
-function markComplete(moduleKey){
-  const p=getProgress();p[moduleKey]={completedAt:new Date().toISOString()};
-  localStorage.setItem(STORAGE_KEY,JSON.stringify(p));
-  document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
-}
-function isComplete(k){return !!getProgress()[k];}
-function initKnowledgeChecks(){
-  document.querySelectorAll('.kc-block').forEach(block=>{
-    const correct=block.dataset.correct;
-    block.querySelectorAll('.kc-option').forEach(opt=>{
-      opt.addEventListener('click',function(){
-        if(block.classList.contains('answered'))return;
-        block.classList.add('answered');
-        const chosen=this.dataset.val;
-        const isCorrect=(chosen===correct);
-
-        block.querySelectorAll('.kc-option').forEach(o=>{
-          if(o.dataset.val===correct)o.classList.add('selected-correct');
-          else if(o.dataset.val===chosen&&!isCorrect)o.classList.add('selected-wrong');
-        });
-
-        const correctBtn=block.querySelector('.kc-option[data-val="'+correct+'"]');
-        const correctText=correctBtn?correctBtn.textContent.replace(/^[A-D]\s*/,'').trim():'';
-
-        let revealLabel=block.querySelector('.kc-reveal-label');
-        if(!revealLabel){
-          revealLabel=document.createElement('p');
-          revealLabel.className='kc-reveal-label';
-          const rv=block.querySelector('.kc-reveal');
-          if(rv)rv.insertBefore(revealLabel,rv.firstChild);
-        }
-
-        if(isCorrect){
-          revealLabel.style.color='var(--teal-dark)';
-          revealLabel.textContent='✓ Correct — Option '+correct;
-        } else {
-          revealLabel.style.color='#B54D12';
-          revealLabel.innerHTML='✗ Incorrect — the correct answer was <strong>Option '+correct+'</strong>: '+correctText;
-        }
-
-        const rv=block.querySelector('.kc-reveal');
-        if(rv)rv.style.display='block';
-
-        const hint=block.querySelector('.kc-hint');
-        if(hint)hint.style.display='none';
-      });
-    });
-  });
-}
-function initScrollReveal(){
-  const obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
-  },{threshold:0.06,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-}
-function initProgress(current){
-  const p=getProgress(),total=14;
-  const done=Object.keys(p).filter(k=>k.startsWith('module')).length;
-  const el=document.getElementById('progress-count');
-  if(el)el.textContent=done+'/'+total;
-  const fill=document.getElementById('prog-fill');
-  if(fill)fill.style.width=((done/total)*100)+'%';
-  if(isComplete('module'+current))document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
-}
-</script>
+<script src="shared.js"></script>
 
 </body>
 </html>

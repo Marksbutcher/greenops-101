@@ -1,13 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>M13: Sustainability BY IT — GreenOps 101</title>
+<meta name="description" content="Module 13: The digital handprint — Scope 4 avoided emissions, cleantech categories, and measuring positive technology impact.">
+<meta property="og:title" content="M13: Sustainability BY IT — GreenOps 101">
+<meta property="og:description" content="Module 13: The digital handprint — Scope 4 avoided emissions, cleantech categories, and measuring positive technology impact.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230F3030'/><text x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='700' fill='%233D9B8F'>G</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="greenops.css">
 <style>
 :root{--page-bg:#F5F5F3;--card-bg:#FFFFFF;--section-alt:#F5F5F3;--text-primary:#0F3030;--text-secondary:#3D5E5E;--text-muted:#4A6B6B;--navy:#0F3030;--navy-mid:#1E4D4A;--navy-card:#0F3030;--navy-light:#2D7A70;--teal:#3D9B8F;--teal-dark:#2D7A70;--teal-muted:#B2EDE7;--teal-bg:rgba(61,155,143,0.07);--teal-border:rgba(61,155,143,0.25);--orange:#CC612F;--orange-light:#CC612F;--orange-bg:rgba(204,97,47,0.08);--orange-border:rgba(204,97,47,0.25);--border:#E0DCDA;--border-light:#EDEBE9;--track1:#3D9B8F;--track2:#CC612F;--track3:#CC612F;--correct:#16a34a;--wrong:#dc2626;--white:#FFFFFF;--slate:#3D5E5E;--slate-mid:#4A6B6B;--slate-dim:#7A8D8B;--teal-light:#B2EDE7;--teal-glow:rgba(61,155,143,0.15);--teal-subtle:rgba(61,155,143,0.07);--grey-100:#F5F5F3;--grey-300:#EDEBE9;--grey-500:#3D5E5E;--navy-raised:#2D7A70;--navy-border:rgba(255,255,255,0.07);--navy-mid-alt:#1E4D4A;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -28,7 +31,7 @@ body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Tr
 .meta-item{display:flex;align-items:center;gap:0.5rem;}
 .label{opacity:0.7;}
 .value{font-weight:500;}
-.complete-btn{background:rgba(255,255,255,0.2);color:#FFF;border:1px solid rgba(255,255,255,0.3);padding:0.5rem 1rem;border-radius:4px;cursor:pointer;font-size:0.9rem;transition:all 0.2s;}
+.complete-btn{background:rgba(255,255,255,0.2);color:#FFF;border:1px solid rgba(255,255,255,0.3);padding:0.5rem 1rem;border-radius:4px;cursor:pointer;font-size:0.9rem;transition:all 0.2s;cursor:pointer}
 .complete-btn:hover{background:rgba(255,255,255,0.3);}
 .complete-btn.done{background:var(--teal);border-color:var(--teal);}
 .objectives-strip{background:#FFF;border-left:4px solid var(--teal);padding:2rem;margin:3rem 3rem;border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,0.05);}
@@ -39,7 +42,7 @@ body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Tr
 .module-content{max-width:900px;margin:0 auto;padding:0 3rem;}
 .content-section{margin-bottom:3rem;}
 .section-label{font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;}
-.section-title{font-family:Georgia, serif;font-size:2rem;font-weight:700;margin-bottom:1rem;color:var(--text-primary);}
+.section-title{font-family:Georgia, serif;font-size:2rem;font-weight:700;margin-bottom:1rem;color:#1A5C53;}
 .section-intro{font-size:1.1rem;color:var(--text-secondary);margin-bottom:2rem;line-height:1.8;}
 .prose{margin-bottom:1.5rem;line-height:1.8;}
 .viz-container{background:#FFF;border:1px solid var(--border-light);border-radius:6px;padding:2rem;margin:2rem 0;}
@@ -52,7 +55,7 @@ body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Tr
 .reveal.visible{opacity:1;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 .comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:2rem 0;}
-.comparison-col{background:#FFF;border:1px solid var(--border-light);border-radius:6px;padding:1.5rem;}
+.comparison-col{border-radius:6px;background:#FFF;border:1px solid var(--border-light);border-radius:6px;padding:1.5rem;cursor:pointer}.comparison-col:hover{border-color:var(--teal);background:rgba(61,155,143,0.02);}
 .comparison-col h4{font-family:Georgia, serif;margin-bottom:1rem;color:var(--text-primary);}
 .comparison-items{list-style:none;}
 .comparison-items li{margin-bottom:0.75rem;padding:0.75rem;background:var(--section-alt);border-radius:4px;font-size:0.95rem;}
@@ -75,7 +78,7 @@ body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Tr
 .kc-label{font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;}
 .kc-q{font-weight:600;font-size:1.1rem;margin-bottom:1.5rem;color:var(--text-primary);}
 .kc-options{display:grid;gap:1rem;margin-bottom:1rem;}
-.kc-option{background:#FFF;border:1px solid var(--border);padding:1rem;border-radius:4px;cursor:pointer;text-align:left;transition:all 0.2s;font-size:0.95rem;}
+.kc-option{background:#FFF;border:1px solid var(--border);padding:1rem;border-radius:4px;cursor:pointer;text-align:left;transition:all 0.2s;font-size:0.95rem;cursor:pointer}
 .kc-option:hover{background:var(--section-alt);}
 .kc-option.selected-correct{background:rgba(22,163,74,0.1);border-color:var(--correct);}
 .kc-option.selected-wrong{background:rgba(220,38,38,0.1);border-color:var(--wrong);}
@@ -92,18 +95,18 @@ body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Tr
 .takeaway-body strong{color:var(--text-primary);}
 .takeaway-body p{margin-top:0.25rem;font-size:0.95rem;color:var(--text-secondary);}
 .module-nav{display:flex;gap:1rem;justify-content:space-between;align-items:center;padding:3rem;margin-top:4rem;border-top:1px solid var(--border-light);}
-.nav-btn{display:flex;align-items:center;gap:0.5rem;padding:0.75rem 1.5rem;background:var(--section-alt);color:var(--text-primary);text-decoration:none;border-radius:4px;transition:all 0.2s;}
+.nav-btn{display:flex;align-items:center;gap:0.5rem;padding:0.75rem 1.5rem;background:var(--section-alt);color:var(--text-primary);text-decoration:none;border-radius:4px;transition:all 0.2s;cursor:pointer}
 .nav-btn:hover{background:var(--border-light);}
 .nav-btn.next{margin-left:auto;}
 .nav-btn-label{font-size:0.85rem;opacity:0.7;}
 .nav-btn-title{font-weight:600;}
 footer{text-align:center;padding:2rem;color:var(--text-muted);font-size:0.9rem;border-top:1px solid var(--border-light);margin-top:3rem;}
 .footer-brand{margin:0.25rem 0;}
-@media (max-width:700px){.comparison-grid,.cleantech-categories{grid-template-columns:1fr;}.scenarios{grid-template-columns:1fr;}.module-content{padding:0 1rem;}.module-nav{flex-direction:column;}.nav-btn.next{margin-left:0;}}
+@media (max-width:700px){.comparison-grid,.cleantech-categories{grid-template-columns:1fr;}.scenarios{grid-template-columns:1fr;}.module-content{padding:0 1rem;}.module-nav{flex-direction:column;}.nav-btn.next{margin-left:0;}}.stat-num{font-size:1.5rem;font-weight:700;font-family:Georgia,serif;color:var(--teal-dark);}
 </style>
-<link rel="stylesheet" href="polish.css">
 </head>
 <body class="track1">
+<a href="#main-content" class="skip-link">Skip to content</a>
 
 <nav class="top-nav">
   <a href="index.html" class="nav-home">GreenOps 101</a>
@@ -136,7 +139,7 @@ footer{text-align:center;padding:2rem;color:var(--text-muted);font-size:0.9rem;b
   </ul>
 </div>
 
-<div class="module-content">
+<div class="module-content" id="main-content">
 
 <!-- SECTION 1: Footprint vs Handprint -->
 <div class="content-section reveal">
@@ -440,66 +443,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<script>
-// GreenOps 101 — Shared utilities
-const STORAGE_KEY = 'greenops101_progress';
-function getProgress(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');}catch{return {};}}
-function markComplete(moduleKey){
-  const p=getProgress();p[moduleKey]={completedAt:new Date().toISOString()};
-  localStorage.setItem(STORAGE_KEY,JSON.stringify(p));
-  document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
-}
-function isComplete(k){return !!getProgress()[k];}
-function initKnowledgeChecks(){
-  document.querySelectorAll('.kc-block').forEach(block=>{
-    const correct=block.dataset.correct;
-    block.querySelectorAll('.kc-option').forEach(opt=>{
-      opt.addEventListener('click',function(){
-        if(block.classList.contains('answered'))return;
-        block.classList.add('answered');
-        const chosen=this.dataset.val;
-        const isCorrect=(chosen===correct);
-        block.querySelectorAll('.kc-option').forEach(o=>{
-          if(o.dataset.val===correct)o.classList.add('selected-correct');
-          else if(o.dataset.val===chosen&&!isCorrect)o.classList.add('selected-wrong');
-        });
-        const correctBtn=block.querySelector('.kc-option[data-val="'+correct+'"]');
-        const correctText=correctBtn?correctBtn.textContent.replace(/^[A-D]\s*/,'').trim():'';
-        let revealLabel=block.querySelector('.kc-reveal-label');
-        if(!revealLabel){
-          revealLabel=document.createElement('p');
-          revealLabel.className='kc-reveal-label';
-          const rv=block.querySelector('.kc-reveal');
-          if(rv)rv.insertBefore(revealLabel,rv.firstChild);
-        }
-        if(isCorrect){
-          revealLabel.style.color='var(--teal-dark)';
-          revealLabel.textContent='✓ Correct — Option '+correct;
-        } else {
-          revealLabel.style.color='#B54D12';
-          revealLabel.innerHTML='✗ Incorrect — the correct answer was <strong>Option '+correct+'</strong>: '+correctText;
-        }
-        const rv=block.querySelector('.kc-reveal');
-        if(rv)rv.style.display='block';
-        const hint=block.querySelector('.kc-hint');
-        if(hint)hint.style.display='none';
-      });
-    });
-  });
-}
-function initScrollReveal(){
-  const obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
-  },{threshold:0.06,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-}
-function initProgress(current){
-  const p=getProgress(),total=14;
-  const done=Object.keys(p).filter(k=>k.startsWith('module')).length;
-  const el=document.getElementById('progress-count');
-  if(el)el.textContent=done+'/'+total;
-  if(isComplete('module'+current))document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
-}
-</script>
+<script src="shared.js"></script>
 </body>
 </html>

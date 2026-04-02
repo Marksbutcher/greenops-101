@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>M5: From Reporting to Operational Excellence — GreenOps 101</title>
+<meta name="description" content="Module 5: Operational efficiency in practice — rebound effects, demand management, and the cost-carbon-performance trade-off.">
+<meta property="og:title" content="M5: From Reporting to Operational Excellence — GreenOps 101">
+<meta property="og:description" content="Module 5: Operational efficiency in practice — rebound effects, demand management, and the cost-carbon-performance trade-off.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230F3030'/><text x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='700' fill='%233D9B8F'>G</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-
-
-
-
-
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="greenops.css">
 <style>
 :root{--page-bg:#FFFFFF;--card-bg:#FFFFFF;--section-alt:#F5F5F3;--text-primary:#0F3030;--text-secondary:#3D5E5E;--text-muted:#4A6B6B;--navy:#0F3030;--navy-mid:#1A5C53;--navy-card:#0F3030;--navy-light:#2D7A70;--teal:#3D9B8F;--teal-dark:#2D7A70;--teal-muted:#B2EDE7;--teal-bg:rgba(61,155,143,0.07);--teal-border:rgba(61,155,143,0.25);--orange:#CC612F;--orange-light:#E07A3A;--orange-bg:#FFF3E8;--orange-border:rgba(204,97,47,0.25);--border:#EDEBE9;--border-light:#F5F5F3;--track1:#3D9B8F;--track2:#E07A3A;--track3:#CC612F;--correct:#16a34a;--wrong:#dc2626;--white:#FFFFFF;--slate:#4A5568;--slate-mid:#64748B;--slate-dim:#94A3B8;--teal-light:#B2EDE7;--teal-glow:rgba(61,155,143,0.15);--teal-subtle:rgba(61,155,143,0.07);--grey-100:#FFFFFF;--grey-300:#EDEBE9;--grey-500:#4A5568;--navy-raised:#2D7A70;--navy-border:rgba(255,255,255,0.07);--navy-mid-alt:#1A5C53;}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;font-size:16px;}img,svg{display:block;max-width:100%;}body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Trebuchet MS",system-ui,-apple-system,sans-serif;font-weight:400;font-size:1rem;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}.top-nav{position:sticky;top:0;z-index:100;background:#FFFFFF;border-bottom:1px solid rgba(61,155,143,0.2);padding:0 3rem;height:52px;display:flex;align-items:center;gap:1rem;}.top-nav::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#3D9B8F 0%,#E07A3A 60%,#CC612F 100%);}.nav-home{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(15,48,48,0.7);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .15s;flex-shrink:0;}.nav-home:hover{color:#0F3030;}.nav-sep{color:#4A6B6B;}.nav-module{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#0F3030;font-weight:500;}.nav-track-pill{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .65rem;border-radius:2px;}.track1-pill{background:rgba(61,155,143,.2);color:#B2EDE7;}.track2-pill{background:rgba(244,162,97,.2);color:#F4D0B0;}.track3-pill{background:rgba(204,97,47,.2);color:#F4C4B9;}.nav-progress{margin-left:auto;font-family:Calibri,monospace;font-size:.72rem;color:var(--text-muted);}.module-hero{position:relative;overflow:hidden;padding:4rem 3rem 3rem;background:#0F3030;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;}.module-hero::after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 70% 50%,rgba(61,155,143,.08) 0%,transparent 65%);pointer-events:none;}.hero-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(5rem,12vw,10rem);color:rgba(255,255,255,.06);line-height:1;position:absolute;right:3rem;bottom:0;font-weight:400;user-select:none;}.module-eyebrow{font-family:Calibri,monospace;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:#B2EDE7;margin-bottom:.75rem;}.module-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.12;letter-spacing:-.02em;font-weight:700;color:#fff;margin-bottom:1.25rem;}.module-subtitle{font-size:1.1rem;color:rgba(255,255,255,.72);line-height:1.65;max-width:620px;margin-bottom:2rem;}.module-meta{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}.meta-item{display:flex;flex-direction:column;gap:.15rem;}.meta-item .label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);}.meta-item .value{font-size:.92rem;color:#FFFFFF;font-weight:500;}.complete-btn{font-family:Calibri,monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:.65rem 1.4rem;background:#3D9B8F;border:2px solid #3D9B8F;color:#FFFFFF;cursor:pointer;transition:all .15s;font-weight:700;}.complete-btn:hover{background:var(--teal-dark);border-color:var(--teal-dark);}.complete-btn.done{background:transparent;border:2px solid rgba(255,255,255,.4);color:rgba(15,48,48,0.7);cursor:default;}.objectives-strip{background:var(--section-alt);padding:2.5rem 3rem;}.objectives-heading{font-family:Calibri,monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#B2EDE7;margin-bottom:1.5rem;font-weight:700;}.objectives-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:.85rem;max-width:1160px;}.objectives-list li{display:flex;align-items:flex-start;gap:1rem;font-size:1rem;color:var(--text-secondary);line-height:1.55;padding:.85rem 1rem;background:var(--white);border:1px solid var(--border-light);border-left:3px solid var(--teal);}.obj-num{font-family:Calibri,monospace;font-size:.72rem;color:#3D9B8F;font-weight:700;letter-spacing:.1em;flex-shrink:0;padding-top:.12rem;}.module-content{max-width:1200px;margin:0 auto;padding:0 3rem 2rem;}.content-section{padding:3rem 0;border-bottom:1px solid var(--border-light);}.content-section:last-child{border-bottom:none;}.section-label{font-family:Calibri,monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:.65rem;display:block;font-weight:700;}.section-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.15;letter-spacing:-.02em;font-weight:700;color:var(--text-primary);margin-bottom:1.25rem;}.section-intro{font-size:1.12rem;color:var(--text-secondary);line-height:1.75;max-width:780px;margin-bottom:2rem;}.card-grid{display:grid;gap:1px;background:var(--border);}.card-grid-2{grid-template-columns:1fr 1fr;}.card-grid-3{grid-template-columns:repeat(3,1fr);}.card-grid-4{grid-template-columns:repeat(4,1fr);}.card-grid-auto{display:grid;gap:1px;background:var(--border);grid-template-columns:repeat(auto-fill,minmax(min(220px,100%),1fr));}.card{background:var(--card-bg);padding:1.5rem;position:relative;border-radius:8px;border:1px solid var(--border);transition:transform 0.2s,box-shadow 0.2s;}.card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(15,48,48,0.1);}.card-title{font-family:Georgia,"Times New Roman",serif;font-size:1.1rem;font-weight:400;color:var(--text-primary);margin-bottom:.65rem;}.card-body{font-size:.97rem;color:var(--text-secondary);line-height:1.7;}.card-label{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:.5rem;display:block;}.card h4{font-weight:600;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;color:var(--text-primary);margin-bottom:.5rem;line-height:1.35;}.card p{font-size:.97rem;color:var(--text-secondary);line-height:1.65;}.card-accent-p{border-top:3px solid var(--teal);}.card-accent-o{border-top:3px solid var(--orange-light);}.card-accent-t{border-top:3px solid var(--orange);}.stat-strip{display:grid;gap:1px;background:var(--border);margin:2.25rem 0;border-radius:3px;overflow:hidden;}.stat-strip.cols-3{grid-template-columns:repeat(3,1fr);}.stat-strip.cols-4{grid-template-columns:repeat(4,1fr);}.stat-cell{background:var(--card-bg);padding:2rem 1.5rem;text-align:center;border-top:3px solid var(--cell-accent,#3D9B8F);border-left:4px solid var(--cell-accent,#3D9B8F);transition:all 0.2s;}.stat-num{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.5rem,4vw,2.8rem);color:var(--cell-accent,#2D7A70);line-height:1;margin-bottom:.5rem;display:block;font-weight:600;}.stat-label{font-family:Calibri,monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);line-height:1.5;display:block;}.viz-container{background:var(--card-bg);border:1px solid var(--border);border-top:3px solid var(--teal);margin:2rem 0;box-shadow:0 2px 8px rgba(0,0,0,.07);}.viz-header{padding:1rem 1.5rem;border-bottom:2px solid var(--border-light);display:flex;align-items:center;gap:.75rem;background:var(--section-alt);}.viz-header-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;}.viz-title{font-family:Calibri,monospace;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:#1A5C53;font-weight:700;}.viz-body{padding:1.25rem 1.5rem 1rem;}.callout{padding:1.35rem 1.75rem;margin:1.75rem 0;border-left:4px solid var(--teal);background:var(--teal-bg);}.callout-warning{border-left-color:var(--orange);background:var(--orange-bg);}.callout-key{border-left-color:var(--teal-dark);background:var(--teal-bg);}.callout-title{font-family:Calibri,monospace;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:#2D7A70;font-weight:700;display:block;margin-bottom:.6rem;}.callout-warning .callout-title{color:#B54D12;}.callout p{font-size:1rem;color:var(--text-primary);line-height:1.72;}.pause-reflect{background:var(--section-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 3rem;}.pause-label{font-family:Calibri,monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:.5rem;display:block;}.pause-intro{font-size:.97rem;color:var(--text-muted);margin-bottom:1.25rem;font-style:italic;}.pause-q{display:flex;align-items:flex-start;gap:.85rem;font-size:1rem;color:var(--text-primary);line-height:1.65;padding:.85rem 1.1rem;background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--teal-dark);margin-bottom:.5rem;}.pause-q-num{font-family:Calibri,monospace;font-size:.72rem;color:var(--teal-dark);font-weight:700;flex-shrink:0;padding-top:.2rem;min-width:1.4rem;}.kc-block{background:var(--card-bg);border:1px solid var(--border);padding:2.25rem;margin:.5rem 0;}.kc-label{font-family:Calibri,monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-dark);font-weight:700;margin-bottom:1rem;}.kc-q{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:1.15rem;color:var(--text-primary);line-height:1.6;margin-bottom:1.5rem;}.kc-options{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem;}.kc-option{display:flex;align-items:flex-start;gap:.85rem;padding:.9rem 1.1rem;background:var(--page-bg);border:1px solid var(--border);cursor:pointer;text-align:left;width:100%;font-family:Calibri,"Trebuchet MS",system-ui,sans-serif;font-size:1rem;color:var(--text-primary);line-height:1.55;transition:all .15s;}.kc-option:hover{border-color:var(--teal);background:var(--teal-bg);}.kc-option.selected-correct{background:rgba(22,163,74,.08);border-color:var(--correct);}.kc-option.selected-wrong{background:rgba(220,38,38,.07);border-color:var(--wrong);}.kc-opt-key{font-family:Calibri,monospace;font-size:.78rem;font-weight:700;color:var(--text-muted);flex-shrink:0;width:1.2rem;padding-top:.1rem;}.kc-feedback{padding:1rem 1.25rem;margin-top:.5rem;font-size:1rem;line-height:1.7;border-left:3px solid;display:none;}.kc-correct{background:rgba(22,163,74,.07);border-left-color:var(--correct);color:var(--text-primary);}.kc-wrong{background:rgba(220,38,38,.06);border-left-color:var(--wrong);color:var(--text-primary);}.kc-reveal{display:none;padding:1rem 1.25rem;margin-top:.5rem;background:var(--teal-bg);border-left:3px solid var(--teal-dark);font-size:1rem;color:var(--text-primary);line-height:1.72;}.module-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3rem;border-top:1px solid var(--border);background:var(--card-bg);gap:1rem;flex-wrap:wrap;}.nav-btn{display:inline-flex;flex-direction:column;padding:.75rem 1.25rem;border:1px solid var(--border);background:var(--page-bg);text-decoration:none;transition:all .15s;color:inherit;cursor:pointer;}.nav-btn:hover{border-color:var(--teal-dark);background:var(--teal-bg);}.nav-btn.next{text-align:right;}.nav-btn-label{font-family:Calibri,monospace;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);display:block;}.nav-btn-title{font-size:.97rem;color:var(--text-primary);font-weight:500;display:block;margin-top:.15rem;}.nav-btn.next .nav-btn-label,.nav-btn.next .nav-btn-title{color:var(--teal-dark);}.takeaways{background:#0F3030;padding:2.5rem 3rem;}.takeaways-heading{font-family:Calibri,monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#B2EDE7;font-weight:700;margin-bottom:1.5rem;}.takeaway-list{display:grid;gap:1px;background:rgba(255,255,255,.08);width:100%;}.takeaway-item{display:flex;gap:1rem;padding:1.5rem;background:#1A5C53;border-top:2px solid rgba(61,155,143,.4);transition:background .15s;}.takeaway-item:hover{background:#2D7A70;}.takeaway-icon{color:#3D9B8F;font-size:.65rem;flex-shrink:0;padding-top:.4rem;}.takeaway-body strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;font-weight:700;color:#FFFFFF;margin-bottom:.4rem;line-height:1.35;}.takeaway-body p{font-size:.95rem;color:rgba(15,48,48,0.75);line-height:1.65;}.reveal{opacity:1;transition:opacity .4s ease,transform .4s ease;}.reveal.animate{opacity:0;transform:translateY(12px);}.reveal.animate.visible{opacity:1;transform:none;}.tri-detail{padding:1.5rem;background:var(--card-bg);border:1px solid var(--border);border-left:4px solid var(--teal);}
 .tri-detail-cost{border-left-color:var(--teal);}
@@ -27,9 +27,10 @@
 .meas-col ul li{font-size:.92rem;color:var(--text-secondary);line-height:1.65;margin-bottom:.3rem;}
 .meas-col p{font-size:.97rem;color:var(--text-secondary);line-height:1.7;margin-bottom:.75rem;}
 </style>
-<link rel="stylesheet" href="polish.css">
+
 </head>
 <body class="track2">
+<a href="#main-content" class="skip-link">Skip to content</a>
 
 <nav class="top-nav">
   <a href="index.html" class="nav-home">
@@ -65,7 +66,7 @@
   </ul>
 </div>
 
-<div class="module-content">
+<div class="module-content" id="main-content">
 
 <!-- SECTION 1 — Three levels -->
 <div class="content-section reveal">
@@ -197,7 +198,7 @@
         <p class="viz-title" style="margin-bottom:0.2rem;">Temporal shifting — live: best windows for flexible workloads in GB right now</p>
         <p style="font-family:'JetBrains Mono',monospace;font-size:0.57rem;color:#64748B;" id="sw-timestamp">Loading NESO forecast...</p>
       </div>
-      <a href="https://ukcarbon.posetiv.co.uk/" target="_blank" rel="noopener" style="padding:0.35rem 0.85rem;background:var(--page-bg);border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:0.57rem;color:#64748B;text-decoration:none;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)'">
+      <a href="https://uk-carbon-intensity.netlify.app" target="_blank" rel="noopener" style="padding:0.35rem 0.85rem;background:var(--page-bg);border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:0.57rem;color:#64748B;text-decoration:none;transition:border-color 0.15s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)'">
         Full scheduling dashboard ↗
       </a>
     </div>
@@ -226,19 +227,43 @@
       </div>
     </div>
     <div id="sw-error" style="display:none;padding:1rem 1.5rem;font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#64748B;">
-      Forecast unavailable. <a href="https://ukcarbon.posetiv.co.uk/" target="_blank" style="color:#2D7A70;">View scheduling windows on the dedicated dashboard ↗</a>
+      Forecast unavailable. <a href="https://uk-carbon-intensity.netlify.app" target="_blank" style="color:#2D7A70;">View scheduling windows on the dedicated dashboard ↗</a>
     </div>
     <div style="padding:0.75rem 1.5rem;border-top:1px solid #EDEBE9;background:#F5F5F3;">
       <p style="font-size:0.78rem;color:#4A6B6B;line-height:1.6;"><strong style="color:#2D7A70;">This is temporal shifting in practice.</strong> The forecast above shows which hours today have lower carbon intensity. A batch pipeline, an ML training run, or a data sync scheduled for the green window rather than the peak window delivers a measurably different carbon outcome — using exactly the same infrastructure, code, and compute.</p>
     </div>
   </div>
-  <script>
+
+<script>function animateRebound() {
+  document.querySelectorAll('.animate-line').forEach(l => l.classList.add('drawn'));
+}
+function initReboundOnScroll() {
+  const chart = document.getElementById('reboundChart');
+  if(!chart) return;
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ animateRebound(); obs.unobserve(e.target); }});
+  }, {threshold:0.3});
+  obs.observe(chart);
+}
+const triContent = {
+  cost: { cls: 'tri-detail-cost', name: 'Cost', text: 'What you spend on compute, storage, and infrastructure. Reducing waste is almost always cost-positive. But the lowest-carbon option does not always cost less. Be honest about this — a programme that claims cost and carbon always align will encounter a case where they do not.', example: 'A workload scheduled for a low-carbon window may require slightly longer runtime or modest latency trade-offs. Name the cost honestly. The decision should still often be made on carbon grounds.' },
+  carbon: { cls: 'tri-detail-carbon', name: 'Carbon', text: 'Now a named decision variable, not a consequence to discover later. Must be visible alongside cost and latency for every material platform decision. If it isn\'t visible, the decision will default to convention — which usually means defaulting to the highest-carbon option by accident.', example: 'Region selection for a new workload: the carbon dimension is invisible unless someone has surfaced it. If nobody has, the decision defaults to proximity or familiarity.' },
+  perf: { cls: 'tri-detail-perf', name: 'Performance', text: 'Latency, availability, and service quality. These constrain which workloads can move in time or space. Not a negotiating position — a real constraint that must be named and respected in every carbon-aware conversation.', example: 'A user-facing API serving real-time requests cannot be temporally shifted. A nightly batch analytics pipeline almost certainly can. The performance constraint is binary in one case and largely absent in the other.' }
+};
+function showTriDetail(key) {
+  const d = triContent[key];
+  document.getElementById('triDetail').className = 'tri-detail ' + d.cls;
+  document.getElementById('triDetail').innerHTML = `<div class="tri-detail-name">${d.name}</div><p>${d.text}</p><p class="example">${d.example}</p>`;
+}
+</script>
+
+<script>
   (function(){
     function intColor(val) {
       if(val<100) return '#3D9B8F'; if(val<200) return '#3D9B8F';
       if(val<300) return '#B54D12'; if(val<400) return '#E8A87C'; return '#CC612F';
     }
-    
+
     async function loadScheduling() {
       try {
         // Get 24h forecast
@@ -249,16 +274,16 @@
         if(!resp.ok) throw new Error('API error');
         const data = await resp.json();
         const periods = data.data;
-        
+
         document.getElementById('sw-loading').style.display = 'none';
-        
+
         const vals = periods.map(p => p.intensity.forecast || p.intensity.actual || 0).filter(v=>v>0);
         if(!vals.length) throw new Error('No data');
-        
+
         const minVal = Math.min(...vals), maxVal = Math.max(...vals);
         const svgEl = document.getElementById('sw-svg');
         const W = 400, H = 120;
-        
+
         // Draw area chart
         const pts = vals.map((v,i) => {
           const x = (i/(vals.length-1))*W;
@@ -267,7 +292,7 @@
         });
         const areaPath = `M0,${H} L` + pts.join(' L') + ` L${W},${H} Z`;
         const linePath = `M` + pts.join(' L');
-        
+
         svgEl.innerHTML = `
           <defs>
             <linearGradient id="swGrad" x1="0" y1="0" x2="0" y2="1">
@@ -278,24 +303,24 @@
           <path d="${areaPath}" fill="url(#swGrad)"/>
           <path d="${linePath}" fill="none" stroke="#3D9B8F" stroke-width="2.5" opacity="0.8"/>
         `;
-        
+
         // Mark current position
         const nowLine = document.getElementById('sw-now-line');
         nowLine.style.display = 'block';
         nowLine.style.left = '0%';
-        
+
         // Find current period intensity
         const currentVal = vals[0];
         const currentIndex = periods[0].intensity.index || '—';
         const idxColors = {very_low:'#3D9B8F',low:'#3D9B8F',moderate:'#B54D12',high:'#E8A87C',very_high:'#CC612F'};
         document.getElementById('sw-index-val').textContent = currentIndex.replace('_',' ') + ' · ' + currentVal + ' gCO₂/kWh';
         document.getElementById('sw-index-val').style.color = idxColors[currentIndex] || '#E8A87C';
-        
+
         // Find 3 best windows
         const indexed = vals.map((v,i) => ({v,i,t:periods[i]?.from}));
         const sorted = [...indexed].sort((a,b)=>a.v-b.v);
         const best = sorted.slice(0,3);
-        
+
         const wDiv = document.getElementById('sw-windows');
         wDiv.innerHTML = '';
         best.forEach((w,rank) => {
@@ -310,12 +335,12 @@
             <span style="font-family:Calibri,sans-serif;font-size:0.58rem;color:#64748B;">${saving>0?saving+'g cleaner than now':'—'}</span>
           </div>`;
         });
-        
+
         const ts = new Date();
-        document.getElementById('sw-timestamp').textContent = 
+        document.getElementById('sw-timestamp').textContent =
           'NESO forecast · loaded ' + ts.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}) + ' · 30-min intervals';
         document.getElementById('sw-error').style.display = 'none';
-        
+
       } catch(e) {
         document.getElementById('sw-loading').style.display = 'none';
         document.getElementById('sw-chart').style.display = 'none';
@@ -324,225 +349,9 @@
         console.warn('Scheduling API error:', e);
       }
     }
-    
+
     loadScheduling();
   })();
-  </script>
-
-
-  <div class="callout callout-warning reveal">
-    <p class="callout-title">Never mix average and marginal emission factors</p>
-    <p>Corporate reporting uses average emission factors. Carbon-aware optimisation uses marginal or real-time factors. Mixing these in a single calculation produces numbers that are neither accurate for reporting nor useful for operational decision-making.</p>
-  </div>
-</div>
-
-<!-- SECTION 4 — Trade-off triangle -->
-<div class="content-section reveal">
-  <p class="section-label">Section 4</p>
-  <h2 class="section-title">The cost-carbon-performance trade-off.</h2>
-  <p class="section-intro">GreenOps is not about optimising for carbon alone. It is about making the trade-off visible and deliberate rather than invisible and accidental. Click each vertex to explore the dimension.</p>
-
-  <!-- Trade-off triangle — pure HTML/CSS, no SVG -->
-  <div style="display:grid; grid-template-columns:1fr 1.3fr; gap:2.5rem; align-items:start; margin-top:1.5rem;">
-    <!-- Left: triangle layout -->
-    <div style="position:relative; padding:2rem 1rem;">
-      <!-- Connecting lines via CSS borders -->
-      <div style="position:relative; width:100%; max-width:360px; margin:0 auto;">
-        <!-- Triangle shape background -->
-        <svg viewBox="0 0 360 320" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0;">
-          <polygon points="180,20 30,290 330,290" fill="#F7F6F5" stroke="#3D9B8F" stroke-width="2" stroke-linejoin="round" opacity="0.7"/>
-          <line x1="180" y1="20" x2="30" y2="290" stroke="#3D9B8F" stroke-width="1.5" opacity="0.3"/>
-          <line x1="180" y1="20" x2="330" y2="290" stroke="#3D9B8F" stroke-width="1.5" opacity="0.3"/>
-          <line x1="30" y1="290" x2="330" y2="290" stroke="#3D9B8F" stroke-width="1.5" opacity="0.3"/>
-        </svg>
-        <!-- Carbon vertex — top centre -->
-        <div onclick="showTriDetail('carbon')" style="position:absolute; top:0; left:50%; transform:translateX(-50%); text-align:center; cursor:pointer; z-index:2;">
-          <div style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg,#CC612F,#A04A24); display:flex; align-items:center; justify-content:center; margin:0 auto; box-shadow:0 4px 16px rgba(204,97,47,0.25); border:3px solid #fff; transition:transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='scale(1.08)';this.style.boxShadow='0 6px 24px rgba(204,97,47,0.35)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 16px rgba(204,97,47,0.25)'">
-            <span style="color:#fff; font-family:Georgia,serif; font-size:1.1rem; font-weight:700;">CO₂</span>
-          </div>
-          <div style="font-family:Georgia,serif; font-size:0.9rem; font-weight:700; color:#0F3030; margin-top:0.4rem;">Carbon</div>
-        </div>
-        <!-- Cost vertex — bottom left -->
-        <div onclick="showTriDetail('cost')" style="position:absolute; bottom:0; left:0; text-align:center; cursor:pointer; z-index:2;">
-          <div style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg,#3D9B8F,#2D7A70); display:flex; align-items:center; justify-content:center; margin:0 auto; box-shadow:0 4px 16px rgba(61,155,143,0.25); border:3px solid #fff; transition:transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='scale(1.08)';this.style.boxShadow='0 6px 24px rgba(61,155,143,0.35)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 16px rgba(61,155,143,0.25)'">
-            <span style="color:#fff; font-family:Georgia,serif; font-size:1.2rem; font-weight:700;">£</span>
-          </div>
-          <div style="font-family:Georgia,serif; font-size:0.9rem; font-weight:700; color:#0F3030; margin-top:0.4rem;">Cost</div>
-        </div>
-        <!-- Performance vertex — bottom right -->
-        <div onclick="showTriDetail('perf')" style="position:absolute; bottom:0; right:0; text-align:center; cursor:pointer; z-index:2;">
-          <div style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg,#2D7A70,#1E5A52); display:flex; align-items:center; justify-content:center; margin:0 auto; box-shadow:0 4px 16px rgba(45,122,112,0.25); border:3px solid #fff; transition:transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='scale(1.08)';this.style.boxShadow='0 6px 24px rgba(45,122,112,0.35)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 16px rgba(45,122,112,0.25)'">
-            <span style="color:#fff; font-family:Georgia,serif; font-size:0.85rem; font-weight:700;">SLA</span>
-          </div>
-          <div style="font-family:Georgia,serif; font-size:0.9rem; font-weight:700; color:#0F3030; margin-top:0.4rem;">Performance</div>
-        </div>
-        <!-- Centre label -->
-        <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-30%); text-align:center; z-index:1;">
-          <div style="font-family:Georgia,serif; font-size:0.82rem; color:#3D5E5E; letter-spacing:0.03em;">GreenOps</div>
-          <div style="width:6px; height:6px; border-radius:50%; background:#3D9B8F; margin:0.3rem auto 0;"></div>
-        </div>
-        <!-- Spacer to give the relative container height -->
-        <div style="padding-bottom:90%;"></div>
-      </div>
-    </div>
-    <!-- Right: detail panel -->
-    <div id="triDetail" style="padding:1.75rem; background:#fff; border:1px solid #EDEBE9; border-left:4px solid #EDEBE9; border-radius:6px; transition:border-left-color 0.3s;">
-      <div style="font-family:Georgia,serif; font-size:1.15rem; font-weight:700; color:#1A5C53; margin-bottom:1rem;">Click a vertex to explore each dimension</div>
-      <p style="font-size:0.95rem; color:#3D5E5E; line-height:1.75; margin-bottom:1rem;">The goal is not to always win on carbon — it is to make the trade-off with cost and performance visible and deliberate. Invisible trade-offs produce accidental outcomes.</p>
-      <div style="padding:1rem 1.25rem; background:#F7F6F5; border-left:3px solid #2D7A70; border-radius:3px; font-size:0.9rem; color:#3D5E5E; line-height:1.7; font-style:italic;">
-        <strong style="font-style:normal; color:#0F3030;">A worked example:</strong> selecting a cloud region for a new overnight batch analytics workload. Europe West (London) is the instinctive default. Europe North has materially lower carbon intensity. Cost difference: ~5–10%. Carbon difference: three to five times that. The case is clear — but only if the carbon variable is visible alongside cost and latency.
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- SECTION 5 — GreenOps + FinOps integration -->
-<div class="content-section reveal">
-  <p class="section-label">Section 5</p>
-  <h2 class="section-title">GreenOps integrates with FinOps — it doesn't compete.</h2>
-  <p class="section-intro">If your organisation already has a TBM and FinOps practice, this is the most natural integration point in the whole discipline. GreenOps adds a carbon column to a model that already exists.</p>
-
-  <div class="measurement-split reveal">
-    <div class="meas-col">
-      <div class="meas-col-label">Separate disciplines — the friction model</div>
-      <h4>Running in parallel</h4>
-      <p>FinOps reviews cloud costs with no carbon visibility. Sustainability team tracks emissions disconnected from operational decisions. Separate forums, separate tooling, separate reports.</p>
-      <ul>
-        <li>Duplication and friction between two teams</li>
-        <li>Engineers receive two sometimes-conflicting recommendations</li>
-        <li>Two teams explaining the same data differently</li>
-        <li>Sustainability treated as an adjunct to cost governance</li>
-      </ul>
-    </div>
-    <div class="meas-col">
-      <div class="meas-col-label">Integrated model — what it looks like in practice</div>
-      <h4>One operating model</h4>
-      <p>GreenOps is the carbon dimension of FinOps — same tooling, same attribution model. Every cost optimisation recommendation carries a carbon impact estimate.</p>
-      <ul>
-        <li>Every FinOps conversation about idle resources is simultaneously a GreenOps conversation</li>
-        <li>Cloud governance forums include sustainability metrics alongside cost and performance</li>
-        <li>Unit economics: cost per VM-hour and carbon per VM-hour in the same dashboard row</li>
-        <li>Waste remediation backlogs jointly owned — FinOps by cost, GreenOps adds the carbon dimension</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- KC 1 -->
-<div class="kc-block reveal" data-correct="C">
-  <p class="kc-label">Knowledge Check · Module 5 · Q1</p>
-  <p class="kc-q">An organisation completes a cloud rightsizing exercise, reducing idle compute by 35%. Six months later, total emissions are unchanged. What is the most likely explanation?</p>
-  <div class="kc-options">
-    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>The rightsizing calculations were incorrect — 35% savings cannot occur without measurable total reduction</button>
-    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>The measurement methodology changed between periods, making comparison unreliable</button>
-    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>The rebound effect — freed capacity was absorbed by new demand without deliberate governance, offsetting the efficiency gains in absolute terms</button>
-    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>Cloud provider emission factors increased over the same period, masking the efficiency improvement</button>
-  </div>
-  <p class="kc-hint">Select an answer to reveal the explanation.</p>
-  <div class="kc-reveal">
-    <p class="kc-reveal-label">✓ Correct: Option C</p>
-    <p>The rightsizing exercise was technically successful — the efficiency gains were real. But efficiency without demand management does not guarantee absolute reduction. Freed capacity is almost always reabsorbed unless there is an explicit governance step that treats it as a deliberate decision rather than automatic resource to be reused.</p>
-    <p>This is the rebound effect: the failure mode that explains why organisations can improve all their unit metrics while total emissions stay flat or rise. The fix is not better rightsizing — it is treating freed capacity as requiring an explicit decision before reallocation.</p>
-  </div>
-</div>
-
-<!-- KC 2 -->
-<div class="kc-block reveal" data-correct="B">
-  <p class="kc-label">Knowledge Check · Module 5 · Q2</p>
-  <p class="kc-q">A cloud engineer wants to use carbon-aware scheduling to reduce the footprint of a machine learning training pipeline. What should they verify first?</p>
-  <div class="kc-options">
-    <button class="kc-option" data-val="A"><span class="kc-opt-key">A</span>That the pipeline is approved for carbon-aware scheduling by the sustainability committee</button>
-    <button class="kc-option" data-val="B"><span class="kc-opt-key">B</span>That the workload is genuinely flexible — no hard latency requirement, no production dependency, and able to complete within the available clean-energy window</button>
-    <button class="kc-option" data-val="C"><span class="kc-opt-key">C</span>That the cloud provider offers a dedicated carbon-aware scheduling API for the target region</button>
-    <button class="kc-option" data-val="D"><span class="kc-opt-key">D</span>That the carbon savings will exceed any additional scheduling overhead costs before proceeding</button>
-  </div>
-  <p class="kc-hint">Select an answer to reveal the explanation.</p>
-  <div class="kc-reveal">
-    <p class="kc-reveal-label">✓ Correct: Option B</p>
-    <p>The precondition for temporal or spatial carbon-aware scheduling is genuine workload flexibility. A training pipeline is often a strong candidate — it typically runs in the background with no user-facing latency requirement. But some pipelines have dependencies: they feed downstream services, trigger deployment workflows, or have regulatory time constraints.</p>
-    <p>Option A misunderstands how this works — it requires workload assessment, not committee approval. Option C is not a prerequisite; scheduling can be done through open-source tools including the Carbon Aware SDK.</p>
-  </div>
-</div>
-
-<!-- PAUSE AND REFLECT -->
-<div class="pause-reflect reveal">
-  <p class="pause-label">⏸ Pause &amp; Reflect</p>
-  <p class="pause-intro">Take 5–10 minutes. Specificity matters more than completeness.</p>
-  <div class="pause-questions">
-    <div class="pause-q"><span class="pause-q-num">1</span>Which level of action describes your current programme — reporting, optimisation, or avoidance? Be honest. What would it take to move to the next level?</div>
-    <div class="pause-q"><span class="pause-q-num">2</span>Have you ever seen the rebound effect in your organisation? Was it recognised at the time, or did it simply look like demand growing normally?</div>
-    <div class="pause-q"><span class="pause-q-num">3</span>Is GreenOps integrated with your FinOps or cost governance practice, or running in parallel? What is one thing you could change this quarter to bring them closer together?</div>
-  </div>
-</div>
-
-<!-- KEY TAKEAWAYS -->
-<div class="takeaways reveal">
-  <h3 class="takeaways-heading">Module 5 — Key Takeaways</h3>
-  <div class="takeaway-list">
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Reporting is the starting point, not the destination.</strong><p>Optimisation and avoidance are where operational value lives — and they require different governance to activate.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>The rebound effect is a governance failure, not a technical one.</strong><p>Freed capacity must be subject to an explicit decision before reallocation. Without active demand management, efficiency gains are absorbed rather than accumulated.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Carbon-aware computing works — for genuinely flexible workloads.</strong><p>Quantify your flexible load first. It is almost always smaller than hoped and larger than zero.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>Carbon is a named variable in every material operational decision.</strong><p>The goal is not to always win on carbon — it is to make the trade-off with cost and performance visible and deliberate.</p></div></div>
-    <div class="takeaway-item"><span class="takeaway-icon">◆</span><div class="takeaway-body"><strong>GreenOps integrates with FinOps — it does not compete with it.</strong><p>The most efficient model shares the same tooling, attribution model, and governance cadence.</p></div></div>
-  </div>
-</div>
-
-</div>
-
-<div class="module-nav">
-  <a href="module4.html" class="nav-btn"><span><span class="nav-btn-label">← Previous</span><span class="nav-btn-title">M4: Where Impact Lives Across the IT Estate</span></span></a>
-  <button class="complete-btn" onclick="markComplete('module5')">Mark as complete</button>
-  <a href="module6.html" class="nav-btn next"><span><span class="nav-btn-label">Next →</span><span class="nav-btn-title">M6: Software Engineering and Application Sustainability</span></span></a>
-</div>
-
-<footer>
-  <div class="footer-brand"><span>TBM Council</span> · GreenOps 101 · Module 5</div>
-  <div class="footer-brand">March 2026 · v2</div>
-</footer>
-
-
-<script>function animateRebound() {
-  document.querySelectorAll('.animate-line').forEach(l => l.classList.add('drawn'));
-}
-function initReboundOnScroll() {
-  const chart = document.getElementById('reboundChart');
-  if(!chart) return;
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if(e.isIntersecting){ animateRebound(); obs.unobserve(e.target); }});
-  }, {threshold:0.3});
-  obs.observe(chart);
-}
-const triContent = {
-  cost: {
-    cls: 'tri-detail-cost',
-    name: 'Cost',
-    text: 'What does it cost — in £, in energy, in operational overhead? Cost visibility is the minimum requirement. GreenOps adds the carbon column.',
-    example: 'A workload scheduled for a low-carbon window may require slightly longer runtime or modest latency trade-offs. Name the cost honestly. The decision should still often be made on carbon grounds.'
-  },
-  carbon: {
-    cls: 'tri-detail-carbon',
-    name: 'Carbon',
-    text: 'What is the environmental impact — CO₂, water, materials, e-waste? Making this variable visible alongside cost and performance changes decisions.',
-    example: 'Region selection for a new workload: the carbon dimension is invisible unless someone has surfaced it. If nobody has, the decision defaults to proximity or familiarity.'
-  },
-  perf: {
-    cls: 'tri-detail-perf',
-    name: 'Performance',
-    text: 'What is the service-level commitment — latency, availability, throughput? Performance is not negotiable. But the level required is often assumed rather than measured.',
-    example: 'A user-facing API serving real-time requests cannot be temporally shifted. A nightly batch analytics pipeline almost certainly can. The performance constraint is binary in one case and largely absent in the other.'
-  }
-};
-
-function showTriDetail(key) {
-  var colors = {cost:'#3D9B8F', carbon:'#CC612F', perf:'#2D7A70'};
-  var d = triContent[key];
-  var detailEl = document.getElementById('triDetail');
-  detailEl.style.borderLeftColor = colors[key] || '#EDEBE9';
-  detailEl.innerHTML =
-    '<div style="font-family:Georgia,serif;font-size:1.15rem;font-weight:700;color:' + (colors[key]||'#1A5C53') + ';margin-bottom:1rem;">' + d.name + '</div>' +
-    '<p style="font-size:0.95rem;color:#3D5E5E;line-height:1.75;margin-bottom:1rem;">' + d.text + '</p>' +
-    '<div style="padding:1rem 1.25rem;background:#F7F6F5;border-left:3px solid ' + (colors[key]||'#2D7A70') + ';border-radius:3px;font-size:0.9rem;color:#3D5E5E;line-height:1.7;font-style:italic;">' + d.example + '</div>';
-}
 </script>
 
 <script>
@@ -553,78 +362,9 @@ document.addEventListener('DOMContentLoaded', function() {
   if (typeof initReboundOnScroll === 'function') initReboundOnScroll(); if (typeof loadScheduling === 'function') loadScheduling();
 });
 </script>
-<script>
-// GreenOps 101 — Shared utilities v4 light theme
 
-const STORAGE_KEY = 'greenops101_progress';
-function getProgress(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');}catch{return {};}}
-function markComplete(moduleKey){
-  const p=getProgress();p[moduleKey]={completedAt:new Date().toISOString()};
-  localStorage.setItem(STORAGE_KEY,JSON.stringify(p));
-  document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
-}
-function isComplete(k){return !!getProgress()[k];}
-function initKnowledgeChecks(){
-  document.querySelectorAll('.kc-block').forEach(block=>{
-    const correct=block.dataset.correct;
-    block.querySelectorAll('.kc-option').forEach(opt=>{
-      opt.addEventListener('click',function(){
-        if(block.classList.contains('answered'))return;
-        block.classList.add('answered');
-        const chosen=this.dataset.val;
-        const isCorrect=(chosen===correct);
-
-        block.querySelectorAll('.kc-option').forEach(o=>{
-          if(o.dataset.val===correct)o.classList.add('selected-correct');
-          else if(o.dataset.val===chosen&&!isCorrect)o.classList.add('selected-wrong');
-        });
-
-        // Find the correct option text for feedback
-        const correctBtn=block.querySelector('.kc-option[data-val="'+correct+'"]');
-        const correctText=correctBtn?correctBtn.textContent.replace(/^[A-D]\s*/,'').trim():'';
-
-        // Build or find feedback label
-        let revealLabel=block.querySelector('.kc-reveal-label');
-        if(!revealLabel){
-          revealLabel=document.createElement('p');
-          revealLabel.className='kc-reveal-label';
-          const rv=block.querySelector('.kc-reveal');
-          if(rv)rv.insertBefore(revealLabel,rv.firstChild);
-        }
-
-        if(isCorrect){
-          revealLabel.style.color='var(--teal-dark)';
-          revealLabel.textContent='✓ Correct — Option '+correct;
-        } else {
-          revealLabel.style.color='#B54D12';
-          revealLabel.innerHTML='✗ Incorrect — the correct answer was <strong>Option '+correct+'</strong>: '+correctText;
-        }
-
-        const rv=block.querySelector('.kc-reveal');
-        if(rv)rv.style.display='block';
-
-        const hint=block.querySelector('.kc-hint');
-        if(hint)hint.style.display='none';
-      });
-    });
-  });
-}
-function initScrollReveal(){
-  const obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
-  },{threshold:0.06,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-}
-function initProgress(current){
-  const p=getProgress(),total=14;
-  const done=Object.keys(p).filter(k=>k.startsWith('module')).length;
-  const el=document.getElementById('progress-count');
-  if(el)el.textContent=done+'/'+total;
-  const fill=document.getElementById('prog-fill');
-  if(fill)fill.style.width=((done/total)*100)+'%';
-  if(isComplete('module'+current))document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
-}
-
-</script>
+</div>
+</div>
+  <script src="shared.js"></script>
 </body>
 </html>

@@ -1,13 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>M12: Courageous Leadership — GreenOps 101</title>
+<meta name="description" content="Module 12: Courageous leadership — the 5Cs framework, leadership self-assessment, and building organisational commitment to GreenOps.">
+<meta property="og:title" content="M12: Courageous Leadership — GreenOps 101">
+<meta property="og:description" content="Module 12: Courageous leadership — the 5Cs framework, leadership self-assessment, and building organisational commitment to GreenOps.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230F3030'/><text x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='700' fill='%233D9B8F'>G</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="greenops.css">
 <style>
 :root{--page-bg:#F5F5F3;--card-bg:#FFFFFF;--section-alt:#F5F5F3;--text-primary:#0F3030;--text-secondary:#3D5E5E;--text-muted:#4A6B6B;--navy:#0F3030;--navy-mid:#1E4D4A;--navy-card:#0F3030;--navy-light:#2D7A70;--teal:#3D9B8F;--teal-dark:#2D7A70;--teal-muted:#B2EDE7;--teal-bg:rgba(61,155,143,0.07);--teal-border:rgba(61,155,143,0.25);--orange:#CC612F;--orange-light:#CC612F;--orange-bg:rgba(204,97,47,0.08);--orange-border:rgba(204,97,47,0.25);--border:#E0DCDA;--border-light:#EDEBE9;--track1:#3D9B8F;--track2:#CC612F;--track3:#CC612F;--correct:#16a34a;--wrong:#dc2626;--white:#FFFFFF;--slate:#3D5E5E;--slate-mid:#4A6B6B;--slate-dim:#7A8D8B;--teal-light:#B2EDE7;--teal-glow:rgba(61,155,143,0.15);--teal-subtle:rgba(61,155,143,0.07);--grey-100:#F5F5F3;--grey-300:#EDEBE9;--grey-500:#3D5E5E;--navy-raised:#2D7A70;--navy-border:rgba(255,255,255,0.07);--navy-mid-alt:#1E4D4A;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -59,28 +62,45 @@ body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Tr
 input[type="range"]{width:100%;height:6px;border-radius:3px;background:var(--border-light);outline:none;-webkit-appearance:none;}
 input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:var(--teal);cursor:pointer;}
 input[type="range"]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--teal);cursor:pointer;border:none;}
-.result-chart{margin-top:2rem;text-align:center;}
-.chart-bar{background:#FFF;border:1px solid var(--border-light);border-radius:6px;padding:1.5rem;margin-bottom:1rem;}
-.bar-label{font-weight:600;text-align:left;margin-bottom:0.5rem;color:var(--text-primary);}
-.bar-fill{height:20px;border-radius:3px;background:var(--teal);transition:width 0.3s ease;width:0;}
-.recommendation{margin-top:1.5rem;padding:1rem;background:rgba(61,155,143,0.08);border-radius:4px;border-left:3px solid var(--teal);font-size:0.95rem;}
-.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin:2rem 0;}
-.card{background:#FFF;border:1px solid var(--border-light);border-radius:6px;padding:1.5rem;cursor:pointer;transition:all 0.2s;}
-.card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.08);}
-.card-accent{border-top:4px solid;}
-.card-accent-t{border-top-color:var(--teal);}
-.card-accent-o{border-top-color:var(--orange);}
-.card-header{font-weight:600;margin-bottom:0.75rem;color:var(--teal);}
-.card h4{font-family:Georgia, serif;font-size:1.1rem;margin-bottom:0.75rem;color:var(--text-primary);}
+.result-chart{margin-top:2.5rem;padding:2rem;background:linear-gradient(180deg, rgba(61,155,143,0.03) 0%, rgba(61,155,143,0.07) 100%);border:1px solid var(--border-light);border-radius:8px;}
+.chart-bar{display:grid;grid-template-columns:120px 1fr 40px;gap:1.5rem;align-items:center;margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid var(--border-light);}
+.chart-bar:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.bar-label{font-weight:700;text-align:left;color:var(--text-primary);font-size:0.95rem;}
+.bar-fill-container{background:var(--border-light);border-radius:6px;height:24px;overflow:hidden;position:relative;}
+.bar-fill{height:100%;border-radius:6px;background:linear-gradient(90deg, var(--teal) 0%, var(--teal-dark) 100%);transition:width 0.3s ease;width:0%;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;}
+.bar-fill.low{background:linear-gradient(90deg, #CC612F 0%, #d97638 100%);}
+.bar-fill.medium{background:linear-gradient(90deg, #f4a261 0%, #ffa500 100%);}
+.bar-fill.high{background:linear-gradient(90deg, var(--teal) 0%, var(--teal-dark) 100%);}
+.bar-percent{font-weight:700;color:var(--text-primary);font-size:0.9rem;text-align:right;}
+.recommendation{margin-top:2rem;padding:1.75rem;background:linear-gradient(135deg, rgba(61,155,143,0.08) 0%, rgba(61,155,143,0.12) 100%);border-radius:8px;border-left:5px solid var(--teal);font-size:0.95rem;line-height:1.7;color:var(--text-secondary);}
+.recommendation strong{color:var(--text-primary);display:block;margin-bottom:0.75rem;font-size:1rem;}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.75rem;margin:2rem 0;}
+.card{background:#FFF;border:1px solid var(--border-light);border-radius:8px;padding:1.75rem;cursor:pointer;transition:all 0.3s ease;position:relative;overflow:hidden;}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:var(--teal);transition:all 0.3s ease;}
+.card.card-accent-o::before{background:var(--orange);}
+.card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(61,155,143,0.15);border-color:var(--teal);}
+.card.card-accent-o:hover{border-color:var(--orange);}
+.card-accent{border-top:none;}
+.card-accent-t{border-top-color:transparent;}
+.card-accent-o{border-top-color:transparent;}
+.card-header{font-weight:600;margin-bottom:0.5rem;color:var(--teal);font-family:"JetBrains Mono";font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em;}
+.card.card-accent-o .card-header{color:var(--orange);}
+.card h4{font-family:Georgia, serif;font-size:1.15rem;margin-bottom:0.75rem;color:var(--text-primary);font-weight:700;}
 .card p{font-size:0.95rem;color:var(--text-secondary);line-height:1.6;}
 .card-expanded{display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border-light);}
 .card.open .card-expanded{display:block;}
-.card-subpoint{margin-bottom:0.75rem;line-height:1.6;}
+.card-subpoint{margin-bottom:0.75rem;line-height:1.6;font-size:0.95rem;color:var(--text-secondary);}
 .comparison-viz{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:2rem 0;}
-.comparison-box{background:#FFF;border:1px solid var(--border-light);border-radius:6px;padding:1.5rem;text-align:center;}
-.comparison-box h4{font-family:Georgia, serif;margin-bottom:1rem;color:var(--text-primary);}
-.comparison-items{text-align:left;margin-top:1rem;}
-.comparison-item{margin-bottom:0.75rem;padding:0.75rem;background:var(--section-alt);border-radius:4px;font-size:0.95rem;}
+.comparison-box{background:#FFF;border:1px solid var(--border-light);border-radius:8px;padding:2rem;text-align:center;position:relative;overflow:hidden;transition:all 0.3s ease;}
+.comparison-box:hover{border-color:var(--teal);box-shadow:0 6px 20px rgba(61,155,143,0.12);}
+.comparison-box:first-child{border-top:5px solid #d4a5a0;}
+.comparison-box:last-child{border-top:5px solid var(--teal);}
+.comparison-box h4{font-family:Georgia, serif;margin-bottom:0.5rem;color:var(--text-primary);font-size:1.15rem;font-weight:700;}
+.comparison-items{text-align:left;margin-top:1.5rem;}
+.comparison-item{margin-bottom:1rem;padding:1rem;background:linear-gradient(135deg, var(--section-alt) 0%, rgba(245,245,243,0.5) 100%);border-left:3px solid var(--border);border-radius:4px;font-size:0.95rem;color:var(--text-secondary);line-height:1.6;transition:all 0.2s ease;}
+.comparison-box:hover .comparison-item{border-left-color:var(--teal);}
+.comparison-box:first-child .comparison-item:last-child{color:var(--orange);font-weight:600;}
+.comparison-box:last-child .comparison-item:last-child{color:var(--teal);font-weight:600;}
 .kc-block{background:#FFF;border:1px solid var(--border-light);border-radius:6px;padding:2rem;margin:2rem 0;border-left:4px solid var(--teal);}
 .kc-label{font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;}
 .kc-q{font-weight:600;font-size:1.1rem;margin-bottom:1.5rem;color:var(--text-primary);}
@@ -111,9 +131,10 @@ footer{text-align:center;padding:2rem;color:var(--text-muted);font-size:0.9rem;b
 .footer-brand{margin:0.25rem 0;}
 @media (max-width:700px){.comparison-viz{grid-template-columns:1fr;}body{padding:1rem;}.module-content{padding:0 1rem;}.module-nav{flex-direction:column;}.nav-btn.next{margin-left:0;}}
 </style>
-<link rel="stylesheet" href="polish.css">
+
 </head>
 <body class="track1">
+<a href="#main-content" class="skip-link">Skip to content</a>
 
 <nav class="top-nav">
   <a href="index.html" class="nav-home">GreenOps 101</a>
@@ -146,7 +167,7 @@ footer{text-align:center;padding:2rem;color:var(--text-muted);font-size:0.9rem;b
   </ul>
 </div>
 
-<div class="module-content">
+<div class="module-content" id="main-content">
 
 <!-- SECTION 1: The 5Cs -->
 <div class="content-section reveal">
@@ -203,23 +224,28 @@ footer{text-align:center;padding:2rem;color:var(--text-muted);font-size:0.9rem;b
     <div class="result-chart" id="resultsChart">
       <div class="chart-bar">
         <div class="bar-label">Clarity</div>
-        <div class="bar-fill" style="width:60%;"></div>
+        <div class="bar-fill-container"><div class="bar-fill high" style="width:60%;"></div></div>
+        <div class="bar-percent">60%</div>
       </div>
       <div class="chart-bar">
         <div class="bar-label">Credibility</div>
-        <div class="bar-fill" style="width:60%;"></div>
+        <div class="bar-fill-container"><div class="bar-fill high" style="width:60%;"></div></div>
+        <div class="bar-percent">60%</div>
       </div>
       <div class="chart-bar">
         <div class="bar-label">Communication</div>
-        <div class="bar-fill" style="width:60%;"></div>
+        <div class="bar-fill-container"><div class="bar-fill high" style="width:60%;"></div></div>
+        <div class="bar-percent">60%</div>
       </div>
       <div class="chart-bar">
         <div class="bar-label">Collaboration</div>
-        <div class="bar-fill" style="width:60%;"></div>
+        <div class="bar-fill-container"><div class="bar-fill high" style="width:60%;"></div></div>
+        <div class="bar-percent">60%</div>
       </div>
       <div class="chart-bar">
         <div class="bar-label">Courage</div>
-        <div class="bar-fill" style="width:60%;"></div>
+        <div class="bar-fill-container"><div class="bar-fill high" style="width:60%;"></div></div>
+        <div class="bar-percent">60%</div>
       </div>
     </div>
 
@@ -417,10 +443,23 @@ function updateChart() {
 
   const chart = document.getElementById('resultsChart');
   const bars = chart.querySelectorAll('.bar-fill');
+  const percentLabels = chart.querySelectorAll('.bar-percent');
   const dimensions = ['clarity', 'credibility', 'communication', 'collaboration', 'courage'];
 
   dimensions.forEach((dim, idx) => {
-    bars[idx].style.width = (values[dim] * 20) + '%';
+    const pct = values[dim] * 20;
+    bars[idx].style.width = pct + '%';
+    percentLabels[idx].textContent = values[dim] * 20 + '%';
+
+    // Color code based on score
+    bars[idx].classList.remove('low', 'medium', 'high');
+    if (values[dim] <= 2) {
+      bars[idx].classList.add('low');
+    } else if (values[dim] === 3) {
+      bars[idx].classList.add('medium');
+    } else {
+      bars[idx].classList.add('high');
+    }
   });
 }
 
@@ -458,73 +497,6 @@ function toggleCard(card) {
   card.classList.toggle('open');
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  if (typeof initKnowledgeChecks === 'function') initKnowledgeChecks();
-  if (typeof initScrollReveal === 'function') initScrollReveal();
-  if (typeof initProgress === 'function') initProgress(12);
-});
-</script>
-
-<script>
-// GreenOps 101 — Shared utilities
-const STORAGE_KEY = 'greenops101_progress';
-function getProgress(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');}catch{return {};}}
-function markComplete(moduleKey){
-  const p=getProgress();p[moduleKey]={completedAt:new Date().toISOString()};
-  localStorage.setItem(STORAGE_KEY,JSON.stringify(p));
-  document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
-}
-function isComplete(k){return !!getProgress()[k];}
-function initKnowledgeChecks(){
-  document.querySelectorAll('.kc-block').forEach(block=>{
-    const correct=block.dataset.correct;
-    block.querySelectorAll('.kc-option').forEach(opt=>{
-      opt.addEventListener('click',function(){
-        if(block.classList.contains('answered'))return;
-        block.classList.add('answered');
-        const chosen=this.dataset.val;
-        const isCorrect=(chosen===correct);
-        block.querySelectorAll('.kc-option').forEach(o=>{
-          if(o.dataset.val===correct)o.classList.add('selected-correct');
-          else if(o.dataset.val===chosen&&!isCorrect)o.classList.add('selected-wrong');
-        });
-        const correctBtn=block.querySelector('.kc-option[data-val="'+correct+'"]');
-        const correctText=correctBtn?correctBtn.textContent.replace(/^[A-D]\s*/,'').trim():'';
-        let revealLabel=block.querySelector('.kc-reveal-label');
-        if(!revealLabel){
-          revealLabel=document.createElement('p');
-          revealLabel.className='kc-reveal-label';
-          const rv=block.querySelector('.kc-reveal');
-          if(rv)rv.insertBefore(revealLabel,rv.firstChild);
-        }
-        if(isCorrect){
-          revealLabel.style.color='var(--teal-dark)';
-          revealLabel.textContent='✓ Correct — Option '+correct;
-        } else {
-          revealLabel.style.color='#B54D12';
-          revealLabel.innerHTML='✗ Incorrect — the correct answer was <strong>Option '+correct+'</strong>: '+correctText;
-        }
-        const rv=block.querySelector('.kc-reveal');
-        if(rv)rv.style.display='block';
-        const hint=block.querySelector('.kc-hint');
-        if(hint)hint.style.display='none';
-      });
-    });
-  });
-}
-function initScrollReveal(){
-  const obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
-  },{threshold:0.06,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-}
-function initProgress(current){
-  const p=getProgress(),total=14;
-  const done=Object.keys(p).filter(k=>k.startsWith('module')).length;
-  const el=document.getElementById('progress-count');
-  if(el)el.textContent=done+'/'+total;
-  if(isComplete('module'+current))document.querySelectorAll('.complete-btn').forEach(b=>{b.textContent='✓ Complete';b.classList.add('done');});
-}
-</script>
+<script src="shared.js"></script>
 </body>
 </html>

@@ -4,29 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GreenOps 101 — TBM Council Practitioner Course</title>
+<meta name="description" content="GreenOps 101: A practical foundation in digital sustainability for IT practitioners and leaders. 14 modules across 3 tracks. TBM Council Practitioner Accreditation.">
+<meta property="og:title" content="GreenOps 101 — TBM Council Practitioner Course">
+<meta property="og:description" content="A practical foundation in digital sustainability for IT practitioners and leaders. Not a climate lecture. Not a reporting exercise. Built around how IT actually works.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230F3030'/><text x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='700' fill='%233D9B8F'>G</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* ── BRAND VARS ────────────────────────────────────────────────── */
 :root {
-  --navy:        #0F1F2E;
+  --navy:        #0F3030;
   --navy-mid:    #162840;
   --navy-card:   #1E293B;
   --navy-light:  #1C3A55;
-  --teal:        #00A896;
-  --teal-dark:   #007A6E;
+  --teal:        #3D9B8F;
+  --teal-dark:   #2D7A70;
   --teal-muted:  #B2EDE7;
-  --orange:      #E76F51;
-  --orange-light:#F4A261;
+  --orange:      #CC612F;
+  --orange-light:#E8985A;
   --slate:       #94A3B8;
   --slate-dark:  #64748B;
   --border:      #D1D9E0;
   --border-light:#E8EDF2;
   --white:       #FFFFFF;
-  --track1: #00A896;
-  --track2: #F4A261;
-  --track3: #E76F51;
+  --track1: #3D9B8F;
+  --track2: #E8985A;
+  --track3: #CC612F;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -53,13 +58,13 @@ body::before {
   background: rgba(15,31,46,0.97);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0,168,150,0.15);
+  border-bottom: 1px solid rgba(61,155,143,0.15);
   padding: 0.9rem 3rem;
   display: flex; align-items: center; gap: 1.25rem;
 }
 .site-nav::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, #00A896 0%, #F4A261 55%, #E76F51 100%);
+  background: linear-gradient(90deg, #3D9B8F 0%, #E8985A 55%, #CC612F 100%);
 }
 .nav-tbm {
   font-family: 'JetBrains Mono', monospace;
@@ -88,15 +93,15 @@ body::before {
 .hero-bg {
   position: absolute; inset: 0; z-index: -1;
   background:
-    radial-gradient(ellipse 70% 55% at 65% 20%, rgba(0,168,150,0.10) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 35% at 20% 75%, rgba(231,111,81,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 70% 55% at 65% 20%, rgba(61,155,143,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 35% at 20% 75%, rgba(204,97,47,0.06) 0%, transparent 50%),
     var(--navy);
 }
 .hero-grid {
   position: absolute; inset: 0; z-index: 0;
   background-image:
-    linear-gradient(rgba(0,168,150,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,168,150,0.04) 1px, transparent 1px);
+    linear-gradient(rgba(61,155,143,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(61,155,143,0.04) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.3) 20%, rgba(0,0,0,0.3) 80%, transparent);
 }
@@ -154,8 +159,8 @@ body::before {
 /* ── WHAT THIS COURSE IS ─────────────────────────────────────── */
 .course-frame {
   background: var(--navy-mid);
-  border-top: 1px solid rgba(0,168,150,0.12);
-  border-bottom: 1px solid rgba(0,168,150,0.12);
+  border-top: 1px solid rgba(61,155,143,0.12);
+  border-bottom: 1px solid rgba(61,155,143,0.12);
   padding: 3rem;
 }
 .frame-inner {
@@ -172,7 +177,7 @@ body::before {
   color: var(--white);
   border-left: 3px solid var(--orange);
   padding: 1rem 1.35rem;
-  background: rgba(231,111,81,0.05);
+  background: rgba(204,97,47,0.05);
 }
 .frame-block p { font-size: 0.88rem; color: var(--slate); line-height: 1.75; }
 .frame-block p + p { margin-top: 0.75rem; }
@@ -199,7 +204,7 @@ body::before {
 /* ── INTERACTIVE COURSE MAP ──────────────────────────────────── */
 .map-section {
   background: var(--navy-mid);
-  border-top: 1px solid rgba(0,168,150,0.12);
+  border-top: 1px solid rgba(61,155,143,0.12);
   padding: 3rem;
 }
 .map-section h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing: -0.02em; margin-bottom: 0.4rem; }
@@ -329,7 +334,7 @@ body::before {
 /* ── HOW TO USE ──────────────────────────────────────────────── */
 .how-section {
   background: var(--navy-mid);
-  border-top: 1px solid rgba(0,168,150,0.12);
+  border-top: 1px solid rgba(61,155,143,0.12);
   padding: 3rem;
 }
 .how-section h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.02em; margin-bottom: 0.4rem; }
@@ -337,7 +342,7 @@ body::before {
 .how-step { display: flex; gap: 0.85rem; align-items: flex-start; }
 .how-num {
   font-family: 'DM Serif Display', serif;
-  font-size: 2.5rem; color: rgba(0,168,150,0.12); line-height: 1;
+  font-size: 2.5rem; color: rgba(61,155,143,0.12); line-height: 1;
   margin-top: -0.25rem; flex-shrink: 0; width: 40px;
 }
 .how-body strong { display: block; font-size: 0.87rem; font-weight: 500; margin-bottom: 0.3rem; }
@@ -347,8 +352,8 @@ body::before {
 .accred-strip {
   margin: 0 3rem 3rem;
   padding: 2rem 2.5rem;
-  background: rgba(0,168,150,0.05);
-  border: 1px solid rgba(0,168,150,0.18);
+  background: rgba(61,155,143,0.05);
+  border: 1px solid rgba(61,155,143,0.18);
   display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap;
 }
 .accred-icon { font-size: 2.25rem; flex-shrink: 0; }
@@ -402,6 +407,7 @@ footer {
 </style>
 </head>
 <body>
+<a href="#course-map" class="skip-link">Skip to content</a>
 
 <!-- SITE NAV -->
 <nav class="site-nav">
@@ -420,8 +426,8 @@ footer {
   <div class="hero-grid"></div>
   
   <div class="hero-title-block">
-    <p class="hero-eyebrow-title" style="font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(0,168,150,0.9);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem;">
-      <span style="width:20px;height:1.5px;background:#00A896;display:inline-block;"></span>
+    <p class="hero-eyebrow-title" style="font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(61,155,143,0.9);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem;">
+      <span style="width:20px;height:1.5px;background:#3D9B8F;display:inline-block;"></span>
       Practitioner Accreditation Course &nbsp;·&nbsp; March 2026
     </p>
     <h1 class="hero-title" style="margin-bottom:0;">GreenOps 101<br><em>Digital Sustainability</em></h1>
