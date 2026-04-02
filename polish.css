@@ -1105,17 +1105,217 @@ input[type="range"]::-moz-range-thumb {
 
 
 /* ═══════════════════════════════════════════════════════════════════════
+   VISUAL POLISH — layout, readability, consistency
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── PROSE READABILITY ─────────────────────────────────────────────── */
+/* Cap paragraph width for comfortable reading (~70-80 chars per line) */
+.section-intro,
+.content-section p,
+.content-section > p,
+.callout p,
+.callout-insight p,
+.caveat,
+.scope-detail p,
+.prose,
+.prose p {
+  max-width: 780px !important;
+}
+
+/* But don't cap content that needs full width */
+.card p, .card-body, .stat-label, .kc-q,
+.takeaway-body p, .waste-panel p,
+.waste-panel-stat, .objectives-list li,
+.kc-option, .kc-reveal p {
+  max-width: none !important;
+}
+
+/* ── SECTION SPACING ───────────────────────────────────────────────── */
+/* Tighten vertical rhythm — less dead space between sections */
+.content-section {
+  padding-top: 2.5rem !important;
+  padding-bottom: 2.5rem !important;
+}
+.content-section:first-of-type {
+  padding-top: 3rem !important;
+}
+
+/* Reduce gap before section titles */
+.section-title {
+  margin-bottom: 1rem !important;
+}
+.section-intro {
+  margin-bottom: 1.75rem !important;
+}
+
+/* ── CARD & COMPONENT REFINEMENT ───────────────────────────────────── */
+/* Subtle lift on card grids */
+.card-grid .card,
+.card-grid-2 .card,
+.card-grid-3 .card,
+.card-grid-4 .card {
+  transition: box-shadow 0.2s, transform 0.2s !important;
+}
+.card-grid .card:hover,
+.card-grid-2 .card:hover,
+.card-grid-3 .card:hover,
+.card-grid-4 .card:hover {
+  box-shadow: 0 4px 16px rgba(15,48,48,0.06) !important;
+}
+
+/* Viz containers — consistent top border and subtle shadow */
+.viz-container {
+  box-shadow: 0 2px 12px rgba(15,48,48,0.04) !important;
+  border-color: #E0DCDA !important;
+}
+
+/* Callouts — slightly warmer feel */
+.callout {
+  border-radius: 2px !important;
+}
+
+/* Stat strips — prevent stat numbers from wrapping oddly */
+.stat-num {
+  white-space: nowrap !important;
+}
+
+/* ── MODULE GROUP B (module 4) — align towards Group A feel ──────── */
+/* Module 4 hero: left-align to match other modules */
+.module-hero-label {
+  font-family: Calibri, monospace !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  background: rgba(61,155,143,0.15) !important;
+  border: 1px solid rgba(61,155,143,0.3) !important;
+  border-radius: 2px !important;
+  padding: 0.35rem 0.85rem !important;
+  color: #C5E5E0 !important;
+}
+.module-hero-intro {
+  max-width: 680px !important;
+  color: rgba(255,255,255,0.75) !important;
+}
+
+/* Module 4 section labels — match Group A monospace style */
+.content-section .section-label {
+  font-family: Calibri, monospace !important;
+  letter-spacing: 0.12em !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  color: #2D7A70 !important;
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* ── MODULE GROUP C (modules 9-14) — soften boxy appearance ──────── */
+/* Content sections in boxed modules — reduce visual weight */
+.content-section[class] {
+  border-color: rgba(224,220,218,0.6) !important;
+}
+
+/* Objectives blocks — consistent heading style */
+.objectives h3,
+.objectives-title {
+  font-family: Calibri, monospace !important;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  color: #2D7A70 !important;
+}
+
+/* ── KNOWLEDGE CHECK REFINEMENT ────────────────────────────────────── */
+.kc-block {
+  border-color: #E0DCDA !important;
+  box-shadow: 0 1px 6px rgba(15,48,48,0.03) !important;
+}
+.kc-q {
+  font-size: 1.1rem !important;
+  line-height: 1.55 !important;
+}
+
+/* ── PAUSE & REFLECT — unified styling ─────────────────────────────── */
+.pause-reflect {
+  border-radius: 2px !important;
+}
+.pause-q {
+  line-height: 1.65 !important;
+}
+
+/* ── TAKEAWAYS SECTION — polish ────────────────────────────────────── */
+.takeaways {
+  border-top: 3px solid #3D9B8F !important;
+}
+.takeaway-body p {
+  color: rgba(255,255,255,0.7) !important;
+  line-height: 1.65 !important;
+}
+
+/* ── FOOTER — consistent ───────────────────────────────────────────── */
+footer, .footer {
+  font-family: Calibri, monospace !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.08em !important;
+  color: #4A6B6B !important;
+}
+
+/* ── WASTE EXPLORER POLISH ─────────────────────────────────────────── */
+/* Reduce the gap between tabs and panel content */
+.waste-tabs {
+  margin-bottom: 0 !important;
+}
+
+/* Panel title styling */
+.waste-panel h3,
+.waste-panel strong:first-child {
+  font-family: Georgia, serif !important;
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  color: #0F3030 !important;
+  margin-bottom: 0.75rem !important;
+}
+
+/* ── SCOPE DIAGRAM POLISH ──────────────────────────────────────────── */
+.scope-box {
+  transition: background 0.15s, border-color 0.15s !important;
+}
+
+/* ── MODULE NAV (prev/next) — consistent ───────────────────────────── */
+.module-nav {
+  border-top-color: #E0DCDA !important;
+}
+.nav-btn {
+  border-color: #E0DCDA !important;
+  border-radius: 2px !important;
+}
+.nav-btn:hover {
+  border-color: rgba(61,155,143,0.4) !important;
+  background: rgba(61,155,143,0.04) !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
    RESPONSIVE
    ═══════════════════════════════════════════════════════════════════════ */
 @media (max-width: 900px) {
   .global-stats { grid-template-columns: 1fr 1fr !important; }
   .module-hero { padding: 3rem 1.5rem 2.5rem !important; }
   .objectives-strip { padding: 2rem 1.5rem !important; }
+  .waste-tabs { gap: 0.25rem !important; }
+  .waste-tab { padding: 0.75rem 1rem !important; font-size: 0.88rem !important; }
+  .action-level-header { padding: 0.85rem 1rem !important; }
+  .action-level-detail { padding-left: 3rem !important; }
 }
 @media (max-width: 600px) {
   .global-stats { grid-template-columns: 1fr !important; }
   .card-grid-2, .card-grid-3 { grid-template-columns: 1fr !important; }
   .scope-box::after { display: none; }
+  .waste-tabs { flex-direction: column !important; gap: 0.25rem !important; }
+  .waste-tab { text-align: left !important; }
+  .stat-strip.cols-3, .stat-strip.cols-4 { grid-template-columns: 1fr 1fr !important; }
+  .module-title { font-size: 1.6rem !important; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
