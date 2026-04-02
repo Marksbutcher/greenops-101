@@ -106,13 +106,8 @@ html {
 }
 .top-nav::before {
   height: 3px !important;
-  bottom: auto !important;
   background: linear-gradient(90deg, #3D9B8F 0%, #6BB5AA 30%, #E07A3A 65%, #CC612F 100%) !important;
-  pointer-events: none !important;
 }
-/* Ensure all nav children sit above the ::before bar */
-.top-nav > * { position: relative; z-index: 2; }
-.top-nav a { position: relative; z-index: 3; cursor: pointer; }
 .nav-home {
   color: #4A6B6B !important;
   transition: color 0.2s, letter-spacing 0.2s;
@@ -143,10 +138,6 @@ html {
   background: linear-gradient(175deg, #0F3030 0%, #163E3E 60%, #1A4A4A 100%) !important;
   border-bottom: 3px solid #CC612F !important;
   position: relative;
-  overflow: hidden !important;
-  color: #FFFFFF !important;
-  padding: 5rem 3rem 4rem !important;
-  text-align: left !important;
 }
 .module-hero::before {
   content: '' !important;
@@ -162,79 +153,29 @@ html {
 }
 .module-hero > * { position: relative; z-index: 1; }
 
-/* Hero text — full layout + colour so modules without inline defs still render */
+/* Hero text must be WHITE on the dark teal hero */
 .module-eyebrow {
-  font-family: Calibri, monospace !important;
-  font-size: 0.75rem !important;
-  letter-spacing: 0.15em !important;
-  text-transform: uppercase !important;
   color: #C5E5E0 !important;
-  margin-bottom: 0.75rem !important;
   opacity: 0; animation: fadeSlideUp 0.6s 0.1s forwards;
 }
 .module-title {
-  font-family: Georgia, "Times New Roman", serif !important;
-  font-size: clamp(1.9rem, 4.5vw, 3rem) !important;
-  line-height: 1.12 !important;
-  letter-spacing: -0.02em !important;
-  font-weight: 700 !important;
   color: #FFFFFF !important;
   background: none !important;
   -webkit-text-fill-color: #FFFFFF !important;
-  margin-bottom: 1.25rem !important;
   opacity: 0; animation: fadeSlideUp 0.65s 0.2s forwards;
 }
 .module-subtitle {
-  font-size: 1.1rem !important;
   color: rgba(255,255,255,0.85) !important;
-  line-height: 1.65 !important;
-  max-width: 620px !important;
-  margin-bottom: 2rem !important;
   opacity: 0; animation: fadeSlideUp 0.6s 0.35s forwards;
 }
 .module-meta {
-  display: flex !important;
-  align-items: center !important;
-  gap: 2rem !important;
-  flex-wrap: wrap !important;
-  margin-top: 1.5rem !important;
   color: rgba(255,255,255,0.6) !important;
   opacity: 0; animation: fadeSlideUp 0.5s 0.45s forwards;
 }
-.meta-item {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 0.15rem !important;
-}
-.meta-item .label {
-  font-family: Calibri, monospace !important;
-  font-size: 0.69rem !important;
-  letter-spacing: 0.12em !important;
-  text-transform: uppercase !important;
-  color: rgba(255,255,255,0.6) !important;
-}
-.meta-item .value {
-  font-size: 0.92rem !important;
-  color: #FFFFFF !important;
-  font-weight: 500 !important;
-}
 .hero-num {
-  font-family: Georgia, "Times New Roman", serif !important;
-  font-size: clamp(5rem, 12vw, 10rem) !important;
-  font-weight: 400 !important;
-  line-height: 1 !important;
-  position: absolute !important;
-  right: 3rem !important;
-  bottom: 0 !important;
+  opacity: 0; animation: fadeIn 1.2s 0.5s forwards;
   color: rgba(255,255,255,0.06) !important;
   -webkit-text-fill-color: rgba(255,255,255,0.06) !important;
-  user-select: none !important;
-  pointer-events: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  letter-spacing: normal !important;
-  text-transform: none !important;
-  opacity: 0; animation: fadeIn 1.2s 0.5s forwards;
 }
 .complete-btn {
   opacity: 0; animation: fadeSlideUp 0.5s 0.55s forwards;
@@ -764,12 +705,8 @@ html {
 }
 .kc-option.selected-wrong .kc-opt-key { background: #C53030 !important; color: #FFFFFF !important; }
 .kc-reveal {
-  display: none !important;
   padding: 1rem 1.5rem !important;
   background: #F7F6F5 !important; border-top: 1px solid #EDEBE9 !important;
-}
-.kc-block.answered .kc-reveal {
-  display: block !important;
   animation: revealSlide 0.4s;
 }
 .kc-reveal p { font-size: 0.9rem !important; color: #3D5E5E !important; }
