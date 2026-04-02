@@ -274,17 +274,21 @@ function initWasteTabs() {
 
     tabs.forEach(tab => {
       makeClickable(tab);
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => {
-          t.classList.remove('active');
-          t.setAttribute('aria-selected', 'false');
+      // Only attach generic handler if tabs use data-waste attributes;
+      // modules with inline onclick handlers manage switching themselves.
+      if (tab.dataset.waste) {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+          panels.querySelectorAll('.waste-panel').forEach(p => p.classList.remove('active'));
+          const target = panels.querySelector('#' + tab.dataset.waste);
+          if (target) target.classList.add('active');
         });
-        tab.classList.add('active');
-        tab.setAttribute('aria-selected', 'true');
-        panels.querySelectorAll('.waste-panel').forEach(p => p.classList.remove('active'));
-        const target = panels.querySelector('#' + tab.dataset.waste);
-        if (target) target.classList.add('active');
-      });
+      }
     });
   });
 }
@@ -300,12 +304,16 @@ function initLifecycleBar() {
 
     phases.forEach(phase => {
       makeClickable(phase);
-      phase.addEventListener('click', () => {
-        if (detail) {
-          detail.textContent = phase.dataset.detail || '';
-          detail.style.display = detail.textContent ? 'block' : 'none';
-        }
-      });
+      // Only attach generic handler if phases use data-detail attributes;
+      // modules with their own onclick (e.g. showLcDetail) handle it themselves.
+      if (phase.dataset.detail) {
+        phase.addEventListener('click', () => {
+          if (detail) {
+            detail.textContent = phase.dataset.detail;
+            detail.style.display = 'block';
+          }
+        });
+      }
     });
   });
 }

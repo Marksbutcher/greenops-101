@@ -382,6 +382,7 @@ function showLcDetail(phase) {
   if (el) el.classList.add('active');
   // Update detail content with fade
   var detail = document.getElementById('lcDetail');
+  detail.style.display = 'block';
   detail.style.opacity = '0';
   setTimeout(function() {
     detail.innerHTML = lcDetails[phase];
