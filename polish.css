@@ -201,8 +201,10 @@ html {
   color: #0F3030 !important;
 }
 .objectives-list li {
+  background: #FFFFFF !important;
   color: #3D5E5E !important;
   border-color: #E0DCDA !important;
+  border-left: 2px solid rgba(61,155,143,0.5) !important;
   transition: transform 0.2s, border-color 0.2s, background 0.2s;
   border-radius: 4px;
 }
