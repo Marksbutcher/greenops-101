@@ -107,10 +107,11 @@ function initKnowledgeChecks() {
 
 function initScrollReveal() {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const els = document.querySelectorAll('.reveal, .content-section');
 
   if (prefersReducedMotion) {
     // Skip animation — just show everything
-    document.querySelectorAll('.reveal, .content-section').forEach(el => {
+    els.forEach(el => {
       el.classList.add('visible');
       el.style.opacity = '1';
       el.style.transform = 'none';
@@ -118,6 +119,18 @@ function initScrollReveal() {
     return;
   }
 
+  // Failsafe: force-show any element that is in the viewport right now
+  function revealInViewport() {
+    els.forEach(el => {
+      if (el.classList.contains('visible')) return;
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 60 && rect.bottom > -60) {
+        el.classList.add('visible');
+      }
+    });
+  }
+
+  // Primary: IntersectionObserver
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -127,7 +140,20 @@ function initScrollReveal() {
     });
   }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
 
-  document.querySelectorAll('.reveal, .content-section').forEach(el => obs.observe(el));
+  els.forEach(el => obs.observe(el));
+
+  // Failsafe: reveal anything already in viewport on load
+  revealInViewport();
+
+  // Failsafe: scroll listener catches anything the observer misses
+  let scrollTimer;
+  window.addEventListener('scroll', function() {
+    if (scrollTimer) return;
+    scrollTimer = setTimeout(function() {
+      scrollTimer = null;
+      revealInViewport();
+    }, 80);
+  }, { passive: true });
 }
 
 // ============================================================================
