@@ -11,7 +11,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230F3030'/><text x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='700' fill='%233D9B8F'>G</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--page-bg:#F7F8FA;--card-bg:#FFFFFF;--section-alt:#E8EDF2;--text-primary:#1E293B;--text-secondary:#4A5568;--text-muted:#64748B;--navy:#0F3030;--navy-mid:#162840;--navy-card:#1E293B;--navy-light:#1C3A55;--teal:#3D9B8F;--teal-dark:#2D7A70;--teal-muted:#B2EDE7;--teal-bg:rgba(61,155,143,0.07);--teal-border:rgba(61,155,143,0.25);--orange:#CC612F;--orange-light:#E8985A;--orange-bg:#FFF3E8;--orange-border:rgba(204,97,47,0.25);--border:#D1D9E0;--border-light:#E8EDF2;--track1:#3D9B8F;--track2:#E8985A;--track3:#CC612F;--correct:#16a34a;--wrong:#dc2626;--white:#FFFFFF;--slate:#4A5568;--slate-mid:#64748B;--slate-dim:#94A3B8;--teal-light:#B2EDE7;--teal-glow:rgba(61,155,143,0.15);--teal-subtle:rgba(61,155,143,0.07);--grey-100:#F7F8FA;--grey-300:#D1D9E0;--grey-500:#4A5568;--navy-raised:#1C3A55;--navy-border:rgba(255,255,255,0.07);--navy-mid-alt:#162840;}
 
@@ -39,19 +39,41 @@ body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Tr
 
 #prog-fill{height:100%;background:var(--teal);transition:width 0.3s ease;}
 
-.module-header{background:var(--navy);color:white;padding:2.5rem 3rem;border-bottom:3px solid var(--teal);}
+.module-hero{background:var(--navy);color:white;padding:2.5rem 3rem;border-bottom:3px solid var(--teal);position:relative;}
 
-.module-title{font-family:Georgia,serif;font-size:2.4rem;font-weight:700;margin-bottom:0.5rem;}
+.hero-num{position:absolute;top:2rem;right:3rem;font-family:"DM Serif Display",serif;font-size:3.5rem;font-weight:700;color:rgba(61,155,143,0.3);line-height:1;}
 
-.module-intro{font-size:1.1rem;line-height:1.6;color:rgba(255,255,255,0.85);max-width:900px;}
+.module-eyebrow{font-family:"JetBrains Mono";font-size:0.75rem;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.6);margin-bottom:1rem;}
 
-.module-content{max-width:1000px;margin:0 auto;padding:2rem 2rem;}
+.module-title{font-family:"DM Serif Display",serif;font-size:2.4rem;font-weight:700;margin-bottom:0.5rem;color:white;}
 
-.content-section{margin:3rem 0;padding:2rem;background:var(--card-bg);border-radius:8px;border-left:4px solid var(--teal);}
+.module-subtitle{font-size:1.1rem;line-height:1.6;color:rgba(255,255,255,0.85);max-width:900px;margin-bottom:2rem;}
+
+.module-meta{display:grid;grid-template-columns:auto auto auto;gap:2rem;align-items:center;margin-top:1.5rem;}
+
+.meta-item{display:grid;grid-template-columns:auto 1fr;gap:0.5rem;align-items:center;}
+
+.meta-item .label{font-family:"JetBrains Mono";font-size:0.7rem;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.5);}
+
+.meta-item .value{font-size:0.95rem;color:rgba(255,255,255,0.9);font-weight:500;}
+
+.objectives-strip{background:var(--section-alt);padding:2rem 3rem;margin:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+
+.objectives-heading{font-family:"DM Serif Display",serif;font-size:1.2rem;font-weight:700;color:var(--navy);margin-bottom:1.5rem;}
+
+.objectives-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;}
+
+.objectives-list li{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;color:var(--text-secondary);font-size:0.95rem;line-height:1.6;}
+
+.obj-num{display:inline-flex;align-items:center;justify-content:center;background:var(--teal);color:white;width:32px;height:32px;border-radius:4px;font-weight:700;font-size:0.85rem;flex-shrink:0;}
+
+.module-content{max-width:1200px;margin:0 auto;padding:0 3rem 2rem;}
+
+.content-section{padding:2.5rem 3rem;max-width:900px;margin:0 auto;margin-top:2rem;margin-bottom:1rem;}
 
 .section-label{font-family:"JetBrains Mono";font-size:0.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--teal);font-weight:600;margin-bottom:0.5rem;}
 
-.section-title{font-family:Georgia,serif;font-size:1.8rem;font-weight:700;color:var(--navy);margin-bottom:1rem;}
+.section-title{font-family:"DM Serif Display",serif;font-size:1.8rem;font-weight:700;color:var(--navy);margin-bottom:1rem;}
 
 .section-intro{font-size:1rem;color:var(--text-secondary);line-height:1.8;margin-bottom:1.5rem;}
 
@@ -86,7 +108,7 @@ body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Tr
 
 .checklist-toggle.checked{background:var(--teal);color:white;border-color:var(--teal);font-size:14px;}
 
-.checklist-content h4{font-family:Georgia,serif;font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;}
+.checklist-content h4{font-family:"DM Serif Display",serif;font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;}
 
 .checklist-content p{font-size:0.9rem;color:var(--text-secondary);line-height:1.6;}
 
@@ -132,7 +154,7 @@ body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Tr
 
 .lifecycle-step:hover .lifecycle-step-circle{background:var(--teal-dark);box-shadow:0 6px 16px rgba(61,155,143,0.35);transform:scale(1.1);}
 
-.lifecycle-step-label{font-family:Georgia,serif;font-weight:700;color:var(--navy);margin-bottom:0.5rem;font-size:1.1rem;}
+.lifecycle-step-label{font-family:"DM Serif Display",serif;font-weight:700;color:var(--navy);margin-bottom:0.5rem;font-size:1.1rem;}
 
 .lifecycle-step-detail{background:var(--card-bg);border-left:4px solid var(--teal);border-radius:6px;padding:1.5rem;margin-top:0.5rem;font-size:0.95rem;color:var(--text-secondary);line-height:1.7;display:block;box-shadow:0 2px 8px rgba(0,0,0,0.04);transition:all 0.3s ease;cursor:pointer;}
 
@@ -148,7 +170,7 @@ body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Tr
 
 .pitfall-entity{background:white;border:2px solid var(--orange);border-radius:8px;padding:1.5rem;text-align:center;position:relative;}
 
-.pitfall-entity h4{font-family:Georgia,serif;font-weight:700;color:var(--navy);margin-bottom:0.5rem;}
+.pitfall-entity h4{font-family:"DM Serif Display",serif;font-weight:700;color:var(--navy);margin-bottom:0.5rem;}
 
 .pitfall-entity p{font-size:0.9rem;color:var(--text-secondary);margin-bottom:0.5rem;}
 
@@ -205,7 +227,7 @@ body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Tr
 /* Takeaways */
 .takeaways{background:var(--navy);color:white;padding:2rem;border-radius:8px;margin:3rem 0;}
 
-.takeaways-heading{font-family:Georgia,serif;font-size:1.4rem;font-weight:700;margin-bottom:1.5rem;}
+.takeaways-heading{font-family:"DM Serif Display",serif;font-size:1.4rem;font-weight:700;margin-bottom:1.5rem;}
 
 .takeaway-list{display:grid;gap:1rem;}
 
@@ -228,7 +250,7 @@ body{background:var(--page-bg);color:var(--text-primary);font-family:Calibri,"Tr
 
 .nav-btn-label{font-size:0.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);}
 
-.nav-btn-title{font-family:Georgia,serif;font-size:0.95rem;font-weight:700;}
+.nav-btn-title{font-family:"DM Serif Display",serif;font-size:0.95rem;font-weight:700;}
 
 .nav-btn.next{grid-column:3;}
 
@@ -265,9 +287,12 @@ footer{background:var(--navy);color:#3D5E5E;padding:2rem;text-align:center;font-
 
 /* Responsive */
 @media(max-width:768px){
-  .module-header{padding:1.5rem;}
+  .module-hero{padding:1.5rem;}
+  .hero-num{font-size:2.5rem;right:1.5rem;top:1.5rem;}
   .module-title{font-size:1.8rem;}
-  .module-content{padding:1rem;}
+  .module-meta{grid-template-columns:1fr;}
+  .content-section{padding:1.5rem;margin-left:1rem;margin-right:1rem;}
+  .module-content{padding:0 1rem 2rem;}
   .section-title{font-size:1.4rem;}
   .vendor-tabs{gap:0.25rem;}
   .vendor-tab{padding:0.6rem 1rem;font-size:0.85rem;}
@@ -284,7 +309,7 @@ footer{background:var(--navy);color:#3D5E5E;padding:2rem;text-align:center;font-
 
 </style>
 <link rel="stylesheet" href="greenops.css?v=20260402">
-<link rel="stylesheet" href="polish.css?v=20260403d">
+<link rel="stylesheet" href="polish.css?v=20260403e">
 
 </head>
 <body>
@@ -300,38 +325,32 @@ footer{background:var(--navy);color:#3D5E5E;padding:2rem;text-align:center;font-
   </div>
 </div>
 
-<div class="module-header">
-  <div class="module-title">M7: Procurement, Supply Chains, and Vendor Evidence</div>
-  <p class="module-intro">Procurement is the bridge between your sustainability commitments and your actual Scope 3 footprint. Every purchasing decision is a vote. When you buy hardware without asking for a product carbon footprint, you signal that evidence is not required. When you renew a cloud contract without requesting carbon disclosures, you signal that measurement does not drive decisions.</p>
+<section class="module-hero">
+  <div class="hero-num">7</div>
+  <p class="module-eyebrow">Module 7 &nbsp;·&nbsp; Track 2 — Operational Practice</p>
+  <h1 class="module-title">Procurement, Supply Chains, and Vendor Evidence</h1>
+  <p class="module-subtitle">Procurement is the bridge between your sustainability commitments and your actual Scope 3 footprint. Every purchasing decision is a vote.</p>
+  <div class="module-meta">
+    <div class="meta-item"><span class="label">Duration</span><span class="value">18–22 minutes</span></div>
+    <div class="meta-item"><span class="label">Track</span><span class="value">Operational Practice</span></div>
+    <button class="complete-btn" onclick="markComplete('module7')">Mark as complete</button>
+  </div>
+</section>
+
+<!-- OBJECTIVES -->
+<div class="objectives-strip reveal">
+  <p class="objectives-heading">What you will take from this module</p>
+  <ul class="objectives-list">
+    <li><span class="obj-num">01</span>Distinguish between corporate ESG commitments and product-level lifecycle evidence</li>
+    <li><span class="obj-num">02</span>Ask seven critical questions when evaluating product carbon footprint claims</li>
+    <li><span class="obj-num">03</span>Understand the three assurance tiers and what evidence each one covers</li>
+    <li><span class="obj-num">04</span>Recognise allocation pitfalls that obscure operational levers</li>
+  </ul>
 </div>
 
 <div class="module-content" id="main-content">
 
-<!-- SECTION 1 — Module objectives -->
-<div class="content-section reveal">
-  <p class="section-label">Welcome</p>
-  <h2 class="section-title">What you will learn</h2>
-  <div style="display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
-    <div style="background:var(--teal-bg);border:1px solid var(--teal-border);padding:1.5rem;border-radius:6px;">
-      <p style="font-weight:700;color:var(--navy);margin-bottom:0.5rem;">Why procurement is strategic</p>
-      <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.6;">The difference between corporate ESG commitments and product-level evidence, and why both matter.</p>
-    </div>
-    <div style="background:var(--teal-bg);border:1px solid var(--teal-border);padding:1.5rem;border-radius:6px;">
-      <p style="font-weight:700;color:var(--navy);margin-bottom:0.5rem;">How to request vendor evidence</p>
-      <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.6;">Seven critical questions to ask about lifecycle assessments, and domain-specific evidence checklists.</p>
-    </div>
-    <div style="background:var(--teal-bg);border:1px solid var(--teal-border);padding:1.5rem;border-radius:6px;">
-      <p style="font-weight:700;color:var(--navy);margin-bottom:0.5rem;">Allocation pitfalls</p>
-      <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.6;">Double-counting, misleading denominators, and why boundary documentation matters.</p>
-    </div>
-    <div style="background:var(--teal-bg);border:1px solid var(--teal-border);padding:1.5rem;border-radius:6px;">
-      <p style="font-weight:700;color:var(--navy);margin-bottom:0.5rem;">Circular and social responsibility</p>
-      <p style="font-size:0.95rem;color:var(--text-secondary);line-height:1.6;">Reparability, take-back programmes, and labour standards in hardware supply chains.</p>
-    </div>
-  </div>
-</div>
-
-<!-- SECTION 2 — Why procurement is strategic -->
+<!-- SECTION 1 — Why procurement is strategic -->
 <div class="content-section reveal">
   <p class="section-label">Section 1</p>
   <h2 class="section-title">Why procurement is a strategic lever</h2>
@@ -676,7 +695,7 @@ footer{background:var(--navy);color:#3D5E5E;padding:2rem;text-align:center;font-
 
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:2rem 0;">
     <div style="background:var(--teal-bg);border:1px solid var(--teal-border);border-radius:8px;padding:1.5rem;">
-      <h4 style="font-family:Georgia,serif;font-weight:700;color:var(--navy);margin-bottom:1rem;">Circular Economy Criteria</h4>
+      <h4 style="font-family:"DM Serif Display",serif;font-weight:700;color:var(--navy);margin-bottom:1rem;">Circular Economy Criteria</h4>
       <ul style="list-style:none;padding:0;color:var(--text-secondary);">
         <li style="padding:0.5rem 0;padding-left:1.5rem;position:relative;"><span style="position:absolute;left:0;color:var(--teal);">▪</span>How repairable is this product?</li>
         <li style="padding:0.5rem 0;padding-left:1.5rem;position:relative;"><span style="position:absolute;left:0;color:var(--teal);">▪</span>Are spare parts available and supported?</li>
@@ -687,7 +706,7 @@ footer{background:var(--navy);color:#3D5E5E;padding:2rem;text-align:center;font-
     </div>
 
     <div style="background:var(--orange-bg);border:1px solid var(--orange-border);border-radius:8px;padding:1.5rem;">
-      <h4 style="font-family:Georgia,serif;font-weight:700;color:var(--navy);margin-bottom:1rem;">Social Responsibility Criteria</h4>
+      <h4 style="font-family:"DM Serif Display",serif;font-weight:700;color:var(--navy);margin-bottom:1rem;">Social Responsibility Criteria</h4>
       <ul style="list-style:none;padding:0;color:var(--text-secondary);">
         <li style="padding:0.5rem 0;padding-left:1.5rem;position:relative;"><span style="position:absolute;left:0;color:var(--orange);">▪</span>Labour standards in manufacturing supply chains</li>
         <li style="padding:0.5rem 0;padding-left:1.5rem;position:relative;"><span style="position:absolute;left:0;color:var(--orange);">▪</span>Conflict mineral declarations and sourcing transparency</li>
