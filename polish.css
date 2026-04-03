@@ -785,12 +785,23 @@ html {
 
 
 /* ═══════════════════════════════════════════════════════════════════════
-   TAKEAWAYS — light teal-tinted section (NOT dark navy)
+   TAKEAWAYS — comprehensive normalization across all module variants
+   Overrides inline CSS from M1-6 (dark+wrong text), M7 (grid layout),
+   M8 (gradient bg), M9 (white+margin), M10-14 (white+border variants)
    ═══════════════════════════════════════════════════════════════════════ */
 .takeaways {
-  position: relative !important; overflow: hidden !important;
+  position: relative !important;
+  overflow: hidden !important;
   background: #0F3030 !important;
   color: #FFFFFF !important;
+  /* Break out of .module-content padding so dark bg is edge-to-edge */
+  margin-left: -3rem !important;
+  margin-right: -3rem !important;
+  padding: 2.5rem 3rem !important;
+  border: none !important;
+  border-left: none !important;
+  border-radius: 0 !important;
+  box-sizing: border-box !important;
 }
 .takeaways::before {
   content: '' !important; position: absolute !important;
@@ -798,18 +809,79 @@ html {
   height: 3px !important;
   background: linear-gradient(90deg, #3D9B8F, #E07A3A, #CC612F) !important;
 }
-.takeaways h3, .takeaways .takeaways-title { color: #FFFFFF !important; }
-.takeaway-item {
-  transition: transform 0.2s !important;
-  padding: 0.75rem 0 !important;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.85) !important;
+/* Heading — uppercase label style */
+.takeaways h3,
+.takeaways .takeaways-title,
+.takeaways .takeaways-heading {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: #B2EDE7 !important;
+  font-weight: 700 !important;
+  margin-bottom: 1.5rem !important;
 }
-.takeaway-item:hover { transform: translateX(6px) !important; }
+/* List container */
+.takeaway-list {
+  display: grid !important;
+  gap: 1px !important;
+  background: rgba(255,255,255,0.08) !important;
+  width: 100% !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+/* Items — consistent dark teal cards */
+.takeaway-item {
+  display: flex !important;
+  gap: 1rem !important;
+  padding: 1.5rem !important;
+  background: #163E3E !important;
+  border-top: 2px solid rgba(61,155,143,0.4) !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  margin-bottom: 0 !important;
+  color: rgba(255,255,255,0.85) !important;
+  transition: transform 0.2s, background 0.15s !important;
+}
+.takeaway-item:hover {
+  transform: translateX(6px) !important;
+  background: #1A4A4A !important;
+}
+/* Diamond icon */
+.takeaway-icon {
+  color: #3D9B8F !important;
+  font-size: 0.65rem !important;
+  flex-shrink: 0 !important;
+  padding-top: 0.4rem !important;
+}
+/* Body text */
+.takeaway-body {
+  flex: 1 !important;
+}
+.takeaway-body strong {
+  display: block !important;
+  font-family: 'DM Serif Display', Georgia, serif !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  margin-bottom: 0.4rem !important;
+  line-height: 1.35 !important;
+}
+.takeaway-body p {
+  font-size: 0.95rem !important;
+  color: rgba(255,255,255,0.85) !important;
+  line-height: 1.65 !important;
+  margin: 0 !important;
+}
+/* Numbered takeaway labels */
 .takeaway-num {
   font-family: 'JetBrains Mono', monospace !important;
-  font-size: 0.68rem !important; color: #3D9B8F !important;
+  font-size: 0.68rem !important;
+  color: #3D9B8F !important;
 }
+/* Catch-all for any list/paragraph inside takeaways */
 .takeaway-list li, .takeaways li, .takeaways p {
   color: rgba(255,255,255,0.85) !important;
 }
@@ -958,20 +1030,7 @@ input[type="range"]::-moz-range-thumb {
 .reveal.visible, .reveal.revealed { opacity: 1 !important; transform: translateY(0) !important; }
 
 
-/* ═══════════════════════════════════════════════════════════════════════
-   LIST STYLING RESTORATION
-   ═══════════════════════════════════════════════════════════════════════ */
-.module-content ul:not(.objectives-list):not(.kc-options):not(.takeaway-list),
-.checklist-content ul, .method-list {
-  list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem;
-}
-.module-content ol { list-style: decimal; padding-left: 1.5rem; margin-bottom: 1rem; }
-.module-content li, .checklist-content li, .method-list li {
-  margin-bottom: 0.4rem; line-height: 1.6;
-}
-.module-content ul ul, .checklist-content ul ul {
-  list-style: circle; margin-top: 0.3rem; margin-bottom: 0.3rem;
-}
+/* LIST STYLING — moved to normalization section at end of file */
 
 
 /* ═══════════════════════════════════════════════════════════════════════
@@ -1110,8 +1169,43 @@ input[type="range"]::-moz-range-thumb {
 
 
 /* ═══════════════════════════════════════════════════════════════════════
-   MINIMAL POLISH — only fixes that the brand layer doesn't cover
+   CROSS-MODULE NORMALIZATION
+   Overrides inline CSS inconsistencies across all 15 modules.
    ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── FONT NORMALIZATION ─────────────────────────────────────────────── */
+/* Section titles — DM Serif Display everywhere (inline CSS uses Georgia) */
+.section-title {
+  font-family: 'DM Serif Display', Georgia, serif !important;
+}
+/* Section labels — JetBrains Mono everywhere */
+.section-label {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: var(--teal-dark) !important;
+  font-weight: 700 !important;
+  display: block !important;
+}
+
+/* ── CONTENT WIDTH NORMALIZATION ────────────────────────────────────── */
+/* Consistent max-width for module content wrapper across all modules */
+.module-content {
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 3rem !important;
+  padding-right: 3rem !important;
+}
+/* Content sections — consistent padding and no variable margins */
+.content-section {
+  padding-top: 2.5rem !important;
+  padding-bottom: 2.5rem !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  border-bottom: 1px solid var(--border-light) !important;
+}
 
 /* ── PROSE WIDTH CAP ──────────────────────────────────────────────── */
 .section-intro,
@@ -1128,19 +1222,30 @@ input[type="range"]::-moz-range-thumb {
 .card p, .card-body, .stat-label, .kc-q,
 .takeaway-body p, .waste-panel p,
 .waste-panel-stat, .objectives-list li,
-.kc-option, .kc-reveal p {
+.kc-option, .kc-reveal p,
+.domain-panel-left p, .domain-panel-right p,
+.domain-panel-right li, .example-item {
   max-width: none;
 }
 
-/* ── DARK SECTION TEXT FIXES ──────────────────────────────────────── */
-.takeaways strong,
-.takeaway-body strong {
-  color: #FFFFFF !important;
+/* ── LIST BULLET RESTORATION ────────────────────────────────────────── */
+/* Ensure all UL within content areas show disc bullets */
+.module-content ul:not(.objectives-list):not(.kc-options):not(.takeaway-list):not(.domain-tabs):not(.lifecycle-chain) {
+  list-style: disc !important;
+  padding-left: 1.5rem !important;
 }
-.takeaways li,
-.takeaway-item,
-.takeaway-body p {
-  color: rgba(255,255,255,0.85) !important;
+.module-content ul:not(.objectives-list):not(.kc-options):not(.takeaway-list) li {
+  margin-bottom: 0.4rem !important;
+  line-height: 1.6 !important;
+}
+/* Nested lists show circle */
+.module-content ul ul {
+  list-style: circle !important;
+}
+/* Ordered lists */
+.module-content ol {
+  list-style: decimal !important;
+  padding-left: 1.5rem !important;
 }
 
 
@@ -1151,10 +1256,13 @@ input[type="range"]::-moz-range-thumb {
   .global-stats { grid-template-columns: 1fr 1fr !important; }
   .module-hero { padding: 3rem 1.5rem 2.5rem !important; }
   .objectives-strip { padding: 2rem 1.5rem !important; }
+  .takeaways { padding: 2rem 1.5rem !important; }
+  .module-content { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
   .waste-tabs { gap: 0.25rem !important; }
   .waste-tab { padding: 0.75rem 1rem !important; font-size: 0.88rem !important; }
   .action-level-header { padding: 0.85rem 1rem !important; }
   .action-level-detail { padding-left: 3rem !important; }
+  .takeaway-item { padding: 1rem !important; }
 }
 @media (max-width: 600px) {
   .global-stats { grid-template-columns: 1fr !important; }
@@ -1164,6 +1272,9 @@ input[type="range"]::-moz-range-thumb {
   .waste-tab { text-align: left !important; }
   .stat-strip.cols-3, .stat-strip.cols-4 { grid-template-columns: 1fr 1fr !important; }
   .module-title { font-size: 1.6rem !important; }
+  .module-content { padding-left: 1rem !important; padding-right: 1rem !important; }
+  .takeaways { padding: 1.5rem 1rem !important; }
+  .takeaway-item { padding: 0.75rem !important; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
