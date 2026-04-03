@@ -172,6 +172,29 @@ html {
 .module-meta {
   color: rgba(255,255,255,0.6) !important;
   opacity: 0; animation: fadeSlideUp 0.5s 0.45s forwards;
+  display: flex !important;
+  align-items: center !important;
+  gap: 2rem !important;
+  flex-wrap: wrap !important;
+  margin-top: 1.5rem !important;
+  font-size: 0.88rem !important;
+}
+.meta-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+.module-hero .meta-item .label {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.69rem !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: rgba(255,255,255,0.5) !important;
+}
+.module-hero .meta-item .value {
+  font-size: 0.92rem !important;
+  color: #FFFFFF !important;
+  font-weight: 500 !important;
 }
 .hero-num {
   opacity: 0; animation: fadeIn 1.2s 0.5s forwards;
@@ -196,10 +219,24 @@ html {
 .objectives-strip {
   background: #F5F5F3 !important;
   border-bottom: 1px solid #EDEBE9 !important;
+  padding: 2.5rem 3rem !important;
+  margin: 0 !important;
+  border-left: none !important;
+  border-radius: 0 !important;
+  box-sizing: border-box !important;
 }
 .objectives-strip h3,
 .objectives-strip .objectives-label {
   color: #0F3030 !important;
+}
+.objectives-heading {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: #0F3030 !important;
+  font-weight: 700 !important;
+  margin-bottom: 1.5rem !important;
 }
 .objectives-list li {
   background: #FFFFFF !important;
@@ -1198,13 +1235,16 @@ input[type="range"]::-moz-range-thumb {
   padding-left: 3rem !important;
   padding-right: 3rem !important;
 }
-/* Content sections — consistent padding and no variable margins */
+/* Content sections — consistent flat style (no bordered cards) */
 .content-section {
   padding-top: 2.5rem !important;
   padding-bottom: 2.5rem !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
+  background: transparent !important;
+  border: none !important;
   border-bottom: 1px solid var(--border-light) !important;
+  border-radius: 0 !important;
 }
 
 /* ── PROSE WIDTH CAP ──────────────────────────────────────────────── */
